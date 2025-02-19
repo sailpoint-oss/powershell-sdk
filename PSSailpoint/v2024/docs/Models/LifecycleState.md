@@ -45,11 +45,12 @@ $LifecycleState = Initialize-PSSailpoint.V2024LifecycleState  -Id id12345 `
  -AccountActions null `
  -AccessProfileIds [2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500] `
  -IdentityState null
+$LifecycleState = @"{  "Id": "id12345", "Name": "aName", "Created": "2015-05-28T14:07:17Z", "Modified": "2015-05-28T14:07:17Z", "Enabled": true, "TechnicalName": "Technical Name", "Description": "Lifecycle description", "IdentityCount": "42", "EmailNotificationOption": null, "AccountActions": null, "AccessProfileIds": ["2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500"], "IdentityState": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LifecycleState | ConvertTo-JSON
+ConvertFrom-JsonToLifecycleState -Json $LifecycleState
 ```
 
 

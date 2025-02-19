@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccountRequestResult = Initialize-PSSailpoint.V2024AccountRequestResult  -Errors null `
  -Status failed `
  -TicketId null
+$AccountRequestResult = @"{  "Errors": null, "Status": "failed", "TicketId": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountRequestResult | ConvertTo-JSON
+ConvertFrom-JsonToAccountRequestResult -Json $AccountRequestResult
 ```
 
 

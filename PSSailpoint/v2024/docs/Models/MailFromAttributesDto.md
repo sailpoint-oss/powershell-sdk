@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $MailFromAttributesDto = Initialize-PSSailpoint.V2024MailFromAttributesDto  -Identity BobSmith@sailpoint.com `
  -MailFromDomain example.sailpoint.com
+$MailFromAttributesDto = @"{  "Identity": "BobSmith@sailpoint.com", "MailFromDomain": "example.sailpoint.com" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MailFromAttributesDto | ConvertTo-JSON
+ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
 ```
 
 

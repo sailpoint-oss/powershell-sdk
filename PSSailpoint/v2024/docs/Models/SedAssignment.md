@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SedAssignment = Initialize-PSSailpoint.V2024SedAssignment  -Assignee null `
  -Items null
+$SedAssignment = @"{  "Assignee": null, "Items": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SedAssignment | ConvertTo-JSON
+ConvertFrom-JsonToSedAssignment -Json $SedAssignment
 ```
 
 

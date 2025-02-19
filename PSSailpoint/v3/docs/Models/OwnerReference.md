@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $OwnerReference = Initialize-PSSailpoint.V3OwnerReference  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name support
+$OwnerReference = @"{  "Type": "IDENTITY", "Id": "2c9180a46faadee4016fb4e018c20639", "Name": "support" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$OwnerReference | ConvertTo-JSON
+ConvertFrom-JsonToOwnerReference -Json $OwnerReference
 ```
 
 

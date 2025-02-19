@@ -39,11 +39,12 @@ $CampaignActivatedCampaign = Initialize-PSSailpoint.V2024CampaignActivatedCampai
  -Type MANAGER `
  -CampaignOwner null `
  -Status ACTIVE
+$CampaignActivatedCampaign = @"{  "Id": "2c91808576f886190176f88cac5a0010", "Name": "Manager Access Campaign", "Description": "Audit access for all employees.", "Created": "2021-02-16T03:04:45.815Z", "Modified": "2021-02-16T03:06:45.815Z", "Deadline": "2021-03-16T03:04:45.815Z", "Type": "MANAGER", "CampaignOwner": null, "Status": "ACTIVE" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignActivatedCampaign | ConvertTo-JSON
+ConvertFrom-JsonToCampaignActivatedCampaign -Json $CampaignActivatedCampaign
 ```
 
 

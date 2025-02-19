@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AccountAction = Initialize-PSSailpoint.V2024AccountAction  -Action ENABLE `
  -SourceIds [2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500]
+$AccountAction = @"{  "Action": "ENABLE", "SourceIds": ["2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountAction | ConvertTo-JSON
+ConvertFrom-JsonToAccountAction -Json $AccountAction
 ```
 
 

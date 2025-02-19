@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $MultiHostSourcesManagerCorrelationRule = Initialize-PSSailpoint.BetaMultiHostSourcesManagerCorrelationRule  -Type RULE `
  -Id 2c918085708c274401708c2a8a760001 `
  -Name Example Rule
+$MultiHostSourcesManagerCorrelationRule = @"{  "Type": "RULE", "Id": "2c918085708c274401708c2a8a760001", "Name": "Example Rule" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostSourcesManagerCorrelationRule | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostSourcesManagerCorrelationRule -Json $MultiHostSourcesManagerCorrelationRule
 ```
 
 

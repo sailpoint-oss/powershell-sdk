@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $CommonAccessItemRequest = Initialize-PSSailpoint.V2024CommonAccessItemRequest  -Access null `
  -Status null
+$CommonAccessItemRequest = @"{  "Access": null, "Status": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CommonAccessItemRequest | ConvertTo-JSON
+ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
 ```
 
 

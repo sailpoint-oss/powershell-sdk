@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $License = Initialize-PSSailpoint.BetaLicense  -LicenseId idn:access-request `
  -LegacyFeatureName ACCESS_REQUEST
+$License = @"{  "LicenseId": "idn:access-request", "LegacyFeatureName": "ACCESS_REQUEST" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$License | ConvertTo-JSON
+ConvertFrom-JsonToLicense -Json $License
 ```
 
 

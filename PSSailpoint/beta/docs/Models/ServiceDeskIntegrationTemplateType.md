@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ServiceDeskIntegrationTemplateType = Initialize-PSSailpoint.BetaServiceDeskIntegrationTemplateType  -Name aName `
  -Type aType `
  -ScriptName aScriptName
+$ServiceDeskIntegrationTemplateType = @"{  "Name": "aName", "Type": "aType", "ScriptName": "aScriptName" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ServiceDeskIntegrationTemplateType | ConvertTo-JSON
+ConvertFrom-JsonToServiceDeskIntegrationTemplateType -Json $ServiceDeskIntegrationTemplateType
 ```
 
 

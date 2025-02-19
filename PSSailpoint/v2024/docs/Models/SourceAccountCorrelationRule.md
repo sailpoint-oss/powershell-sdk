@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SourceAccountCorrelationRule = Initialize-PSSailpoint.V2024SourceAccountCorrelationRule  -Type RULE `
  -Id 2c918085708c274401708c2a8a760001 `
  -Name Example Rule
+$SourceAccountCorrelationRule = @"{  "Type": "RULE", "Id": "2c918085708c274401708c2a8a760001", "Name": "Example Rule" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceAccountCorrelationRule | ConvertTo-JSON
+ConvertFrom-JsonToSourceAccountCorrelationRule -Json $SourceAccountCorrelationRule
 ```
 
 

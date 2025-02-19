@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $WorkflowTriggerAttributes = Initialize-PSSailpoint.BetaWorkflowTriggerAttributes  -Id idn:identity-attributes-changed `
- -VarFilter $.changes[?(@.attribute &#x3D;&#x3D; &#39;manager&#39;)] `
+ -VarFilter $.changes[?(@.attribute == 'manager')] `
  -Description Run a search and notify the results `
  -Name search-and-notify `
  -ClientId 87e239b2-b85b-4bde-b9a7-55bf304ddcdc `
@@ -43,11 +43,12 @@ $WorkflowTriggerAttributes = Initialize-PSSailpoint.BetaWorkflowTriggerAttribute
  -CronString 0 9 * * 1 `
  -WeeklyDays Monday `
  -WeeklyTimes Monday
+$WorkflowTriggerAttributes = @"{  "Id": "idn:identity-attributes-changed", "VarFilter": "$.changes[?(@.attribute == 'manager')]", "Description": "Run a search and notify the results", "Name": "search-and-notify", "ClientId": "87e239b2-b85b-4bde-b9a7-55bf304ddcdc", "Url": "https://tenant.api.identitynow.com/beta/workflows/execute/external/c79e0079-562c-4df5-aa73-60a9e25c916d", "Frequency": "null", "TimeZone": "America/Chicago", "CronString": "0 9 * * 1", "WeeklyDays": "Monday", "WeeklyTimes": "Monday" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkflowTriggerAttributes | ConvertTo-JSON
+ConvertFrom-JsonToWorkflowTriggerAttributes -Json $WorkflowTriggerAttributes
 ```
 
 

@@ -26,12 +26,13 @@ Name | Type | Description | Notes
 ```powershell
 $SpConfigMessage1 = Initialize-PSSailpoint.V2024SpConfigMessage1  -Key UNKNOWN_REFERENCE_RESOLVER `
  -Text Unable to resolve reference for object [type: IDENTITY, id: 2c91808c746e9c9601747d6507332ecz, name: random identity] `
- -Details {details&#x3D;message details}
+ -Details {details=message details}
+$SpConfigMessage1 = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SpConfigMessage1 | ConvertTo-JSON
+ConvertFrom-JsonToSpConfigMessage1 -Json $SpConfigMessage1
 ```
 
 

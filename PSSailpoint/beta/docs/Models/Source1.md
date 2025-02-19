@@ -24,12 +24,13 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $Source1 = Initialize-PSSailpoint.BetaSource1  -Type rule `
- -Properties {ruleType&#x3D;IdentityAttribute, ruleName&#x3D;Cloud Promote Identity Attribute}
+ -Properties {ruleType=IdentityAttribute, ruleName=Cloud Promote Identity Attribute}
+$Source1 = @"{  "Type": "rule", "Properties": {"ruleType": "IdentityAttribute", "ruleName":"Cloud Promote Identity Attribute"} }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Source1 | ConvertTo-JSON
+ConvertFrom-JsonToSource1 -Json $Source1
 ```
 
 

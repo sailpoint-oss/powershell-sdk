@@ -34,12 +34,13 @@ $DateCompare = Initialize-PSSailpoint.V3DateCompare  -FirstDate null `
  -PositiveCondition true `
  -NegativeCondition false `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
+$DateCompare = @"{  "FirstDate": null, "SecondDate": null, "Operator": "LT", "PositiveCondition": "true", "NegativeCondition": "false", "RequiresPeriodicRefresh": false, "VarInput": {"type": "accountAttribute", "attributes":{"attributeName": "first_name", "sourceName": "Source}}" }}}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DateCompare | ConvertTo-JSON
+ConvertFrom-JsonToDateCompare -Json $DateCompare
 ```
 
 

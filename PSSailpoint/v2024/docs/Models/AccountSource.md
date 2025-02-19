@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccountSource = Initialize-PSSailpoint.V2024AccountSource  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Type Delimited File
+$AccountSource = @"{  "Id": "2c91808568c529c60168cca6f90c1313", "Name": "John Doe", "Type": "Delimited File" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountSource | ConvertTo-JSON
+ConvertFrom-JsonToAccountSource -Json $AccountSource
 ```
 
 

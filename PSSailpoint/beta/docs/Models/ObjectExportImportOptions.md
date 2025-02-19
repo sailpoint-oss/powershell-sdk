@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ObjectExportImportOptions = Initialize-PSSailpoint.BetaObjectExportImportOptions  -IncludedIds null `
  -IncludedNames null
+$ObjectExportImportOptions = @"{  "IncludedIds": null, "IncludedNames": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ObjectExportImportOptions | ConvertTo-JSON
+ConvertFrom-JsonToObjectExportImportOptions -Json $ObjectExportImportOptions
 ```
 
 

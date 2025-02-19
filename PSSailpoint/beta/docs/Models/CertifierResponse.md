@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $CertifierResponse = Initialize-PSSailpoint.BetaCertifierResponse  -Id 8a80828f643d484f01643e14202e206f `
  -DisplayName John Snow
+$CertifierResponse = @"{  "Id": "8a80828f643d484f01643e14202e206f", "DisplayName": "John Snow" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CertifierResponse | ConvertTo-JSON
+ConvertFrom-JsonToCertifierResponse -Json $CertifierResponse
 ```
 
 

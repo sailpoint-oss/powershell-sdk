@@ -29,11 +29,12 @@ $BaseCommonDto1 = Initialize-PSSailpoint.BetaBaseCommonDto1  -Id id12345 `
  -Name aName `
  -Created 2015-05-28T14:07:17Z `
  -Modified 2015-05-28T14:07:17Z
+$BaseCommonDto1 = @"{  "Id": "id12345", "Name": "aName", "Created": "2015-05-28T14:07:17Z", "Modified": "2015-05-28T14:07:17Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BaseCommonDto1 | ConvertTo-JSON
+ConvertFrom-JsonToBaseCommonDto1 -Json $BaseCommonDto1
 ```
 
 

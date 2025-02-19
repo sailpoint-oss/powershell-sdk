@@ -29,11 +29,12 @@ $ExpressionChildrenInner = Initialize-PSSailpoint.V3ExpressionChildrenInner  -Op
  -Attribute location `
  -Value null `
  -Children null
+$ExpressionChildrenInner = @"{  "Operator": "EQUALS", "Attribute": "location", "Value": null, "Children": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ExpressionChildrenInner | ConvertTo-JSON
+ConvertFrom-JsonToExpressionChildrenInner -Json $ExpressionChildrenInner
 ```
 
 

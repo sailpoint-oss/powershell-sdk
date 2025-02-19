@@ -51,13 +51,14 @@ $AccountActivityItem = Initialize-PSSailpoint.V3AccountActivityItem  -Id 48c5458
  -NativeIdentity Sandie.Camero `
  -SourceId 2c91808363ef85290164000587130c0c `
  -AccountRequestInfo null `
- -ClientMetadata {customKey1&#x3D;custom value 1, customKey2&#x3D;custom value 2} `
+ -ClientMetadata {customKey1=custom value 1, customKey2=custom value 2} `
  -RemoveDate 2020-07-11T00:00Z
+$AccountActivityItem = @"{  "Id": "48c545831b264409a81befcabb0e3c5a", "Name": "48c545831b264409a81befcabb0e3c5a", "Requested": "2017-07-11T18:45:37.098Z", "ApprovalStatus": null, "ProvisioningStatus": null, "RequesterComment": null, "ReviewerIdentitySummary": null, "ReviewerComment": null, "Operation": null, "Attribute": "detectedRoles", "Value": "Treasury Analyst [AccessProfile-1529010191212]", "NativeIdentity": "Sandie.Camero", "SourceId": "2c91808363ef85290164000587130c0c", "AccountRequestInfo": null, "ClientMetadata": {"customKey1":"custom value 1", "customKey2":"custom value 2"}, "RemoveDate": "2020-07-11T00:00Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountActivityItem | ConvertTo-JSON
+ConvertFrom-JsonToAccountActivityItem -Json $AccountActivityItem
 ```
 
 

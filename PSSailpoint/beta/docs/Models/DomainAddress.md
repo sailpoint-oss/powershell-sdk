@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $DomainAddress = Initialize-PSSailpoint.BetaDomainAddress  -Domain sailpoint.com
+$DomainAddress = @"{  "Domain": "sailpoint.com" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DomainAddress | ConvertTo-JSON
+ConvertFrom-JsonToDomainAddress -Json $DomainAddress
 ```
 
 

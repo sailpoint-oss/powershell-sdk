@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $TaggedObjectObjectRef = Initialize-PSSailpoint.BetaTaggedObjectObjectRef  -Type IDENTITY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
+$TaggedObjectObjectRef = @"{  "Type": "IDENTITY", "Id": "2c91808568c529c60168cca6f90c1313", "Name": "William Wilson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TaggedObjectObjectRef | ConvertTo-JSON
+ConvertFrom-JsonToTaggedObjectObjectRef -Json $TaggedObjectObjectRef
 ```
 
 

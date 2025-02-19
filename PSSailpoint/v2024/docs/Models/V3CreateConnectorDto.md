@@ -31,11 +31,12 @@ $V3CreateConnectorDto = Initialize-PSSailpoint.V2024V3CreateConnectorDto  -Name 
  -ClassName sailpoint.connector.OpenConnectorAdapter `
  -DirectConnect true `
  -Status RELEASED
+$V3CreateConnectorDto = @"{  "Name": "custom connector", "Type": "custom connector type", "ClassName": "sailpoint.connector.OpenConnectorAdapter", "DirectConnect": true, "Status": "RELEASED" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$V3CreateConnectorDto | ConvertTo-JSON
+ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
 ```
 
 

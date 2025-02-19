@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ConflictingAccessCriteria = Initialize-PSSailpoint.BetaConflictingAccessCriteria  -LeftCriteria null `
  -RightCriteria null
+$ConflictingAccessCriteria = @"{  "LeftCriteria": null, "RightCriteria": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConflictingAccessCriteria | ConvertTo-JSON
+ConvertFrom-JsonToConflictingAccessCriteria -Json $ConflictingAccessCriteria
 ```
 
 

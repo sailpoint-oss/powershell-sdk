@@ -33,11 +33,12 @@ $CampaignReport = Initialize-PSSailpoint.V2024CampaignReport  -Type REPORT_RESUL
  -Status PENDING `
  -ReportType null `
  -LastRunAt null
+$CampaignReport = @"{  "Type": "REPORT_RESULT", "Id": "2c9180835d191a86015d28455b4b232a", "Name": "SOD Policy 1 Violation", "Status": "PENDING", "ReportType": null, "LastRunAt": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignReport | ConvertTo-JSON
+ConvertFrom-JsonToCampaignReport -Json $CampaignReport
 ```
 
 

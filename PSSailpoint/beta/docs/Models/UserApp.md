@@ -43,11 +43,12 @@ $UserApp = Initialize-PSSailpoint.BetaUserApp  -Id 2c91808874ff91550175097daaec1
  -Source null `
  -Account null `
  -Owner null
+$UserApp = @"{  "Id": "2c91808874ff91550175097daaec161c", "Created": "2020-10-08T18:33:52.029Z", "Modified": "2020-10-08T18:33:52.029Z", "HasMultipleAccounts": false, "UseForPasswordManagement": true, "ProvisionRequestEnabled": true, "AppCenterEnabled": true, "SourceApp": null, "Source": null, "Account": null, "Owner": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$UserApp | ConvertTo-JSON
+ConvertFrom-JsonToUserApp -Json $UserApp
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $BulkCancelAccessRequest = Initialize-PSSailpoint.V2024BulkCancelAccessRequest  -AccessRequestIds [2c9180835d2e5168015d32f890ca1581, 2c9180835d2e5168015d32f890ca1582] `
  -Comment I requested this role by mistake.
+$BulkCancelAccessRequest = @"{  "AccessRequestIds": ["2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582"], "Comment": "I requested this role by mistake." }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BulkCancelAccessRequest | ConvertTo-JSON
+ConvertFrom-JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $RoleMiningIdentity = Initialize-PSSailpoint.BetaRoleMiningIdentity  -Id null `
  -Name null `
  -Attributes null
+$RoleMiningIdentity = @"{  "Id": "null", "Name": "null", "Attributes": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningIdentity | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningIdentity -Json $RoleMiningIdentity
 ```
 
 

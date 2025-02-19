@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentityProfileAllOfAuthoritativeSource = Initialize-PSSailpoint.BetaIdentityProfileAllOfAuthoritativeSource  -Type SOURCE `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name HR Active Directory
+$IdentityProfileAllOfAuthoritativeSource = @"{  "Type": "SOURCE", "Id": "2c9180835d191a86015d28455b4b232a", "Name": "HR Active Directory" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityProfileAllOfAuthoritativeSource | ConvertTo-JSON
+ConvertFrom-JsonToIdentityProfileAllOfAuthoritativeSource -Json $IdentityProfileAllOfAuthoritativeSource
 ```
 
 

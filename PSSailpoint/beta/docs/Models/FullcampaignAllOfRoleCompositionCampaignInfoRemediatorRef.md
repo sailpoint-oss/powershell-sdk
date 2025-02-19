@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef = Initialize-PSSailpoint.BetaFullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef  -Type IDENTITY `
  -Id 2c90ad2a70ace7d50170acf22ca90010 `
  -Name Role Admin
+$FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef = @"{  "Type": "IDENTITY", "Id": "2c90ad2a70ace7d50170acf22ca90010", "Name": "Role Admin" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef | ConvertTo-JSON
+ConvertFrom-JsonToFullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef -Json $FullcampaignAllOfRoleCompositionCampaignInfoRemediatorRef
 ```
 
 

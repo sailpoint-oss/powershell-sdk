@@ -24,12 +24,13 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $BackupOptions = Initialize-PSSailpoint.V2024BackupOptions  -IncludeTypes null `
- -ObjectOptions {TRIGGER_SUBSCRIPTION&#x3D;{includedNames&#x3D;[Trigger Subscription name]}}
+ -ObjectOptions {TRIGGER_SUBSCRIPTION={includedNames=[Trigger Subscription name]}}
+$BackupOptions = @"{  "IncludeTypes": null, "ObjectOptions": {"TRIGGER_SUBSCRIPTION":{"includedNames":["Trigger Subscription name"]}} }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BackupOptions | ConvertTo-JSON
+ConvertFrom-JsonToBackupOptions -Json $BackupOptions
 ```
 
 

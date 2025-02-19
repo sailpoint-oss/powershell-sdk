@@ -31,11 +31,12 @@ $AccessRequestApproversListResponse = Initialize-PSSailpoint.V2024AccessRequestA
  -Name John Doe `
  -ApprovalId ap12345 `
  -Type Identity
+$AccessRequestApproversListResponse = @"{  "Id": "id12345", "Email": "jdoe@sailpoint.com", "Name": "John Doe", "ApprovalId": "ap12345", "Type": "Identity" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestApproversListResponse | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestApproversListResponse -Json $AccessRequestApproversListResponse
 ```
 
 

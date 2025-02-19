@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $SourceEntitlementRequestConfig = Initialize-PSSailpoint.BetaSourceEntitlementRequestConfig  -AccessRequestConfig null
+$SourceEntitlementRequestConfig = @"{  "AccessRequestConfig": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceEntitlementRequestConfig | ConvertTo-JSON
+ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
 ```
 
 

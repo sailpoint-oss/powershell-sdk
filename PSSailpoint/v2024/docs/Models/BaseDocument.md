@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $BaseDocument = Initialize-PSSailpoint.V2024BaseDocument  -Id 2c91808375d8e80a0175e1f88a575222 `
  -Name john.doe `
  -Type null
+$BaseDocument = @"{  "Id": "2c91808375d8e80a0175e1f88a575222", "Name": "john.doe", "Type": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BaseDocument | ConvertTo-JSON
+ConvertFrom-JsonToBaseDocument -Json $BaseDocument
 ```
 
 

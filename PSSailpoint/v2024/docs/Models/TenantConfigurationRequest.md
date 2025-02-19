@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $TenantConfigurationRequest = Initialize-PSSailpoint.V2024TenantConfigurationRequest  -ConfigDetails null
+$TenantConfigurationRequest = @"{  "ConfigDetails": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TenantConfigurationRequest | ConvertTo-JSON
+ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
 ```
 
 

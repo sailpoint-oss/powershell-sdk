@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $LocalizedMessage = Initialize-PSSailpoint.BetaLocalizedMessage  -Locale An error has occurred! `
  -Message Error has occurred!
+$LocalizedMessage = @"{  "Locale": "An error has occurred!", "Message": "Error has occurred!" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LocalizedMessage | ConvertTo-JSON
+ConvertFrom-JsonToLocalizedMessage -Json $LocalizedMessage
 ```
 
 

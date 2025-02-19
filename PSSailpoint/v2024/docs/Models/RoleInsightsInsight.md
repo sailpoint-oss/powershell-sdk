@@ -31,11 +31,12 @@ $RoleInsightsInsight = Initialize-PSSailpoint.V2024RoleInsightsInsight  -Type AD
  -IdentitiesImpacted 150 `
  -TotalNumberOfIdentities 1000 `
  -ImpactedIdentityNames null
+$RoleInsightsInsight = @"{  "Type": "ADD", "IdentitiesWithAccess": "850", "IdentitiesImpacted": "150", "TotalNumberOfIdentities": "1000", "ImpactedIdentityNames": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleInsightsInsight | ConvertTo-JSON
+ConvertFrom-JsonToRoleInsightsInsight -Json $RoleInsightsInsight
 ```
 
 

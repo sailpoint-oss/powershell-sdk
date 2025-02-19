@@ -31,11 +31,12 @@ $AccessItemAssociated = Initialize-PSSailpoint.BetaAccessItemAssociated  -Access
  -EventType AccessItemAssociated `
  -Dt 2019-03-08T22:37:33.901Z `
  -GovernanceEvent null
+$AccessItemAssociated = @"{  "AccessItem": null, "IdentityId": "8c190e6787aa4ed9a90bd9d5344523fb", "EventType": "AccessItemAssociated", "Dt": "2019-03-08T22:37:33.901Z", "GovernanceEvent": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessItemAssociated | ConvertTo-JSON
+ConvertFrom-JsonToAccessItemAssociated -Json $AccessItemAssociated
 ```
 
 

@@ -29,11 +29,12 @@ $FilterAggregation = Initialize-PSSailpoint.V3FilterAggregation  -Name Entitleme
  -Type null `
  -Field access.type `
  -Value ENTITLEMENT
+$FilterAggregation = @"{  "Name": "Entitlements", "Type": null, "Field": "access.type", "Value": "ENTITLEMENT" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FilterAggregation | ConvertTo-JSON
+ConvertFrom-JsonToFilterAggregation -Json $FilterAggregation
 ```
 
 

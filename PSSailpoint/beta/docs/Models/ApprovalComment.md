@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ApprovalComment = Initialize-PSSailpoint.BetaApprovalComment  -Author null `
  -Comment Looks good `
  -CreatedDate 2023-04-12T23:20:50.52Z
+$ApprovalComment = @"{  "Author": null, "Comment": "Looks good", "CreatedDate": "2023-04-12T23:20:50.52Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalComment | ConvertTo-JSON
+ConvertFrom-JsonToApprovalComment -Json $ApprovalComment
 ```
 
 

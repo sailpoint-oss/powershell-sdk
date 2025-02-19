@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $RoleMatchDto = Initialize-PSSailpoint.BetaRoleMatchDto  -RoleRef null `
  -MatchedAttributes null
+$RoleMatchDto = @"{  "RoleRef": null, "MatchedAttributes": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMatchDto | ConvertTo-JSON
+ConvertFrom-JsonToRoleMatchDto -Json $RoleMatchDto
 ```
 
 

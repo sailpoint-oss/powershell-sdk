@@ -26,14 +26,15 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $SodViolationCheckResult = Initialize-PSSailpoint.BetaSodViolationCheckResult  -Message null `
- -ClientMetadata {requestedAppName&#x3D;test-app, requestedAppId&#x3D;2c91808f7892918f0178b78da4a305a1} `
+ -ClientMetadata {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1} `
  -ViolationContexts null `
  -ViolatedPolicies null
+$SodViolationCheckResult = @"{  "Message": null, "ClientMetadata": {"requestedAppName": "test-app", "requestedAppId": "2c91808f7892918f0178b78da4a305a1}", "ViolationContexts": null, "ViolatedPolicies": null }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SodViolationCheckResult | ConvertTo-JSON
+ConvertFrom-JsonToSodViolationCheckResult -Json $SodViolationCheckResult
 ```
 
 

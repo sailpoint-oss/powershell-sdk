@@ -29,11 +29,12 @@ $ErrorResponseDto = Initialize-PSSailpoint.BetaErrorResponseDto  -DetailCode 400
  -TrackingId e7eab60924f64aa284175b9fa3309599 `
  -Messages null `
  -Causes null
+$ErrorResponseDto = @"{  "DetailCode": "400.1 Bad Request Content", "TrackingId": "e7eab60924f64aa284175b9fa3309599", "Messages": null, "Causes": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ErrorResponseDto | ConvertTo-JSON
+ConvertFrom-JsonToErrorResponseDto -Json $ErrorResponseDto
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessItemRequester = Initialize-PSSailpoint.V2024AccessItemRequester  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20648 `
  -Name William Wilson
+$AccessItemRequester = @"{  "Type": "IDENTITY", "Id": "2c7180a46faadee4016fb4e018c20648", "Name": "William Wilson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessItemRequester | ConvertTo-JSON
+ConvertFrom-JsonToAccessItemRequester -Json $AccessItemRequester
 ```
 
 

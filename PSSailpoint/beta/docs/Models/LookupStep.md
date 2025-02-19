@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $LookupStep = Initialize-PSSailpoint.BetaLookupStep  -ReassignedToId 869320b6b6f34a169b6178b1a865e66f `
  -ReassignedFromId 51948a8f306a4e7a9a6f8f5d032fa59e `
  -ReassignmentType null
+$LookupStep = @"{  "ReassignedToId": "869320b6b6f34a169b6178b1a865e66f", "ReassignedFromId": "51948a8f306a4e7a9a6f8f5d032fa59e", "ReassignmentType": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LookupStep | ConvertTo-JSON
+ConvertFrom-JsonToLookupStep -Json $LookupStep
 ```
 
 

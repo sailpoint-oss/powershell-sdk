@@ -29,13 +29,14 @@ Name | Type | Description | Notes
 $AccountCorrelated = Initialize-PSSailpoint.BetaAccountCorrelated  -Identity null `
  -Source null `
  -Account null `
- -Attributes {sn&#x3D;doe, givenName&#x3D;john, memberOf&#x3D;[cn&#x3D;g1,ou&#x3D;groups,dc&#x3D;acme,dc&#x3D;com, cn&#x3D;g2,ou&#x3D;groups,dc&#x3D;acme,dc&#x3D;com, cn&#x3D;g3,ou&#x3D;groups,dc&#x3D;acme,dc&#x3D;com]} `
+ -Attributes {sn=doe, givenName=john, memberOf=[cn=g1,ou=groups,dc=acme,dc=com, cn=g2,ou=groups,dc=acme,dc=com, cn=g3,ou=groups,dc=acme,dc=com]} `
  -EntitlementCount 0
+$AccountCorrelated = @"{  "Identity": null, "Source": null, "Account": null, "Attributes": {"sn": "doe", "givenName": "john", "memberOf":["cn",":", "g1","ou",":", "groups","dc",":", "acme","dc",":", "com", "cn",":", "g2","ou",":", "groups","dc",":", "acme","dc",":", "com", "cn",":", "g3","ou",":", "groups","dc",":", "acme","dc",":", "com]}", "EntitlementCount:", "0"] }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountCorrelated | ConvertTo-JSON
+ConvertFrom-JsonToAccountCorrelated -Json $AccountCorrelated
 ```
 
 

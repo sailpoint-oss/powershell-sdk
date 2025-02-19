@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $IdentityAttributesChanged = Initialize-PSSailpoint.BetaIdentityAttributesChanged  -Identity null `
  -Changes null
+$IdentityAttributesChanged = @"{  "Identity": null, "Changes": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityAttributesChanged | ConvertTo-JSON
+ConvertFrom-JsonToIdentityAttributesChanged -Json $IdentityAttributesChanged
 ```
 
 

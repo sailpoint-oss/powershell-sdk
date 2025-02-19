@@ -29,11 +29,12 @@ $GetReferenceIdentityAttribute = Initialize-PSSailpoint.V3GetReferenceIdentityAt
  -Operation getReferenceIdentityAttribute `
  -Uid 2c91808570313110017040b06f344ec9 `
  -RequiresPeriodicRefresh false
+$GetReferenceIdentityAttribute = @"{  "Name": "Cloud Services Deployment Utility", "Operation": "getReferenceIdentityAttribute", "Uid": "2c91808570313110017040b06f344ec9", "RequiresPeriodicRefresh": "false "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$GetReferenceIdentityAttribute | ConvertTo-JSON
+ConvertFrom-JsonToGetReferenceIdentityAttribute -Json $GetReferenceIdentityAttribute
 ```
 
 

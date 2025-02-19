@@ -39,13 +39,14 @@ $ServiceDeskIntegrationDto1 = Initialize-PSSailpoint.V2024ServiceDeskIntegration
  -Cluster xyzzy999 `
  -ManagedSources [2c9180835d191a86015d28455b4a2329, 2c5680835d191a85765d28455b4a9823] `
  -ProvisioningConfig null `
- -Attributes {property&#x3D;value, key&#x3D;value} `
+ -Attributes {property=value, key=value} `
  -BeforeProvisioningRule null
+$ServiceDeskIntegrationDto1 = @"{  "Name": "Service Desk Integration Name", "Description": "A very nice Service Desk integration", "Type": "ServiceNowSDIM", "OwnerRef": null, "ClusterRef": null, "Cluster": "xyzzy999", "ManagedSources": ["2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823"], "ProvisioningConfig": null, "Attributes": {"property": "value", "key": "value}", "BeforeProvisioningRule": "null "}}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ServiceDeskIntegrationDto1 | ConvertTo-JSON
+ConvertFrom-JsonToServiceDeskIntegrationDto1 -Json $ServiceDeskIntegrationDto1
 ```
 
 

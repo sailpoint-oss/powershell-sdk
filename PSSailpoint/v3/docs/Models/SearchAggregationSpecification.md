@@ -31,11 +31,12 @@ $SearchAggregationSpecification = Initialize-PSSailpoint.V3SearchAggregationSpec
  -VarFilter null `
  -Bucket null `
  -SubAggregation null
+$SearchAggregationSpecification = @"{  "Nested": null, "Metric": null, "VarFilter": null, "Bucket": null, "SubAggregation": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SearchAggregationSpecification | ConvertTo-JSON
+ConvertFrom-JsonToSearchAggregationSpecification -Json $SearchAggregationSpecification
 ```
 
 

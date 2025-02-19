@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $LoadAccountsTask = Initialize-PSSailpoint.BetaLoadAccountsTask  -Success true `
  -Task null
+$LoadAccountsTask = @"{  "Success": true, "Task": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LoadAccountsTask | ConvertTo-JSON
+ConvertFrom-JsonToLoadAccountsTask -Json $LoadAccountsTask
 ```
 
 

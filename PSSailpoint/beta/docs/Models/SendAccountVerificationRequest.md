@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SendAccountVerificationRequest = Initialize-PSSailpoint.BetaSendAccountVerificationRequest  -SourceName Active Directory Source `
  -Via EMAIL_WORK
+$SendAccountVerificationRequest = @"{  "SourceName": "Active Directory Source", "Via": "EMAIL_WORK" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SendAccountVerificationRequest | ConvertTo-JSON
+ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
 ```
 
 

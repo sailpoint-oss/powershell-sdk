@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $VerificationResponse = Initialize-PSSailpoint.BetaVerificationResponse  -RequestId 089899f13a8f4da7824996191587bab9 `
  -Status SUCCESS `
  -VarError Unable to connect DUO Service during verification
+$VerificationResponse = @"{  "RequestId": "089899f13a8f4da7824996191587bab9", "Status": "SUCCESS", "VarError": "Unable to connect DUO Service during verification" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$VerificationResponse | ConvertTo-JSON
+ConvertFrom-JsonToVerificationResponse -Json $VerificationResponse
 ```
 
 

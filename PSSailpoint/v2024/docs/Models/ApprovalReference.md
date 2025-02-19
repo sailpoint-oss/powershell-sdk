@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ApprovalReference = Initialize-PSSailpoint.V2024ApprovalReference  -Id 64012350-8fd9-4f6c-a170-1fe123683899 `
  -Type AccessRequestId
+$ApprovalReference = @"{  "Id": "64012350-8fd9-4f6c-a170-1fe123683899", "Type": "AccessRequestId" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalReference | ConvertTo-JSON
+ConvertFrom-JsonToApprovalReference -Json $ApprovalReference
 ```
 
 

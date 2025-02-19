@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $CampaignAlert = Initialize-PSSailpoint.V3CampaignAlert  -Level ERROR `
  -Localizations null
+$CampaignAlert = @"{  "Level": "ERROR", "Localizations": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignAlert | ConvertTo-JSON
+ConvertFrom-JsonToCampaignAlert -Json $CampaignAlert
 ```
 
 

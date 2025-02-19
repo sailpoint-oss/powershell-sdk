@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ScheduledSearchName = Initialize-PSSailpoint.V3ScheduledSearchName  -Name Daily disabled accounts `
  -Description Daily disabled accounts
+$ScheduledSearchName = @"{  "Name": "Daily disabled accounts", "Description": "Daily disabled accounts" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ScheduledSearchName | ConvertTo-JSON
+ConvertFrom-JsonToScheduledSearchName -Json $ScheduledSearchName
 ```
 
 

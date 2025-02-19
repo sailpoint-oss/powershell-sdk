@@ -26,12 +26,13 @@ Name | Type | Description | Notes
 ```powershell
 $IndexOf = Initialize-PSSailpoint.V2024IndexOf  -Substring admin_ `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
+$IndexOf = @"{  "Substring": "admin_", "RequiresPeriodicRefresh": false, "VarInput": {"type": "accountAttribute", "attributes":{"attributeName": "first_name", "sourceName": "Source}}" }}}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IndexOf | ConvertTo-JSON
+ConvertFrom-JsonToIndexOf -Json $IndexOf
 ```
 
 

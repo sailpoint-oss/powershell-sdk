@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CompletedApprovalReviewerComment = Initialize-PSSailpoint.V2024CompletedApprovalReviewerComment  -Comment This is a comment. `
  -Created 2017-07-11T18:45:37.098Z `
  -Author null
+$CompletedApprovalReviewerComment = @"{  "Comment": "This is a comment.", "Created": "2017-07-11T18:45:37.098Z", "Author": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CompletedApprovalReviewerComment | ConvertTo-JSON
+ConvertFrom-JsonToCompletedApprovalReviewerComment -Json $CompletedApprovalReviewerComment
 ```
 
 

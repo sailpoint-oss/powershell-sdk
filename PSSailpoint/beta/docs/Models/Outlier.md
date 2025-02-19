@@ -38,16 +38,17 @@ $Outlier = Initialize-PSSailpoint.BetaOutlier  -Id 5be33d3e-c54d-4ed7-af73-23805
  -FirstDetectionDate 2021-05-01T18:40:35.772Z `
  -LatestDetectionDate 2021-05-03T18:40:35.772Z `
  -Ignored false `
- -Attributes {displayName&#x3D;John Smith, jobTitle&#x3D;Software Engineer, department&#x3D;Engineering} `
+ -Attributes {displayName=John Smith, jobTitle=Software Engineer, department=Engineering} `
  -Score 0.92 `
  -UnignoreType MANUAL `
  -UnignoreDate 2021-06-01T18:40:35.772Z `
  -IgnoreDate 2021-06-01T18:40:35.772Z
+$Outlier = @"{  "Id": "5be33d3e-c54d-4ed7-af73-2380543e8283", "IdentityId": "5be33d3e-c54d-4ed7-af73-2380543e8283", "Type": "LOW_SIMILARITY", "FirstDetectionDate": "2021-05-01T18:40:35.772Z", "LatestDetectionDate": "2021-05-03T18:40:35.772Z", "Ignored": false, "Attributes": {"displayName":"John Smith", "jobTitle":"Software Engineer", "department": "Engineering}", "Score": "0.92", "UnignoreType": "MANUAL", "UnignoreDate": "2021-06-01T18:40:35.772Z", "IgnoreDate": "2021-06-01T18:40:35.772Z" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Outlier | ConvertTo-JSON
+ConvertFrom-JsonToOutlier -Json $Outlier
 ```
 
 

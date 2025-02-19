@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $GetVendorConnectorMappings405Response = Initialize-PSSailpoint.V3GetVendorConnectorMappings405Response  -ErrorName NotSupportedException `
  -ErrorMessage Cannot consume content type `
  -TrackingId e7eab60924f64aa284175b9fa3309599
+$GetVendorConnectorMappings405Response = @"{  "ErrorName": "NotSupportedException", "ErrorMessage": "Cannot consume content type", "TrackingId": "e7eab60924f64aa284175b9fa3309599" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$GetVendorConnectorMappings405Response | ConvertTo-JSON
+ConvertFrom-JsonToGetVendorConnectorMappings405Response -Json $GetVendorConnectorMappings405Response
 ```
 
 

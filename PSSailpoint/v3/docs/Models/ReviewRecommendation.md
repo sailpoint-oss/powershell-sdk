@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ReviewRecommendation = Initialize-PSSailpoint.V3ReviewRecommendation  -Recommendation null `
  -Reasons [Reason 1, Reason 2] `
  -Timestamp 2020-06-01T13:49:37.385Z
+$ReviewRecommendation = @"{  "Recommendation": "null", "Reasons": ["Reason 1", "Reason 2"], "Timestamp": "2020-06-01T13:49:37.385Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReviewRecommendation | ConvertTo-JSON
+ConvertFrom-JsonToReviewRecommendation -Json $ReviewRecommendation
 ```
 
 

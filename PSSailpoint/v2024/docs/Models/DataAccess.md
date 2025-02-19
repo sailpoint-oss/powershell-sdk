@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $DataAccess = Initialize-PSSailpoint.V2024DataAccess  -Policies null `
  -Categories null `
  -ImpactScore null
+$DataAccess = @"{  "Policies": null, "Categories": null, "ImpactScore": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DataAccess | ConvertTo-JSON
+ConvertFrom-JsonToDataAccess -Json $DataAccess
 ```
 
 

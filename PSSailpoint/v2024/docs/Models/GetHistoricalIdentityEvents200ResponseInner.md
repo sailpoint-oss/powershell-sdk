@@ -46,16 +46,17 @@ $GetHistoricalIdentityEvents200ResponseInner = Initialize-PSSailpoint.V2024GetHi
  -CertificationId 2c91808a77ff216301782327a50f09bf `
  -CertificationName Cert name `
  -SignedDate 2019-03-08T22:37:33.901Z `
- -Certifiers [{id&#x3D;8a80828f643d484f01643e14202e206f, displayName&#x3D;John Snow}] `
- -Reviewers [{id&#x3D;8a80828f643d484f01643e14202e206f, displayName&#x3D;John Snow}] `
+ -Certifiers [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}] `
+ -Reviewers [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}] `
  -Signer null `
  -Account null `
  -StatusChange null
+$GetHistoricalIdentityEvents200ResponseInner = @"{  "AccessItem": null, "IdentityId": "null", "EventType": "null", "Dt": "null", "GovernanceEvent": null, "Changes": null, "AccessRequest": null, "CertificationId": "2c91808a77ff216301782327a50f09bf", "CertificationName": "Cert name", "SignedDate": "2019-03-08T22:37:33.901Z", "Certifiers": [{"id": "8a80828f643d484f01643e14202e206f", "displayName":"John Snow"}], "Reviewers": [{"id": "8a80828f643d484f01643e14202e206f", "displayName":"John Snow"}], "Signer": null, "Account": null, "StatusChange": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$GetHistoricalIdentityEvents200ResponseInner | ConvertTo-JSON
+ConvertFrom-JsonToGetHistoricalIdentityEvents200ResponseInner -Json $GetHistoricalIdentityEvents200ResponseInner
 ```
 
 

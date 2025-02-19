@@ -31,11 +31,12 @@ $AccessItemAppResponse = Initialize-PSSailpoint.BetaAccessItemAppResponse  -Acce
  -DisplayName Display Name `
  -SourceName appName `
  -AppRoleId 2c918087763e69d901763e72e97f006f
+$AccessItemAppResponse = @"{  "AccessType": "app", "Id": "2c918087763e69d901763e72e97f006f", "DisplayName": "Display Name", "SourceName": "appName", "AppRoleId": "2c918087763e69d901763e72e97f006f" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessItemAppResponse | ConvertTo-JSON
+ConvertFrom-JsonToAccessItemAppResponse -Json $AccessItemAppResponse
 ```
 
 

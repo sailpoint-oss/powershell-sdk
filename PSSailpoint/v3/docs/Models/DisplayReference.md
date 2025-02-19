@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $DisplayReference = Initialize-PSSailpoint.V3DisplayReference  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -DisplayName John Q. Doe
+$DisplayReference = @"{  "Id": "2c91808568c529c60168cca6f90c1313", "Name": "John Doe", "DisplayName": "John Q. Doe" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DisplayReference | ConvertTo-JSON
+ConvertFrom-JsonToDisplayReference -Json $DisplayReference
 ```
 
 

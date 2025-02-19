@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ObjectMappingBulkPatchResponse = Initialize-PSSailpoint.V3ObjectMappingBulkPatchResponse  -PatchedObjects null
+$ObjectMappingBulkPatchResponse = @"{  "PatchedObjects": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ObjectMappingBulkPatchResponse | ConvertTo-JSON
+ConvertFrom-JsonToObjectMappingBulkPatchResponse -Json $ObjectMappingBulkPatchResponse
 ```
 
 

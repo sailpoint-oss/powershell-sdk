@@ -29,11 +29,12 @@ $CertificationIdentitySummary = Initialize-PSSailpoint.V3CertificationIdentitySu
  -Name Alison Ferguso `
  -IdentityId 2c9180857182306001719937377a33de `
  -Completed true
+$CertificationIdentitySummary = @"{  "Id": "2c91808772a504f50172a9540e501ba7", "Name": "Alison Ferguso", "IdentityId": "2c9180857182306001719937377a33de", "Completed": "true "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CertificationIdentitySummary | ConvertTo-JSON
+ConvertFrom-JsonToCertificationIdentitySummary -Json $CertificationIdentitySummary
 ```
 
 

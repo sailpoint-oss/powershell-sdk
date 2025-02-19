@@ -1,0 +1,1 @@
+{"version":3,"file":"stream.js","names":["jsonrepairTransform"],"sources":["../../src/stream.ts"],"sourcesContent":["// Node.js streaming API\nexport { jsonrepairTransform, type JsonRepairTransformOptions } from './streaming/stream.js'\n"],"mappings":"AAAA;AACA,SAASA,mBAAmB,QAAyC,uBAAuB","ignoreList":[]}

@@ -37,11 +37,12 @@ $ProvisioningCompleted = Initialize-PSSailpoint.V2024ProvisioningCompleted  -Tra
  -Recipient null `
  -Requester null `
  -AccountRequests null
+$ProvisioningCompleted = @"{  "TrackingNumber": "4b4d982dddff4267ab12f0f1e72b5a6d", "Sources": "Corp AD, Corp LDAP, Corp Salesforce", "Action": "IdentityRefresh", "Errors": null, "Warnings": null, "Recipient": null, "Requester": null, "AccountRequests": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ProvisioningCompleted | ConvertTo-JSON
+ConvertFrom-JsonToProvisioningCompleted -Json $ProvisioningCompleted
 ```
 
 

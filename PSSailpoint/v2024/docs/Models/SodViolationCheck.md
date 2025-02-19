@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SodViolationCheck = Initialize-PSSailpoint.V2024SodViolationCheck  -RequestId 089899f13a8f4da7824996191587bab9 `
  -Created 2020-01-01T00:00Z
+$SodViolationCheck = @"{  "RequestId": "089899f13a8f4da7824996191587bab9", "Created": "2020-01-01T00:00Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SodViolationCheck | ConvertTo-JSON
+ConvertFrom-JsonToSodViolationCheck -Json $SodViolationCheck
 ```
 
 

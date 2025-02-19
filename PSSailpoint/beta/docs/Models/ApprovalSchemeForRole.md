@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ApprovalSchemeForRole = Initialize-PSSailpoint.BetaApprovalSchemeForRole  -ApproverType GOVERNANCE_GROUP `
  -ApproverId 46c79819-a69f-49a2-becb-12c971ae66c6
+$ApprovalSchemeForRole = @"{  "ApproverType": "GOVERNANCE_GROUP", "ApproverId": "46c79819-a69f-49a2-becb-12c971ae66c6" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalSchemeForRole | ConvertTo-JSON
+ConvertFrom-JsonToApprovalSchemeForRole -Json $ApprovalSchemeForRole
 ```
 
 

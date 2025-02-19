@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentityDeletedIdentity = Initialize-PSSailpoint.V2024IdentityDeletedIdentity  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
+$IdentityDeletedIdentity = @"{  "Type": "IDENTITY", "Id": "2c7180a46faadee4016fb4e018c20642", "Name": "Michael Michaels" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityDeletedIdentity | ConvertTo-JSON
+ConvertFrom-JsonToIdentityDeletedIdentity -Json $IdentityDeletedIdentity
 ```
 
 

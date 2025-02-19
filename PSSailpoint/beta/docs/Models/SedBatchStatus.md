@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $SedBatchStatus = Initialize-PSSailpoint.BetaSedBatchStatus  -Status OK
+$SedBatchStatus = @"{  "Status": "OK" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SedBatchStatus | ConvertTo-JSON
+ConvertFrom-JsonToSedBatchStatus -Json $SedBatchStatus
 ```
 
 

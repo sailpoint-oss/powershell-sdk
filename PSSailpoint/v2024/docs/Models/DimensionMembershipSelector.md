@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $DimensionMembershipSelector = Initialize-PSSailpoint.V2024DimensionMembershipSelector  -Type null `
  -Criteria null
+$DimensionMembershipSelector = @"{  "Type": null, "Criteria": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DimensionMembershipSelector | ConvertTo-JSON
+ConvertFrom-JsonToDimensionMembershipSelector -Json $DimensionMembershipSelector
 ```
 
 

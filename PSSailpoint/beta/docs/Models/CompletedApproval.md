@@ -66,12 +66,13 @@ $CompletedApproval = Initialize-PSSailpoint.BetaCompletedApproval  -Id 2c9380836
  -CurrentRemoveDate 2020-07-11T00:00Z `
  -SodViolationContext null `
  -PreApprovalTriggerResult null `
- -ClientMetadata {requestedAppName&#x3D;test-app, requestedAppId&#x3D;2c91808f7892918f0178b78da4a305a1}
+ -ClientMetadata {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1}
+$CompletedApproval = @"{  "Id": "2c938083633d259901633d25c68c00fa", "Name": "Approval Name", "Created": "2017-07-11T18:45:37.098Z", "Modified": "2018-07-25T20:22:28.104Z", "RequestCreated": "2017-07-11T18:45:35.098Z", "RequestType": null, "Requester": null, "RequestedFor": null, "ReviewedBy": null, "Owner": null, "RequestedObject": null, "RequesterComment": null, "ReviewerComment": null, "PreviousReviewersComments": null, "ForwardHistory": null, "CommentRequiredWhenRejected": true, "State": null, "RemoveDate": "2020-07-11T00:00Z", "RemoveDateUpdateRequested": true, "CurrentRemoveDate": "2020-07-11T00:00Z", "SodViolationContext": null, "PreApprovalTriggerResult": null, "ClientMetadata": {"requestedAppName": "test-app", "requestedAppId": "2c91808f7892918f0178b78da4a305a1}" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CompletedApproval | ConvertTo-JSON
+ConvertFrom-JsonToCompletedApproval -Json $CompletedApproval
 ```
 
 

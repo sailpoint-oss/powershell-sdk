@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $RoleMetadataBulkUpdateByFilterRequestValuesInner = Initialize-PSSailpoint.V2024RoleMetadataBulkUpdateByFilterRequestValuesInner  -AttributeKey iscFederalClassifications `
  -Values [secret]
+$RoleMetadataBulkUpdateByFilterRequestValuesInner = @"{  "AttributeKey": "iscFederalClassifications", "Values": ["secret"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMetadataBulkUpdateByFilterRequestValuesInner | ConvertTo-JSON
+ConvertFrom-JsonToRoleMetadataBulkUpdateByFilterRequestValuesInner -Json $RoleMetadataBulkUpdateByFilterRequestValuesInner
 ```
 
 

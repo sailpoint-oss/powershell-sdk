@@ -31,11 +31,12 @@ $WorkgroupDtoOwner = Initialize-PSSailpoint.V2024WorkgroupDtoOwner  -Type IDENTI
  -Name Support `
  -DisplayName Support `
  -EmailAddress support@sailpoint.com
+$WorkgroupDtoOwner = @"{  "Type": "IDENTITY", "Id": "2c9180a46faadee4016fb4e018c20639", "Name": "Support", "DisplayName": "Support", "EmailAddress": "support@sailpoint.com" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkgroupDtoOwner | ConvertTo-JSON
+ConvertFrom-JsonToWorkgroupDtoOwner -Json $WorkgroupDtoOwner
 ```
 
 

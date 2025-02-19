@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessRequestDynamicApprover1 = Initialize-PSSailpoint.BetaAccessRequestDynamicApprover1  -Id 2c91808b6ef1d43e016efba0ce470906 `
  -Name Adam Adams `
  -Type IDENTITY
+$AccessRequestDynamicApprover1 = @"{  "Id": "2c91808b6ef1d43e016efba0ce470906", "Name": "Adam Adams", "Type": "IDENTITY" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestDynamicApprover1 | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestDynamicApprover1 -Json $AccessRequestDynamicApprover1
 ```
 
 

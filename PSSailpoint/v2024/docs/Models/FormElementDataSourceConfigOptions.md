@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $FormElementDataSourceConfigOptions = Initialize-PSSailpoint.V2024FormElementDataSourceConfigOptions  -Label regression-test-access-request-07c55dd6-3056-430a-86b5-fccc395bb6c5 `
  -SubLabel  `
  -Value e96674448eba4ca1ba04eee999a8f3cd
+$FormElementDataSourceConfigOptions = @"{  "Label": "regression-test-access-request-07c55dd6-3056-430a-86b5-fccc395bb6c5", "SubLabel": "", "Value": "e96674448eba4ca1ba04eee999a8f3cd" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormElementDataSourceConfigOptions | ConvertTo-JSON
+ConvertFrom-JsonToFormElementDataSourceConfigOptions -Json $FormElementDataSourceConfigOptions
 ```
 
 

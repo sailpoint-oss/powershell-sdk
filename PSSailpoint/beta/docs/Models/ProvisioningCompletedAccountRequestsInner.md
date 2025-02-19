@@ -29,17 +29,18 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ProvisioningCompletedAccountRequestsInner = Initialize-PSSailpoint.BetaProvisioningCompletedAccountRequestsInner  -Source null `
- -AccountId CN&#x3D;Chewy.Bacca,ou&#x3D;hardcorefigter,ou&#x3D;wookies,dc&#x3D;starwars,dc&#x3D;com `
+ -AccountId CN=Chewy.Bacca,ou=hardcorefigter,ou=wookies,dc=starwars,dc=com `
  -AccountOperation Modify `
  -ProvisioningResult SUCCESS `
  -ProvisioningTarget Corp AD `
  -TicketId 72619262 `
  -AttributeRequests null
+$ProvisioningCompletedAccountRequestsInner = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ProvisioningCompletedAccountRequestsInner | ConvertTo-JSON
+ConvertFrom-JsonToProvisioningCompletedAccountRequestsInner -Json $ProvisioningCompletedAccountRequestsInner
 ```
 
 

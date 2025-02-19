@@ -29,11 +29,12 @@ $RoleMiningEntitlementRef = Initialize-PSSailpoint.V2024RoleMiningEntitlementRef
  -Name App.entitlement.1 `
  -Description Entitlement 1 `
  -Attribute groups
+$RoleMiningEntitlementRef = @"{  "Id": "2c91808a7e95e6e0017e96e2086206c8", "Name": "App.entitlement.1", "Description": "Entitlement 1", "Attribute": "groups" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningEntitlementRef | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningEntitlementRef -Json $RoleMiningEntitlementRef
 ```
 
 

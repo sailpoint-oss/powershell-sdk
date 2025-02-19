@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ApprovalName = Initialize-PSSailpoint.V2024ApprovalName  -Value Audit DB Access `
  -Locale en_US
+$ApprovalName = @"{  "Value": "Audit DB Access", "Locale": "en_US" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalName | ConvertTo-JSON
+ConvertFrom-JsonToApprovalName -Json $ApprovalName
 ```
 
 

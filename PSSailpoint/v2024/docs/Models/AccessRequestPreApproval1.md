@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessRequestPreApproval1 = Initialize-PSSailpoint.V2024AccessRequestPreApproval1  -Approved false `
  -Comment This access should be denied, because this will cause an SOD violation. `
  -Approver AcmeCorpExternalIntegration
+$AccessRequestPreApproval1 = @"{  "Approved": false, "Comment": "This access should be denied, because this will cause an SOD violation.", "Approver": "AcmeCorpExternalIntegration" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestPreApproval1 | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestPreApproval1 -Json $AccessRequestPreApproval1
 ```
 
 

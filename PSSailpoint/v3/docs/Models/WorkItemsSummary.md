@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $WorkItemsSummary = Initialize-PSSailpoint.V3WorkItemsSummary  -Open 29 `
  -Completed 1 `
  -Total 30
+$WorkItemsSummary = @"{  "Open": "29", "Completed": "1", "Total": "30" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkItemsSummary | ConvertTo-JSON
+ConvertFrom-JsonToWorkItemsSummary -Json $WorkItemsSummary
 ```
 
 

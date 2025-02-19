@@ -41,13 +41,14 @@ $BaseAccount = Initialize-PSSailpoint.V3BaseAccount  -Id 2c91808568c529c60168cca
  -Privileged false `
  -ManuallyCorrelated false `
  -PasswordLastSet 2018-06-25T20:22:28.104Z `
- -EntitlementAttributes {moderator&#x3D;true, admin&#x3D;true, trust_level&#x3D;4} `
+ -EntitlementAttributes {moderator=true, admin=true, trust_level=4} `
  -Created 2018-06-25T20:22:28.104Z
+$BaseAccount = @"{  "Id": "2c91808568c529c60168cca6f90c1313", "Name": "John Doe", "AccountId": "John.Doe", "Source": null, "Disabled": false, "Locked": false, "Privileged": false, "ManuallyCorrelated": false, "PasswordLastSet": "2018-06-25T20:22:28.104Z", "EntitlementAttributes": {"moderator": true, "admin": true, "trust_level": "4}", "Created": "2018-06-25T20:22:28.104Z" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BaseAccount | ConvertTo-JSON
+ConvertFrom-JsonToBaseAccount -Json $BaseAccount
 ```
 
 

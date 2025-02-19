@@ -31,11 +31,12 @@ $AccountStatusChanged = Initialize-PSSailpoint.V2024AccountStatusChanged  -Event
  -Dt null `
  -Account null `
  -StatusChange null
+$AccountStatusChanged = @"{  "EventType": "null", "IdentityId": "null", "Dt": "null", "Account": null, "StatusChange": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountStatusChanged | ConvertTo-JSON
+ConvertFrom-JsonToAccountStatusChanged -Json $AccountStatusChanged
 ```
 
 

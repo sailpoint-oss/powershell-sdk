@@ -24,12 +24,13 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $AppAllOfAccount = Initialize-PSSailpoint.V2024AppAllOfAccount  -Id 2c9180837dfe6949017e21f3d8cd6d49 `
- -AccountId CN&#x3D;Carol Adams,OU&#x3D;Austin,OU&#x3D;Americas,OU&#x3D;Demo,DC&#x3D;seri,DC&#x3D;sailpointdemo,DC&#x3D;com
+ -AccountId CN=Carol Adams,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+$AppAllOfAccount = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AppAllOfAccount | ConvertTo-JSON
+ConvertFrom-JsonToAppAllOfAccount -Json $AppAllOfAccount
 ```
 
 

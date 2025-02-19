@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ReportDetails = Initialize-PSSailpoint.V2024ReportDetails  -ReportType ACCOUNTS `
  -Arguments null
+$ReportDetails = @"{  "ReportType": "ACCOUNTS", "Arguments": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReportDetails | ConvertTo-JSON
+ConvertFrom-JsonToReportDetails -Json $ReportDetails
 ```
 
 

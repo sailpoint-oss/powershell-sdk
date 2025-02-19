@@ -22,11 +22,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $OutlierContributingFeatureValue = Initialize-PSSailpoint.BetaOutlierContributingFeatureValue 
+$OutlierContributingFeatureValue = @"{  }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$OutlierContributingFeatureValue | ConvertTo-JSON
+ConvertFrom-JsonToOutlierContributingFeatureValue -Json $OutlierContributingFeatureValue
 ```
 
 

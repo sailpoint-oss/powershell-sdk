@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $FormInstanceCreatedBy = Initialize-PSSailpoint.V2024FormInstanceCreatedBy  -Id 00000000-0000-0000-0000-000000000000 `
  -Type WORKFLOW_EXECUTION
+$FormInstanceCreatedBy = @"{  "Id": "00000000-0000-0000-0000-000000000000", "Type": "WORKFLOW_EXECUTION" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormInstanceCreatedBy | ConvertTo-JSON
+ConvertFrom-JsonToFormInstanceCreatedBy -Json $FormInstanceCreatedBy
 ```
 
 

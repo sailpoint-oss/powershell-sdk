@@ -29,11 +29,12 @@ $SpDetails = Initialize-PSSailpoint.V3SpDetails  -Role SAML_SP `
  -EntityId http://www.okta.com/exkdaruy8Ln5Ry7C54x6 `
  -Alias acme-sp `
  -CallbackUrl https://stradbroke-sso.identitysoon.com/sso/Consumer/metaAlias/cdov-saml/sp
+$SpDetails = @"{  "Role": "SAML_SP", "EntityId": "http://www.okta.com/exkdaruy8Ln5Ry7C54x6", "Alias": "acme-sp", "CallbackUrl": "https://stradbroke-sso.identitysoon.com/sso/Consumer/metaAlias/cdov-saml/sp" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SpDetails | ConvertTo-JSON
+ConvertFrom-JsonToSpDetails -Json $SpDetails
 ```
 
 

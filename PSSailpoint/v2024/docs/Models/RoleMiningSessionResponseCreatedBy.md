@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $RoleMiningSessionResponseCreatedBy = Initialize-PSSailpoint.V2024RoleMiningSessionResponseCreatedBy  -Id 2c918090761a5aac0176215c46a62d58 `
  -DisplayName Ashley.Pierce
+$RoleMiningSessionResponseCreatedBy = @"{  "Id": "2c918090761a5aac0176215c46a62d58", "DisplayName": "Ashley.Pierce" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningSessionResponseCreatedBy | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningSessionResponseCreatedBy -Json $RoleMiningSessionResponseCreatedBy
 ```
 
 

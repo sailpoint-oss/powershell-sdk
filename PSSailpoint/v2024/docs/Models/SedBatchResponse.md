@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $SedBatchResponse = Initialize-PSSailpoint.V2024SedBatchResponse  -BatchId 016629d1-1d25-463f-97f3-0c6686846650
+$SedBatchResponse = @"{  "BatchId": "016629d1-1d25-463f-97f3-0c6686846650" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SedBatchResponse | ConvertTo-JSON
+ConvertFrom-JsonToSedBatchResponse -Json $SedBatchResponse
 ```
 
 

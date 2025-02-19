@@ -29,11 +29,12 @@ $RecommendationConfigDto = Initialize-PSSailpoint.BetaRecommendationConfigDto  -
  -PeerGroupPercentageThreshold 0.5 `
  -RunAutoSelectOnce false `
  -OnlyTuneThreshold false
+$RecommendationConfigDto = @"{  "RecommenderFeatures": ["jobTitle", "location", "peer_group", "department", "active"], "PeerGroupPercentageThreshold": "0.5", "RunAutoSelectOnce": false, "OnlyTuneThreshold": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RecommendationConfigDto | ConvertTo-JSON
+ConvertFrom-JsonToRecommendationConfigDto -Json $RecommendationConfigDto
 ```
 
 

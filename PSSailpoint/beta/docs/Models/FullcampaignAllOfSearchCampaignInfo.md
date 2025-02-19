@@ -33,11 +33,12 @@ $FullcampaignAllOfSearchCampaignInfo = Initialize-PSSailpoint.BetaFullcampaignAl
  -Query Search Campaign query description `
  -IdentityIds [0fbe863c063c4c88a35fd7f17e8a3df5] `
  -AccessConstraints null
+$FullcampaignAllOfSearchCampaignInfo = @"{  "Type": "ACCESS", "Description": "Search Campaign description", "Reviewer": null, "Query": "Search Campaign query description", "IdentityIds": ["0fbe863c063c4c88a35fd7f17e8a3df5"], "AccessConstraints": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FullcampaignAllOfSearchCampaignInfo | ConvertTo-JSON
+ConvertFrom-JsonToFullcampaignAllOfSearchCampaignInfo -Json $FullcampaignAllOfSearchCampaignInfo
 ```
 
 

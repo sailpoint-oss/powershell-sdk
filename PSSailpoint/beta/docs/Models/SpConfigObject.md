@@ -35,11 +35,12 @@ $SpConfigObject = Initialize-PSSailpoint.BetaSpConfigObject  -ObjectType TRIGGER
  -OnePerTenant false `
  -Exportable true `
  -Rules null
+$SpConfigObject = @"{  "ObjectType": "TRIGGER_SUBSCRIPTION", "ReferenceExtractors": ["$.owner"], "SignatureRequired": false, "LegacyObject": false, "OnePerTenant": false, "Exportable": true, "Rules": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SpConfigObject | ConvertTo-JSON
+ConvertFrom-JsonToSpConfigObject -Json $SpConfigObject
 ```
 
 

@@ -39,11 +39,12 @@ $RoleMiningSessionParametersDto = Initialize-PSSailpoint.BetaRoleMiningSessionPa
  -Type null `
  -State null `
  -ScopingMethod null
+$RoleMiningSessionParametersDto = @"{  "Id": "9f36f5e5-1e81-4eca-b087-548959d91c71", "Name": "Saved RM Session - 07/10", "MinNumIdentitiesInPotentialRole": "20", "PruneThreshold": "5", "Saved": true, "Scope": null, "Type": null, "State": null, "ScopingMethod": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningSessionParametersDto | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningSessionParametersDto -Json $RoleMiningSessionParametersDto
 ```
 
 

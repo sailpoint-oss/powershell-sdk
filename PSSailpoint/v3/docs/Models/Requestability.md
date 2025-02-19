@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $Requestability = Initialize-PSSailpoint.V3Requestability  -CommentsRequired true `
  -DenialCommentsRequired true `
  -ApprovalSchemes null
+$Requestability = @"{  "CommentsRequired": true, "DenialCommentsRequired": true, "ApprovalSchemes": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Requestability | ConvertTo-JSON
+ConvertFrom-JsonToRequestability -Json $Requestability
 ```
 
 

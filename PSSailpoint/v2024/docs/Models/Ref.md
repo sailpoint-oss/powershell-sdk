@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $Ref = Initialize-PSSailpoint.V2024Ref  -Type null `
  -Id 2c91808568c529c60168cca6f90c1313
+$Ref = @"{  "Type": null, "Id": "2c91808568c529c60168cca6f90c1313" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Ref | ConvertTo-JSON
+ConvertFrom-JsonToRef -Json $Ref
 ```
 
 

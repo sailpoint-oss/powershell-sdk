@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $IdentityAttributeConfig = Initialize-PSSailpoint.V2024IdentityAttributeConfig  -Enabled true `
  -AttributeTransforms null
+$IdentityAttributeConfig = @"{  "Enabled": true, "AttributeTransforms": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityAttributeConfig | ConvertTo-JSON
+ConvertFrom-JsonToIdentityAttributeConfig -Json $IdentityAttributeConfig
 ```
 
 

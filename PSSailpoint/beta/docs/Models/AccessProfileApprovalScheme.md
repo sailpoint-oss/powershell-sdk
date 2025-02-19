@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AccessProfileApprovalScheme = Initialize-PSSailpoint.BetaAccessProfileApprovalScheme  -ApproverType GOVERNANCE_GROUP `
  -ApproverId 46c79819-a69f-49a2-becb-12c971ae66c6
+$AccessProfileApprovalScheme = @"{  "ApproverType": "GOVERNANCE_GROUP", "ApproverId": "46c79819-a69f-49a2-becb-12c971ae66c6" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileApprovalScheme | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileApprovalScheme -Json $AccessProfileApprovalScheme
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $CommonAccessIDStatus = Initialize-PSSailpoint.BetaCommonAccessIDStatus  -ConfirmedIds null `
  -DeniedIds null
+$CommonAccessIDStatus = @"{  "ConfirmedIds": null, "DeniedIds": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CommonAccessIDStatus | ConvertTo-JSON
+ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $RoleListFilterDTOAmmKeyValuesInner = Initialize-PSSailpoint.V2024RoleListFilterDTOAmmKeyValuesInner  -Attribute iscFederalClassifications `
  -Values [secret]
+$RoleListFilterDTOAmmKeyValuesInner = @"{  "Attribute": "iscFederalClassifications", "Values": ["secret"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleListFilterDTOAmmKeyValuesInner | ConvertTo-JSON
+ConvertFrom-JsonToRoleListFilterDTOAmmKeyValuesInner -Json $RoleListFilterDTOAmmKeyValuesInner
 ```
 
 

@@ -25,13 +25,14 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $KbaAnswerResponseItem = Initialize-PSSailpoint.V3KbaAnswerResponseItem  -Id c54fee53-2d63-4fc5-9259-3e93b9994135 `
- -Question [{&quot;text&quot;:&quot;Nouvelle question MFA -1 ?&quot;,&quot;locale&quot;:&quot;fr&quot;},{&quot;text&quot;:&quot;MFA new question -1 ?&quot;,&quot;locale&quot;:&quot;&quot;}] `
+ -Question [{"text":"Nouvelle question MFA -1 ?","locale":"fr"},{"text":"MFA new question -1 ?","locale":""}] `
  -HasAnswer true
+$KbaAnswerResponseItem = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$KbaAnswerResponseItem | ConvertTo-JSON
+ConvertFrom-JsonToKbaAnswerResponseItem -Json $KbaAnswerResponseItem
 ```
 
 

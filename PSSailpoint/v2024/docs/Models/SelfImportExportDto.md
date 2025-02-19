@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SelfImportExportDto = Initialize-PSSailpoint.V2024SelfImportExportDto  -Type SOURCE `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name HR Active Directory
+$SelfImportExportDto = @"{  "Type": "SOURCE", "Id": "2c9180835d191a86015d28455b4b232a", "Name": "HR Active Directory" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SelfImportExportDto | ConvertTo-JSON
+ConvertFrom-JsonToSelfImportExportDto -Json $SelfImportExportDto
 ```
 
 

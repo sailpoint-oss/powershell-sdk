@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $FormElementDynamicDataSource = Initialize-PSSailpoint.BetaFormElementDynamicDataSource  -Config null `
  -DataSourceType STATIC
+$FormElementDynamicDataSource = @"{  "Config": null, "DataSourceType": "STATIC" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormElementDynamicDataSource | ConvertTo-JSON
+ConvertFrom-JsonToFormElementDynamicDataSource -Json $FormElementDynamicDataSource
 ```
 
 

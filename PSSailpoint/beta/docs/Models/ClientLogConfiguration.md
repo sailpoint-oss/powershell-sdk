@@ -31,11 +31,12 @@ $ClientLogConfiguration = Initialize-PSSailpoint.BetaClientLogConfiguration  -Cl
  -Expiration 2020-12-15T19:13:36.079Z `
  -RootLevel null `
  -LogLevels INFO
+$ClientLogConfiguration = @"{  "ClientId": "aClientId", "DurationMinutes": "120", "Expiration": "2020-12-15T19:13:36.079Z", "RootLevel": null, "LogLevels": "INFO" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ClientLogConfiguration | ConvertTo-JSON
+ConvertFrom-JsonToClientLogConfiguration -Json $ClientLogConfiguration
 ```
 
 

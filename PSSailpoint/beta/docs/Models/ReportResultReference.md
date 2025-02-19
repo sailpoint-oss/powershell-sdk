@@ -29,11 +29,12 @@ $ReportResultReference = Initialize-PSSailpoint.BetaReportResultReference  -Type
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name SOD Policy 1 Violation `
  -Status PENDING
+$ReportResultReference = @"{  "Type": "REPORT_RESULT", "Id": "2c9180835d191a86015d28455b4b232a", "Name": "SOD Policy 1 Violation", "Status": "PENDING" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReportResultReference | ConvertTo-JSON
+ConvertFrom-JsonToReportResultReference -Json $ReportResultReference
 ```
 
 

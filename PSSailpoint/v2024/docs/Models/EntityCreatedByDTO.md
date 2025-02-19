@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $EntityCreatedByDTO = Initialize-PSSailpoint.V2024EntityCreatedByDTO  -Id 2c918090761a5aac0176215c46a62d58 `
  -DisplayName Ashley.Pierce
+$EntityCreatedByDTO = @"{  "Id": "2c918090761a5aac0176215c46a62d58", "DisplayName": "Ashley.Pierce" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$EntityCreatedByDTO | ConvertTo-JSON
+ConvertFrom-JsonToEntityCreatedByDTO -Json $EntityCreatedByDTO
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $RoleMiningPotentialRoleEditEntitlements = Initialize-PSSailpoint.BetaRoleMiningPotentialRoleEditEntitlements  -Ids null `
  -Exclude null
+$RoleMiningPotentialRoleEditEntitlements = @"{  "Ids": null, "Exclude": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningPotentialRoleEditEntitlements | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
 ```
 
 

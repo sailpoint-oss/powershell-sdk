@@ -31,11 +31,12 @@ $ScheduledAttributes = Initialize-PSSailpoint.V3ScheduledAttributes  -CronString
  -TimeZone America/Chicago `
  -WeeklyDays Monday `
  -WeeklyTimes Monday
+$ScheduledAttributes = @"{  "CronString": "0 9 * * 1", "Frequency": "null", "TimeZone": "America/Chicago", "WeeklyDays": "Monday", "WeeklyTimes": "Monday" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ScheduledAttributes | ConvertTo-JSON
+ConvertFrom-JsonToScheduledAttributes -Json $ScheduledAttributes
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $PasswordDigitToken = Initialize-PSSailpoint.BetaPasswordDigitToken  -DigitToken 09087713 `
  -RequestId e1267ecd-fcd9-4c73-9c55-12555efad136
+$PasswordDigitToken = @"{  "DigitToken": "09087713", "RequestId": "e1267ecd-fcd9-4c73-9c55-12555efad136" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PasswordDigitToken | ConvertTo-JSON
+ConvertFrom-JsonToPasswordDigitToken -Json $PasswordDigitToken
 ```
 
 

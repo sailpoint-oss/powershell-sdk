@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $FormCondition = Initialize-PSSailpoint.V2024FormCondition  -RuleOperator AND `
  -Rules null `
  -Effects null
+$FormCondition = @"{  "RuleOperator": "AND", "Rules": null, "Effects": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormCondition | ConvertTo-JSON
+ConvertFrom-JsonToFormCondition -Json $FormCondition
 ```
 
 

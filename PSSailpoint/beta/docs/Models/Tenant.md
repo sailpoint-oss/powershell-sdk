@@ -35,11 +35,12 @@ $Tenant = Initialize-PSSailpoint.BetaTenant  -Id 2c91808568c529c60168cca6f90c132
  -Region us-east-1 `
  -Description Description of the Tenant `
  -Products null
+$Tenant = @"{  "Id": "2c91808568c529c60168cca6f90c1324", "Name": "acme", "FullName": "Acme, Inc", "Pod": "example-pod", "Region": "us-east-1", "Description": "Description of the Tenant", "Products": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Tenant | ConvertTo-JSON
+ConvertFrom-JsonToTenant -Json $Tenant
 ```
 
 

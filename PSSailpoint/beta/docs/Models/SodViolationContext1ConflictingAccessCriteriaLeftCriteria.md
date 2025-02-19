@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $SodViolationContext1ConflictingAccessCriteriaLeftCriteria = Initialize-PSSailpoint.BetaSodViolationContext1ConflictingAccessCriteriaLeftCriteria  -CriteriaList null
+$SodViolationContext1ConflictingAccessCriteriaLeftCriteria = @"{  "CriteriaList": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SodViolationContext1ConflictingAccessCriteriaLeftCriteria | ConvertTo-JSON
+ConvertFrom-JsonToSodViolationContext1ConflictingAccessCriteriaLeftCriteria -Json $SodViolationContext1ConflictingAccessCriteriaLeftCriteria
 ```
 
 

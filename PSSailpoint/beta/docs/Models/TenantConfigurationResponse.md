@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $TenantConfigurationResponse = Initialize-PSSailpoint.BetaTenantConfigurationResponse  -AuditDetails null `
  -ConfigDetails null
+$TenantConfigurationResponse = @"{  "AuditDetails": null, "ConfigDetails": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TenantConfigurationResponse | ConvertTo-JSON
+ConvertFrom-JsonToTenantConfigurationResponse -Json $TenantConfigurationResponse
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AccountsExportReportArguments = Initialize-PSSailpoint.V2024AccountsExportReportArguments  -Application 2c9180897eSourceIde781782f705b9 `
  -SourceName Active Directory
+$AccountsExportReportArguments = @"{  "Application": "2c9180897eSourceIde781782f705b9", "SourceName": "Active Directory" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountsExportReportArguments | ConvertTo-JSON
+ConvertFrom-JsonToAccountsExportReportArguments -Json $AccountsExportReportArguments
 ```
 
 

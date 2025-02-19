@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SessionConfiguration = Initialize-PSSailpoint.V3SessionConfiguration  -MaxIdleTime 15 `
  -RememberMe true `
  -MaxSessionTime 45
+$SessionConfiguration = @"{  "MaxIdleTime": "15", "RememberMe": true, "MaxSessionTime": "45" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SessionConfiguration | ConvertTo-JSON
+ConvertFrom-JsonToSessionConfiguration -Json $SessionConfiguration
 ```
 
 

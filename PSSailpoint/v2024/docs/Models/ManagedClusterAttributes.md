@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ManagedClusterAttributes = Initialize-PSSailpoint.V2024ManagedClusterAttributes  -Queue null `
  -Keystore /u3+7QAAAAIAAAABAAAAAQAvL3Byb3h5LWNsdXN0ZXIvMmM5MTgwODc3Yjg3MW
+$ManagedClusterAttributes = @"{  "Queue": null, "Keystore": "/u3+7QAAAAIAAAABAAAAAQAvL3Byb3h5LWNsdXN0ZXIvMmM5MTgwODc3Yjg3MW" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ManagedClusterAttributes | ConvertTo-JSON
+ConvertFrom-JsonToManagedClusterAttributes -Json $ManagedClusterAttributes
 ```
 
 

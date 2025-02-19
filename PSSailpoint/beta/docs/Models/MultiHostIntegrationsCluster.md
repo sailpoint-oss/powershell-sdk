@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $MultiHostIntegrationsCluster = Initialize-PSSailpoint.BetaMultiHostIntegrationsCluster  -Type CLUSTER `
  -Id 2c9180866166b5b0016167c32ef31a66 `
  -Name Corporate Cluster
+$MultiHostIntegrationsCluster = @"{  "Type": "CLUSTER", "Id": "2c9180866166b5b0016167c32ef31a66", "Name": "Corporate Cluster" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostIntegrationsCluster | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostIntegrationsCluster -Json $MultiHostIntegrationsCluster
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover = Initialize-PSSailpoint.BetaAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover  -Type IDENTITY `
  -Id 2c3780a46faadee4016fb4e018c20652 `
  -Name Allen Albertson
+$AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover = @"{  "Type": "IDENTITY", "Id": "2c3780a46faadee4016fb4e018c20652", "Name": "Allen Albertson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover -Json $AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
 ```
 
 

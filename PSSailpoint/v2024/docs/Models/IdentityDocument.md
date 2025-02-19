@@ -74,7 +74,7 @@ $IdentityDocument = Initialize-PSSailpoint.V2024IdentityDocument  -Id 2c91808568
  -IsManager false `
  -IdentityProfile null `
  -Source null `
- -Attributes {country&#x3D;US, firstname&#x3D;Carol, cloudStatus&#x3D;UNREGISTERED} `
+ -Attributes {country=US, firstname=Carol, cloudStatus=UNREGISTERED} `
  -ProcessingState null `
  -ProcessingDetails null `
  -Accounts null `
@@ -89,11 +89,12 @@ $IdentityDocument = Initialize-PSSailpoint.V2024IdentityDocument  -Id 2c91808568
  -Owns null `
  -OwnsCount 5 `
  -Tags [TAG_1, TAG_2]
+$IdentityDocument = @"{  "Id": "2c91808568c529c60168cca6f90c1313", "Name": "John Doe", "Type": null, "DisplayName": "Carol.Adams", "FirstName": "Carol", "LastName": "Adams", "Email": "Carol.Adams@sailpointdemo.com", "Created": "2018-06-25T20:22:28.104Z", "Modified": "2018-06-25T20:22:28.104Z", "Phone": "+1 440-527-3672", "Synced": "null", "Inactive": false, "Protected": false, "Status": "UNREGISTERED", "EmployeeNumber": "1a2a3d4e", "Manager": null, "IsManager": false, "IdentityProfile": null, "Source": null, "Attributes": {"country": "US", "firstname": "Carol", "cloudStatus": "UNREGISTERED}", "ProcessingState": "null", "ProcessingDetails": null, "Accounts": null, "AccountCount": "3", "Apps": null, "AppCount": "2", "Access": null, "AccessCount": "5", "EntitlementCount": "10", "RoleCount": "1", "AccessProfileCount": "1", "Owns": null, "OwnsCount": "5", "Tags": ["TAG_1", "TAG_2"] }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityDocument | ConvertTo-JSON
+ConvertFrom-JsonToIdentityDocument -Json $IdentityDocument
 ```
 
 

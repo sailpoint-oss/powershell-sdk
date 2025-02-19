@@ -29,11 +29,12 @@ $ListWorkgroupMembers200ResponseInner = Initialize-PSSailpoint.V2024ListWorkgrou
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels `
  -Email michael.michaels@sailpoint.com
+$ListWorkgroupMembers200ResponseInner = @"{  "Type": "IDENTITY", "Id": "2c7180a46faadee4016fb4e018c20642", "Name": "Michael Michaels", "Email": "michael.michaels@sailpoint.com" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ListWorkgroupMembers200ResponseInner | ConvertTo-JSON
+ConvertFrom-JsonToListWorkgroupMembers200ResponseInner -Json $ListWorkgroupMembers200ResponseInner
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessProfileBulkDeleteResponse = Initialize-PSSailpoint.V2024AccessProfileBulkDeleteResponse  -TaskId 2c9180867817ac4d017817c491119a20 `
  -Pending [2c91808876438bbb017668c21919ecca, 2c91808876438bb201766e129f151816] `
  -InUse null
+$AccessProfileBulkDeleteResponse = @"{  "TaskId": "2c9180867817ac4d017817c491119a20", "Pending": ["2c91808876438bbb017668c21919ecca", "2c91808876438bb201766e129f151816"], "InUse": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileBulkDeleteResponse | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileBulkDeleteResponse -Json $AccessProfileBulkDeleteResponse
 ```
 
 

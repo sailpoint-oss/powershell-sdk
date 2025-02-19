@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ConnectorRuleCreateRequestSignature = Initialize-PSSailpoint.BetaConnectorRuleCreateRequestSignature  -VarInput null `
  -Output null
+$ConnectorRuleCreateRequestSignature = @"{  "VarInput": null, "Output": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConnectorRuleCreateRequestSignature | ConvertTo-JSON
+ConvertFrom-JsonToConnectorRuleCreateRequestSignature -Json $ConnectorRuleCreateRequestSignature
 ```
 
 

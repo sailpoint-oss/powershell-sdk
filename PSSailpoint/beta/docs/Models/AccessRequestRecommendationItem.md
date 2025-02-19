@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AccessRequestRecommendationItem = Initialize-PSSailpoint.BetaAccessRequestRecommendationItem  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Type null
+$AccessRequestRecommendationItem = @"{  "Id": "2c9180835d2e5168015d32f890ca1581", "Type": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestRecommendationItem | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestRecommendationItem -Json $AccessRequestRecommendationItem
 ```
 
 

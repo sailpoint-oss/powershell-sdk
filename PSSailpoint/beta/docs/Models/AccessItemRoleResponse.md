@@ -35,11 +35,12 @@ $AccessItemRoleResponse = Initialize-PSSailpoint.BetaAccessItemRoleResponse  -Ac
  -SourceName Source Name `
  -RemoveDate 2024-07-01T06:00:00.00Z `
  -Revocable true
+$AccessItemRoleResponse = @"{  "AccessType": "role", "Id": "2c918087763e69d901763e72e97f006f", "DisplayName": "sample", "Description": "Role - Workday/Citizenship access", "SourceName": "Source Name", "RemoveDate": "2024-07-01T06:00:00.00Z", "Revocable": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessItemRoleResponse | ConvertTo-JSON
+ConvertFrom-JsonToAccessItemRoleResponse -Json $AccessItemRoleResponse
 ```
 
 

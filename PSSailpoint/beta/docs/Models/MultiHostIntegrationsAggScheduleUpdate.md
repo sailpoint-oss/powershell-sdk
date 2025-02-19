@@ -37,11 +37,12 @@ $MultiHostIntegrationsAggScheduleUpdate = Initialize-PSSailpoint.BetaMultiHostIn
  -SourceIdList [004091cb79b04636b88662afa50a4440, 00af6d0d562a49b591c47be908740542] `
  -Created 2024-01-23T18:08:50.897Z `
  -Modified 2024-01-23T18:08:50.897Z
+$MultiHostIntegrationsAggScheduleUpdate = @"{  "MultihostId": "004091cb79b04636b88662afa50a4456", "AggregationGrpId": "004091cb79b04636b88662afa50a4448", "AggregationGrpName": "Multi-Host Integration aggregation group name", "AggregationCronSchedule": "0 0 0 * * ?", "EnableSchedule": false, "SourceIdList": ["004091cb79b04636b88662afa50a4440", "00af6d0d562a49b591c47be908740542"], "Created": "2024-01-23T18:08:50.897Z", "Modified": "2024-01-23T18:08:50.897Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostIntegrationsAggScheduleUpdate | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostIntegrationsAggScheduleUpdate -Json $MultiHostIntegrationsAggScheduleUpdate
 ```
 
 

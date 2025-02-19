@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AccessProfileUsage = Initialize-PSSailpoint.BetaAccessProfileUsage  -AccessProfileId 2c91808876438bbb017668c21919ecca `
  -UsedBy null
+$AccessProfileUsage = @"{  "AccessProfileId": "2c91808876438bbb017668c21919ecca", "UsedBy": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileUsage | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileUsage -Json $AccessProfileUsage
 ```
 
 

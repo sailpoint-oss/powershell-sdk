@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CertificationReferenceDto = Initialize-PSSailpoint.BetaCertificationReferenceDto  -Type IDENTITY `
  -Id 7589a83cec4b4f138ce56c1a5ef0756d `
  -Name Manager Access for Michael Michaels
+$CertificationReferenceDto = @"{  "Type": "IDENTITY", "Id": "7589a83cec4b4f138ce56c1a5ef0756d", "Name": "Manager Access for Michael Michaels" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CertificationReferenceDto | ConvertTo-JSON
+ConvertFrom-JsonToCertificationReferenceDto -Json $CertificationReferenceDto
 ```
 
 

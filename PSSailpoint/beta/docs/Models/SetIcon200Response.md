@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $SetIcon200Response = Initialize-PSSailpoint.BetaSetIcon200Response  -Icon 
+$SetIcon200Response = @"{  "Icon": "" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SetIcon200Response | ConvertTo-JSON
+ConvertFrom-JsonToSetIcon200Response -Json $SetIcon200Response
 ```
 
 

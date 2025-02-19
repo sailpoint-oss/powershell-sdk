@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccountAggregationCompletedSource = Initialize-PSSailpoint.V2024AccountAggregationCompletedSource  -Type SOURCE `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name HR Active Directory
+$AccountAggregationCompletedSource = @"{  "Type": "SOURCE", "Id": "2c9180835d191a86015d28455b4b232a", "Name": "HR Active Directory" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountAggregationCompletedSource | ConvertTo-JSON
+ConvertFrom-JsonToAccountAggregationCompletedSource -Json $AccountAggregationCompletedSource
 ```
 
 

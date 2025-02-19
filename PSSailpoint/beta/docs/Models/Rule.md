@@ -35,11 +35,12 @@ $Rule = Initialize-PSSailpoint.BetaRule  -Name Cloud Services Deployment Utility
  -IncludeSpecialChars true `
  -Length 10 `
  -Uid 2c91808570313110017040b06f344ec9
+$Rule = @"{  "Name": "Cloud Services Deployment Utility", "RequiresPeriodicRefresh": false, "Operation": "getReferenceIdentityAttribute", "IncludeNumbers": true, "IncludeSpecialChars": true, "Length": "10", "Uid": "2c91808570313110017040b06f344ec9" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Rule | ConvertTo-JSON
+ConvertFrom-JsonToRule -Json $Rule
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $LauncherReference = Initialize-PSSailpoint.BetaLauncherReference  -Type WORKFLOW `
  -Id 2fd6ff94-2081-4d29-acbc-83a0a2f744a5
+$LauncherReference = @"{  "Type": "WORKFLOW", "Id": "2fd6ff94-2081-4d29-acbc-83a0a2f744a5" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LauncherReference | ConvertTo-JSON
+ConvertFrom-JsonToLauncherReference -Json $LauncherReference
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $PasswordDigitTokenReset = Initialize-PSSailpoint.V2024PasswordDigitTokenReset  -UserId Abby.Smith `
  -Length 8 `
  -DurationMinutes 5
+$PasswordDigitTokenReset = @"{  "UserId": "Abby.Smith", "Length": "8", "DurationMinutes": "5" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PasswordDigitTokenReset | ConvertTo-JSON
+ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
 ```
 
 

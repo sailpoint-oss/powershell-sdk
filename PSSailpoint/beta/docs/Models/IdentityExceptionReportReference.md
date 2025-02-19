@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $IdentityExceptionReportReference = Initialize-PSSailpoint.BetaIdentityExceptionReportReference  -TaskResultId null `
  -ReportName My annual report
+$IdentityExceptionReportReference = @"{  "TaskResultId": "null", "ReportName": "My annual report" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityExceptionReportReference | ConvertTo-JSON
+ConvertFrom-JsonToIdentityExceptionReportReference -Json $IdentityExceptionReportReference
 ```
 
 

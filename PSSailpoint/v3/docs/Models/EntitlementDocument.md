@@ -51,11 +51,12 @@ $EntitlementDocument = Initialize-PSSailpoint.V3EntitlementDocument  -Id 2c91808
  -Privileged false `
  -IdentityCount 3 `
  -Tags [TAG_1, TAG_2]
+$EntitlementDocument = @"{  "Id": "2c91808375d8e80a0175e1f88a575222", "Name": "john.doe", "Type": null, "Modified": "2018-06-25T20:22:28.104Z", "Synced": "null", "DisplayName": "Admin", "Source": null, "Segments": null, "SegmentCount": "1", "Requestable": false, "CloudGoverned": false, "Created": "2018-06-25T20:22:28.104Z", "Privileged": false, "IdentityCount": "3", "Tags": ["TAG_1", "TAG_2"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$EntitlementDocument | ConvertTo-JSON
+ConvertFrom-JsonToEntitlementDocument -Json $EntitlementDocument
 ```
 
 

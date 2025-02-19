@@ -29,11 +29,12 @@ $PasswordStatus = Initialize-PSSailpoint.BetaPasswordStatus  -RequestId 089899f1
  -State null `
  -Errors null `
  -SourceIds null
+$PasswordStatus = @"{  "RequestId": "089899f13a8f4da7824996191587bab9", "State": "null", "Errors": null, "SourceIds": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PasswordStatus | ConvertTo-JSON
+ConvertFrom-JsonToPasswordStatus -Json $PasswordStatus
 ```
 
 

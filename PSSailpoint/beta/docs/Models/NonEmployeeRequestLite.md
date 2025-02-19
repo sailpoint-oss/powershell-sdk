@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $NonEmployeeRequestLite = Initialize-PSSailpoint.BetaNonEmployeeRequestLite  -Id ac10e21c-931c-1ef2-8193-1c51e7ff0003 `
  -Requester null
+$NonEmployeeRequestLite = @"{  "Id": "ac10e21c-931c-1ef2-8193-1c51e7ff0003", "Requester": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeRequestLite | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeRequestLite -Json $NonEmployeeRequestLite
 ```
 
 

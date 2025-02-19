@@ -29,11 +29,12 @@ $NonEmployeeRequestSummary = Initialize-PSSailpoint.BetaNonEmployeeRequestSummar
  -Rejected null `
  -Pending null `
  -NonEmployeeCount null
+$NonEmployeeRequestSummary = @"{  "Approved": null, "Rejected": null, "Pending": null, "NonEmployeeCount": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeRequestSummary | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeRequestSummary -Json $NonEmployeeRequestSummary
 ```
 
 

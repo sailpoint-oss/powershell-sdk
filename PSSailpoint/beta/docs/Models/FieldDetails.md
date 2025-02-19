@@ -31,13 +31,14 @@ $FieldDetails = Initialize-PSSailpoint.BetaFieldDetails  -Name Field1 `
  -DisplayName Field 1 `
  -DisplayType checkbox `
  -Required null `
- -AllowedValuesList [{Val1Display&#x3D;null, Val1Value&#x3D;null}, {Val2Display&#x3D;null, Val2Value&#x3D;null}] `
+ -AllowedValuesList [{Val1Display=null, Val1Value=null}, {Val2Display=null, Val2Value=null}] `
  -Value null
+$FieldDetails = @"{  "Name": "Field1", "DisplayName": "Field 1", "DisplayType": "checkbox", "Required": null, "AllowedValuesList": [{"Val1Display": null, "Val1Value": "null}"}, {"Val2Display": null, "Val2Value": "null}]", "Value": "null "}]}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FieldDetails | ConvertTo-JSON
+ConvertFrom-JsonToFieldDetails -Json $FieldDetails
 ```
 
 

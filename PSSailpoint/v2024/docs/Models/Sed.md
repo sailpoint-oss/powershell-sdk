@@ -49,11 +49,12 @@ $Sed = Initialize-PSSailpoint.V2024Sed  -Name BatchInvoiceProcessing `
  -SuggestedDescription This entitlement allows automated processing of invoices in batches on a scheduled basis to streamline accounts payable `
  -Type group `
  -Value group
+$Sed = @"{  "Name": "BatchInvoiceProcessing", "ApprovedBy": "2c918086-76de-afbf-0176-f6d28f65565a", "ApprovedType": "admin", "ApprovedWhen": null, "Attribute": "Role", "Description": "This entitlement allows automated processing of invoices in batches on a scheduled basis to streamline accounts payable procedures.", "DisplayName": "AWS-Cloud-Billing", "Id": "ead281ee-12a9-40ac-9534-36b5d7d65d53", "SourceId": "103f567b93ee49b991c40f9412f87643", "SourceName": "IDN Salesforce", "Status": "suggested", "SuggestedDescription": "This entitlement allows automated processing of invoices in batches on a scheduled basis to streamline accounts payable", "Type": "group", "Value": "group" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Sed | ConvertTo-JSON
+ConvertFrom-JsonToSed -Json $Sed
 ```
 
 

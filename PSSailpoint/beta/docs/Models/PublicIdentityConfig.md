@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $PublicIdentityConfig = Initialize-PSSailpoint.BetaPublicIdentityConfig  -Attributes null `
  -ModifiedBy null `
  -Modified 2018-06-25T20:22:28.104Z
+$PublicIdentityConfig = @"{  "Attributes": null, "ModifiedBy": null, "Modified": "2018-06-25T20:22:28.104Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PublicIdentityConfig | ConvertTo-JSON
+ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig
 ```
 
 

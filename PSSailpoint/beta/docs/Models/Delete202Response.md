@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $Delete202Response = Initialize-PSSailpoint.BetaDelete202Response  -Type TASK_RESULT `
  -Id 2c91808779ecf55b0179f720942f181a `
  -Name null
+$Delete202Response = @"{  "Type": "TASK_RESULT", "Id": "2c91808779ecf55b0179f720942f181a", "Name": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Delete202Response | ConvertTo-JSON
+ConvertFrom-JsonToDelete202Response -Json $Delete202Response
 ```
 
 

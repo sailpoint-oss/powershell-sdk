@@ -31,11 +31,12 @@ $RecommendationRequestDto = Initialize-PSSailpoint.BetaRecommendationRequestDto 
  -IncludeTranslationMessages false `
  -IncludeDebugInformation true `
  -PrescribeMode false
+$RecommendationRequestDto = @"{  "Requests": null, "ExcludeInterpretations": false, "IncludeTranslationMessages": false, "IncludeDebugInformation": true, "PrescribeMode": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RecommendationRequestDto | ConvertTo-JSON
+ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto
 ```
 
 

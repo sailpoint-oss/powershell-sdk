@@ -29,11 +29,12 @@ $ObjectImportResult = Initialize-PSSailpoint.V3ObjectImportResult  -Infos null `
  -Warnings null `
  -Errors null `
  -ImportedObjects null
+$ObjectImportResult = @"{  "Infos": null, "Warnings": null, "Errors": null, "ImportedObjects": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ObjectImportResult | ConvertTo-JSON
+ConvertFrom-JsonToObjectImportResult -Json $ObjectImportResult
 ```
 
 

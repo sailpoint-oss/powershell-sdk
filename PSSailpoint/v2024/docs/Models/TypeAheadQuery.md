@@ -35,11 +35,12 @@ $TypeAheadQuery = Initialize-PSSailpoint.V2024TypeAheadQuery  -Query Work `
  -Size 100 `
  -Sort asc `
  -SortByValue true
+$TypeAheadQuery = @"{  "Query": "Work", "Field": "source.name", "NestedType": "access", "MaxExpansions": "10", "Size": "100", "Sort": "asc", "SortByValue": "true "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TypeAheadQuery | ConvertTo-JSON
+ConvertFrom-JsonToTypeAheadQuery -Json $TypeAheadQuery
 ```
 
 

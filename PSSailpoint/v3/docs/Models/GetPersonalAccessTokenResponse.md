@@ -35,11 +35,12 @@ $GetPersonalAccessTokenResponse = Initialize-PSSailpoint.V3GetPersonalAccessToke
  -Created 2017-07-11T18:45:37.098Z `
  -LastUsed 2017-07-11T18:45:37.098Z `
  -Managed false
+$GetPersonalAccessTokenResponse = @"{  "Id": "86f1dc6fe8f54414950454cbb11278fa", "Name": "NodeJS Integration", "Scope": ["demo:", "personal-access-token-scope:first", "demo:", "personal-access-token-scope:second]", "Owner: null", "Created:", "2017-07-11T18:45:37.098Z", "LastUsed:", "2017-07-11T18:45:37.098Z", "Managed: false"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$GetPersonalAccessTokenResponse | ConvertTo-JSON
+ConvertFrom-JsonToGetPersonalAccessTokenResponse -Json $GetPersonalAccessTokenResponse
 ```
 
 

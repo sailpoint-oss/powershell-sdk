@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AccountToggleRequest = Initialize-PSSailpoint.V3AccountToggleRequest  -ExternalVerificationId 3f9180835d2e5168015d32f890ca1581 `
  -ForceProvisioning false
+$AccountToggleRequest = @"{  "ExternalVerificationId": "3f9180835d2e5168015d32f890ca1581", "ForceProvisioning": "false "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountToggleRequest | ConvertTo-JSON
+ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
 ```
 
 

@@ -22,11 +22,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $TaskStatusMessageParametersInner = Initialize-PSSailpoint.V2024TaskStatusMessageParametersInner 
+$TaskStatusMessageParametersInner = @"{  }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TaskStatusMessageParametersInner | ConvertTo-JSON
+ConvertFrom-JsonToTaskStatusMessageParametersInner -Json $TaskStatusMessageParametersInner
 ```
 
 

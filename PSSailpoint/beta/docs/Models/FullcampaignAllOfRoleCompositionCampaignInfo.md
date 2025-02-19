@@ -31,11 +31,12 @@ $FullcampaignAllOfRoleCompositionCampaignInfo = Initialize-PSSailpoint.BetaFullc
  -RemediatorRef null `
  -Query Search Query `
  -Description Role Composition Description
+$FullcampaignAllOfRoleCompositionCampaignInfo = @"{  "Reviewer": null, "RoleIds": ["2c90ad2a70ace7d50170acf22ca90010"], "RemediatorRef": null, "Query": "Search Query", "Description": "Role Composition Description" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FullcampaignAllOfRoleCompositionCampaignInfo | ConvertTo-JSON
+ConvertFrom-JsonToFullcampaignAllOfRoleCompositionCampaignInfo -Json $FullcampaignAllOfRoleCompositionCampaignInfo
 ```
 
 

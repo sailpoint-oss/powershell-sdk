@@ -42,16 +42,17 @@ $NonEmployeeRecord = Initialize-PSSailpoint.V2024NonEmployeeRecord  -Id ef38f943
  -Phone 5125555555 `
  -Manager jane.doe `
  -SourceId 2c91808568c529c60168cca6f90c1313 `
- -VarData {description&#x3D;Auditing} `
+ -VarData {description=Auditing} `
  -StartDate 2019-08-23T18:52:59.162Z `
  -EndDate 2020-08-23T18:52:59.162Z `
  -Modified 2019-08-23T18:52:59.162Z `
  -Created 2019-08-23T18:40:35.772Z
+$NonEmployeeRecord = @"{  "Id": "ef38f94347e94562b5bb8424a56397d8", "AccountName": "Abby.Smith", "FirstName": "William", "LastName": "Smith", "Email": "william.smith@example.com", "Phone": "5125555555", "Manager": "jane.doe", "SourceId": "2c91808568c529c60168cca6f90c1313", "VarData": {"description": "Auditing}", "StartDate": "2019-08-23T18:52:59.162Z", "EndDate": "2020-08-23T18:52:59.162Z", "Modified": "2019-08-23T18:52:59.162Z", "Created": "2019-08-23T18:40:35.772Z" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeRecord | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeRecord -Json $NonEmployeeRecord
 ```
 
 

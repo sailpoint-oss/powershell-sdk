@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ImportSpConfigRequest = Initialize-PSSailpoint.BetaImportSpConfigRequest  -VarData null `
  -Options null
+$ImportSpConfigRequest = @"{  "VarData": null, "Options": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ImportSpConfigRequest | ConvertTo-JSON
+ConvertFrom-JsonToImportSpConfigRequest -Json $ImportSpConfigRequest
 ```
 
 

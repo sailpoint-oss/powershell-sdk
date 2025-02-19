@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ResourceObjectsRequest = Initialize-PSSailpoint.BetaResourceObjectsRequest  -ObjectType group `
  -MaxCount 100
+$ResourceObjectsRequest = @"{  "ObjectType": "group", "MaxCount": "100" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ResourceObjectsRequest | ConvertTo-JSON
+ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
 ```
 
 

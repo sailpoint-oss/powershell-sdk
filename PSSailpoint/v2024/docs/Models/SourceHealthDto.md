@@ -41,11 +41,12 @@ $SourceHealthDto = Initialize-PSSailpoint.V2024SourceHealthDto  -Id 2c91808568c5
  -Pod megapod-useast1 `
  -IqServiceVersion iqVersion123 `
  -Status SOURCE_STATE_UNCHECKED_SOURCE
+$SourceHealthDto = @"{  "Id": "2c91808568c529c60168cca6f90c1324", "Type": "OpenLDAP - Direct", "Name": "Source1234", "Org": "denali-cjh", "IsAuthoritative": false, "IsCluster": false, "Hostname": "megapod-useast1-secret-hostname.sailpoint.com", "Pod": "megapod-useast1", "IqServiceVersion": "iqVersion123", "Status": "SOURCE_STATE_UNCHECKED_SOURCE" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceHealthDto | ConvertTo-JSON
+ConvertFrom-JsonToSourceHealthDto -Json $SourceHealthDto
 ```
 
 

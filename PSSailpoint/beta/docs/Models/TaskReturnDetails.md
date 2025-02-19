@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $TaskReturnDetails = Initialize-PSSailpoint.BetaTaskReturnDetails  -Name label `
  -AttributeName identityCount
+$TaskReturnDetails = @"{  "Name": "label", "AttributeName": "identityCount" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TaskReturnDetails | ConvertTo-JSON
+ConvertFrom-JsonToTaskReturnDetails -Json $TaskReturnDetails
 ```
 
 

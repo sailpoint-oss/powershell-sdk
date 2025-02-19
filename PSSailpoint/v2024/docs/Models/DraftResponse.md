@@ -53,11 +53,12 @@ $DraftResponse = Initialize-PSSailpoint.V2024DraftResponse  -JobId 07659d7d-2cce
  -Mode RESTORE `
  -ApprovalStatus APPROVED `
  -ApprovalComment null
+$DraftResponse = @"{  "JobId": "07659d7d-2cce-47c0-9e49-185787ee565a", "Status": "COMPLETE", "Type": "CREATE_DRAFT", "Message": "Draft creation message", "RequesterName": "requester.name", "FileExists": true, "Created": "2021-05-11T22:23:16Z", "Modified": "2021-05-11T22:23:16Z", "Completed": "2021-05-11T22:23:16Z", "Name": "Draft name", "SourceTenant": "source-tenant", "SourceBackupId": "549bf881-1ac4-4a64-9acf-6014e8a3a887", "SourceBackupName": "Source backup name", "Mode": "RESTORE", "ApprovalStatus": "APPROVED", "ApprovalComment": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DraftResponse | ConvertTo-JSON
+ConvertFrom-JsonToDraftResponse -Json $DraftResponse
 ```
 
 

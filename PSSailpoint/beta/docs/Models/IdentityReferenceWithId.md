@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $IdentityReferenceWithId = Initialize-PSSailpoint.BetaIdentityReferenceWithId  -Type null `
  -Id 5168015d32f890ca15812c9180835d2e
+$IdentityReferenceWithId = @"{  "Type": null, "Id": "5168015d32f890ca15812c9180835d2e" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityReferenceWithId | ConvertTo-JSON
+ConvertFrom-JsonToIdentityReferenceWithId -Json $IdentityReferenceWithId
 ```
 
 

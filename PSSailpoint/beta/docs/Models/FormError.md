@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $FormError = Initialize-PSSailpoint.BetaFormError  -Key department `
  -Messages null `
  -Value Engineering
+$FormError = @"{  "Key": "department", "Messages": null, "Value": "Engineering" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormError | ConvertTo-JSON
+ConvertFrom-JsonToFormError -Json $FormError
 ```
 
 

@@ -35,11 +35,12 @@ $Owns = Initialize-PSSailpoint.V3Owns  -Sources null `
  -Apps null `
  -GovernanceGroups null `
  -FallbackApprover false
+$Owns = @"{  "Sources": null, "Entitlements": null, "AccessProfiles": null, "Roles": null, "Apps": null, "GovernanceGroups": null, "FallbackApprover": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Owns | ConvertTo-JSON
+ConvertFrom-JsonToOwns -Json $Owns
 ```
 
 

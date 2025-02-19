@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SourcePasswordPoliciesInner = Initialize-PSSailpoint.V2024SourcePasswordPoliciesInner  -Type PASSWORD_POLICY `
  -Id 2c91808568c529c60168cca6f90c1777 `
  -Name My Password Policy
+$SourcePasswordPoliciesInner = @"{  "Type": "PASSWORD_POLICY", "Id": "2c91808568c529c60168cca6f90c1777", "Name": "My Password Policy" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourcePasswordPoliciesInner | ConvertTo-JSON
+ConvertFrom-JsonToSourcePasswordPoliciesInner -Json $SourcePasswordPoliciesInner
 ```
 
 

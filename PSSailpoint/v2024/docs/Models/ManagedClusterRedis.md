@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ManagedClusterRedis = Initialize-PSSailpoint.V2024ManagedClusterRedis  -RedisHost megapod-useast1-shared-redis.cloud.sailpoint.com `
  -RedisPort 6379
+$ManagedClusterRedis = @"{  "RedisHost": "megapod-useast1-shared-redis.cloud.sailpoint.com", "RedisPort": "6379" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ManagedClusterRedis | ConvertTo-JSON
+ConvertFrom-JsonToManagedClusterRedis -Json $ManagedClusterRedis
 ```
 
 

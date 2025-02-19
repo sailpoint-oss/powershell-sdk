@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $RoleAssignmentRef = Initialize-PSSailpoint.BetaRoleAssignmentRef  -Id 1cbb0705b38c4226b1334eadd8874086 `
  -Role null
+$RoleAssignmentRef = @"{  "Id": "1cbb0705b38c4226b1334eadd8874086", "Role": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleAssignmentRef | ConvertTo-JSON
+ConvertFrom-JsonToRoleAssignmentRef -Json $RoleAssignmentRef
 ```
 
 

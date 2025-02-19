@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CommentDtoAuthor = Initialize-PSSailpoint.V3CommentDtoAuthor  -Type IDENTITY `
  -Id 2c9180847e25f377017e2ae8cae4650b `
  -Name john.doe
+$CommentDtoAuthor = @"{  "Type": "IDENTITY", "Id": "2c9180847e25f377017e2ae8cae4650b", "Name": "john.doe" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CommentDtoAuthor | ConvertTo-JSON
+ConvertFrom-JsonToCommentDtoAuthor -Json $CommentDtoAuthor
 ```
 
 

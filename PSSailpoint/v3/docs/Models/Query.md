@@ -29,11 +29,12 @@ $Query = Initialize-PSSailpoint.V3Query  -Query name:a* `
  -Fields [firstName,lastName,email] `
  -TimeZone America/Chicago `
  -InnerHit null
+$Query = @"{  "Query": "name:a*", "Fields": "[firstName,lastName,email]", "TimeZone": "America/Chicago", "InnerHit": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Query | ConvertTo-JSON
+ConvertFrom-JsonToQuery -Json $Query
 ```
 
 

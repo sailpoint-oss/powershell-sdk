@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $VendorConnectorMappingDeletedBy = Initialize-PSSailpoint.BetaVendorConnectorMappingDeletedBy  -String  `
  -Valid false
+$VendorConnectorMappingDeletedBy = @"{  "String": "", "Valid": "false "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$VendorConnectorMappingDeletedBy | ConvertTo-JSON
+ConvertFrom-JsonToVendorConnectorMappingDeletedBy -Json $VendorConnectorMappingDeletedBy
 ```
 
 

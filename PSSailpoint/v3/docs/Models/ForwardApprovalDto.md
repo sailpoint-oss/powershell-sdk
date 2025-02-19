@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ForwardApprovalDto = Initialize-PSSailpoint.V3ForwardApprovalDto  -NewOwnerId 2c91808568c529c60168cca6f90c1314 `
  -Comment 2c91808568c529c60168cca6f90c1313
+$ForwardApprovalDto = @"{  "NewOwnerId": "2c91808568c529c60168cca6f90c1314", "Comment": "2c91808568c529c60168cca6f90c1313" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ForwardApprovalDto | ConvertTo-JSON
+ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
 ```
 
 

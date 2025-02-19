@@ -33,11 +33,12 @@ $RoleInsight = Initialize-PSSailpoint.V2024RoleInsight  -Id 1467e61e-f284-439c-b
  -ModifiedDate 2020-05-19T13:49:37.385Z `
  -Role null `
  -Insight null
+$RoleInsight = @"{  "Id": "1467e61e-f284-439c-ba2d-c6cc11cf0941", "NumberOfUpdates": "5", "CreatedDate": null, "ModifiedDate": "2020-05-19T13:49:37.385Z", "Role": null, "Insight": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleInsight | ConvertTo-JSON
+ConvertFrom-JsonToRoleInsight -Json $RoleInsight
 ```
 
 

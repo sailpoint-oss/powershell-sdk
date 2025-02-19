@@ -47,11 +47,12 @@ $IdentityProfile = Initialize-PSSailpoint.BetaIdentityProfile  -Id id12345 `
  -IdentityAttributeConfig null `
  -IdentityExceptionReportReference null `
  -HasTimeBasedAttr true
+$IdentityProfile = @"{  "Id": "id12345", "Name": "aName", "Created": "2023-01-03T21:16:22.432Z", "Modified": "2023-01-03T21:16:22.432Z", "Description": "My custom flat file profile", "Owner": null, "Priority": "10", "AuthoritativeSource": null, "IdentityRefreshRequired": true, "IdentityCount": "8", "IdentityAttributeConfig": null, "IdentityExceptionReportReference": null, "HasTimeBasedAttr": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityProfile | ConvertTo-JSON
+ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
 ```
 
 

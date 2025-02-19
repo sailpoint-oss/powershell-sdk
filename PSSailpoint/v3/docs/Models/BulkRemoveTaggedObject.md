@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $BulkRemoveTaggedObject = Initialize-PSSailpoint.V3BulkRemoveTaggedObject  -ObjectRefs null `
  -Tags [BU_FINANCE, PCI]
+$BulkRemoveTaggedObject = @"{  "ObjectRefs": null, "Tags": ["BU_FINANCE", "PCI"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BulkRemoveTaggedObject | ConvertTo-JSON
+ConvertFrom-JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
 ```
 
 

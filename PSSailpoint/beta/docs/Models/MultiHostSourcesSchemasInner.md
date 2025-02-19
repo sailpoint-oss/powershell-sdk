@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $MultiHostSourcesSchemasInner = Initialize-PSSailpoint.BetaMultiHostSourcesSchemasInner  -Type CONNECTOR_SCHEMA `
  -Id 2c91808568c529c60168cca6f90c1777 `
  -Name MySchema
+$MultiHostSourcesSchemasInner = @"{  "Type": "CONNECTOR_SCHEMA", "Id": "2c91808568c529c60168cca6f90c1777", "Name": "MySchema" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostSourcesSchemasInner | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostSourcesSchemasInner -Json $MultiHostSourcesSchemasInner
 ```
 
 

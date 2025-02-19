@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentityProfileExportedObject = Initialize-PSSailpoint.BetaIdentityProfileExportedObject  -Version 1 `
  -Self null `
  -Object null
+$IdentityProfileExportedObject = @"{  "Version": "1", "Self": null, "Object": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityProfileExportedObject | ConvertTo-JSON
+ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
 ```
 
 

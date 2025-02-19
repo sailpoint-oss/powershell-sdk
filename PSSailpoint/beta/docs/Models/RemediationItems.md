@@ -39,11 +39,12 @@ $RemediationItems = Initialize-PSSailpoint.BetaRemediationItems  -Id 2c9180835d2
  -AttributeOperation update `
  -AttributeValue 512-555-1212 `
  -NativeIdentity jason.smith2
+$RemediationItems = @"{  "Id": "2c9180835d2e5168015d32f890ca1581", "TargetId": "2c9180835d2e5168015d32f890ca1581", "TargetName": "john.smith", "TargetDisplayName": "emailAddress", "ApplicationName": "Active Directory", "AttributeName": "phoneNumber", "AttributeOperation": "update", "AttributeValue": "512-555-1212", "NativeIdentity": "jason.smith2" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RemediationItems | ConvertTo-JSON
+ConvertFrom-JsonToRemediationItems -Json $RemediationItems
 ```
 
 

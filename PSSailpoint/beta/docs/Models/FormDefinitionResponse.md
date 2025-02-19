@@ -41,11 +41,12 @@ $FormDefinitionResponse = Initialize-PSSailpoint.BetaFormDefinitionResponse  -Id
  -FormConditions null `
  -Created 2023-07-12T20:14:57.744860Z `
  -Modified 2023-07-12T20:14:57.744860Z
+$FormDefinitionResponse = @"{  "Id": "00000000-0000-0000-0000-000000000000", "Name": "My form", "Description": "My form description", "Owner": null, "UsedBy": null, "FormInput": null, "FormElements": null, "FormConditions": null, "Created": "2023-07-12T20:14:57.744860Z", "Modified": "2023-07-12T20:14:57.744860Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormDefinitionResponse | ConvertTo-JSON
+ConvertFrom-JsonToFormDefinitionResponse -Json $FormDefinitionResponse
 ```
 
 

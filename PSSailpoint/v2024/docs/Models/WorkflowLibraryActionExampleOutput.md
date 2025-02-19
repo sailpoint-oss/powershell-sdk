@@ -22,11 +22,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $WorkflowLibraryActionExampleOutput = Initialize-PSSailpoint.V2024WorkflowLibraryActionExampleOutput 
+$WorkflowLibraryActionExampleOutput = @"{  }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkflowLibraryActionExampleOutput | ConvertTo-JSON
+ConvertFrom-JsonToWorkflowLibraryActionExampleOutput -Json $WorkflowLibraryActionExampleOutput
 ```
 
 

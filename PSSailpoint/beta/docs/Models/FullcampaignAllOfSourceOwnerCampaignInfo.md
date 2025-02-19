@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $FullcampaignAllOfSourceOwnerCampaignInfo = Initialize-PSSailpoint.BetaFullcampaignAllOfSourceOwnerCampaignInfo  -SourceIds [0fbe863c063c4c88a35fd7f17e8a3df5]
+$FullcampaignAllOfSourceOwnerCampaignInfo = @"{  "SourceIds": ["0fbe863c063c4c88a35fd7f17e8a3df5"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FullcampaignAllOfSourceOwnerCampaignInfo | ConvertTo-JSON
+ConvertFrom-JsonToFullcampaignAllOfSourceOwnerCampaignInfo -Json $FullcampaignAllOfSourceOwnerCampaignInfo
 ```
 
 

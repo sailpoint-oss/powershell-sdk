@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ForwardApprovalDto = Initialize-PSSailpoint.BetaForwardApprovalDto  -NewOwnerId null `
  -Comment null
+$ForwardApprovalDto = @"{  "NewOwnerId": "null", "Comment": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ForwardApprovalDto | ConvertTo-JSON
+ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
 ```
 
 

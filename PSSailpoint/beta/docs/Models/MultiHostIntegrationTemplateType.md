@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $MultiHostIntegrationTemplateType = Initialize-PSSailpoint.BetaMultiHostIntegrationTemplateType  -Name aName `
  -Type aType `
  -ScriptName aScriptName
+$MultiHostIntegrationTemplateType = @"{  "Name": "aName", "Type": "aType", "ScriptName": "aScriptName" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostIntegrationTemplateType | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostIntegrationTemplateType -Json $MultiHostIntegrationTemplateType
 ```
 
 

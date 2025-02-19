@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SpConfigRules = Initialize-PSSailpoint.V2024SpConfigRules  -TakeFromTargetRules null `
  -DefaultRules null `
  -Editable true
+$SpConfigRules = @"{  "TakeFromTargetRules": null, "DefaultRules": null, "Editable": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SpConfigRules | ConvertTo-JSON
+ConvertFrom-JsonToSpConfigRules -Json $SpConfigRules
 ```
 
 

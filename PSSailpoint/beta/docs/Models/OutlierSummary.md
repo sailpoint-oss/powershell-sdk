@@ -31,11 +31,12 @@ $OutlierSummary = Initialize-PSSailpoint.BetaOutlierSummary  -Type LOW_SIMILARIT
  -TotalOutliers 50 `
  -TotalIdentities 5000 `
  -TotalIgnored 0
+$OutlierSummary = @"{  "Type": "LOW_SIMILARITY", "SnapshotDate": "2021-05-01T18:40:35.772Z", "TotalOutliers": "50", "TotalIdentities": "5000", "TotalIgnored": "0" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$OutlierSummary | ConvertTo-JSON
+ConvertFrom-JsonToOutlierSummary -Json $OutlierSummary
 ```
 
 

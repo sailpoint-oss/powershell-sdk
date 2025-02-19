@@ -29,11 +29,12 @@ $AccessRequested = Initialize-PSSailpoint.V2024AccessRequested  -AccessRequest n
  -IdentityId 8a80828f643d484f01643e14202e206f `
  -EventType AccessRequested `
  -Dt 2019-03-08T22:37:33.901Z
+$AccessRequested = @"{  "AccessRequest": null, "IdentityId": "8a80828f643d484f01643e14202e206f", "EventType": "AccessRequested", "Dt": "2019-03-08T22:37:33.901Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequested | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequested -Json $AccessRequested
 ```
 
 

@@ -29,11 +29,12 @@ $BaseAccessAllOfOwner = Initialize-PSSailpoint.V3BaseAccessAllOfOwner  -Type IDE
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Support `
  -Email cloud-support@sailpoint.com
+$BaseAccessAllOfOwner = @"{  "Type": "IDENTITY", "Id": "2c9180a46faadee4016fb4e018c20639", "Name": "Support", "Email": "cloud-support@sailpoint.com" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BaseAccessAllOfOwner | ConvertTo-JSON
+ConvertFrom-JsonToBaseAccessAllOfOwner -Json $BaseAccessAllOfOwner
 ```
 
 

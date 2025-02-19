@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SedBatchRequest = Initialize-PSSailpoint.V2024SedBatchRequest  -Entitlements null `
  -Seds null
+$SedBatchRequest = @"{  "Entitlements": null, "Seds": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SedBatchRequest | ConvertTo-JSON
+ConvertFrom-JsonToSedBatchRequest -Json $SedBatchRequest
 ```
 
 

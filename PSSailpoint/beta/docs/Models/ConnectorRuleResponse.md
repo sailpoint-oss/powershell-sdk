@@ -39,11 +39,12 @@ $ConnectorRuleResponse = Initialize-PSSailpoint.BetaConnectorRuleResponse  -Name
  -Id 8113d48c0b914f17b4c6072d4dcb9dfe `
  -Created 021-07-22T15:59:23Z `
  -Modified 021-07-22T15:59:23Z
+$ConnectorRuleResponse = @"{  "Name": "WebServiceBeforeOperationRule", "Description": "This rule does that", "Type": "BuildMap", "Signature": null, "SourceCode": null, "Attributes": {}, "Id": "8113d48c0b914f17b4c6072d4dcb9dfe", "Created": "021-07-22T15:59:23Z", "Modified": "021-07-22T15:59:23Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConnectorRuleResponse | ConvertTo-JSON
+ConvertFrom-JsonToConnectorRuleResponse -Json $ConnectorRuleResponse
 ```
 
 

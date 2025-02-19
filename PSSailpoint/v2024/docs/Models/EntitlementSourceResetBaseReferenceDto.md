@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $EntitlementSourceResetBaseReferenceDto = Initialize-PSSailpoint.V2024EntitlementSourceResetBaseReferenceDto  -Type TASK_RESULT `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Entitlement Source Reset
+$EntitlementSourceResetBaseReferenceDto = @"{  "Type": "TASK_RESULT", "Id": "2c91808568c529c60168cca6f90c1313", "Name": "Entitlement Source Reset" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$EntitlementSourceResetBaseReferenceDto | ConvertTo-JSON
+ConvertFrom-JsonToEntitlementSourceResetBaseReferenceDto -Json $EntitlementSourceResetBaseReferenceDto
 ```
 
 

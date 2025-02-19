@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccountUnlockRequest = Initialize-PSSailpoint.V3AccountUnlockRequest  -ExternalVerificationId 3f9180835d2e5168015d32f890ca1581 `
  -UnlockIDNAccount false `
  -ForceProvisioning false
+$AccountUnlockRequest = @"{  "ExternalVerificationId": "3f9180835d2e5168015d32f890ca1581", "UnlockIDNAccount": false, "ForceProvisioning": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountUnlockRequest | ConvertTo-JSON
+ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
 ```
 
 

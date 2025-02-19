@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $BaseReferenceDto = Initialize-PSSailpoint.V3BaseReferenceDto  -Type null `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
+$BaseReferenceDto = @"{  "Type": null, "Id": "2c91808568c529c60168cca6f90c1313", "Name": "William Wilson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BaseReferenceDto | ConvertTo-JSON
+ConvertFrom-JsonToBaseReferenceDto -Json $BaseReferenceDto
 ```
 
 

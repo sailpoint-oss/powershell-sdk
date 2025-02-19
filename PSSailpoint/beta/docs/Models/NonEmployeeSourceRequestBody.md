@@ -33,11 +33,12 @@ $NonEmployeeSourceRequestBody = Initialize-PSSailpoint.BetaNonEmployeeSourceRequ
  -ManagementWorkgroup 123299 `
  -Approvers null `
  -AccountManagers null
+$NonEmployeeSourceRequestBody = @"{  "Name": "Retail", "Description": "Source description", "Owner": null, "ManagementWorkgroup": "123299", "Approvers": null, "AccountManagers": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeSourceRequestBody | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
 ```
 
 

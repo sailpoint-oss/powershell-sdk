@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $TranslationMessage = Initialize-PSSailpoint.BetaTranslationMessage  -Key recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_HIGH `
  -Values [75, department]
+$TranslationMessage = @"{  "Key": "recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_HIGH", "Values": [75, "department"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TranslationMessage | ConvertTo-JSON
+ConvertFrom-JsonToTranslationMessage -Json $TranslationMessage
 ```
 
 

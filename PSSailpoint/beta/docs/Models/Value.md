@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $Value = Initialize-PSSailpoint.BetaValue  -Type STRING `
  -Value Austin
+$Value = @"{  "Type": "STRING", "Value": "Austin" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Value | ConvertTo-JSON
+ConvertFrom-JsonToValue -Json $Value
 ```
 
 

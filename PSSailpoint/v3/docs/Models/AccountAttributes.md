@@ -22,12 +22,13 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAttributes = Initialize-PSSailpoint.V3AccountAttributes  -Attributes {city&#x3D;Austin, displayName&#x3D;John Doe, userName&#x3D;jdoe, sAMAccountName&#x3D;jDoe, mail&#x3D;john.doe@sailpoint.com}
+$AccountAttributes = Initialize-PSSailpoint.V3AccountAttributes  -Attributes {city=Austin, displayName=John Doe, userName=jdoe, sAMAccountName=jDoe, mail=john.doe@sailpoint.com}
+$AccountAttributes = @"{  "Attributes": {"city": "Austin", "displayName":"John Doe", "userName": "jdoe", "sAMAccountName": "jDoe", "mail": "john.doe@sailpoint.com}" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountAttributes | ConvertTo-JSON
+ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
 ```
 
 

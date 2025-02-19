@@ -37,11 +37,12 @@ $PublicIdentity = Initialize-PSSailpoint.V3PublicIdentity  -Id 2c9180857182305e0
  -IdentityState ACTIVE `
  -Manager null `
  -Attributes null
+$PublicIdentity = @"{  "Id": "2c9180857182305e0171993735622948", "Name": "Alison Ferguso", "Alias": "alison.ferguso", "Email": "alison.ferguso@acme-solar.com", "Status": "Active", "IdentityState": "ACTIVE", "Manager": null, "Attributes": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PublicIdentity | ConvertTo-JSON
+ConvertFrom-JsonToPublicIdentity -Json $PublicIdentity
 ```
 
 

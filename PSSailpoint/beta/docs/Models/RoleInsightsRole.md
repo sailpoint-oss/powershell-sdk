@@ -31,11 +31,12 @@ $RoleInsightsRole = Initialize-PSSailpoint.BetaRoleInsightsRole  -Name Software 
  -Description Person who develops software `
  -OwnerName Bob `
  -OwnerId 1467e61e-f284-439c-ba2d-c6cc11cf0941
+$RoleInsightsRole = @"{  "Name": "Software Engineer", "Id": "1467e61e-f284-439c-ba2d-c6cc11cf0941", "Description": "Person who develops software", "OwnerName": "Bob", "OwnerId": "1467e61e-f284-439c-ba2d-c6cc11cf0941" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleInsightsRole | ConvertTo-JSON
+ConvertFrom-JsonToRoleInsightsRole -Json $RoleInsightsRole
 ```
 
 

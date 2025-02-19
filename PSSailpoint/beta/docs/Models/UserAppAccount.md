@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $UserAppAccount = Initialize-PSSailpoint.BetaUserAppAccount  -Id 85d173e7d57e496569df763231d6deb6a `
  -Type ACCOUNT `
  -Name test account
+$UserAppAccount = @"{  "Id": "85d173e7d57e496569df763231d6deb6a", "Type": "ACCOUNT", "Name": "test account" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$UserAppAccount | ConvertTo-JSON
+ConvertFrom-JsonToUserAppAccount -Json $UserAppAccount
 ```
 
 

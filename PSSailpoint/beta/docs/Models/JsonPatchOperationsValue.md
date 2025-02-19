@@ -22,11 +22,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $JsonPatchOperationsValue = Initialize-PSSailpoint.BetaJsonPatchOperationsValue 
+$JsonPatchOperationsValue = @"{  }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$JsonPatchOperationsValue | ConvertTo-JSON
+ConvertFrom-JsonToJsonPatchOperationsValue -Json $JsonPatchOperationsValue
 ```
 
 

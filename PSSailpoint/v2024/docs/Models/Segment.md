@@ -37,11 +37,12 @@ $Segment = Initialize-PSSailpoint.V2024Segment  -Id 0f11f2a4-7c94-4bf3-a2bd-7425
  -Owner null `
  -VisibilityCriteria null `
  -Active true
+$Segment = @"{  "Id": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde", "Name": "segment-xyz", "Created": "2020-01-01T00:00Z", "Modified": "2020-01-01T00:00Z", "Description": "This segment represents xyz", "Owner": null, "VisibilityCriteria": null, "Active": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Segment | ConvertTo-JSON
+ConvertFrom-JsonToSegment -Json $Segment
 ```
 
 

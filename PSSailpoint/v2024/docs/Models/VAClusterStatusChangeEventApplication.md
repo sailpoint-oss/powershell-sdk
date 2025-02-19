@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $VAClusterStatusChangeEventApplication = Initialize-PSSailpoint.V2024VAClusterStatusChangeEventApplication  -Id 2c9180866166b5b0016167c32ef31a66 `
  -Name Production VA Cluster `
  -Attributes null
+$VAClusterStatusChangeEventApplication = @"{  "Id": "2c9180866166b5b0016167c32ef31a66", "Name": "Production VA Cluster", "Attributes": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$VAClusterStatusChangeEventApplication | ConvertTo-JSON
+ConvertFrom-JsonToVAClusterStatusChangeEventApplication -Json $VAClusterStatusChangeEventApplication
 ```
 
 

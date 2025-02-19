@@ -39,11 +39,12 @@ $NonEmployeeApprovalItem = Initialize-PSSailpoint.V3NonEmployeeApprovalItem  -Id
  -Modified 2019-08-23T18:52:59.162Z `
  -Created 2019-08-23T18:40:35.772Z `
  -NonEmployeeRequest null
+$NonEmployeeApprovalItem = @"{  "Id": "2c1e388b-1e55-4b0a-ab5c-897f1204159c", "Approver": null, "AccountName": "test.account", "ApprovalStatus": null, "ApprovalOrder": "1", "Comment": "I approve", "Modified": "2019-08-23T18:52:59.162Z", "Created": "2019-08-23T18:40:35.772Z", "NonEmployeeRequest": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeApprovalItem | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeApprovalItem -Json $NonEmployeeApprovalItem
 ```
 
 

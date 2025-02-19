@@ -23,13 +23,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Schedule1Hours = Initialize-PSSailpoint.BetaSchedule1Hours  -ApplicationId 2c91808874ff91550175097daaec161c&quot; `
+$Schedule1Hours = Initialize-PSSailpoint.BetaSchedule1Hours  -ApplicationId 2c91808874ff91550175097daaec161c" `
  -AccountMatchConfig null
+$Schedule1Hours = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Schedule1Hours | ConvertTo-JSON
+ConvertFrom-JsonToSchedule1Hours -Json $Schedule1Hours
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SodViolationContext = Initialize-PSSailpoint.V3SodViolationContext  -Policy null `
  -ConflictingAccessCriteria null
+$SodViolationContext = @"{  "Policy": null, "ConflictingAccessCriteria": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SodViolationContext | ConvertTo-JSON
+ConvertFrom-JsonToSodViolationContext -Json $SodViolationContext
 ```
 
 

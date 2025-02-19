@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $Target = Initialize-PSSailpoint.V2024Target  -Id c6dc37bf508149b28ce5b7d90ca4bbf9 `
  -Type APPLICATION `
  -Name Active Directory [source]
+$Target = @"{  "Id": "c6dc37bf508149b28ce5b7d90ca4bbf9", "Type": "APPLICATION", "Name": "Active Directory [source]" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Target | ConvertTo-JSON
+ConvertFrom-JsonToTarget -Json $Target
 ```
 
 

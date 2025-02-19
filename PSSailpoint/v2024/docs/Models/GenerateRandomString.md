@@ -33,11 +33,12 @@ $GenerateRandomString = Initialize-PSSailpoint.V2024GenerateRandomString  -Name 
  -IncludeSpecialChars true `
  -Length 10 `
  -RequiresPeriodicRefresh false
+$GenerateRandomString = @"{  "Name": "Cloud Services Deployment Utility", "Operation": "generateRandomString", "IncludeNumbers": true, "IncludeSpecialChars": true, "Length": "10", "RequiresPeriodicRefresh": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$GenerateRandomString | ConvertTo-JSON
+ConvertFrom-JsonToGenerateRandomString -Json $GenerateRandomString
 ```
 
 

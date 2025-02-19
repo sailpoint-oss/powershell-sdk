@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $WorkflowBodyOwner = Initialize-PSSailpoint.BetaWorkflowBodyOwner  -Type IDENTITY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
+$WorkflowBodyOwner = @"{  "Type": "IDENTITY", "Id": "2c91808568c529c60168cca6f90c1313", "Name": "William Wilson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkflowBodyOwner | ConvertTo-JSON
+ConvertFrom-JsonToWorkflowBodyOwner -Json $WorkflowBodyOwner
 ```
 
 

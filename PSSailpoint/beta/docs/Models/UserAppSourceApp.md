@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $UserAppSourceApp = Initialize-PSSailpoint.BetaUserAppSourceApp  -Id edcb0951812949d085b60cd8bf35bc78 `
  -Type APPLICATION `
  -Name test-app
+$UserAppSourceApp = @"{  "Id": "edcb0951812949d085b60cd8bf35bc78", "Type": "APPLICATION", "Name": "test-app" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$UserAppSourceApp | ConvertTo-JSON
+ConvertFrom-JsonToUserAppSourceApp -Json $UserAppSourceApp
 ```
 
 

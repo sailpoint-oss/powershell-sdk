@@ -47,13 +47,14 @@ $TaskResultDetails = Initialize-PSSailpoint.V3TaskResultDetails  -Type MENTOS `
  -CompletionStatus Success `
  -Messages [] `
  -Returns [] `
- -Attributes {org&#x3D;an-org} `
+ -Attributes {org=an-org} `
  -Progress Initializing...
+$TaskResultDetails = @"{  "Type": "MENTOS", "Id": "a248c16fe22222b2bd49615481311111", "ReportType": "IDENTITIES_DETAILS", "Description": "A detailed view of the identities in the system.", "ParentName": "Audit Report", "Launcher": "cloudadmin", "Created": null, "Launched": null, "Completed": null, "CompletionStatus": "Success", "Messages": [], "Returns": [], "Attributes": {"org": "an-org}", "Progress": "Initializing..." }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TaskResultDetails | ConvertTo-JSON
+ConvertFrom-JsonToTaskResultDetails -Json $TaskResultDetails
 ```
 
 

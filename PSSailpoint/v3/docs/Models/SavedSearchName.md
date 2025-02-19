@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SavedSearchName = Initialize-PSSailpoint.V3SavedSearchName  -Name Disabled accounts `
  -Description Disabled accounts
+$SavedSearchName = @"{  "Name": "Disabled accounts", "Description": "Disabled accounts" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SavedSearchName | ConvertTo-JSON
+ConvertFrom-JsonToSavedSearchName -Json $SavedSearchName
 ```
 
 

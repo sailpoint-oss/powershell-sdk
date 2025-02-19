@@ -57,11 +57,12 @@ $RoleDocument = Initialize-PSSailpoint.V3RoleDocument  -Id 2c91808568c529c60168c
  -SegmentCount 1 `
  -Entitlements null `
  -EntitlementCount 3
+$RoleDocument = @"{  "Id": "2c91808568c529c60168cca6f90c1313", "Name": "John Doe", "Type": null, "Description": "The admin role", "Created": "2018-06-25T20:22:28.104Z", "Modified": "2018-06-25T20:22:28.104Z", "Synced": "2018-06-25T20:22:33.104Z", "Enabled": true, "Requestable": true, "RequestCommentsRequired": false, "Owner": null, "AccessProfiles": null, "AccessProfileCount": "1", "Tags": ["TAG_1", "TAG_2"], "Segments": null, "SegmentCount": "1", "Entitlements": null, "EntitlementCount": "3" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleDocument | ConvertTo-JSON
+ConvertFrom-JsonToRoleDocument -Json $RoleDocument
 ```
 
 

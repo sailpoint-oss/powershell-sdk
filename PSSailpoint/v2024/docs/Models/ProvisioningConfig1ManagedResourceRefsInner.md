@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ProvisioningConfig1ManagedResourceRefsInner = Initialize-PSSailpoint.V2024ProvisioningConfig1ManagedResourceRefsInner  -Type SOURCE `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name My Source
+$ProvisioningConfig1ManagedResourceRefsInner = @"{  "Type": "SOURCE", "Id": "2c91808568c529c60168cca6f90c1313", "Name": "My Source "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ProvisioningConfig1ManagedResourceRefsInner | ConvertTo-JSON
+ConvertFrom-JsonToProvisioningConfig1ManagedResourceRefsInner -Json $ProvisioningConfig1ManagedResourceRefsInner
 ```
 
 

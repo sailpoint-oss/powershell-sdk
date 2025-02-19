@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $Argument = Initialize-PSSailpoint.BetaArgument  -Name firstName `
  -Description the first name of the identity `
  -Type String
+$Argument = @"{  "Name": "firstName", "Description": "the first name of the identity", "Type": "String" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Argument | ConvertTo-JSON
+ConvertFrom-JsonToArgument -Json $Argument
 ```
 
 

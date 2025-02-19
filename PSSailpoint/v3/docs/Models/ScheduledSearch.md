@@ -47,11 +47,12 @@ $ScheduledSearch = Initialize-PSSailpoint.V3ScheduledSearch  -Name Daily disable
  -Id 0de46054-fe90-434a-b84e-c6b3359d0c64 `
  -Owner null `
  -OwnerId 2c9180867624cbd7017642d8c8c81f67
+$ScheduledSearch = @"{  "Name": "Daily disabled accounts", "Description": "Daily disabled accounts", "SavedSearchId": "554f1511-f0a1-4744-ab14-599514d3e57c", "Created": "2018-06-25T20:22:28.104Z", "Modified": "2018-06-25T20:22:28.104Z", "Schedule": null, "Recipients": null, "Enabled": false, "EmailEmptyResults": false, "DisplayQueryDetails": false, "Id": "0de46054-fe90-434a-b84e-c6b3359d0c64", "Owner": null, "OwnerId": "2c9180867624cbd7017642d8c8c81f67" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ScheduledSearch | ConvertTo-JSON
+ConvertFrom-JsonToScheduledSearch -Json $ScheduledSearch
 ```
 
 

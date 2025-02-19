@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $MetricResponse = Initialize-PSSailpoint.BetaMetricResponse  -Name null `
  -Value null
+$MetricResponse = @"{  "Name": "null", "Value": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MetricResponse | ConvertTo-JSON
+ConvertFrom-JsonToMetricResponse -Json $MetricResponse
 ```
 
 

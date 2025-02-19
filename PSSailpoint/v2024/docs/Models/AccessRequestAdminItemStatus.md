@@ -68,12 +68,13 @@ $AccessRequestAdminItemStatus = Initialize-PSSailpoint.V2024AccessRequestAdminIt
  -Cancelable true `
  -ReauthorizationRequired true `
  -AccessRequestId 2b838de9-db9b-abcf-e646-d4f274ad4238 `
- -ClientMetadata {key1&#x3D;value1, key2&#x3D;value2}
+ -ClientMetadata {key1=value1, key2=value2}
+$AccessRequestAdminItemStatus = @"{  "Name": "AccessProfile1", "Type": "ACCESS_PROFILE", "CancelledRequestDetails": null, "ErrorMessages": null, "State": null, "ApprovalDetails": null, "ManualWorkItemDetails": null, "AccountActivityItemId": "2c9180926cbfbddd016cbfc7c3b10010", "RequestType": null, "Modified": "2019-08-23T18:52:59.162Z", "Created": "2019-08-23T18:40:35.772Z", "Requester": null, "RequestedFor": null, "RequesterComment": null, "SodViolationContext": null, "ProvisioningDetails": null, "PreApprovalTriggerDetails": null, "AccessRequestPhases": null, "Description": "This is the Engineering role that engineers are granted.", "RemoveDate": "2019-10-23T00:00Z", "Cancelable": true, "ReauthorizationRequired": true, "AccessRequestId": "2b838de9-db9b-abcf-e646-d4f274ad4238", "ClientMetadata": {"key1": "value1", "key2": "value2}" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestAdminItemStatus | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestAdminItemStatus -Json $AccessRequestAdminItemStatus
 ```
 
 

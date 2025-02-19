@@ -29,11 +29,12 @@ $RequestableObjectReference = Initialize-PSSailpoint.V3RequestableObjectReferenc
  -Name Applied Research Access `
  -Description Access to research information, lab results, and schematics `
  -Type ROLE
+$RequestableObjectReference = @"{  "Id": "2c9180835d2e5168015d32f890ca1581", "Name": "Applied Research Access", "Description": "Access to research information, lab results, and schematics", "Type": "ROLE" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RequestableObjectReference | ConvertTo-JSON
+ConvertFrom-JsonToRequestableObjectReference -Json $RequestableObjectReference
 ```
 
 

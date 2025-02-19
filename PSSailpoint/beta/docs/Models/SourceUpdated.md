@@ -33,11 +33,12 @@ $SourceUpdated = Initialize-PSSailpoint.BetaSourceUpdated  -Id 2c9180866166b5b00
  -Modified 2021-03-29T22:01:50.474Z `
  -Connector active-directory `
  -Actor null
+$SourceUpdated = @"{  "Id": "2c9180866166b5b0016167c32ef31a66", "Name": "Corporate Active Directory", "Type": "DIRECT_CONNECT", "Modified": "2021-03-29T22:01:50.474Z", "Connector": "active-directory", "Actor": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceUpdated | ConvertTo-JSON
+ConvertFrom-JsonToSourceUpdated -Json $SourceUpdated
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $MetricAggregation = Initialize-PSSailpoint.V3MetricAggregation  -Name Access Name Count `
  -Type null `
  -Field @access.name
+$MetricAggregation = @"{  "Name": "Access Name Count", "Type": "null", "Field": null}"@access.name" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MetricAggregation | ConvertTo-JSON
+ConvertFrom-JsonToMetricAggregation -Json $MetricAggregation
 ```
 
 

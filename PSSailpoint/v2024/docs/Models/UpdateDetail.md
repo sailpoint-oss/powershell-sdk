@@ -29,11 +29,12 @@ $UpdateDetail = Initialize-PSSailpoint.V2024UpdateDetail  -Message unsupported x
  -ScriptName servicenow `
  -UpdatedFiles [pod/org/connectorFiles/testconnector/test1.jar] `
  -Status ERROR
+$UpdateDetail = @"{  "Message": "unsupported xsd version, please ensure latest xsd version http://www.sailpoint.com/xsd/sailpoint_form_2_0.xsd is used for source config", "ScriptName": "servicenow", "UpdatedFiles": ["pod","/org/","connectorFiles","/testconnector/","test1.jar"], "Status": "ERROR" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$UpdateDetail | ConvertTo-JSON
+ConvertFrom-JsonToUpdateDetail -Json $UpdateDetail
 ```
 
 

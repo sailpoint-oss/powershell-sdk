@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $DimensionRef = Initialize-PSSailpoint.BetaDimensionRef  -Type DIMENSION `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Role 2
+$DimensionRef = @"{  "Type": "DIMENSION", "Id": "2c91808568c529c60168cca6f90c1313", "Name": "Role 2" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DimensionRef | ConvertTo-JSON
+ConvertFrom-JsonToDimensionRef -Json $DimensionRef
 ```
 
 

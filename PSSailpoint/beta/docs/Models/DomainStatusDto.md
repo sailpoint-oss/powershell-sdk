@@ -31,11 +31,12 @@ $DomainStatusDto = Initialize-PSSailpoint.BetaDomainStatusDto  -Id 123b45b0-aaaa
  -DkimEnabled true `
  -DkimTokens [token1, token2, token3] `
  -DkimVerificationStatus PENDING
+$DomainStatusDto = @"{  "Id": "123b45b0-aaaa-bbbb-a7db-123456a56abc", "Domain": "sailpoint.com", "DkimEnabled": true, "DkimTokens": ["token1", "token2", "token3"], "DkimVerificationStatus": "PENDING" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DomainStatusDto | ConvertTo-JSON
+ConvertFrom-JsonToDomainStatusDto -Json $DomainStatusDto
 ```
 
 

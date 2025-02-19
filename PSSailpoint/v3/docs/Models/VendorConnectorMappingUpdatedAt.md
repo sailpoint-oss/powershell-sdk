@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $VendorConnectorMappingUpdatedAt = Initialize-PSSailpoint.V3VendorConnectorMappingUpdatedAt  -Time 2024-03-14T12:56:19.391294Z `
  -Valid true
+$VendorConnectorMappingUpdatedAt = @"{  "Time": "2024-03-14T12:56:19.391294Z", "Valid": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$VendorConnectorMappingUpdatedAt | ConvertTo-JSON
+ConvertFrom-JsonToVendorConnectorMappingUpdatedAt -Json $VendorConnectorMappingUpdatedAt
 ```
 
 

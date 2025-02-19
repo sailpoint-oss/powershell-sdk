@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ListAccessModelMetadataAttribute429Response = Initialize-PSSailpoint.BetaListAccessModelMetadataAttribute429Response  -Message  Rate Limit Exceeded 
+$ListAccessModelMetadataAttribute429Response = @"{  "Message": "Rate Limit Exceeded  "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ListAccessModelMetadataAttribute429Response | ConvertTo-JSON
+ConvertFrom-JsonToListAccessModelMetadataAttribute429Response -Json $ListAccessModelMetadataAttribute429Response
 ```
 
 

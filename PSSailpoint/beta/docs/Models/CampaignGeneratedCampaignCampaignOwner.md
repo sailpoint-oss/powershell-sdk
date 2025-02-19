@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CampaignGeneratedCampaignCampaignOwner = Initialize-PSSailpoint.BetaCampaignGeneratedCampaignCampaignOwner  -Id 37f080867702c1910177031320c40n27 `
  -DisplayName John Snow `
  -Email john.snow@example.com
+$CampaignGeneratedCampaignCampaignOwner = @"{  "Id": "37f080867702c1910177031320c40n27", "DisplayName": "John Snow", "Email": "john.snow@example.com" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignGeneratedCampaignCampaignOwner | ConvertTo-JSON
+ConvertFrom-JsonToCampaignGeneratedCampaignCampaignOwner -Json $CampaignGeneratedCampaignCampaignOwner
 ```
 
 

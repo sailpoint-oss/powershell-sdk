@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SendTokenResponse = Initialize-PSSailpoint.V3SendTokenResponse  -RequestId 089899f13a8f4da7824996191587bab9 `
  -Status SUCCESS `
  -ErrorMessage Unable to sent text message
+$SendTokenResponse = @"{  "RequestId": "089899f13a8f4da7824996191587bab9", "Status": "SUCCESS", "ErrorMessage": "Unable to sent text message" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SendTokenResponse | ConvertTo-JSON
+ConvertFrom-JsonToSendTokenResponse -Json $SendTokenResponse
 ```
 
 

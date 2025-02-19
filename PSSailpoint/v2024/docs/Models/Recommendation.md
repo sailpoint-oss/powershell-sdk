@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $Recommendation = Initialize-PSSailpoint.V2024Recommendation  -Type MACHINE `
  -Method DISCOVERY
+$Recommendation = @"{  "Type": "MACHINE", "Method": "DISCOVERY" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Recommendation | ConvertTo-JSON
+ConvertFrom-JsonToRecommendation -Json $Recommendation
 ```
 
 

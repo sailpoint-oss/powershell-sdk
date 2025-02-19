@@ -29,11 +29,12 @@ $SourceAppCreateDto = Initialize-PSSailpoint.V2024SourceAppCreateDto  -Name my a
  -Description the source app for engineers `
  -MatchAllAccounts true `
  -AccountSource null
+$SourceAppCreateDto = @"{  "Name": "my app", "Description": "the source app for engineers", "MatchAllAccounts": true, "AccountSource": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceAppCreateDto | ConvertTo-JSON
+ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
 ```
 
 

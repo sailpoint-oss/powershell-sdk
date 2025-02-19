@@ -1,5 +1,107 @@
 const fs = require("fs").promises;
 const path = require("path");
+const { jsonrepair } = require('jsonrepair');
+const { json } = require("stream/consumers");
+
+let successCount = 0;
+let failureCount = 0;
+
+function preprocessMalformedJSON(jsonString) {
+  // Step 1: Quote keys and replace "=" signs with ":"
+  let firstPass = jsonString.replace(/(\w+)=/g, '"$1":')
+    .replace(/\"recipientId\.\$\=\$\.(\w+\.\w+)/g, '"recipientId.$": "$.$1"');
+
+  // Step 2: Fix the VarFilter expression: Ensure that quotes around the value are escaped
+  let secondPass = firstPass.replace(/"VarFilter":\s*"([^"]+)"/g, (match, p1) => {
+    // Escape quotes inside the VarFilter value
+    return `"VarFilter": "${p1.replace(/(["\\])/g, '\\$1')}"`;
+  });
+
+  // Step 3: Handle any remaining nested objects
+  let thirdPass = secondPass.replace(/(\{[^}]*\})/g, (match) => {
+    return match.replace(/(\w+)=/g, '"$1":'); // Ensure keys inside objects are quoted
+  });
+
+  // Step 4: Handle arrays to ensure proper quoting for array elements
+  let fourthPass = thirdPass.replace(/\[([^\]]+)\]/g, (match) => {
+    return match.replace(/(\w+)=/g, '"$1":'); // Ensure keys inside array elements are quoted
+  });
+
+  // Step 5: Ensure any remaining unquoted string values are quoted properly
+  let fifthPass = fourthPass.replace(/:\s*([^",\s\[\{]+)(?=\s*[},\]])/g, (match, p1) => {
+    if (!/^(true|false|null)$/.test(p1)) {
+      return `: "${p1}"`; // Quote string values
+    }
+    return `: ${p1}`; // Leave booleans and null unquoted
+  });
+
+  let fixIdentificationNumber = firstPass.replace(/"identificationNumber":\s*"([^"]+)}"/g, '"identificationNumber": "$1"');
+
+  // Step 3: Fix missing quotes around 'displayName'
+  let fixDisplayNameQuotes = fixIdentificationNumber.replace(/"displayName":([^",\s}]+)/g, '"displayName": "$1"');
+
+  // Step 4: Handle 'SignedS3Url' and escape inner quotes in the URL
+  let fixSignedS3UrlQuotes = fixDisplayNameQuotes.replace(/"SignedS3Url":\s*"([^"]+)"/g, (match, url) => {
+    return `"SignedS3Url": "${url.replace(/"([^"]+)"/g, '"$1"')}"`; // Escape inner quotes
+  });
+
+  // Step 6: Escape the quotes around "201327fda1c44704ac01181e963d463c" inside VarFilter
+  let finalPass = fifthPass.replace(/"201327fda1c44704ac01181e963d463c"/g, '\\\"201327fda1c44704ac01181e963d463c\\\"');
+  // This ensures that the quotes are properly escaped within the string
+
+  // Step 7: Special case for "recipientId.$": "$.identity.id"
+  finalPass = finalPass.replace(/recipientId\.\$\=\$\.(\w+\.\w+)/g, '"recipientId.$": "$.$1"');
+
+  // Step 8: Fix the 'Send "Email"' to 'Send Email' 
+  // Fix the case where there's a space between 'Send' and '"Email"'
+  finalPass = finalPass.replace(/Send\s+"Email"/g, 'Send Email');
+
+  // Step 9: Ensure all string values are quoted properly, including "Message"
+  // Updated regex to quote any value that is not already quoted
+  finalPass = finalPass.replace(/(\w+):\s*([^",\s\[\{][^}]*)(?=\s*[},\]])/g, (match, p1, p2) => {
+    // If the value is not a boolean or null and is unquoted, add quotes around it
+    if (/^[A-Za-z0-9\s\.-]+$/.test(p2) && !/^".*"$/.test(p2)) {
+      return `"${p1}": "${p2}"`; // Quote string values
+    }
+    return match;
+  });
+
+  // **Specific fix for 'API/Feature not enabled for your organization.'**
+  finalPass = finalPass.replace(/API\/Feature not enabled for your organization\./g, '"API/Feature not enabled for your organization."');
+
+
+  // Clean up trailing commas
+  finalPass = finalPass.replace(/,(\s*[}\]])/g, '$1'); // Remove trailing commas
+
+  console.log("Final Preprocessed JSON:", finalPass);
+  return finalPass;
+}
+
+
+function testJSONRepair(jsonstring) {
+  try {
+    console.log("Starting preprocessing...");
+
+    const preprocessedJSON = preprocessMalformedJSON(jsonstring);
+    console.log("Preprocessed JSON:", preprocessedJSON); // Log preprocessed JSON
+
+    const repairedJSON = jsonrepair(preprocessedJSON);
+
+    // Convert to JavaScript object
+    const parsedObject = JSON.parse(repairedJSON);
+
+    // Increment success count
+    successCount++;
+    console.log("Successful repair count:", successCount);
+    return repairedJSON;
+  } catch (error) {
+    // Increment failure count and log error
+    failureCount++;
+    console.error("Error repairing JSON:", jsonstring);
+    console.error("Error message:", error.message);
+    console.log("Failed repair count:", failureCount);
+  }
+}
 
 const getAllFiles = async (dirPath, arrayOfFiles = []) => {
   const files = await fs.readdir(dirPath);
@@ -154,6 +256,30 @@ const fixFiles = async function (myArray) {
     let rawdata = await fs.readFile(absolutePath, 'utf-8');
     let rawDataArra = rawdata.split("\n");
 
+    if (file.includes(".md") && !file.includes("Api.md")) {
+      console.log(`Processing file: ${file}`);
+      for (const line of rawDataArra) {
+        if (line.includes('}"@')) {
+          // Extracting the content between @" " using a regular expression
+          const match = line.match(/@\"(.*?)\"@/);
+          if (match && match[1]) {
+            const extractedString = match[1];
+
+            // Ensure the extracted string is properly handled as JSON and repaired
+            const repairedJSON = testJSONRepair(extractedString);
+
+            // Replace the extracted JSON portion with the repaired JSON in the line
+            fileOut.push(line.replace(extractedString, repairedJSON));
+            madeChange = true;
+          }
+        } else {
+          fileOut.push(line);
+        }
+      }
+      rawDataArra = fileOut.slice();
+      fileOut = [];
+    }
+
     // Handling Api.md and .yaml files
     if (file.includes("Api.md") || file.includes(".yaml")) {
       for (const line of rawDataArra) {
@@ -274,12 +400,18 @@ const main = async () => {
   let myArray = [];
 
   // Main processing
+
   await processDirectory(path.join(process.argv[2], '/docs'));
   await renameFileToIndices(path.join(process.argv[2], '/docs/Models/Index.md'));
   await getAllFiles(process.argv[2], myArray);
   await fixFiles(myArray);
   await moveFiles(process.argv[2], path.join(process.argv[2], '/docs/Models'), "Index.md");
   await mergeCodeExampleFiles(path.join(process.argv[2], 'docs/Examples'));
+  // // Example malformed JSON string to test
+  // const malformedJSON = `{  Start: "Send Email Test", Steps: {Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=ACTION}, success={type=success}} }`;
+
+  // // Run the test
+  // testJSONRepair(malformedJSON);
 };
 
 main().catch((error) => {

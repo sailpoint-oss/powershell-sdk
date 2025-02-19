@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $FormOwner = Initialize-PSSailpoint.BetaFormOwner  -Type IDENTITY `
  -Id 2c9180867624cbd7017642d8c8c81f67 `
  -Name Grant Smith
+$FormOwner = @"{  "Type": "IDENTITY", "Id": "2c9180867624cbd7017642d8c8c81f67", "Name": "Grant Smith" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormOwner | ConvertTo-JSON
+ConvertFrom-JsonToFormOwner -Json $FormOwner
 ```
 
 

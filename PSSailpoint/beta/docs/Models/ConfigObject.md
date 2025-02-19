@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ConfigObject = Initialize-PSSailpoint.BetaConfigObject  -Version 1 `
  -Self null `
  -Object null
+$ConfigObject = @"{  "Version": "1", "Self": null, "Object": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConfigObject | ConvertTo-JSON
+ConvertFrom-JsonToConfigObject -Json $ConfigObject
 ```
 
 

@@ -35,11 +35,12 @@ $AttributeDefinition = Initialize-PSSailpoint.V3AttributeDefinition  -Name sAMAc
  -IsMulti false `
  -IsEntitlement false `
  -IsGroup false
+$AttributeDefinition = @"{  "Name": "sAMAccountName", "Type": null, "Schema": null, "Description": "SAM Account Name", "IsMulti": false, "IsEntitlement": false, "IsGroup": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AttributeDefinition | ConvertTo-JSON
+ConvertFrom-JsonToAttributeDefinition -Json $AttributeDefinition
 ```
 
 

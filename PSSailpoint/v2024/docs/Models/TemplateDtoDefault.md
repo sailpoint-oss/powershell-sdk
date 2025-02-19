@@ -44,14 +44,15 @@ $TemplateDtoDefault = Initialize-PSSailpoint.V2024TemplateDtoDefault  -Key cloud
  -Footer null `
  -VarFrom $__global.emailFromAddress `
  -ReplyTo $__global.emailFromAddress `
- -Description Daily digest - sent if number of outstanding tasks for task owner &gt; 0 `
+ -Description Daily digest - sent if number of outstanding tasks for task owner > 0 `
  -SlackTemplate null `
  -TeamsTemplate null
+$TemplateDtoDefault = @"{  "Key": "cloud_manual_work_item_summary", "Name": "Task Manager Subscription", "Medium": "EMAIL", "Locale": "en", "Subject": "You have $numberOfPendingTasks $taskTasks to complete in ${__global.productName}.", "Header": "null", "Body": "Please go to the task manager", "Footer": "null", "VarFrom": "$__global.emailFromAddress", "ReplyTo": "$__global.emailFromAddress", "Description": "Daily digest - sent if number of outstanding tasks for task owner > 0", "SlackTemplate": null, "TeamsTemplate": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TemplateDtoDefault | ConvertTo-JSON
+ConvertFrom-JsonToTemplateDtoDefault -Json $TemplateDtoDefault
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccountRequestInfo = Initialize-PSSailpoint.V2024AccountRequestInfo  -RequestedObjectId 2c91808563ef85690164001c31140c0c `
  -RequestedObjectName Treasury Analyst `
  -RequestedObjectType null
+$AccountRequestInfo = @"{  "RequestedObjectId": "2c91808563ef85690164001c31140c0c", "RequestedObjectName": "Treasury Analyst", "RequestedObjectType": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountRequestInfo | ConvertTo-JSON
+ConvertFrom-JsonToAccountRequestInfo -Json $AccountRequestInfo
 ```
 
 

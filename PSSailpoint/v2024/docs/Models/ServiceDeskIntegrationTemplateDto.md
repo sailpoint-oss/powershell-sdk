@@ -33,13 +33,14 @@ $ServiceDeskIntegrationTemplateDto = Initialize-PSSailpoint.V2024ServiceDeskInte
  -Created 2015-05-28T14:07:17Z `
  -Modified 2015-05-28T14:07:17Z `
  -Type Web Service SDIM `
- -Attributes {property&#x3D;value, key&#x3D;value} `
+ -Attributes {property=value, key=value} `
  -ProvisioningConfig null
+$ServiceDeskIntegrationTemplateDto = @"{  "Id": "id12345", "Name": "aName", "Created": "2015-05-28T14:07:17Z", "Modified": "2015-05-28T14:07:17Z", "Type": "Web Service SDIM", "Attributes": {"property": "value", "key": "value}", "ProvisioningConfig": "null "}}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ServiceDeskIntegrationTemplateDto | ConvertTo-JSON
+ConvertFrom-JsonToServiceDeskIntegrationTemplateDto -Json $ServiceDeskIntegrationTemplateDto
 ```
 
 

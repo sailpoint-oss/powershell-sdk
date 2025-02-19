@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CreateDomainDkim405Response = Initialize-PSSailpoint.V2024CreateDomainDkim405Response  -ErrorName NotSupportedException `
  -ErrorMessage Cannot consume content type `
  -TrackingId e7eab60924f64aa284175b9fa3309599
+$CreateDomainDkim405Response = @"{  "ErrorName": "NotSupportedException", "ErrorMessage": "Cannot consume content type", "TrackingId": "e7eab60924f64aa284175b9fa3309599" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CreateDomainDkim405Response | ConvertTo-JSON
+ConvertFrom-JsonToCreateDomainDkim405Response -Json $CreateDomainDkim405Response
 ```
 
 

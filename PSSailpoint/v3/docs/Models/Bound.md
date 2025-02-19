@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $Bound = Initialize-PSSailpoint.V3Bound  -Value 1 `
  -Inclusive false
+$Bound = @"{  "Value": "1", "Inclusive": "false "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Bound | ConvertTo-JSON
+ConvertFrom-JsonToBound -Json $Bound
 ```
 
 

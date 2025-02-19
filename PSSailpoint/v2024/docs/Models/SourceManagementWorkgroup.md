@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SourceManagementWorkgroup = Initialize-PSSailpoint.V2024SourceManagementWorkgroup  -Type GOVERNANCE_GROUP `
  -Id 2c91808568c529c60168cca6f90c2222 `
  -Name My Management Workgroup
+$SourceManagementWorkgroup = @"{  "Type": "GOVERNANCE_GROUP", "Id": "2c91808568c529c60168cca6f90c2222", "Name": "My Management Workgroup" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceManagementWorkgroup | ConvertTo-JSON
+ConvertFrom-JsonToSourceManagementWorkgroup -Json $SourceManagementWorkgroup
 ```
 
 

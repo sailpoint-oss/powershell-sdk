@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $NonEmployeeApprovalDecision = Initialize-PSSailpoint.V3NonEmployeeApprovalDecision  -Comment Approved by manager
+$NonEmployeeApprovalDecision = @"{  "Comment": "Approved by manager" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeApprovalDecision | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
 ```
 
 

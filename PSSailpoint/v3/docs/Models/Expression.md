@@ -29,11 +29,12 @@ $Expression = Initialize-PSSailpoint.V3Expression  -Operator EQUALS `
  -Attribute location `
  -Value null `
  -Children []
+$Expression = @"{  "Operator": "EQUALS", "Attribute": "location", "Value": null, "Children": [] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Expression | ConvertTo-JSON
+ConvertFrom-JsonToExpression -Json $Expression
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $PatOwner = Initialize-PSSailpoint.V2024PatOwner  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Support
+$PatOwner = @"{  "Type": "IDENTITY", "Id": "2c9180a46faadee4016fb4e018c20639", "Name": "Support" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PatOwner | ConvertTo-JSON
+ConvertFrom-JsonToPatOwner -Json $PatOwner
 ```
 
 

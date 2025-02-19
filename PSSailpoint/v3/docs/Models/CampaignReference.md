@@ -35,11 +35,12 @@ $CampaignReference = Initialize-PSSailpoint.V3CampaignReference  -Id ef38f94347e
  -Description A description of the campaign `
  -CorrelatedStatus CORRELATED `
  -MandatoryCommentRequirement NO_DECISIONS
+$CampaignReference = @"{  "Id": "ef38f94347e94562b5bb8424a56397d8", "Name": "Campaign Name", "Type": "CAMPAIGN", "CampaignType": "MANAGER", "Description": "A description of the campaign", "CorrelatedStatus": "CORRELATED", "MandatoryCommentRequirement": "NO_DECISIONS" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignReference | ConvertTo-JSON
+ConvertFrom-JsonToCampaignReference -Json $CampaignReference
 ```
 
 

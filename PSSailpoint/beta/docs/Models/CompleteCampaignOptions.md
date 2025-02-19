@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $CompleteCampaignOptions = Initialize-PSSailpoint.BetaCompleteCampaignOptions  -AutoCompleteAction REVOKE
+$CompleteCampaignOptions = @"{  "AutoCompleteAction": "REVOKE" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CompleteCampaignOptions | ConvertTo-JSON
+ConvertFrom-JsonToCompleteCampaignOptions -Json $CompleteCampaignOptions
 ```
 
 

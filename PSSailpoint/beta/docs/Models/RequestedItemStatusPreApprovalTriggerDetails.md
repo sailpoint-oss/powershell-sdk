@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $RequestedItemStatusPreApprovalTriggerDetails = Initialize-PSSailpoint.BetaRequestedItemStatusPreApprovalTriggerDetails  -Comment Access is Approved `
  -Reviewer John Doe `
  -Decision APPROVED
+$RequestedItemStatusPreApprovalTriggerDetails = @"{  "Comment": "Access is Approved", "Reviewer": "John Doe", "Decision": "APPROVED" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RequestedItemStatusPreApprovalTriggerDetails | ConvertTo-JSON
+ConvertFrom-JsonToRequestedItemStatusPreApprovalTriggerDetails -Json $RequestedItemStatusPreApprovalTriggerDetails
 ```
 
 

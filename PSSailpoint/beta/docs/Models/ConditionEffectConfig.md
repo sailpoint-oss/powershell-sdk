@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ConditionEffectConfig = Initialize-PSSailpoint.BetaConditionEffectConfig  -DefaultValueLabel Access to Remove `
  -Element 8110662963316867
+$ConditionEffectConfig = @"{  "DefaultValueLabel": "Access to Remove", "Element": "8110662963316867" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConditionEffectConfig | ConvertTo-JSON
+ConvertFrom-JsonToConditionEffectConfig -Json $ConditionEffectConfig
 ```
 
 

@@ -45,11 +45,12 @@ $SourceApp = Initialize-PSSailpoint.V2024SourceApp  -Id 2c91808874ff91550175097d
  -AppCenterEnabled true `
  -AccountSource null `
  -Owner null
+$SourceApp = @"{  "Id": "2c91808874ff91550175097daaec161c", "CloudAppId": "9854520", "Name": "my app", "Created": "2020-10-08T18:33:52.029Z", "Modified": "2020-10-08T18:33:52.029Z", "Enabled": true, "ProvisionRequestEnabled": true, "Description": "the source app for engineers", "MatchAllAccounts": true, "AppCenterEnabled": true, "AccountSource": null, "Owner": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceApp | ConvertTo-JSON
+ConvertFrom-JsonToSourceApp -Json $SourceApp
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AttributeChange = Initialize-PSSailpoint.V2024AttributeChange  -Name null `
  -PreviousValue null `
  -NewValue null
+$AttributeChange = @"{  "Name": "null", "PreviousValue": "null", "NewValue": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AttributeChange | ConvertTo-JSON
+ConvertFrom-JsonToAttributeChange -Json $AttributeChange
 ```
 
 

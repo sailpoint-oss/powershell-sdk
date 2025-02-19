@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $CampaignEnded = Initialize-PSSailpoint.V2024CampaignEnded  -Campaign null
+$CampaignEnded = @"{  "Campaign": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignEnded | ConvertTo-JSON
+ConvertFrom-JsonToCampaignEnded -Json $CampaignEnded
 ```
 
 

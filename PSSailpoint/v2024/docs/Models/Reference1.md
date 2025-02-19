@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $Reference1 = Initialize-PSSailpoint.V2024Reference1  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe
+$Reference1 = @"{  "Id": "2c91808568c529c60168cca6f90c1313", "Name": "John Doe" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Reference1 | ConvertTo-JSON
+ConvertFrom-JsonToReference1 -Json $Reference1
 ```
 
 

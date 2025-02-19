@@ -32,16 +32,17 @@ Name | Type | Description | Notes
 $IdentityCertified = Initialize-PSSailpoint.BetaIdentityCertified  -CertificationId 2c91808a77ff216301782327a50f09bf `
  -CertificationName Cert name `
  -SignedDate 2019-03-08T22:37:33.901Z `
- -Certifiers [{id&#x3D;8a80828f643d484f01643e14202e206f, displayName&#x3D;John Snow}] `
- -Reviewers [{id&#x3D;8a80828f643d484f01643e14202e206f, displayName&#x3D;John Snow}] `
+ -Certifiers [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}] `
+ -Reviewers [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}] `
  -Signer null `
  -EventType IdentityCertified `
  -Dt 2019-03-08T22:37:33.901Z
+$IdentityCertified = @"{  "CertificationId": "2c91808a77ff216301782327a50f09bf", "CertificationName": "Cert name", "SignedDate": "2019-03-08T22:37:33.901Z", "Certifiers": [{"id": "8a80828f643d484f01643e14202e206f", "displayName":"John Snow"}], "Reviewers": [{"id": "8a80828f643d484f01643e14202e206f", "displayName":"John Snow"}], "Signer": null, "EventType": "IdentityCertified", "Dt": "2019-03-08T22:37:33.901Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityCertified | ConvertTo-JSON
+ConvertFrom-JsonToIdentityCertified -Json $IdentityCertified
 ```
 
 

@@ -29,11 +29,12 @@ $IdentitySummary = Initialize-PSSailpoint.BetaIdentitySummary  -Id ff80818155fe8
  -Name SailPoint Services `
  -IdentityId c15b9f5cca5a4e9599eaa0e64fa921bd `
  -Completed true
+$IdentitySummary = @"{  "Id": "ff80818155fe8c080155fe8d925b0316", "Name": "SailPoint Services", "IdentityId": "c15b9f5cca5a4e9599eaa0e64fa921bd", "Completed": "true "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentitySummary | ConvertTo-JSON
+ConvertFrom-JsonToIdentitySummary -Json $IdentitySummary
 ```
 
 

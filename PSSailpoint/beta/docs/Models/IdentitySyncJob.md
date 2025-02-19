@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentitySyncJob = Initialize-PSSailpoint.BetaIdentitySyncJob  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Status IN_PROGRESS `
  -Payload null
+$IdentitySyncJob = @"{  "Id": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde", "Status": "IN_PROGRESS", "Payload": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentitySyncJob | ConvertTo-JSON
+ConvertFrom-JsonToIdentitySyncJob -Json $IdentitySyncJob
 ```
 
 

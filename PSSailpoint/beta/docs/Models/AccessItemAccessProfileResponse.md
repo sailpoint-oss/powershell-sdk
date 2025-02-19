@@ -45,11 +45,12 @@ $AccessItemAccessProfileResponse = Initialize-PSSailpoint.BetaAccessItemAccessPr
  -RemoveDate 2024-07-01T06:00:00.00Z `
  -Standalone false `
  -Revocable true
+$AccessItemAccessProfileResponse = @"{  "AccessType": "accessProfile", "Id": "2c918087763e69d901763e72e97f006f", "Name": "sample", "SourceName": "DataScienceDataset", "SourceId": "2793o32dwd", "Description": "AccessProfile - Workday/Citizenship access", "DisplayName": "Dr. Arden Rogahn MD", "EntitlementCount": "12", "AppDisplayName": "AppName", "RemoveDate": "2024-07-01T06:00:00.00Z", "Standalone": false, "Revocable": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessItemAccessProfileResponse | ConvertTo-JSON
+ConvertFrom-JsonToAccessItemAccessProfileResponse -Json $AccessItemAccessProfileResponse
 ```
 
 

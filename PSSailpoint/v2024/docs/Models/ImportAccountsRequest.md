@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ImportAccountsRequest = Initialize-PSSailpoint.V2024ImportAccountsRequest  -File null `
  -DisableOptimization true
+$ImportAccountsRequest = @"{  "File": null, "DisableOptimization": "true" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ImportAccountsRequest | ConvertTo-JSON
+ConvertFrom-JsonToImportAccountsRequest -Json $ImportAccountsRequest
 ```
 
 

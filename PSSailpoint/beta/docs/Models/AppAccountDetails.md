@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AppAccountDetails = Initialize-PSSailpoint.BetaAppAccountDetails  -AppId fbf4f72280304f1a8bc808fc2a3bcf7b `
  -AppDisplayName AD source app `
  -SourceAccount null
+$AppAccountDetails = @"{  "AppId": "fbf4f72280304f1a8bc808fc2a3bcf7b", "AppDisplayName": "AD source app", "SourceAccount": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AppAccountDetails | ConvertTo-JSON
+ConvertFrom-JsonToAppAccountDetails -Json $AppAccountDetails
 ```
 
 

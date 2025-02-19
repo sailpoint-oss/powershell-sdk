@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $EntitlementApprovalScheme = Initialize-PSSailpoint.BetaEntitlementApprovalScheme  -ApproverType GOVERNANCE_GROUP `
  -ApproverId e3eab852-8315-467f-9de7-70eda97f63c8
+$EntitlementApprovalScheme = @"{  "ApproverType": "GOVERNANCE_GROUP", "ApproverId": "e3eab852-8315-467f-9de7-70eda97f63c8" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$EntitlementApprovalScheme | ConvertTo-JSON
+ConvertFrom-JsonToEntitlementApprovalScheme -Json $EntitlementApprovalScheme
 ```
 
 

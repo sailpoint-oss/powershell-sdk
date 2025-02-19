@@ -29,13 +29,14 @@ Name | Type | Description | Notes
 $AccountUncorrelatedAccount = Initialize-PSSailpoint.V2024AccountUncorrelatedAccount  -Type ACCOUNT `
  -Id 4dd497e3723e439991cb6d0e478375dd `
  -Name Sadie Jensen `
- -NativeIdentity cn&#x3D;john.doe,ou&#x3D;users,dc&#x3D;acme,dc&#x3D;com `
+ -NativeIdentity cn=john.doe,ou=users,dc=acme,dc=com `
  -Uuid 1cb1f07d-3e5a-4431-becd-234fa4306108
+$AccountUncorrelatedAccount = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountUncorrelatedAccount | ConvertTo-JSON
+ConvertFrom-JsonToAccountUncorrelatedAccount -Json $AccountUncorrelatedAccount
 ```
 
 

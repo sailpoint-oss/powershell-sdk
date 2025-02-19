@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $TransformRule = Initialize-PSSailpoint.V2024TransformRule  -Name Transform Calculation Rule `
  -RequiresPeriodicRefresh false
+$TransformRule = @"{  "Name": "Transform Calculation Rule", "RequiresPeriodicRefresh": "false "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TransformRule | ConvertTo-JSON
+ConvertFrom-JsonToTransformRule -Json $TransformRule
 ```
 
 

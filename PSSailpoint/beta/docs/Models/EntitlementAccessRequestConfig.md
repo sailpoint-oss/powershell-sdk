@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $EntitlementAccessRequestConfig = Initialize-PSSailpoint.BetaEntitlementAccessRequestConfig  -ApprovalSchemes null `
  -RequestCommentRequired true `
  -DenialCommentRequired false
+$EntitlementAccessRequestConfig = @"{  "ApprovalSchemes": null, "RequestCommentRequired": true, "DenialCommentRequired": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$EntitlementAccessRequestConfig | ConvertTo-JSON
+ConvertFrom-JsonToEntitlementAccessRequestConfig -Json $EntitlementAccessRequestConfig
 ```
 
 

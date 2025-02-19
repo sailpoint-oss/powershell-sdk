@@ -33,11 +33,12 @@ $Schedule1 = Initialize-PSSailpoint.BetaSchedule1  -Type null `
  -Hours null `
  -Expiration 2018-06-25T20:22:28.104Z `
  -TimeZoneId America/Chicago
+$Schedule1 = @"{  "Type": null, "Months": null, "Days": null, "Hours": null, "Expiration": "2018-06-25T20:22:28.104Z", "TimeZoneId": "America/Chicago" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Schedule1 | ConvertTo-JSON
+ConvertFrom-JsonToSchedule1 -Json $Schedule1
 ```
 
 

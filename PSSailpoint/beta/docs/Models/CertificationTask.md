@@ -35,11 +35,12 @@ $CertificationTask = Initialize-PSSailpoint.BetaCertificationTask  -Id 2c9180867
  -Status null `
  -Errors null `
  -Created 2020-09-24T18:10:47.693Z
+$CertificationTask = @"{  "Id": "2c918086719eec070171a7e3355a360a", "Type": "ADMIN_REASSIGN", "TargetType": "CAMPAIGN", "TargetId": "2c918086719eec070171a7e3355a834c", "Status": "null", "Errors": null, "Created": "2020-09-24T18:10:47.693Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CertificationTask | ConvertTo-JSON
+ConvertFrom-JsonToCertificationTask -Json $CertificationTask
 ```
 
 

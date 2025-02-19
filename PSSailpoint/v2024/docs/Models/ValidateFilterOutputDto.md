@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ValidateFilterOutputDto = Initialize-PSSailpoint.V2024ValidateFilterOutputDto  -IsValid true `
  -IsValidJSONPath true `
  -IsPathExist true
+$ValidateFilterOutputDto = @"{  "IsValid": true, "IsValidJSONPath": true, "IsPathExist": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ValidateFilterOutputDto | ConvertTo-JSON
+ConvertFrom-JsonToValidateFilterOutputDto -Json $ValidateFilterOutputDto
 ```
 
 

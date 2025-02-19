@@ -29,11 +29,12 @@ $IdentityReferenceWithNameAndEmail = Initialize-PSSailpoint.BetaIdentityReferenc
  -Id 5168015d32f890ca15812c9180835d2e `
  -Name Alison Ferguso `
  -Email alison.ferguso@identitysoon.com
+$IdentityReferenceWithNameAndEmail = @"{  "Type": "IDENTITY", "Id": "5168015d32f890ca15812c9180835d2e", "Name": "Alison Ferguso", "Email": "alison.ferguso@identitysoon.com" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityReferenceWithNameAndEmail | ConvertTo-JSON
+ConvertFrom-JsonToIdentityReferenceWithNameAndEmail -Json $IdentityReferenceWithNameAndEmail
 ```
 
 

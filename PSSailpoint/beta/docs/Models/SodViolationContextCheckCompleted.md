@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SodViolationContextCheckCompleted = Initialize-PSSailpoint.BetaSodViolationContextCheckCompleted  -State SUCCESS `
  -Uuid f73d16e9-a038-46c5-b217-1246e15fdbdd `
  -ViolationCheckResult null
+$SodViolationContextCheckCompleted = @"{  "State": "SUCCESS", "Uuid": "f73d16e9-a038-46c5-b217-1246e15fdbdd", "ViolationCheckResult": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SodViolationContextCheckCompleted | ConvertTo-JSON
+ConvertFrom-JsonToSodViolationContextCheckCompleted -Json $SodViolationContextCheckCompleted
 ```
 
 

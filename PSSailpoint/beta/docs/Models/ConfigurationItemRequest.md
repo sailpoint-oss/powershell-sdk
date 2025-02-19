@@ -31,11 +31,12 @@ $ConfigurationItemRequest = Initialize-PSSailpoint.BetaConfigurationItemRequest 
  -ConfigType null `
  -StartDate 2022-07-21T11:13:12.345Z `
  -EndDate 2022-07-30T17:00Z
+$ConfigurationItemRequest = @"{  "ReassignedFromId": "2c91808781a71ddb0181b9090b5c504e", "ReassignedToId": "2c91808781a71ddb0181b9090b53504a", "ConfigType": null, "StartDate": "2022-07-21T11:13:12.345Z", "EndDate": "2022-07-30T17:00Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConfigurationItemRequest | ConvertTo-JSON
+ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
 ```
 
 

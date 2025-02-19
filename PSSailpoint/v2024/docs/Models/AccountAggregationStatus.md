@@ -29,11 +29,12 @@ $AccountAggregationStatus = Initialize-PSSailpoint.V2024AccountAggregationStatus
  -Status ACCOUNTS_COLLECTED `
  -TotalAccounts 520 `
  -ProcessedAccounts 150
+$AccountAggregationStatus = @"{  "Start": "2021-01-31T14:30:05.104Z", "Status": "ACCOUNTS_COLLECTED", "TotalAccounts": "520", "ProcessedAccounts": "150" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountAggregationStatus | ConvertTo-JSON
+ConvertFrom-JsonToAccountAggregationStatus -Json $AccountAggregationStatus
 ```
 
 

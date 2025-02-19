@@ -29,11 +29,12 @@ $FormElementDynamicDataSourceConfig = Initialize-PSSailpoint.V2024FormElementDyn
  -Indices [identities] `
  -ObjectType IDENTITY `
  -Query *
+$FormElementDynamicDataSourceConfig = @"{  "AggregationBucketField": "attributes.cloudStatus.exact", "Indices": ["identities"], "ObjectType": "IDENTITY", "Query": "*" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormElementDynamicDataSourceConfig | ConvertTo-JSON
+ConvertFrom-JsonToFormElementDynamicDataSourceConfig -Json $FormElementDynamicDataSourceConfig
 ```
 
 

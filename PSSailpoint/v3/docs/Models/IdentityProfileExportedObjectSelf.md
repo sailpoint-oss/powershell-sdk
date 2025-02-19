@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentityProfileExportedObjectSelf = Initialize-PSSailpoint.V3IdentityProfileExportedObjectSelf  -Type SOURCE `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name HR Active Directory
+$IdentityProfileExportedObjectSelf = @"{  "Type": "SOURCE", "Id": "2c9180835d191a86015d28455b4b232a", "Name": "HR Active Directory" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityProfileExportedObjectSelf | ConvertTo-JSON
+ConvertFrom-JsonToIdentityProfileExportedObjectSelf -Json $IdentityProfileExportedObjectSelf
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessProfileUsageUsedByInner = Initialize-PSSailpoint.V2024AccessProfileUsageUsedByInner  -Type ROLE `
  -Id 2c8180857a9b3da0017aa03418480f9d `
  -Name Manager Role
+$AccessProfileUsageUsedByInner = @"{  "Type": "ROLE", "Id": "2c8180857a9b3da0017aa03418480f9d", "Name": "Manager Role" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileUsageUsedByInner | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileUsageUsedByInner -Json $AccessProfileUsageUsedByInner
 ```
 
 

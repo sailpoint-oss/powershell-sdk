@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentityDocumentAllOfManager = Initialize-PSSailpoint.V2024IdentityDocumentAllOfManager  -Id 2c9180867dfe694b017e208e27c05799 `
  -Name Amanda.Ross `
  -DisplayName Amanda.Ross
+$IdentityDocumentAllOfManager = @"{  "Id": "2c9180867dfe694b017e208e27c05799", "Name": "Amanda.Ross", "DisplayName": "Amanda.Ross" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityDocumentAllOfManager | ConvertTo-JSON
+ConvertFrom-JsonToIdentityDocumentAllOfManager -Json $IdentityDocumentAllOfManager
 ```
 
 

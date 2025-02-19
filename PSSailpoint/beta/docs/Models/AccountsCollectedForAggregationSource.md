@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccountsCollectedForAggregationSource = Initialize-PSSailpoint.BetaAccountsCollectedForAggregationSource  -Id 4e4d982dddff4267ab12f0f1e72b5a6d `
  -Type SOURCE `
  -Name Corporate Active Directory
+$AccountsCollectedForAggregationSource = @"{  "Id": "4e4d982dddff4267ab12f0f1e72b5a6d", "Type": "SOURCE", "Name": "Corporate Active Directory" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountsCollectedForAggregationSource | ConvertTo-JSON
+ConvertFrom-JsonToAccountsCollectedForAggregationSource -Json $AccountsCollectedForAggregationSource
 ```
 
 

@@ -67,11 +67,12 @@ $AccessProfileDetails = Initialize-PSSailpoint.V2024AccessProfileDetails  -Id 2c
  -RequestCommentsRequired true `
  -DeniedCommentsRequired true `
  -AccountSelector null
+$AccessProfileDetails = @"{  "Id": "2c91808a7190d06e01719938fcd20792", "Name": "Employee-database-read-write", "Description": "Collection of entitlements to read/write the employee database", "Created": "2021-03-01T22:32:58.104Z", "Modified": "2021-03-02T20:22:28.104Z", "Disabled": true, "Requestable": true, "Protected": false, "OwnerId": "9870808a7190d06e01719938fcd20792", "SourceId": "10360661", "SourceName": "AD Source", "AppId": "10360661", "AppName": "mail app", "ApplicationId": "edcb0951812949d085b60cd8bf35bc78", "Type": "source", "Entitlements": ["2c9180857725c14301772a93bb77242d", "c9dc28e148a24d65b3ccb5fb8ca5ddd9"], "EntitlementCount": "12", "Segments": ["f7b1b8a3-5fed-4fd4-ad29-82014e137e19", "29cb6c06-1da8-43ea-8be4-b3125f248f2a"], "ApprovalSchemes": "accessProfileOwner", "RevokeRequestApprovalSchemes": "accessProfileOwner", "RequestCommentsRequired": true, "DeniedCommentsRequired": true, "AccountSelector": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileDetails | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileDetails -Json $AccessProfileDetails
 ```
 
 

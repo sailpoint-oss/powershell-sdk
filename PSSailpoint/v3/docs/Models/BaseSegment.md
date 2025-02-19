@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $BaseSegment = Initialize-PSSailpoint.V3BaseSegment  -Id b009b6e3-b56d-41d9-8735-cb532ea0b017 `
  -Name Test Segment
+$BaseSegment = @"{  "Id": "b009b6e3-b56d-41d9-8735-cb532ea0b017", "Name": "Test Segment" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BaseSegment | ConvertTo-JSON
+ConvertFrom-JsonToBaseSegment -Json $BaseSegment
 ```
 
 

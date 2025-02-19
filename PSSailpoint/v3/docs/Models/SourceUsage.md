@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SourceUsage = Initialize-PSSailpoint.V3SourceUsage  -Date Thu Apr 20 20:00:00 EDT 2023 `
  -Count 10.45
+$SourceUsage = @"{  "Date": "Thu Apr 20 20:00:00 EDT 2023", "Count": "10.45" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceUsage | ConvertTo-JSON
+ConvertFrom-JsonToSourceUsage -Json $SourceUsage
 ```
 
 

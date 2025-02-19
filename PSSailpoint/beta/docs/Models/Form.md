@@ -33,11 +33,12 @@ $Form = Initialize-PSSailpoint.BetaForm  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Subtitle Please select from the following `
  -TargetUser Jane.Doe `
  -Sections null
+$Form = @"{  "Id": "2c9180835d2e5168015d32f890ca1581", "Name": "AccountSelection Form", "Title": "Account Selection for John.Doe", "Subtitle": "Please select from the following", "TargetUser": "Jane.Doe", "Sections": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Form | ConvertTo-JSON
+ConvertFrom-JsonToForm -Json $Form
 ```
 
 

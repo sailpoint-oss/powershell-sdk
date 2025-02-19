@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SourceUpdatedActor = Initialize-PSSailpoint.BetaSourceUpdatedActor  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20648 `
  -Name William Wilson
+$SourceUpdatedActor = @"{  "Type": "IDENTITY", "Id": "2c7180a46faadee4016fb4e018c20648", "Name": "William Wilson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceUpdatedActor | ConvertTo-JSON
+ConvertFrom-JsonToSourceUpdatedActor -Json $SourceUpdatedActor
 ```
 
 

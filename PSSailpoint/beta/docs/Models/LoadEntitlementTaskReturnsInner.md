@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $LoadEntitlementTaskReturnsInner = Initialize-PSSailpoint.BetaLoadEntitlementTaskReturnsInner  -DisplayLabel TASK_OUT_ACCOUNT_GROUP_AGGREGATION_APPLICATIONS `
  -AttributeName applications
+$LoadEntitlementTaskReturnsInner = @"{  "DisplayLabel": "TASK_OUT_ACCOUNT_GROUP_AGGREGATION_APPLICATIONS", "AttributeName": "applications" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LoadEntitlementTaskReturnsInner | ConvertTo-JSON
+ConvertFrom-JsonToLoadEntitlementTaskReturnsInner -Json $LoadEntitlementTaskReturnsInner
 ```
 
 

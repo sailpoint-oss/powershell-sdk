@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $NetworkConfiguration = Initialize-PSSailpoint.V3NetworkConfiguration  -Range [1.3.7.2, 255.255.255.252/30] `
  -Geolocation [CA, FR, HT] `
  -Whitelisted true
+$NetworkConfiguration = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NetworkConfiguration | ConvertTo-JSON
+ConvertFrom-JsonToNetworkConfiguration -Json $NetworkConfiguration
 ```
 
 

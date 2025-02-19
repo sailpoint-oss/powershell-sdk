@@ -31,11 +31,12 @@ $ResourceObjectsResponse = Initialize-PSSailpoint.V2024ResourceObjectsResponse  
  -ObjectCount 25 `
  -ElapsedMillis 1055 `
  -ResourceObjects null
+$ResourceObjectsResponse = @"{  "Id": "2c91808568c529c60168cca6f90c1313", "Name": "ODS-AD-Test [source-999999]", "ObjectCount": "25", "ElapsedMillis": "1055", "ResourceObjects": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ResourceObjectsResponse | ConvertTo-JSON
+ConvertFrom-JsonToResourceObjectsResponse -Json $ResourceObjectsResponse
 ```
 
 

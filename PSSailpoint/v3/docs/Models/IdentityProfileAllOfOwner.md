@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentityProfileAllOfOwner = Initialize-PSSailpoint.V3IdentityProfileAllOfOwner  -Type IDENTITY `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name William Wilson
+$IdentityProfileAllOfOwner = @"{  "Type": "IDENTITY", "Id": "2c9180835d191a86015d28455b4b232a", "Name": "William Wilson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityProfileAllOfOwner | ConvertTo-JSON
+ConvertFrom-JsonToIdentityProfileAllOfOwner -Json $IdentityProfileAllOfOwner
 ```
 
 

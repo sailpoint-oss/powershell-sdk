@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $Column = Initialize-PSSailpoint.V3Column  -Field email `
  -Header Work Email
+$Column = @"{  "Field": "email", "Header": "Work Email" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Column | ConvertTo-JSON
+ConvertFrom-JsonToColumn -Json $Column
 ```
 
 

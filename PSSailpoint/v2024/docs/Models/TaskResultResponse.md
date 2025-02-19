@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $TaskResultResponse = Initialize-PSSailpoint.V2024TaskResultResponse  -Type TASK_RESULT `
  -Id 78733556-9ea3-4f59-bf69-e5cd92b011b4 `
  -Name null
+$TaskResultResponse = @"{  "Type": "TASK_RESULT", "Id": "78733556-9ea3-4f59-bf69-e5cd92b011b4", "Name": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TaskResultResponse | ConvertTo-JSON
+ConvertFrom-JsonToTaskResultResponse -Json $TaskResultResponse
 ```
 
 

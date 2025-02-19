@@ -33,11 +33,12 @@ $ConnectorRuleCreateRequest = Initialize-PSSailpoint.BetaConnectorRuleCreateRequ
  -Signature null `
  -SourceCode null `
  -Attributes {}
+$ConnectorRuleCreateRequest = @"{  "Name": "WebServiceBeforeOperationRule", "Description": "This rule does that", "Type": "BuildMap", "Signature": null, "SourceCode": null, "Attributes": {} }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConnectorRuleCreateRequest | ConvertTo-JSON
+ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
 ```
 
 

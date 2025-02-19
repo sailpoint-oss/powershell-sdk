@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SedApprovalStatus = Initialize-PSSailpoint.BetaSedApprovalStatus  -FailedReason invalid status `
  -Id 016629d1-1d25-463f-97f3-0c6686846650 `
  -Status SUCCESS
+$SedApprovalStatus = @"{  "FailedReason": "invalid status", "Id": "016629d1-1d25-463f-97f3-0c6686846650", "Status": "SUCCESS" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SedApprovalStatus | ConvertTo-JSON
+ConvertFrom-JsonToSedApprovalStatus -Json $SedApprovalStatus
 ```
 
 

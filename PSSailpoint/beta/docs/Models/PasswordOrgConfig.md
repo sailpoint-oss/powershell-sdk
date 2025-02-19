@@ -29,11 +29,12 @@ $PasswordOrgConfig = Initialize-PSSailpoint.BetaPasswordOrgConfig  -CustomInstru
  -DigitTokenEnabled true `
  -DigitTokenDurationMinutes 10 `
  -DigitTokenLength 9
+$PasswordOrgConfig = @"{  "CustomInstructionsEnabled": true, "DigitTokenEnabled": true, "DigitTokenDurationMinutes": "10", "DigitTokenLength": "9" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PasswordOrgConfig | ConvertTo-JSON
+ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccountAttributesChangedIdentity = Initialize-PSSailpoint.V2024AccountAttributesChangedIdentity  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
+$AccountAttributesChangedIdentity = @"{  "Type": "IDENTITY", "Id": "2c7180a46faadee4016fb4e018c20642", "Name": "Michael Michaels" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountAttributesChangedIdentity | ConvertTo-JSON
+ConvertFrom-JsonToAccountAttributesChangedIdentity -Json $AccountAttributesChangedIdentity
 ```
 
 

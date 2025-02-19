@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $DependantConnectionsMissingDto = Initialize-PSSailpoint.V3DependantConnectionsMissingDto  -DependencyType dependantApps `
  -Reason If there was an error retrieving any dependencies, it would lbe listed here
+$DependantConnectionsMissingDto = @"{  "DependencyType": "dependantApps", "Reason": "If there was an error retrieving any dependencies, it would lbe listed here" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DependantConnectionsMissingDto | ConvertTo-JSON
+ConvertFrom-JsonToDependantConnectionsMissingDto -Json $DependantConnectionsMissingDto
 ```
 
 

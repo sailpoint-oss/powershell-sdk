@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $WorkflowAllOfCreator = Initialize-PSSailpoint.BetaWorkflowAllOfCreator  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
+$WorkflowAllOfCreator = @"{  "Type": "IDENTITY", "Id": "2c7180a46faadee4016fb4e018c20642", "Name": "Michael Michaels" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkflowAllOfCreator | ConvertTo-JSON
+ConvertFrom-JsonToWorkflowAllOfCreator -Json $WorkflowAllOfCreator
 ```
 
 

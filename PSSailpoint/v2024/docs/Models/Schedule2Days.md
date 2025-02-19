@@ -23,13 +23,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Schedule2Days = Initialize-PSSailpoint.V2024Schedule2Days  -ApplicationId 2c91808874ff91550175097daaec161c&quot; `
+$Schedule2Days = Initialize-PSSailpoint.V2024Schedule2Days  -ApplicationId 2c91808874ff91550175097daaec161c" `
  -AccountMatchConfig null
+$Schedule2Days = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Schedule2Days | ConvertTo-JSON
+ConvertFrom-JsonToSchedule2Days -Json $Schedule2Days
 ```
 
 

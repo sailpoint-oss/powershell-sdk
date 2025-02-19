@@ -57,11 +57,12 @@ $RoleMiningSessionResponse = Initialize-PSSailpoint.BetaRoleMiningSessionRespons
  -CreatedDate null `
  -ModifiedDate null `
  -Type null
+$RoleMiningSessionResponse = @"{  "Scope": null, "MinNumIdentitiesInPotentialRole": "20", "ScopingMethod": "AUTO_RM", "PrescribedPruneThreshold": "83", "PruneThreshold": "70", "PotentialRoleCount": "8", "PotentialRolesReadyCount": "4", "Status": null, "EmailRecipientId": "null", "CreatedBy": null, "IdentityCount": "39", "Saved": true, "Name": "Saved RM Session - 07/10", "DataFilePath": "null", "Id": "8c190e67-87aa-4ed9-a90b-d9d5344523fb", "CreatedDate": null, "ModifiedDate": null, "Type": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningSessionResponse | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningSessionResponse -Json $RoleMiningSessionResponse
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ApprovalComment = Initialize-PSSailpoint.V3ApprovalComment  -Comment This request was autoapproved by our automated ETS subscriber. `
  -Commenter Automated AR Approval `
  -Date 2018-06-25T20:22:28.104Z
+$ApprovalComment = @"{  "Comment": "This request was autoapproved by our automated ETS subscriber.", "Commenter": "Automated AR Approval", "Date": "2018-06-25T20:22:28.104Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalComment | ConvertTo-JSON
+ConvertFrom-JsonToApprovalComment -Json $ApprovalComment
 ```
 
 

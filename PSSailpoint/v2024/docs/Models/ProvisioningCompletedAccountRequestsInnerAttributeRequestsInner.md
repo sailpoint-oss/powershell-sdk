@@ -25,13 +25,14 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner = Initialize-PSSailpoint.V2024ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner  -AttributeName memberOf `
- -AttributeValue CN&#x3D;jedi,DC&#x3D;starwars,DC&#x3D;com `
+ -AttributeValue CN=jedi,DC=starwars,DC=com `
  -Operation Add
+$ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner | ConvertTo-JSON
+ConvertFrom-JsonToProvisioningCompletedAccountRequestsInnerAttributeRequestsInner -Json $ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner
 ```
 
 

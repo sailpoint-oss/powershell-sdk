@@ -31,11 +31,12 @@ $ConfigType = Initialize-PSSailpoint.V2024ConfigType  -Priority 1 `
  -InternalNameCamel null `
  -DisplayName Access Requests `
  -Description Reassign Access Request Work Items for an identity
+$ConfigType = @"{  "Priority": "1", "InternalName": null, "InternalNameCamel": null, "DisplayName": "Access Requests", "Description": "Reassign Access Request Work Items for an identity" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConfigType | ConvertTo-JSON
+ConvertFrom-JsonToConfigType -Json $ConfigType
 ```
 
 

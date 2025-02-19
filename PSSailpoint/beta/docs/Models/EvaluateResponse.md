@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $EvaluateResponse = Initialize-PSSailpoint.BetaEvaluateResponse  -ReassignToId 869320b6b6f34a169b6178b1a865e66f `
  -LookupTrail null
+$EvaluateResponse = @"{  "ReassignToId": "869320b6b6f34a169b6178b1a865e66f", "LookupTrail": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$EvaluateResponse | ConvertTo-JSON
+ConvertFrom-JsonToEvaluateResponse -Json $EvaluateResponse
 ```
 
 

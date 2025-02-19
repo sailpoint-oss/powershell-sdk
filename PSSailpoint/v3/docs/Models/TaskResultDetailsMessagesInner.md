@@ -31,11 +31,12 @@ $TaskResultDetailsMessagesInner = Initialize-PSSailpoint.V3TaskResultDetailsMess
  -Warning true `
  -Key The following account(s) failed to correlate: A,B,C `
  -LocalizedText The following account(s) failed to correlate: A,B,C
+$TaskResultDetailsMessagesInner = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TaskResultDetailsMessagesInner | ConvertTo-JSON
+ConvertFrom-JsonToTaskResultDetailsMessagesInner -Json $TaskResultDetailsMessagesInner
 ```
 
 

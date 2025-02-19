@@ -33,11 +33,12 @@ $AccountRequest = Initialize-PSSailpoint.V3AccountRequest  -AccountId John.Doe `
  -ProvisioningTarget null `
  -Result null `
  -Source null
+$AccountRequest = @"{  "AccountId": "John.Doe", "AttributeRequests": null, "Op": "Modify", "ProvisioningTarget": null, "Result": null, "Source": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountRequest | ConvertTo-JSON
+ConvertFrom-JsonToAccountRequest -Json $AccountRequest
 ```
 
 

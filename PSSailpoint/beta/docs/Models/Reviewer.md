@@ -29,11 +29,12 @@ $Reviewer = Initialize-PSSailpoint.BetaReviewer  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels `
  -Email reviewer@test.com
+$Reviewer = @"{  "Type": "IDENTITY", "Id": "2c7180a46faadee4016fb4e018c20642", "Name": "Michael Michaels", "Email": "reviewer@test.com" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Reviewer | ConvertTo-JSON
+ConvertFrom-JsonToReviewer -Json $Reviewer
 ```
 
 

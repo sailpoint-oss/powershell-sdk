@@ -29,11 +29,12 @@ $AuditDetails = Initialize-PSSailpoint.V2024AuditDetails  -Created 2022-07-21T11
  -CreatedBy null `
  -Modified 2022-07-21T11:13:12.345Z `
  -ModifiedBy null
+$AuditDetails = @"{  "Created": "2022-07-21T11:13:12.345Z", "CreatedBy": null, "Modified": "2022-07-21T11:13:12.345Z", "ModifiedBy": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AuditDetails | ConvertTo-JSON
+ConvertFrom-JsonToAuditDetails -Json $AuditDetails
 ```
 
 

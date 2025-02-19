@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $BaseReferenceDto1 = Initialize-PSSailpoint.BetaBaseReferenceDto1  -Id ff8081814d977c21014da056804a0af3 `
  -Name Github
+$BaseReferenceDto1 = @"{  "Id": "ff8081814d977c21014da056804a0af3", "Name": "Github" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BaseReferenceDto1 | ConvertTo-JSON
+ConvertFrom-JsonToBaseReferenceDto1 -Json $BaseReferenceDto1
 ```
 
 

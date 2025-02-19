@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $QueuedCheckConfigDetails = Initialize-PSSailpoint.BetaQueuedCheckConfigDetails  -ProvisioningStatusCheckIntervalMinutes 30 `
  -ProvisioningMaxStatusCheckDays 2
+$QueuedCheckConfigDetails = @"{  "ProvisioningStatusCheckIntervalMinutes": "30", "ProvisioningMaxStatusCheckDays": "2" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$QueuedCheckConfigDetails | ConvertTo-JSON
+ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
 ```
 
 

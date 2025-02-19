@@ -22,11 +22,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ArrayInner1 = Initialize-PSSailpoint.BetaArrayInner1 
+$ArrayInner1 = @"{  }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ArrayInner1 | ConvertTo-JSON
+ConvertFrom-JsonToArrayInner1 -Json $ArrayInner1
 ```
 
 

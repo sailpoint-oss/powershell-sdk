@@ -31,11 +31,12 @@ $RoleIdentity = Initialize-PSSailpoint.BetaRoleIdentity  -Id 2c9180a46faadee4016
  -Name Thomas Edison `
  -Email t.edison@identitynow.com `
  -RoleAssignmentSource null
+$RoleIdentity = @"{  "Id": "2c9180a46faadee4016fb4e018c20639", "AliasName": "t.edison", "Name": "Thomas Edison", "Email": "t.edison@identitynow.com", "RoleAssignmentSource": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleIdentity | ConvertTo-JSON
+ConvertFrom-JsonToRoleIdentity -Json $RoleIdentity
 ```
 
 

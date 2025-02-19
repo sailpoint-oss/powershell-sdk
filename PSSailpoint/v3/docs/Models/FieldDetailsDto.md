@@ -28,16 +28,17 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $FieldDetailsDto = Initialize-PSSailpoint.V3FieldDetailsDto  -Name userName `
- -Transform {type&#x3D;rule, attributes&#x3D;{name&#x3D;Create Unique LDAP Attribute}} `
- -Attributes {template&#x3D;${firstname}.${lastname}${uniqueCounter}, cloudMaxUniqueChecks&#x3D;50, cloudMaxSize&#x3D;20, cloudRequired&#x3D;true} `
+ -Transform {type=rule, attributes={name=Create Unique LDAP Attribute}} `
+ -Attributes {template=${firstname}.${lastname}${uniqueCounter}, cloudMaxUniqueChecks=50, cloudMaxSize=20, cloudRequired=true} `
  -IsRequired false `
  -Type string `
  -IsMultiValued false
+$FieldDetailsDto = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FieldDetailsDto | ConvertTo-JSON
+ConvertFrom-JsonToFieldDetailsDto -Json $FieldDetailsDto
 ```
 
 

@@ -28,12 +28,13 @@ Name | Type | Description | Notes
 $RoleMetadataBulkUpdateByIdRequest = Initialize-PSSailpoint.V2024RoleMetadataBulkUpdateByIdRequest  -Roles [b1db89554cfa431cb8b9921ea38d9367] `
  -Operation REPLACE `
  -ReplaceScope ALL `
- -Values [{attribute&#x3D;iscFederalClassifications, values&#x3D;[topSecret]}]
+ -Values [{attribute=iscFederalClassifications, values=[topSecret]}]
+$RoleMetadataBulkUpdateByIdRequest = @"{  "Roles": ["b1db89554cfa431cb8b9921ea38d9367"], "Operation": "REPLACE", "ReplaceScope": "ALL", "Values": [{"attribute": "iscFederalClassifications", "values":["topSecret"]}] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMetadataBulkUpdateByIdRequest | ConvertTo-JSON
+ConvertFrom-JsonToRoleMetadataBulkUpdateByIdRequest -Json $RoleMetadataBulkUpdateByIdRequest
 ```
 
 

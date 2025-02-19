@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $WorkflowTrigger = Initialize-PSSailpoint.V2024WorkflowTrigger  -Type EVENT `
  -DisplayName null `
  -Attributes null
+$WorkflowTrigger = @"{  "Type": "EVENT", "DisplayName": "null", "Attributes": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkflowTrigger | ConvertTo-JSON
+ConvertFrom-JsonToWorkflowTrigger -Json $WorkflowTrigger
 ```
 
 

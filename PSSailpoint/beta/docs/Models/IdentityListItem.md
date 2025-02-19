@@ -33,11 +33,12 @@ $IdentityListItem = Initialize-PSSailpoint.BetaIdentityListItem  -Id bc693f07e7b
  -LastName Zampa `
  -Active true `
  -DeletedDate 2007-03-01T13:00:00.000Z
+$IdentityListItem = @"{  "Id": "bc693f07e7b645539626c25954c58554", "DisplayName": "Adam Zampa", "FirstName": "Adam", "LastName": "Zampa", "Active": true, "DeletedDate": "2007-03-01T13:00:00.000Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityListItem | ConvertTo-JSON
+ConvertFrom-JsonToIdentityListItem -Json $IdentityListItem
 ```
 
 

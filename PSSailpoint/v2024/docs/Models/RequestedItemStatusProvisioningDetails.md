@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $RequestedItemStatusProvisioningDetails = Initialize-PSSailpoint.V2024RequestedItemStatusProvisioningDetails  -OrderedSubPhaseReferences manualWorkItemDetails
+$RequestedItemStatusProvisioningDetails = @"{  "OrderedSubPhaseReferences": "manualWorkItemDetails" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RequestedItemStatusProvisioningDetails | ConvertTo-JSON
+ConvertFrom-JsonToRequestedItemStatusProvisioningDetails -Json $RequestedItemStatusProvisioningDetails
 ```
 
 

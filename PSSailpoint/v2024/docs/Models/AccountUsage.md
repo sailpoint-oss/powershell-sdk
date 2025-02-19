@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AccountUsage = Initialize-PSSailpoint.V2024AccountUsage  -Date Thu Apr 20 20:00:00 EDT 2023 `
  -Count 10
+$AccountUsage = @"{  "Date": "Thu Apr 20 20:00:00 EDT 2023", "Count": "10" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountUsage | ConvertTo-JSON
+ConvertFrom-JsonToAccountUsage -Json $AccountUsage
 ```
 
 

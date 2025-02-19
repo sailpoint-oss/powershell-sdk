@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $PasswordInfoQueryDTO = Initialize-PSSailpoint.V2024PasswordInfoQueryDTO  -UserName Abby.Smith `
  -SourceName My-AD
+$PasswordInfoQueryDTO = @"{  "UserName": "Abby.Smith", "SourceName": "My-AD" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PasswordInfoQueryDTO | ConvertTo-JSON
+ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
 ```
 
 

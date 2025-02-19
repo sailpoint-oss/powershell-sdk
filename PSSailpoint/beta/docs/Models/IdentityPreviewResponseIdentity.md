@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentityPreviewResponseIdentity = Initialize-PSSailpoint.BetaIdentityPreviewResponseIdentity  -Type IDENTITY `
  -Id 2c4180a46faadee4016fb4e018c20626 `
  -Name Robert Robinson
+$IdentityPreviewResponseIdentity = @"{  "Type": "IDENTITY", "Id": "2c4180a46faadee4016fb4e018c20626", "Name": "Robert Robinson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityPreviewResponseIdentity | ConvertTo-JSON
+ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
 ```
 
 

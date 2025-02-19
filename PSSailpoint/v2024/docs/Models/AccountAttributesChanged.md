@@ -29,11 +29,12 @@ $AccountAttributesChanged = Initialize-PSSailpoint.V2024AccountAttributesChanged
  -Source null `
  -Account null `
  -Changes null
+$AccountAttributesChanged = @"{  "Identity": null, "Source": null, "Account": null, "Changes": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountAttributesChanged | ConvertTo-JSON
+ConvertFrom-JsonToAccountAttributesChanged -Json $AccountAttributesChanged
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $CancelAccessRequest = Initialize-PSSailpoint.V2024CancelAccessRequest  -AccountActivityId 2c9180835d2e5168015d32f890ca1581 `
  -Comment I requested this role by mistake.
+$CancelAccessRequest = @"{  "AccountActivityId": "2c9180835d2e5168015d32f890ca1581", "Comment": "I requested this role by mistake." }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CancelAccessRequest | ConvertTo-JSON
+ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
 ```
 
 

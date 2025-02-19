@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $RoleCriteriaLevel3 = Initialize-PSSailpoint.BetaRoleCriteriaLevel3  -Operation null `
  -Key null `
  -StringValue carlee.cert1c9f9b6fd@mailinator.com
+$RoleCriteriaLevel3 = @"{  "Operation": null, "Key": null, "StringValue": "carlee.cert1c9f9b6fd@mailinator.com" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleCriteriaLevel3 | ConvertTo-JSON
+ConvertFrom-JsonToRoleCriteriaLevel3 -Json $RoleCriteriaLevel3
 ```
 
 

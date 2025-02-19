@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ManagedClusterKeyPair = Initialize-PSSailpoint.BetaManagedClusterKeyPair  -PublicKey -----BEGIN PUBLIC KEY-----******-----END PUBLIC KEY----- `
  -PublicKeyThumbprint 6CMlaJIV44-xJxcB3CJBjDUUn54 `
  -PublicKeyCertificate -----BEGIN CERTIFICATE-----****-----END CERTIFICATE-----
+$ManagedClusterKeyPair = @"{  "PublicKey": "-----BEGIN PUBLIC KEY-----******-----END PUBLIC KEY-----", "PublicKeyThumbprint": "6CMlaJIV44-xJxcB3CJBjDUUn54", "PublicKeyCertificate": "-----BEGIN CERTIFICATE-----****-----END CERTIFICATE-----" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ManagedClusterKeyPair | ConvertTo-JSON
+ConvertFrom-JsonToManagedClusterKeyPair -Json $ManagedClusterKeyPair
 ```
 
 

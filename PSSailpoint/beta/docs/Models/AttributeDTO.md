@@ -37,11 +37,12 @@ $AttributeDTO = Initialize-PSSailpoint.BetaAttributeDTO  -Key iscPrivacy `
  -ObjectTypes [entitlement] `
  -Description Specifies the level of privacy associated with an access item. `
  -Values null
+$AttributeDTO = @"{  "Key": "iscPrivacy", "Name": "Privacy", "Multiselect": false, "Status": "active", "Type": "governance", "ObjectTypes": ["entitlement"], "Description": "Specifies the level of privacy associated with an access item.", "Values": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AttributeDTO | ConvertTo-JSON
+ConvertFrom-JsonToAttributeDTO -Json $AttributeDTO
 ```
 
 

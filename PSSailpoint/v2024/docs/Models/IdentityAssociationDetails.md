@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $IdentityAssociationDetails = Initialize-PSSailpoint.V2024IdentityAssociationDetails  -Message Identity cannot be deleted as it is owner of following resources `
  -AssociationDetails null
+$IdentityAssociationDetails = @"{  "Message": "Identity cannot be deleted as it is owner of following resources", "AssociationDetails": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityAssociationDetails | ConvertTo-JSON
+ConvertFrom-JsonToIdentityAssociationDetails -Json $IdentityAssociationDetails
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $RoleMiningPotentialRoleRef = Initialize-PSSailpoint.BetaRoleMiningPotentialRoleRef  -Id e0cc5d7d-bf7f-4f81-b2af-8885b09d9923 `
  -Name Potential Role - e0cc5d
+$RoleMiningPotentialRoleRef = @"{  "Id": "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923", "Name": "Potential Role - e0cc5d" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningPotentialRoleRef | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningPotentialRoleRef -Json $RoleMiningPotentialRoleRef
 ```
 
 

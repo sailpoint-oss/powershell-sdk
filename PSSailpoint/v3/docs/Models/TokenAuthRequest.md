@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $TokenAuthRequest = Initialize-PSSailpoint.V3TokenAuthRequest  -Token 12345 `
  -UserAlias will.albin `
  -DeliveryType EMAIL_WORK
+$TokenAuthRequest = @"{  "Token": "12345", "UserAlias": "will.albin", "DeliveryType": "EMAIL_WORK" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TokenAuthRequest | ConvertTo-JSON
+ConvertFrom-JsonToTokenAuthRequest -Json $TokenAuthRequest
 ```
 
 

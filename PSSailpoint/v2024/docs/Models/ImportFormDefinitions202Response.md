@@ -29,11 +29,12 @@ $ImportFormDefinitions202Response = Initialize-PSSailpoint.V2024ImportFormDefini
  -ImportedObjects null `
  -Infos null `
  -Warnings null
+$ImportFormDefinitions202Response = @"{  "Errors": null, "ImportedObjects": null, "Infos": null, "Warnings": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ImportFormDefinitions202Response | ConvertTo-JSON
+ConvertFrom-JsonToImportFormDefinitions202Response -Json $ImportFormDefinitions202Response
 ```
 
 

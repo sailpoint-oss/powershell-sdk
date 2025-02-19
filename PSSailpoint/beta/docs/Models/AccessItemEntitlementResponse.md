@@ -45,11 +45,12 @@ $AccessItemEntitlementResponse = Initialize-PSSailpoint.BetaAccessItemEntitlemen
  -Standalone true `
  -Privileged false `
  -CloudGoverned true
+$AccessItemEntitlementResponse = @"{  "AccessType": "entitlement", "Id": "2c918087763e69d901763e72e97f006f", "Attribute": "groups", "Value": "Upward mobility access", "EntitlementType": "entitlement", "SourceName": "DataScienceDataset", "SourceId": "2793o32dwd", "Description": "Entitlement - Workday/Citizenship access", "DisplayName": "Dr. Arden Rogahn MD", "Standalone": true, "Privileged": false, "CloudGoverned": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessItemEntitlementResponse | ConvertTo-JSON
+ConvertFrom-JsonToAccessItemEntitlementResponse -Json $AccessItemEntitlementResponse
 ```
 
 

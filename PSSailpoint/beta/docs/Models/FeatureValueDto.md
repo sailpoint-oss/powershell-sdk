@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $FeatureValueDto = Initialize-PSSailpoint.BetaFeatureValueDto  -Feature department `
  -Numerator 14 `
  -Denominator 14
+$FeatureValueDto = @"{  "Feature": "department", "Numerator": "14", "Denominator": "14" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FeatureValueDto | ConvertTo-JSON
+ConvertFrom-JsonToFeatureValueDto -Json $FeatureValueDto
 ```
 
 

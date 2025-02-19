@@ -39,11 +39,12 @@ $VendorConnectorMapping = Initialize-PSSailpoint.V2024VendorConnectorMapping  -I
  -UpdatedBy null `
  -DeletedAt null `
  -DeletedBy null
+$VendorConnectorMapping = @"{  "Id": "78733556-9ea3-4f59-bf69-e5cd92b011b4", "Vendor": "Example vendor", "Connector": "Example connector", "CreatedAt": "2024-03-13T12:56:19.391294Z", "CreatedBy": "admin", "UpdatedAt": null, "UpdatedBy": null, "DeletedAt": null, "DeletedBy": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$VendorConnectorMapping | ConvertTo-JSON
+ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
 ```
 
 

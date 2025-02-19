@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $JsonPatchOperations = Initialize-PSSailpoint.BetaJsonPatchOperations  -Op replace `
  -Path /dismissed `
  -Value null
+$JsonPatchOperations = @"{  "Op": "replace", "Path": "/dismissed", "Value": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$JsonPatchOperations | ConvertTo-JSON
+ConvertFrom-JsonToJsonPatchOperations -Json $JsonPatchOperations
 ```
 
 

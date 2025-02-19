@@ -29,11 +29,12 @@ $AccessRequestPreApproval = Initialize-PSSailpoint.BetaAccessRequestPreApproval 
  -RequestedFor null `
  -RequestedItems null `
  -RequestedBy null
+$AccessRequestPreApproval = @"{  "AccessRequestId": "2c91808b6ef1d43e016efba0ce470904", "RequestedFor": null, "RequestedItems": null, "RequestedBy": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestPreApproval | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestPreApproval -Json $AccessRequestPreApproval
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ScheduleHours = Initialize-PSSailpoint.BetaScheduleHours  -Type LIST `
  -Values [1] `
  -Interval 2
+$ScheduleHours = @"{  "Type": "LIST", "Values": [1], "Interval": "2" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ScheduleHours | ConvertTo-JSON
+ConvertFrom-JsonToScheduleHours -Json $ScheduleHours
 ```
 
 

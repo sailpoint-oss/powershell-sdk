@@ -29,11 +29,12 @@ $AttrSyncSourceAttributeConfig = Initialize-PSSailpoint.V2024AttrSyncSourceAttri
  -DisplayName Email `
  -Enabled true `
  -Target mail
+$AttrSyncSourceAttributeConfig = @"{  "Name": "email", "DisplayName": "Email", "Enabled": true, "Target": "mail" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AttrSyncSourceAttributeConfig | ConvertTo-JSON
+ConvertFrom-JsonToAttrSyncSourceAttributeConfig -Json $AttrSyncSourceAttributeConfig
 ```
 
 

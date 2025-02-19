@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SearchScheduleRecipientsInner = Initialize-PSSailpoint.V3SearchScheduleRecipientsInner  -Type IDENTITY `
  -Id 2c9180867624cbd7017642d8c8c81f67
+$SearchScheduleRecipientsInner = @"{  "Type": "IDENTITY", "Id": "2c9180867624cbd7017642d8c8c81f67" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SearchScheduleRecipientsInner | ConvertTo-JSON
+ConvertFrom-JsonToSearchScheduleRecipientsInner -Json $SearchScheduleRecipientsInner
 ```
 
 

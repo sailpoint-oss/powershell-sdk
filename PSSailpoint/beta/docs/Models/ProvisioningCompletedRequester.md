@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ProvisioningCompletedRequester = Initialize-PSSailpoint.BetaProvisioningCompletedRequester  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20648 `
  -Name William Wilson
+$ProvisioningCompletedRequester = @"{  "Type": "IDENTITY", "Id": "2c7180a46faadee4016fb4e018c20648", "Name": "William Wilson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ProvisioningCompletedRequester | ConvertTo-JSON
+ConvertFrom-JsonToProvisioningCompletedRequester -Json $ProvisioningCompletedRequester
 ```
 
 

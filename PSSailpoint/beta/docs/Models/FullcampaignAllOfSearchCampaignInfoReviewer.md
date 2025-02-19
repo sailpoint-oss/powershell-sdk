@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $FullcampaignAllOfSearchCampaignInfoReviewer = Initialize-PSSailpoint.BetaFullcampaignAllOfSearchCampaignInfoReviewer  -Type IDENTITY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
+$FullcampaignAllOfSearchCampaignInfoReviewer = @"{  "Type": "IDENTITY", "Id": "2c91808568c529c60168cca6f90c1313", "Name": "William Wilson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FullcampaignAllOfSearchCampaignInfoReviewer | ConvertTo-JSON
+ConvertFrom-JsonToFullcampaignAllOfSearchCampaignInfoReviewer -Json $FullcampaignAllOfSearchCampaignInfoReviewer
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $CreateExternalExecuteWorkflow200Response = Initialize-PSSailpoint.V2024CreateExternalExecuteWorkflow200Response  -WorkflowExecutionId 0e11cefa-96e7-4b67-90d0-065bc1da5753 `
  -Message Workflow was not executed externally. Check enabled flag on workflow definition
+$CreateExternalExecuteWorkflow200Response = @"{  "WorkflowExecutionId": "0e11cefa-96e7-4b67-90d0-065bc1da5753", "Message": "Workflow was not executed externally. Check enabled flag on workflow definition" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CreateExternalExecuteWorkflow200Response | ConvertTo-JSON
+ConvertFrom-JsonToCreateExternalExecuteWorkflow200Response -Json $CreateExternalExecuteWorkflow200Response
 ```
 
 

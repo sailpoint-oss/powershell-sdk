@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ContextAttributeDto = Initialize-PSSailpoint.BetaContextAttributeDto  -Attribute location `
  -Value null `
  -Derived false
+$ContextAttributeDto = @"{  "Attribute": "location", "Value": null, "Derived": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ContextAttributeDto | ConvertTo-JSON
+ConvertFrom-JsonToContextAttributeDto -Json $ContextAttributeDto
 ```
 
 

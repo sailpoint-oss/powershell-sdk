@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $OrphanIdentitiesReportArguments = Initialize-PSSailpoint.V2024OrphanIdentitiesReportArguments  -SelectedFormats [CSV]
+$OrphanIdentitiesReportArguments = @"{  "SelectedFormats": ["CSV"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$OrphanIdentitiesReportArguments | ConvertTo-JSON
+ConvertFrom-JsonToOrphanIdentitiesReportArguments -Json $OrphanIdentitiesReportArguments
 ```
 
 

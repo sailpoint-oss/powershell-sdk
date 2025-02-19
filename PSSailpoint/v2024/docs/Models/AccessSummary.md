@@ -29,11 +29,12 @@ $AccessSummary = Initialize-PSSailpoint.V2024AccessSummary  -Access null `
  -Entitlement null `
  -AccessProfile null `
  -Role null
+$AccessSummary = @"{  "Access": null, "Entitlement": null, "AccessProfile": null, "Role": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessSummary | ConvertTo-JSON
+ConvertFrom-JsonToAccessSummary -Json $AccessSummary
 ```
 
 

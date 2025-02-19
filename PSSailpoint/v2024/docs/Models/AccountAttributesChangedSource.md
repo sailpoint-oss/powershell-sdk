@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccountAttributesChangedSource = Initialize-PSSailpoint.V2024AccountAttributesChangedSource  -Id 4e4d982dddff4267ab12f0f1e72b5a6d `
  -Type SOURCE `
  -Name Corporate Active Directory
+$AccountAttributesChangedSource = @"{  "Id": "4e4d982dddff4267ab12f0f1e72b5a6d", "Type": "SOURCE", "Name": "Corporate Active Directory" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountAttributesChangedSource | ConvertTo-JSON
+ConvertFrom-JsonToAccountAttributesChangedSource -Json $AccountAttributesChangedSource
 ```
 
 

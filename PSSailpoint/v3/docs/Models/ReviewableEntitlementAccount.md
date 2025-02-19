@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReviewableEntitlementAccount = Initialize-PSSailpoint.V3ReviewableEntitlementAccount  -NativeIdentity CN&#x3D;Alison Ferguso `
+$ReviewableEntitlementAccount = Initialize-PSSailpoint.V3ReviewableEntitlementAccount  -NativeIdentity CN=Alison Ferguso `
  -Disabled false `
  -Locked false `
  -Type null `
@@ -45,11 +45,12 @@ $ReviewableEntitlementAccount = Initialize-PSSailpoint.V3ReviewableEntitlementAc
  -Description Account for Read/write to the company database `
  -GovernanceGroupId 2c9180857182305e0171993737eb29e6 `
  -Owner null
+$ReviewableEntitlementAccount = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReviewableEntitlementAccount | ConvertTo-JSON
+ConvertFrom-JsonToReviewableEntitlementAccount -Json $ReviewableEntitlementAccount
 ```
 
 

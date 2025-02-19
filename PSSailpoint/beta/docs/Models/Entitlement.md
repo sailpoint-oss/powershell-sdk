@@ -44,24 +44,25 @@ $Entitlement = Initialize-PSSailpoint.BetaEntitlement  -Id 2c91808874ff915501750
  -Created 2020-10-08T18:33:52.029Z `
  -Modified 2020-10-08T18:33:52.029Z `
  -Attribute memberOf `
- -Value CN&#x3D;LauncherTest2,OU&#x3D;LauncherTestOrg,OU&#x3D;slpt-automation,DC&#x3D;TestAutomationAD,DC&#x3D;local `
+ -Value CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local `
  -SourceSchemaObjectType group `
  -Privileged true `
  -CloudGoverned true `
- -Description CN&#x3D;LauncherTest2,OU&#x3D;LauncherTestOrg,OU&#x3D;slpt-automation,DC&#x3D;TestAutomationAD,DC&#x3D;local `
+ -Description CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local `
  -Requestable true `
- -Attributes {fieldName&#x3D;fieldValue} `
+ -Attributes {fieldName=fieldValue} `
  -Source null `
  -Owner null `
  -DirectPermissions null `
  -Segments [f7b1b8a3-5fed-4fd4-ad29-82014e137e19, 29cb6c06-1da8-43ea-8be4-b3125f248f2a] `
  -ManuallyUpdatedFields null `
  -AccessModelMetadata null
+$Entitlement = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Entitlement | ConvertTo-JSON
+ConvertFrom-JsonToEntitlement -Json $Entitlement
 ```
 
 

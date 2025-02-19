@@ -29,11 +29,12 @@ $ModelFilter = Initialize-PSSailpoint.V2024ModelFilter  -Type null `
  -Range null `
  -Terms null `
  -Exclude false
+$ModelFilter = @"{  "Type": null, "Range": null, "Terms": null, "Exclude": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ModelFilter | ConvertTo-JSON
+ConvertFrom-JsonToModelFilter -Json $ModelFilter
 ```
 
 

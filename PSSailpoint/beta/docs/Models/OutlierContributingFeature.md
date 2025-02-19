@@ -37,11 +37,12 @@ $OutlierContributingFeature = Initialize-PSSailpoint.BetaOutlierContributingFeat
  -DisplayName Number of entitlements `
  -Description The total number of entitlements belonging to an identity `
  -TranslationMessages null
+$OutlierContributingFeature = @"{  "Id": "66e38828-5017-47af-92ff-9844871352c5", "Name": "entitlement_count", "ValueType": "INTEGER", "Value": null, "Importance": "-0.15", "DisplayName": "Number of entitlements", "Description": "The total number of entitlements belonging to an identity", "TranslationMessages": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$OutlierContributingFeature | ConvertTo-JSON
+ConvertFrom-JsonToOutlierContributingFeature -Json $OutlierContributingFeature
 ```
 
 

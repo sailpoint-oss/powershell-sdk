@@ -33,11 +33,12 @@ $SourceDeleted = Initialize-PSSailpoint.V2024SourceDeleted  -Id 2c9180866166b5b0
  -Deleted 2021-03-29T22:01:50.474Z `
  -Connector active-directory `
  -Actor null
+$SourceDeleted = @"{  "Id": "2c9180866166b5b0016167c32ef31a66", "Name": "Test source", "Type": "DIRECT_CONNECT", "Deleted": "2021-03-29T22:01:50.474Z", "Connector": "active-directory", "Actor": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceDeleted | ConvertTo-JSON
+ConvertFrom-JsonToSourceDeleted -Json $SourceDeleted
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $FormDefinitionFileUploadResponse = Initialize-PSSailpoint.V2024FormDefinitionFileUploadResponse  -Created 2023-07-12T20:14:57.74486Z `
  -FileId 01FHZXHK8PTP9FVK99Z66GXQTX.png `
  -FormDefinitionId 00000000-0000-0000-0000-000000000000
+$FormDefinitionFileUploadResponse = @"{  "Created": "2023-07-12T20:14:57.74486Z", "FileId": "01FHZXHK8PTP9FVK99Z66GXQTX.png", "FormDefinitionId": "00000000-0000-0000-0000-000000000000" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormDefinitionFileUploadResponse | ConvertTo-JSON
+ConvertFrom-JsonToFormDefinitionFileUploadResponse -Json $FormDefinitionFileUploadResponse
 ```
 
 

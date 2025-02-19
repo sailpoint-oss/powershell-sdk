@@ -29,11 +29,12 @@ $SavedSearchDetailFilters = Initialize-PSSailpoint.V2024SavedSearchDetailFilters
  -Range null `
  -Terms null `
  -Exclude false
+$SavedSearchDetailFilters = @"{  "Type": null, "Range": null, "Terms": null, "Exclude": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SavedSearchDetailFilters | ConvertTo-JSON
+ConvertFrom-JsonToSavedSearchDetailFilters -Json $SavedSearchDetailFilters
 ```
 
 

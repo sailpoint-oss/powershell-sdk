@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ListAccessModelMetadataAttribute401Response = Initialize-PSSailpoint.BetaListAccessModelMetadataAttribute401Response  -VarError JWT validation failed: JWT is expired
+$ListAccessModelMetadataAttribute401Response = @"{  "VarError": "JWT validation failed: JWT is expired" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ListAccessModelMetadataAttribute401Response | ConvertTo-JSON
+ConvertFrom-JsonToListAccessModelMetadataAttribute401Response -Json $ListAccessModelMetadataAttribute401Response
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $OwnerReferenceDto = Initialize-PSSailpoint.V2024OwnerReferenceDto  -Id 2a2fdacca5e345f18bf7970cfbb8fec2 `
  -Name identity 1 `
  -Type IDENTITY
+$OwnerReferenceDto = @"{  "Id": "2a2fdacca5e345f18bf7970cfbb8fec2", "Name": "identity 1", "Type": "IDENTITY" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$OwnerReferenceDto | ConvertTo-JSON
+ConvertFrom-JsonToOwnerReferenceDto -Json $OwnerReferenceDto
 ```
 
 

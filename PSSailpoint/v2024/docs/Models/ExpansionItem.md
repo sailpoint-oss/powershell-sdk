@@ -31,11 +31,12 @@ $ExpansionItem = Initialize-PSSailpoint.V2024ExpansionItem  -AccountId 2c9180898
  -Name smartsheet-role `
  -AttributeRequests null `
  -Source null
+$ExpansionItem = @"{  "AccountId": "2c91808981f58ea601821c3e93482e6f", "Cause": "Role", "Name": "smartsheet-role", "AttributeRequests": null, "Source": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ExpansionItem | ConvertTo-JSON
+ConvertFrom-JsonToExpansionItem -Json $ExpansionItem
 ```
 
 

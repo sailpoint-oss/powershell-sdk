@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SimIntegrationDetailsAllOfBeforeProvisioningRule = Initialize-PSSailpoint.BetaSimIntegrationDetailsAllOfBeforeProvisioningRule  -Type null `
  -Id 2c918085708c274401708c2a8a760001 `
  -Name Example Rule
+$SimIntegrationDetailsAllOfBeforeProvisioningRule = @"{  "Type": null, "Id": "2c918085708c274401708c2a8a760001", "Name": "Example Rule" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SimIntegrationDetailsAllOfBeforeProvisioningRule | ConvertTo-JSON
+ConvertFrom-JsonToSimIntegrationDetailsAllOfBeforeProvisioningRule -Json $SimIntegrationDetailsAllOfBeforeProvisioningRule
 ```
 
 

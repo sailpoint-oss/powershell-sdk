@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SendTokenRequest = Initialize-PSSailpoint.V3SendTokenRequest  -UserAlias will.albin `
  -DeliveryType EMAIL_WORK
+$SendTokenRequest = @"{  "UserAlias": "will.albin", "DeliveryType": "EMAIL_WORK" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SendTokenRequest | ConvertTo-JSON
+ConvertFrom-JsonToSendTokenRequest -Json $SendTokenRequest
 ```
 
 

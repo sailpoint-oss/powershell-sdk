@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AccessProfileBulkDeleteRequest = Initialize-PSSailpoint.BetaAccessProfileBulkDeleteRequest  -AccessProfileIds [2c9180847812e0b1017817051919ecca, 2c9180887812e0b201781e129f151816] `
  -BestEffortOnly true
+$AccessProfileBulkDeleteRequest = @"{  "AccessProfileIds": ["2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816"], "BestEffortOnly": "true "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileBulkDeleteRequest | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $PasswordPolicyHoldersDtoAttributesIdentityAttrInner = Initialize-PSSailpoint.V2024PasswordPolicyHoldersDtoAttributesIdentityAttrInner  -Name Country `
  -Value Canada
+$PasswordPolicyHoldersDtoAttributesIdentityAttrInner = @"{  "Name": "Country", "Value": "Canada" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PasswordPolicyHoldersDtoAttributesIdentityAttrInner | ConvertTo-JSON
+ConvertFrom-JsonToPasswordPolicyHoldersDtoAttributesIdentityAttrInner -Json $PasswordPolicyHoldersDtoAttributesIdentityAttrInner
 ```
 
 

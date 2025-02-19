@@ -29,11 +29,12 @@ $AccessRequestDynamicApprover = Initialize-PSSailpoint.BetaAccessRequestDynamicA
  -RequestedFor null `
  -RequestedItems null `
  -RequestedBy null
+$AccessRequestDynamicApprover = @"{  "AccessRequestId": "4b4d982dddff4267ab12f0f1e72b5a6d", "RequestedFor": null, "RequestedItems": null, "RequestedBy": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestDynamicApprover | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestDynamicApprover -Json $AccessRequestDynamicApprover
 ```
 
 

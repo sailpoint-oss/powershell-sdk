@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $TaggedObjectDto = Initialize-PSSailpoint.V2024TaggedObjectDto  -Type IDENTITY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
+$TaggedObjectDto = @"{  "Type": "IDENTITY", "Id": "2c91808568c529c60168cca6f90c1313", "Name": "William Wilson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TaggedObjectDto | ConvertTo-JSON
+ConvertFrom-JsonToTaggedObjectDto -Json $TaggedObjectDto
 ```
 
 

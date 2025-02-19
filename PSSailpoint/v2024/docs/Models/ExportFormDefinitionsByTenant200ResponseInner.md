@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ExportFormDefinitionsByTenant200ResponseInner = Initialize-PSSailpoint.V2024ExportFormDefinitionsByTenant200ResponseInner  -Object null `
  -Self null `
  -Version null
+$ExportFormDefinitionsByTenant200ResponseInner = @"{  "Object": null, "Self": "null", "Version": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ExportFormDefinitionsByTenant200ResponseInner | ConvertTo-JSON
+ConvertFrom-JsonToExportFormDefinitionsByTenant200ResponseInner -Json $ExportFormDefinitionsByTenant200ResponseInner
 ```
 
 

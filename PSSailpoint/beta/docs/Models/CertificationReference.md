@@ -29,11 +29,12 @@ $CertificationReference = Initialize-PSSailpoint.BetaCertificationReference  -Ty
  -Id 7589a83cec4b4f138ce56c1a5ef0756d `
  -Name Manager Access for Michael Michaels `
  -Reviewer null
+$CertificationReference = @"{  "Type": "IDENTITY", "Id": "7589a83cec4b4f138ce56c1a5ef0756d", "Name": "Manager Access for Michael Michaels", "Reviewer": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CertificationReference | ConvertTo-JSON
+ConvertFrom-JsonToCertificationReference -Json $CertificationReference
 ```
 
 

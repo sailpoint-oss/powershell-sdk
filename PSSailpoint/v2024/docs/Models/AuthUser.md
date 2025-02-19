@@ -55,11 +55,12 @@ $AuthUser = Initialize-PSSailpoint.V2024AuthUser  -Tenant test-tenant `
  -LastLoginTimestamp 1656327185832 `
  -CurrentLoginTimestamp 1656327185832 `
  -Capabilities null
+$AuthUser = @"{  "Tenant": "test-tenant", "Id": "2c91808458ae7a4f0158b1bbf8af0628", "Uid": "will.smith", "VarProfile": "2c91808458ae7a4f0158b1bbf8af0756", "IdentificationNumber": "19-5588452", "Email": "william.smith@example.com", "Phone": "5555555555", "WorkPhone": "5555555555", "PersonalEmail": "william.smith@example.com", "Firstname": "Will", "Lastname": "Smith", "DisplayName": "Will Smith", "Alias": "will.smith", "LastPasswordChangeDate": "2021-03-08T22:37:33.901Z", "LastLoginTimestamp": "1656327185832", "CurrentLoginTimestamp": "1656327185832", "Capabilities": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AuthUser | ConvertTo-JSON
+ConvertFrom-JsonToAuthUser -Json $AuthUser
 ```
 
 

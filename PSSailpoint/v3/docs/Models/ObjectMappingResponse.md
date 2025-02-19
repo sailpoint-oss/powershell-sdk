@@ -37,11 +37,12 @@ $ObjectMappingResponse = Initialize-PSSailpoint.V3ObjectMappingResponse  -Object
  -Enabled false `
  -Created 2024-03-19T23:18:53.732Z `
  -Modified 2024-03-19T23:18:53.732Z
+$ObjectMappingResponse = @"{  "ObjectMappingId": "3d6e0144-963f-4bd6-8d8d-d77b4e507ce4", "ObjectType": "IDENTITY", "JsonPath": "$.name", "SourceValue": "My Governance Group Name", "TargetValue": "My New Governance Group Name", "Enabled": false, "Created": "2024-03-19T23:18:53.732Z", "Modified": "2024-03-19T23:18:53.732Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ObjectMappingResponse | ConvertTo-JSON
+ConvertFrom-JsonToObjectMappingResponse -Json $ObjectMappingResponse
 ```
 
 

@@ -33,11 +33,12 @@ $Approval1 = Initialize-PSSailpoint.V2024Approval1  -Comments null `
  -Owner null `
  -Result Finished `
  -Type null
+$Approval1 = @"{  "Comments": null, "Created": "2018-06-25T20:22:28.104Z", "Modified": "2018-06-25T20:22:28.104Z", "Owner": null, "Result": "Finished", "Type": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Approval1 | ConvertTo-JSON
+ConvertFrom-JsonToApproval1 -Json $Approval1
 ```
 
 

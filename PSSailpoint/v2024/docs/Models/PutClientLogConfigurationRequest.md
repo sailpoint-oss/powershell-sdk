@@ -31,11 +31,12 @@ $PutClientLogConfigurationRequest = Initialize-PSSailpoint.V2024PutClientLogConf
  -RootLevel null `
  -LogLevels INFO `
  -Expiration 2024-11-06T01:31:08.013164Z
+$PutClientLogConfigurationRequest = @"{  "ClientId": "3a38a51992e8445ab51a549c0a70ee66", "DurationMinutes": "120", "RootLevel": null, "LogLevels": "INFO", "Expiration": "2024-11-06T01:31:08.013164Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PutClientLogConfigurationRequest | ConvertTo-JSON
+ConvertFrom-JsonToPutClientLogConfigurationRequest -Json $PutClientLogConfigurationRequest
 ```
 
 

@@ -31,11 +31,12 @@ $NonEmployeeBulkUploadJob = Initialize-PSSailpoint.V2024NonEmployeeBulkUploadJob
  -Created 2019-08-23T18:52:59.162Z `
  -Modified 2019-08-23T18:52:59.162Z `
  -Status PENDING
+$NonEmployeeBulkUploadJob = @"{  "Id": "2c91808568c529c60168cca6f90cffff", "SourceId": "2c91808568c529c60168cca6f90c1313", "Created": "2019-08-23T18:52:59.162Z", "Modified": "2019-08-23T18:52:59.162Z", "Status": "PENDING" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeBulkUploadJob | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeBulkUploadJob -Json $NonEmployeeBulkUploadJob
 ```
 
 

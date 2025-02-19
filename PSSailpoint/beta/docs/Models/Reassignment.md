@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $Reassignment = Initialize-PSSailpoint.BetaReassignment  -VarFrom null `
  -Comment Please review
+$Reassignment = @"{  "VarFrom": null, "Comment": "Please review" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Reassignment | ConvertTo-JSON
+ConvertFrom-JsonToReassignment -Json $Reassignment
 ```
 
 

@@ -43,11 +43,12 @@ $RoleMiningSessionDto = Initialize-PSSailpoint.V2024RoleMiningSessionDto  -Scope
  -IdentityCount 0 `
  -Saved true `
  -Name Saved RM Session - 07/10
+$RoleMiningSessionDto = @"{  "Scope": null, "PruneThreshold": "50", "PrescribedPruneThreshold": "10", "MinNumIdentitiesInPotentialRole": "20", "PotentialRoleCount": "0", "PotentialRolesReadyCount": "0", "Type": null, "EmailRecipientId": "2c918090761a5aac0176215c46a62d58", "IdentityCount": "0", "Saved": true, "Name": "Saved RM Session - 07/10" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningSessionDto | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
 ```
 
 

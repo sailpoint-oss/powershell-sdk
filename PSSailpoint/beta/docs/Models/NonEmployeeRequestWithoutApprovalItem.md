@@ -47,7 +47,7 @@ $NonEmployeeRequestWithoutApprovalItem = Initialize-PSSailpoint.BetaNonEmployeeR
  -Phone 5125555555 `
  -Manager jane.doe `
  -NonEmployeeSource null `
- -VarData {description&#x3D;Auditing} `
+ -VarData {description=Auditing} `
  -ApprovalStatus null `
  -Comment approved `
  -CompletionDate 2020-03-24T11:11:41.139-05:00 `
@@ -55,11 +55,12 @@ $NonEmployeeRequestWithoutApprovalItem = Initialize-PSSailpoint.BetaNonEmployeeR
  -EndDate Wed Mar 24 20:00:00 EDT 2021 `
  -Modified 2020-03-24T11:11:41.139-05:00 `
  -Created 2020-03-24T11:11:41.139-05:00
+$NonEmployeeRequestWithoutApprovalItem = @"{  "Id": "ac10e21c-931c-1ef2-8193-1c51e7ff0003", "Requester": null, "AccountName": "william.smith", "FirstName": "William", "LastName": "Smith", "Email": "william.smith@example.com", "Phone": "5125555555", "Manager": "jane.doe", "NonEmployeeSource": null, "VarData": {"description": "Auditing}", "ApprovalStatus": null, "Comment": "approved", "CompletionDate": "2020-03-24T11:11:41.139-05:00", "StartDate": "Mon Mar 23 20:00:00 EDT 2020", "EndDate": "Wed Mar 24 20:00:00 EDT 2021", "Modified": "2020-03-24T11:11:41.139-05:00", "Created": "2020-03-24T11:11:41.139-05:00" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeRequestWithoutApprovalItem | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeRequestWithoutApprovalItem -Json $NonEmployeeRequestWithoutApprovalItem
 ```
 
 

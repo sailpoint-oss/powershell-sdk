@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ManuallyUpdatedFieldsDTO = Initialize-PSSailpoint.V2024ManuallyUpdatedFieldsDTO  -DISPLAYNAME true `
  -DESCRIPTION true
+$ManuallyUpdatedFieldsDTO = @"{  "DISPLAYNAME": true, "DESCRIPTION": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ManuallyUpdatedFieldsDTO | ConvertTo-JSON
+ConvertFrom-JsonToManuallyUpdatedFieldsDTO -Json $ManuallyUpdatedFieldsDTO
 ```
 
 

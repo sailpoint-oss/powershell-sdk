@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccountUncorrelatedSource = Initialize-PSSailpoint.V2024AccountUncorrelatedSource  -Type SOURCE `
  -Id 2c6180835d191a86015d28455b4b231b `
  -Name Corporate Directory
+$AccountUncorrelatedSource = @"{  "Type": "SOURCE", "Id": "2c6180835d191a86015d28455b4b231b", "Name": "Corporate Directory" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountUncorrelatedSource | ConvertTo-JSON
+ConvertFrom-JsonToAccountUncorrelatedSource -Json $AccountUncorrelatedSource
 ```
 
 

@@ -40,12 +40,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ReviewableEntitlement = Initialize-PSSailpoint.V3ReviewableEntitlement  -Id 2c918085718230600171993742c63558 `
- -Name CN&#x3D;entitlement.bbb7c650 `
+ -Name CN=entitlement.bbb7c650 `
  -Description Gives read/write access to the company database `
  -Privileged false `
  -Owner null `
  -AttributeName memberOf `
- -AttributeValue CN&#x3D;entitlement.bbb7c650 `
+ -AttributeValue CN=entitlement.bbb7c650 `
  -SourceSchemaObjectType groups `
  -SourceName ODS-AD-Source `
  -SourceType Active Directory - Direct `
@@ -57,11 +57,12 @@ $ReviewableEntitlement = Initialize-PSSailpoint.V3ReviewableEntitlement  -Id 2c9
  -ContainsDataAccess true `
  -DataAccess null `
  -Account null
+$ReviewableEntitlement = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReviewableEntitlement | ConvertTo-JSON
+ConvertFrom-JsonToReviewableEntitlement -Json $ReviewableEntitlement
 ```
 
 

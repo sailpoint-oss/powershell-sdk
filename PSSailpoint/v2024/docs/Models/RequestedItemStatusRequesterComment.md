@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $RequestedItemStatusRequesterComment = Initialize-PSSailpoint.V2024RequestedItemStatusRequesterComment  -Comment This is a comment. `
  -Created 2017-07-11T18:45:37.098Z `
  -Author null
+$RequestedItemStatusRequesterComment = @"{  "Comment": "This is a comment.", "Created": "2017-07-11T18:45:37.098Z", "Author": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RequestedItemStatusRequesterComment | ConvertTo-JSON
+ConvertFrom-JsonToRequestedItemStatusRequesterComment -Json $RequestedItemStatusRequesterComment
 ```
 
 

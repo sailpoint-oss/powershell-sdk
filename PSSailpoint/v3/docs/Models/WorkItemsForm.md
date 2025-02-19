@@ -33,11 +33,12 @@ $WorkItemsForm = Initialize-PSSailpoint.V3WorkItemsForm  -Id 2c9180835d2e5168015
  -Subtitle Please select from the following `
  -TargetUser Jane.Doe `
  -Sections null
+$WorkItemsForm = @"{  "Id": "2c9180835d2e5168015d32f890ca1581", "Name": "AccountSelection Form", "Title": "Account Selection for John.Doe", "Subtitle": "Please select from the following", "TargetUser": "Jane.Doe", "Sections": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkItemsForm | ConvertTo-JSON
+ConvertFrom-JsonToWorkItemsForm -Json $WorkItemsForm
 ```
 
 

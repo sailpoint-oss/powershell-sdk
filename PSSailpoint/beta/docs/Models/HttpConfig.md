@@ -31,11 +31,12 @@ $HttpConfig = Initialize-PSSailpoint.BetaHttpConfig  -Url https://www.example.co
  -HttpAuthenticationType null `
  -BasicAuthConfig null `
  -BearerTokenAuthConfig null
+$HttpConfig = @"{  "Url": "https://www.example.com", "HttpDispatchMode": null, "HttpAuthenticationType": null, "BasicAuthConfig": null, "BearerTokenAuthConfig": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$HttpConfig | ConvertTo-JSON
+ConvertFrom-JsonToHttpConfig -Json $HttpConfig
 ```
 
 

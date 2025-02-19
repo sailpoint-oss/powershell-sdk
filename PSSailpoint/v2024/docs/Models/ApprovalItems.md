@@ -35,11 +35,12 @@ $ApprovalItems = Initialize-PSSailpoint.V2024ApprovalItems  -Id 2c9180835d2e5168
  -Operation update `
  -Value a@b.com `
  -State null
+$ApprovalItems = @"{  "Id": "2c9180835d2e5168015d32f890ca1581", "Account": "john.smith", "Application": "Active Directory", "Name": "emailAddress", "Operation": "update", "Value": "a@b.com", "State": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalItems | ConvertTo-JSON
+ConvertFrom-JsonToApprovalItems -Json $ApprovalItems
 ```
 
 

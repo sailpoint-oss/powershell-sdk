@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $LoadAccountsTaskTaskReturnsInner = Initialize-PSSailpoint.V2024LoadAccountsTaskTaskReturnsInner  -DisplayLabel TASK_OUT_ACCOUNT_AGGREGATION_APPLICATIONS `
  -AttributeName applications
+$LoadAccountsTaskTaskReturnsInner = @"{  "DisplayLabel": "TASK_OUT_ACCOUNT_AGGREGATION_APPLICATIONS", "AttributeName": "applications" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LoadAccountsTaskTaskReturnsInner | ConvertTo-JSON
+ConvertFrom-JsonToLoadAccountsTaskTaskReturnsInner -Json $LoadAccountsTaskTaskReturnsInner
 ```
 
 

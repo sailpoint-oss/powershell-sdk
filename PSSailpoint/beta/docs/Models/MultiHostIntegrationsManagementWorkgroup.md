@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $MultiHostIntegrationsManagementWorkgroup = Initialize-PSSailpoint.BetaMultiHostIntegrationsManagementWorkgroup  -Type GOVERNANCE_GROUP `
  -Id 2c91808568c529c60168cca6f90c2222 `
  -Name My Management Workgroup
+$MultiHostIntegrationsManagementWorkgroup = @"{  "Type": "GOVERNANCE_GROUP", "Id": "2c91808568c529c60168cca6f90c2222", "Name": "My Management Workgroup" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostIntegrationsManagementWorkgroup | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostIntegrationsManagementWorkgroup -Json $MultiHostIntegrationsManagementWorkgroup
 ```
 
 

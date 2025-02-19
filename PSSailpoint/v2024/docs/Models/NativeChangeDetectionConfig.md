@@ -33,11 +33,12 @@ $NativeChangeDetectionConfig = Initialize-PSSailpoint.V2024NativeChangeDetection
  -AllNonEntitlementAttributes false `
  -SelectedEntitlements [memberOf, memberOfSharedMailbox] `
  -SelectedNonEntitlementAttributes [lastName, phoneNumber, objectType, servicePrincipalName]
+$NativeChangeDetectionConfig = @"{  "Enabled": true, "Operations": ["ACCOUNT_UPDATED", "ACCOUNT_DELETED"], "AllEntitlements": false, "AllNonEntitlementAttributes": false, "SelectedEntitlements": ["memberOf", "memberOfSharedMailbox"], "SelectedNonEntitlementAttributes": ["lastName", "phoneNumber", "objectType", "servicePrincipalName"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NativeChangeDetectionConfig | ConvertTo-JSON
+ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
 ```
 
 

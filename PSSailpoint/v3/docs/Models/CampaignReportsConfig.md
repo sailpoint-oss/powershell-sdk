@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $CampaignReportsConfig = Initialize-PSSailpoint.V3CampaignReportsConfig  -IdentityAttributeColumns [firstname, lastname]
+$CampaignReportsConfig = @"{  "IdentityAttributeColumns": ["firstname", "lastname"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignReportsConfig | ConvertTo-JSON
+ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
 ```
 
 

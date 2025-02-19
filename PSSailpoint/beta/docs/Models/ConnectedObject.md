@@ -29,11 +29,12 @@ $ConnectedObject = Initialize-PSSailpoint.BetaConnectedObject  -Type null `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Employee-database-read-write `
  -Description Collection of entitlements to read/write the employee database.
+$ConnectedObject = @"{  "Type": null, "Id": "2c91808568c529c60168cca6f90c1313", "Name": "Employee-database-read-write", "Description": "Collection of entitlements to read/write the employee database." }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConnectedObject | ConvertTo-JSON
+ConvertFrom-JsonToConnectedObject -Json $ConnectedObject
 ```
 
 

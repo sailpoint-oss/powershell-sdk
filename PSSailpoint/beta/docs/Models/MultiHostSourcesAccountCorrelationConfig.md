@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $MultiHostSourcesAccountCorrelationConfig = Initialize-PSSailpoint.BetaMultiHostSourcesAccountCorrelationConfig  -Type ACCOUNT_CORRELATION_CONFIG `
  -Id 2c9180855d191c59015d28583727245a `
  -Name Directory [source-62867] Account Correlation
+$MultiHostSourcesAccountCorrelationConfig = @"{  "Type": "ACCOUNT_CORRELATION_CONFIG", "Id": "2c9180855d191c59015d28583727245a", "Name": "Directory [source-62867] Account Correlation" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostSourcesAccountCorrelationConfig | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostSourcesAccountCorrelationConfig -Json $MultiHostSourcesAccountCorrelationConfig
 ```
 
 

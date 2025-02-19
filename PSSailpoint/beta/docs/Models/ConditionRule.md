@@ -31,11 +31,12 @@ $ConditionRule = Initialize-PSSailpoint.BetaConditionRule  -SourceType ELEMENT `
  -Operator EQ `
  -ValueType STRING `
  -Value Engineering
+$ConditionRule = @"{  "SourceType": "ELEMENT", "Source": "department", "Operator": "EQ", "ValueType": "STRING", "Value": "Engineering" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConditionRule | ConvertTo-JSON
+ConvertFrom-JsonToConditionRule -Json $ConditionRule
 ```
 
 

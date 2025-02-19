@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CancelledRequestDetails1 = Initialize-PSSailpoint.V2024CancelledRequestDetails1  -Comment This request must be cancelled. `
  -Owner null `
  -Modified 2019-12-20T09:17:12.192Z
+$CancelledRequestDetails1 = @"{  "Comment": "This request must be cancelled.", "Owner": null, "Modified": "2019-12-20T09:17:12.192Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CancelledRequestDetails1 | ConvertTo-JSON
+ConvertFrom-JsonToCancelledRequestDetails1 -Json $CancelledRequestDetails1
 ```
 
 

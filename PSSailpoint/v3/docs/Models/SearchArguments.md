@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SearchArguments = Initialize-PSSailpoint.V3SearchArguments  -ScheduleId 7a724640-0c17-4ce9-a8c3-4a89738459c8 `
  -Owner null `
  -Recipients null
+$SearchArguments = @"{  "ScheduleId": "7a724640-0c17-4ce9-a8c3-4a89738459c8", "Owner": null, "Recipients": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SearchArguments | ConvertTo-JSON
+ConvertFrom-JsonToSearchArguments -Json $SearchArguments
 ```
 
 

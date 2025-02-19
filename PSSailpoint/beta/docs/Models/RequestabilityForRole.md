@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $RequestabilityForRole = Initialize-PSSailpoint.BetaRequestabilityForRole  -CommentsRequired true `
  -DenialCommentsRequired true `
  -ApprovalSchemes null
+$RequestabilityForRole = @"{  "CommentsRequired": true, "DenialCommentsRequired": true, "ApprovalSchemes": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RequestabilityForRole | ConvertTo-JSON
+ConvertFrom-JsonToRequestabilityForRole -Json $RequestabilityForRole
 ```
 
 

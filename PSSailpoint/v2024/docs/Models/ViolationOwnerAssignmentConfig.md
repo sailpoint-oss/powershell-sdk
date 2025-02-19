@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ViolationOwnerAssignmentConfig = Initialize-PSSailpoint.V2024ViolationOwnerAssignmentConfig  -AssignmentRule MANAGER `
  -OwnerRef null
+$ViolationOwnerAssignmentConfig = @"{  "AssignmentRule": "MANAGER", "OwnerRef": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ViolationOwnerAssignmentConfig | ConvertTo-JSON
+ConvertFrom-JsonToViolationOwnerAssignmentConfig -Json $ViolationOwnerAssignmentConfig
 ```
 
 

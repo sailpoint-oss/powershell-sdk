@@ -26,12 +26,13 @@ Name | Type | Description | Notes
 ```powershell
 $CompleteInvocation = Initialize-PSSailpoint.BetaCompleteInvocation  -Secret 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -VarError Access request is denied. `
- -Output {approved&#x3D;false}
+ -Output {approved=false}
+$CompleteInvocation = @"{  "Secret": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde", "VarError": "Access request is denied.", "Output": {"approved": "false}" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CompleteInvocation | ConvertTo-JSON
+ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
 ```
 
 

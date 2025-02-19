@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $VendorConnectorMappingDeletedAt = Initialize-PSSailpoint.V3VendorConnectorMappingDeletedAt  -Time 0001-01-01T00:00Z `
  -Valid false
+$VendorConnectorMappingDeletedAt = @"{  "Time": "0001-01-01T00:00Z", "Valid": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$VendorConnectorMappingDeletedAt | ConvertTo-JSON
+ConvertFrom-JsonToVendorConnectorMappingDeletedAt -Json $VendorConnectorMappingDeletedAt
 ```
 
 

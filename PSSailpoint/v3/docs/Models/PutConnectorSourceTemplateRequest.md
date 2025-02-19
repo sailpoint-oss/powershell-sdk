@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $PutConnectorSourceTemplateRequest = Initialize-PSSailpoint.V3PutConnectorSourceTemplateRequest  -File null
+$PutConnectorSourceTemplateRequest = @"{  "File": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PutConnectorSourceTemplateRequest | ConvertTo-JSON
+ConvertFrom-JsonToPutConnectorSourceTemplateRequest -Json $PutConnectorSourceTemplateRequest
 ```
 
 

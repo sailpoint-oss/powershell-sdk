@@ -31,11 +31,12 @@ $LoadUncorrelatedAccountsTaskTaskMessagesInner = Initialize-PSSailpoint.BetaLoad
  -Warning true `
  -Key This correlation failed because the currently running correlation must complete before the next one can start. `
  -LocalizedText This correlation failed because the currently running correlation must complete before the next one can start.
+$LoadUncorrelatedAccountsTaskTaskMessagesInner = @"{  "Type": "WARN", "VarError": false, "Warning": true, "Key": "This correlation failed because the currently running correlation must complete before the next one can start.", "LocalizedText": "This correlation failed because the currently running correlation must complete before the next one can start." }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LoadUncorrelatedAccountsTaskTaskMessagesInner | ConvertTo-JSON
+ConvertFrom-JsonToLoadUncorrelatedAccountsTaskTaskMessagesInner -Json $LoadUncorrelatedAccountsTaskTaskMessagesInner
 ```
 
 

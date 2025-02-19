@@ -29,11 +29,12 @@ $MultiHostIntegrationsConnectorAttributesMultiHostAttributes = Initialize-PSSail
  -ConnectorFiles mssql-jdbc-8.4.1.jre8.jar `
  -AuthType SQLAuthentication `
  -User My Username
+$MultiHostIntegrationsConnectorAttributesMultiHostAttributes = @"{  "Password": "Password", "ConnectorFiles": "mssql-jdbc-8.4.1.jre8.jar", "AuthType": "SQLAuthentication", "User": "My Username" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostIntegrationsConnectorAttributesMultiHostAttributes | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostIntegrationsConnectorAttributesMultiHostAttributes -Json $MultiHostIntegrationsConnectorAttributesMultiHostAttributes
 ```
 
 

@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ImportAccountsRequest1 = Initialize-PSSailpoint.BetaImportAccountsRequest1  -DisableOptimization true
+$ImportAccountsRequest1 = @"{  "DisableOptimization": "true" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ImportAccountsRequest1 | ConvertTo-JSON
+ConvertFrom-JsonToImportAccountsRequest1 -Json $ImportAccountsRequest1
 ```
 
 

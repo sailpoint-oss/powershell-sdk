@@ -22,11 +22,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IdentityAttributesChangedChangesInnerOldValueOneOfValue = Initialize-PSSailpoint.V2024IdentityAttributesChangedChangesInnerOldValueOneOfValue 
+$IdentityAttributesChangedChangesInnerOldValueOneOfValue = @"{  }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityAttributesChangedChangesInnerOldValueOneOfValue | ConvertTo-JSON
+ConvertFrom-JsonToIdentityAttributesChangedChangesInnerOldValueOneOfValue -Json $IdentityAttributesChangedChangesInnerOldValueOneOfValue
 ```
 
 

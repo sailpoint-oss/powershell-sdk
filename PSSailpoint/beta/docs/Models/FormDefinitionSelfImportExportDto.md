@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $FormDefinitionSelfImportExportDto = Initialize-PSSailpoint.BetaFormDefinitionSelfImportExportDto  -Type FORM_DEFINITION `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name Temporary User Level Permissions - Requester
+$FormDefinitionSelfImportExportDto = @"{  "Type": "FORM_DEFINITION", "Id": "2c9180835d191a86015d28455b4b232a", "Name": "Temporary User Level Permissions - Requester" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormDefinitionSelfImportExportDto | ConvertTo-JSON
+ConvertFrom-JsonToFormDefinitionSelfImportExportDto -Json $FormDefinitionSelfImportExportDto
 ```
 
 

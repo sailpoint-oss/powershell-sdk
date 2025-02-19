@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $MultiHostSourcesPasswordPoliciesInner = Initialize-PSSailpoint.BetaMultiHostSourcesPasswordPoliciesInner  -Type PASSWORD_POLICY `
  -Id 2c91808568c529c60168cca6f90c1777 `
  -Name My Password Policy
+$MultiHostSourcesPasswordPoliciesInner = @"{  "Type": "PASSWORD_POLICY", "Id": "2c91808568c529c60168cca6f90c1777", "Name": "My Password Policy" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostSourcesPasswordPoliciesInner | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostSourcesPasswordPoliciesInner -Json $MultiHostSourcesPasswordPoliciesInner
 ```
 
 

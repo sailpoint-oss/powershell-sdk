@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $CampaignAllOfMachineAccountCampaignInfo = Initialize-PSSailpoint.V3CampaignAllOfMachineAccountCampaignInfo  -SourceIds [0fbe863c063c4c88a35fd7f17e8a3df5] `
  -ReviewerType ACCOUNT_OWNER
+$CampaignAllOfMachineAccountCampaignInfo = @"{  "SourceIds": ["0fbe863c063c4c88a35fd7f17e8a3df5"], "ReviewerType": "ACCOUNT_OWNER" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignAllOfMachineAccountCampaignInfo | ConvertTo-JSON
+ConvertFrom-JsonToCampaignAllOfMachineAccountCampaignInfo -Json $CampaignAllOfMachineAccountCampaignInfo
 ```
 
 

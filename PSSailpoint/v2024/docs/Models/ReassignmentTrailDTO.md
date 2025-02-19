@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ReassignmentTrailDTO = Initialize-PSSailpoint.V2024ReassignmentTrailDTO  -PreviousOwner ef38f94347e94562b5bb8424a56397d8 `
  -NewOwner ef38f94347e94562b5bb8424a56397a3 `
  -ReassignmentType AUTOMATIC_REASSIGNMENT
+$ReassignmentTrailDTO = @"{  "PreviousOwner": "ef38f94347e94562b5bb8424a56397d8", "NewOwner": "ef38f94347e94562b5bb8424a56397a3", "ReassignmentType": "AUTOMATIC_REASSIGNMENT" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReassignmentTrailDTO | ConvertTo-JSON
+ConvertFrom-JsonToReassignmentTrailDTO -Json $ReassignmentTrailDTO
 ```
 
 

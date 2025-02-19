@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SourceManagerCorrelationMapping = Initialize-PSSailpoint.V3SourceManagerCorrelationMapping  -AccountAttributeName manager `
  -IdentityAttributeName manager
+$SourceManagerCorrelationMapping = @"{  "AccountAttributeName": "manager", "IdentityAttributeName": "manager" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceManagerCorrelationMapping | ConvertTo-JSON
+ConvertFrom-JsonToSourceManagerCorrelationMapping -Json $SourceManagerCorrelationMapping
 ```
 
 

@@ -33,11 +33,12 @@ $CommonAccessItemAccess = Initialize-PSSailpoint.BetaCommonAccessItemAccess  -Id
  -Description null `
  -OwnerName null `
  -OwnerId null
+$CommonAccessItemAccess = @"{  "Id": "null", "Type": null, "Name": "null", "Description": "null", "OwnerName": "null", "OwnerId": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CommonAccessItemAccess | ConvertTo-JSON
+ConvertFrom-JsonToCommonAccessItemAccess -Json $CommonAccessItemAccess
 ```
 
 

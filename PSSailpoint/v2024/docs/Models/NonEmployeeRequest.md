@@ -52,7 +52,7 @@ $NonEmployeeRequest = Initialize-PSSailpoint.V2024NonEmployeeRequest  -Id a03036
  -Phone 5125555555 `
  -Manager jane.doe `
  -NonEmployeeSource null `
- -VarData {description&#x3D;Auditing} `
+ -VarData {description=Auditing} `
  -ApprovalItems null `
  -ApprovalStatus null `
  -Comment approved `
@@ -61,11 +61,12 @@ $NonEmployeeRequest = Initialize-PSSailpoint.V2024NonEmployeeRequest  -Id a03036
  -EndDate 2021-03-25T00:00-05:00 `
  -Modified 2020-03-24T11:11:41.139-05:00 `
  -Created 2020-03-24T11:11:41.139-05:00
+$NonEmployeeRequest = @"{  "Id": "a0303682-5e4a-44f7-bdc2-6ce6112549c1", "SourceId": "2c91808568c529c60168cca6f90c1313", "Name": "Retail", "Description": "Source description", "AccountName": "william.smith", "FirstName": "William", "LastName": "Smith", "Email": "william.smith@example.com", "Phone": "5125555555", "Manager": "jane.doe", "NonEmployeeSource": null, "VarData": {"description": "Auditing}", "ApprovalItems": null, "ApprovalStatus": null, "Comment": "approved", "CompletionDate": "2020-03-24T11:11:41.139-05:00", "StartDate": "2020-03-24T00:00-05:00", "EndDate": "2021-03-25T00:00-05:00", "Modified": "2020-03-24T11:11:41.139-05:00", "Created": "2020-03-24T11:11:41.139-05:00" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeRequest | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeRequest -Json $NonEmployeeRequest
 ```
 
 

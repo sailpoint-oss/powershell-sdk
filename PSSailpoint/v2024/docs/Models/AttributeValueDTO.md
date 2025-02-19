@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AttributeValueDTO = Initialize-PSSailpoint.V2024AttributeValueDTO  -Value public `
  -Name Public `
  -Status active
+$AttributeValueDTO = @"{  "Value": "public", "Name": "Public", "Status": "active" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AttributeValueDTO | ConvertTo-JSON
+ConvertFrom-JsonToAttributeValueDTO -Json $AttributeValueDTO
 ```
 
 

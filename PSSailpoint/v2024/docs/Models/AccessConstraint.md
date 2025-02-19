@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessConstraint = Initialize-PSSailpoint.V2024AccessConstraint  -Type ENTITLEMENT `
  -Ids [2c90ad2a70ace7d50170acf22ca90010] `
  -Operator SELECTED
+$AccessConstraint = @"{  "Type": "ENTITLEMENT", "Ids": ["2c90ad2a70ace7d50170acf22ca90010"], "Operator": "SELECTED" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessConstraint | ConvertTo-JSON
+ConvertFrom-JsonToAccessConstraint -Json $AccessConstraint
 ```
 
 

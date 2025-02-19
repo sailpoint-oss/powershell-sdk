@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $Schedule1Months = Initialize-PSSailpoint.V3Schedule1Months  -Type null `
  -Values [MON, WED] `
  -Interval 3
+$Schedule1Months = @"{  "Type": null, "Values": ["MON", "WED"], "Interval": "3" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Schedule1Months | ConvertTo-JSON
+ConvertFrom-JsonToSchedule1Months -Json $Schedule1Months
 ```
 
 

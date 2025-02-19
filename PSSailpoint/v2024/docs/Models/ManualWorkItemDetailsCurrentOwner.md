@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ManualWorkItemDetailsCurrentOwner = Initialize-PSSailpoint.V2024ManualWorkItemDetailsCurrentOwner  -Type IDENTITY `
  -Id 2c3780a46faadee4016fb4e018c20652 `
  -Name Allen Albertson
+$ManualWorkItemDetailsCurrentOwner = @"{  "Type": "IDENTITY", "Id": "2c3780a46faadee4016fb4e018c20652", "Name": "Allen Albertson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ManualWorkItemDetailsCurrentOwner | ConvertTo-JSON
+ConvertFrom-JsonToManualWorkItemDetailsCurrentOwner -Json $ManualWorkItemDetailsCurrentOwner
 ```
 
 

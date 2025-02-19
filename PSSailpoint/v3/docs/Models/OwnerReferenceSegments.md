@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $OwnerReferenceSegments = Initialize-PSSailpoint.V3OwnerReferenceSegments  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name support
+$OwnerReferenceSegments = @"{  "Type": "IDENTITY", "Id": "2c9180a46faadee4016fb4e018c20639", "Name": "support" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$OwnerReferenceSegments | ConvertTo-JSON
+ConvertFrom-JsonToOwnerReferenceSegments -Json $OwnerReferenceSegments
 ```
 
 

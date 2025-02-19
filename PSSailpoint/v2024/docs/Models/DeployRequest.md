@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $DeployRequest = Initialize-PSSailpoint.V2024DeployRequest  -DraftId 3d0fe04b-57df-4a46-a83b-8f04b0f9d10b
+$DeployRequest = @"{  "DraftId": "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DeployRequest | ConvertTo-JSON
+ConvertFrom-JsonToDeployRequest -Json $DeployRequest
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SourceManagerCorrelationRule = Initialize-PSSailpoint.V2024SourceManagerCorrelationRule  -Type RULE `
  -Id 2c918085708c274401708c2a8a760001 `
  -Name Example Rule
+$SourceManagerCorrelationRule = @"{  "Type": "RULE", "Id": "2c918085708c274401708c2a8a760001", "Name": "Example Rule" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceManagerCorrelationRule | ConvertTo-JSON
+ConvertFrom-JsonToSourceManagerCorrelationRule -Json $SourceManagerCorrelationRule
 ```
 
 

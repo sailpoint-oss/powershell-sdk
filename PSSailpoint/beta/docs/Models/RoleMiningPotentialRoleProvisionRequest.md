@@ -31,11 +31,12 @@ $RoleMiningPotentialRoleProvisionRequest = Initialize-PSSailpoint.BetaRoleMining
  -OwnerId 2b568c65bc3c4c57a43bd97e3a8e41 `
  -IncludeIdentities true `
  -DirectlyAssignedEntitlements false
+$RoleMiningPotentialRoleProvisionRequest = @"{  "RoleName": "Finance - Accounting", "RoleDescription": "General access for accounting department", "OwnerId": "2b568c65bc3c4c57a43bd97e3a8e41", "IncludeIdentities": true, "DirectlyAssignedEntitlements": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningPotentialRoleProvisionRequest | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningPotentialRoleProvisionRequest -Json $RoleMiningPotentialRoleProvisionRequest
 ```
 
 

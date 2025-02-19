@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ManualDiscoverApplicationsTemplate = Initialize-PSSailpoint.BetaManualDiscoverApplicationsTemplate  -ApplicationName Example Application `
  -Description Example Description
+$ManualDiscoverApplicationsTemplate = @"{  "ApplicationName": "Example Application", "Description": "Example Description" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ManualDiscoverApplicationsTemplate | ConvertTo-JSON
+ConvertFrom-JsonToManualDiscoverApplicationsTemplate -Json $ManualDiscoverApplicationsTemplate
 ```
 
 

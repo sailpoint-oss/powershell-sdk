@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $FormUsedBy = Initialize-PSSailpoint.BetaFormUsedBy  -Type WORKFLOW `
  -Id 61940a92-5484-42bc-bc10-b9982b218cdf `
  -Name Access Request Form
+$FormUsedBy = @"{  "Type": "WORKFLOW", "Id": "61940a92-5484-42bc-bc10-b9982b218cdf", "Name": "Access Request Form" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormUsedBy | ConvertTo-JSON
+ConvertFrom-JsonToFormUsedBy -Json $FormUsedBy
 ```
 
 

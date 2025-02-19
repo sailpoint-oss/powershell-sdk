@@ -39,11 +39,12 @@ $CampaignTemplate = Initialize-PSSailpoint.V3CampaignTemplate  -Id 2c9079b270a26
  -OwnerRef null `
  -DeadlineDuration P2W `
  -Campaign null
+$CampaignTemplate = @"{  "Id": "2c9079b270a266a60170a277bb960008", "Name": "Manager Campaign Template", "Description": "Template for the annual manager campaign.", "Created": "2020-03-05T22:44:00.364Z", "Modified": "2020-03-05T22:52:09.969Z", "Scheduled": false, "OwnerRef": null, "DeadlineDuration": "P2W", "Campaign": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignTemplate | ConvertTo-JSON
+ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
 ```
 
 

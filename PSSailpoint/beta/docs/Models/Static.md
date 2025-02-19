@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $Static = Initialize-PSSailpoint.BetaStatic  -Values string$variable `
  -RequiresPeriodicRefresh false
+$Static = @"{  "Values": "string$variable", "RequiresPeriodicRefresh": "false "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Static | ConvertTo-JSON
+ConvertFrom-JsonToStatic -Json $Static
 ```
 
 

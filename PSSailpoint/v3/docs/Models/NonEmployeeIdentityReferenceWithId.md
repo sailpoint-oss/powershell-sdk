@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $NonEmployeeIdentityReferenceWithId = Initialize-PSSailpoint.V3NonEmployeeIdentityReferenceWithId  -Type null `
  -Id 5168015d32f890ca15812c9180835d2e
+$NonEmployeeIdentityReferenceWithId = @"{  "Type": null, "Id": "5168015d32f890ca15812c9180835d2e" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeIdentityReferenceWithId | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeIdentityReferenceWithId -Json $NonEmployeeIdentityReferenceWithId
 ```
 
 

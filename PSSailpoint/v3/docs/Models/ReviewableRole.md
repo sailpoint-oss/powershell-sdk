@@ -39,11 +39,12 @@ $ReviewableRole = Initialize-PSSailpoint.V3ReviewableRole  -Id 2c91808a7190d06e0
  -EndDate 2021-12-25T00:00Z `
  -AccessProfiles null `
  -Entitlements null
+$ReviewableRole = @"{  "Id": "2c91808a7190d06e0171993907fd0794", "Name": "Accounting-Employees", "Description": "Role for members of the accounting department with the necessary Access Profiles", "Privileged": false, "Owner": null, "Revocable": false, "EndDate": "2021-12-25T00:00Z", "AccessProfiles": null, "Entitlements": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReviewableRole | ConvertTo-JSON
+ConvertFrom-JsonToReviewableRole -Json $ReviewableRole
 ```
 
 

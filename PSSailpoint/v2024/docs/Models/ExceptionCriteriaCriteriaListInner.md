@@ -27,13 +27,14 @@ Name | Type | Description | Notes
 ```powershell
 $ExceptionCriteriaCriteriaListInner = Initialize-PSSailpoint.V2024ExceptionCriteriaCriteriaListInner  -Type ENTITLEMENT `
  -Id 2c91808568c529c60168cca6f90c1313 `
- -Name CN&#x3D;HelpDesk,OU&#x3D;test,OU&#x3D;test-service,DC&#x3D;TestAD,DC&#x3D;local `
+ -Name CN=HelpDesk,OU=test,OU=test-service,DC=TestAD,DC=local `
  -Existing true
+$ExceptionCriteriaCriteriaListInner = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ExceptionCriteriaCriteriaListInner | ConvertTo-JSON
+ConvertFrom-JsonToExceptionCriteriaCriteriaListInner -Json $ExceptionCriteriaCriteriaListInner
 ```
 
 

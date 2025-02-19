@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessReviewReassignment = Initialize-PSSailpoint.V3AccessReviewReassignment  -Reassign null `
  -ReassignTo ef38f94347e94562b5bb8424a56397d8 `
  -Reason reassigned for some reason
+$AccessReviewReassignment = @"{  "Reassign": null, "ReassignTo": "ef38f94347e94562b5bb8424a56397d8", "Reason": "reassigned for some reason" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessReviewReassignment | ConvertTo-JSON
+ConvertFrom-JsonToAccessReviewReassignment -Json $AccessReviewReassignment
 ```
 
 

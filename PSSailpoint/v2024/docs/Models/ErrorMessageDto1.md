@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ErrorMessageDto1 = Initialize-PSSailpoint.V2024ErrorMessageDto1  -Locale en-US `
  -LocaleOrigin null `
  -Text The request was syntactically correct but its content is semantically invalid.
+$ErrorMessageDto1 = @"{  "Locale": "en-US", "LocaleOrigin": null, "Text": "The request was syntactically correct but its content is semantically invalid." }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ErrorMessageDto1 | ConvertTo-JSON
+ConvertFrom-JsonToErrorMessageDto1 -Json $ErrorMessageDto1
 ```
 
 

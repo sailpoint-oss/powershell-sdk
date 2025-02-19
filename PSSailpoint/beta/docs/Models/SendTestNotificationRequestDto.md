@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SendTestNotificationRequestDto = Initialize-PSSailpoint.BetaSendTestNotificationRequestDto  -Key cloud_manual_work_item_summary `
  -Medium null `
  -Context null
+$SendTestNotificationRequestDto = @"{  "Key": "cloud_manual_work_item_summary", "Medium": "null", "Context": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SendTestNotificationRequestDto | ConvertTo-JSON
+ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
 ```
 
 

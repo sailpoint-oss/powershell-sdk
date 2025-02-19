@@ -37,11 +37,12 @@ $SpConfigExportJobStatus = Initialize-PSSailpoint.BetaSpConfigExportJobStatus  -
  -Modified 2021-05-11T22:23:16Z `
  -Description ETS configuration objects from Acme-Solar sandbox `
  -Completed 2021-05-11T22:23:16Z
+$SpConfigExportJobStatus = @"{  "JobId": "3469b87d-48ca-439a-868f-2160001da8c1", "Status": "COMPLETE", "Type": "IMPORT", "Expiration": "2021-05-11T22:23:16Z", "Created": "2021-05-11T22:23:16Z", "Modified": "2021-05-11T22:23:16Z", "Description": "ETS configuration objects from Acme-Solar sandbox", "Completed": "2021-05-11T22:23:16Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SpConfigExportJobStatus | ConvertTo-JSON
+ConvertFrom-JsonToSpConfigExportJobStatus -Json $SpConfigExportJobStatus
 ```
 
 

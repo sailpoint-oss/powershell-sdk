@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ReviewableEntitlementAccountOwner = Initialize-PSSailpoint.V2024ReviewableEntitlementAccountOwner  -Id 2c9180857182305e0171993737eb29e8 `
  -Type IDENTITY `
  -DisplayName Alison Ferguson
+$ReviewableEntitlementAccountOwner = @"{  "Id": "2c9180857182305e0171993737eb29e8", "Type": "IDENTITY", "DisplayName": "Alison Ferguson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReviewableEntitlementAccountOwner | ConvertTo-JSON
+ConvertFrom-JsonToReviewableEntitlementAccountOwner -Json $ReviewableEntitlementAccountOwner
 ```
 
 

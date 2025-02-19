@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $Range = Initialize-PSSailpoint.V2024Range  -Lower null `
  -Upper null
+$Range = @"{  "Lower": null, "Upper": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Range | ConvertTo-JSON
+ConvertFrom-JsonToRange -Json $Range
 ```
 
 

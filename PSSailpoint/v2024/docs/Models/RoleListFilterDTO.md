@@ -24,12 +24,13 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $RoleListFilterDTO = Initialize-PSSailpoint.V2024RoleListFilterDTO  -Filters dimensional eq false `
- -AmmKeyValues [{attribute&#x3D;iscFederalClassifications, values&#x3D;[secret]}]
+ -AmmKeyValues [{attribute=iscFederalClassifications, values=[secret]}]
+$RoleListFilterDTO = @"{  "Filters": "dimensional eq false", "AmmKeyValues": [{"attribute": "iscFederalClassifications", "values":["secret"]}] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleListFilterDTO | ConvertTo-JSON
+ConvertFrom-JsonToRoleListFilterDTO -Json $RoleListFilterDTO
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $RequestedItemStatusCancelledRequestDetails = Initialize-PSSailpoint.BetaRequestedItemStatusCancelledRequestDetails  -Comment This request must be cancelled. `
  -Owner null `
  -Modified 2019-12-20T09:17:12.192Z
+$RequestedItemStatusCancelledRequestDetails = @"{  "Comment": "This request must be cancelled.", "Owner": null, "Modified": "2019-12-20T09:17:12.192Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RequestedItemStatusCancelledRequestDetails | ConvertTo-JSON
+ConvertFrom-JsonToRequestedItemStatusCancelledRequestDetails -Json $RequestedItemStatusCancelledRequestDetails
 ```
 
 

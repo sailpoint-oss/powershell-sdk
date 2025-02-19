@@ -37,11 +37,12 @@ $CommonAccessResponse = Initialize-PSSailpoint.BetaCommonAccessResponse  -Id 555
  -ReviewedByUser null `
  -LastReviewed null `
  -CreatedByUser false
+$CommonAccessResponse = @"{  "Id": "555ab47a-0d32-4813-906f-adf3567de6a4", "Access": null, "Status": "null", "CommonAccessType": "UNSET", "LastUpdated": null, "ReviewedByUser": null, "LastReviewed": null, "CreatedByUser": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CommonAccessResponse | ConvertTo-JSON
+ConvertFrom-JsonToCommonAccessResponse -Json $CommonAccessResponse
 ```
 
 

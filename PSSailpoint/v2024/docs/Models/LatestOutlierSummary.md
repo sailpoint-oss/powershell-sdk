@@ -31,11 +31,12 @@ $LatestOutlierSummary = Initialize-PSSailpoint.V2024LatestOutlierSummary  -Type 
  -TotalOutliers 50 `
  -TotalIdentities 5000 `
  -TotalIgnored 10
+$LatestOutlierSummary = @"{  "Type": "LOW_SIMILARITY", "SnapshotDate": "2021-05-01T18:40:35.772Z", "TotalOutliers": "50", "TotalIdentities": "5000", "TotalIgnored": "10" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LatestOutlierSummary | ConvertTo-JSON
+ConvertFrom-JsonToLatestOutlierSummary -Json $LatestOutlierSummary
 ```
 
 

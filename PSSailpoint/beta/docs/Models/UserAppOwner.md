@@ -29,11 +29,12 @@ $UserAppOwner = Initialize-PSSailpoint.BetaUserAppOwner  -Id 2c9180827ca885d7017
  -Type IDENTITY `
  -Name John `
  -Alias John.Doe
+$UserAppOwner = @"{  "Id": "2c9180827ca885d7017ca8ce28a000eb", "Type": "IDENTITY", "Name": "John", "Alias": "John.Doe" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$UserAppOwner | ConvertTo-JSON
+ConvertFrom-JsonToUserAppOwner -Json $UserAppOwner
 ```
 
 

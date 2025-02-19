@@ -39,11 +39,12 @@ $SlimDiscoveredApplications = Initialize-PSSailpoint.BetaSlimDiscoveredApplicati
  -DiscoveredAt 2023-01-01T12:00Z `
  -CreatedAt 2023-01-01T12:00Z `
  -Status ACTIVE
+$SlimDiscoveredApplications = @"{  "Id": "null", "Name": "ExampleApp", "DiscoverySource": "csv", "DiscoveredVendor": "ExampleVendor", "Description": "An application for managing examples.", "RecommendedConnectors": ["ConnectorA", "ConnectorB"], "DiscoveredAt": "2023-01-01T12:00Z", "CreatedAt": "2023-01-01T12:00Z", "Status": "ACTIVE" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SlimDiscoveredApplications | ConvertTo-JSON
+ConvertFrom-JsonToSlimDiscoveredApplications -Json $SlimDiscoveredApplications
 ```
 
 

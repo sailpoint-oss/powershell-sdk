@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AdminReviewReassignReassignTo = Initialize-PSSailpoint.V3AdminReviewReassignReassignTo  -Id ef38f94347e94562b5bb8424a56397d8 `
  -Type IDENTITY
+$AdminReviewReassignReassignTo = @"{  "Id": "ef38f94347e94562b5bb8424a56397d8", "Type": "IDENTITY" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AdminReviewReassignReassignTo | ConvertTo-JSON
+ConvertFrom-JsonToAdminReviewReassignReassignTo -Json $AdminReviewReassignReassignTo
 ```
 
 

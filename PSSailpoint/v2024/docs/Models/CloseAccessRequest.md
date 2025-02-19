@@ -29,11 +29,12 @@ $CloseAccessRequest = Initialize-PSSailpoint.V2024CloseAccessRequest  -AccessReq
  -Message The IdentityNow Administrator manually closed this request. `
  -ExecutionStatus Terminated `
  -CompletionStatus Failure
+$CloseAccessRequest = @"{  "AccessRequestIds": ["2c90ad2a70ace7d50170acf22ca90010"], "Message": "The IdentityNow Administrator manually closed this request.", "ExecutionStatus": "Terminated", "CompletionStatus": "Failure" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CloseAccessRequest | ConvertTo-JSON
+ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
 ```
 
 

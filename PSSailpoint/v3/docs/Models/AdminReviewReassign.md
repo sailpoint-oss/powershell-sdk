@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AdminReviewReassign = Initialize-PSSailpoint.V3AdminReviewReassign  -CertificationIds [af3859464779471211bb8424a563abc1, af3859464779471211bb8424a563abc2, af3859464779471211bb8424a563abc3] `
  -ReassignTo null `
  -Reason reassigned for some reason
+$AdminReviewReassign = @"{  "CertificationIds": ["af3859464779471211bb8424a563abc1", "af3859464779471211bb8424a563abc2", "af3859464779471211bb8424a563abc3"], "ReassignTo": null, "Reason": "reassigned for some reason" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AdminReviewReassign | ConvertTo-JSON
+ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
 ```
 
 

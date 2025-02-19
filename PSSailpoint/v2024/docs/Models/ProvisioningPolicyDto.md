@@ -29,11 +29,12 @@ $ProvisioningPolicyDto = Initialize-PSSailpoint.V2024ProvisioningPolicyDto  -Nam
  -Description this provisioning policy creates access based on an identity going inactive `
  -UsageType null `
  -Fields null
+$ProvisioningPolicyDto = @"{  "Name": "example provisioning policy for inactive identities", "Description": "this provisioning policy creates access based on an identity going inactive", "UsageType": null, "Fields": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ProvisioningPolicyDto | ConvertTo-JSON
+ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
 ```
 
 

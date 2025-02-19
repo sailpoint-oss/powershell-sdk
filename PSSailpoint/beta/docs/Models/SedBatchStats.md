@@ -31,11 +31,12 @@ $SedBatchStats = Initialize-PSSailpoint.BetaSedBatchStats  -BatchComplete true `
  -DiscoveredCount 100 `
  -DiscoveryComplete true `
  -ProcessedCount 100
+$SedBatchStats = @"{  "BatchComplete": true, "BatchId": "016629d1-1d25-463f-97f3-0c6686846650", "DiscoveredCount": "100", "DiscoveryComplete": true, "ProcessedCount": "100" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SedBatchStats | ConvertTo-JSON
+ConvertFrom-JsonToSedBatchStats -Json $SedBatchStats
 ```
 
 

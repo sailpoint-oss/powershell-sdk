@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccountAttributesChangedChangesInner = Initialize-PSSailpoint.BetaAccountAttributesChangedChangesInner  -Attribute sn `
  -OldValue null `
  -NewValue null
+$AccountAttributesChangedChangesInner = @"{  "Attribute": "sn", "OldValue": null, "NewValue": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountAttributesChangedChangesInner | ConvertTo-JSON
+ConvertFrom-JsonToAccountAttributesChangedChangesInner -Json $AccountAttributesChangedChangesInner
 ```
 
 

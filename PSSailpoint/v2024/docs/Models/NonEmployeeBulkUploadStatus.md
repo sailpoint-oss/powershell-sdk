@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $NonEmployeeBulkUploadStatus = Initialize-PSSailpoint.V2024NonEmployeeBulkUploadStatus  -Status PENDING
+$NonEmployeeBulkUploadStatus = @"{  "Status": "PENDING" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeBulkUploadStatus | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeBulkUploadStatus -Json $NonEmployeeBulkUploadStatus
 ```
 
 

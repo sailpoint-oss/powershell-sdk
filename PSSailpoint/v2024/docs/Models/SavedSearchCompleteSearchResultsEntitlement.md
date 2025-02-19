@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SavedSearchCompleteSearchResultsEntitlement = Initialize-PSSailpoint.V2024SavedSearchCompleteSearchResultsEntitlement  -Count 2 `
  -Noun entitlements `
  -Preview null
+$SavedSearchCompleteSearchResultsEntitlement = @"{  "Count": "2", "Noun": "entitlements", "Preview": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SavedSearchCompleteSearchResultsEntitlement | ConvertTo-JSON
+ConvertFrom-JsonToSavedSearchCompleteSearchResultsEntitlement -Json $SavedSearchCompleteSearchResultsEntitlement
 ```
 
 

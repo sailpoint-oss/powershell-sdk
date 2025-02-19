@@ -26,12 +26,13 @@ Name | Type | Description | Notes
 ```powershell
 $SearchAttributeConfig = Initialize-PSSailpoint.V2024SearchAttributeConfig  -Name newMailAttribute `
  -DisplayName New Mail Attribute `
- -ApplicationAttributes {2c91808b79fd2422017a0b35d30f3968&#x3D;employeeNumber, 2c91808b79fd2422017a0b36008f396b&#x3D;employeeNumber}
+ -ApplicationAttributes {2c91808b79fd2422017a0b35d30f3968=employeeNumber, 2c91808b79fd2422017a0b36008f396b=employeeNumber}
+$SearchAttributeConfig = @"{  "Name": "newMailAttribute", "DisplayName": "New Mail Attribute", "ApplicationAttributes": {"2c91808b79fd2422017a0b35d30f3968": "employeeNumber", "2c91808b79fd2422017a0b36008f396b": "employeeNumber}" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SearchAttributeConfig | ConvertTo-JSON
+ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
 ```
 
 

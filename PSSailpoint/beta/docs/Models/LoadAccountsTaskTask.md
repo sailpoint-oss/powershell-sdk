@@ -49,11 +49,12 @@ $LoadAccountsTaskTask = Initialize-PSSailpoint.BetaLoadAccountsTaskTask  -Id ef3
  -Progress Initializing... `
  -Attributes null `
  -Returns null
+$LoadAccountsTaskTask = @"{  "Id": "ef38f94347e94562b5bb8424a56397d8", "Type": "QUARTZ", "Name": "Cloud Account Aggregation", "Description": "Aggregate from the specified application", "Launcher": "John Doe", "Created": null, "Launched": null, "Completed": null, "CompletionStatus": "Success", "ParentName": "Audit Report", "Messages": [], "Progress": "Initializing...", "Attributes": null, "Returns": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LoadAccountsTaskTask | ConvertTo-JSON
+ConvertFrom-JsonToLoadAccountsTaskTask -Json $LoadAccountsTaskTask
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $PublicIdentityAttributesInner = Initialize-PSSailpoint.V3PublicIdentityAttributesInner  -Key country `
  -Name Country `
  -Value US
+$PublicIdentityAttributesInner = @"{  "Key": "country", "Name": "Country", "Value": "US" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PublicIdentityAttributesInner | ConvertTo-JSON
+ConvertFrom-JsonToPublicIdentityAttributesInner -Json $PublicIdentityAttributesInner
 ```
 
 

@@ -29,11 +29,12 @@ $ExternalAttributes = Initialize-PSSailpoint.V3ExternalAttributes  -Name search-
  -Description Run a search and notify the results `
  -ClientId 87e239b2-b85b-4bde-b9a7-55bf304ddcdc `
  -Url https://tenant.api.identitynow.com/beta/workflows/execute/external/c79e0079-562c-4df5-aa73-60a9e25c916d
+$ExternalAttributes = @"{  "Name": "search-and-notify", "Description": "Run a search and notify the results", "ClientId": "87e239b2-b85b-4bde-b9a7-55bf304ddcdc", "Url": "https://tenant.api.identitynow.com/beta/workflows/execute/external/c79e0079-562c-4df5-aa73-60a9e25c916d" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ExternalAttributes | ConvertTo-JSON
+ConvertFrom-JsonToExternalAttributes -Json $ExternalAttributes
 ```
 
 

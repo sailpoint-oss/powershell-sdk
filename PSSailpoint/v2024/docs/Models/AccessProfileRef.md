@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessProfileRef = Initialize-PSSailpoint.V2024AccessProfileRef  -Id ff808081751e6e129f1518161919ecca `
  -Type ACCESS_PROFILE `
  -Name Access Profile 2567
+$AccessProfileRef = @"{  "Id": "ff808081751e6e129f1518161919ecca", "Type": "ACCESS_PROFILE", "Name": "Access Profile 2567" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileRef | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileRef -Json $AccessProfileRef
 ```
 
 

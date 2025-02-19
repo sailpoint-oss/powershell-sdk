@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IdentityEntities = Initialize-PSSailpoint.BetaIdentityEntities  -IdentityEntity null
+$IdentityEntities = @"{  "IdentityEntity": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityEntities | ConvertTo-JSON
+ConvertFrom-JsonToIdentityEntities -Json $IdentityEntities
 ```
 
 

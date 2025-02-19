@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $RoleMiningPotentialRoleExportRequest = Initialize-PSSailpoint.V2024RoleMiningPotentialRoleExportRequest  -MinEntitlementPopularity 0 `
  -IncludeCommonAccess true
+$RoleMiningPotentialRoleExportRequest = @"{  "MinEntitlementPopularity": "0", "IncludeCommonAccess": "true "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningPotentialRoleExportRequest | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningPotentialRoleExportRequest -Json $RoleMiningPotentialRoleExportRequest
 ```
 
 

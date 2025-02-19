@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $RequestOnBehalfOfConfig = Initialize-PSSailpoint.V2024RequestOnBehalfOfConfig  -AllowRequestOnBehalfOfAnyoneByAnyone true `
  -AllowRequestOnBehalfOfEmployeeByManager true
+$RequestOnBehalfOfConfig = @"{  "AllowRequestOnBehalfOfAnyoneByAnyone": true, "AllowRequestOnBehalfOfEmployeeByManager": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RequestOnBehalfOfConfig | ConvertTo-JSON
+ConvertFrom-JsonToRequestOnBehalfOfConfig -Json $RequestOnBehalfOfConfig
 ```
 
 

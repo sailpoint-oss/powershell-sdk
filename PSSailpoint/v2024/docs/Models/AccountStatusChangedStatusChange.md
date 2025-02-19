@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AccountStatusChangedStatusChange = Initialize-PSSailpoint.V2024AccountStatusChangedStatusChange  -PreviousStatus null `
  -NewStatus null
+$AccountStatusChangedStatusChange = @"{  "PreviousStatus": "null", "NewStatus": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountStatusChangedStatusChange | ConvertTo-JSON
+ConvertFrom-JsonToAccountStatusChangedStatusChange -Json $AccountStatusChangedStatusChange
 ```
 
 

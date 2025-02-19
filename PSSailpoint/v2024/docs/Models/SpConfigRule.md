@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SpConfigRule = Initialize-PSSailpoint.V2024SpConfigRule  -Path $.enabled `
  -Value null `
  -Mode [RESTORE, PROMOTE]
+$SpConfigRule = @"{  "Path": "$.enabled", "Value": null, "Mode": ["RESTORE", "PROMOTE"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SpConfigRule | ConvertTo-JSON
+ConvertFrom-JsonToSpConfigRule -Json $SpConfigRule
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $PublicIdentityAttributeConfig = Initialize-PSSailpoint.BetaPublicIdentityAttributeConfig  -Key country `
  -Name Country
+$PublicIdentityAttributeConfig = @"{  "Key": "country", "Name": "Country" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PublicIdentityAttributeConfig | ConvertTo-JSON
+ConvertFrom-JsonToPublicIdentityAttributeConfig -Json $PublicIdentityAttributeConfig
 ```
 
 

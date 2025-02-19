@@ -37,11 +37,12 @@ $SearchSchedule = Initialize-PSSailpoint.V3SearchSchedule  -SavedSearchId 554f15
  -Enabled false `
  -EmailEmptyResults false `
  -DisplayQueryDetails false
+$SearchSchedule = @"{  "SavedSearchId": "554f1511-f0a1-4744-ab14-599514d3e57c", "Created": "2018-06-25T20:22:28.104Z", "Modified": "2018-06-25T20:22:28.104Z", "Schedule": null, "Recipients": null, "Enabled": false, "EmailEmptyResults": false, "DisplayQueryDetails": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SearchSchedule | ConvertTo-JSON
+ConvertFrom-JsonToSearchSchedule -Json $SearchSchedule
 ```
 
 

@@ -83,11 +83,12 @@ $PasswordPolicyV3Dto = Initialize-PSSailpoint.BetaPasswordPolicyV3Dto  -Id 2c918
  -Created null `
  -Modified null `
  -SourceIds [2c91808382ffee0b01830de154f14034, 2f98808382ffee0b01830de154f12134]
+$PasswordPolicyV3Dto = @"{  "Id": "2c91808e7d976f3b017d9f5ceae440c8", "Description": "Information about the Password Policy", "Name": "PasswordPolicy Example", "DateCreated": null, "LastUpdated": null, "FirstExpirationReminder": "45", "AccountIdMinWordLength": "4", "AccountNameMinWordLength": "6", "MinAlpha": "5", "MinCharacterTypes": "5", "MaxLength": "25", "MinLength": "8", "MaxRepeatedChars": "3", "MinLower": "8", "MinNumeric": "8", "MinSpecial": "8", "MinUpper": "8", "PasswordExpiration": "8", "DefaultPolicy": true, "EnablePasswdExpiration": true, "RequireStrongAuthn": true, "RequireStrongAuthOffNetwork": true, "RequireStrongAuthUntrustedGeographies": true, "UseAccountAttributes": false, "UseDictionary": false, "UseIdentityAttributes": false, "ValidateAgainstAccountId": false, "ValidateAgainstAccountName": true, "Created": "null", "Modified": "null", "SourceIds": ["2c91808382ffee0b01830de154f14034", "2f98808382ffee0b01830de154f12134"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PasswordPolicyV3Dto | ConvertTo-JSON
+ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
 ```
 
 

@@ -44,14 +44,15 @@ $IdentityAccess = Initialize-PSSailpoint.V3IdentityAccess  -Id 2c91808568c529c60
  -Revocable null `
  -Privileged false `
  -Attribute memberOf `
- -Value CN&#x3D;Buyer,OU&#x3D;Groups,OU&#x3D;Demo,DC&#x3D;seri,DC&#x3D;sailpointdemo,DC&#x3D;com `
+ -Value CN=Buyer,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com `
  -Standalone false `
  -Disabled null
+$IdentityAccess = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityAccess | ConvertTo-JSON
+ConvertFrom-JsonToIdentityAccess -Json $IdentityAccess
 ```
 
 

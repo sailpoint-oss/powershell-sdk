@@ -29,11 +29,12 @@ $SearchFormDefinitionsByTenant400Response = Initialize-PSSailpoint.BetaSearchFor
  -Messages null `
  -StatusCode null `
  -TrackingId null
+$SearchFormDefinitionsByTenant400Response = @"{  "DetailCode": "null", "Messages": null, "StatusCode": null, "TrackingId": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SearchFormDefinitionsByTenant400Response | ConvertTo-JSON
+ConvertFrom-JsonToSearchFormDefinitionsByTenant400Response -Json $SearchFormDefinitionsByTenant400Response
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $JsonPatchOperation = Initialize-PSSailpoint.V3JsonPatchOperation  -Op replace `
  -Path /description `
  -Value null
+$JsonPatchOperation = @"{  "Op": "replace", "Path": "/description", "Value": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$JsonPatchOperation | ConvertTo-JSON
+ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
 ```
 
 

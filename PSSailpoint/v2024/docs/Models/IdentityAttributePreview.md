@@ -29,11 +29,12 @@ $IdentityAttributePreview = Initialize-PSSailpoint.V2024IdentityAttributePreview
  -Value email@mail.com `
  -PreviousValue oldEmail@mail.com `
  -ErrorMessages null
+$IdentityAttributePreview = @"{  "Name": "email", "Value": "email@mail.com", "PreviousValue": "oldEmail@mail.com", "ErrorMessages": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityAttributePreview | ConvertTo-JSON
+ConvertFrom-JsonToIdentityAttributePreview -Json $IdentityAttributePreview
 ```
 
 

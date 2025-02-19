@@ -59,11 +59,12 @@ $ListIdentityAccessItems200ResponseInner = Initialize-PSSailpoint.BetaListIdenti
  -EntitlementType entitlement `
  -Privileged false `
  -CloudGoverned true
+$ListIdentityAccessItems200ResponseInner = @"{  "AccessType": "role", "Id": "2c918087763e69d901763e72e97f006f", "Name": "sample", "SourceName": "Source Name", "SourceId": "2793o32dwd", "Description": "Role - Workday/Citizenship access", "DisplayName": "sample", "EntitlementCount": "12", "AppDisplayName": "AppName", "RemoveDate": "2024-07-01T06:00:00.00Z", "Standalone": true, "Revocable": true, "NativeIdentity": "dr.arden.ogahn.d", "AppRoleId": "2c918087763e69d901763e72e97f006f", "Attribute": "groups", "Value": "Upward mobility access", "EntitlementType": "entitlement", "Privileged": false, "CloudGoverned": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ListIdentityAccessItems200ResponseInner | ConvertTo-JSON
+ConvertFrom-JsonToListIdentityAccessItems200ResponseInner -Json $ListIdentityAccessItems200ResponseInner
 ```
 
 

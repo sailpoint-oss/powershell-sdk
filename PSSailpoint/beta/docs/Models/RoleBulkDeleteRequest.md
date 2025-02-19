@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $RoleBulkDeleteRequest = Initialize-PSSailpoint.BetaRoleBulkDeleteRequest  -RoleIds [2c9180847812e0b1017817051919ecca, 2c9180887812e0b201781e129f151816]
+$RoleBulkDeleteRequest = @"{  "RoleIds": ["2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleBulkDeleteRequest | ConvertTo-JSON
+ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
 ```
 
 

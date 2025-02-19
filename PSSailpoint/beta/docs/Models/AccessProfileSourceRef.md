@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessProfileSourceRef = Initialize-PSSailpoint.BetaAccessProfileSourceRef  -Id 2c91809773dee3610173fdb0b6061ef4 `
  -Type SOURCE `
  -Name ODS-AD-SOURCE
+$AccessProfileSourceRef = @"{  "Id": "2c91809773dee3610173fdb0b6061ef4", "Type": "SOURCE", "Name": "ODS-AD-SOURCE" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileSourceRef | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileSourceRef -Json $AccessProfileSourceRef
 ```
 
 

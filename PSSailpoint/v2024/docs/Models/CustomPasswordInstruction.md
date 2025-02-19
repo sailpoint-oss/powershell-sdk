@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CustomPasswordInstruction = Initialize-PSSailpoint.V2024CustomPasswordInstruction  -PageId change-password:enter-password `
  -PageContent Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter. `
  -Locale en
+$CustomPasswordInstruction = @"{  "PageId": "change-password:enter-password", "PageContent": "Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter.", "Locale": "en" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CustomPasswordInstruction | ConvertTo-JSON
+ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
 ```
 
 

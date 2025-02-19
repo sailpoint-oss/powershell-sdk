@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $OutlierFeatureSummaryOutlierFeatureDisplayValuesInner = Initialize-PSSailpoint.V2024OutlierFeatureSummaryOutlierFeatureDisplayValuesInner  -DisplayName Aliza Chris `
  -Value 55 `
  -ValueType INTEGER
+$OutlierFeatureSummaryOutlierFeatureDisplayValuesInner = @"{  "DisplayName": "Aliza Chris", "Value": "55", "ValueType": "INTEGER" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$OutlierFeatureSummaryOutlierFeatureDisplayValuesInner | ConvertTo-JSON
+ConvertFrom-JsonToOutlierFeatureSummaryOutlierFeatureDisplayValuesInner -Json $OutlierFeatureSummaryOutlierFeatureDisplayValuesInner
 ```
 
 

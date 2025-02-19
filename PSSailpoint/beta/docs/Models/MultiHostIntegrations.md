@@ -71,11 +71,12 @@ $MultiHostIntegrations = Initialize-PSSailpoint.BetaMultiHostIntegrations  -Id 2
  -Modified 2024-01-23T18:08:50.897Z `
  -CredentialProviderEnabled false `
  -Category CredentialProvider
+$MultiHostIntegrations = @"{  "Id": "2c91808568c529c60168cca6f90c1324", "Name": "My Multi-Host Integration", "Description": "This is a Multi-Host Integration.", "Owner": null, "Cluster": null, "Type": "Multi-Host - Microsoft SQL Server", "Connector": "multihost-microsoft-sql-server", "LastSourceUploadSuccessCount": "50", "MaxSourcesPerAggGroup": "10", "ConnectorClass": "sailpoint.connector.OpenConnectorAdapter", "ConnectorAttributes": null, "DeleteThreshold": "10", "Authoritative": false, "ManagementWorkgroup": null, "Healthy": true, "Status": "SOURCE_STATE_HEALTHY", "Since": null, "ConnectorId": "multihost-microsoft-sql-server", "ConnectorName": "Multi-Host Microsoft SQL Server", "ConnectionType": "direct", "ConnectorImplementationId": "multihost-microsoft-sql-server", "Created": "2022-02-08T14:50:03.827Z", "Modified": "2024-01-23T18:08:50.897Z", "CredentialProviderEnabled": false, "Category": "CredentialProvider" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostIntegrations | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostIntegrations -Json $MultiHostIntegrations
 ```
 
 

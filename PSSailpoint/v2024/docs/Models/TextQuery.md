@@ -29,11 +29,12 @@ $TextQuery = Initialize-PSSailpoint.V2024TextQuery  -Terms [The quick brown fox,
  -Fields [displayName, employeeNumber, roleCount] `
  -MatchAny false `
  -Contains true
+$TextQuery = @"{  "Terms": ["The quick brown fox", 3141592, 7], "Fields": ["displayName", "employeeNumber", "roleCount"], "MatchAny": false, "Contains": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TextQuery | ConvertTo-JSON
+ConvertFrom-JsonToTextQuery -Json $TextQuery
 ```
 
 

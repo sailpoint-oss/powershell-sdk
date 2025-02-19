@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SourceDeletedActor = Initialize-PSSailpoint.BetaSourceDeletedActor  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20648 `
  -Name William Wilson
+$SourceDeletedActor = @"{  "Type": "IDENTITY", "Id": "2c7180a46faadee4016fb4e018c20648", "Name": "William Wilson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceDeletedActor | ConvertTo-JSON
+ConvertFrom-JsonToSourceDeletedActor -Json $SourceDeletedActor
 ```
 
 

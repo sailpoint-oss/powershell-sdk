@@ -33,11 +33,12 @@ $RoleInsightsSummary = Initialize-PSSailpoint.BetaRoleInsightsSummary  -NumberOf
  -TotalNumberOfEntitlements 250 `
  -IdentitiesWithAccessViaRoles 550 `
  -TotalNumberOfIdentities 980
+$RoleInsightsSummary = @"{  "NumberOfUpdates": null, "LastGenerated": "2020-05-19T13:49:37.385Z", "EntitlementsIncludedInRoles": "45", "TotalNumberOfEntitlements": "250", "IdentitiesWithAccessViaRoles": "550", "TotalNumberOfIdentities": "980" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleInsightsSummary | ConvertTo-JSON
+ConvertFrom-JsonToRoleInsightsSummary -Json $RoleInsightsSummary
 ```
 
 

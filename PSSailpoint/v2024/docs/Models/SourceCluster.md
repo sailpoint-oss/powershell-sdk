@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SourceCluster = Initialize-PSSailpoint.V2024SourceCluster  -Type CLUSTER `
  -Id 2c9180866166b5b0016167c32ef31a66 `
  -Name Corporate Cluster
+$SourceCluster = @"{  "Type": "CLUSTER", "Id": "2c9180866166b5b0016167c32ef31a66", "Name": "Corporate Cluster" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceCluster | ConvertTo-JSON
+ConvertFrom-JsonToSourceCluster -Json $SourceCluster
 ```
 
 

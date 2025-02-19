@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $Reassignment = Initialize-PSSailpoint.V3Reassignment  -VarFrom null `
  -Comment Reassigned for a reason
+$Reassignment = @"{  "VarFrom": null, "Comment": "Reassigned for a reason" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Reassignment | ConvertTo-JSON
+ConvertFrom-JsonToReassignment -Json $Reassignment
 ```
 
 

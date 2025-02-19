@@ -39,11 +39,12 @@ $SodPolicySchedule = Initialize-PSSailpoint.BetaSodPolicySchedule  -Name SCH-158
  -EmailEmptyResults false `
  -CreatorId 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -ModifierId 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+$SodPolicySchedule = @"{  "Name": "SCH-1584312283015", "Created": "2020-01-01T00:00Z", "Modified": "2020-01-01T00:00Z", "Description": "Schedule for policy xyz", "Schedule": null, "Recipients": null, "EmailEmptyResults": false, "CreatorId": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde", "ModifierId": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SodPolicySchedule | ConvertTo-JSON
+ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
 ```
 
 

@@ -31,11 +31,12 @@ $NonEmployeeSourceLiteWithSchemaAttributes = Initialize-PSSailpoint.V2024NonEmpl
  -Name Retail `
  -Description Source description `
  -SchemaAttributes null
+$NonEmployeeSourceLiteWithSchemaAttributes = @"{  "Id": "a0303682-5e4a-44f7-bdc2-6ce6112549c1", "SourceId": "2c91808568c529c60168cca6f90c1313", "Name": "Retail", "Description": "Source description", "SchemaAttributes": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeSourceLiteWithSchemaAttributes | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeSourceLiteWithSchemaAttributes -Json $NonEmployeeSourceLiteWithSchemaAttributes
 ```
 
 

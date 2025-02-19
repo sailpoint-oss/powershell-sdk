@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $WorkgroupConnectionDto = Initialize-PSSailpoint.V2024WorkgroupConnectionDto  -Object null `
  -ConnectionType AccessRequestReviewer
+$WorkgroupConnectionDto = @"{  "Object": null, "ConnectionType": "AccessRequestReviewer" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkgroupConnectionDto | ConvertTo-JSON
+ConvertFrom-JsonToWorkgroupConnectionDto -Json $WorkgroupConnectionDto
 ```
 
 

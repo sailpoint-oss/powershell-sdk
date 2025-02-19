@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ReassignmentReference = Initialize-PSSailpoint.V2024ReassignmentReference  -Id ef38f94347e94562b5bb8424a56397d8 `
  -Type ITEM
+$ReassignmentReference = @"{  "Id": "ef38f94347e94562b5bb8424a56397d8", "Type": "ITEM" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReassignmentReference | ConvertTo-JSON
+ConvertFrom-JsonToReassignmentReference -Json $ReassignmentReference
 ```
 
 

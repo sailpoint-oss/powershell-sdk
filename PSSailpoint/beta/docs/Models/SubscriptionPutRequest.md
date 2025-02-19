@@ -36,12 +36,13 @@ $SubscriptionPutRequest = Initialize-PSSailpoint.BetaSubscriptionPutRequest  -Na
  -HttpConfig null `
  -EventBridgeConfig null `
  -Enabled true `
- -VarFilter $[?($.identityId &#x3D;&#x3D; &quot;201327fda1c44704ac01181e963d463c&quot;)]
+ -VarFilter $[?($.identityId == "201327fda1c44704ac01181e963d463c")]
+$SubscriptionPutRequest = @"{  "Name": "Access request subscription", "Description": "Access requested to site xyz", "Type": null, "ResponseDeadline": "PT1H", "HttpConfig": null, "EventBridgeConfig": null, "Enabled": true, "VarFilter": "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SubscriptionPutRequest | ConvertTo-JSON
+ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
 ```
 
 

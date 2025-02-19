@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $RoleTargetDto = Initialize-PSSailpoint.BetaRoleTargetDto  -Source null `
  -AccountInfo null `
  -RoleName Marketing
+$RoleTargetDto = @"{  "Source": null, "AccountInfo": null, "RoleName": "Marketing" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleTargetDto | ConvertTo-JSON
+ConvertFrom-JsonToRoleTargetDto -Json $RoleTargetDto
 ```
 
 

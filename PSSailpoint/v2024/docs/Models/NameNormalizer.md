@@ -24,12 +24,13 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $NameNormalizer = Initialize-PSSailpoint.V2024NameNormalizer  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
+$NameNormalizer = @"{  "RequiresPeriodicRefresh": false, "VarInput": {"type": "accountAttribute", "attributes":{"attributeName": "first_name", "sourceName": "Source}}" }}}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NameNormalizer | ConvertTo-JSON
+ConvertFrom-JsonToNameNormalizer -Json $NameNormalizer
 ```
 
 

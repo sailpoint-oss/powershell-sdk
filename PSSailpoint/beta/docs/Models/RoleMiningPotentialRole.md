@@ -59,11 +59,12 @@ $RoleMiningPotentialRole = Initialize-PSSailpoint.BetaRoleMiningPotentialRole  -
  -Id e0cc5d7d-bf7f-4f81-b2af-8885b09d9923 `
  -CreatedDate null `
  -ModifiedDate null
+$RoleMiningPotentialRole = @"{  "CreatedBy": null, "Density": "75", "Description": "Potential Role for Accounting dept", "EntitlementCount": "25", "ExcludedEntitlements": ["07a0b4e2", "13b4e2a0"], "Freshness": "75", "IdentityCount": "25", "IdentityDistribution": null, "IdentityIds": ["07a0b4e2", "13b4e2a0"], "Name": "Saved Potential Role - 07/10", "ProvisionState": null, "Quality": "100", "RoleId": "07a0b4e2-7a76-44fa-bd0b-c64654b66519", "Saved": true, "Session": null, "Type": null, "Id": "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923", "CreatedDate": null, "ModifiedDate": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningPotentialRole | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningPotentialRole -Json $RoleMiningPotentialRole
 ```
 
 

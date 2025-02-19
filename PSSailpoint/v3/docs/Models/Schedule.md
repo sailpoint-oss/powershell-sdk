@@ -33,11 +33,12 @@ $Schedule = Initialize-PSSailpoint.V3Schedule  -Type WEEKLY `
  -Hours null `
  -Expiration null `
  -TimeZoneId CST
+$Schedule = @"{  "Type": "WEEKLY", "Months": null, "Days": null, "Hours": null, "Expiration": null, "TimeZoneId": "CST" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Schedule | ConvertTo-JSON
+ConvertFrom-JsonToSchedule -Json $Schedule
 ```
 
 

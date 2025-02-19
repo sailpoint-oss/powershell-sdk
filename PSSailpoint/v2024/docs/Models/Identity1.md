@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $Identity1 = Initialize-PSSailpoint.V2024Identity1  -Id 2c91808380aa05580180aaaaf1940410 `
  -Name William Wilson
+$Identity1 = @"{  "Id": "2c91808380aa05580180aaaaf1940410", "Name": "William Wilson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Identity1 | ConvertTo-JSON
+ConvertFrom-JsonToIdentity1 -Json $Identity1
 ```
 
 

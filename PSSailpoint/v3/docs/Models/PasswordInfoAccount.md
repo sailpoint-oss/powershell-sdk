@@ -23,13 +23,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordInfoAccount = Initialize-PSSailpoint.V3PasswordInfoAccount  -AccountId CN&#x3D;Abby Smith,OU&#x3D;Austin,OU&#x3D;Americas,OU&#x3D;Demo,DC&#x3D;seri,DC&#x3D;acme,DC&#x3D;com `
+$PasswordInfoAccount = Initialize-PSSailpoint.V3PasswordInfoAccount  -AccountId CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com `
  -AccountName Abby.Smith
+$PasswordInfoAccount = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PasswordInfoAccount | ConvertTo-JSON
+ConvertFrom-JsonToPasswordInfoAccount -Json $PasswordInfoAccount
 ```
 
 

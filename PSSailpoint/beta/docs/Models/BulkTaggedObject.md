@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $BulkTaggedObject = Initialize-PSSailpoint.BetaBulkTaggedObject  -ObjectRefs null `
  -Tags [BU_FINANCE, PCI] `
  -Operation MERGE
+$BulkTaggedObject = @"{  "ObjectRefs": null, "Tags": ["BU_FINANCE", "PCI"], "Operation": "MERGE" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BulkTaggedObject | ConvertTo-JSON
+ConvertFrom-JsonToBulkTaggedObject -Json $BulkTaggedObject
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $LifecyclestateDeleted = Initialize-PSSailpoint.V3LifecyclestateDeleted  -Type LIFECYCLE_STATE `
  -Id 12345 `
  -Name Contractor Lifecycle
+$LifecyclestateDeleted = @"{  "Type": "LIFECYCLE_STATE", "Id": "12345", "Name": "Contractor Lifecycle" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LifecyclestateDeleted | ConvertTo-JSON
+ConvertFrom-JsonToLifecyclestateDeleted -Json $LifecyclestateDeleted
 ```
 
 

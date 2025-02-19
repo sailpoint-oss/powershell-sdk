@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $LockoutConfiguration = Initialize-PSSailpoint.V3LockoutConfiguration  -MaximumAttempts 5 `
  -LockoutDuration 15 `
  -LockoutWindow 5
+$LockoutConfiguration = @"{  "MaximumAttempts": "5", "LockoutDuration": "15", "LockoutWindow": "5" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LockoutConfiguration | ConvertTo-JSON
+ConvertFrom-JsonToLockoutConfiguration -Json $LockoutConfiguration
 ```
 
 

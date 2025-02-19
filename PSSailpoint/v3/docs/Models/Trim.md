@@ -24,12 +24,13 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $Trim = Initialize-PSSailpoint.V3Trim  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
+$Trim = @"{  "RequiresPeriodicRefresh": false, "VarInput": {"type": "accountAttribute", "attributes":{"attributeName": "first_name", "sourceName": "Source}}" }}}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Trim | ConvertTo-JSON
+ConvertFrom-JsonToTrim -Json $Trim
 ```
 
 

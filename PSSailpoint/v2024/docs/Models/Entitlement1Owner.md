@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $Entitlement1Owner = Initialize-PSSailpoint.V2024Entitlement1Owner  -Id 2a2fdacca5e345f18bf7970cfbb8fec2 `
  -Name identity 1 `
  -Type IDENTITY
+$Entitlement1Owner = @"{  "Id": "2a2fdacca5e345f18bf7970cfbb8fec2", "Name": "identity 1", "Type": "IDENTITY" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Entitlement1Owner | ConvertTo-JSON
+ConvertFrom-JsonToEntitlement1Owner -Json $Entitlement1Owner
 ```
 
 

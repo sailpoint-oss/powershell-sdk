@@ -29,11 +29,12 @@ $Children = Initialize-PSSailpoint.BetaChildren  -Operator EQUALS `
  -Attribute country `
  -Value null `
  -Children null
+$Children = @"{  "Operator": "EQUALS", "Attribute": "country", "Value": null, "Children": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Children | ConvertTo-JSON
+ConvertFrom-JsonToChildren -Json $Children
 ```
 
 

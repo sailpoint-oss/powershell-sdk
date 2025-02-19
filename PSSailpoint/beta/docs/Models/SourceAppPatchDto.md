@@ -47,11 +47,12 @@ $SourceAppPatchDto = Initialize-PSSailpoint.BetaSourceAppPatchDto  -Id 2c9180887
  -AccessProfiles [2c9180857725c14301772a93bb77242d, c9dc28e148a24d65b3ccb5fb8ca5ddd9] `
  -AccountSource null `
  -Owner null
+$SourceAppPatchDto = @"{  "Id": "2c91808874ff91550175097daaec161c", "CloudAppId": "9854520", "Name": "my app", "Created": "2020-10-08T18:33:52.029Z", "Modified": "2020-10-08T18:33:52.029Z", "Enabled": true, "ProvisionRequestEnabled": true, "Description": "the source app for engineers", "MatchAllAccounts": true, "AppCenterEnabled": true, "AccessProfiles": ["2c9180857725c14301772a93bb77242d", "c9dc28e148a24d65b3ccb5fb8ca5ddd9"], "AccountSource": null, "Owner": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceAppPatchDto | ConvertTo-JSON
+ConvertFrom-JsonToSourceAppPatchDto -Json $SourceAppPatchDto
 ```
 
 

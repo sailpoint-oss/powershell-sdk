@@ -29,11 +29,12 @@ $Comment = Initialize-PSSailpoint.V3Comment  -CommenterId 2c918084660f45d6016617
  -CommenterName Adam Kennedy `
  -Body Et quam massa maximus vivamus nisi ut urna tincidunt metus elementum erat. `
  -Date 2017-07-11T18:45:37.098Z
+$Comment = @"{  "CommenterId": "2c918084660f45d6016617daa9210584", "CommenterName": "Adam Kennedy", "Body": "Et quam massa maximus vivamus nisi ut urna tincidunt metus elementum erat.", "Date": "2017-07-11T18:45:37.098Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Comment | ConvertTo-JSON
+ConvertFrom-JsonToComment -Json $Comment
 ```
 
 

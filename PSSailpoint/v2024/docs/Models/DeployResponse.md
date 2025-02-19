@@ -45,11 +45,12 @@ $DeployResponse = Initialize-PSSailpoint.V2024DeployResponse  -JobId 07659d7d-2c
  -DraftId 07659d7d-2cce-47c0-9e49-185787ee565a `
  -DraftName Draft Name `
  -CloudStorageStatus SYNCED
+$DeployResponse = @"{  "JobId": "07659d7d-2cce-47c0-9e49-185787ee565a", "Status": "COMPLETE", "Type": "CONFIG_DEPLOY_DRAFT", "Message": "Deploy creation message", "RequesterName": "requester.name", "FileExists": true, "Created": "2021-05-11T22:23:16Z", "Modified": "2021-05-11T22:23:16Z", "Completed": "2021-05-11T22:23:16Z", "DraftId": "07659d7d-2cce-47c0-9e49-185787ee565a", "DraftName": "Draft Name", "CloudStorageStatus": "SYNCED" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DeployResponse | ConvertTo-JSON
+ConvertFrom-JsonToDeployResponse -Json $DeployResponse
 ```
 
 

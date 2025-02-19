@@ -41,11 +41,12 @@ $RoleMiningSessionDraftRoleDto = Initialize-PSSailpoint.BetaRoleMiningSessionDra
  -Id e0cc5d7d-bf7f-4f81-b2af-8885b09d9923 `
  -CreatedDate null `
  -ModifiedDate null
+$RoleMiningSessionDraftRoleDto = @"{  "Name": "Saved RM Session - 07/10", "Description": "Person who develops software", "IdentityIds": ["2c918090761a5aac0176215c46a62d58", "2c918090761a5aac01722015c46a62d42"], "EntitlementIds": ["2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e"], "ExcludedEntitlements": ["07a0b4e2", "13b4e2a0"], "Modified": "2020-09-16T18:49:32.150Z", "Type": null, "Id": "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923", "CreatedDate": null, "ModifiedDate": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningSessionDraftRoleDto | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningSessionDraftRoleDto -Json $RoleMiningSessionDraftRoleDto
 ```
 
 

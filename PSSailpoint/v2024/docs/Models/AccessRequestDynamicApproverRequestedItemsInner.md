@@ -33,11 +33,12 @@ $AccessRequestDynamicApproverRequestedItemsInner = Initialize-PSSailpoint.V2024A
  -Type ACCESS_PROFILE `
  -Operation Add `
  -Comment William needs this access for his day to day job activities.
+$AccessRequestDynamicApproverRequestedItemsInner = @"{  "Id": "2c91808b6ef1d43e016efba0ce470904", "Name": "Engineering Access", "Description": "Engineering Access", "Type": "ACCESS_PROFILE", "Operation": "Add", "Comment": "William needs this access for his day to day job activities." }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestDynamicApproverRequestedItemsInner | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestDynamicApproverRequestedItemsInner -Json $AccessRequestDynamicApproverRequestedItemsInner
 ```
 
 

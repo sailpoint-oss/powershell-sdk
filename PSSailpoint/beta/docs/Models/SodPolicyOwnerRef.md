@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SodPolicyOwnerRef = Initialize-PSSailpoint.BetaSodPolicyOwnerRef  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Support
+$SodPolicyOwnerRef = @"{  "Type": "IDENTITY", "Id": "2c9180a46faadee4016fb4e018c20639", "Name": "Support" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SodPolicyOwnerRef | ConvertTo-JSON
+ConvertFrom-JsonToSodPolicyOwnerRef -Json $SodPolicyOwnerRef
 ```
 
 

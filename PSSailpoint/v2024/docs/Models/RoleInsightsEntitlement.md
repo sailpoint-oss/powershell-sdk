@@ -33,11 +33,12 @@ $RoleInsightsEntitlement = Initialize-PSSailpoint.V2024RoleInsightsEntitlement  
  -Source null `
  -Attribute null `
  -Value null
+$RoleInsightsEntitlement = @"{  "Name": "null", "Id": "null", "Description": "null", "Source": "null", "Attribute": "null", "Value": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleInsightsEntitlement | ConvertTo-JSON
+ConvertFrom-JsonToRoleInsightsEntitlement -Json $RoleInsightsEntitlement
 ```
 
 

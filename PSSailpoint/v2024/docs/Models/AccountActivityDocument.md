@@ -59,11 +59,12 @@ $AccountActivityDocument = Initialize-PSSailpoint.V2024AccountActivityDocument  
  -ExpansionItems null `
  -AccountRequests null `
  -Sources smartsheet-test, airtable-v4, IdentityNow
+$AccountActivityDocument = @"{  "Id": "2c91808375d8e80a0175e1f88a575222", "Name": "john.doe", "Type": null, "Action": "Identity Refresh.", "Created": "2018-06-25T20:22:28.104Z", "Modified": "2018-06-25T20:22:28.104Z", "Stage": "Completed", "Origin": "null", "Status": "Complete", "Requester": null, "Recipient": null, "TrackingNumber": "61aad0c9e8134eca89e76a35e0cabe3f", "Errors": null, "Warnings": null, "Approvals": null, "OriginalRequests": null, "ExpansionItems": null, "AccountRequests": null, "Sources": "smartsheet-test, airtable-v4, IdentityNow" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountActivityDocument | ConvertTo-JSON
+ConvertFrom-JsonToAccountActivityDocument -Json $AccountActivityDocument
 ```
 
 

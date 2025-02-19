@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $VAClusterStatusChangeEventPreviousHealthCheckResult = Initialize-PSSailpoint.V2024VAClusterStatusChangeEventPreviousHealthCheckResult  -Message Test Connection failed with exception. Error message - java.lang Exception `
  -ResultType SOURCE_STATE_ERROR_CLUSTER `
  -Status Failed
+$VAClusterStatusChangeEventPreviousHealthCheckResult = @"{  "Message": "Test Connection failed with exception. Error message - java.lang Exception", "ResultType": "SOURCE_STATE_ERROR_CLUSTER", "Status": "Failed" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$VAClusterStatusChangeEventPreviousHealthCheckResult | ConvertTo-JSON
+ConvertFrom-JsonToVAClusterStatusChangeEventPreviousHealthCheckResult -Json $VAClusterStatusChangeEventPreviousHealthCheckResult
 ```
 
 

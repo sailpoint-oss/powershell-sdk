@@ -29,11 +29,12 @@ $ApprovalReminderAndEscalationConfig = Initialize-PSSailpoint.V2024ApprovalRemin
  -DaysBetweenReminders 0 `
  -MaxReminders 1 `
  -FallbackApproverRef null
+$ApprovalReminderAndEscalationConfig = @"{  "DaysUntilEscalation": "0", "DaysBetweenReminders": "0", "MaxReminders": "1", "FallbackApproverRef": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalReminderAndEscalationConfig | ConvertTo-JSON
+ConvertFrom-JsonToApprovalReminderAndEscalationConfig -Json $ApprovalReminderAndEscalationConfig
 ```
 
 

@@ -31,11 +31,12 @@ $AccessItemRemoved = Initialize-PSSailpoint.BetaAccessItemRemoved  -AccessItem n
  -EventType AccessItemRemoved `
  -Dt 2019-03-08T22:37:33.901Z `
  -GovernanceEvent null
+$AccessItemRemoved = @"{  "AccessItem": null, "IdentityId": "8c190e6787aa4ed9a90bd9d5344523fb", "EventType": "AccessItemRemoved", "Dt": "2019-03-08T22:37:33.901Z", "GovernanceEvent": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessItemRemoved | ConvertTo-JSON
+ConvertFrom-JsonToAccessItemRemoved -Json $AccessItemRemoved
 ```
 
 

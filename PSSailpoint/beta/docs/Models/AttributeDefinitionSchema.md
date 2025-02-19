@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AttributeDefinitionSchema = Initialize-PSSailpoint.BetaAttributeDefinitionSchema  -Type CONNECTOR_SCHEMA `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name group
+$AttributeDefinitionSchema = @"{  "Type": "CONNECTOR_SCHEMA", "Id": "2c91808568c529c60168cca6f90c1313", "Name": "group" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AttributeDefinitionSchema | ConvertTo-JSON
+ConvertFrom-JsonToAttributeDefinitionSchema -Json $AttributeDefinitionSchema
 ```
 
 

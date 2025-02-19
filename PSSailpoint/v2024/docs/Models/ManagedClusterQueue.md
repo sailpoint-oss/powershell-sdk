@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ManagedClusterQueue = Initialize-PSSailpoint.V2024ManagedClusterQueue  -Name megapod-useast1-denali-lwt-cluster-1533 `
  -Region us-east-1
+$ManagedClusterQueue = @"{  "Name": "megapod-useast1-denali-lwt-cluster-1533", "Region": "us-east-1" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ManagedClusterQueue | ConvertTo-JSON
+ConvertFrom-JsonToManagedClusterQueue -Json $ManagedClusterQueue
 ```
 
 

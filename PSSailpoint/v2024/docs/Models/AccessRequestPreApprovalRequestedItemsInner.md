@@ -33,11 +33,12 @@ $AccessRequestPreApprovalRequestedItemsInner = Initialize-PSSailpoint.V2024Acces
  -Type ACCESS_PROFILE `
  -Operation Add `
  -Comment William needs this access to do his job.
+$AccessRequestPreApprovalRequestedItemsInner = @"{  "Id": "2c91808b6ef1d43e016efba0ce470904", "Name": "Engineering Access", "Description": "Access to engineering database", "Type": "ACCESS_PROFILE", "Operation": "Add", "Comment": "William needs this access to do his job." }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestPreApprovalRequestedItemsInner | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestPreApprovalRequestedItemsInner -Json $AccessRequestPreApprovalRequestedItemsInner
 ```
 
 

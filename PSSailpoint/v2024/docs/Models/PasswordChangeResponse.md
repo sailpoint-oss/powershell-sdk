@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $PasswordChangeResponse = Initialize-PSSailpoint.V2024PasswordChangeResponse  -RequestId 089899f13a8f4da7824996191587bab9 `
  -State IN_PROGRESS
+$PasswordChangeResponse = @"{  "RequestId": "089899f13a8f4da7824996191587bab9", "State": "IN_PROGRESS" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PasswordChangeResponse | ConvertTo-JSON
+ConvertFrom-JsonToPasswordChangeResponse -Json $PasswordChangeResponse
 ```
 
 

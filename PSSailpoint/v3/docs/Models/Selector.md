@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $Selector = Initialize-PSSailpoint.V3Selector  -Type null `
  -Values [MON, WED] `
  -Interval 3
+$Selector = @"{  "Type": null, "Values": ["MON", "WED"], "Interval": "3" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Selector | ConvertTo-JSON
+ConvertFrom-JsonToSelector -Json $Selector
 ```
 
 

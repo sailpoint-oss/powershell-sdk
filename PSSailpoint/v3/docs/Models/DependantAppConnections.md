@@ -39,11 +39,12 @@ $DependantAppConnections = Initialize-PSSailpoint.V3DependantAppConnections  -Cl
  -MatchAllAccount true `
  -Owner null `
  -AppCenterEnabled false
+$DependantAppConnections = @"{  "CloudAppId": "9e3cdd80edf84f119327df8bbd5bb5ac", "Description": "This is a Sailpoint application", "Enabled": true, "ProvisionRequestEnabled": true, "AccountSource": null, "LauncherCount": "100", "MatchAllAccount": true, "Owner": null, "AppCenterEnabled": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DependantAppConnections | ConvertTo-JSON
+ConvertFrom-JsonToDependantAppConnections -Json $DependantAppConnections
 ```
 
 

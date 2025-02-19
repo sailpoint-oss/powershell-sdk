@@ -41,11 +41,12 @@ $ReviewableAccessProfile = Initialize-PSSailpoint.V3ReviewableAccessProfile  -Id
  -Entitlements null `
  -Created 2021-01-01T22:32:58.104Z `
  -Modified 2021-02-01T22:32:58.104Z
+$ReviewableAccessProfile = @"{  "Id": "2c91808a7190d06e01719938fcd20792", "Name": "Employee-database-read-write", "Description": "Collection of entitlements to read/write the employee database", "Privileged": false, "CloudGoverned": false, "EndDate": "2021-12-25T00:00Z", "Owner": null, "Entitlements": null, "Created": "2021-01-01T22:32:58.104Z", "Modified": "2021-02-01T22:32:58.104Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReviewableAccessProfile | ConvertTo-JSON
+ConvertFrom-JsonToReviewableAccessProfile -Json $ReviewableAccessProfile
 ```
 
 

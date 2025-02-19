@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $DependantAppConnectionsAccountSourcePasswordPoliciesInner = Initialize-PSSailpoint.V3DependantAppConnectionsAccountSourcePasswordPoliciesInner  -Type PASSWORD_POLICY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Policy ODS
+$DependantAppConnectionsAccountSourcePasswordPoliciesInner = @"{  "Type": "PASSWORD_POLICY", "Id": "2c91808568c529c60168cca6f90c1313", "Name": "Policy ODS" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DependantAppConnectionsAccountSourcePasswordPoliciesInner | ConvertTo-JSON
+ConvertFrom-JsonToDependantAppConnectionsAccountSourcePasswordPoliciesInner -Json $DependantAppConnectionsAccountSourcePasswordPoliciesInner
 ```
 
 

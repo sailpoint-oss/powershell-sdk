@@ -29,11 +29,12 @@ $AccountUncorrelated = Initialize-PSSailpoint.V2024AccountUncorrelated  -Identit
  -Source null `
  -Account null `
  -EntitlementCount 0
+$AccountUncorrelated = @"{  "Identity": null, "Source": null, "Account": null, "EntitlementCount": "0" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountUncorrelated | ConvertTo-JSON
+ConvertFrom-JsonToAccountUncorrelated -Json $AccountUncorrelated
 ```
 
 

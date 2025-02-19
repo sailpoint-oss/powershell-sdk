@@ -24,12 +24,13 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $RoleMiningIdentityDistribution = Initialize-PSSailpoint.V2024RoleMiningIdentityDistribution  -AttributeName department `
- -Distribution [{attributeValue&#x3D;NM Tier 3, count&#x3D;6}]
+ -Distribution [{attributeValue=NM Tier 3, count=6}]
+$RoleMiningIdentityDistribution = @"{  "AttributeName": "department", "Distribution": [{"attributeValue":"NM Tier 3", "count": "6}]" }]}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningIdentityDistribution | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningIdentityDistribution -Json $RoleMiningIdentityDistribution
 ```
 
 

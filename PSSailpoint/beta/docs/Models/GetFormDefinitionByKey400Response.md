@@ -29,11 +29,12 @@ $GetFormDefinitionByKey400Response = Initialize-PSSailpoint.BetaGetFormDefinitio
  -Messages null `
  -StatusCode null `
  -TrackingId null
+$GetFormDefinitionByKey400Response = @"{  "DetailCode": "null", "Messages": null, "StatusCode": null, "TrackingId": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$GetFormDefinitionByKey400Response | ConvertTo-JSON
+ConvertFrom-JsonToGetFormDefinitionByKey400Response -Json $GetFormDefinitionByKey400Response
 ```
 
 

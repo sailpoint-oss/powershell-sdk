@@ -39,13 +39,14 @@ $AccessProfileEntitlement = Initialize-PSSailpoint.V2024AccessProfileEntitlement
  -Source null `
  -Privileged false `
  -Attribute memberOf `
- -Value CN&#x3D;Buyer,OU&#x3D;Groups,OU&#x3D;Demo,DC&#x3D;seri,DC&#x3D;sailpointdemo,DC&#x3D;com `
+ -Value CN=Buyer,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com `
  -Standalone false
+$AccessProfileEntitlement = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileEntitlement | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileEntitlement -Json $AccessProfileEntitlement
 ```
 
 

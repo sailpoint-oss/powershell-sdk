@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $TenantUiMetadataItemUpdateRequest = Initialize-PSSailpoint.BetaTenantUiMetadataItemUpdateRequest  -IframeWhiteList http://example.com http://example2.com `
  -UsernameLabel Email `
  -UsernameEmptyText Please provide your work email address...
+$TenantUiMetadataItemUpdateRequest = @"{  "IframeWhiteList": "http://example.com http://example2.com", "UsernameLabel": "Email", "UsernameEmptyText": "Please provide your work email address..." }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TenantUiMetadataItemUpdateRequest | ConvertTo-JSON
+ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
 ```
 
 

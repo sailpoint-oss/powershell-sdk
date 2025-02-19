@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessRequestAdminItemStatusCancelledRequestDetails = Initialize-PSSailpoint.V2024AccessRequestAdminItemStatusCancelledRequestDetails  -Comment This request must be cancelled. `
  -Owner null `
  -Modified 2019-12-20T09:17:12.192Z
+$AccessRequestAdminItemStatusCancelledRequestDetails = @"{  "Comment": "This request must be cancelled.", "Owner": null, "Modified": "2019-12-20T09:17:12.192Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestAdminItemStatusCancelledRequestDetails | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestAdminItemStatusCancelledRequestDetails -Json $AccessRequestAdminItemStatusCancelledRequestDetails
 ```
 
 

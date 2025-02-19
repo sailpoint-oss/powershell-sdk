@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $VendorConnectorMappingUpdatedBy = Initialize-PSSailpoint.BetaVendorConnectorMappingUpdatedBy  -String user-67891 `
  -Valid true
+$VendorConnectorMappingUpdatedBy = @"{  "String": "user-67891", "Valid": "true "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$VendorConnectorMappingUpdatedBy | ConvertTo-JSON
+ConvertFrom-JsonToVendorConnectorMappingUpdatedBy -Json $VendorConnectorMappingUpdatedBy
 ```
 
 

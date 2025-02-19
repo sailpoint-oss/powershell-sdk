@@ -31,11 +31,12 @@ $LoadAccountsTaskTaskMessagesInner = Initialize-PSSailpoint.V2024LoadAccountsTas
  -Warning true `
  -Key This aggregation failed because the currently running aggregation must complete before the next one can start. `
  -LocalizedText This aggregation failed because the currently running aggregation must complete before the next one can start.
+$LoadAccountsTaskTaskMessagesInner = @"{  "Type": "WARN", "VarError": false, "Warning": true, "Key": "This aggregation failed because the currently running aggregation must complete before the next one can start.", "LocalizedText": "This aggregation failed because the currently running aggregation must complete before the next one can start." }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LoadAccountsTaskTaskMessagesInner | ConvertTo-JSON
+ConvertFrom-JsonToLoadAccountsTaskTaskMessagesInner -Json $LoadAccountsTaskTaskMessagesInner
 ```
 
 

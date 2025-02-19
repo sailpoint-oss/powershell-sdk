@@ -41,11 +41,12 @@ $FullDiscoveredApplications = Initialize-PSSailpoint.V2024FullDiscoveredApplicat
  -CreatedAt 2023-01-01T12:00Z `
  -Status ACTIVE `
  -AssociatedSources [e0cc5d7d-bf7f-4f81-b2af-8885b09d9923, a0303682-5e4a-44f7-bdc2-6ce6112549c1]
+$FullDiscoveredApplications = @"{  "Id": "null", "Name": "ExampleApp", "DiscoverySource": "csv", "DiscoveredVendor": "ExampleVendor", "Description": "An application for managing examples.", "RecommendedConnectors": ["ConnectorA", "ConnectorB"], "DiscoveredAt": "2023-01-01T12:00Z", "CreatedAt": "2023-01-01T12:00Z", "Status": "ACTIVE", "AssociatedSources": ["e0cc5d7d-bf7f-4f81-b2af-8885b09d9923", "a0303682-5e4a-44f7-bdc2-6ce6112549c1"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FullDiscoveredApplications | ConvertTo-JSON
+ConvertFrom-JsonToFullDiscoveredApplications -Json $FullDiscoveredApplications
 ```
 
 

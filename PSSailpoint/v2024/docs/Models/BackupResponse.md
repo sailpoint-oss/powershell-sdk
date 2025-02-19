@@ -55,11 +55,12 @@ $BackupResponse = Initialize-PSSailpoint.V2024BackupResponse  -JobId 3469b87d-48
  -HydrationStatus NOT_HYDRATED `
  -TotalObjectCount 10 `
  -CloudStorageStatus SYNCED
+$BackupResponse = @"{  "JobId": "3469b87d-48ca-439a-868f-2160001da8c1", "Status": "COMPLETE", "Type": "BACKUP", "Tenant": "tenant-name", "RequesterName": "Requester Name", "FileExists": true, "Created": "2021-05-11T22:23:16Z", "Modified": "2021-05-11T22:23:16Z", "Completed": "2021-05-11T22:23:16Z", "Name": "Backup Name", "UserCanDelete": false, "IsPartial": false, "BackupType": "MANUAL", "Options": null, "HydrationStatus": "NOT_HYDRATED", "TotalObjectCount": "10", "CloudStorageStatus": "SYNCED" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BackupResponse | ConvertTo-JSON
+ConvertFrom-JsonToBackupResponse -Json $BackupResponse
 ```
 
 

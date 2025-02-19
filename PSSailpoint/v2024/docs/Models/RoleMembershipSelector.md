@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $RoleMembershipSelector = Initialize-PSSailpoint.V2024RoleMembershipSelector  -Type null `
  -Criteria null `
  -Identities null
+$RoleMembershipSelector = @"{  "Type": null, "Criteria": null, "Identities": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMembershipSelector | ConvertTo-JSON
+ConvertFrom-JsonToRoleMembershipSelector -Json $RoleMembershipSelector
 ```
 
 

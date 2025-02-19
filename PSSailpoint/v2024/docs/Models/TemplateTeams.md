@@ -43,11 +43,12 @@ $TemplateTeams = Initialize-PSSailpoint.V2024TemplateTeams  -Key null `
  -NotificationType null `
  -AutoApprovalData null `
  -CustomFields null
+$TemplateTeams = @"{  "Key": "null", "Title": "null", "Text": "null", "MessageJSON": "null", "IsSubscription": null, "ApprovalId": "null", "RequestId": "null", "RequestedById": "null", "NotificationType": "null", "AutoApprovalData": null, "CustomFields": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TemplateTeams | ConvertTo-JSON
+ConvertFrom-JsonToTemplateTeams -Json $TemplateTeams
 ```
 
 

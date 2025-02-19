@@ -37,11 +37,12 @@ $RoleSummary = Initialize-PSSailpoint.V3RoleSummary  -Id 2c91808568c529c60168cca
  -Owner null `
  -Disabled null `
  -Revocable null
+$RoleSummary = @"{  "Id": "2c91808568c529c60168cca6f90c1313", "Name": "John Doe", "DisplayName": "John Q. Doe", "Type": null, "Description": "null", "Owner": null, "Disabled": null, "Revocable": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleSummary | ConvertTo-JSON
+ConvertFrom-JsonToRoleSummary -Json $RoleSummary
 ```
 
 

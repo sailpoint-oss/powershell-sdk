@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ListCampaignFilters200Response = Initialize-PSSailpoint.V2024ListCampaignFilters200Response  -Items null `
  -Count 2
+$ListCampaignFilters200Response = @"{  "Items": null, "Count": "2" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ListCampaignFilters200Response | ConvertTo-JSON
+ConvertFrom-JsonToListCampaignFilters200Response -Json $ListCampaignFilters200Response
 ```
 
 

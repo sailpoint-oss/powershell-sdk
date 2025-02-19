@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ApprovalInfoResponse = Initialize-PSSailpoint.V2024ApprovalInfoResponse  -Id 8a80828f643d484f01643e14202e2000 `
  -Name John Snow `
  -Status Approved
+$ApprovalInfoResponse = @"{  "Id": "8a80828f643d484f01643e14202e2000", "Name": "John Snow", "Status": "Approved" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalInfoResponse | ConvertTo-JSON
+ConvertFrom-JsonToApprovalInfoResponse -Json $ApprovalInfoResponse
 ```
 
 

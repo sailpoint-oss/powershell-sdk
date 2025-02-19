@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ObjectExportImportNames = Initialize-PSSailpoint.V2024ObjectExportImportNames  -IncludedNames null
+$ObjectExportImportNames = @"{  "IncludedNames": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ObjectExportImportNames | ConvertTo-JSON
+ConvertFrom-JsonToObjectExportImportNames -Json $ObjectExportImportNames
 ```
 
 

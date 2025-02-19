@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $BulkTaggedObjectResponse = Initialize-PSSailpoint.V3BulkTaggedObjectResponse  -ObjectRefs null `
  -Tags [BU_FINANCE, PCI]
+$BulkTaggedObjectResponse = @"{  "ObjectRefs": null, "Tags": ["BU_FINANCE", "PCI"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BulkTaggedObjectResponse | ConvertTo-JSON
+ConvertFrom-JsonToBulkTaggedObjectResponse -Json $BulkTaggedObjectResponse
 ```
 
 

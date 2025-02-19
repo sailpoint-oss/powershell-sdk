@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ConnectorRuleValidationResponseDetailsInner = Initialize-PSSailpoint.V2024ConnectorRuleValidationResponseDetailsInner  -Line 2 `
  -Column 5 `
  -Messsage Remove reference to .decrypt(
+$ConnectorRuleValidationResponseDetailsInner = @"{  "Line": "2", "Column": "5", "Messsage": "Remove reference to .decrypt(" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConnectorRuleValidationResponseDetailsInner | ConvertTo-JSON
+ConvertFrom-JsonToConnectorRuleValidationResponseDetailsInner -Json $ConnectorRuleValidationResponseDetailsInner
 ```
 
 

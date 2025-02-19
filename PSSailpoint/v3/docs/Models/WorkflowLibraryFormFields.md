@@ -33,11 +33,12 @@ $WorkflowLibraryFormFields = Initialize-PSSailpoint.V3WorkflowLibraryFormFields 
  -Name name `
  -Required false `
  -Type text
+$WorkflowLibraryFormFields = @"{  "Description": "First value to compare", "HelpText": "The name to give to this certification campaign.", "Label": "Campaign Name", "Name": "name", "Required": false, "Type": "text" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkflowLibraryFormFields | ConvertTo-JSON
+ConvertFrom-JsonToWorkflowLibraryFormFields -Json $WorkflowLibraryFormFields
 ```
 
 

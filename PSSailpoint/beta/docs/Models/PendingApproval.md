@@ -59,11 +59,12 @@ $PendingApproval = Initialize-PSSailpoint.BetaPendingApproval  -Id 2c9180835d2e5
  -RemoveDateUpdateRequested true `
  -CurrentRemoveDate 2020-07-11T00:00Z `
  -SodViolationContext null
+$PendingApproval = @"{  "Id": "2c9180835d2e5168015d32f890ca1581", "Name": "Pending approval name", "Created": "2017-07-11T18:45:37.098Z", "Modified": "2018-07-25T20:22:28.104Z", "RequestCreated": "2017-07-11T18:45:35.098Z", "RequestType": null, "Requester": null, "RequestedFor": null, "Owner": null, "RequestedObject": null, "RequesterComment": null, "PreviousReviewersComments": null, "ForwardHistory": null, "CommentRequiredWhenRejected": true, "ActionInProcess": null, "RemoveDate": "2020-07-11T00:00Z", "RemoveDateUpdateRequested": true, "CurrentRemoveDate": "2020-07-11T00:00Z", "SodViolationContext": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PendingApproval | ConvertTo-JSON
+ConvertFrom-JsonToPendingApproval -Json $PendingApproval
 ```
 
 

@@ -51,11 +51,12 @@ $CreateOAuthClientRequest = Initialize-PSSailpoint.V3CreateOAuthClientRequest  -
  -StrongAuthSupported false `
  -ClaimsSupported false `
  -Scope [demo:api-client-scope:first, demo:api-client-scope:second]
+$CreateOAuthClientRequest = @"{  "BusinessName": "Acme-Solar", "HomepageUrl": "http://localhost:12345", "Name": "Demo API Client", "Description": "An API client used for the authorization_code, refresh_token, and client_credentials flows", "AccessTokenValiditySeconds": "750", "RefreshTokenValiditySeconds": "86400", "RedirectUris": ["http:", "//localhost:12345]", "GrantTypes:", ["AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "REFRESH_TOKEN"], "AccessType: null", "Type: null", "Internal: false", "Enabled: true", "StrongAuthSupported: false", "ClaimsSupported: false", "Scope:", ["demo:", "api-client-scope:first", "demo:", "api-client-scope:second]"]] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CreateOAuthClientRequest | ConvertTo-JSON
+ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
 ```
 
 

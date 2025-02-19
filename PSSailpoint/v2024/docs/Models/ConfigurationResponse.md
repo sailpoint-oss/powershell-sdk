@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ConfigurationResponse = Initialize-PSSailpoint.V2024ConfigurationResponse  -Identity null `
  -ConfigDetails null
+$ConfigurationResponse = @"{  "Identity": null, "ConfigDetails": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConfigurationResponse | ConvertTo-JSON
+ConvertFrom-JsonToConfigurationResponse -Json $ConfigurationResponse
 ```
 
 

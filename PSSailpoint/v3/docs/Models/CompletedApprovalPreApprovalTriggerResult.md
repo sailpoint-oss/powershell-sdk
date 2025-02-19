@@ -29,11 +29,12 @@ $CompletedApprovalPreApprovalTriggerResult = Initialize-PSSailpoint.V3CompletedA
  -Decision null `
  -Reviewer Automated AR Approval `
  -Date 2022-06-07T19:18:40.748Z
+$CompletedApprovalPreApprovalTriggerResult = @"{  "Comment": "This request was autoapproved by our automated ETS subscriber", "Decision": null, "Reviewer": "Automated AR Approval", "Date": "2022-06-07T19:18:40.748Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CompletedApprovalPreApprovalTriggerResult | ConvertTo-JSON
+ConvertFrom-JsonToCompletedApprovalPreApprovalTriggerResult -Json $CompletedApprovalPreApprovalTriggerResult
 ```
 
 

@@ -37,11 +37,12 @@ $ReportResults = Initialize-PSSailpoint.V2024ReportResults  -ReportType IDENTITI
  -Duration 342 `
  -Rows 37 `
  -AvailableFormats [CSV]
+$ReportResults = @"{  "ReportType": "IDENTITIES_DETAILS", "TaskDefName": "Identities Details Report", "Id": "a248c16fe22222b2bd49615481311111", "Created": null, "Status": "SUCCESS", "Duration": "342", "Rows": "37", "AvailableFormats": ["CSV"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReportResults | ConvertTo-JSON
+ConvertFrom-JsonToReportResults -Json $ReportResults
 ```
 
 

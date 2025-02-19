@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CreatePersonalAccessTokenRequest = Initialize-PSSailpoint.V3CreatePersonalAccessTokenRequest  -Name NodeJS Integration `
  -Scope [demo:personal-access-token-scope:first, demo:personal-access-token-scope:second] `
  -AccessTokenValiditySeconds 36900
+$CreatePersonalAccessTokenRequest = @"{  "Name": "NodeJS Integration", "Scope": ["demo:", "personal-access-token-scope:first", "demo:", "personal-access-token-scope:second]", "AccessTokenValiditySeconds:", "36900"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CreatePersonalAccessTokenRequest | ConvertTo-JSON
+ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
 ```
 
 

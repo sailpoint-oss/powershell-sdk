@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $TemplateBulkDeleteDto = Initialize-PSSailpoint.BetaTemplateBulkDeleteDto  -Key cloud_manual_work_item_summary `
  -Medium EMAIL `
  -Locale en
+$TemplateBulkDeleteDto = @"{  "Key": "cloud_manual_work_item_summary", "Medium": "EMAIL", "Locale": "en" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TemplateBulkDeleteDto | ConvertTo-JSON
+ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
 ```
 
 

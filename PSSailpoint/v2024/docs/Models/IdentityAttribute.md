@@ -37,11 +37,12 @@ $IdentityAttribute = Initialize-PSSailpoint.V2024IdentityAttribute  -Name costCe
  -Searchable false `
  -System false `
  -Sources null
+$IdentityAttribute = @"{  "Name": "costCenter", "DisplayName": "Cost Center", "Standard": false, "Type": "string", "Multi": false, "Searchable": false, "System": false, "Sources": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityAttribute | ConvertTo-JSON
+ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
 ```
 
 

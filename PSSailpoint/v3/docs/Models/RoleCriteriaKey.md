@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $RoleCriteriaKey = Initialize-PSSailpoint.V3RoleCriteriaKey  -Type null `
  -Property attribute.email `
  -SourceId 2c9180867427f3a301745aec18211519
+$RoleCriteriaKey = @"{  "Type": null, "Property": "attribute.email", "SourceId": "2c9180867427f3a301745aec18211519" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleCriteriaKey | ConvertTo-JSON
+ConvertFrom-JsonToRoleCriteriaKey -Json $RoleCriteriaKey
 ```
 
 

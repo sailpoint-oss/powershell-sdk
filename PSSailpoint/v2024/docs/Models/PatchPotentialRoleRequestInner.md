@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $PatchPotentialRoleRequestInner = Initialize-PSSailpoint.V2024PatchPotentialRoleRequestInner  -Op replace `
  -Path /description `
  -Value null
+$PatchPotentialRoleRequestInner = @"{  "Op": "replace", "Path": "/description", "Value": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PatchPotentialRoleRequestInner | ConvertTo-JSON
+ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
 ```
 
 

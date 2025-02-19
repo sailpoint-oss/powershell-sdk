@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CommentDto1 = Initialize-PSSailpoint.BetaCommentDto1  -Comment This is a comment. `
  -Created 2017-07-11T18:45:37.098Z `
  -Author null
+$CommentDto1 = @"{  "Comment": "This is a comment.", "Created": "2017-07-11T18:45:37.098Z", "Author": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CommentDto1 | ConvertTo-JSON
+ConvertFrom-JsonToCommentDto1 -Json $CommentDto1
 ```
 
 

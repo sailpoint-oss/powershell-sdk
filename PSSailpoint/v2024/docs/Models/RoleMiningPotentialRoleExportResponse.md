@@ -29,11 +29,12 @@ $RoleMiningPotentialRoleExportResponse = Initialize-PSSailpoint.V2024RoleMiningP
  -IncludeCommonAccess true `
  -ExportId 0c6cdb76-1227-4aaf-af21-192dbdfbfa04 `
  -Status null
+$RoleMiningPotentialRoleExportResponse = @"{  "MinEntitlementPopularity": "0", "IncludeCommonAccess": true, "ExportId": "0c6cdb76-1227-4aaf-af21-192dbdfbfa04", "Status": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningPotentialRoleExportResponse | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningPotentialRoleExportResponse -Json $RoleMiningPotentialRoleExportResponse
 ```
 
 

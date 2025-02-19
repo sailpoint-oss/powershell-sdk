@@ -24,12 +24,13 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IdentityDeleted = Initialize-PSSailpoint.V2024IdentityDeleted  -Identity null `
- -Attributes {firstname&#x3D;John}
+ -Attributes {firstname=John}
+$IdentityDeleted = @"{  "Identity": null, "Attributes": {"firstname": "John}" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityDeleted | ConvertTo-JSON
+ConvertFrom-JsonToIdentityDeleted -Json $IdentityDeleted
 ```
 
 

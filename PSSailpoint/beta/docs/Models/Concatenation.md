@@ -26,12 +26,13 @@ Name | Type | Description | Notes
 ```powershell
 $Concatenation = Initialize-PSSailpoint.BetaConcatenation  -Values [John,  , Smith] `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
+$Concatenation = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Concatenation | ConvertTo-JSON
+ConvertFrom-JsonToConcatenation -Json $Concatenation
 ```
 
 

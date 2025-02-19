@@ -41,11 +41,12 @@ $BaseAccess = Initialize-PSSailpoint.V3BaseAccess  -Id 2c91808568c529c60168cca6f
  -Requestable true `
  -RequestCommentsRequired false `
  -Owner null
+$BaseAccess = @"{  "Id": "2c91808568c529c60168cca6f90c1313", "Name": "John Doe", "Description": "The admin role", "Created": "2018-06-25T20:22:28.104Z", "Modified": "2018-06-25T20:22:28.104Z", "Synced": "2018-06-25T20:22:33.104Z", "Enabled": true, "Requestable": true, "RequestCommentsRequired": false, "Owner": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BaseAccess | ConvertTo-JSON
+ConvertFrom-JsonToBaseAccess -Json $BaseAccess
 ```
 
 

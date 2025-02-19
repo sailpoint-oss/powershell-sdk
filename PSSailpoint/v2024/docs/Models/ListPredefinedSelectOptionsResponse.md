@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ListPredefinedSelectOptionsResponse = Initialize-PSSailpoint.V2024ListPredefinedSelectOptionsResponse  -Results null
+$ListPredefinedSelectOptionsResponse = @"{  "Results": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ListPredefinedSelectOptionsResponse | ConvertTo-JSON
+ConvertFrom-JsonToListPredefinedSelectOptionsResponse -Json $ListPredefinedSelectOptionsResponse
 ```
 
 

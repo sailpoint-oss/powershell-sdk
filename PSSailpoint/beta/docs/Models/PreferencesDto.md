@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $PreferencesDto = Initialize-PSSailpoint.BetaPreferencesDto  -Key cloud_manual_work_item_summary `
  -Mediums [EMAIL] `
  -Modified 2020-05-15T14:37:06.909Z
+$PreferencesDto = @"{  "Key": "cloud_manual_work_item_summary", "Mediums": ["EMAIL"], "Modified": "2020-05-15T14:37:06.909Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PreferencesDto | ConvertTo-JSON
+ConvertFrom-JsonToPreferencesDto -Json $PreferencesDto
 ```
 
 

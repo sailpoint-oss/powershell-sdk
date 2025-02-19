@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $WorkflowModifiedBy = Initialize-PSSailpoint.V3WorkflowModifiedBy  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Thomas Edison
+$WorkflowModifiedBy = @"{  "Type": "IDENTITY", "Id": "2c9180a46faadee4016fb4e018c20639", "Name": "Thomas Edison" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkflowModifiedBy | ConvertTo-JSON
+ConvertFrom-JsonToWorkflowModifiedBy -Json $WorkflowModifiedBy
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ImportFormDefinitionsRequestInner = Initialize-PSSailpoint.BetaImportFormDefinitionsRequestInner  -Object null `
  -Self null `
  -Version null
+$ImportFormDefinitionsRequestInner = @"{  "Object": null, "Self": "null", "Version": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ImportFormDefinitionsRequestInner | ConvertTo-JSON
+ConvertFrom-JsonToImportFormDefinitionsRequestInner -Json $ImportFormDefinitionsRequestInner
 ```
 
 

@@ -39,11 +39,12 @@ $ReportDetailsArguments = Initialize-PSSailpoint.V3ReportDetailsArguments  -Appl
  -Query name:a* `
  -Columns displayName,firstName,lastName,email,created,attributes.cloudLifecycleState `
  -Sort [displayName, +id]
+$ReportDetailsArguments = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReportDetailsArguments | ConvertTo-JSON
+ConvertFrom-JsonToReportDetailsArguments -Json $ReportDetailsArguments
 ```
 
 

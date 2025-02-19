@@ -25,13 +25,14 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $WorkItemForward = Initialize-PSSailpoint.V3WorkItemForward  -TargetOwnerId 2c9180835d2e5168015d32f890ca1581 `
- -Comment I&#39;m going on vacation. `
+ -Comment I'm going on vacation. `
  -SendNotifications true
+$WorkItemForward = @"{  "TargetOwnerId": "2c9180835d2e5168015d32f890ca1581", "Comment": "I'm going on vacation.", "SendNotifications": "true "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkItemForward | ConvertTo-JSON
+ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
 ```
 
 

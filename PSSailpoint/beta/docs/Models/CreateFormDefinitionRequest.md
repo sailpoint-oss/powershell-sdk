@@ -35,11 +35,12 @@ $CreateFormDefinitionRequest = Initialize-PSSailpoint.BetaCreateFormDefinitionRe
  -Name My form `
  -Owner null `
  -UsedBy null
+$CreateFormDefinitionRequest = @"{  "Description": "My form description", "FormConditions": null, "FormElements": null, "FormInput": null, "Name": "My form", "Owner": null, "UsedBy": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CreateFormDefinitionRequest | ConvertTo-JSON
+ConvertFrom-JsonToCreateFormDefinitionRequest -Json $CreateFormDefinitionRequest
 ```
 
 

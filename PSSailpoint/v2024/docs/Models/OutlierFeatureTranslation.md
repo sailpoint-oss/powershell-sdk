@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $OutlierFeatureTranslation = Initialize-PSSailpoint.V2024OutlierFeatureTranslation  -DisplayName null `
  -Description null
+$OutlierFeatureTranslation = @"{  "DisplayName": null, "Description": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$OutlierFeatureTranslation | ConvertTo-JSON
+ConvertFrom-JsonToOutlierFeatureTranslation -Json $OutlierFeatureTranslation
 ```
 
 

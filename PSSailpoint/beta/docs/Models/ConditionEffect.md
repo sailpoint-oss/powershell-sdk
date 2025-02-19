@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ConditionEffect = Initialize-PSSailpoint.BetaConditionEffect  -EffectType HIDE `
  -Config null
+$ConditionEffect = @"{  "EffectType": "HIDE", "Config": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConditionEffect | ConvertTo-JSON
+ConvertFrom-JsonToConditionEffect -Json $ConditionEffect
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessItemReviewedBy = Initialize-PSSailpoint.BetaAccessItemReviewedBy  -Type IDENTITY `
  -Id 2c3780a46faadee4016fb4e018c20652 `
  -Name Allen Albertson
+$AccessItemReviewedBy = @"{  "Type": "IDENTITY", "Id": "2c3780a46faadee4016fb4e018c20652", "Name": "Allen Albertson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessItemReviewedBy | ConvertTo-JSON
+ConvertFrom-JsonToAccessItemReviewedBy -Json $AccessItemReviewedBy
 ```
 
 

@@ -39,11 +39,12 @@ $InvocationStatus = Initialize-PSSailpoint.BetaInvocationStatus  -Id 0f11f2a4-7c
  -Completed 2020-03-27T20:42:14.738Z `
  -StartInvocationInput null `
  -CompleteInvocationInput null
+$InvocationStatus = @"{  "Id": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde", "TriggerId": "idn:access-request-post-approval", "SubscriptionName": "Access request subscription", "SubscriptionId": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde", "Type": null, "Created": "2020-03-27T20:40:10.738Z", "Completed": "2020-03-27T20:42:14.738Z", "StartInvocationInput": null, "CompleteInvocationInput": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$InvocationStatus | ConvertTo-JSON
+ConvertFrom-JsonToInvocationStatus -Json $InvocationStatus
 ```
 
 

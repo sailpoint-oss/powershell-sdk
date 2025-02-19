@@ -35,13 +35,14 @@ $AccessRequestPostApprovalRequestedItemsStatusInner = Initialize-PSSailpoint.Bet
  -Type ACCESS_PROFILE `
  -Operation Add `
  -Comment William needs this access to do his job. `
- -ClientMetadata {applicationName&#x3D;My application} `
+ -ClientMetadata {applicationName=My application} `
  -ApprovalInfo null
+$AccessRequestPostApprovalRequestedItemsStatusInner = @"{  "Id": "2c91808b6ef1d43e016efba0ce470904", "Name": "Engineering Access", "Description": "Access to engineering database", "Type": "ACCESS_PROFILE", "Operation": "Add", "Comment": "William needs this access to do his job.", "ClientMetadata": {"applicationName":"My application"}, "ApprovalInfo": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestPostApprovalRequestedItemsStatusInner | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestPostApprovalRequestedItemsStatusInner -Json $AccessRequestPostApprovalRequestedItemsStatusInner
 ```
 
 

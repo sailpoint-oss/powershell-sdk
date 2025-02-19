@@ -29,11 +29,12 @@ $ProvisioningCriteriaLevel2 = Initialize-PSSailpoint.BetaProvisioningCriteriaLev
  -Attribute email `
  -Value carlee.cert1c9f9b6fd@mailinator.com `
  -Children null
+$ProvisioningCriteriaLevel2 = @"{  "Operation": null, "Attribute": "email", "Value": "carlee.cert1c9f9b6fd@mailinator.com", "Children": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ProvisioningCriteriaLevel2 | ConvertTo-JSON
+ConvertFrom-JsonToProvisioningCriteriaLevel2 -Json $ProvisioningCriteriaLevel2
 ```
 
 

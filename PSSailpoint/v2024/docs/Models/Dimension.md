@@ -41,11 +41,12 @@ $Dimension = Initialize-PSSailpoint.V2024Dimension  -Id 2c918086749d78830174a1a4
  -Entitlements null `
  -Membership null `
  -ParentId 2c918086749d78830174a1a40e121518
+$Dimension = @"{  "Id": "2c918086749d78830174a1a40e121518", "Name": "Dimension 2567", "Created": "2021-03-01T22:32:58.104Z", "Modified": "2021-03-02T20:22:28.104Z", "Description": "Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor.", "Owner": null, "AccessProfiles": null, "Entitlements": null, "Membership": null, "ParentId": "2c918086749d78830174a1a40e121518" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Dimension | ConvertTo-JSON
+ConvertFrom-JsonToDimension -Json $Dimension
 ```
 
 

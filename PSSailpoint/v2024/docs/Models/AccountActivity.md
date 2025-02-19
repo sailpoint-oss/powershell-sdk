@@ -48,12 +48,13 @@ $AccountActivity = Initialize-PSSailpoint.V2024AccountActivity  -Id 2c9180835d2e
  -Warnings [Some warning, another warning] `
  -Items null `
  -ExecutionStatus null `
- -ClientMetadata {customKey1&#x3D;custom value 1, customKey2&#x3D;custom value 2}
+ -ClientMetadata {customKey1=custom value 1, customKey2=custom value 2}
+$AccountActivity = @"{  "Id": "2c9180835d2e5168015d32f890ca1581", "Name": "2c9180835d2e5168015d32f890ca1581", "Created": "2017-07-11T18:45:37.098Z", "Modified": "2018-06-25T20:22:28.104Z", "Completed": "2018-10-19T13:49:37.385Z", "CompletionStatus": null, "Type": "appRequest", "RequesterIdentitySummary": null, "TargetIdentitySummary": null, "Errors": ["sailpoint.connector.ConnectorException: java.lang.InterruptedException: Timeout waiting for response to message 0 from client 57a4ab97-ab3f-4aef-9fe2-0eaf15c73d26 after 60 seconds."], "Warnings": ["Some warning", "another warning"], "Items": null, "ExecutionStatus": null, "ClientMetadata": {"customKey1":"custom value 1", "customKey2":"custom value 2"} }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountActivity | ConvertTo-JSON
+ConvertFrom-JsonToAccountActivity -Json $AccountActivity
 ```
 
 

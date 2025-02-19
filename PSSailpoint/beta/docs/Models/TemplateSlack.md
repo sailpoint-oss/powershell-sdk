@@ -43,11 +43,12 @@ $TemplateSlack = Initialize-PSSailpoint.BetaTemplateSlack  -Key null `
  -IsSubscription null `
  -AutoApprovalData null `
  -CustomFields null
+$TemplateSlack = @"{  "Key": "null", "Text": "null", "Blocks": "null", "Attachments": "null", "NotificationType": "null", "ApprovalId": "null", "RequestId": "null", "RequestedById": "null", "IsSubscription": null, "AutoApprovalData": null, "CustomFields": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TemplateSlack | ConvertTo-JSON
+ConvertFrom-JsonToTemplateSlack -Json $TemplateSlack
 ```
 
 

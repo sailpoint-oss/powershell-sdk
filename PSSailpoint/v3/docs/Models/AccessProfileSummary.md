@@ -37,11 +37,12 @@ $AccessProfileSummary = Initialize-PSSailpoint.V3AccessProfileSummary  -Id 2c918
  -Source null `
  -Owner null `
  -Revocable true
+$AccessProfileSummary = @"{  "Id": "2c91808568c529c60168cca6f90c1313", "Name": "John Doe", "DisplayName": "John Q. Doe", "Type": null, "Description": "null", "Source": null, "Owner": null, "Revocable": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileSummary | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileSummary -Json $AccessProfileSummary
 ```
 
 

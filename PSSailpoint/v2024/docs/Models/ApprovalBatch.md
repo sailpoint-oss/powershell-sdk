@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ApprovalBatch = Initialize-PSSailpoint.V2024ApprovalBatch  -BatchId 38453251-6be2-5f8f-df93-5ce19e295837 `
  -BatchSize 100
+$ApprovalBatch = @"{  "BatchId": "38453251-6be2-5f8f-df93-5ce19e295837", "BatchSize": "100" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalBatch | ConvertTo-JSON
+ConvertFrom-JsonToApprovalBatch -Json $ApprovalBatch
 ```
 
 

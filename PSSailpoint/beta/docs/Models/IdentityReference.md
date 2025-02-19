@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentityReference = Initialize-PSSailpoint.BetaIdentityReference  -Type null `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Thomas Edison
+$IdentityReference = @"{  "Type": null, "Id": "2c9180a46faadee4016fb4e018c20639", "Name": "Thomas Edison" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityReference | ConvertTo-JSON
+ConvertFrom-JsonToIdentityReference -Json $IdentityReference
 ```
 
 

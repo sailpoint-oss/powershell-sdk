@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $DependantAppConnectionsAccountSource = Initialize-PSSailpoint.V3DependantAppConnectionsAccountSource  -UseForPasswordManagement false `
  -PasswordPolicies null
+$DependantAppConnectionsAccountSource = @"{  "UseForPasswordManagement": false, "PasswordPolicies": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DependantAppConnectionsAccountSource | ConvertTo-JSON
+ConvertFrom-JsonToDependantAppConnectionsAccountSource -Json $DependantAppConnectionsAccountSource
 ```
 
 

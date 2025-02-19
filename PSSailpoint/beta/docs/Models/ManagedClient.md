@@ -55,11 +55,12 @@ $ManagedClient = Initialize-PSSailpoint.BetaManagedClient  -Id aClientId `
  -VaDownloadUrl aUrl `
  -VaVersion va-megapod-useast1-610-1621372012 `
  -Secret ef878e15eaa8c8d3e2fa52f41125e2a0eeadadc6a14f931a33ad3e1b62d56381
+$ManagedClient = @"{  "Id": "aClientId", "AlertKey": "anAlertKey", "ApiGatewayBaseUrl": "https://denali-xxx.api.cloud.sailpoint.com", "CcId": "2248", "ClientId": "aClientApiId", "ClusterId": "aClusterId", "Cookbook": "va-cookbook-info", "Description": "A short description of the ManagedClient", "IpAddress": "123.456.78.90", "LastSeen": "2020-01-01T00:00Z", "Name": "aName", "SinceLastSeen": "15000", "Status": null, "Type": "VA", "VaDownloadUrl": "aUrl", "VaVersion": "va-megapod-useast1-610-1621372012", "Secret": "ef878e15eaa8c8d3e2fa52f41125e2a0eeadadc6a14f931a33ad3e1b62d56381" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ManagedClient | ConvertTo-JSON
+ConvertFrom-JsonToManagedClient -Json $ManagedClient
 ```
 
 

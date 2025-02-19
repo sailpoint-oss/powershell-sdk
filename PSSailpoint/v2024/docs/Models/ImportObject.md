@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ImportObject = Initialize-PSSailpoint.V2024ImportObject  -Type SOURCE `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name HR Active Directory
+$ImportObject = @"{  "Type": "SOURCE", "Id": "2c9180835d191a86015d28455b4b232a", "Name": "HR Active Directory" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ImportObject | ConvertTo-JSON
+ConvertFrom-JsonToImportObject -Json $ImportObject
 ```
 
 

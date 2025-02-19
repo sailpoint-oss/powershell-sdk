@@ -35,11 +35,12 @@ $AccessReviewItem = Initialize-PSSailpoint.V3AccessReviewItem  -AccessSummary nu
  -NewAccess false `
  -Decision null `
  -Comments This user still needs access to this source
+$AccessReviewItem = @"{  "AccessSummary": null, "IdentitySummary": null, "Id": "ef38f94347e94562b5bb8424a56397d8", "Completed": false, "NewAccess": false, "Decision": null, "Comments": "This user still needs access to this source" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessReviewItem | ConvertTo-JSON
+ConvertFrom-JsonToAccessReviewItem -Json $AccessReviewItem
 ```
 
 

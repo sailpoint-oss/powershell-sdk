@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $MultiPolicyRequest = Initialize-PSSailpoint.BetaMultiPolicyRequest  -FilteredPolicyList null
+$MultiPolicyRequest = @"{  "FilteredPolicyList": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiPolicyRequest | ConvertTo-JSON
+ConvertFrom-JsonToMultiPolicyRequest -Json $MultiPolicyRequest
 ```
 
 

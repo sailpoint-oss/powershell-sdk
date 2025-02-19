@@ -31,11 +31,12 @@ $ObjectMappingRequest = Initialize-PSSailpoint.V2024ObjectMappingRequest  -Objec
  -SourceValue My Governance Group Name `
  -TargetValue My New Governance Group Name `
  -Enabled false
+$ObjectMappingRequest = @"{  "ObjectType": "IDENTITY", "JsonPath": "$.name", "SourceValue": "My Governance Group Name", "TargetValue": "My New Governance Group Name", "Enabled": "false "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ObjectMappingRequest | ConvertTo-JSON
+ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $NonEmployeeApprovalSummary = Initialize-PSSailpoint.BetaNonEmployeeApprovalSummary  -Approved null `
  -Pending null `
  -Rejected null
+$NonEmployeeApprovalSummary = @"{  "Approved": null, "Pending": null, "Rejected": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeApprovalSummary | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeApprovalSummary -Json $NonEmployeeApprovalSummary
 ```
 
 

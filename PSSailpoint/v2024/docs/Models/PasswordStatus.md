@@ -29,11 +29,12 @@ $PasswordStatus = Initialize-PSSailpoint.V2024PasswordStatus  -RequestId 089899f
  -State IN_PROGRESS `
  -Errors [The password change payload is invalid] `
  -SourceIds [2c918083746f642c01746f990884012a]
+$PasswordStatus = @"{  "RequestId": "089899f13a8f4da7824996191587bab9", "State": "IN_PROGRESS", "Errors": ["The password change payload is invalid"], "SourceIds": ["2c918083746f642c01746f990884012a"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PasswordStatus | ConvertTo-JSON
+ConvertFrom-JsonToPasswordStatus -Json $PasswordStatus
 ```
 
 

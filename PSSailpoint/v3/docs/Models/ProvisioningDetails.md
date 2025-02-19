@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ProvisioningDetails = Initialize-PSSailpoint.V3ProvisioningDetails  -OrderedSubPhaseReferences manualWorkItemDetails
+$ProvisioningDetails = @"{  "OrderedSubPhaseReferences": "manualWorkItemDetails" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ProvisioningDetails | ConvertTo-JSON
+ConvertFrom-JsonToProvisioningDetails -Json $ProvisioningDetails
 ```
 
 

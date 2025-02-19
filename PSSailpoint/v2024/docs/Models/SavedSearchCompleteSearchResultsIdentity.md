@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SavedSearchCompleteSearchResultsIdentity = Initialize-PSSailpoint.V2024SavedSearchCompleteSearchResultsIdentity  -Count 2 `
  -Noun identities `
  -Preview null
+$SavedSearchCompleteSearchResultsIdentity = @"{  "Count": "2", "Noun": "identities", "Preview": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SavedSearchCompleteSearchResultsIdentity | ConvertTo-JSON
+ConvertFrom-JsonToSavedSearchCompleteSearchResultsIdentity -Json $SavedSearchCompleteSearchResultsIdentity
 ```
 
 

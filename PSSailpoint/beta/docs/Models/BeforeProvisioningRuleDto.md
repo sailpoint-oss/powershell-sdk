@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $BeforeProvisioningRuleDto = Initialize-PSSailpoint.BetaBeforeProvisioningRuleDto  -Type RULE `
  -Id 048eb3d55c5a4758bd07dccb87741c78 `
  -Name Before Provisioning Airtable Rule
+$BeforeProvisioningRuleDto = @"{  "Type": "RULE", "Id": "048eb3d55c5a4758bd07dccb87741c78", "Name": "Before Provisioning Airtable Rule" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BeforeProvisioningRuleDto | ConvertTo-JSON
+ConvertFrom-JsonToBeforeProvisioningRuleDto -Json $BeforeProvisioningRuleDto
 ```
 
 

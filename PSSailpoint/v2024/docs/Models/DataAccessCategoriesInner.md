@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $DataAccessCategoriesInner = Initialize-PSSailpoint.V2024DataAccessCategoriesInner  -Value email-7 `
  -MatchCount 10
+$DataAccessCategoriesInner = @"{  "Value": "email-7", "MatchCount": "10" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DataAccessCategoriesInner | ConvertTo-JSON
+ConvertFrom-JsonToDataAccessCategoriesInner -Json $DataAccessCategoriesInner
 ```
 
 

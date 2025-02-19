@@ -53,15 +53,16 @@ $TaskStatus = Initialize-PSSailpoint.BetaTaskStatus  -Id id12345 `
  -CompletionStatus SUCCESS `
  -Messages null `
  -Returns null `
- -Attributes {identityCount&#x3D;0} `
+ -Attributes {identityCount=0} `
  -Progress Started `
  -PercentComplete 100 `
  -TaskDefinitionSummary null
+$TaskStatus = @"{  "Id": "id12345", "Type": "QUARTZ", "UniqueName": "Big Task", "Description": "A Really Big Task", "ParentName": "Parent Task", "Launcher": "sweep", "Target": null, "Created": "2020-07-11T21:23:15Z", "Modified": "2020-07-11T21:23:15Z", "Launched": "2020-07-11T21:23:15Z", "Completed": "2020-07-11T21:23:15Z", "CompletionStatus": "SUCCESS", "Messages": null, "Returns": null, "Attributes": {"identityCount": "0}", "Progress": "Started", "PercentComplete": "100", "TaskDefinitionSummary": "null "}}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TaskStatus | ConvertTo-JSON
+ConvertFrom-JsonToTaskStatus -Json $TaskStatus
 ```
 
 

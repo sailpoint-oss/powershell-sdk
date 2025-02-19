@@ -29,13 +29,14 @@ Name | Type | Description | Notes
 $AccessRequestItem = Initialize-PSSailpoint.V3AccessRequestItem  -Type ACCESS_PROFILE `
  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Comment Requesting access profile for John Doe `
- -ClientMetadata {requestedAppName&#x3D;test-app, requestedAppId&#x3D;2c91808f7892918f0178b78da4a305a1} `
+ -ClientMetadata {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1} `
  -RemoveDate 2020-07-11T21:23:15Z
+$AccessRequestItem = @"{  "Type": "ACCESS_PROFILE", "Id": "2c9180835d2e5168015d32f890ca1581", "Comment": "Requesting access profile for John Doe", "ClientMetadata": {"requestedAppName": "test-app", "requestedAppId": "2c91808f7892918f0178b78da4a305a1}", "RemoveDate": "2020-07-11T21:23:15Z" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestItem | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestItem -Json $AccessRequestItem
 ```
 
 

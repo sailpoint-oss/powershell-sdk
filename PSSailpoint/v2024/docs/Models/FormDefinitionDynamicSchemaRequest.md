@@ -31,11 +31,12 @@ $FormDefinitionDynamicSchemaRequest = Initialize-PSSailpoint.V2024FormDefinition
  -Id 00000000-0000-0000-0000-000000000000 `
  -Type action `
  -VersionNumber 1
+$FormDefinitionDynamicSchemaRequest = @"{  "Attributes": null, "Description": "A description", "Id": "00000000-0000-0000-0000-000000000000", "Type": "action", "VersionNumber": "1" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormDefinitionDynamicSchemaRequest | ConvertTo-JSON
+ConvertFrom-JsonToFormDefinitionDynamicSchemaRequest -Json $FormDefinitionDynamicSchemaRequest
 ```
 
 

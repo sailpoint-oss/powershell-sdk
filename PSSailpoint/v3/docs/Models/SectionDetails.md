@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SectionDetails = Initialize-PSSailpoint.V3SectionDetails  -Name Field1 `
  -Label Section 1 `
  -FormItems []
+$SectionDetails = @"{  "Name": "Field1", "Label": "Section 1", "FormItems": [] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SectionDetails | ConvertTo-JSON
+ConvertFrom-JsonToSectionDetails -Json $SectionDetails
 ```
 
 

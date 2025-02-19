@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SourceSchemasInner = Initialize-PSSailpoint.V2024SourceSchemasInner  -Type CONNECTOR_SCHEMA `
  -Id 2c91808568c529c60168cca6f90c1777 `
  -Name MySchema
+$SourceSchemasInner = @"{  "Type": "CONNECTOR_SCHEMA", "Id": "2c91808568c529c60168cca6f90c1777", "Name": "MySchema" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceSchemasInner | ConvertTo-JSON
+ConvertFrom-JsonToSourceSchemasInner -Json $SourceSchemasInner
 ```
 
 

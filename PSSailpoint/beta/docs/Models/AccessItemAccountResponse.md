@@ -35,11 +35,12 @@ $AccessItemAccountResponse = Initialize-PSSailpoint.BetaAccessItemAccountRespons
  -SourceId 2793o32dwd `
  -EntitlementCount 12 `
  -DisplayName Dr. Arden Rogahn MD
+$AccessItemAccountResponse = @"{  "AccessType": "account", "Id": "2c918087763e69d901763e72e97f006f", "NativeIdentity": "dr.arden.ogahn.d", "SourceName": "DataScienceDataset", "SourceId": "2793o32dwd", "EntitlementCount": "12", "DisplayName": "Dr. Arden Rogahn MD" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessItemAccountResponse | ConvertTo-JSON
+ConvertFrom-JsonToAccessItemAccountResponse -Json $AccessItemAccountResponse
 ```
 
 

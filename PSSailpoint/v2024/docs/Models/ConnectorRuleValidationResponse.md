@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ConnectorRuleValidationResponse = Initialize-PSSailpoint.V2024ConnectorRuleValidationResponse  -State ERROR `
  -Details null
+$ConnectorRuleValidationResponse = @"{  "State": "ERROR", "Details": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConnectorRuleValidationResponse | ConvertTo-JSON
+ConvertFrom-JsonToConnectorRuleValidationResponse -Json $ConnectorRuleValidationResponse
 ```
 
 

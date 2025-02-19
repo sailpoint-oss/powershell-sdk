@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $SegmentVisibilityCriteria = Initialize-PSSailpoint.V3SegmentVisibilityCriteria  -Expression null
+$SegmentVisibilityCriteria = @"{  "Expression": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SegmentVisibilityCriteria | ConvertTo-JSON
+ConvertFrom-JsonToSegmentVisibilityCriteria -Json $SegmentVisibilityCriteria
 ```
 
 

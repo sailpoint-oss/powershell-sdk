@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SourceSchedule = Initialize-PSSailpoint.V2024SourceSchedule  -Type ACCOUNT_AGGREGATION `
  -CronExpression 0 0 5,13,21 * * ?
+$SourceSchedule = @"{  "Type": "ACCOUNT_AGGREGATION", "CronExpression": "0 0 5,13,21 * * ?" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceSchedule | ConvertTo-JSON
+ConvertFrom-JsonToSourceSchedule -Json $SourceSchedule
 ```
 
 

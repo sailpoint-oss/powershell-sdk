@@ -37,11 +37,12 @@ $NonEmployeeApprovalItemBase = Initialize-PSSailpoint.BetaNonEmployeeApprovalIte
  -Comment true `
  -Modified 2019-08-23T18:52:59.162Z `
  -Created 2019-08-23T18:40:35.772Z
+$NonEmployeeApprovalItemBase = @"{  "Id": "2c1e388b-1e55-4b0a-ab5c-897f1204159c", "Approver": null, "AccountName": "test.account", "ApprovalStatus": null, "ApprovalOrder": "1", "Comment": "true", "Modified": "2019-08-23T18:52:59.162Z", "Created": "2019-08-23T18:40:35.772Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeApprovalItemBase | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeApprovalItemBase -Json $NonEmployeeApprovalItemBase
 ```
 
 

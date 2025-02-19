@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $RequestedItemDetails = Initialize-PSSailpoint.BetaRequestedItemDetails  -Type ENTITLEMENT `
  -Id 779c6fd7171540bba1184e5946112c28
+$RequestedItemDetails = @"{  "Type": "ENTITLEMENT", "Id": "779c6fd7171540bba1184e5946112c28" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RequestedItemDetails | ConvertTo-JSON
+ConvertFrom-JsonToRequestedItemDetails -Json $RequestedItemDetails
 ```
 
 

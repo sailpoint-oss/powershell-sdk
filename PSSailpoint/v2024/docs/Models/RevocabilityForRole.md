@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $RevocabilityForRole = Initialize-PSSailpoint.V2024RevocabilityForRole  -CommentsRequired false `
  -DenialCommentsRequired false `
  -ApprovalSchemes null
+$RevocabilityForRole = @"{  "CommentsRequired": false, "DenialCommentsRequired": false, "ApprovalSchemes": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RevocabilityForRole | ConvertTo-JSON
+ConvertFrom-JsonToRevocabilityForRole -Json $RevocabilityForRole
 ```
 
 

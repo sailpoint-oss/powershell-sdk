@@ -33,11 +33,12 @@ $SourceCreated = Initialize-PSSailpoint.V2024SourceCreated  -Id 2c9180866166b5b0
  -Created 2021-03-29T22:01:50.474Z `
  -Connector active-directory `
  -Actor null
+$SourceCreated = @"{  "Id": "2c9180866166b5b0016167c32ef31a66", "Name": "Test source", "Type": "DIRECT_CONNECT", "Created": "2021-03-29T22:01:50.474Z", "Connector": "active-directory", "Actor": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceCreated | ConvertTo-JSON
+ConvertFrom-JsonToSourceCreated -Json $SourceCreated
 ```
 
 

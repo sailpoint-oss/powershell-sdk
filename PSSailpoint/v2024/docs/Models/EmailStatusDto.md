@@ -29,11 +29,12 @@ $EmailStatusDto = Initialize-PSSailpoint.V2024EmailStatusDto  -Id null `
  -Email sender@example.com `
  -IsVerifiedByDomain false `
  -VerificationStatus null
+$EmailStatusDto = @"{  "Id": "null", "Email": "sender@example.com", "IsVerifiedByDomain": false, "VerificationStatus": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$EmailStatusDto | ConvertTo-JSON
+ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
 ```
 
 

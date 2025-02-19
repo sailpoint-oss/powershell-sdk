@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $UpdateMultiHostSourcesRequestInner = Initialize-PSSailpoint.BetaUpdateMultiHostSourcesRequestInner  -Op replace `
  -Path /description `
  -Value null
+$UpdateMultiHostSourcesRequestInner = @"{  "Op": "replace", "Path": "/description", "Value": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$UpdateMultiHostSourcesRequestInner | ConvertTo-JSON
+ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner
 ```
 
 

@@ -33,11 +33,12 @@ $Reviewer = Initialize-PSSailpoint.V3Reviewer  -Id ef38f94347e94562b5bb8424a5639
  -Type IDENTITY `
  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z
+$Reviewer = @"{  "Id": "ef38f94347e94562b5bb8424a56397d8", "Name": "Reviewer Name", "Email": "reviewer@test.com", "Type": "IDENTITY", "Created": "2018-06-25T20:22:28.104Z", "Modified": "2018-06-25T20:22:28.104Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Reviewer | ConvertTo-JSON
+ConvertFrom-JsonToReviewer -Json $Reviewer
 ```
 
 

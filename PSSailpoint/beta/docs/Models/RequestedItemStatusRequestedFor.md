@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $RequestedItemStatusRequestedFor = Initialize-PSSailpoint.BetaRequestedItemStatusRequestedFor  -Type IDENTITY `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name William Wilson
+$RequestedItemStatusRequestedFor = @"{  "Type": "IDENTITY", "Id": "2c9180835d191a86015d28455b4b232a", "Name": "William Wilson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RequestedItemStatusRequestedFor | ConvertTo-JSON
+ConvertFrom-JsonToRequestedItemStatusRequestedFor -Json $RequestedItemStatusRequestedFor
 ```
 
 

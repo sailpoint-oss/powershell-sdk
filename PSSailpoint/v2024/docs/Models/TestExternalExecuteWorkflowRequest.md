@@ -22,12 +22,13 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TestExternalExecuteWorkflowRequest = Initialize-PSSailpoint.V2024TestExternalExecuteWorkflowRequest  -VarInput {test&#x3D;hello world}
+$TestExternalExecuteWorkflowRequest = Initialize-PSSailpoint.V2024TestExternalExecuteWorkflowRequest  -VarInput {test=hello world}
+$TestExternalExecuteWorkflowRequest = @"{  "VarInput": {"test":"hello world"} }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TestExternalExecuteWorkflowRequest | ConvertTo-JSON
+ConvertFrom-JsonToTestExternalExecuteWorkflowRequest -Json $TestExternalExecuteWorkflowRequest
 ```
 
 

@@ -29,11 +29,12 @@ $App = Initialize-PSSailpoint.V2024App  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Source null `
  -Account null
+$App = @"{  "Id": "2c91808568c529c60168cca6f90c1313", "Name": "John Doe", "Source": null, "Account": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$App | ConvertTo-JSON
+ConvertFrom-JsonToApp -Json $App
 ```
 
 

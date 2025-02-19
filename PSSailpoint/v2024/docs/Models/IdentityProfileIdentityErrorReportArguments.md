@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IdentityProfileIdentityErrorReportArguments = Initialize-PSSailpoint.V2024IdentityProfileIdentityErrorReportArguments  -AuthoritativeSource 1234sourceId5678902
+$IdentityProfileIdentityErrorReportArguments = @"{  "AuthoritativeSource": "1234sourceId5678902" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityProfileIdentityErrorReportArguments | ConvertTo-JSON
+ConvertFrom-JsonToIdentityProfileIdentityErrorReportArguments -Json $IdentityProfileIdentityErrorReportArguments
 ```
 
 

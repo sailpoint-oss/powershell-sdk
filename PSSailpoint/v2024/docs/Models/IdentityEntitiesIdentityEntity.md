@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentityEntitiesIdentityEntity = Initialize-PSSailpoint.V2024IdentityEntitiesIdentityEntity  -Id 031034e97f094a4096c1be53f75f6b91 `
  -Name Gaston.800ddf9640a `
  -Type CAMPAIGN_CAMPAIGNER
+$IdentityEntitiesIdentityEntity = @"{  "Id": "031034e97f094a4096c1be53f75f6b91", "Name": "Gaston.800ddf9640a", "Type": "CAMPAIGN_CAMPAIGNER" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityEntitiesIdentityEntity | ConvertTo-JSON
+ConvertFrom-JsonToIdentityEntitiesIdentityEntity -Json $IdentityEntitiesIdentityEntity
 ```
 
 

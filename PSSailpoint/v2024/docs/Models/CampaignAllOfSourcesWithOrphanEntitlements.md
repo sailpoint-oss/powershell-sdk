@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CampaignAllOfSourcesWithOrphanEntitlements = Initialize-PSSailpoint.V2024CampaignAllOfSourcesWithOrphanEntitlements  -Id 2c90ad2a70ace7d50170acf22ca90010 `
  -Type SOURCE `
  -Name Source with orphan entitlements
+$CampaignAllOfSourcesWithOrphanEntitlements = @"{  "Id": "2c90ad2a70ace7d50170acf22ca90010", "Type": "SOURCE", "Name": "Source with orphan entitlements" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignAllOfSourcesWithOrphanEntitlements | ConvertTo-JSON
+ConvertFrom-JsonToCampaignAllOfSourcesWithOrphanEntitlements -Json $CampaignAllOfSourcesWithOrphanEntitlements
 ```
 
 

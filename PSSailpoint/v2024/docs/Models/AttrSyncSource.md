@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AttrSyncSource = Initialize-PSSailpoint.V2024AttrSyncSource  -Type SOURCE `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name HR Active Directory
+$AttrSyncSource = @"{  "Type": "SOURCE", "Id": "2c9180835d191a86015d28455b4b232a", "Name": "HR Active Directory" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AttrSyncSource | ConvertTo-JSON
+ConvertFrom-JsonToAttrSyncSource -Json $AttrSyncSource
 ```
 
 

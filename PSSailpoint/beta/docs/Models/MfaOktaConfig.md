@@ -31,11 +31,12 @@ $MfaOktaConfig = Initialize-PSSailpoint.BetaMfaOktaConfig  -MfaMethod okta-verif
  -VarHost example.com `
  -AccessKey qw123Y3QlA5UqocYpdU3rEkzrK2D497y `
  -IdentityAttribute email
+$MfaOktaConfig = @"{  "MfaMethod": "okta-verify", "Enabled": true, "VarHost": "example.com", "AccessKey": "qw123Y3QlA5UqocYpdU3rEkzrK2D497y", "IdentityAttribute": "email" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MfaOktaConfig | ConvertTo-JSON
+ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
 ```
 
 

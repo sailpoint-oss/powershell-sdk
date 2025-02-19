@@ -29,11 +29,12 @@ $AttributesChanged = Initialize-PSSailpoint.V2024AttributesChanged  -Changes nul
  -EventType null `
  -IdentityId null `
  -Dt null
+$AttributesChanged = @"{  "Changes": null, "EventType": "null", "IdentityId": "null", "Dt": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AttributesChanged | ConvertTo-JSON
+ConvertFrom-JsonToAttributesChanged -Json $AttributesChanged
 ```
 
 

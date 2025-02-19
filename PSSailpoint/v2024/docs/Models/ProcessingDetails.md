@@ -29,13 +29,14 @@ Name | Type | Description | Notes
 $ProcessingDetails = Initialize-PSSailpoint.V2024ProcessingDetails  -Date 2018-06-25T20:22:28.104Z `
  -Stage In Process `
  -RetryCount 0 `
- -VarStackTrace &lt;stack trace&gt; `
- -Message &lt;message&gt;
+ -VarStackTrace <stack trace> `
+ -Message <message>
+$ProcessingDetails = @"{  "Date": "2018-06-25T20:22:28.104Z", "Stage": "In Process", "RetryCount": "0", "VarStackTrace": "<stack trace>", "Message": "<message>" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ProcessingDetails | ConvertTo-JSON
+ConvertFrom-JsonToProcessingDetails -Json $ProcessingDetails
 ```
 
 

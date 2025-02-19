@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $PutConnectorCorrelationConfigRequest = Initialize-PSSailpoint.V2024PutConnectorCorrelationConfigRequest  -File null
+$PutConnectorCorrelationConfigRequest = @"{  "File": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PutConnectorCorrelationConfigRequest | ConvertTo-JSON
+ConvertFrom-JsonToPutConnectorCorrelationConfigRequest -Json $PutConnectorCorrelationConfigRequest
 ```
 
 

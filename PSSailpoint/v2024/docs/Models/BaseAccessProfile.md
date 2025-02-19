@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $BaseAccessProfile = Initialize-PSSailpoint.V2024BaseAccessProfile  -Id 2c91809c6faade77016fb4f0b63407ae `
  -Name Admin Access
+$BaseAccessProfile = @"{  "Id": "2c91809c6faade77016fb4f0b63407ae", "Name": "Admin Access" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BaseAccessProfile | ConvertTo-JSON
+ConvertFrom-JsonToBaseAccessProfile -Json $BaseAccessProfile
 ```
 
 

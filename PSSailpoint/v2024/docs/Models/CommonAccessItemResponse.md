@@ -35,11 +35,12 @@ $CommonAccessItemResponse = Initialize-PSSailpoint.V2024CommonAccessItemResponse
  -ReviewedByUser null `
  -LastReviewed null `
  -CreatedByUser null
+$CommonAccessItemResponse = @"{  "Id": "null", "Access": null, "Status": null, "LastUpdated": "null", "ReviewedByUser": null, "LastReviewed": "null", "CreatedByUser": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CommonAccessItemResponse | ConvertTo-JSON
+ConvertFrom-JsonToCommonAccessItemResponse -Json $CommonAccessItemResponse
 ```
 
 

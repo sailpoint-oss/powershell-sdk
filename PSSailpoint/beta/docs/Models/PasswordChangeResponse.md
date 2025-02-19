@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $PasswordChangeResponse = Initialize-PSSailpoint.BetaPasswordChangeResponse  -RequestId 089899f13a8f4da7824996191587bab9 `
  -State null
+$PasswordChangeResponse = @"{  "RequestId": "089899f13a8f4da7824996191587bab9", "State": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PasswordChangeResponse | ConvertTo-JSON
+ConvertFrom-JsonToPasswordChangeResponse -Json $PasswordChangeResponse
 ```
 
 

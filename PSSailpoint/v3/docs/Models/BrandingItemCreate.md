@@ -37,11 +37,12 @@ $BrandingItemCreate = Initialize-PSSailpoint.V3BrandingItemCreate  -Name custom-
  -EmailFromAddress no-reply@sailpoint.com `
  -LoginInformationalMessage  `
  -FileStandard \x00\x00\x00\x02
+$BrandingItemCreate = @"{  "Name": "custom-branding-item", "ProductName": "product name", "ActionButtonColor": "0074D9", "ActiveLinkColor": "011E69", "NavigationColor": "011E69", "EmailFromAddress": "no-reply@sailpoint.com", "LoginInformationalMessage": "", "FileStandard": "x00x00x00x02" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BrandingItemCreate | ConvertTo-JSON
+ConvertFrom-JsonToBrandingItemCreate -Json $BrandingItemCreate
 ```
 
 

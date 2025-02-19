@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessRequestAdminItemStatusSodViolationContext = Initialize-PSSailpoint.V2024AccessRequestAdminItemStatusSodViolationContext  -State SUCCESS `
  -Uuid f73d16e9-a038-46c5-b217-1246e15fdbdd `
  -ViolationCheckResult null
+$AccessRequestAdminItemStatusSodViolationContext = @"{  "State": "SUCCESS", "Uuid": "f73d16e9-a038-46c5-b217-1246e15fdbdd", "ViolationCheckResult": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestAdminItemStatusSodViolationContext | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestAdminItemStatusSodViolationContext -Json $AccessRequestAdminItemStatusSodViolationContext
 ```
 
 

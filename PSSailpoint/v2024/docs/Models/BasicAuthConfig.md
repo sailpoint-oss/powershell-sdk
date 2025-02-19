@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $BasicAuthConfig = Initialize-PSSailpoint.V2024BasicAuthConfig  -UserName user@example.com `
  -Password null
+$BasicAuthConfig = @"{  "UserName": "user@example.com", "Password": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BasicAuthConfig | ConvertTo-JSON
+ConvertFrom-JsonToBasicAuthConfig -Json $BasicAuthConfig
 ```
 
 

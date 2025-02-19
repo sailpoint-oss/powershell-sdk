@@ -31,11 +31,12 @@ $BucketAggregation = Initialize-PSSailpoint.V3BucketAggregation  -Name Identity 
  -Field attributes.city `
  -Size 100 `
  -MinDocCount 2
+$BucketAggregation = @"{  "Name": "Identity Locations", "Type": null, "Field": "attributes.city", "Size": "100", "MinDocCount": "2" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BucketAggregation | ConvertTo-JSON
+ConvertFrom-JsonToBucketAggregation -Json $BucketAggregation
 ```
 
 

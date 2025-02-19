@@ -29,11 +29,12 @@ $Aggregations = Initialize-PSSailpoint.V2024Aggregations  -Nested null `
  -Metric null `
  -VarFilter null `
  -Bucket null
+$Aggregations = @"{  "Nested": null, "Metric": null, "VarFilter": null, "Bucket": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Aggregations | ConvertTo-JSON
+ConvertFrom-JsonToAggregations -Json $Aggregations
 ```
 
 

@@ -61,7 +61,7 @@ $Account = Initialize-PSSailpoint.V2024Account  -Id id12345 `
  -ConnectionType direct `
  -IsMachine true `
  -Recommendation null `
- -Attributes {firstName&#x3D;SailPoint, lastName&#x3D;Support, displayName&#x3D;SailPoint Support} `
+ -Attributes {firstName=SailPoint, lastName=Support, displayName=SailPoint Support} `
  -Authoritative false `
  -Description null `
  -Disabled false `
@@ -77,11 +77,12 @@ $Account = Initialize-PSSailpoint.V2024Account  -Id id12345 `
  -Features ENABLE `
  -Origin AGGREGATED `
  -OwnerIdentity null
+$Account = @"{  "Id": "id12345", "Name": "aName", "Created": "2015-05-28T14:07:17Z", "Modified": "2015-05-28T14:07:17Z", "SourceId": "2c9180835d2e5168015d32f890ca1581", "SourceName": "Employees", "IdentityId": "2c9180835d2e5168015d32f890ca1581", "CloudLifecycleState": "active", "IdentityState": "ACTIVE", "ConnectionType": "direct", "IsMachine": true, "Recommendation": null, "Attributes": {"firstName": "SailPoint", "lastName": "Support", "displayName":"SailPoint Support"}, "Authoritative": false, "Description": "null", "Disabled": false, "Locked": false, "NativeIdentity": "552775", "SystemAccount": false, "Uncorrelated": false, "Uuid": "{b0dce506-d6d4-44d2-8a32-d9a5b21fb175}", "ManuallyCorrelated": false, "HasEntitlements": true, "Identity": null, "SourceOwner": null, "Features": "ENABLE", "Origin": "AGGREGATED", "OwnerIdentity": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Account | ConvertTo-JSON
+ConvertFrom-JsonToAccount -Json $Account
 ```
 
 

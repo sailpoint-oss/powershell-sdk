@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $RecommenderCalculationsIdentityAttributesValue = Initialize-PSSailpoint.BetaRecommenderCalculationsIdentityAttributesValue  -Value null
+$RecommenderCalculationsIdentityAttributesValue = @"{  "Value": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RecommenderCalculationsIdentityAttributesValue | ConvertTo-JSON
+ConvertFrom-JsonToRecommenderCalculationsIdentityAttributesValue -Json $RecommenderCalculationsIdentityAttributesValue
 ```
 
 

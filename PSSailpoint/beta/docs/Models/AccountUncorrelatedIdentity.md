@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccountUncorrelatedIdentity = Initialize-PSSailpoint.BetaAccountUncorrelatedIdentity  -Type IDENTITY `
  -Id 2c3780a46faadee4016fb4e018c20652 `
  -Name Allen Albertson
+$AccountUncorrelatedIdentity = @"{  "Type": "IDENTITY", "Id": "2c3780a46faadee4016fb4e018c20652", "Name": "Allen Albertson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountUncorrelatedIdentity | ConvertTo-JSON
+ConvertFrom-JsonToAccountUncorrelatedIdentity -Json $AccountUncorrelatedIdentity
 ```
 
 

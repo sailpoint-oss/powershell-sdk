@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ProvisioningCompletedRecipient = Initialize-PSSailpoint.V2024ProvisioningCompletedRecipient  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
+$ProvisioningCompletedRecipient = @"{  "Type": "IDENTITY", "Id": "2c7180a46faadee4016fb4e018c20642", "Name": "Michael Michaels" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ProvisioningCompletedRecipient | ConvertTo-JSON
+ConvertFrom-JsonToProvisioningCompletedRecipient -Json $ProvisioningCompletedRecipient
 ```
 
 

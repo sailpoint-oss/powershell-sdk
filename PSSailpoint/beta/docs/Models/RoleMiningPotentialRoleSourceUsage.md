@@ -29,11 +29,12 @@ $RoleMiningPotentialRoleSourceUsage = Initialize-PSSailpoint.BetaRoleMiningPoten
  -DisplayName Kirk Koepp `
  -Email kirk.koepp@testmail.identitynow.com `
  -UsageCount 25
+$RoleMiningPotentialRoleSourceUsage = @"{  "Id": "2c918089762475180176267f894b54dc", "DisplayName": "Kirk Koepp", "Email": "kirk.koepp@testmail.identitynow.com", "UsageCount": "25" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningPotentialRoleSourceUsage | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningPotentialRoleSourceUsage -Json $RoleMiningPotentialRoleSourceUsage
 ```
 
 

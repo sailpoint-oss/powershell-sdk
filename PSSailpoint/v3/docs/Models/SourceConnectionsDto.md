@@ -35,11 +35,12 @@ $SourceConnectionsDto = Initialize-PSSailpoint.V3SourceConnectionsDto  -Identity
  -DependentCustomTransforms null `
  -DependentApps null `
  -MissingDependents null
+$SourceConnectionsDto = @"{  "IdentityProfiles": null, "CredentialProfiles": null, "SourceAttributes": null, "MappingProfiles": ["ODS-AD-Profile", "ODS-Profile2"], "DependentCustomTransforms": null, "DependentApps": null, "MissingDependents": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceConnectionsDto | ConvertTo-JSON
+ConvertFrom-JsonToSourceConnectionsDto -Json $SourceConnectionsDto
 ```
 
 

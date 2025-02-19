@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AccessProfileDocumentAllOfSource = Initialize-PSSailpoint.V2024AccessProfileDocumentAllOfSource  -Id ff8081815757d4fb0157588f3d9d008f `
  -Name Employees
+$AccessProfileDocumentAllOfSource = @"{  "Id": "ff8081815757d4fb0157588f3d9d008f", "Name": "Employees" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileDocumentAllOfSource | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileDocumentAllOfSource -Json $AccessProfileDocumentAllOfSource
 ```
 
 

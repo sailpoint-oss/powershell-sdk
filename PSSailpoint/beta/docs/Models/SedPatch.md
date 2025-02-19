@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SedPatch = Initialize-PSSailpoint.BetaSedPatch  -Op replace `
  -Path status `
  -Value approved
+$SedPatch = @"{  "Op": "replace", "Path": "status", "Value": "approved" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SedPatch | ConvertTo-JSON
+ConvertFrom-JsonToSedPatch -Json $SedPatch
 ```
 
 

@@ -29,11 +29,12 @@ $ClientLogConfigurationDurationMinutes = Initialize-PSSailpoint.V2024ClientLogCo
  -DurationMinutes 120 `
  -RootLevel null `
  -LogLevels INFO
+$ClientLogConfigurationDurationMinutes = @"{  "ClientId": "3a38a51992e8445ab51a549c0a70ee66", "DurationMinutes": "120", "RootLevel": null, "LogLevels": "INFO" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ClientLogConfigurationDurationMinutes | ConvertTo-JSON
+ConvertFrom-JsonToClientLogConfigurationDurationMinutes -Json $ClientLogConfigurationDurationMinutes
 ```
 
 

@@ -31,11 +31,12 @@ $IdentityCertificationTask = Initialize-PSSailpoint.BetaIdentityCertificationTas
  -Type null `
  -Status null `
  -Errors []
+$IdentityCertificationTask = @"{  "Id": "abcd-ef12-3456", "CertificationId": "ef38f94347e94562b5bb8424a56397d8", "Type": "null", "Status": "null", "Errors": [] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityCertificationTask | ConvertTo-JSON
+ConvertFrom-JsonToIdentityCertificationTask -Json $IdentityCertificationTask
 ```
 
 

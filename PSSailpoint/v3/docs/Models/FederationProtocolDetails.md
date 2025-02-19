@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $FederationProtocolDetails = Initialize-PSSailpoint.V3FederationProtocolDetails  -Role SAML_IDP `
  -EntityId http://www.okta.com/exkdaruy8Ln5Ry7C54x6
+$FederationProtocolDetails = @"{  "Role": "SAML_IDP", "EntityId": "http://www.okta.com/exkdaruy8Ln5Ry7C54x6" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FederationProtocolDetails | ConvertTo-JSON
+ConvertFrom-JsonToFederationProtocolDetails -Json $FederationProtocolDetails
 ```
 
 

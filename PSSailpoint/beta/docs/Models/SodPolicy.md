@@ -47,7 +47,7 @@ $SodPolicy = Initialize-PSSailpoint.BetaSodPolicy  -Id 0f11f2a4-7c94-4bf3-a2bd-7
  -OwnerRef null `
  -ExternalPolicyReference XYZ policy `
  -PolicyQuery @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf) `
- -CompensatingControls Have a manager review the transaction decisions for their &quot;out of compliance&quot; employee `
+ -CompensatingControls Have a manager review the transaction decisions for their "out of compliance" employee `
  -CorrectionAdvice Based on the role of the employee, managers should remove access that is not required for their job function. `
  -State ENFORCED `
  -Tags [TAG1, TAG2] `
@@ -57,11 +57,12 @@ $SodPolicy = Initialize-PSSailpoint.BetaSodPolicy  -Id 0f11f2a4-7c94-4bf3-a2bd-7
  -Scheduled true `
  -Type GENERAL `
  -ConflictingAccessCriteria null
+$SodPolicy = @"{  "Id": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde", "Name": "policy-xyz", "Created": "2020-01-01T00:00Z", "Modified": "2020-01-01T00:00Z", "Description": "This policy ensures compliance of xyz", "OwnerRef": null, "ExternalPolicyReference": "XYZ policy", "PolicyQuery": null}"@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)", CompensatingControls: "Have a manager review the transaction decisions for their "out of compliance" employee", CorrectionAdvice: "Based on the role of the employee, managers should remove access that is not required for their job function.", State: "ENFORCED", Tags: [TAG1, TAG2], CreatorId: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde", ModifierId: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde", ViolationOwnerAssignmentConfig: null, Scheduled: true, Type: "GENERAL", ConflictingAccessCriteria: null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SodPolicy | ConvertTo-JSON
+ConvertFrom-JsonToSodPolicy -Json $SodPolicy
 ```
 
 

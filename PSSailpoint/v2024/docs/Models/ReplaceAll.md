@@ -24,14 +24,15 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReplaceAll = Initialize-PSSailpoint.V2024ReplaceAll  -Table {-&#x3D; , &quot;&#x3D;&#39;, ñ&#x3D;n} `
+$ReplaceAll = Initialize-PSSailpoint.V2024ReplaceAll  -Table {-= , "=', ñ=n} `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
+$ReplaceAll = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReplaceAll | ConvertTo-JSON
+ConvertFrom-JsonToReplaceAll -Json $ReplaceAll
 ```
 
 

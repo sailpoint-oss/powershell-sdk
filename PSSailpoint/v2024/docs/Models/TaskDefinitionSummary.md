@@ -33,11 +33,12 @@ $TaskDefinitionSummary = Initialize-PSSailpoint.V2024TaskDefinitionSummary  -Id 
  -ParentName Cloud Account Aggregation `
  -Executor sailpoint.task.ServiceTaskExecutor `
  -Arguments null
+$TaskDefinitionSummary = @"{  "Id": "2c91808475b4334b0175e1dff64b63c5", "UniqueName": "Cloud Account Aggregation", "Description": "Aggregates from the specified application.", "ParentName": "Cloud Account Aggregation", "Executor": "sailpoint.task.ServiceTaskExecutor", "Arguments": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TaskDefinitionSummary | ConvertTo-JSON
+ConvertFrom-JsonToTaskDefinitionSummary -Json $TaskDefinitionSummary
 ```
 
 

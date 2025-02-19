@@ -55,11 +55,12 @@ $IdentityCertificationDto = Initialize-PSSailpoint.V3IdentityCertificationDto  -
  -HasErrors false `
  -ErrorMessage The certification has an error `
  -Phase null
+$IdentityCertificationDto = @"{  "Id": "2c9180835d2e5168015d32f890ca1581", "Name": "Source Owner Access Review for Employees [source]", "Campaign": null, "Completed": true, "IdentitiesCompleted": "5", "IdentitiesTotal": "10", "Created": "2018-06-25T20:22:28.104Z", "Modified": "2018-06-25T20:22:28.104Z", "DecisionsMade": "20", "DecisionsTotal": "40", "Due": "2018-10-19T13:49:37.385Z", "Signed": "2018-10-19T13:49:37.385Z", "Reviewer": null, "Reassignment": null, "HasErrors": false, "ErrorMessage": "The certification has an error", "Phase": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityCertificationDto | ConvertTo-JSON
+ConvertFrom-JsonToIdentityCertificationDto -Json $IdentityCertificationDto
 ```
 
 

@@ -41,11 +41,12 @@ $CreateScheduledSearchRequest = Initialize-PSSailpoint.V2024CreateScheduledSearc
  -Enabled false `
  -EmailEmptyResults false `
  -DisplayQueryDetails false
+$CreateScheduledSearchRequest = @"{  "Name": "Daily disabled accounts", "Description": "Daily disabled accounts", "SavedSearchId": "554f1511-f0a1-4744-ab14-599514d3e57c", "Created": "2018-06-25T20:22:28.104Z", "Modified": "2018-06-25T20:22:28.104Z", "Schedule": null, "Recipients": null, "Enabled": false, "EmailEmptyResults": false, "DisplayQueryDetails": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CreateScheduledSearchRequest | ConvertTo-JSON
+ConvertFrom-JsonToCreateScheduledSearchRequest -Json $CreateScheduledSearchRequest
 ```
 
 

@@ -29,11 +29,12 @@ $FormDefinitionInput = Initialize-PSSailpoint.V2024FormDefinitionInput  -Id 0000
  -Type STRING `
  -Label input1 `
  -Description A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic
+$FormDefinitionInput = @"{  "Id": "00000000-0000-0000-0000-000000000000", "Type": "STRING", "Label": "input1", "Description": "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormDefinitionInput | ConvertTo-JSON
+ConvertFrom-JsonToFormDefinitionInput -Json $FormDefinitionInput
 ```
 
 

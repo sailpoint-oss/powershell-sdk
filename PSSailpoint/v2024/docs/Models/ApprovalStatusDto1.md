@@ -39,11 +39,12 @@ $ApprovalStatusDto1 = Initialize-PSSailpoint.V2024ApprovalStatusDto1  -Forwarded
  -ErrorMessages null `
  -Comment I approve this request `
  -RemoveDate 2020-07-11T00:00Z
+$ApprovalStatusDto1 = @"{  "Forwarded": false, "OriginalOwner": null, "CurrentOwner": null, "Modified": "2019-08-23T18:52:57.398Z", "Status": null, "Scheme": null, "ErrorMessages": null, "Comment": "I approve this request", "RemoveDate": "2020-07-11T00:00Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalStatusDto1 | ConvertTo-JSON
+ConvertFrom-JsonToApprovalStatusDto1 -Json $ApprovalStatusDto1
 ```
 
 

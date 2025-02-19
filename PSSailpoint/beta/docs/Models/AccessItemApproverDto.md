@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessItemApproverDto = Initialize-PSSailpoint.BetaAccessItemApproverDto  -Type IDENTITY `
  -Id 2c3780a46faadee4016fb4e018c20652 `
  -Name Allen Albertson
+$AccessItemApproverDto = @"{  "Type": "IDENTITY", "Id": "2c3780a46faadee4016fb4e018c20652", "Name": "Allen Albertson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessItemApproverDto | ConvertTo-JSON
+ConvertFrom-JsonToAccessItemApproverDto -Json $AccessItemApproverDto
 ```
 
 

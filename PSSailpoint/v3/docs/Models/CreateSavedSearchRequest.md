@@ -37,17 +37,18 @@ $CreateSavedSearchRequest = Initialize-PSSailpoint.V3CreateSavedSearchRequest  -
  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `
  -Indices [identities] `
- -Columns {identity&#x3D;[{field&#x3D;displayName, header&#x3D;Display Name}, {field&#x3D;e-mail, header&#x3D;Work Email}]} `
+ -Columns {identity=[{field=displayName, header=Display Name}, {field=e-mail, header=Work Email}]} `
  -Query @accounts(disabled:true) `
  -Fields [disabled] `
- -OrderBy {identity&#x3D;[lastName, firstName], role&#x3D;[name]} `
+ -OrderBy {identity=[lastName, firstName], role=[name]} `
  -Sort [displayName] `
  -Filters null
+$CreateSavedSearchRequest = @"{  "Name": "Disabled accounts", "Description": "Disabled accounts", "Created": "2018-06-25T20:22:28.104Z", "Modified": "2018-06-25T20:22:28.104Z", "Indices": ["identities"], "Columns": {"identity":[{"field": "displayName", "header":"Display Name"}, {"field": "e-mail", "header":"Work Email"}]}, "Query": null}"@accounts(disabled:true)", Fields: [disabled], OrderBy: {identity=[lastName, firstName], role=[name]}, Sort: [displayName], Filters: null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CreateSavedSearchRequest | ConvertTo-JSON
+ConvertFrom-JsonToCreateSavedSearchRequest -Json $CreateSavedSearchRequest
 ```
 
 

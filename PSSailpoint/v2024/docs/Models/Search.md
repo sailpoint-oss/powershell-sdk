@@ -41,7 +41,7 @@ $Search = Initialize-PSSailpoint.V2024Search  -Indices [identities] `
  -QueryType null `
  -QueryVersion null `
  -Query null `
- -QueryDsl {match&#x3D;{name&#x3D;john.doe}} `
+ -QueryDsl {match={name=john.doe}} `
  -TextQuery null `
  -TypeAheadQuery null `
  -IncludeNested true `
@@ -53,11 +53,12 @@ $Search = Initialize-PSSailpoint.V2024Search  -Indices [identities] `
  -Sort [displayName, +id] `
  -SearchAfter [John Doe, 2c91808375d8e80a0175e1f88a575221] `
  -Filters {}
+$Search = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Search | ConvertTo-JSON
+ConvertFrom-JsonToSearch -Json $Search
 ```
 
 

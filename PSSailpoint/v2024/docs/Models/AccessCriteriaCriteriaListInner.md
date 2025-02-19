@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessCriteriaCriteriaListInner = Initialize-PSSailpoint.V2024AccessCriteriaCriteriaListInner  -Type ENTITLEMENT `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Administrator
+$AccessCriteriaCriteriaListInner = @"{  "Type": "ENTITLEMENT", "Id": "2c91808568c529c60168cca6f90c1313", "Name": "Administrator" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessCriteriaCriteriaListInner | ConvertTo-JSON
+ConvertFrom-JsonToAccessCriteriaCriteriaListInner -Json $AccessCriteriaCriteriaListInner
 ```
 
 

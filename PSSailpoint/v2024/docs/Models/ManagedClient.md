@@ -63,11 +63,12 @@ $ManagedClient = Initialize-PSSailpoint.V2024ManagedClient  -Id 2c9180878eaf4204
  -CreatedAt 2023-08-04T20:48:01.865Z `
  -UpdatedAt 2023-08-04T20:48:01.865Z `
  -ProvisionStatus PROVISIONED
+$ManagedClient = @"{  "Id": "2c9180878eaf4204018eb019c3570003", "AlertKey": "CLIENT_STATUS_NOT_CONFIGURED", "ApiGatewayBaseUrl": "null", "Cookbook": "null", "CcId": "2248", "ClientId": "00be54a2-bb6d-402f-9159-beb2d5319347", "ClusterId": "e1ff7bb24c934240bbf55e1aa39e41c5", "Description": "A short description of the ManagedClient", "IpAddress": "123.456.78.90", "LastSeen": "2020-01-01T00:00Z", "Name": "aName", "SinceLastSeen": "15000", "Status": "NORMAL", "Type": "VA", "ClusterType": "idn", "VaDownloadUrl": "aUrl", "VaVersion": "va-megapod-useast1-610-1621372012", "Secret": "ef878e15eaa8c8d3e2fa52f41125e2a0eeadadc6a14f931a33ad3e1b62d56381", "CreatedAt": "2023-08-04T20:48:01.865Z", "UpdatedAt": "2023-08-04T20:48:01.865Z", "ProvisionStatus": "PROVISIONED" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ManagedClient | ConvertTo-JSON
+ConvertFrom-JsonToManagedClient -Json $ManagedClient
 ```
 
 

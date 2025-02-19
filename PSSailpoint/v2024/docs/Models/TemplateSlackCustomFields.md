@@ -29,11 +29,12 @@ $TemplateSlackCustomFields = Initialize-PSSailpoint.V2024TemplateSlackCustomFiel
  -ContainsDeny null `
  -CampaignId null `
  -CampaignStatus null
+$TemplateSlackCustomFields = @"{  "RequestType": "null", "ContainsDeny": "null", "CampaignId": "null", "CampaignStatus": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TemplateSlackCustomFields | ConvertTo-JSON
+ConvertFrom-JsonToTemplateSlackCustomFields -Json $TemplateSlackCustomFields
 ```
 
 

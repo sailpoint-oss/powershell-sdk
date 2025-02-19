@@ -25,13 +25,14 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $EventAttributes = Initialize-PSSailpoint.BetaEventAttributes  -Id idn:identity-attributes-changed `
- -VarFilter $.changes[?(@.attribute &#x3D;&#x3D; &#39;manager&#39;)] `
+ -VarFilter $.changes[?(@.attribute == 'manager')] `
  -Description null
+$EventAttributes = @"{  "Id": "idn:identity-attributes-changed", "VarFilter": "$.changes[?(@.attribute == 'manager')]", "Description": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$EventAttributes | ConvertTo-JSON
+ConvertFrom-JsonToEventAttributes -Json $EventAttributes
 ```
 
 

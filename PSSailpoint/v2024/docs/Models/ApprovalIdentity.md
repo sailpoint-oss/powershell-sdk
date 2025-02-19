@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ApprovalIdentity = Initialize-PSSailpoint.V2024ApprovalIdentity  -Id 85d173e7d57e496569df763231d6deb6a `
  -Type IDENTITY `
  -Name John Doe
+$ApprovalIdentity = @"{  "Id": "85d173e7d57e496569df763231d6deb6a", "Type": "IDENTITY", "Name": "John Doe" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalIdentity | ConvertTo-JSON
+ConvertFrom-JsonToApprovalIdentity -Json $ApprovalIdentity
 ```
 
 

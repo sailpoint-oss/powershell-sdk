@@ -33,11 +33,12 @@ $ManualWorkItemDetails1 = Initialize-PSSailpoint.V2024ManualWorkItemDetails1  -F
  -Modified 2019-08-23T18:52:57.398Z `
  -Status null `
  -ForwardHistory null
+$ManualWorkItemDetails1 = @"{  "Forwarded": true, "OriginalOwner": null, "CurrentOwner": null, "Modified": "2019-08-23T18:52:57.398Z", "Status": null, "ForwardHistory": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ManualWorkItemDetails1 | ConvertTo-JSON
+ConvertFrom-JsonToManualWorkItemDetails1 -Json $ManualWorkItemDetails1
 ```
 
 

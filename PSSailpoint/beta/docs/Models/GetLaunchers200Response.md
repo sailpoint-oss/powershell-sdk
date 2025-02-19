@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $GetLaunchers200Response = Initialize-PSSailpoint.BetaGetLaunchers200Response  -Next null `
  -Items null
+$GetLaunchers200Response = @"{  "Next": "null", "Items": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$GetLaunchers200Response | ConvertTo-JSON
+ConvertFrom-JsonToGetLaunchers200Response -Json $GetLaunchers200Response
 ```
 
 

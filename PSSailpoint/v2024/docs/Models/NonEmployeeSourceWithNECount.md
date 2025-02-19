@@ -39,11 +39,12 @@ $NonEmployeeSourceWithNECount = Initialize-PSSailpoint.V2024NonEmployeeSourceWit
  -Modified 2019-08-23T18:52:59.162Z `
  -Created 2019-08-23T18:40:35.772Z `
  -NonEmployeeCount 120
+$NonEmployeeSourceWithNECount = @"{  "Id": "a0303682-5e4a-44f7-bdc2-6ce6112549c1", "SourceId": "2c91808568c529c60168cca6f90c1313", "Name": "Retail", "Description": "Source description", "Approvers": null, "AccountManagers": null, "Modified": "2019-08-23T18:52:59.162Z", "Created": "2019-08-23T18:40:35.772Z", "NonEmployeeCount": "120" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeSourceWithNECount | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeSourceWithNECount -Json $NonEmployeeSourceWithNECount
 ```
 
 

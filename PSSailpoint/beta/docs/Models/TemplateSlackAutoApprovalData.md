@@ -31,11 +31,12 @@ $TemplateSlackAutoApprovalData = Initialize-PSSailpoint.BetaTemplateSlackAutoApp
  -ItemType null `
  -AutoApprovalMessageJSON null `
  -AutoApprovalTitle null
+$TemplateSlackAutoApprovalData = @"{  "IsAutoApproved": "null", "ItemId": "null", "ItemType": "null", "AutoApprovalMessageJSON": "null", "AutoApprovalTitle": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TemplateSlackAutoApprovalData | ConvertTo-JSON
+ConvertFrom-JsonToTemplateSlackAutoApprovalData -Json $TemplateSlackAutoApprovalData
 ```
 
 

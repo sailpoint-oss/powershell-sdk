@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $DimensionCriteriaKey = Initialize-PSSailpoint.V2024DimensionCriteriaKey  -Type null `
  -Property attribute.email
+$DimensionCriteriaKey = @"{  "Type": null, "Property": "attribute.email" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DimensionCriteriaKey | ConvertTo-JSON
+ConvertFrom-JsonToDimensionCriteriaKey -Json $DimensionCriteriaKey
 ```
 
 

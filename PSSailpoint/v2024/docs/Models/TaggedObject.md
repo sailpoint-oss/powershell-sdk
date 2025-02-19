@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $TaggedObject = Initialize-PSSailpoint.V2024TaggedObject  -ObjectRef null `
  -Tags [BU_FINANCE, PCI]
+$TaggedObject = @"{  "ObjectRef": null, "Tags": ["BU_FINANCE", "PCI"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TaggedObject | ConvertTo-JSON
+ConvertFrom-JsonToTaggedObject -Json $TaggedObject
 ```
 
 

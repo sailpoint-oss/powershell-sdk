@@ -29,11 +29,12 @@ $PeerGroupMember = Initialize-PSSailpoint.V2024PeerGroupMember  -Id null `
  -Type null `
  -PeerGroupId null `
  -Attributes null
+$PeerGroupMember = @"{  "Id": "null", "Type": "null", "PeerGroupId": "null", "Attributes": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PeerGroupMember | ConvertTo-JSON
+ConvertFrom-JsonToPeerGroupMember -Json $PeerGroupMember
 ```
 
 

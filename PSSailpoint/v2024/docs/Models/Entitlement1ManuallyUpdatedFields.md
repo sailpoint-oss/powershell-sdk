@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $Entitlement1ManuallyUpdatedFields = Initialize-PSSailpoint.V2024Entitlement1ManuallyUpdatedFields  -DISPLAYNAME true `
  -DESCRIPTION true
+$Entitlement1ManuallyUpdatedFields = @"{  "DISPLAYNAME": true, "DESCRIPTION": true }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Entitlement1ManuallyUpdatedFields | ConvertTo-JSON
+ConvertFrom-JsonToEntitlement1ManuallyUpdatedFields -Json $Entitlement1ManuallyUpdatedFields
 ```
 
 

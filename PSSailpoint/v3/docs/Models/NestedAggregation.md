@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $NestedAggregation = Initialize-PSSailpoint.V3NestedAggregation  -Name id `
  -Type access
+$NestedAggregation = @"{  "Name": "id", "Type": "access" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NestedAggregation | ConvertTo-JSON
+ConvertFrom-JsonToNestedAggregation -Json $NestedAggregation
 ```
 
 

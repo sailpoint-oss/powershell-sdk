@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $RecommendationResponseDto = Initialize-PSSailpoint.V2024RecommendationResponseDto  -Response null
+$RecommendationResponseDto = @"{  "Response": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RecommendationResponseDto | ConvertTo-JSON
+ConvertFrom-JsonToRecommendationResponseDto -Json $RecommendationResponseDto
 ```
 
 

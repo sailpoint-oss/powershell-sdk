@@ -28,14 +28,15 @@ Name | Type | Description | Notes
 ```powershell
 $FormElement = Initialize-PSSailpoint.BetaFormElement  -Id 00000000-0000-0000-0000-000000000000 `
  -ElementType TEXT `
- -Config {label&#x3D;Department} `
+ -Config {label=Department} `
  -Key department `
  -Validations null
+$FormElement = @"{  "Id": "00000000-0000-0000-0000-000000000000", "ElementType": "TEXT", "Config": {"label": "Department}", "Key": "department", "Validations": "null "}}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormElement | ConvertTo-JSON
+ConvertFrom-JsonToFormElement -Json $FormElement
 ```
 
 

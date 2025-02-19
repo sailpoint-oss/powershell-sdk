@@ -31,11 +31,12 @@ $VAClusterStatusChangeEvent = Initialize-PSSailpoint.BetaVAClusterStatusChangeEv
  -Application null `
  -HealthCheckResult null `
  -PreviousHealthCheckResult null
+$VAClusterStatusChangeEvent = @"{  "Created": "2020-06-29T22:01:50.474Z", "Type": "CLUSTER", "Application": null, "HealthCheckResult": null, "PreviousHealthCheckResult": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$VAClusterStatusChangeEvent | ConvertTo-JSON
+ConvertFrom-JsonToVAClusterStatusChangeEvent -Json $VAClusterStatusChangeEvent
 ```
 
 

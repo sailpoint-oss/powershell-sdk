@@ -22,11 +22,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $DateFormatInputFormat = Initialize-PSSailpoint.V3DateFormatInputFormat 
+$DateFormatInputFormat = @"{  }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DateFormatInputFormat | ConvertTo-JSON
+ConvertFrom-JsonToDateFormatInputFormat -Json $DateFormatInputFormat
 ```
 
 

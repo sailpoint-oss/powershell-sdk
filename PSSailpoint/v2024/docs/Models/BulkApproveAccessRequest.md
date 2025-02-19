@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $BulkApproveAccessRequest = Initialize-PSSailpoint.V2024BulkApproveAccessRequest  -ApprovalIds [2c9180835d2e5168015d32f890ca1581, 2c9180835d2e5168015d32f890ca1582] `
  -Comment I approve these request items
+$BulkApproveAccessRequest = @"{  "ApprovalIds": ["2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582"], "Comment": "I approve these request items" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BulkApproveAccessRequest | ConvertTo-JSON
+ConvertFrom-JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
 ```
 
 

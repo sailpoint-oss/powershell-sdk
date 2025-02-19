@@ -47,11 +47,12 @@ $CertificationDto = Initialize-PSSailpoint.V2024CertificationDto  -CampaignRef n
  -DecisionsTotal 40 `
  -EntitiesCompleted 5 `
  -EntitiesTotal 10
+$CertificationDto = @"{  "CampaignRef": null, "Phase": null, "Due": "2018-10-19T13:49:37.385Z", "Signed": "2018-10-19T13:49:37.385Z", "Reviewer": null, "Reassignment": null, "HasErrors": false, "ErrorMessage": "The certification has an error", "Completed": false, "DecisionsMade": "20", "DecisionsTotal": "40", "EntitiesCompleted": "5", "EntitiesTotal": "10" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CertificationDto | ConvertTo-JSON
+ConvertFrom-JsonToCertificationDto -Json $CertificationDto
 ```
 
 

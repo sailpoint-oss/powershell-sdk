@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $KbaAuthResponseItem = Initialize-PSSailpoint.BetaKbaAuthResponseItem  -QuestionId 089899f13a8f4da7824996191587bab9 `
  -IsVerified true
+$KbaAuthResponseItem = @"{  "QuestionId": "089899f13a8f4da7824996191587bab9", "IsVerified": "true "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$KbaAuthResponseItem | ConvertTo-JSON
+ConvertFrom-JsonToKbaAuthResponseItem -Json $KbaAuthResponseItem
 ```
 
 

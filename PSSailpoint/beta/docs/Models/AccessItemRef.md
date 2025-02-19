@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AccessItemRef = Initialize-PSSailpoint.BetaAccessItemRef  -Id 2c938083633d259901633d2623ec0375 `
  -Type ENTITLEMENT
+$AccessItemRef = @"{  "Id": "2c938083633d259901633d2623ec0375", "Type": "ENTITLEMENT" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessItemRef | ConvertTo-JSON
+ConvertFrom-JsonToAccessItemRef -Json $AccessItemRef
 ```
 
 

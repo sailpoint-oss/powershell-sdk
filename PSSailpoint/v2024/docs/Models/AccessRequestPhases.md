@@ -33,11 +33,12 @@ $AccessRequestPhases = Initialize-PSSailpoint.V2024AccessRequestPhases  -Started
  -State COMPLETED `
  -Result SUCCESSFUL `
  -PhaseReference approvalDetails
+$AccessRequestPhases = @"{  "Started": "2020-07-11T00:00Z", "Finished": "2020-07-12T00:00Z", "Name": "APPROVAL_PHASE", "State": "COMPLETED", "Result": "SUCCESSFUL", "PhaseReference": "approvalDetails" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestPhases | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestPhases -Json $AccessRequestPhases
 ```
 
 

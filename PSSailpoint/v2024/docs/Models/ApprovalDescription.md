@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ApprovalDescription = Initialize-PSSailpoint.V2024ApprovalDescription  -Value This access allows viewing and editing of workflow resource `
  -Locale en_US
+$ApprovalDescription = @"{  "Value": "This access allows viewing and editing of workflow resource", "Locale": "en_US" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalDescription | ConvertTo-JSON
+ConvertFrom-JsonToApprovalDescription -Json $ApprovalDescription
 ```
 
 

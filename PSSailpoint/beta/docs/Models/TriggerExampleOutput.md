@@ -33,11 +33,12 @@ $TriggerExampleOutput = Initialize-PSSailpoint.BetaTriggerExampleOutput  -Id 2c9
  -Approved false `
  -Comment This access should be denied, because this will cause an SOD violation. `
  -Approver AcmeCorpExternalIntegration
+$TriggerExampleOutput = @"{  "Id": "2c91808b6ef1d43e016efba0ce470906", "Name": "Adam Adams", "Type": "IDENTITY", "Approved": false, "Comment": "This access should be denied, because this will cause an SOD violation.", "Approver": "AcmeCorpExternalIntegration" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TriggerExampleOutput | ConvertTo-JSON
+ConvertFrom-JsonToTriggerExampleOutput -Json $TriggerExampleOutput
 ```
 
 

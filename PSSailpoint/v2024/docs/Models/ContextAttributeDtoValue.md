@@ -22,11 +22,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ContextAttributeDtoValue = Initialize-PSSailpoint.V2024ContextAttributeDtoValue 
+$ContextAttributeDtoValue = @"{  }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ContextAttributeDtoValue | ConvertTo-JSON
+ConvertFrom-JsonToContextAttributeDtoValue -Json $ContextAttributeDtoValue
 ```
 
 

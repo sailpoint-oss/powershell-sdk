@@ -35,13 +35,14 @@ $CertificationTask = Initialize-PSSailpoint.V3CertificationTask  -Id 2c918086719
  -TargetId 2c918086719eec070171a7e3355a834c `
  -Status QUEUED `
  -Errors null `
- -ReassignmentTrailDTOs {previousOwner&#x3D;ef38f94347e94562b5bb8424a56397d8, newOwner&#x3D;ef38f94347e94562b5bb8424a56397a3, reassignmentType&#x3D;AUTOMATIC_REASSIGNMENT} `
+ -ReassignmentTrailDTOs {previousOwner=ef38f94347e94562b5bb8424a56397d8, newOwner=ef38f94347e94562b5bb8424a56397a3, reassignmentType=AUTOMATIC_REASSIGNMENT} `
  -Created 2020-09-24T18:10:47.693Z
+$CertificationTask = @"{  "Id": "2c918086719eec070171a7e3355a360a", "Type": "ADMIN_REASSIGN", "TargetType": "CAMPAIGN", "TargetId": "2c918086719eec070171a7e3355a834c", "Status": "QUEUED", "Errors": null, "ReassignmentTrailDTOs": {"previousOwner": "ef38f94347e94562b5bb8424a56397d8", "newOwner": "ef38f94347e94562b5bb8424a56397a3", "reassignmentType": "AUTOMATIC_REASSIGNMENT}", "Created": "2020-09-24T18:10:47.693Z" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CertificationTask | ConvertTo-JSON
+ConvertFrom-JsonToCertificationTask -Json $CertificationTask
 ```
 
 

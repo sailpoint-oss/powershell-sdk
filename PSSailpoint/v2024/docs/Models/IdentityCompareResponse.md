@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IdentityCompareResponse = Initialize-PSSailpoint.V2024IdentityCompareResponse  -AccessItemDiff null
+$IdentityCompareResponse = @"{  "AccessItemDiff": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityCompareResponse | ConvertTo-JSON
+ConvertFrom-JsonToIdentityCompareResponse -Json $IdentityCompareResponse
 ```
 
 

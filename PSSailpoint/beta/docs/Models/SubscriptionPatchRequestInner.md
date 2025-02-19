@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SubscriptionPatchRequestInner = Initialize-PSSailpoint.BetaSubscriptionPatchRequestInner  -Op replace `
  -Path /description `
  -Value null
+$SubscriptionPatchRequestInner = @"{  "Op": "replace", "Path": "/description", "Value": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SubscriptionPatchRequestInner | ConvertTo-JSON
+ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
 ```
 
 

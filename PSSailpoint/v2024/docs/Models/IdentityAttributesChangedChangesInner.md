@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentityAttributesChangedChangesInner = Initialize-PSSailpoint.V2024IdentityAttributesChangedChangesInner  -Attribute department `
  -OldValue null `
  -NewValue null
+$IdentityAttributesChangedChangesInner = @"{  "Attribute": "department", "OldValue": null, "NewValue": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityAttributesChangedChangesInner | ConvertTo-JSON
+ConvertFrom-JsonToIdentityAttributesChangedChangesInner -Json $IdentityAttributesChangedChangesInner
 ```
 
 

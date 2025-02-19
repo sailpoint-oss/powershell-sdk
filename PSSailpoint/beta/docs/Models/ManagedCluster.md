@@ -51,7 +51,7 @@ $ManagedCluster = Initialize-PSSailpoint.BetaManagedCluster  -Id aClusterId `
  -Pod megapod-useast1 `
  -Org denali `
  -Type null `
- -Configuration {clusterExternalId&#x3D;externalId, ccgVersion&#x3D;77.0.0} `
+ -Configuration {clusterExternalId=externalId, ccgVersion=77.0.0} `
  -KeyPair null `
  -Attributes null `
  -Description A short description of the managed cluster. `
@@ -71,11 +71,12 @@ $ManagedCluster = Initialize-PSSailpoint.BetaManagedCluster  -Id aClusterId `
  -CcId 1533 `
  -CreatedAt 2023-08-04T20:48:01.865Z `
  -UpdatedAt 2023-08-04T20:48:01.865Z
+$ManagedCluster = @"{  "Id": "aClusterId", "Name": "Managed Cluster Name", "Pod": "megapod-useast1", "Org": "denali", "Type": null, "Configuration": {"clusterExternalId": "externalId", "ccgVersion": "77.0.0}", "KeyPair": null, "Attributes": null, "Description": "A short description of the managed cluster.", "Redis": null, "ClientType": null, "CcgVersion": "v01", "PinnedConfig": false, "LogConfiguration": null, "Operational": false, "Status": "NORMAL", "PublicKeyCertificate": "-----BEGIN CERTIFICATE-----TCCAb2gAwIBAgIBADANBgkqhkiG9w0BAQsFADAuMQ0wCwYDVQQD-----END CERTIFICATE-----", "PublicKeyThumbprint": "obc6pLiulGbtZ", "PublicKey": "-----BEGIN PUBLIC KEY-----jANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3WgnsxP52MDgBTfHR+5n4-----END PUBLIC KEY-----", "AlertKey": "LIMITED_RESOURCES", "ClientIds": [1244, 1245], "ServiceCount": "6", "CcId": "1533", "CreatedAt": "2023-08-04T20:48:01.865Z", "UpdatedAt": "2023-08-04T20:48:01.865Z" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ManagedCluster | ConvertTo-JSON
+ConvertFrom-JsonToManagedCluster -Json $ManagedCluster
 ```
 
 

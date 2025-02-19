@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SedAssignee = Initialize-PSSailpoint.BetaSedAssignee  -Type SOURCE_OWNER `
  -Value 016629d1-1d25-463f-97f3-c6686846650
+$SedAssignee = @"{  "Type": "SOURCE_OWNER", "Value": "016629d1-1d25-463f-97f3-c6686846650" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SedAssignee | ConvertTo-JSON
+ConvertFrom-JsonToSedAssignee -Json $SedAssignee
 ```
 
 

@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 ```powershell
 $Workflow = Initialize-PSSailpoint.BetaWorkflow  -Name Send Email `
  -Owner null `
- -Description Send an email to the identity who&#39;s attributes changed. `
+ -Description Send an email to the identity who's attributes changed. `
  -Definition null `
  -Enabled false `
  -Trigger null `
@@ -47,11 +47,12 @@ $Workflow = Initialize-PSSailpoint.BetaWorkflow  -Name Send Email `
  -FailureCount 0 `
  -Created 2022-01-10T16:06:16.636381447Z `
  -Creator null
+$Workflow = @"{  "Name": "Send Email", "Owner": null, "Description": "Send an email to the identity who's attributes changed.", "Definition": null, "Enabled": false, "Trigger": null, "Id": "d201c5e9-d37b-4aff-af14-66414f39d569", "Modified": "2023-12-05T15:18:27.699132301Z", "ModifiedBy": null, "ExecutionCount": "2", "FailureCount": "0", "Created": "2022-01-10T16:06:16.636381447Z", "Creator": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Workflow | ConvertTo-JSON
+ConvertFrom-JsonToWorkflow -Json $Workflow
 ```
 
 

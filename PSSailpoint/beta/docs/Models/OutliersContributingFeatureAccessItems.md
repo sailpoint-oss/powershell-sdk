@@ -33,11 +33,12 @@ $OutliersContributingFeatureAccessItems = Initialize-PSSailpoint.BetaOutliersCon
  -AccessType ENTITLEMENT `
  -SourceName appName `
  -ExtremelyRare true
+$OutliersContributingFeatureAccessItems = @"{  "Id": "2c938083633d259901633d2623ec0375", "DisplayName": "Applied Research Access", "Description": "Access to research information, lab results, and schematics", "AccessType": "ENTITLEMENT", "SourceName": "appName", "ExtremelyRare": "true "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$OutliersContributingFeatureAccessItems | ConvertTo-JSON
+ConvertFrom-JsonToOutliersContributingFeatureAccessItems -Json $OutliersContributingFeatureAccessItems
 ```
 
 

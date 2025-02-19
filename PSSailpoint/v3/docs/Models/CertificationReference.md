@@ -29,11 +29,12 @@ $CertificationReference = Initialize-PSSailpoint.V3CertificationReference  -Id e
  -Name Certification Name `
  -Type CERTIFICATION `
  -Reviewer null
+$CertificationReference = @"{  "Id": "ef38f94347e94562b5bb8424a56397d8", "Name": "Certification Name", "Type": "CERTIFICATION", "Reviewer": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CertificationReference | ConvertTo-JSON
+ConvertFrom-JsonToCertificationReference -Json $CertificationReference
 ```
 
 

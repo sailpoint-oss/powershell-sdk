@@ -33,11 +33,12 @@ $AccessRequestConfig = Initialize-PSSailpoint.V2024AccessRequestConfig  -Approva
  -RequestOnBehalfOfConfig null `
  -ApprovalReminderAndEscalationConfig null `
  -EntitlementRequestConfig null
+$AccessRequestConfig = @"{  "ApprovalsMustBeExternal": true, "AutoApprovalEnabled": true, "ReauthorizationEnabled": true, "RequestOnBehalfOfConfig": null, "ApprovalReminderAndEscalationConfig": null, "EntitlementRequestConfig": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestConfig | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
 ```
 
 

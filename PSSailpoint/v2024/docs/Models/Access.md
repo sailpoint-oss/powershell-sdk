@@ -31,11 +31,12 @@ $Access = Initialize-PSSailpoint.V2024Access  -Id 2c91808568c529c60168cca6f90c13
  -DisplayName John Q. Doe `
  -Type null `
  -Description null
+$Access = @"{  "Id": "2c91808568c529c60168cca6f90c1313", "Name": "John Doe", "DisplayName": "John Q. Doe", "Type": null, "Description": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Access | ConvertTo-JSON
+ConvertFrom-JsonToAccess -Json $Access
 ```
 
 

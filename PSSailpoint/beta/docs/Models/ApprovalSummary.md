@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ApprovalSummary = Initialize-PSSailpoint.BetaApprovalSummary  -Pending null `
  -Approved null `
  -Rejected null
+$ApprovalSummary = @"{  "Pending": null, "Approved": null, "Rejected": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalSummary | ConvertTo-JSON
+ConvertFrom-JsonToApprovalSummary -Json $ApprovalSummary
 ```
 
 

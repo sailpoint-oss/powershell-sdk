@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SourceAppCreateDtoAccountSource = Initialize-PSSailpoint.V2024SourceAppCreateDtoAccountSource  -Id 2c9180827ca885d7017ca8ce28a000eb `
  -Type SOURCE `
  -Name ODS-AD-Source
+$SourceAppCreateDtoAccountSource = @"{  "Id": "2c9180827ca885d7017ca8ce28a000eb", "Type": "SOURCE", "Name": "ODS-AD-Source" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceAppCreateDtoAccountSource | ConvertTo-JSON
+ConvertFrom-JsonToSourceAppCreateDtoAccountSource -Json $SourceAppCreateDtoAccountSource
 ```
 
 

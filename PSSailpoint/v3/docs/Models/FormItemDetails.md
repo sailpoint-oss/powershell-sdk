@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $FormItemDetails = Initialize-PSSailpoint.V3FormItemDetails  -Name Field1
+$FormItemDetails = @"{  "Name": "Field1" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormItemDetails | ConvertTo-JSON
+ConvertFrom-JsonToFormItemDetails -Json $FormItemDetails
 ```
 
 

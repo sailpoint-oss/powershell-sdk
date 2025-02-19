@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AccessProfileBulkUpdateRequestInner = Initialize-PSSailpoint.BetaAccessProfileBulkUpdateRequestInner  -Id 464ae7bf-791e-49fd-b746-06a2e4a8 `
  -Requestable false
+$AccessProfileBulkUpdateRequestInner = @"{  "Id": "464ae7bf-791e-49fd-b746-06a2e4a8", "Requestable": "false "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileBulkUpdateRequestInner | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileBulkUpdateRequestInner -Json $AccessProfileBulkUpdateRequestInner
 ```
 
 

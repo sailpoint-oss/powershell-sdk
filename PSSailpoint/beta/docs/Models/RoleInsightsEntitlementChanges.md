@@ -35,11 +35,12 @@ $RoleInsightsEntitlementChanges = Initialize-PSSailpoint.BetaRoleInsightsEntitle
  -Value null `
  -Source null `
  -Insight null
+$RoleInsightsEntitlementChanges = @"{  "Name": "null", "Id": "null", "Description": "null", "Attribute": "null", "Value": "null", "Source": "null", "Insight": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleInsightsEntitlementChanges | ConvertTo-JSON
+ConvertFrom-JsonToRoleInsightsEntitlementChanges -Json $RoleInsightsEntitlementChanges
 ```
 
 

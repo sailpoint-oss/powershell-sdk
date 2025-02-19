@@ -31,11 +31,12 @@ $ConfigurationDetailsResponse = Initialize-PSSailpoint.BetaConfigurationDetailsR
  -StartDate 2022-07-21T11:13:12.345Z `
  -EndDate 0001-01-01T00:00Z `
  -AuditDetails null
+$ConfigurationDetailsResponse = @"{  "ConfigType": null, "TargetIdentity": null, "StartDate": "2022-07-21T11:13:12.345Z", "EndDate": "0001-01-01T00:00Z", "AuditDetails": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ConfigurationDetailsResponse | ConvertTo-JSON
+ConvertFrom-JsonToConfigurationDetailsResponse -Json $ConfigurationDetailsResponse
 ```
 
 

@@ -31,11 +31,12 @@ $ApprovalComment = Initialize-PSSailpoint.V2024ApprovalComment  -Comment Approva
  -User user.name `
  -Id 549bf881-1ac4-4a64-9acf-6014e8a3a887 `
  -ChangedToStatus PENDING_APPROVAL
+$ApprovalComment = @"{  "Comment": "Approval comment", "Timestamp": "2021-05-11T22:23:16Z", "User": "user.name", "Id": "549bf881-1ac4-4a64-9acf-6014e8a3a887", "ChangedToStatus": "PENDING_APPROVAL" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalComment | ConvertTo-JSON
+ConvertFrom-JsonToApprovalComment -Json $ApprovalComment
 ```
 
 

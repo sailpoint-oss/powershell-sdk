@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $MfaConfigTestResponse = Initialize-PSSailpoint.BetaMfaConfigTestResponse  -State SUCCESS `
  -VarError MFA Method is disabled.
+$MfaConfigTestResponse = @"{  "State": "SUCCESS", "VarError": "MFA Method is disabled." }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MfaConfigTestResponse | ConvertTo-JSON
+ConvertFrom-JsonToMfaConfigTestResponse -Json $MfaConfigTestResponse
 ```
 
 

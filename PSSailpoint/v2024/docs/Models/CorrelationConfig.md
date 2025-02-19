@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CorrelationConfig = Initialize-PSSailpoint.V2024CorrelationConfig  -Id 2c9180835d191a86015d28455b4a2329 `
  -Name Source [source] Account Correlation `
  -AttributeAssignments null
+$CorrelationConfig = @"{  "Id": "2c9180835d191a86015d28455b4a2329", "Name": "Source [source] Account Correlation", "AttributeAssignments": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CorrelationConfig | ConvertTo-JSON
+ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
 ```
 
 

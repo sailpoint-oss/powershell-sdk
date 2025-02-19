@@ -29,11 +29,12 @@ $SearchExportReportArguments = Initialize-PSSailpoint.V3SearchExportReportArgume
  -Query name:a* `
  -Columns displayName,firstName,lastName,email,created,attributes.cloudLifecycleState `
  -Sort [displayName, +id]
+$SearchExportReportArguments = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SearchExportReportArguments | ConvertTo-JSON
+ConvertFrom-JsonToSearchExportReportArguments -Json $SearchExportReportArguments
 ```
 
 

@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $NonEmployeeRejectApprovalDecision = Initialize-PSSailpoint.BetaNonEmployeeRejectApprovalDecision  -Comment null
+$NonEmployeeRejectApprovalDecision = @"{  "Comment": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeRejectApprovalDecision | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
 ```
 
 

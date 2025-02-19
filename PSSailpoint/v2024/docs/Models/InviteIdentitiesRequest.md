@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $InviteIdentitiesRequest = Initialize-PSSailpoint.V2024InviteIdentitiesRequest  -Ids [2b568c65bc3c4c57a43bd97e3a8e55, 2c9180867769897d01776ed5f125512f] `
  -Uninvited false
+$InviteIdentitiesRequest = @"{  "Ids": ["2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f"], "Uninvited": "false "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$InviteIdentitiesRequest | ConvertTo-JSON
+ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
 ```
 
 

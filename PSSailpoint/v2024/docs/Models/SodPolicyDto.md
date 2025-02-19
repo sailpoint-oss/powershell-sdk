@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SodPolicyDto = Initialize-PSSailpoint.V2024SodPolicyDto  -Type SOD_POLICY `
  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Name Business SOD Policy
+$SodPolicyDto = @"{  "Type": "SOD_POLICY", "Id": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde", "Name": "Business SOD Policy" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SodPolicyDto | ConvertTo-JSON
+ConvertFrom-JsonToSodPolicyDto -Json $SodPolicyDto
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $LoadAccountsTaskTaskAttributes = Initialize-PSSailpoint.V2024LoadAccountsTaskTaskAttributes  -AppId c31386cb18bb403cbb6df4c86294ff82 `
  -OptimizedAggregation enabled
+$LoadAccountsTaskTaskAttributes = @"{  "AppId": "c31386cb18bb403cbb6df4c86294ff82", "OptimizedAggregation": "enabled" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LoadAccountsTaskTaskAttributes | ConvertTo-JSON
+ConvertFrom-JsonToLoadAccountsTaskTaskAttributes -Json $LoadAccountsTaskTaskAttributes
 ```
 
 

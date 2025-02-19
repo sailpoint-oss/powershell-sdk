@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $PendingApprovalOwner = Initialize-PSSailpoint.V2024PendingApprovalOwner  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Support
+$PendingApprovalOwner = @"{  "Type": "IDENTITY", "Id": "2c9180a46faadee4016fb4e018c20639", "Name": "Support" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PendingApprovalOwner | ConvertTo-JSON
+ConvertFrom-JsonToPendingApprovalOwner -Json $PendingApprovalOwner
 ```
 
 

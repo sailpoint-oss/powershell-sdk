@@ -35,11 +35,12 @@ $MultiHostIntegrationsConnectorAttributes = Initialize-PSSailpoint.BetaMultiHost
  -ShowAccountSchema true `
  -ShowEntitlementSchema true `
  -MultiHostAttributes null
+$MultiHostIntegrationsConnectorAttributes = @"{  "MaxAllowedSources": "250", "LastSourceUploadCount": "40", "ConnectorFileUploadHistory": null, "MultihostStatus": "ready", "ShowAccountSchema": true, "ShowEntitlementSchema": true, "MultiHostAttributes": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostIntegrationsConnectorAttributes | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostIntegrationsConnectorAttributes -Json $MultiHostIntegrationsConnectorAttributes
 ```
 
 

@@ -62,13 +62,13 @@ $MultiHostSources = Initialize-PSSailpoint.BetaMultiHostSources  -Id 2c91808568c
  -ManagerCorrelationMapping null `
  -ManagerCorrelationRule null `
  -BeforeProvisioningRule null `
- -Schemas [{type&#x3D;CONNECTOR_SCHEMA, id&#x3D;2c9180835d191a86015d28455b4b232a, name&#x3D;account}, {type&#x3D;CONNECTOR_SCHEMA, id&#x3D;2c9180835d191a86015d28455b4b232b, name&#x3D;group}] `
- -PasswordPolicies [{type&#x3D;PASSWORD_POLICY, id&#x3D;2c9180855d191c59015d291ceb053980, name&#x3D;Corporate Password Policy}, {type&#x3D;PASSWORD_POLICY, id&#x3D;2c9180855d191c59015d291ceb057777, name&#x3D;Vendor Password Policy}] `
+ -Schemas [{type=CONNECTOR_SCHEMA, id=2c9180835d191a86015d28455b4b232a, name=account}, {type=CONNECTOR_SCHEMA, id=2c9180835d191a86015d28455b4b232b, name=group}] `
+ -PasswordPolicies [{type=PASSWORD_POLICY, id=2c9180855d191c59015d291ceb053980, name=Corporate Password Policy}, {type=PASSWORD_POLICY, id=2c9180855d191c59015d291ceb057777, name=Vendor Password Policy}] `
  -Features [PROVISIONING, NO_PERMISSIONS_PROVISIONING, GROUPS_HAVE_MEMBERS] `
  -Type Multi-Host - Microsoft SQL Server `
  -Connector multihost-microsoft-sql-server `
  -ConnectorClass sailpoint.connector.OpenConnectorAdapter `
- -ConnectorAttributes {healthCheckTimeout&#x3D;30, authSearchAttributes&#x3D;[cn, uid, mail]} `
+ -ConnectorAttributes {healthCheckTimeout=30, authSearchAttributes=[cn, uid, mail]} `
  -DeleteThreshold 10 `
  -Authoritative false `
  -ManagementWorkgroup null `
@@ -83,11 +83,12 @@ $MultiHostSources = Initialize-PSSailpoint.BetaMultiHostSources  -Id 2c91808568c
  -Modified 2024-01-23T18:08:50.897Z `
  -CredentialProviderEnabled false `
  -Category CredentialProvider
+$MultiHostSources = @"{  "Id": "2c91808568c529c60168cca6f90c1324", "Name": "My Source", "Description": "This is the Source.", "Owner": null, "Cluster": null, "AccountCorrelationConfig": null, "AccountCorrelationRule": null, "ManagerCorrelationMapping": null, "ManagerCorrelationRule": null, "BeforeProvisioningRule": null, "Schemas": [{"type": "CONNECTOR_SCHEMA", "id": "2c9180835d191a86015d28455b4b232a", "name": "account}"}, {"type": "CONNECTOR_SCHEMA", "id": "2c9180835d191a86015d28455b4b232b", "name": "group}]", "PasswordPolicies": [{"type": "PASSWORD_POLICY", "id": "2c9180855d191c59015d291ceb053980", "name":"Corporate Password Policy"}, {"type": "PASSWORD_POLICY", "id": "2c9180855d191c59015d291ceb057777", "name":"Vendor Password Policy"}], "Features": ["PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS"], "Type": "Multi-Host - Microsoft SQL Server", "Connector": "multihost-microsoft-sql-server", "ConnectorClass": "sailpoint.connector.OpenConnectorAdapter", "ConnectorAttributes": {"healthCheckTimeout": "30", "authSearchAttributes":["cn", "uid", "mail"]}, "DeleteThreshold": "10", "Authoritative": false, "ManagementWorkgroup": null, "Healthy": true, "Status": "SOURCE_STATE_HEALTHY", "Since": null, "ConnectorId": "multihost-microsoft-sql-server", "ConnectorName": "Multi-Host Microsoft SQL Server", "ConnectionType": "file", "ConnectorImplementationId": "multihost-microsoft-sql-server", "Created": "2022-02-08T14:50:03.827Z", "Modified": "2024-01-23T18:08:50.897Z", "CredentialProviderEnabled": false, "Category": "CredentialProvider" }]}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostSources | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostSources -Json $MultiHostSources
 ```
 
 

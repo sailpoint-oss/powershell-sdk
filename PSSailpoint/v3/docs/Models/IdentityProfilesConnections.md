@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentityProfilesConnections = Initialize-PSSailpoint.V3IdentityProfilesConnections  -Id 76cfddb62818416f816bc494410f46c4 `
  -Name ODS-Identity-Profile `
  -IdentityCount 100
+$IdentityProfilesConnections = @"{  "Id": "76cfddb62818416f816bc494410f46c4", "Name": "ODS-Identity-Profile", "IdentityCount": "100" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityProfilesConnections | ConvertTo-JSON
+ConvertFrom-JsonToIdentityProfilesConnections -Json $IdentityProfilesConnections
 ```
 
 

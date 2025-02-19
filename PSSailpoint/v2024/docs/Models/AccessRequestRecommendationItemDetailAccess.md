@@ -29,11 +29,12 @@ $AccessRequestRecommendationItemDetailAccess = Initialize-PSSailpoint.V2024Acces
  -Type null `
  -Name Employee-database-read-write `
  -Description This item grants an employee read and write access to the database
+$AccessRequestRecommendationItemDetailAccess = @"{  "Id": "2c9180835d2e5168015d32f890ca1581", "Type": null, "Name": "Employee-database-read-write", "Description": "This item grants an employee read and write access to the database" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestRecommendationItemDetailAccess | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestRecommendationItemDetailAccess -Json $AccessRequestRecommendationItemDetailAccess
 ```
 
 

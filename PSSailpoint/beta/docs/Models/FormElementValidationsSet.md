@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $FormElementValidationsSet = Initialize-PSSailpoint.BetaFormElementValidationsSet  -ValidationType REQUIRED
+$FormElementValidationsSet = @"{  "ValidationType": "REQUIRED" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormElementValidationsSet | ConvertTo-JSON
+ConvertFrom-JsonToFormElementValidationsSet -Json $FormElementValidationsSet
 ```
 
 

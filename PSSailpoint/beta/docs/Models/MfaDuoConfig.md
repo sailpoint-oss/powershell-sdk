@@ -32,12 +32,13 @@ $MfaDuoConfig = Initialize-PSSailpoint.BetaMfaDuoConfig  -MfaMethod duo-web `
  -VarHost example.com `
  -AccessKey qw123Y3QlA5UqocYpdU3rEkzrK2D497y `
  -IdentityAttribute email `
- -ConfigProperties {skey&#x3D;qwERttyZx1CdlQye2Vwtbsjr3HKddy4BAiCXjc5x, ikey&#x3D;Q123WE45R6TY7890ZXCV}
+ -ConfigProperties {skey=qwERttyZx1CdlQye2Vwtbsjr3HKddy4BAiCXjc5x, ikey=Q123WE45R6TY7890ZXCV}
+$MfaDuoConfig = @"{  "MfaMethod": "duo-web", "Enabled": true, "VarHost": "example.com", "AccessKey": "qw123Y3QlA5UqocYpdU3rEkzrK2D497y", "IdentityAttribute": "email", "ConfigProperties": {"skey": "qwERttyZx1CdlQye2Vwtbsjr3HKddy4BAiCXjc5x", "ikey": "Q123WE45R6TY7890ZXCV}" }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MfaDuoConfig | ConvertTo-JSON
+ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
 ```
 
 

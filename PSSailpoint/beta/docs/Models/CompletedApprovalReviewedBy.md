@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CompletedApprovalReviewedBy = Initialize-PSSailpoint.BetaCompletedApprovalReviewedBy  -Type IDENTITY `
  -Id 2c3780a46faadee4016fb4e018c20652 `
  -Name Allen Albertson
+$CompletedApprovalReviewedBy = @"{  "Type": "IDENTITY", "Id": "2c3780a46faadee4016fb4e018c20652", "Name": "Allen Albertson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CompletedApprovalReviewedBy | ConvertTo-JSON
+ConvertFrom-JsonToCompletedApprovalReviewedBy -Json $CompletedApprovalReviewedBy
 ```
 
 

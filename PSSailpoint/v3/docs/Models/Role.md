@@ -48,7 +48,7 @@ $Role = Initialize-PSSailpoint.V3Role  -Id 2c918086749d78830174a1a40e121518 `
  -AccessProfiles null `
  -Entitlements null `
  -Membership null `
- -LegacyMembershipInfo {type&#x3D;IDENTITY_LIST} `
+ -LegacyMembershipInfo {type=IDENTITY_LIST} `
  -Enabled true `
  -Requestable true `
  -AccessRequestConfig null `
@@ -57,11 +57,12 @@ $Role = Initialize-PSSailpoint.V3Role  -Id 2c918086749d78830174a1a40e121518 `
  -Dimensional null `
  -DimensionRefs null `
  -AccessModelMetadata null
+$Role = @"{  "Id": "2c918086749d78830174a1a40e121518", "Name": "Role 2567", "Created": "2021-03-01T22:32:58.104Z", "Modified": "2021-03-02T20:22:28.104Z", "Description": "Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor.", "Owner": null, "AccessProfiles": null, "Entitlements": null, "Membership": null, "LegacyMembershipInfo": {"type": "IDENTITY_LIST}", "Enabled": true, "Requestable": true, "AccessRequestConfig": null, "RevocationRequestConfig": null, "Segments": ["f7b1b8a3-5fed-4fd4-ad29-82014e137e19", "29cb6c06-1da8-43ea-8be4-b3125f248f2a"], "Dimensional": null, "DimensionRefs": null, "AccessModelMetadata": null }}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Role | ConvertTo-JSON
+ConvertFrom-JsonToRole -Json $Role
 ```
 
 

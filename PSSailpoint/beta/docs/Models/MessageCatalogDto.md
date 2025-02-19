@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $MessageCatalogDto = Initialize-PSSailpoint.BetaMessageCatalogDto  -Locale en_US `
  -Messages null
+$MessageCatalogDto = @"{  "Locale": "en_US", "Messages": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MessageCatalogDto | ConvertTo-JSON
+ConvertFrom-JsonToMessageCatalogDto -Json $MessageCatalogDto
 ```
 
 

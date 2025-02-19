@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IdentityOwnershipAssociationDetails = Initialize-PSSailpoint.BetaIdentityOwnershipAssociationDetails  -AssociationDetails null
+$IdentityOwnershipAssociationDetails = @"{  "AssociationDetails": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityOwnershipAssociationDetails | ConvertTo-JSON
+ConvertFrom-JsonToIdentityOwnershipAssociationDetails -Json $IdentityOwnershipAssociationDetails
 ```
 
 

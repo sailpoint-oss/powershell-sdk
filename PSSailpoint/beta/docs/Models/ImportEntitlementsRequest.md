@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $ImportEntitlementsRequest = Initialize-PSSailpoint.BetaImportEntitlementsRequest  -File null
+$ImportEntitlementsRequest = @"{  "File": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ImportEntitlementsRequest | ConvertTo-JSON
+ConvertFrom-JsonToImportEntitlementsRequest -Json $ImportEntitlementsRequest
 ```
 
 

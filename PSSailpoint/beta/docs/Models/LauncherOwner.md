@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $LauncherOwner = Initialize-PSSailpoint.BetaLauncherOwner  -Type IDENTITY `
  -Id 123180847373330f0173c7e1756b6890
+$LauncherOwner = @"{  "Type": "IDENTITY", "Id": "123180847373330f0173c7e1756b6890" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LauncherOwner | ConvertTo-JSON
+ConvertFrom-JsonToLauncherOwner -Json $LauncherOwner
 ```
 
 

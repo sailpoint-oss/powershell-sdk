@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $KbaAnswerRequestItem = Initialize-PSSailpoint.BetaKbaAnswerRequestItem  -Id c54fee53-2d63-4fc5-9259-3e93b9994135 `
  -Answer Your answer
+$KbaAnswerRequestItem = @"{  "Id": "c54fee53-2d63-4fc5-9259-3e93b9994135", "Answer": "Your answer" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$KbaAnswerRequestItem | ConvertTo-JSON
+ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
 ```
 
 

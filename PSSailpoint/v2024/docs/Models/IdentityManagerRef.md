@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $IdentityManagerRef = Initialize-PSSailpoint.V2024IdentityManagerRef  -Type IDENTITY `
  -Id 2c4180a46faadee4016fb4e018c20626 `
  -Name Robert Robinson
+$IdentityManagerRef = @"{  "Type": "IDENTITY", "Id": "2c4180a46faadee4016fb4e018c20626", "Name": "Robert Robinson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityManagerRef | ConvertTo-JSON
+ConvertFrom-JsonToIdentityManagerRef -Json $IdentityManagerRef
 ```
 
 

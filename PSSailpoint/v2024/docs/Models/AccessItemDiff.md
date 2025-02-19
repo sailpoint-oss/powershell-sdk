@@ -29,11 +29,12 @@ $AccessItemDiff = Initialize-PSSailpoint.V2024AccessItemDiff  -Id null `
  -EventType null `
  -DisplayName null `
  -SourceName null
+$AccessItemDiff = @"{  "Id": "null", "EventType": "null", "DisplayName": "null", "SourceName": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessItemDiff | ConvertTo-JSON
+ConvertFrom-JsonToAccessItemDiff -Json $AccessItemDiff
 ```
 
 

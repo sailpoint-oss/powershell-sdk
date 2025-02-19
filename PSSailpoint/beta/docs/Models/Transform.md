@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $Transform = Initialize-PSSailpoint.BetaTransform  -Name Timestamp To Date `
  -Type dateFormat `
  -Attributes null
+$Transform = @"{  "Name": "Timestamp To Date", "Type": "dateFormat", "Attributes": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Transform | ConvertTo-JSON
+ConvertFrom-JsonToTransform -Json $Transform
 ```
 
 

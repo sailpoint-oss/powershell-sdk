@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $PermissionDto = Initialize-PSSailpoint.BetaPermissionDto  -Rights null `
  -Target SYS.GV_$TRANSACTION
+$PermissionDto = @"{  "Rights": null, "Target": "SYS.GV_$TRANSACTION" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$PermissionDto | ConvertTo-JSON
+ConvertFrom-JsonToPermissionDto -Json $PermissionDto
 ```
 
 

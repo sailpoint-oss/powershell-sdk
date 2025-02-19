@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $SodPolicyConflictingAccessCriteria = Initialize-PSSailpoint.V3SodPolicyConflictingAccessCriteria  -LeftCriteria null `
  -RightCriteria null
+$SodPolicyConflictingAccessCriteria = @"{  "LeftCriteria": null, "RightCriteria": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SodPolicyConflictingAccessCriteria | ConvertTo-JSON
+ConvertFrom-JsonToSodPolicyConflictingAccessCriteria -Json $SodPolicyConflictingAccessCriteria
 ```
 
 

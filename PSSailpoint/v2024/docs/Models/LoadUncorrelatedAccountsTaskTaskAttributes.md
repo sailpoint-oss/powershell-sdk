@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $LoadUncorrelatedAccountsTaskTaskAttributes = Initialize-PSSailpoint.V2024LoadUncorrelatedAccountsTaskTaskAttributes  -QpocJobId 5d303d46-fc51-48cd-9c6d-4e211e3ab63c `
  -TaskStartDelay 
+$LoadUncorrelatedAccountsTaskTaskAttributes = @"{  "QpocJobId": "5d303d46-fc51-48cd-9c6d-4e211e3ab63c", "TaskStartDelay":  null}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LoadUncorrelatedAccountsTaskTaskAttributes | ConvertTo-JSON
+ConvertFrom-JsonToLoadUncorrelatedAccountsTaskTaskAttributes -Json $LoadUncorrelatedAccountsTaskTaskAttributes
 ```
 
 

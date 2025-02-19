@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $AccessRequestContext = Initialize-PSSailpoint.V2024AccessRequestContext  -ContextAttributes null
+$AccessRequestContext = @"{  "ContextAttributes": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestContext | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestContext -Json $AccessRequestContext
 ```
 
 

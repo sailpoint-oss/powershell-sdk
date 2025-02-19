@@ -23,11 +23,12 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $DeleteCampaignsRequest = Initialize-PSSailpoint.BetaDeleteCampaignsRequest  -Ids [2c9180887335cee10173490db1776c26, 2c9180836a712436016a7125a90c0021]
+$DeleteCampaignsRequest = @"{  "Ids": ["2c9180887335cee10173490db1776c26", "2c9180836a712436016a7125a90c0021"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DeleteCampaignsRequest | ConvertTo-JSON
+ConvertFrom-JsonToDeleteCampaignsRequest -Json $DeleteCampaignsRequest
 ```
 
 

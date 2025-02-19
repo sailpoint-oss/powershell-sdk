@@ -29,11 +29,12 @@ $RoleMembershipIdentity = Initialize-PSSailpoint.BetaRoleMembershipIdentity  -Ty
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Thomas Edison `
  -AliasName t.edison
+$RoleMembershipIdentity = @"{  "Type": null, "Id": "2c9180a46faadee4016fb4e018c20639", "Name": "Thomas Edison", "AliasName": "t.edison" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMembershipIdentity | ConvertTo-JSON
+ConvertFrom-JsonToRoleMembershipIdentity -Json $RoleMembershipIdentity
 ```
 
 

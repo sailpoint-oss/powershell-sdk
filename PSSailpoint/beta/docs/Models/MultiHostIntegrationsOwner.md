@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $MultiHostIntegrationsOwner = Initialize-PSSailpoint.BetaMultiHostIntegrationsOwner  -Type IDENTITY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name MyName
+$MultiHostIntegrationsOwner = @"{  "Type": "IDENTITY", "Id": "2c91808568c529c60168cca6f90c1313", "Name": "MyName" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostIntegrationsOwner | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostIntegrationsOwner -Json $MultiHostIntegrationsOwner
 ```
 
 

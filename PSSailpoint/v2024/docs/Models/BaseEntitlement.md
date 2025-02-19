@@ -32,16 +32,17 @@ Name | Type | Description | Notes
 $BaseEntitlement = Initialize-PSSailpoint.V2024BaseEntitlement  -HasPermissions false `
  -Description Cloud engineering `
  -Attribute memberOf `
- -Value CN&#x3D;Cloud Engineering,DC&#x3D;sailpoint,DC&#x3D;COM `
+ -Value CN=Cloud Engineering,DC=sailpoint,DC=COM `
  -Schema group `
  -Privileged false `
  -Id 2c918084575812550157589064f33b89 `
- -Name CN&#x3D;Cloud Engineering,DC&#x3D;sailpoint,DC&#x3D;COM
+ -Name CN=Cloud Engineering,DC=sailpoint,DC=COM
+$BaseEntitlement = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BaseEntitlement | ConvertTo-JSON
+ConvertFrom-JsonToBaseEntitlement -Json $BaseEntitlement
 ```
 
 

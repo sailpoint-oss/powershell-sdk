@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $IdentityAttributeTransform1 = Initialize-PSSailpoint.BetaIdentityAttributeTransform1  -IdentityAttributeName email `
  -TransformDefinition null
+$IdentityAttributeTransform1 = @"{  "IdentityAttributeName": "email", "TransformDefinition": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityAttributeTransform1 | ConvertTo-JSON
+ConvertFrom-JsonToIdentityAttributeTransform1 -Json $IdentityAttributeTransform1
 ```
 
 

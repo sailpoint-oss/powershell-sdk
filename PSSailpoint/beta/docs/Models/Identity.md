@@ -45,13 +45,14 @@ $Identity = Initialize-PSSailpoint.BetaIdentity  -Id 01f04e428c484542a241dc89c30
  -ManagerRef null `
  -IsManager true `
  -LastRefresh 2020-11-22T15:42:31.123Z `
- -Attributes {uid&#x3D;86754, firstname&#x3D;Walter, cloudStatus&#x3D;UNREGISTERED, displayName&#x3D;Walter White, identificationNumber&#x3D;86754, lastSyncDate&#x3D;1470348809380, email&#x3D;walter.white@example.com, lastname&#x3D;White} `
+ -Attributes {uid=86754, firstname=Walter, cloudStatus=UNREGISTERED, displayName=Walter White, identificationNumber=86754, lastSyncDate=1470348809380, email=walter.white@example.com, lastname=White} `
  -LifecycleState null
+$Identity = @"{  "Id": "01f04e428c484542a241dc89c303b178", "Name": "Walter White", "Created": "2023-01-03T21:16:22.432Z", "Modified": "2023-01-03T21:16:22.432Z", "Alias": "walter.white", "EmailAddress": "walter.white@example.com", "ProcessingState": "ERROR", "IdentityStatus": "LOCKED", "ManagerRef": null, "IsManager": true, "LastRefresh": "2020-11-22T15:42:31.123Z", "Attributes": {"uid": "86754", "firstname": "Walter", "cloudStatus": "UNREGISTERED", "displayName":"Walter White", "identificationNumber": "86754", "lastSyncDate": "1470348809380", "email": "walter.white@example.com", "lastname": "White}", "LifecycleState": "null "}}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$Identity | ConvertTo-JSON
+ConvertFrom-JsonToIdentity -Json $Identity
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccountCorrelatedSource = Initialize-PSSailpoint.V2024AccountCorrelatedSource  -Type SOURCE `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name HR Active Directory
+$AccountCorrelatedSource = @"{  "Type": "SOURCE", "Id": "2c9180835d191a86015d28455b4b232a", "Name": "HR Active Directory" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountCorrelatedSource | ConvertTo-JSON
+ConvertFrom-JsonToAccountCorrelatedSource -Json $AccountCorrelatedSource
 ```
 
 

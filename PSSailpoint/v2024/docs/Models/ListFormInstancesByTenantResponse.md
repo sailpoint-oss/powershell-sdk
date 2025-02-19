@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ListFormInstancesByTenantResponse = Initialize-PSSailpoint.V2024ListFormInstancesByTenantResponse  -Count 1 `
  -Results null
+$ListFormInstancesByTenantResponse = @"{  "Count": "1", "Results": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ListFormInstancesByTenantResponse | ConvertTo-JSON
+ConvertFrom-JsonToListFormInstancesByTenantResponse -Json $ListFormInstancesByTenantResponse
 ```
 
 

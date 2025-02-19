@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $TenantUiMetadataItemResponse = Initialize-PSSailpoint.BetaTenantUiMetadataItemResponse  -IframeWhiteList http://example.com http://example2.com `
  -UsernameLabel Email `
  -UsernameEmptyText Please provide your work email address...
+$TenantUiMetadataItemResponse = @"{  "IframeWhiteList": "http://example.com http://example2.com", "UsernameLabel": "Email", "UsernameEmptyText": "Please provide your work email address..." }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TenantUiMetadataItemResponse | ConvertTo-JSON
+ConvertFrom-JsonToTenantUiMetadataItemResponse -Json $TenantUiMetadataItemResponse
 ```
 
 

@@ -29,13 +29,14 @@ Name | Type | Description | Notes
 $MailFromAttributes = Initialize-PSSailpoint.V2024MailFromAttributes  -Identity bob.smith@sailpoint.com `
  -MailFromDomain foo.sailpoint.com `
  -MxRecord 10 feedback-smtp.us-east-1.amazonses.com `
- -TxtRecord v&#x3D;spf1 include:amazonses.com ~all `
+ -TxtRecord v=spf1 include:amazonses.com ~all `
  -MailFromDomainStatus PENDING
+$MailFromAttributes = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MailFromAttributes | ConvertTo-JSON
+ConvertFrom-JsonToMailFromAttributes -Json $MailFromAttributes
 ```
 
 

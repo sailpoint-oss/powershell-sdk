@@ -29,11 +29,12 @@ $ReportConfigDTO = Initialize-PSSailpoint.BetaReportConfigDTO  -ColumnName SOD B
  -Required true `
  -Included false `
  -Order 2
+$ReportConfigDTO = @"{  "ColumnName": "SOD Business Name", "Required": true, "Included": false, "Order": "2" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ReportConfigDTO | ConvertTo-JSON
+ConvertFrom-JsonToReportConfigDTO -Json $ReportConfigDTO
 ```
 
 

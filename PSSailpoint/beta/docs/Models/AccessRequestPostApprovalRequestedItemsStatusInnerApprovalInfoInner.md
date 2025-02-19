@@ -29,11 +29,12 @@ $AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner = Initializ
  -ApprovalDecision APPROVED `
  -ApproverName Stephen.Austin `
  -Approver null
+$AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner = @"{  "ApprovalComment": "This access looks good.  Approved.", "ApprovalDecision": "APPROVED", "ApproverName": "Stephen.Austin", "Approver": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner -Json $AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner
 ```
 
 

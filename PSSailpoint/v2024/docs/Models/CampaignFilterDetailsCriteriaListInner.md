@@ -29,11 +29,12 @@ $CampaignFilterDetailsCriteriaListInner = Initialize-PSSailpoint.V2024CampaignFi
  -Operation null `
  -Property displayName `
  -Value Allie
+$CampaignFilterDetailsCriteriaListInner = @"{  "Type": null, "Operation": null, "Property": "displayName", "Value": "Allie" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignFilterDetailsCriteriaListInner | ConvertTo-JSON
+ConvertFrom-JsonToCampaignFilterDetailsCriteriaListInner -Json $CampaignFilterDetailsCriteriaListInner
 ```
 
 

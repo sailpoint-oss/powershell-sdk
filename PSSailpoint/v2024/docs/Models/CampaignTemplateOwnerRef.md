@@ -29,11 +29,12 @@ $CampaignTemplateOwnerRef = Initialize-PSSailpoint.V2024CampaignTemplateOwnerRef
  -Type IDENTITY `
  -Name Mister Manager `
  -Email mr.manager@example.com
+$CampaignTemplateOwnerRef = @"{  "Id": "2c918086676d3e0601677611dbde220f", "Type": "IDENTITY", "Name": "Mister Manager", "Email": "mr.manager@example.com" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignTemplateOwnerRef | ConvertTo-JSON
+ConvertFrom-JsonToCampaignTemplateOwnerRef -Json $CampaignTemplateOwnerRef
 ```
 
 

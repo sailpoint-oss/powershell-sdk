@@ -55,11 +55,12 @@ $CertificationSignedOffCertification = Initialize-PSSailpoint.V2024Certification
  -DecisionsTotal 40 `
  -EntitiesCompleted 5 `
  -EntitiesTotal 10
+$CertificationSignedOffCertification = @"{  "Id": "2c91808576f886190176f88caf0d0067", "Name": "Manager Access Review for Alice Baker", "Created": "2020-02-16T03:04:45.815Z", "Modified": "2020-02-16T03:06:45.815Z", "CampaignRef": null, "Phase": null, "Due": "2018-10-19T13:49:37.385Z", "Signed": "2018-10-19T13:49:37.385Z", "Reviewer": null, "Reassignment": null, "HasErrors": false, "ErrorMessage": "The certification has an error", "Completed": false, "DecisionsMade": "20", "DecisionsTotal": "40", "EntitiesCompleted": "5", "EntitiesTotal": "10" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CertificationSignedOffCertification | ConvertTo-JSON
+ConvertFrom-JsonToCertificationSignedOffCertification -Json $CertificationSignedOffCertification
 ```
 
 

@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $FormInstanceRecipient = Initialize-PSSailpoint.BetaFormInstanceRecipient  -Id 00000000-0000-0000-0000-000000000000 `
  -Type IDENTITY
+$FormInstanceRecipient = @"{  "Id": "00000000-0000-0000-0000-000000000000", "Type": "IDENTITY" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$FormInstanceRecipient | ConvertTo-JSON
+ConvertFrom-JsonToFormInstanceRecipient -Json $FormInstanceRecipient
 ```
 
 

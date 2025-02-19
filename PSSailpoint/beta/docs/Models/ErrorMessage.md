@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ErrorMessage = Initialize-PSSailpoint.BetaErrorMessage  -Locale en-US `
  -LocaleOrigin DEFAULT `
  -Text This is an error
+$ErrorMessage = @"{  "Locale": "en-US", "LocaleOrigin": "DEFAULT", "Text": "This is an error" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ErrorMessage | ConvertTo-JSON
+ConvertFrom-JsonToErrorMessage -Json $ErrorMessage
 ```
 
 

@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $MultiHostSourcesBeforeProvisioningRule = Initialize-PSSailpoint.BetaMultiHostSourcesBeforeProvisioningRule  -Type RULE `
  -Id 2c918085708c274401708c2a8a760001 `
  -Name Example Rule
+$MultiHostSourcesBeforeProvisioningRule = @"{  "Type": "RULE", "Id": "2c918085708c274401708c2a8a760001", "Name": "Example Rule" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$MultiHostSourcesBeforeProvisioningRule | ConvertTo-JSON
+ConvertFrom-JsonToMultiHostSourcesBeforeProvisioningRule -Json $MultiHostSourcesBeforeProvisioningRule
 ```
 
 

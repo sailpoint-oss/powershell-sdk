@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $CreateUploadedConfigurationRequest = Initialize-PSSailpoint.V3CreateUploadedConfigurationRequest  -VarData null `
  -Name null
+$CreateUploadedConfigurationRequest = @"{  "VarData": null, "Name": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CreateUploadedConfigurationRequest | ConvertTo-JSON
+ConvertFrom-JsonToCreateUploadedConfigurationRequest -Json $CreateUploadedConfigurationRequest
 ```
 
 

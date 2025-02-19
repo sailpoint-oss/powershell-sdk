@@ -29,11 +29,12 @@ $EntitlementRequestConfig1 = Initialize-PSSailpoint.V2024EntitlementRequestConfi
  -RequestCommentsRequired false `
  -DeniedCommentsRequired false `
  -GrantRequestApprovalSchemes entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584
+$EntitlementRequestConfig1 = @"{  "AllowEntitlementRequest": true, "RequestCommentsRequired": false, "DeniedCommentsRequired": false, "GrantRequestApprovalSchemes": "entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$EntitlementRequestConfig1 | ConvertTo-JSON
+ConvertFrom-JsonToEntitlementRequestConfig1 -Json $EntitlementRequestConfig1
 ```
 
 

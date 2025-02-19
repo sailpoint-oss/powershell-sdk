@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $CampaignAllOfFilter = Initialize-PSSailpoint.V3CampaignAllOfFilter  -Id 0fbe863c063c4c88a35fd7f17e8a3df5 `
  -Type CAMPAIGN_FILTER `
  -Name Test Filter
+$CampaignAllOfFilter = @"{  "Id": "0fbe863c063c4c88a35fd7f17e8a3df5", "Type": "CAMPAIGN_FILTER", "Name": "Test Filter" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$CampaignAllOfFilter | ConvertTo-JSON
+ConvertFrom-JsonToCampaignAllOfFilter -Json $CampaignAllOfFilter
 ```
 
 

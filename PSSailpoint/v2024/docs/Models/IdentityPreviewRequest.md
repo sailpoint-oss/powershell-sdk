@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $IdentityPreviewRequest = Initialize-PSSailpoint.V2024IdentityPreviewRequest  -IdentityId null `
  -IdentityAttributeConfig null
+$IdentityPreviewRequest = @"{  "IdentityId": "null", "IdentityAttributeConfig": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityPreviewRequest | ConvertTo-JSON
+ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
 ```
 
 

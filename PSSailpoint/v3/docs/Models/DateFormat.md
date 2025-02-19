@@ -28,12 +28,13 @@ Name | Type | Description | Notes
 $DateFormat = Initialize-PSSailpoint.V3DateFormat  -InputFormat null `
  -OutputFormat null `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
+$DateFormat = @"{  "InputFormat": null, "OutputFormat": null, "RequiresPeriodicRefresh": false, "VarInput": {"type": "accountAttribute", "attributes":{"attributeName": "first_name", "sourceName": "Source}}" }}}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DateFormat | ConvertTo-JSON
+ConvertFrom-JsonToDateFormat -Json $DateFormat
 ```
 
 

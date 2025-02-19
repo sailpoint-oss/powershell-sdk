@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SourceClusterDto = Initialize-PSSailpoint.BetaSourceClusterDto  -Type CLUSTER `
  -Id 2c9180847a7fccdd017aa5896f9f4f6f `
  -Name Training VA
+$SourceClusterDto = @"{  "Type": "CLUSTER", "Id": "2c9180847a7fccdd017aa5896f9f4f6f", "Name": "Training VA" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SourceClusterDto | ConvertTo-JSON
+ConvertFrom-JsonToSourceClusterDto -Json $SourceClusterDto
 ```
 
 

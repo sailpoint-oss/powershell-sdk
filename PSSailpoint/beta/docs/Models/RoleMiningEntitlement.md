@@ -39,11 +39,12 @@ $RoleMiningEntitlement = Initialize-PSSailpoint.BetaRoleMiningEntitlement  -Enti
  -SourceId 2c9180877620c1460176267f336a106f `
  -ActivitySourceState complete `
  -SourceUsagePercent 65.6
+$RoleMiningEntitlement = @"{  "EntitlementRef": null, "Name": "Add/modify/delete users", "ApplicationName": "AppName", "IdentityCount": "45", "Popularity": "65.2", "PopularityInOrg": "35.8", "SourceId": "2c9180877620c1460176267f336a106f", "ActivitySourceState": "complete", "SourceUsagePercent": "65.6" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleMiningEntitlement | ConvertTo-JSON
+ConvertFrom-JsonToRoleMiningEntitlement -Json $RoleMiningEntitlement
 ```
 
 

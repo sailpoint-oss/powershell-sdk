@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $EventBridgeConfig = Initialize-PSSailpoint.BetaEventBridgeConfig  -AwsAccount 123456789012 `
  -AwsRegion us-west-1
+$EventBridgeConfig = @"{  "AwsAccount": "123456789012", "AwsRegion": "us-west-1" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$EventBridgeConfig | ConvertTo-JSON
+ConvertFrom-JsonToEventBridgeConfig -Json $EventBridgeConfig
 ```
 
 

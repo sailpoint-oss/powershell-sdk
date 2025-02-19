@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SavedSearchCompleteSearchResultsAccount = Initialize-PSSailpoint.V2024SavedSearchCompleteSearchResultsAccount  -Count 3 `
  -Noun accounts `
  -Preview null
+$SavedSearchCompleteSearchResultsAccount = @"{  "Count": "3", "Noun": "accounts", "Preview": "null "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SavedSearchCompleteSearchResultsAccount | ConvertTo-JSON
+ConvertFrom-JsonToSavedSearchCompleteSearchResultsAccount -Json $SavedSearchCompleteSearchResultsAccount
 ```
 
 

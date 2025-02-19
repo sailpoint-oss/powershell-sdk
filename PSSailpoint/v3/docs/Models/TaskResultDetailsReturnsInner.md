@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $TaskResultDetailsReturnsInner = Initialize-PSSailpoint.V3TaskResultDetailsReturnsInner  -DisplayLabel   `
  -AttributeName  
+$TaskResultDetailsReturnsInner = @"{  "DisplayLabel": " ", "AttributeName": " " }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TaskResultDetailsReturnsInner | ConvertTo-JSON
+ConvertFrom-JsonToTaskResultDetailsReturnsInner -Json $TaskResultDetailsReturnsInner
 ```
 
 

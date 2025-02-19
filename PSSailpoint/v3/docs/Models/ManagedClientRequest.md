@@ -29,11 +29,12 @@ $ManagedClientRequest = Initialize-PSSailpoint.V3ManagedClientRequest  -ClusterI
  -Description A short description of the ManagedClient `
  -Name aName `
  -Type VA
+$ManagedClientRequest = @"{  "ClusterId": "aClusterId", "Description": "A short description of the ManagedClient", "Name": "aName", "Type": "VA" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ManagedClientRequest | ConvertTo-JSON
+ConvertFrom-JsonToManagedClientRequest -Json $ManagedClientRequest
 ```
 
 

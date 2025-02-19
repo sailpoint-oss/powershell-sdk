@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $QueryResultFilter = Initialize-PSSailpoint.V2024QueryResultFilter  -Includes [name, displayName] `
  -Excludes [stacktrace]
+$QueryResultFilter = @"{  "Includes": ["name", "displayName"], "Excludes": ["stacktrace"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$QueryResultFilter | ConvertTo-JSON
+ConvertFrom-JsonToQueryResultFilter -Json $QueryResultFilter
 ```
 
 

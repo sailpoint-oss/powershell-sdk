@@ -31,11 +31,12 @@ $AccountsCollectedForAggregationStats = Initialize-PSSailpoint.BetaAccountsColle
  -Changed 6 `
  -Added 4 `
  -Removed 3
+$AccountsCollectedForAggregationStats = @"{  "Scanned": "200", "Unchanged": "190", "Changed": "6", "Added": "4", "Removed": "3" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountsCollectedForAggregationStats | ConvertTo-JSON
+ConvertFrom-JsonToAccountsCollectedForAggregationStats -Json $AccountsCollectedForAggregationStats
 ```
 
 

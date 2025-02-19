@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ApprovalStatusDtoCurrentOwner = Initialize-PSSailpoint.BetaApprovalStatusDtoCurrentOwner  -Type IDENTITY `
  -Id 2c3780a46faadee4016fb4e018c20652 `
  -Name Allen Albertson
+$ApprovalStatusDtoCurrentOwner = @"{  "Type": "IDENTITY", "Id": "2c3780a46faadee4016fb4e018c20652", "Name": "Allen Albertson" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalStatusDtoCurrentOwner | ConvertTo-JSON
+ConvertFrom-JsonToApprovalStatusDtoCurrentOwner -Json $ApprovalStatusDtoCurrentOwner
 ```
 
 

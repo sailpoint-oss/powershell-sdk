@@ -26,12 +26,13 @@ Name | Type | Description | Notes
 ```powershell
 $BulkIdentitiesAccountsResponse = Initialize-PSSailpoint.BetaBulkIdentitiesAccountsResponse  -Id 2c9180858082150f0180893dbaf553fe `
  -StatusCode 404 `
- -Message Referenced identity &quot;2c9180858082150f0180893dbaf553fe&quot; was not found.
+ -Message Referenced identity "2c9180858082150f0180893dbaf553fe" was not found.
+$BulkIdentitiesAccountsResponse = @"{  "Id": "2c9180858082150f0180893dbaf553fe", "StatusCode": "404", "Message": "Referenced identity ","2c9180858082150f0180893dbaf553fe": "was not found." }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$BulkIdentitiesAccountsResponse | ConvertTo-JSON
+ConvertFrom-JsonToBulkIdentitiesAccountsResponse -Json $BulkIdentitiesAccountsResponse
 ```
 
 

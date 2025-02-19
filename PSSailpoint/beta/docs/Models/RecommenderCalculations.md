@@ -37,11 +37,12 @@ $RecommenderCalculations = Initialize-PSSailpoint.BetaRecommenderCalculations  -
  -Threshold null `
  -IdentityAttributes null `
  -FeatureValues null
+$RecommenderCalculations = @"{  "IdentityId": "2c91808457d8f3ab0157e3e62cb4213c", "EntitlementId": "2c91809050db617d0150e0bf3215385e", "Recommendation": "YES", "OverallWeightedScore": null, "FeatureWeightedScores": null, "Threshold": null, "IdentityAttributes": null, "FeatureValues": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RecommenderCalculations | ConvertTo-JSON
+ConvertFrom-JsonToRecommenderCalculations -Json $RecommenderCalculations
 ```
 
 

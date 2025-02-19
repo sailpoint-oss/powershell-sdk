@@ -35,11 +35,12 @@ $AccountAggregationCompleted = Initialize-PSSailpoint.V2024AccountAggregationCom
  -Errors null `
  -Warnings null `
  -Stats null
+$AccountAggregationCompleted = @"{  "Source": null, "Status": "Success", "Started": "2020-06-29T22:01:50.474Z", "Completed": "2020-06-29T22:02:04.090Z", "Errors": null, "Warnings": null, "Stats": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountAggregationCompleted | ConvertTo-JSON
+ConvertFrom-JsonToAccountAggregationCompleted -Json $AccountAggregationCompleted
 ```
 
 

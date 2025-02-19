@@ -33,11 +33,12 @@ $SpConfigExportResults = Initialize-PSSailpoint.V2024SpConfigExportResults  -Ver
  -Description Export Job 1 Test `
  -Options null `
  -Objects null
+$SpConfigExportResults = @"{  "Version": "1", "Timestamp": "2021-05-11T22:23:16Z", "Tenant": "sample-tenant", "Description": "Export Job 1 Test", "Options": null, "Objects": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SpConfigExportResults | ConvertTo-JSON
+ConvertFrom-JsonToSpConfigExportResults -Json $SpConfigExportResults
 ```
 
 

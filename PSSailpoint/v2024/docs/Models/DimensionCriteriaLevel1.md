@@ -29,11 +29,12 @@ $DimensionCriteriaLevel1 = Initialize-PSSailpoint.V2024DimensionCriteriaLevel1  
  -Key null `
  -StringValue carlee.cert1c9f9b6fd@mailinator.com `
  -Children null
+$DimensionCriteriaLevel1 = @"{  "Operation": null, "Key": null, "StringValue": "carlee.cert1c9f9b6fd@mailinator.com", "Children": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$DimensionCriteriaLevel1 | ConvertTo-JSON
+ConvertFrom-JsonToDimensionCriteriaLevel1 -Json $DimensionCriteriaLevel1
 ```
 
 

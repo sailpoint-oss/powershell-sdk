@@ -31,11 +31,12 @@ $TransformRead = Initialize-PSSailpoint.V3TransformRead  -Name Timestamp To Date
  -Attributes null `
  -Id 2cd78adghjkja34jh2b1hkjhasuecd `
  -Internal false
+$TransformRead = @"{  "Name": "Timestamp To Date", "Type": "dateFormat", "Attributes": null, "Id": "2cd78adghjkja34jh2b1hkjhasuecd", "Internal": false }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TransformRead | ConvertTo-JSON
+ConvertFrom-JsonToTransformRead -Json $TransformRead
 ```
 
 

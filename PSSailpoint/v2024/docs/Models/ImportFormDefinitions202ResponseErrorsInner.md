@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ImportFormDefinitions202ResponseErrorsInner = Initialize-PSSailpoint.V2024ImportFormDefinitions202ResponseErrorsInner  -Detail null `
  -Key null `
  -Text null
+$ImportFormDefinitions202ResponseErrorsInner = @"{  "Detail": null, "Key": "null", "Text": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ImportFormDefinitions202ResponseErrorsInner | ConvertTo-JSON
+ConvertFrom-JsonToImportFormDefinitions202ResponseErrorsInner -Json $ImportFormDefinitions202ResponseErrorsInner
 ```
 
 

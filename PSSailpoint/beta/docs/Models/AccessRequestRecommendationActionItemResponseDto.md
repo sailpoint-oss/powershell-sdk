@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AccessRequestRecommendationActionItemResponseDto = Initialize-PSSailpoint.BetaAccessRequestRecommendationActionItemResponseDto  -IdentityId 2c91808570313110017040b06f344ec9 `
  -Access null `
  -Timestamp 2017-07-11T18:45:37.098Z
+$AccessRequestRecommendationActionItemResponseDto = @"{  "IdentityId": "2c91808570313110017040b06f344ec9", "Access": null, "Timestamp": "2017-07-11T18:45:37.098Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessRequestRecommendationActionItemResponseDto | ConvertTo-JSON
+ConvertFrom-JsonToAccessRequestRecommendationActionItemResponseDto -Json $AccessRequestRecommendationActionItemResponseDto
 ```
 
 

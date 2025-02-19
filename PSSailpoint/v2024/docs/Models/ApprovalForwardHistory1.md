@@ -33,11 +33,12 @@ $ApprovalForwardHistory1 = Initialize-PSSailpoint.V2024ApprovalForwardHistory1  
  -Modified 2019-08-23T18:52:57.398Z `
  -ForwarderName William Wilson `
  -ReassignmentType null
+$ApprovalForwardHistory1 = @"{  "OldApproverName": "Frank Mir", "NewApproverName": "Al Volta", "Comment": "Forwarding from Frank to Al", "Modified": "2019-08-23T18:52:57.398Z", "ForwarderName": "William Wilson", "ReassignmentType": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ApprovalForwardHistory1 | ConvertTo-JSON
+ConvertFrom-JsonToApprovalForwardHistory1 -Json $ApprovalForwardHistory1
 ```
 
 

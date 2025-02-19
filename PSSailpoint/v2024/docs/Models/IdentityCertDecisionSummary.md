@@ -53,11 +53,12 @@ $IdentityCertDecisionSummary = Initialize-PSSailpoint.V2024IdentityCertDecisionS
  -RolesRevoked 0 `
  -AccountsApproved 1 `
  -AccountsRevoked 3
+$IdentityCertDecisionSummary = @"{  "EntitlementDecisionsMade": "3", "AccessProfileDecisionsMade": "5", "RoleDecisionsMade": "2", "AccountDecisionsMade": "4", "EntitlementDecisionsTotal": "6", "AccessProfileDecisionsTotal": "10", "RoleDecisionsTotal": "4", "AccountDecisionsTotal": "8", "EntitlementsApproved": "2", "EntitlementsRevoked": "1", "AccessProfilesApproved": "3", "AccessProfilesRevoked": "2", "RolesApproved": "2", "RolesRevoked": "0", "AccountsApproved": "1", "AccountsRevoked": "3" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityCertDecisionSummary | ConvertTo-JSON
+ConvertFrom-JsonToIdentityCertDecisionSummary -Json $IdentityCertDecisionSummary
 ```
 
 

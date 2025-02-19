@@ -51,11 +51,12 @@ $AccessProfileDocument = Initialize-PSSailpoint.V3AccessProfileDocument  -Id 2c9
  -Entitlements null `
  -EntitlementCount 5 `
  -Tags [TAG_1, TAG_2]
+$AccessProfileDocument = @"{  "Id": "2c9180825a6c1adc015a71c9023f0818", "Name": "Cloud Eng", "Description": "The admin role", "Created": "2018-06-25T20:22:28.104Z", "Modified": "2018-06-25T20:22:28.104Z", "Synced": "2018-06-25T20:22:33.104Z", "Enabled": true, "Requestable": true, "RequestCommentsRequired": false, "Owner": null, "Type": "accessprofile", "Source": null, "Entitlements": null, "EntitlementCount": "5", "Tags": ["TAG_1", "TAG_2"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileDocument | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileDocument -Json $AccessProfileDocument
 ```
 
 

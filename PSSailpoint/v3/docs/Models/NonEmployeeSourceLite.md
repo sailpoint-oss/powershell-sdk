@@ -29,11 +29,12 @@ $NonEmployeeSourceLite = Initialize-PSSailpoint.V3NonEmployeeSourceLite  -Id a03
  -SourceId 2c91808568c529c60168cca6f90c1313 `
  -Name Retail `
  -Description Source description
+$NonEmployeeSourceLite = @"{  "Id": "a0303682-5e4a-44f7-bdc2-6ce6112549c1", "SourceId": "2c91808568c529c60168cca6f90c1313", "Name": "Retail", "Description": "Source description" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeSourceLite | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeSourceLite -Json $NonEmployeeSourceLite
 ```
 
 

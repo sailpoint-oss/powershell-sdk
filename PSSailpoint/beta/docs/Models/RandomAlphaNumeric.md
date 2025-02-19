@@ -26,12 +26,13 @@ Name | Type | Description | Notes
 ```powershell
 $RandomAlphaNumeric = Initialize-PSSailpoint.BetaRandomAlphaNumeric  -Length 10 `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
+$RandomAlphaNumeric = @"{  "Length": "10", "RequiresPeriodicRefresh": false, "VarInput": {"type": "accountAttribute", "attributes":{"attributeName": "first_name", "sourceName": "Source}}" }}}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RandomAlphaNumeric | ConvertTo-JSON
+ConvertFrom-JsonToRandomAlphaNumeric -Json $RandomAlphaNumeric
 ```
 
 

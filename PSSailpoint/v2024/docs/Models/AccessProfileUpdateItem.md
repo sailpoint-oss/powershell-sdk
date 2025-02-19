@@ -29,15 +29,20 @@ $AccessProfileUpdateItem = Initialize-PSSailpoint.V2024AccessProfileUpdateItem  
  -Requestable false `
  -Status 201 `
  -Description 
-&gt; Access profile is updated successfully.
+> Access profile is updated successfully.
 
-&gt; Referenced Access profile with Id &quot;2c7180a46faadee4016fb4e018c20642&quot; was not found.
+> Referenced Access profile with Id "2c7180a46faadee4016fb4e018c20642" was not found.
 
+$AccessProfileUpdateItem = @"{  Id: "2c7180a46faadee4016fb4e018c20642", Requestable: false, Status: "201", Description: "
+> Access profile is updated successfully.
+
+> Referenced Access profile with Id "2c7180a46faadee4016fb4e018c20642" was not found.
+" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccessProfileUpdateItem | ConvertTo-JSON
+ConvertFrom-JsonToAccessProfileUpdateItem -Json $AccessProfileUpdateItem
 ```
 
 

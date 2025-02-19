@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AssignmentContextDto = Initialize-PSSailpoint.BetaAssignmentContextDto  -Requested null `
  -Matched null `
  -ComputedDate Wed Feb 14 10:58:42
+$AssignmentContextDto = @"{  "Requested": null, "Matched": null, "ComputedDate": "Wed Feb 14 10:58:42" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AssignmentContextDto | ConvertTo-JSON
+ConvertFrom-JsonToAssignmentContextDto -Json $AssignmentContextDto
 ```
 
 

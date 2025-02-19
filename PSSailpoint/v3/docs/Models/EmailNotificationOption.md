@@ -29,11 +29,12 @@ $EmailNotificationOption = Initialize-PSSailpoint.V3EmailNotificationOption  -No
  -NotifyAllAdmins true `
  -NotifySpecificUsers true `
  -EmailAddressList [test@test.com, test2@test.com]
+$EmailNotificationOption = @"{  "NotifyManagers": true, "NotifyAllAdmins": true, "NotifySpecificUsers": true, "EmailAddressList": ["test@test.com", "test2@test.com"] }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$EmailNotificationOption | ConvertTo-JSON
+ConvertFrom-JsonToEmailNotificationOption -Json $EmailNotificationOption
 ```
 
 

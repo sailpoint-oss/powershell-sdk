@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $AuthProfileSummary = Initialize-PSSailpoint.BetaAuthProfileSummary  -Tenant test-tenant `
  -Id 2c91808458ae7a4f0158b1bbf8af0628
+$AuthProfileSummary = @"{  "Tenant": "test-tenant", "Id": "2c91808458ae7a4f0158b1bbf8af0628" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AuthProfileSummary | ConvertTo-JSON
+ConvertFrom-JsonToAuthProfileSummary -Json $AuthProfileSummary
 ```
 
 

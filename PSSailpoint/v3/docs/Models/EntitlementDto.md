@@ -38,18 +38,19 @@ $EntitlementDto = Initialize-PSSailpoint.V3EntitlementDto  -Id id12345 `
  -Created 2015-05-28T14:07:17Z `
  -Modified 2015-05-28T14:07:17Z `
  -Attribute authorizationType `
- -Value CN&#x3D;Users,dc&#x3D;sailpoint,dc&#x3D;com `
+ -Value CN=Users,dc=sailpoint,dc=com `
  -Description Active Directory DC `
- -Attributes {GroupType&#x3D;Security, sAMAccountName&#x3D;Buyer} `
+ -Attributes {GroupType=Security, sAMAccountName=Buyer} `
  -SourceSchemaObjectType group `
  -Privileged false `
  -CloudGoverned false `
  -Source null
+$EntitlementDto = @"undefined"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$EntitlementDto | ConvertTo-JSON
+ConvertFrom-JsonToEntitlementDto -Json $EntitlementDto
 ```
 
 

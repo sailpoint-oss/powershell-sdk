@@ -29,11 +29,12 @@ $ObjectImportResult1 = Initialize-PSSailpoint.V2024ObjectImportResult1  -Infos n
  -Warnings null `
  -Errors null `
  -ImportedObjects null
+$ObjectImportResult1 = @"{  "Infos": null, "Warnings": null, "Errors": null, "ImportedObjects": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ObjectImportResult1 | ConvertTo-JSON
+ConvertFrom-JsonToObjectImportResult1 -Json $ObjectImportResult1
 ```
 
 

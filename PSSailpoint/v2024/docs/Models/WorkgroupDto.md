@@ -37,11 +37,12 @@ $WorkgroupDto = Initialize-PSSailpoint.V2024WorkgroupDto  -Owner null `
  -ConnectionCount 1641498673000 `
  -Created 2022-01-06T19:51:13Z `
  -Modified 2022-01-06T19:51:13Z
+$WorkgroupDto = @"{  "Owner": null, "Id": "2c91808568c529c60168cca6f90c1313", "Name": "DB Access Governance Group", "Description": "Description of the Governance Group", "MemberCount": "1641498673000", "ConnectionCount": "1641498673000", "Created": "2022-01-06T19:51:13Z", "Modified": "2022-01-06T19:51:13Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkgroupDto | ConvertTo-JSON
+ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
 ```
 
 

@@ -23,13 +23,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$InnerHit = Initialize-PSSailpoint.V3InnerHit  -Query source.name:\&quot;Active Directory\&quot; `
+$InnerHit = Initialize-PSSailpoint.V3InnerHit  -Query source.name:\"Active Directory\" `
  -Type access
+$InnerHit = @"{  "Query": "source.name:\"Active Directory\"", "Type": "access" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$InnerHit | ConvertTo-JSON
+ConvertFrom-JsonToInnerHit -Json $InnerHit
 ```
 
 

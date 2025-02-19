@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $WorkflowExecutionEvent = Initialize-PSSailpoint.BetaWorkflowExecutionEvent  -Type WorkflowTaskScheduled `
  -Timestamp 2022-02-07T20:13:31.640618296Z `
  -Attributes {}
+$WorkflowExecutionEvent = @"{  "Type": "WorkflowTaskScheduled", "Timestamp": "2022-02-07T20:13:31.640618296Z", "Attributes": {} }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$WorkflowExecutionEvent | ConvertTo-JSON
+ConvertFrom-JsonToWorkflowExecutionEvent -Json $WorkflowExecutionEvent
 ```
 
 

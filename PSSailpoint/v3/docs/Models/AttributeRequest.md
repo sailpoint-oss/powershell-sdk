@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $AttributeRequest = Initialize-PSSailpoint.V3AttributeRequest  -Name groups `
  -Op Add `
  -Value 3203537556531076
+$AttributeRequest = @"{  "Name": "groups", "Op": "Add", "Value": "3203537556531076" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AttributeRequest | ConvertTo-JSON
+ConvertFrom-JsonToAttributeRequest -Json $AttributeRequest
 ```
 
 

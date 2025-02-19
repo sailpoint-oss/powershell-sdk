@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $LoadUncorrelatedAccountsTask = Initialize-PSSailpoint.BetaLoadUncorrelatedAccountsTask  -Success true `
  -Task null
+$LoadUncorrelatedAccountsTask = @"{  "Success": true, "Task": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$LoadUncorrelatedAccountsTask | ConvertTo-JSON
+ConvertFrom-JsonToLoadUncorrelatedAccountsTask -Json $LoadUncorrelatedAccountsTask
 ```
 
 

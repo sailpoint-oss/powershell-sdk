@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $IdentityLifecycleState = Initialize-PSSailpoint.BetaIdentityLifecycleState  -StateName active `
  -ManuallyUpdated true
+$IdentityLifecycleState = @"{  "StateName": "active", "ManuallyUpdated": "true "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityLifecycleState | ConvertTo-JSON
+ConvertFrom-JsonToIdentityLifecycleState -Json $IdentityLifecycleState
 ```
 
 

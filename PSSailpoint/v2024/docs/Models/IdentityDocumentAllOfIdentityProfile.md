@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $IdentityDocumentAllOfIdentityProfile = Initialize-PSSailpoint.V2024IdentityDocumentAllOfIdentityProfile  -Id 3bc8ad26b8664945866b31339d1ff7d2 `
  -Name HR Employees
+$IdentityDocumentAllOfIdentityProfile = @"{  "Id": "3bc8ad26b8664945866b31339d1ff7d2", "Name": "HR Employees" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$IdentityDocumentAllOfIdentityProfile | ConvertTo-JSON
+ConvertFrom-JsonToIdentityDocumentAllOfIdentityProfile -Json $IdentityDocumentAllOfIdentityProfile
 ```
 
 

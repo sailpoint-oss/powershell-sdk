@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $SavedSearchCompleteSearchResults = Initialize-PSSailpoint.V2024SavedSearchCompleteSearchResults  -Account null `
  -Entitlement null `
  -Identity null
+$SavedSearchCompleteSearchResults = @"{  "Account": null, "Entitlement": null, "Identity": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SavedSearchCompleteSearchResults | ConvertTo-JSON
+ConvertFrom-JsonToSavedSearchCompleteSearchResults -Json $SavedSearchCompleteSearchResults
 ```
 
 

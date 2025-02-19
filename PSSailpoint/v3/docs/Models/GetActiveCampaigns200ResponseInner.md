@@ -67,11 +67,12 @@ $GetActiveCampaigns200ResponseInner = Initialize-PSSailpoint.V3GetActiveCampaign
  -MachineAccountCampaignInfo null `
  -SourcesWithOrphanEntitlements null `
  -MandatoryCommentRequirement NO_DECISIONS
+$GetActiveCampaigns200ResponseInner = @"{  "Id": "2c9079b270a266a60170a2779fcb0007", "Name": "Manager Campaign", "Description": "Everyone needs to be reviewed by their manager", "Deadline": "2020-03-15T10:00:01.456Z", "Type": "MANAGER", "EmailNotificationEnabled": false, "AutoRevokeAllowed": false, "RecommendationsEnabled": true, "Status": "ACTIVE", "CorrelatedStatus": "CORRELATED", "Created": "2020-03-03T22:15:13.611Z", "TotalCertifications": "100", "CompletedCertifications": "10", "Alerts": null, "Modified": "2020-03-03T22:20:12.674Z", "VarFilter": null, "SunsetCommentsRequired": true, "SourceOwnerCampaignInfo": null, "SearchCampaignInfo": null, "RoleCompositionCampaignInfo": null, "MachineAccountCampaignInfo": null, "SourcesWithOrphanEntitlements": null, "MandatoryCommentRequirement": "NO_DECISIONS" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$GetActiveCampaigns200ResponseInner | ConvertTo-JSON
+ConvertFrom-JsonToGetActiveCampaigns200ResponseInner -Json $GetActiveCampaigns200ResponseInner
 ```
 
 

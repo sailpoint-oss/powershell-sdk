@@ -29,11 +29,12 @@ $SodExemptCriteria1 = Initialize-PSSailpoint.V2024SodExemptCriteria1  -Existing 
  -Type null `
  -Id 2c918085771e9d3301773b3cb66f6398 `
  -Name My HR Entitlement
+$SodExemptCriteria1 = @"{  "Existing": true, "Type": null, "Id": "2c918085771e9d3301773b3cb66f6398", "Name": "My HR Entitlement" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SodExemptCriteria1 | ConvertTo-JSON
+ConvertFrom-JsonToSodExemptCriteria1 -Json $SodExemptCriteria1
 ```
 
 

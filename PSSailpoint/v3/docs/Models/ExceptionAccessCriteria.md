@@ -25,11 +25,12 @@ Name | Type | Description | Notes
 ```powershell
 $ExceptionAccessCriteria = Initialize-PSSailpoint.V3ExceptionAccessCriteria  -LeftCriteria null `
  -RightCriteria null
+$ExceptionAccessCriteria = @"{  "LeftCriteria": null, "RightCriteria": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ExceptionAccessCriteria | ConvertTo-JSON
+ConvertFrom-JsonToExceptionAccessCriteria -Json $ExceptionAccessCriteria
 ```
 
 

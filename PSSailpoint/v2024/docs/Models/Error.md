@@ -27,11 +27,12 @@ Name | Type | Description | Notes
 $ModelError = Initialize-PSSailpoint.V2024ModelError  -DetailCode Internal Server Error `
  -Messages null `
  -TrackingId 9cd03ef80e6a425eb6b11bdbb057cdb4
+$ModelError = @"{  "DetailCode": "Internal Server Error", "Messages": null, "TrackingId": "9cd03ef80e6a425eb6b11bdbb057cdb4" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$ModelError | ConvertTo-JSON
+ConvertFrom-JsonToModelError -Json $ModelError
 ```
 
 

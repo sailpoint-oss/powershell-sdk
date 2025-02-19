@@ -35,11 +35,12 @@ $AccountStatusChangedAccount = Initialize-PSSailpoint.BetaAccountStatusChangedAc
  -SourceName null `
  -EntitlementCount null `
  -AccessType null
+$AccountStatusChangedAccount = @"{  "Id": "null", "NativeIdentity": "null", "DisplayName": "null", "SourceId": "null", "SourceName": "null", "EntitlementCount": null, "AccessType": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$AccountStatusChangedAccount | ConvertTo-JSON
+ConvertFrom-JsonToAccountStatusChangedAccount -Json $AccountStatusChangedAccount
 ```
 
 

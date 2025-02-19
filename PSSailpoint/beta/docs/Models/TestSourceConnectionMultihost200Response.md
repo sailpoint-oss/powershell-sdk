@@ -31,11 +31,12 @@ $TestSourceConnectionMultihost200Response = Initialize-PSSailpoint.BetaTestSourc
  -Timing null `
  -ResultType SOURCE_STATE_HEALTHY `
  -TestConnectionDetails null
+$TestSourceConnectionMultihost200Response = @"{  "Success": true, "Message": "Tes.", "Timing": null, "ResultType": "SOURCE_STATE_HEALTHY", "TestConnectionDetails": "null" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$TestSourceConnectionMultihost200Response | ConvertTo-JSON
+ConvertFrom-JsonToTestSourceConnectionMultihost200Response -Json $TestSourceConnectionMultihost200Response
 ```
 
 

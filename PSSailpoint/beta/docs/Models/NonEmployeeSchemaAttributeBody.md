@@ -33,11 +33,12 @@ $NonEmployeeSchemaAttributeBody = Initialize-PSSailpoint.BetaNonEmployeeSchemaAt
  -HelpText The unique identifier for the account `
  -Placeholder Enter a unique user name for this account. `
  -Required true
+$NonEmployeeSchemaAttributeBody = @"{  "Type": "TEXT", "Label": "Account Name", "TechnicalName": "account.name", "HelpText": "The unique identifier for the account", "Placeholder": "Enter a unique user name for this account.", "Required": "true "}"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$NonEmployeeSchemaAttributeBody | ConvertTo-JSON
+ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
 ```
 
 

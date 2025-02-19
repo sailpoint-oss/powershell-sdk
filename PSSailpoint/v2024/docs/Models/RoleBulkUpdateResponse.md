@@ -29,11 +29,12 @@ $RoleBulkUpdateResponse = Initialize-PSSailpoint.V2024RoleBulkUpdateResponse  -I
  -Type Role `
  -Status CREATED `
  -Created 2020-10-08T18:33:52.029Z
+$RoleBulkUpdateResponse = @"{  "Id": "2c9180867817ac4d017817c491119a20", "Type": "Role", "Status": "CREATED", "Created": "2020-10-08T18:33:52.029Z" }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$RoleBulkUpdateResponse | ConvertTo-JSON
+ConvertFrom-JsonToRoleBulkUpdateResponse -Json $RoleBulkUpdateResponse
 ```
 
 

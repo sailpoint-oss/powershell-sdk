@@ -49,11 +49,12 @@ $SlimCampaign = Initialize-PSSailpoint.V3SlimCampaign  -Id 2c9079b270a266a60170a
  -TotalCertifications 100 `
  -CompletedCertifications 10 `
  -Alerts null
+$SlimCampaign = @"{  "Id": "2c9079b270a266a60170a2779fcb0007", "Name": "Manager Campaign", "Description": "Everyone needs to be reviewed by their manager", "Deadline": "2020-03-15T10:00:01.456Z", "Type": "MANAGER", "EmailNotificationEnabled": false, "AutoRevokeAllowed": false, "RecommendationsEnabled": true, "Status": "ACTIVE", "CorrelatedStatus": "CORRELATED", "Created": "2020-03-03T22:15:13.611Z", "TotalCertifications": "100", "CompletedCertifications": "10", "Alerts": null }"@
 ```
 
-- Convert the resource to JSON
+- Convert the resource from JSON
 ```powershell
-$SlimCampaign | ConvertTo-JSON
+ConvertFrom-JsonToSlimCampaign -Json $SlimCampaign
 ```
 
 

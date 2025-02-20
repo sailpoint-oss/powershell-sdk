@@ -32,21 +32,21 @@ jobs:
 
       - name: Sync files between folders
         run: |
-          CURRENT_V3_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/v3/docs/Examples/code_examples_overlay.yaml"
+          CURRENT_V3_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/v3/docs/Examples/powershell_code_examples_overlay.yaml"
           NEW_V3_CODE_EXAMPLES_PATH="developer-community/static/code-examples/v3"
           CURRENT_V3_SPEC_PATH_METHODS="powershell-sdk/PSSailpoint/v3/docs/Methods"
           NEW_V3_API_SPEC_PATH_METHODS="developer-community/docs/tools/sdk/powershell/Reference/V3"
           CURRENT_V3_SPEC_PATH_MODELS="powershell-sdk/PSSailpoint/v3/docs/Models"
           NEW_V3_API_SPEC_PATH_MODELS="developer-community/docs/tools/sdk/powershell/Reference/V3"
 
-          CURRENT_BETA_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/beta/docs/Examples/code_examples_overlay.yaml"
+          CURRENT_BETA_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/beta/docs/Examples/powershell_code_examples_overlay.yaml"
           NEW_BETA_CODE_EXAMPLES_PATH="developer-community/static/code-examples/beta"
           CURRENT_BETA_SPEC_PATH_METHODS="powershell-sdk/PSSailpoint/beta/docs/Methods"
           NEW_BETA_API_SPEC_PATH_METHODS="developer-community/docs/tools/sdk/powershell/Reference/Beta"
           CURRENT_BETA_SPEC_PATH_MODELS="powershell-sdk/PSSailpoint/beta/docs/Models"
           NEW_BETA_API_SPEC_PATH_MODELS="developer-community/docs/tools/sdk/powershell/Reference/Beta"
 
-          CURRENT_V2024_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/v2024/docs/Examples/code_examples_overlay.yaml"
+          CURRENT_V2024_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/v2024/docs/Examples/powershell_code_examples_overlay.yaml"
           NEW_V2024_CODE_EXAMPLES_PATH="developer-community/static/code-examples/v2024"
           CURRENT_V2024_SPEC_PATH_METHODS="powershell-sdk/PSSailpoint/v2024/docs/Methods"
           NEW_V2024_API_SPEC_PATH_METHODS="developer-community/docs/tools/sdk/powershell/Reference/V2024"

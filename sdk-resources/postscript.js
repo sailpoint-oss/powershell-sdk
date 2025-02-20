@@ -20,7 +20,7 @@ const mergeCodeExampleFiles = async (srcDir) => {
     // Check if the source directory exists asynchronously
     await fs.access(srcDir);
 
-    const destFile = path.join(srcDir, 'code_examples_overlay.yaml');
+    const destFile = path.join(srcDir, 'powershell_code_examples_overlay.yaml');
     const files = await fs.readdir(srcDir);
 
     // Use writeFile instead of createWriteStream to simplify handling in async/await context

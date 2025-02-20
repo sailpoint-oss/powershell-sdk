@@ -15,11 +15,9 @@ No summary available.
 Event
 
 .PARAMETER Id
-No description available.
+ID of the entitlement.
 .PARAMETER Name
-No description available.
-.PARAMETER Type
-No description available.
+Name of the entitlement.
 .PARAMETER Created
 ISO-8601 date-time referring to the time when the object was created.
 .PARAMETER Synced
@@ -29,9 +27,9 @@ Name of the event as it's displayed in audit reports.
 .PARAMETER Type
 Event type. Refer to [Event Types](https://documentation.sailpoint.com/saas/help/search/index.html#event-types) for a list of event types and their meanings.
 .PARAMETER Actor
-Name of the actor that generated the event.
+No description available.
 .PARAMETER Target
-Name of the target, or recipient, of the event.
+No description available.
 .PARAMETER Stack
 The event's stack.
 .PARAMETER TrackingNumber
@@ -65,10 +63,6 @@ function Initialize-ModelEvent {
         [String]
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("accessprofile", "accountactivity", "account", "aggregation", "entitlement", "event", "identity", "role")]
-        [PSCustomObject]
-        ${DocumentType},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -79,12 +73,12 @@ function Initialize-ModelEvent {
         ${Action},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Type},
+        ${DocumentType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject]
         ${Actor},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject]
         ${Target},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -119,23 +113,10 @@ function Initialize-ModelEvent {
         'Creating PSCustomObject: PSSailpoint.V3 => ModelEvent' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Id) {
-            throw "invalid value for 'Id', 'Id' cannot be null."
-        }
-
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
-
-        if (!$Type) {
-            throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "_type" = ${DocumentType}
             "created" = ${Created}
             "synced" = ${Synced}
             "action" = ${Action}
@@ -187,33 +168,23 @@ function ConvertFrom-JsonToModelEvent {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ModelEvent
-        $AllProperties = ("id", "name", "_type", "created", "synced", "action", "type", "actor", "target", "stack", "trackingNumber", "ipAddress", "details", "attributes", "objects", "operation", "status", "technicalName")
+        $AllProperties = ("id", "name", "created", "synced", "action", "type", "actor", "target", "stack", "trackingNumber", "ipAddress", "details", "attributes", "objects", "operation", "status", "technicalName")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "_type"))) {
-            throw "Error! JSON cannot be serialized due to the required property '_type' missing."
-        } else {
-            $DocumentType = $JsonParameters.PSobject.Properties["_type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
@@ -309,7 +280,6 @@ function ConvertFrom-JsonToModelEvent {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "_type" = ${DocumentType}
             "created" = ${Created}
             "synced" = ${Synced}
             "action" = ${Action}

@@ -4,6 +4,8 @@ Index.md
 README.md
 appveyor.yml
 docs/Access.md
+docs/AccessApps.md
+docs/AccessAppsOwner.md
 docs/AccessConstraint.md
 docs/AccessCriteria.md
 docs/AccessCriteriaCriteriaListInner.md
@@ -69,6 +71,7 @@ docs/AccountsApideveloperSite_code_examples.yaml
 docs/AccountsAsyncResult.md
 docs/AccountsExportReportArguments.md
 docs/ActivateCampaignOptions.md
+docs/ActivityIdentity.md
 docs/ActivityInsights.md
 docs/AdminReviewReassign.md
 docs/AdminReviewReassignReassignTo.md
@@ -99,6 +102,7 @@ docs/AttributeDefinition.md
 docs/AttributeDefinitionSchema.md
 docs/AttributeDefinitionType.md
 docs/AttributeRequest.md
+docs/AttributeRequestValue.md
 docs/AttributeValueDTO.md
 docs/AuthUser.md
 docs/AuthUsersApi.md
@@ -108,7 +112,7 @@ docs/BackupResponse.md
 docs/Base64Decode.md
 docs/Base64Encode.md
 docs/BaseAccess.md
-docs/BaseAccessAllOfOwner.md
+docs/BaseAccessOwner.md
 docs/BaseAccessProfile.md
 docs/BaseAccount.md
 docs/BaseCommonDto.md
@@ -216,13 +220,14 @@ docs/DependantAppConnectionsAccountSourcePasswordPoliciesInner.md
 docs/DependantConnectionsMissingDto.md
 docs/DimensionRef.md
 docs/DisplayReference.md
-docs/DocumentType.md
 docs/DtoType.md
 docs/DuoVerificationRequest.md
 docs/E164phone.md
 docs/EmailNotificationOption.md
 docs/Entitlement.md
 docs/EntitlementDocument.md
+docs/EntitlementDocumentAllOfManuallyUpdatedFields.md
+docs/EntitlementDocumentAllOfPermissions.md
 docs/EntitlementDocumentAllOfSource.md
 docs/EntitlementDto.md
 docs/EntitlementRef.md
@@ -233,8 +238,10 @@ docs/EntitlementSummary.md
 docs/ErrorMessageDto.md
 docs/ErrorResponseDto.md
 docs/Event.md
+docs/EventActor.md
 docs/EventAttributes.md
 docs/EventDocument.md
+docs/EventTarget.md
 docs/ExceptionAccessCriteria.md
 docs/ExceptionCriteria.md
 docs/ExceptionCriteriaAccess.md
@@ -503,6 +510,7 @@ docs/RequestedItemStatusRequestState.md
 docs/RequestedItemStatusRequestedFor.md
 docs/RequestedItemStatusRequesterComment.md
 docs/RequestedItemStatusSodViolationContext.md
+docs/Result.md
 docs/ReviewDecision.md
 docs/ReviewReassign.md
 docs/ReviewRecommendation.md
@@ -525,6 +533,10 @@ docs/RoleCriteriaLevel2.md
 docs/RoleCriteriaLevel3.md
 docs/RoleCriteriaOperation.md
 docs/RoleDocument.md
+docs/RoleDocumentAllOfDimensionSchemaAttributes.md
+docs/RoleDocumentAllOfDimensions.md
+docs/RoleDocumentAllOfEntitlements.md
+docs/RoleDocumentAllOfEntitlements1.md
 docs/RoleIdentity.md
 docs/RoleMembershipIdentity.md
 docs/RoleMembershipSelector.md
@@ -763,6 +775,8 @@ src/PSSailpoint.V3/Api/WorkItemsApi.ps1
 src/PSSailpoint.V3/Api/WorkflowsApi.ps1
 src/PSSailpoint.V3/Client/Configuration.ps1
 src/PSSailpoint.V3/Model/Access.ps1
+src/PSSailpoint.V3/Model/AccessApps.ps1
+src/PSSailpoint.V3/Model/AccessAppsOwner.ps1
 src/PSSailpoint.V3/Model/AccessConstraint.ps1
 src/PSSailpoint.V3/Model/AccessCriteria.ps1
 src/PSSailpoint.V3/Model/AccessCriteriaCriteriaListInner.ps1
@@ -816,6 +830,7 @@ src/PSSailpoint.V3/Model/AccountUsage.ps1
 src/PSSailpoint.V3/Model/AccountsAsyncResult.ps1
 src/PSSailpoint.V3/Model/AccountsExportReportArguments.ps1
 src/PSSailpoint.V3/Model/ActivateCampaignOptions.ps1
+src/PSSailpoint.V3/Model/ActivityIdentity.ps1
 src/PSSailpoint.V3/Model/ActivityInsights.ps1
 src/PSSailpoint.V3/Model/AdminReviewReassign.ps1
 src/PSSailpoint.V3/Model/AdminReviewReassignReassignTo.ps1
@@ -844,6 +859,7 @@ src/PSSailpoint.V3/Model/AttributeDefinition.ps1
 src/PSSailpoint.V3/Model/AttributeDefinitionSchema.ps1
 src/PSSailpoint.V3/Model/AttributeDefinitionType.ps1
 src/PSSailpoint.V3/Model/AttributeRequest.ps1
+src/PSSailpoint.V3/Model/AttributeRequestValue.ps1
 src/PSSailpoint.V3/Model/AttributeValueDTO.ps1
 src/PSSailpoint.V3/Model/AuthUser.ps1
 src/PSSailpoint.V3/Model/BackupOptions.ps1
@@ -851,7 +867,7 @@ src/PSSailpoint.V3/Model/BackupResponse.ps1
 src/PSSailpoint.V3/Model/Base64Decode.ps1
 src/PSSailpoint.V3/Model/Base64Encode.ps1
 src/PSSailpoint.V3/Model/BaseAccess.ps1
-src/PSSailpoint.V3/Model/BaseAccessAllOfOwner.ps1
+src/PSSailpoint.V3/Model/BaseAccessOwner.ps1
 src/PSSailpoint.V3/Model/BaseAccessProfile.ps1
 src/PSSailpoint.V3/Model/BaseAccount.ps1
 src/PSSailpoint.V3/Model/BaseCommonDto.ps1
@@ -945,13 +961,14 @@ src/PSSailpoint.V3/Model/DependantAppConnectionsAccountSourcePasswordPoliciesInn
 src/PSSailpoint.V3/Model/DependantConnectionsMissingDto.ps1
 src/PSSailpoint.V3/Model/DimensionRef.ps1
 src/PSSailpoint.V3/Model/DisplayReference.ps1
-src/PSSailpoint.V3/Model/DocumentType.ps1
 src/PSSailpoint.V3/Model/DtoType.ps1
 src/PSSailpoint.V3/Model/DuoVerificationRequest.ps1
 src/PSSailpoint.V3/Model/E164phone.ps1
 src/PSSailpoint.V3/Model/EmailNotificationOption.ps1
 src/PSSailpoint.V3/Model/Entitlement.ps1
 src/PSSailpoint.V3/Model/EntitlementDocument.ps1
+src/PSSailpoint.V3/Model/EntitlementDocumentAllOfManuallyUpdatedFields.ps1
+src/PSSailpoint.V3/Model/EntitlementDocumentAllOfPermissions.ps1
 src/PSSailpoint.V3/Model/EntitlementDocumentAllOfSource.ps1
 src/PSSailpoint.V3/Model/EntitlementDto.ps1
 src/PSSailpoint.V3/Model/EntitlementRef.ps1
@@ -961,8 +978,10 @@ src/PSSailpoint.V3/Model/EntitlementSource.ps1
 src/PSSailpoint.V3/Model/EntitlementSummary.ps1
 src/PSSailpoint.V3/Model/ErrorMessageDto.ps1
 src/PSSailpoint.V3/Model/ErrorResponseDto.ps1
+src/PSSailpoint.V3/Model/EventActor.ps1
 src/PSSailpoint.V3/Model/EventAttributes.ps1
 src/PSSailpoint.V3/Model/EventDocument.ps1
+src/PSSailpoint.V3/Model/EventTarget.ps1
 src/PSSailpoint.V3/Model/ExceptionAccessCriteria.ps1
 src/PSSailpoint.V3/Model/ExceptionCriteria.ps1
 src/PSSailpoint.V3/Model/ExceptionCriteriaAccess.ps1
@@ -1193,6 +1212,7 @@ src/PSSailpoint.V3/Model/RequestedItemStatusRequestState.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatusRequestedFor.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatusRequesterComment.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatusSodViolationContext.ps1
+src/PSSailpoint.V3/Model/Result.ps1
 src/PSSailpoint.V3/Model/ReviewDecision.ps1
 src/PSSailpoint.V3/Model/ReviewReassign.ps1
 src/PSSailpoint.V3/Model/ReviewRecommendation.ps1
@@ -1215,6 +1235,10 @@ src/PSSailpoint.V3/Model/RoleCriteriaLevel2.ps1
 src/PSSailpoint.V3/Model/RoleCriteriaLevel3.ps1
 src/PSSailpoint.V3/Model/RoleCriteriaOperation.ps1
 src/PSSailpoint.V3/Model/RoleDocument.ps1
+src/PSSailpoint.V3/Model/RoleDocumentAllOfDimensionSchemaAttributes.ps1
+src/PSSailpoint.V3/Model/RoleDocumentAllOfDimensions.ps1
+src/PSSailpoint.V3/Model/RoleDocumentAllOfEntitlements.ps1
+src/PSSailpoint.V3/Model/RoleDocumentAllOfEntitlements1.ps1
 src/PSSailpoint.V3/Model/RoleIdentity.ps1
 src/PSSailpoint.V3/Model/RoleMembershipIdentity.ps1
 src/PSSailpoint.V3/Model/RoleMembershipSelector.ps1
@@ -1427,6 +1451,8 @@ tests/Api/VendorConnectorMappingsApi.Tests.ps1
 tests/Api/WorkItemsApi.Tests.ps1
 tests/Api/WorkflowsApi.Tests.ps1
 tests/Model/Access.Tests.ps1
+tests/Model/AccessApps.Tests.ps1
+tests/Model/AccessAppsOwner.Tests.ps1
 tests/Model/AccessConstraint.Tests.ps1
 tests/Model/AccessCriteria.Tests.ps1
 tests/Model/AccessCriteriaCriteriaListInner.Tests.ps1
@@ -1480,6 +1506,7 @@ tests/Model/AccountUsage.Tests.ps1
 tests/Model/AccountsAsyncResult.Tests.ps1
 tests/Model/AccountsExportReportArguments.Tests.ps1
 tests/Model/ActivateCampaignOptions.Tests.ps1
+tests/Model/ActivityIdentity.Tests.ps1
 tests/Model/ActivityInsights.Tests.ps1
 tests/Model/AdminReviewReassign.Tests.ps1
 tests/Model/AdminReviewReassignReassignTo.Tests.ps1
@@ -1508,6 +1535,7 @@ tests/Model/AttributeDefinition.Tests.ps1
 tests/Model/AttributeDefinitionSchema.Tests.ps1
 tests/Model/AttributeDefinitionType.Tests.ps1
 tests/Model/AttributeRequest.Tests.ps1
+tests/Model/AttributeRequestValue.Tests.ps1
 tests/Model/AttributeValueDTO.Tests.ps1
 tests/Model/AuthUser.Tests.ps1
 tests/Model/BackupOptions.Tests.ps1
@@ -1515,7 +1543,7 @@ tests/Model/BackupResponse.Tests.ps1
 tests/Model/Base64Decode.Tests.ps1
 tests/Model/Base64Encode.Tests.ps1
 tests/Model/BaseAccess.Tests.ps1
-tests/Model/BaseAccessAllOfOwner.Tests.ps1
+tests/Model/BaseAccessOwner.Tests.ps1
 tests/Model/BaseAccessProfile.Tests.ps1
 tests/Model/BaseAccount.Tests.ps1
 tests/Model/BaseCommonDto.Tests.ps1
@@ -1609,13 +1637,14 @@ tests/Model/DependantAppConnectionsAccountSourcePasswordPoliciesInner.Tests.ps1
 tests/Model/DependantConnectionsMissingDto.Tests.ps1
 tests/Model/DimensionRef.Tests.ps1
 tests/Model/DisplayReference.Tests.ps1
-tests/Model/DocumentType.Tests.ps1
 tests/Model/DtoType.Tests.ps1
 tests/Model/DuoVerificationRequest.Tests.ps1
 tests/Model/E164phone.Tests.ps1
 tests/Model/EmailNotificationOption.Tests.ps1
 tests/Model/Entitlement.Tests.ps1
 tests/Model/EntitlementDocument.Tests.ps1
+tests/Model/EntitlementDocumentAllOfManuallyUpdatedFields.Tests.ps1
+tests/Model/EntitlementDocumentAllOfPermissions.Tests.ps1
 tests/Model/EntitlementDocumentAllOfSource.Tests.ps1
 tests/Model/EntitlementDto.Tests.ps1
 tests/Model/EntitlementRef.Tests.ps1
@@ -1625,8 +1654,10 @@ tests/Model/EntitlementSource.Tests.ps1
 tests/Model/EntitlementSummary.Tests.ps1
 tests/Model/ErrorMessageDto.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
+tests/Model/EventActor.Tests.ps1
 tests/Model/EventAttributes.Tests.ps1
 tests/Model/EventDocument.Tests.ps1
+tests/Model/EventTarget.Tests.ps1
 tests/Model/ExceptionAccessCriteria.Tests.ps1
 tests/Model/ExceptionCriteria.Tests.ps1
 tests/Model/ExceptionCriteriaAccess.Tests.ps1
@@ -1857,6 +1888,7 @@ tests/Model/RequestedItemStatusRequestState.Tests.ps1
 tests/Model/RequestedItemStatusRequestedFor.Tests.ps1
 tests/Model/RequestedItemStatusRequesterComment.Tests.ps1
 tests/Model/RequestedItemStatusSodViolationContext.Tests.ps1
+tests/Model/Result.Tests.ps1
 tests/Model/ReviewDecision.Tests.ps1
 tests/Model/ReviewReassign.Tests.ps1
 tests/Model/ReviewRecommendation.Tests.ps1
@@ -1879,6 +1911,10 @@ tests/Model/RoleCriteriaLevel2.Tests.ps1
 tests/Model/RoleCriteriaLevel3.Tests.ps1
 tests/Model/RoleCriteriaOperation.Tests.ps1
 tests/Model/RoleDocument.Tests.ps1
+tests/Model/RoleDocumentAllOfDimensionSchemaAttributes.Tests.ps1
+tests/Model/RoleDocumentAllOfDimensions.Tests.ps1
+tests/Model/RoleDocumentAllOfEntitlements.Tests.ps1
+tests/Model/RoleDocumentAllOfEntitlements1.Tests.ps1
 tests/Model/RoleIdentity.Tests.ps1
 tests/Model/RoleMembershipIdentity.Tests.ps1
 tests/Model/RoleMembershipSelector.Tests.ps1

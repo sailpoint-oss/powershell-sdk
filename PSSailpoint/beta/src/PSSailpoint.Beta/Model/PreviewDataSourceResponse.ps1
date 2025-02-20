@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-PreviewDataSourceResponse is the response sent by /form-definitions/{formDefinitionID}/data-source endpoint
+PreviewDataSourceResponse is the response sent by `/form-definitions/{formDefinitionID}/data-source` endpoint
 
 .PARAMETER Results
 Results holds a list of FormElementDataSourceConfigOptions items

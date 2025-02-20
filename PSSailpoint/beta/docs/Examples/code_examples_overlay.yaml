@@ -2552,6 +2552,30 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCertificationReviewers"
             Write-Host $_.ErrorDetails
         }
+- path: /certifications
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/certifications#list-certifications
+      source: |
+        $ReviewerIdentitiy = "MyReviewerIdentitiy" # String | The ID of reviewer identity. *me* indicates the current user. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "MyFilters" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **phase**: *eq*  **completed**: *eq, ne*  **campaignRef.campaignType**: *eq, in*  **campaignRef.id**: *eq, in* (optional)
+        $Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, due, signed** (optional)
+        
+        # Certifications by IDs
+        
+        try {
+            Get-BetaCertifications 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaCertifications -ReviewerIdentitiy $ReviewerIdentitiy -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCertifications"
+            Write-Host $_.ErrorDetails
+        }
 - path: /certifications/{id}/reassign-async
   method: POST
   xCodeSample:

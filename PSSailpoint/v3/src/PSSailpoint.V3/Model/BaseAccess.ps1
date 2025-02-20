@@ -14,10 +14,6 @@ No summary available.
 
 No description available.
 
-.PARAMETER Id
-The unique ID of the referenced object.
-.PARAMETER Name
-The human readable name of the referenced object.
 .PARAMETER Description
 Access item's description.
 .PARAMETER Created
@@ -42,12 +38,6 @@ BaseAccess<PSCustomObject>
 function Initialize-BaseAccess {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
@@ -80,8 +70,6 @@ function Initialize-BaseAccess {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
             "description" = ${Description}
             "created" = ${Created}
             "modified" = ${Modified}
@@ -126,23 +114,11 @@ function ConvertFrom-JsonToBaseAccess {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BaseAccess
-        $AllProperties = ("id", "name", "description", "created", "modified", "synced", "enabled", "requestable", "requestCommentsRequired", "owner")
+        $AllProperties = ("description", "created", "modified", "synced", "enabled", "requestable", "requestCommentsRequired", "owner")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
-        } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
@@ -194,8 +170,6 @@ function ConvertFrom-JsonToBaseAccess {
         }
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
             "description" = ${Description}
             "created" = ${Created}
             "modified" = ${Modified}

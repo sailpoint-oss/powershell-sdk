@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'Access' {
     Context 'Access' {
         It 'Initialize-Access' {
             # a simple test to create an object
-            #$NewObject = Initialize-Access -Id "TEST_VALUE" -Name "TEST_VALUE" -DisplayName "TEST_VALUE" -Type "TEST_VALUE" -Description "TEST_VALUE"
+            #$NewObject = Initialize-Access -Id "TEST_VALUE" -Name "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE"
             #$NewObject | Should -BeOfType Access
             #$NewObject.property | Should -Be 0
         }

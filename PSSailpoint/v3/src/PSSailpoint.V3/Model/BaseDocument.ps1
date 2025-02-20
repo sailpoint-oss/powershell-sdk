@@ -15,11 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-No description available.
+ID of the referenced object.
 .PARAMETER Name
-No description available.
-.PARAMETER Type
-No description available.
+The human readable name of the referenced object.
 .OUTPUTS
 
 BaseDocument<PSCustomObject>
@@ -33,11 +31,7 @@ function Initialize-BaseDocument {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("accessprofile", "accountactivity", "account", "aggregation", "entitlement", "event", "identity", "role")]
-        [PSCustomObject]
-        ${Type}
+        ${Name}
     )
 
     Process {
@@ -52,15 +46,10 @@ function Initialize-BaseDocument {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if (!$Type) {
-            throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "_type" = ${Type}
         }
 
         return $PSO
@@ -97,7 +86,7 @@ function ConvertFrom-JsonToBaseDocument {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BaseDocument
-        $AllProperties = ("id", "name", "_type")
+        $AllProperties = ("id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -120,16 +109,9 @@ function ConvertFrom-JsonToBaseDocument {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "_type"))) {
-            throw "Error! JSON cannot be serialized due to the required property '_type' missing."
-        } else {
-            $Type = $JsonParameters.PSobject.Properties["_type"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "_type" = ${Type}
         }
 
         return $PSO

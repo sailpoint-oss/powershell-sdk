@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'RoleDocument' {
     Context 'RoleDocument' {
         It 'Initialize-RoleDocument' {
             # a simple test to create an object
-            #$NewObject = Initialize-RoleDocument -Id "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE" -Description "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Synced "TEST_VALUE" -Enabled "TEST_VALUE" -Requestable "TEST_VALUE" -RequestCommentsRequired "TEST_VALUE" -Owner "TEST_VALUE" -AccessProfiles "TEST_VALUE" -AccessProfileCount "TEST_VALUE" -Tags "TEST_VALUE" -Segments "TEST_VALUE" -SegmentCount "TEST_VALUE" -Entitlements "TEST_VALUE" -EntitlementCount "TEST_VALUE"
+            #$NewObject = Initialize-RoleDocument -Description "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Synced "TEST_VALUE" -Enabled "TEST_VALUE" -Requestable "TEST_VALUE" -RequestCommentsRequired "TEST_VALUE" -Owner "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE" -AccessProfiles "TEST_VALUE" -AccessProfileCount "TEST_VALUE" -Tags "TEST_VALUE" -Segments "TEST_VALUE" -SegmentCount "TEST_VALUE" -Entitlements "TEST_VALUE" -EntitlementCount "TEST_VALUE" -Dimensional "TEST_VALUE" -DimensionSchemaAttributeCount "TEST_VALUE" -DimensionSchemaAttributes "TEST_VALUE" -Dimensions "TEST_VALUE"
             #$NewObject | Should -BeOfType RoleDocument
             #$NewObject.property | Should -Be 0
         }

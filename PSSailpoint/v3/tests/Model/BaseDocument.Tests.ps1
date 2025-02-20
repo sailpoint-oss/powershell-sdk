@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'BaseDocument' {
     Context 'BaseDocument' {
         It 'Initialize-BaseDocument' {
             # a simple test to create an object
-            #$NewObject = Initialize-BaseDocument -Id "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE"
+            #$NewObject = Initialize-BaseDocument -Id "TEST_VALUE" -Name "TEST_VALUE"
             #$NewObject | Should -BeOfType BaseDocument
             #$NewObject.property | Should -Be 0
         }

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024Approval1' {
     Context 'V2024Approval1' {
         It 'Initialize-V2024Approval1' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024Approval1 -Comments "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Owner "TEST_VALUE" -Result "TEST_VALUE" -Type "TEST_VALUE"
+            #$NewObject = Initialize-V2024Approval1 -Comments "TEST_VALUE" -Modified "TEST_VALUE" -Owner "TEST_VALUE" -Result "TEST_VALUE" -AttributeRequest "TEST_VALUE" -Source "TEST_VALUE"
             #$NewObject | Should -BeOfType Approval1
             #$NewObject.property | Should -Be 0
         }

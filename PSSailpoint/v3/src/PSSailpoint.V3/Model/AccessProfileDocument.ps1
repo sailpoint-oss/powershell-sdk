@@ -14,10 +14,6 @@ No summary available.
 
 More complete representation of an access profile.  
 
-.PARAMETER Id
-Access profile's ID.
-.PARAMETER Name
-Access profile's name.
 .PARAMETER Description
 Access item's description.
 .PARAMETER Created
@@ -34,16 +30,24 @@ Indicates whether the access item can be requested.
 Indicates whether comments are required for requests to access the item.
 .PARAMETER Owner
 No description available.
-.PARAMETER Type
-Access profile's document type.  This enum represents the currently supported document types. Additional values may be added in the future without notice.
+.PARAMETER Id
+Access profile's ID.
+.PARAMETER Name
+Access profile's name.
 .PARAMETER Source
 No description available.
 .PARAMETER Entitlements
 Entitlements the access profile has access to.
 .PARAMETER EntitlementCount
 Number of entitlements.
+.PARAMETER Segments
+Segments with the access profile.
+.PARAMETER SegmentCount
+Number of segments with the access profile.
 .PARAMETER Tags
 Tags that have been applied to the object.
+.PARAMETER Apps
+Applications with the access profile
 .OUTPUTS
 
 AccessProfileDocument<PSCustomObject>
@@ -52,12 +56,6 @@ AccessProfileDocument<PSCustomObject>
 function Initialize-AccessProfileDocument {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
@@ -83,9 +81,11 @@ function Initialize-AccessProfileDocument {
         [PSCustomObject]
         ${Owner},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("accessprofile", "accountactivity", "account", "aggregation", "entitlement", "event", "identity", "role")]
         [String]
-        ${Type},
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
@@ -96,8 +96,17 @@ function Initialize-AccessProfileDocument {
         [System.Nullable[Int32]]
         ${EntitlementCount},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Segments},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${SegmentCount},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${Tags}
+        ${Tags},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Apps}
     )
 
     Process {
@@ -112,14 +121,8 @@ function Initialize-AccessProfileDocument {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if (!$Type) {
-            throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
             "description" = ${Description}
             "created" = ${Created}
             "modified" = ${Modified}
@@ -128,11 +131,15 @@ function Initialize-AccessProfileDocument {
             "requestable" = ${Requestable}
             "requestCommentsRequired" = ${RequestCommentsRequired}
             "owner" = ${Owner}
-            "_type" = ${Type}
+            "id" = ${Id}
+            "name" = ${Name}
             "source" = ${Source}
             "entitlements" = ${Entitlements}
             "entitlementCount" = ${EntitlementCount}
+            "segments" = ${Segments}
+            "segmentCount" = ${SegmentCount}
             "tags" = ${Tags}
+            "apps" = ${Apps}
         }
 
         return $PSO
@@ -169,7 +176,7 @@ function ConvertFrom-JsonToAccessProfileDocument {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccessProfileDocument
-        $AllProperties = ("id", "name", "description", "created", "modified", "synced", "enabled", "requestable", "requestCommentsRequired", "owner", "_type", "source", "entitlements", "entitlementCount", "tags")
+        $AllProperties = ("description", "created", "modified", "synced", "enabled", "requestable", "requestCommentsRequired", "owner", "id", "name", "source", "entitlements", "entitlementCount", "segments", "segmentCount", "tags", "apps")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -190,12 +197,6 @@ function ConvertFrom-JsonToAccessProfileDocument {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "_type"))) {
-            throw "Error! JSON cannot be serialized due to the required property '_type' missing."
-        } else {
-            $Type = $JsonParameters.PSobject.Properties["_type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
@@ -264,15 +265,31 @@ function ConvertFrom-JsonToAccessProfileDocument {
             $EntitlementCount = $JsonParameters.PSobject.Properties["entitlementCount"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "segments"))) { #optional property not found
+            $Segments = $null
+        } else {
+            $Segments = $JsonParameters.PSobject.Properties["segments"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "segmentCount"))) { #optional property not found
+            $SegmentCount = $null
+        } else {
+            $SegmentCount = $JsonParameters.PSobject.Properties["segmentCount"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "tags"))) { #optional property not found
             $Tags = $null
         } else {
             $Tags = $JsonParameters.PSobject.Properties["tags"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "apps"))) { #optional property not found
+            $Apps = $null
+        } else {
+            $Apps = $JsonParameters.PSobject.Properties["apps"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "name" = ${Name}
             "description" = ${Description}
             "created" = ${Created}
             "modified" = ${Modified}
@@ -281,11 +298,15 @@ function ConvertFrom-JsonToAccessProfileDocument {
             "requestable" = ${Requestable}
             "requestCommentsRequired" = ${RequestCommentsRequired}
             "owner" = ${Owner}
-            "_type" = ${Type}
+            "id" = ${Id}
+            "name" = ${Name}
             "source" = ${Source}
             "entitlements" = ${Entitlements}
             "entitlementCount" = ${EntitlementCount}
+            "segments" = ${Segments}
+            "segmentCount" = ${SegmentCount}
             "tags" = ${Tags}
+            "apps" = ${Apps}
         }
 
         return $PSO

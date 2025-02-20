@@ -20,10 +20,10 @@ The unique ID of the referenced object.
 The human readable name of the referenced object.
 .PARAMETER DisplayName
 No description available.
-.PARAMETER Type
-No description available.
 .PARAMETER Description
-No description available.
+Description of access item.
+.PARAMETER Type
+Type of the access item.
 .PARAMETER Source
 No description available.
 .PARAMETER Owner
@@ -48,12 +48,11 @@ function Initialize-V2024AccessProfileSummary {
         [String]
         ${DisplayName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ACCOUNT_CORRELATION_CONFIG", "ACCESS_PROFILE", "ACCESS_REQUEST_APPROVAL", "ACCOUNT", "APPLICATION", "CAMPAIGN", "CAMPAIGN_FILTER", "CERTIFICATION", "CLUSTER", "CONNECTOR_SCHEMA", "ENTITLEMENT", "GOVERNANCE_GROUP", "IDENTITY", "IDENTITY_PROFILE", "IDENTITY_REQUEST", "MACHINE_IDENTITY", "LIFECYCLE_STATE", "PASSWORD_POLICY", "ROLE", "RULE", "SOD_POLICY", "SOURCE", "TAG", "TAG_CATEGORY", "TASK_RESULT", "REPORT_RESULT", "SOD_VIOLATION", "ACCOUNT_ACTIVITY", "WORKGROUP")]
-        [PSCustomObject]
-        ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Source},
@@ -74,8 +73,8 @@ function Initialize-V2024AccessProfileSummary {
             "id" = ${Id}
             "name" = ${Name}
             "displayName" = ${DisplayName}
-            "type" = ${Type}
             "description" = ${Description}
+            "type" = ${Type}
             "source" = ${Source}
             "owner" = ${Owner}
             "revocable" = ${Revocable}
@@ -115,7 +114,7 @@ function ConvertFrom-V2024JsonToAccessProfileSummary {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024AccessProfileSummary
-        $AllProperties = ("id", "name", "displayName", "type", "description", "source", "owner", "revocable")
+        $AllProperties = ("id", "name", "displayName", "description", "type", "source", "owner", "revocable")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -140,16 +139,16 @@ function ConvertFrom-V2024JsonToAccessProfileSummary {
             $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
-            $Type = $null
-        } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
             $Description = $null
         } else {
             $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "source"))) { #optional property not found
@@ -174,8 +173,8 @@ function ConvertFrom-V2024JsonToAccessProfileSummary {
             "id" = ${Id}
             "name" = ${Name}
             "displayName" = ${DisplayName}
-            "type" = ${Type}
             "description" = ${Description}
+            "type" = ${Type}
             "source" = ${Source}
             "owner" = ${Owner}
             "revocable" = ${Revocable}

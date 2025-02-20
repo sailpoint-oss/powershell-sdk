@@ -18,8 +18,6 @@ Identity
 The unique ID of the referenced object.
 .PARAMETER Name
 The human readable name of the referenced object.
-.PARAMETER Type
-No description available.
 .PARAMETER DisplayName
 Identity's display name.
 .PARAMETER FirstName
@@ -54,6 +52,10 @@ No description available.
 No description available.
 .PARAMETER Attributes
 Map or dictionary of key/value pairs.
+.PARAMETER Disabled
+Indicates whether the identity is disabled.
+.PARAMETER Locked
+Indicates whether the identity is locked.
 .PARAMETER ProcessingState
 Identity's processing state.
 .PARAMETER ProcessingDetails
@@ -82,6 +84,12 @@ Access items the identity owns.
 Number of access items the identity owns.
 .PARAMETER Tags
 Tags that have been applied to the object.
+.PARAMETER TagsCount
+Number of tags on the identity.
+.PARAMETER VisibleSegments
+List of segments that the identity is in.
+.PARAMETER VisibleSegmentCount
+Number of segments the identity is in.
 .OUTPUTS
 
 IdentityDocument<PSCustomObject>
@@ -96,10 +104,6 @@ function Initialize-IdentityDocument {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("accessprofile", "accountactivity", "account", "aggregation", "entitlement", "event", "identity", "role")]
-        [PSCustomObject]
-        ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayName},
@@ -152,6 +156,12 @@ function Initialize-IdentityDocument {
         [System.Collections.Hashtable]
         ${Attributes},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Disabled} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Locked} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ProcessingState},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -192,7 +202,16 @@ function Initialize-IdentityDocument {
         ${OwnsCount},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${Tags}
+        ${Tags},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${TagsCount},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${VisibleSegments},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${VisibleSegmentCount}
     )
 
     Process {
@@ -207,15 +226,10 @@ function Initialize-IdentityDocument {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if (!$Type) {
-            throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "_type" = ${Type}
             "displayName" = ${DisplayName}
             "firstName" = ${FirstName}
             "lastName" = ${LastName}
@@ -233,6 +247,8 @@ function Initialize-IdentityDocument {
             "identityProfile" = ${IdentityProfile}
             "source" = ${Source}
             "attributes" = ${Attributes}
+            "disabled" = ${Disabled}
+            "locked" = ${Locked}
             "processingState" = ${ProcessingState}
             "processingDetails" = ${ProcessingDetails}
             "accounts" = ${Accounts}
@@ -247,6 +263,9 @@ function Initialize-IdentityDocument {
             "owns" = ${Owns}
             "ownsCount" = ${OwnsCount}
             "tags" = ${Tags}
+            "tagsCount" = ${TagsCount}
+            "visibleSegments" = ${VisibleSegments}
+            "visibleSegmentCount" = ${VisibleSegmentCount}
         }
 
         return $PSO
@@ -283,7 +302,7 @@ function ConvertFrom-JsonToIdentityDocument {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in IdentityDocument
-        $AllProperties = ("id", "name", "_type", "displayName", "firstName", "lastName", "email", "created", "modified", "phone", "synced", "inactive", "protected", "status", "employeeNumber", "manager", "isManager", "identityProfile", "source", "attributes", "processingState", "processingDetails", "accounts", "accountCount", "apps", "appCount", "access", "accessCount", "entitlementCount", "roleCount", "accessProfileCount", "owns", "ownsCount", "tags")
+        $AllProperties = ("id", "name", "displayName", "firstName", "lastName", "email", "created", "modified", "phone", "synced", "inactive", "protected", "status", "employeeNumber", "manager", "isManager", "identityProfile", "source", "attributes", "disabled", "locked", "processingState", "processingDetails", "accounts", "accountCount", "apps", "appCount", "access", "accessCount", "entitlementCount", "roleCount", "accessProfileCount", "owns", "ownsCount", "tags", "tagsCount", "visibleSegments", "visibleSegmentCount")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -304,12 +323,6 @@ function ConvertFrom-JsonToIdentityDocument {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "_type"))) {
-            throw "Error! JSON cannot be serialized due to the required property '_type' missing."
-        } else {
-            $Type = $JsonParameters.PSobject.Properties["_type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
@@ -414,6 +427,18 @@ function ConvertFrom-JsonToIdentityDocument {
             $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "disabled"))) { #optional property not found
+            $Disabled = $null
+        } else {
+            $Disabled = $JsonParameters.PSobject.Properties["disabled"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "locked"))) { #optional property not found
+            $Locked = $null
+        } else {
+            $Locked = $JsonParameters.PSobject.Properties["locked"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "processingState"))) { #optional property not found
             $ProcessingState = $null
         } else {
@@ -498,10 +523,27 @@ function ConvertFrom-JsonToIdentityDocument {
             $Tags = $JsonParameters.PSobject.Properties["tags"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tagsCount"))) { #optional property not found
+            $TagsCount = $null
+        } else {
+            $TagsCount = $JsonParameters.PSobject.Properties["tagsCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "visibleSegments"))) { #optional property not found
+            $VisibleSegments = $null
+        } else {
+            $VisibleSegments = $JsonParameters.PSobject.Properties["visibleSegments"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "visibleSegmentCount"))) { #optional property not found
+            $VisibleSegmentCount = $null
+        } else {
+            $VisibleSegmentCount = $JsonParameters.PSobject.Properties["visibleSegmentCount"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
-            "_type" = ${Type}
             "displayName" = ${DisplayName}
             "firstName" = ${FirstName}
             "lastName" = ${LastName}
@@ -519,6 +561,8 @@ function ConvertFrom-JsonToIdentityDocument {
             "identityProfile" = ${IdentityProfile}
             "source" = ${Source}
             "attributes" = ${Attributes}
+            "disabled" = ${Disabled}
+            "locked" = ${Locked}
             "processingState" = ${ProcessingState}
             "processingDetails" = ${ProcessingDetails}
             "accounts" = ${Accounts}
@@ -533,6 +577,9 @@ function ConvertFrom-JsonToIdentityDocument {
             "owns" = ${Owns}
             "ownsCount" = ${OwnsCount}
             "tags" = ${Tags}
+            "tagsCount" = ${TagsCount}
+            "visibleSegments" = ${VisibleSegments}
+            "visibleSegmentCount" = ${VisibleSegmentCount}
         }
 
         return $PSO

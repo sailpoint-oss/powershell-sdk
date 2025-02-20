@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024ModelEvent' {
     Context 'V2024ModelEvent' {
         It 'Initialize-V2024ModelEvent' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024ModelEvent -Id "TEST_VALUE" -Name "TEST_VALUE" -Type "TEST_VALUE" -Created "TEST_VALUE" -Synced "TEST_VALUE" -Action "TEST_VALUE" -Type "TEST_VALUE" -Actor "TEST_VALUE" -Target "TEST_VALUE" -Stack "TEST_VALUE" -TrackingNumber "TEST_VALUE" -IpAddress "TEST_VALUE" -Details "TEST_VALUE" -Attributes "TEST_VALUE" -Objects "TEST_VALUE" -Operation "TEST_VALUE" -Status "TEST_VALUE" -TechnicalName "TEST_VALUE"
+            #$NewObject = Initialize-V2024ModelEvent -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Synced "TEST_VALUE" -Action "TEST_VALUE" -Type "TEST_VALUE" -Actor "TEST_VALUE" -Target "TEST_VALUE" -Stack "TEST_VALUE" -TrackingNumber "TEST_VALUE" -IpAddress "TEST_VALUE" -Details "TEST_VALUE" -Attributes "TEST_VALUE" -Objects "TEST_VALUE" -Operation "TEST_VALUE" -Status "TEST_VALUE" -TechnicalName "TEST_VALUE"
             #$NewObject | Should -BeOfType ModelEvent
             #$NewObject.property | Should -Be 0
         }

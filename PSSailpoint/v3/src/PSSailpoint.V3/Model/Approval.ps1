@@ -16,15 +16,15 @@ No description available.
 
 .PARAMETER Comments
 No description available.
-.PARAMETER Created
-A date-time in ISO-8601 format
 .PARAMETER Modified
 A date-time in ISO-8601 format
 .PARAMETER Owner
 No description available.
 .PARAMETER Result
 The result of the approval
-.PARAMETER Type
+.PARAMETER AttributeRequest
+No description available.
+.PARAMETER Source
 No description available.
 .OUTPUTS
 
@@ -39,9 +39,6 @@ function Initialize-Approval {
         ${Comments},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${Created},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
         ${Modified},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
@@ -50,8 +47,11 @@ function Initialize-Approval {
         [String]
         ${Result},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Type}
+        [PSCustomObject]
+        ${AttributeRequest},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Source}
     )
 
     Process {
@@ -61,11 +61,11 @@ function Initialize-Approval {
 
         $PSO = [PSCustomObject]@{
             "comments" = ${Comments}
-            "created" = ${Created}
             "modified" = ${Modified}
             "owner" = ${Owner}
             "result" = ${Result}
-            "type" = ${Type}
+            "attributeRequest" = ${AttributeRequest}
+            "source" = ${Source}
         }
 
         return $PSO
@@ -102,7 +102,7 @@ function ConvertFrom-JsonToApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Approval
-        $AllProperties = ("comments", "created", "modified", "owner", "result", "type")
+        $AllProperties = ("comments", "modified", "owner", "result", "attributeRequest", "source")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -113,12 +113,6 @@ function ConvertFrom-JsonToApproval {
             $Comments = $null
         } else {
             $Comments = $JsonParameters.PSobject.Properties["comments"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
-            $Created = $null
-        } else {
-            $Created = $JsonParameters.PSobject.Properties["created"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "modified"))) { #optional property not found
@@ -139,19 +133,25 @@ function ConvertFrom-JsonToApproval {
             $Result = $JsonParameters.PSobject.Properties["result"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
-            $Type = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributeRequest"))) { #optional property not found
+            $AttributeRequest = $null
         } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
+            $AttributeRequest = $JsonParameters.PSobject.Properties["attributeRequest"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "source"))) { #optional property not found
+            $Source = $null
+        } else {
+            $Source = $JsonParameters.PSobject.Properties["source"].value
         }
 
         $PSO = [PSCustomObject]@{
             "comments" = ${Comments}
-            "created" = ${Created}
             "modified" = ${Modified}
             "owner" = ${Owner}
             "result" = ${Result}
-            "type" = ${Type}
+            "attributeRequest" = ${AttributeRequest}
+            "source" = ${Source}
         }
 
         return $PSO

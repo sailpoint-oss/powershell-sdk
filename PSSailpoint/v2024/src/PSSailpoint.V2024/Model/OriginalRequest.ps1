@@ -16,6 +16,8 @@ No description available.
 
 .PARAMETER AccountId
 Account ID.
+.PARAMETER Result
+No description available.
 .PARAMETER AttributeRequests
 Attribute changes requested for account.
 .PARAMETER Op
@@ -34,6 +36,9 @@ function Initialize-V2024OriginalRequest {
         [String]
         ${AccountId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Result},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AttributeRequests},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -51,6 +56,7 @@ function Initialize-V2024OriginalRequest {
 
         $PSO = [PSCustomObject]@{
             "accountId" = ${AccountId}
+            "result" = ${Result}
             "attributeRequests" = ${AttributeRequests}
             "op" = ${Op}
             "source" = ${Source}
@@ -90,7 +96,7 @@ function ConvertFrom-V2024JsonToOriginalRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024OriginalRequest
-        $AllProperties = ("accountId", "attributeRequests", "op", "source")
+        $AllProperties = ("accountId", "result", "attributeRequests", "op", "source")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -101,6 +107,12 @@ function ConvertFrom-V2024JsonToOriginalRequest {
             $AccountId = $null
         } else {
             $AccountId = $JsonParameters.PSobject.Properties["accountId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "result"))) { #optional property not found
+            $Result = $null
+        } else {
+            $Result = $JsonParameters.PSobject.Properties["result"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributeRequests"))) { #optional property not found
@@ -123,6 +135,7 @@ function ConvertFrom-V2024JsonToOriginalRequest {
 
         $PSO = [PSCustomObject]@{
             "accountId" = ${AccountId}
+            "result" = ${Result}
             "attributeRequests" = ${AttributeRequests}
             "op" = ${Op}
             "source" = ${Source}

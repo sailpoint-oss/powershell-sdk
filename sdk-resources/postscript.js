@@ -3,9 +3,60 @@ const path = require("path");
 const { jsonrepair } = require('jsonrepair');
 const { json } = require("stream/consumers");
 
+// Initialize counters for success and failure
 let successCount = 0;
 let failureCount = 0;
 
+function malformedToValidJson(input) {
+  let output = input;
+  output = output.replace(/([{,]\s*)([A-Za-z0-9_$]+)\s*[:=]/g, '$1"$2":');
+  output = output.replace(/=(?=(?:[^"]*"[^"]*")*[^"]*$)/g, ":");
+  output = output.replace(/\[([^\]]*)\]/g, function(match, arrayContent) {
+    let elements = arrayContent.split(/,(?![^\[]*\])/);
+    elements = elements.map(el => {
+      let trimmed = el.trim();
+      if (trimmed === "") return '""';
+      if ((trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+          (trimmed.startsWith("'") && trimmed.endsWith("'"))) {
+        return trimmed;
+      }
+      if (trimmed === "true" || trimmed === "false" || trimmed === "null" || !isNaN(trimmed)) {
+        return trimmed;
+      }
+      return '"' + trimmed + '"';
+    });
+    return "[" + elements.join(", ") + "]";
+  });
+  output = output.replace(/:\s*([A-Za-z_][A-Za-z0-9_\-\.]*)(?=[,\}\]])/g, function(match, p1) {
+    if (p1 === "true" || p1 === "false" || p1 === "null" || !isNaN(p1)) {
+      return ": " + p1;
+    }
+    return ': "' + p1 + '"';
+  });
+  output = output.replace(/,(\s*[}\]])/g, '$1');
+  output = output.replace(/:\s*"([^"]*?)"/g, function(match, content) {
+    let fixedContent = content.replace(/(?<!\\)"/g, '\\"');
+    return ': "' + fixedContent + '"';
+  });
+  return output;
+}
+
+
+
+// Function to log malformed JSON to a text file
+async function logMalformedJson(jsonString) {
+  const logFilePath = './malformed_json_log.txt';
+  try {
+    // Append the malformed JSON string to the text file
+    await fs.appendFile(logFilePath, jsonString + '\n\n', 'utf8');
+    console.log("Malformed JSON has been logged to malformed_json_log.txt");
+  } catch (error) {
+    console.error("Error logging malformed JSON:", error);
+  }
+}
+
+
+// Function to preprocess malformed JSON
 function preprocessMalformedJSON(jsonString) {
   // Step 1: Quote keys and replace "=" signs with ":"
   let firstPass = jsonString.replace(/(\w+)=/g, '"$1":')
@@ -52,14 +103,11 @@ function preprocessMalformedJSON(jsonString) {
   // Step 7: Special case for "recipientId.$": "$.identity.id"
   finalPass = finalPass.replace(/recipientId\.\$\=\$\.(\w+\.\w+)/g, '"recipientId.$": "$.$1"');
 
-  // Step 8: Fix the 'Send "Email"' to 'Send Email' 
-  // Fix the case where there's a space between 'Send' and '"Email"'
+  // Step 8: Fix the 'Send "Email"' to 'Send Email'
   finalPass = finalPass.replace(/Send\s+"Email"/g, 'Send Email');
 
   // Step 9: Ensure all string values are quoted properly, including "Message"
-  // Updated regex to quote any value that is not already quoted
   finalPass = finalPass.replace(/(\w+):\s*([^",\s\[\{][^}]*)(?=\s*[},\]])/g, (match, p1, p2) => {
-    // If the value is not a boolean or null and is unquoted, add quotes around it
     if (/^[A-Za-z0-9\s\.-]+$/.test(p2) && !/^".*"$/.test(p2)) {
       return `"${p1}": "${p2}"`; // Quote string values
     }
@@ -69,7 +117,6 @@ function preprocessMalformedJSON(jsonString) {
   // **Specific fix for 'API/Feature not enabled for your organization.'**
   finalPass = finalPass.replace(/API\/Feature not enabled for your organization\./g, '"API/Feature not enabled for your organization."');
 
-
   // Clean up trailing commas
   finalPass = finalPass.replace(/,(\s*[}\]])/g, '$1'); // Remove trailing commas
 
@@ -77,14 +124,16 @@ function preprocessMalformedJSON(jsonString) {
   return finalPass;
 }
 
-
+// Function to test and repair malformed JSON
 function testJSONRepair(jsonstring) {
   try {
     console.log("Starting preprocessing...");
 
+    // Preprocess the malformed JSON string
     const preprocessedJSON = preprocessMalformedJSON(jsonstring);
     console.log("Preprocessed JSON:", preprocessedJSON); // Log preprocessed JSON
 
+    // Repair the preprocessed JSON using a library like 'jsonrepair' (you'll need to implement this or use an appropriate library)
     const repairedJSON = jsonrepair(preprocessedJSON);
 
     // Convert to JavaScript object
@@ -100,6 +149,9 @@ function testJSONRepair(jsonstring) {
     console.error("Error repairing JSON:", jsonstring);
     console.error("Error message:", error.message);
     console.log("Failed repair count:", failureCount);
+
+    // Log the raw malformed JSON to a text file
+    logMalformedJson(jsonstring); // Log to the text file
   }
 }
 
@@ -412,6 +464,24 @@ const main = async () => {
 
   // // Run the test
   // testJSONRepair(malformedJSON);
+
+  // Example usage:
+  const malformedExamples = [
+    `{  SourceName: "Workday", AttributeName: "DEPARTMENT", AccountSortAttribute: "created", AccountSortDescending: false, AccountReturnFirstLink: false, AccountFilter: "!(nativeIdentity.startsWith("*DELETED*"))", AccountPropertyFilter: "(groups.containsAll({'Admin'}) || location == 'Austin')", RequiresPeriodicRefresh: false, VarInput: {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}} }`,
+    `{  Type: ACCOUNT, Id: "52170a74-ca89-11ea-87d0-0242ac130003", Uuid: "1cb1f07d-3e5a-4431-becd-234fa4306108", Name: "john.doe", NativeIdentity: "cn=john.doe,ou=users,dc=acme,dc=com", Type: ACCOUNT }`,
+    `{  Values: [John,  , Smith], RequiresPeriodicRefresh: false, VarInput: {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}} }`
+  ];
+
+  malformedExamples.forEach((example, index) => {
+    const fixed = malformedToValidJson(example);
+    console.log("Fixed JSON string " + (index + 1) + ":\n", fixed);
+    try {
+      const obj = JSON.parse(fixed);
+      console.log("Parsed object " + (index + 1) + ":", obj);
+    } catch (e) {
+      console.error("Error parsing JSON " + (index + 1) + ":", e);
+    }
+  });
 };
 
 main().catch((error) => {

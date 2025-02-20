@@ -148,6 +148,7 @@ Class | Method | HTTP request | Description
 *BetaCertificationsApi* | [**Get-BetaIdentityCertificationPendingTasks**](docs/BetaCertificationsApi.md#Get-BetaIdentityCertificationPendingTasks) | **GET** /certifications/{id}/tasks-pending | Pending Certification Tasks
 *BetaCertificationsApi* | [**Get-BetaIdentityCertificationTaskStatus**](docs/BetaCertificationsApi.md#Get-BetaIdentityCertificationTaskStatus) | **GET** /certifications/{id}/tasks/{taskId} | Certification Task Status
 *BetaCertificationsApi* | [**Get-BetaCertificationReviewers**](docs/BetaCertificationsApi.md#Get-BetaCertificationReviewers) | **GET** /certifications/{id}/reviewers | List of Reviewers for certification
+*BetaCertificationsApi* | [**Get-BetaCertifications**](docs/BetaCertificationsApi.md#Get-BetaCertifications) | **GET** /certifications | Certifications by IDs
 *BetaCertificationsApi* | [**Submit-BetaReassignCertsAsync**](docs/BetaCertificationsApi.md#Submit-BetaReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
 *BetaConnectorRuleManagementApi* | [**New-BetaConnectorRule**](docs/BetaConnectorRuleManagementApi.md#New-BetaConnectorRule) | **POST** /connector-rules | Create Connector Rule
 *BetaConnectorRuleManagementApi* | [**Remove-BetaConnectorRule**](docs/BetaConnectorRuleManagementApi.md#Remove-BetaConnectorRule) | **DELETE** /connector-rules/{id} | Delete a Connector-Rule

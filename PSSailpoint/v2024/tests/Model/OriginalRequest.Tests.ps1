@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024OriginalRequest' {
     Context 'V2024OriginalRequest' {
         It 'Initialize-V2024OriginalRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024OriginalRequest -AccountId "TEST_VALUE" -AttributeRequests "TEST_VALUE" -Op "TEST_VALUE" -Source "TEST_VALUE"
+            #$NewObject = Initialize-V2024OriginalRequest -AccountId "TEST_VALUE" -Result "TEST_VALUE" -AttributeRequests "TEST_VALUE" -Op "TEST_VALUE" -Source "TEST_VALUE"
             #$NewObject | Should -BeOfType OriginalRequest
             #$NewObject.property | Should -Be 0
         }

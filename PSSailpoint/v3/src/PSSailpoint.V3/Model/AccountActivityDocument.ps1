@@ -15,21 +15,17 @@ No summary available.
 AccountActivity
 
 .PARAMETER Id
-No description available.
-.PARAMETER Name
-No description available.
-.PARAMETER Type
-No description available.
+ID of account activity.
 .PARAMETER Action
 Type of action performed in the activity.
 .PARAMETER Created
 ISO-8601 date-time referring to the time when the object was created.
 .PARAMETER Modified
 ISO-8601 date-time referring to the time when the object was last modified.
+.PARAMETER Synced
+ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
 .PARAMETER Stage
 Activity's current stage.
-.PARAMETER Origin
-Activity's origin.
 .PARAMETER Status
 Activity's current status.
 .PARAMETER Requester
@@ -65,13 +61,6 @@ function Initialize-AccountActivityDocument {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("accessprofile", "accountactivity", "account", "aggregation", "entitlement", "event", "identity", "role")]
-        [PSCustomObject]
-        ${Type},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Action},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
@@ -81,10 +70,10 @@ function Initialize-AccountActivityDocument {
         ${Modified},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Stage},
+        ${Synced},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Origin},
+        ${Stage},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Status},
@@ -124,28 +113,14 @@ function Initialize-AccountActivityDocument {
         'Creating PSCustomObject: PSSailpoint.V3 => AccountActivityDocument' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Id) {
-            throw "invalid value for 'Id', 'Id' cannot be null."
-        }
-
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
-
-        if (!$Type) {
-            throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
-            "name" = ${Name}
-            "_type" = ${Type}
             "action" = ${Action}
             "created" = ${Created}
             "modified" = ${Modified}
+            "synced" = ${Synced}
             "stage" = ${Stage}
-            "origin" = ${Origin}
             "status" = ${Status}
             "requester" = ${Requester}
             "recipient" = ${Recipient}
@@ -193,33 +168,17 @@ function ConvertFrom-JsonToAccountActivityDocument {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in AccountActivityDocument
-        $AllProperties = ("id", "name", "_type", "action", "created", "modified", "stage", "origin", "status", "requester", "recipient", "trackingNumber", "errors", "warnings", "approvals", "originalRequests", "expansionItems", "accountRequests", "sources")
+        $AllProperties = ("id", "action", "created", "modified", "synced", "stage", "status", "requester", "recipient", "trackingNumber", "errors", "warnings", "approvals", "originalRequests", "expansionItems", "accountRequests", "sources")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
-        } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "_type"))) {
-            throw "Error! JSON cannot be serialized due to the required property '_type' missing."
-        } else {
-            $Type = $JsonParameters.PSobject.Properties["_type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "action"))) { #optional property not found
@@ -240,16 +199,16 @@ function ConvertFrom-JsonToAccountActivityDocument {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "synced"))) { #optional property not found
+            $Synced = $null
+        } else {
+            $Synced = $JsonParameters.PSobject.Properties["synced"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "stage"))) { #optional property not found
             $Stage = $null
         } else {
             $Stage = $JsonParameters.PSobject.Properties["stage"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "origin"))) { #optional property not found
-            $Origin = $null
-        } else {
-            $Origin = $JsonParameters.PSobject.Properties["origin"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) { #optional property not found
@@ -320,13 +279,11 @@ function ConvertFrom-JsonToAccountActivityDocument {
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
-            "name" = ${Name}
-            "_type" = ${Type}
             "action" = ${Action}
             "created" = ${Created}
             "modified" = ${Modified}
+            "synced" = ${Synced}
             "stage" = ${Stage}
-            "origin" = ${Origin}
             "status" = ${Status}
             "requester" = ${Requester}
             "recipient" = ${Recipient}

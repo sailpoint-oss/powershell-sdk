@@ -275,9 +275,11 @@ Class | Method | HTTP request | Description
 *V2024IAIAccessRequestRecommendationsApi* | [**Add-V2024AccessRequestRecommendationsViewedItem**](docs/V2024IAIAccessRequestRecommendationsApi.md#Add-V2024AccessRequestRecommendationsViewedItem) | **POST** /ai-access-request-recommendations/viewed-items | Notification of Viewed Access Request Recommendations
 *V2024IAIAccessRequestRecommendationsApi* | [**Add-V2024AccessRequestRecommendationsViewedItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Add-V2024AccessRequestRecommendationsViewedItems) | **POST** /ai-access-request-recommendations/viewed-items/bulk-create | Notification of Viewed Access Request Recommendations in Bulk
 *V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendations**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendations) | **GET** /ai-access-request-recommendations | Identity Access Request Recommendations
+*V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsConfig**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsConfig) | **GET** /ai-access-request-recommendations/config | Get Access Request Recommendations config
 *V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsIgnoredItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsIgnoredItems) | **GET** /ai-access-request-recommendations/ignored-items | List of Ignored Access Request Recommendations
 *V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsRequestedItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsRequestedItems) | **GET** /ai-access-request-recommendations/requested-items | List of Requested Access Request Recommendations
 *V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsViewedItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsViewedItems) | **GET** /ai-access-request-recommendations/viewed-items | List of Viewed Access Request Recommendations
+*V2024IAIAccessRequestRecommendationsApi* | [**Set-V2024AccessRequestRecommendationsConfig**](docs/V2024IAIAccessRequestRecommendationsApi.md#Set-V2024AccessRequestRecommendationsConfig) | **PUT** /ai-access-request-recommendations/config | Update Access Request Recommendations config
 *V2024IAICommonAccessApi* | [**New-V2024CommonAccess**](docs/V2024IAICommonAccessApi.md#New-V2024CommonAccess) | **POST** /common-access | Create common access items
 *V2024IAICommonAccessApi* | [**Get-V2024CommonAccess**](docs/V2024IAICommonAccessApi.md#Get-V2024CommonAccess) | **GET** /common-access | Get a paginated list of common access
 *V2024IAICommonAccessApi* | [**Update-V2024CommonAccessStatusInBulk**](docs/V2024IAICommonAccessApi.md#Update-V2024CommonAccessStatusInBulk) | **POST** /common-access/update-status | Bulk update common access status
@@ -764,6 +766,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccessRequestPreApprovalRequestedItemsInner](docs/AccessRequestPreApprovalRequestedItemsInner.md)
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationActionItemDto](docs/AccessRequestRecommendationActionItemDto.md)
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationActionItemResponseDto](docs/AccessRequestRecommendationActionItemResponseDto.md)
+ - [PSSailpoint.V2024\Model.AccessRequestRecommendationConfigDto](docs/AccessRequestRecommendationConfigDto.md)
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationItem](docs/AccessRequestRecommendationItem.md)
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationItemDetail](docs/AccessRequestRecommendationItemDetail.md)
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationItemDetailAccess](docs/AccessRequestRecommendationItemDetailAccess.md)

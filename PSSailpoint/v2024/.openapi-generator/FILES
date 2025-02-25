@@ -65,6 +65,7 @@ docs/AccessRequestPreApproval1.md
 docs/AccessRequestPreApprovalRequestedItemsInner.md
 docs/AccessRequestRecommendationActionItemDto.md
 docs/AccessRequestRecommendationActionItemResponseDto.md
+docs/AccessRequestRecommendationConfigDto.md
 docs/AccessRequestRecommendationItem.md
 docs/AccessRequestRecommendationItemDetail.md
 docs/AccessRequestRecommendationItemDetailAccess.md
@@ -1416,6 +1417,7 @@ src/PSSailpoint.V2024/Model/AccessRequestPreApproval1.ps1
 src/PSSailpoint.V2024/Model/AccessRequestPreApprovalRequestedItemsInner.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationActionItemDto.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationActionItemResponseDto.ps1
+src/PSSailpoint.V2024/Model/AccessRequestRecommendationConfigDto.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationItem.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationItemDetail.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationItemDetailAccess.ps1
@@ -2606,6 +2608,7 @@ tests/Model/AccessRequestPreApproval1.Tests.ps1
 tests/Model/AccessRequestPreApprovalRequestedItemsInner.Tests.ps1
 tests/Model/AccessRequestRecommendationActionItemDto.Tests.ps1
 tests/Model/AccessRequestRecommendationActionItemResponseDto.Tests.ps1
+tests/Model/AccessRequestRecommendationConfigDto.Tests.ps1
 tests/Model/AccessRequestRecommendationItem.Tests.ps1
 tests/Model/AccessRequestRecommendationItemDetail.Tests.ps1
 tests/Model/AccessRequestRecommendationItemDetailAccess.Tests.ps1

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccessRequestIdentityMetricsApi' {
     Context 'Get-V2024AccessRequestIdentityMetrics' {
         It 'Test Get-V2024AccessRequestIdentityMetrics' {
-            #$TestResult = Get-V2024AccessRequestIdentityMetrics -IdentityId "TEST_VALUE" -RequestedObjectId "TEST_VALUE" -Type "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024AccessRequestIdentityMetrics -IdentityId "TEST_VALUE" -RequestedObjectId "TEST_VALUE" -Type "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SuggestedEntitlementDescriptionApi' {
     Context 'Get-V2024SedBatchStats' {
         It 'Test Get-V2024SedBatchStats' {
-            #$TestResult = Get-V2024SedBatchStats -BatchId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024SedBatchStats -BatchId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SuggestedEntitlementDescripti
 
     Context 'Get-V2024SedBatches' {
         It 'Test Get-V2024SedBatches' {
-            #$TestResult = Get-V2024SedBatches -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024SedBatches
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SuggestedEntitlementDescripti
 
     Context 'Get-V2024Seds' {
         It 'Test Get-V2024Seds' {
-            #$TestResult = Get-V2024Seds -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -CountOnly "TEST_VALUE" -RequestedByAnyone "TEST_VALUE" -ShowPendingStatusOnly "TEST_VALUE"
+            #$TestResult = Get-V2024Seds -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -CountOnly "TEST_VALUE" -RequestedByAnyone "TEST_VALUE" -ShowPendingStatusOnly "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SuggestedEntitlementDescripti
 
     Context 'Submit-V2024SedApproval' {
         It 'Test Submit-V2024SedApproval' {
-            #$TestResult = Submit-V2024SedApproval -XSailPointExperimental "TEST_VALUE" -SedApproval "TEST_VALUE"
+            #$TestResult = Submit-V2024SedApproval -SedApproval "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SuggestedEntitlementDescripti
 
     Context 'Submit-V2024SedAssignment' {
         It 'Test Submit-V2024SedAssignment' {
-            #$TestResult = Submit-V2024SedAssignment -XSailPointExperimental "TEST_VALUE" -SedAssignment "TEST_VALUE"
+            #$TestResult = Submit-V2024SedAssignment -SedAssignment "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SuggestedEntitlementDescripti
 
     Context 'Submit-V2024SedBatchRequest' {
         It 'Test Submit-V2024SedBatchRequest' {
-            #$TestResult = Submit-V2024SedBatchRequest -XSailPointExperimental "TEST_VALUE" -SedBatchRequest "TEST_VALUE"
+            #$TestResult = Submit-V2024SedBatchRequest -SedBatchRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

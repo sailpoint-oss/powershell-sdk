@@ -1417,6 +1417,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.SpConfigMessage](docs/SpConfigMessage.md)
  - [PSSailpoint.Beta\Model.SpConfigObject](docs/SpConfigObject.md)
  - [PSSailpoint.Beta\Model.SpConfigRule](docs/SpConfigRule.md)
+ - [PSSailpoint.Beta\Model.SpConfigRuleValue](docs/SpConfigRuleValue.md)
  - [PSSailpoint.Beta\Model.SpConfigRules](docs/SpConfigRules.md)
  - [PSSailpoint.Beta\Model.Split](docs/Split.md)
  - [PSSailpoint.Beta\Model.StandardLevel](docs/StandardLevel.md)

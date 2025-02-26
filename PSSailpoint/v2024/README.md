@@ -1682,6 +1682,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SpConfigMessage1](docs/SpConfigMessage1.md)
  - [PSSailpoint.V2024\Model.SpConfigObject](docs/SpConfigObject.md)
  - [PSSailpoint.V2024\Model.SpConfigRule](docs/SpConfigRule.md)
+ - [PSSailpoint.V2024\Model.SpConfigRuleValue](docs/SpConfigRuleValue.md)
  - [PSSailpoint.V2024\Model.SpConfigRules](docs/SpConfigRules.md)
  - [PSSailpoint.V2024\Model.Split](docs/Split.md)
  - [PSSailpoint.V2024\Model.StandardLevel](docs/StandardLevel.md)

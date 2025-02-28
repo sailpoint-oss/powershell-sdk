@@ -292,7 +292,7 @@ Create Non-Employee Source
 
 .DESCRIPTION
 
-This request will create a non-employee source. Requires role context of `idn:nesr:create`
+Create a non-employee source. 
 
 .PARAMETER NonEmployeeSourceRequestBody
 Non-Employee source creation request body.
@@ -2261,10 +2261,7 @@ List Non-Employee Sources
 
 .DESCRIPTION
 
-This gets a list of non-employee sources. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list sources assigned to a particular account manager by passing in that manager's id.   2. The current user is an account manager, in which case ""me"" should be provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
-
-.PARAMETER RequestedFor
-The identity for whom the request was made. *me* indicates the current user.
+Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter:    1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.   2. If the current user is an account manager, the user should provide 'me' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -2275,8 +2272,11 @@ Offset into the full result set. Usually specified with *limit* to paginate thro
 .PARAMETER Count
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
+.PARAMETER RequestedFor
+Identity the request was made for. Use 'me' to indicate the current user.
+
 .PARAMETER NonEmployeeCount
-The flag to determine whether return a non-employee count associate with source.
+Flag that determines whether the API will return a non-employee count associated with the source.
 
 .PARAMETER Sorters
 Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId**
@@ -2293,17 +2293,17 @@ function Get-NonEmployeeSources {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${RequestedFor},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${RequestedFor},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${NonEmployeeCount},
@@ -2344,10 +2344,9 @@ function Get-NonEmployeeSources {
             $LocalVarQueryParameters['count'] = $Count
         }
 
-        if (!$RequestedFor) {
-            throw "Error! The required parameter `RequestedFor` missing when calling listNonEmployeeSources."
+        if ($RequestedFor) {
+            $LocalVarQueryParameters['requested-for'] = $RequestedFor
         }
-        $LocalVarQueryParameters['requested-for'] = $RequestedFor
 
         if ($NonEmployeeCount) {
             $LocalVarQueryParameters['non-employee-count'] = $NonEmployeeCount

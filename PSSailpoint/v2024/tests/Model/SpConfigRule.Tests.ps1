@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024SpConfigRule' {
     Context 'V2024SpConfigRule' {
         It 'Initialize-V2024SpConfigRule' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024SpConfigRule -Path "TEST_VALUE" -Value "TEST_VALUE" -Mode "TEST_VALUE"
+            #$NewObject = Initialize-V2024SpConfigRule -Path "TEST_VALUE" -Value "TEST_VALUE" -Modes "TEST_VALUE"
             #$NewObject | Should -BeOfType SpConfigRule
             #$NewObject.property | Should -Be 0
         }

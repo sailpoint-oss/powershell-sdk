@@ -375,6 +375,14 @@ Class | Method | HTTP request | Description
 *V2024MFAConfigurationApi* | [**Set-V2024MFAKBAConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAKBAConfig) | **POST** /mfa/kba/config/answers | Set MFA KBA configuration
 *V2024MFAConfigurationApi* | [**Set-V2024MFAOktaConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
 *V2024MFAConfigurationApi* | [**Test-V2024MFAConfig**](docs/V2024MFAConfigurationApi.md#Test-V2024MFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
+*V2024MachineAccountsApi* | [**Get-V2024MachineAccount**](docs/V2024MachineAccountsApi.md#Get-V2024MachineAccount) | **GET** /machine-accounts/{id} | Machine Account Details
+*V2024MachineAccountsApi* | [**Get-V2024MachineAccounts**](docs/V2024MachineAccountsApi.md#Get-V2024MachineAccounts) | **GET** /machine-accounts | Machine Accounts List
+*V2024MachineAccountsApi* | [**Update-V2024MachineAccount**](docs/V2024MachineAccountsApi.md#Update-V2024MachineAccount) | **PATCH** /machine-accounts/{id} | Update a Machine Account
+*V2024MachineIdentitiesApi* | [**New-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#New-V2024MachineIdentity) | **POST** /machine-identities | Create Machine Identities
+*V2024MachineIdentitiesApi* | [**Remove-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Remove-V2024MachineIdentity) | **DELETE** /machine-identities/{id} | Delete machine identity
+*V2024MachineIdentitiesApi* | [**Get-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Get-V2024MachineIdentity) | **GET** /machine-identities/{id} | Machine Identity Details
+*V2024MachineIdentitiesApi* | [**Get-V2024MachineIdentities**](docs/V2024MachineIdentitiesApi.md#Get-V2024MachineIdentities) | **GET** /machine-identities | List Machine Identities
+*V2024MachineIdentitiesApi* | [**Update-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Update-V2024MachineIdentity) | **PATCH** /machine-identities/{id} | Update a Machine Identity
 *V2024ManagedClientsApi* | [**New-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#New-V2024ManagedClient) | **POST** /managed-clients | Create Managed Client
 *V2024ManagedClientsApi* | [**Remove-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Remove-V2024ManagedClient) | **DELETE** /managed-clients/{id} | Delete Managed Client
 *V2024ManagedClientsApi* | [**Get-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClient) | **GET** /managed-clients/{id} | Get Managed Client
@@ -1259,6 +1267,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.Lookup](docs/Lookup.md)
  - [PSSailpoint.V2024\Model.LookupStep](docs/LookupStep.md)
  - [PSSailpoint.V2024\Model.Lower](docs/Lower.md)
+ - [PSSailpoint.V2024\Model.MachineAccount](docs/MachineAccount.md)
+ - [PSSailpoint.V2024\Model.MachineIdentity](docs/MachineIdentity.md)
  - [PSSailpoint.V2024\Model.MailFromAttributes](docs/MailFromAttributes.md)
  - [PSSailpoint.V2024\Model.MailFromAttributesDto](docs/MailFromAttributesDto.md)
  - [PSSailpoint.V2024\Model.ManagedClient](docs/ManagedClient.md)

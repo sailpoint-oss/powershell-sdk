@@ -561,6 +561,8 @@ docs/LocalizedMessage.md
 docs/Lookup.md
 docs/LookupStep.md
 docs/Lower.md
+docs/MachineAccount.md
+docs/MachineIdentity.md
 docs/MailFromAttributes.md
 docs/MailFromAttributesDto.md
 docs/ManagedClient.md
@@ -1139,6 +1141,10 @@ docs/V2024LifecycleStatesApi.md
 docs/V2024LifecycleStatesApideveloperSite_code_examples.yaml
 docs/V2024MFAConfigurationApi.md
 docs/V2024MFAConfigurationApideveloperSite_code_examples.yaml
+docs/V2024MachineAccountsApi.md
+docs/V2024MachineAccountsApideveloperSite_code_examples.yaml
+docs/V2024MachineIdentitiesApi.md
+docs/V2024MachineIdentitiesApideveloperSite_code_examples.yaml
 docs/V2024ManagedClientsApi.md
 docs/V2024ManagedClientsApideveloperSite_code_examples.yaml
 docs/V2024ManagedClustersApi.md
@@ -1314,6 +1320,8 @@ src/PSSailpoint.V2024/Api/V2024IdentityHistoryApi.ps1
 src/PSSailpoint.V2024/Api/V2024IdentityProfilesApi.ps1
 src/PSSailpoint.V2024/Api/V2024LifecycleStatesApi.ps1
 src/PSSailpoint.V2024/Api/V2024MFAConfigurationApi.ps1
+src/PSSailpoint.V2024/Api/V2024MachineAccountsApi.ps1
+src/PSSailpoint.V2024/Api/V2024MachineIdentitiesApi.ps1
 src/PSSailpoint.V2024/Api/V2024ManagedClientsApi.ps1
 src/PSSailpoint.V2024/Api/V2024ManagedClustersApi.ps1
 src/PSSailpoint.V2024/Api/V2024NonEmployeeLifecycleManagementApi.ps1
@@ -1911,6 +1919,8 @@ src/PSSailpoint.V2024/Model/LocalizedMessage.ps1
 src/PSSailpoint.V2024/Model/Lookup.ps1
 src/PSSailpoint.V2024/Model/LookupStep.ps1
 src/PSSailpoint.V2024/Model/Lower.ps1
+src/PSSailpoint.V2024/Model/MachineAccount.ps1
+src/PSSailpoint.V2024/Model/MachineIdentity.ps1
 src/PSSailpoint.V2024/Model/MailFromAttributes.ps1
 src/PSSailpoint.V2024/Model/MailFromAttributesDto.ps1
 src/PSSailpoint.V2024/Model/ManagedClient.ps1
@@ -2507,6 +2517,8 @@ tests/Api/V2024IdentityHistoryApi.Tests.ps1
 tests/Api/V2024IdentityProfilesApi.Tests.ps1
 tests/Api/V2024LifecycleStatesApi.Tests.ps1
 tests/Api/V2024MFAConfigurationApi.Tests.ps1
+tests/Api/V2024MachineAccountsApi.Tests.ps1
+tests/Api/V2024MachineIdentitiesApi.Tests.ps1
 tests/Api/V2024ManagedClientsApi.Tests.ps1
 tests/Api/V2024ManagedClustersApi.Tests.ps1
 tests/Api/V2024NonEmployeeLifecycleManagementApi.Tests.ps1
@@ -3103,6 +3115,8 @@ tests/Model/LocalizedMessage.Tests.ps1
 tests/Model/Lookup.Tests.ps1
 tests/Model/LookupStep.Tests.ps1
 tests/Model/Lower.Tests.ps1
+tests/Model/MachineAccount.Tests.ps1
+tests/Model/MachineIdentity.Tests.ps1
 tests/Model/MailFromAttributes.Tests.ps1
 tests/Model/MailFromAttributesDto.Tests.ps1
 tests/Model/ManagedClient.Tests.ps1

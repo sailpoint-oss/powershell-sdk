@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaSpConfigRule' {
     Context 'BetaSpConfigRule' {
         It 'Initialize-BetaSpConfigRule' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaSpConfigRule -Path "TEST_VALUE" -Value "TEST_VALUE" -Modes "TEST_VALUE"
+            #$NewObject = Initialize-BetaSpConfigRule -Path "TEST_VALUE" -Value "TEST_VALUE" -Mode "TEST_VALUE"
             #$NewObject | Should -BeOfType SpConfigRule
             #$NewObject.property | Should -Be 0
         }

@@ -65,7 +65,6 @@ docs/AccessRequestPreApproval1.md
 docs/AccessRequestPreApprovalRequestedItemsInner.md
 docs/AccessRequestRecommendationActionItemDto.md
 docs/AccessRequestRecommendationActionItemResponseDto.md
-docs/AccessRequestRecommendationConfigDto.md
 docs/AccessRequestRecommendationItem.md
 docs/AccessRequestRecommendationItemDetail.md
 docs/AccessRequestRecommendationItemDetailAccess.md
@@ -561,8 +560,6 @@ docs/LocalizedMessage.md
 docs/Lookup.md
 docs/LookupStep.md
 docs/Lower.md
-docs/MachineAccount.md
-docs/MachineIdentity.md
 docs/MailFromAttributes.md
 docs/MailFromAttributesDto.md
 docs/ManagedClient.md
@@ -984,7 +981,6 @@ docs/SpConfigMessage.md
 docs/SpConfigMessage1.md
 docs/SpConfigObject.md
 docs/SpConfigRule.md
-docs/SpConfigRuleValue.md
 docs/SpConfigRules.md
 docs/Split.md
 docs/StandardLevel.md
@@ -1141,10 +1137,6 @@ docs/V2024LifecycleStatesApi.md
 docs/V2024LifecycleStatesApideveloperSite_code_examples.yaml
 docs/V2024MFAConfigurationApi.md
 docs/V2024MFAConfigurationApideveloperSite_code_examples.yaml
-docs/V2024MachineAccountsApi.md
-docs/V2024MachineAccountsApideveloperSite_code_examples.yaml
-docs/V2024MachineIdentitiesApi.md
-docs/V2024MachineIdentitiesApideveloperSite_code_examples.yaml
 docs/V2024ManagedClientsApi.md
 docs/V2024ManagedClientsApideveloperSite_code_examples.yaml
 docs/V2024ManagedClustersApi.md
@@ -1320,8 +1312,6 @@ src/PSSailpoint.V2024/Api/V2024IdentityHistoryApi.ps1
 src/PSSailpoint.V2024/Api/V2024IdentityProfilesApi.ps1
 src/PSSailpoint.V2024/Api/V2024LifecycleStatesApi.ps1
 src/PSSailpoint.V2024/Api/V2024MFAConfigurationApi.ps1
-src/PSSailpoint.V2024/Api/V2024MachineAccountsApi.ps1
-src/PSSailpoint.V2024/Api/V2024MachineIdentitiesApi.ps1
 src/PSSailpoint.V2024/Api/V2024ManagedClientsApi.ps1
 src/PSSailpoint.V2024/Api/V2024ManagedClustersApi.ps1
 src/PSSailpoint.V2024/Api/V2024NonEmployeeLifecycleManagementApi.ps1
@@ -1426,7 +1416,6 @@ src/PSSailpoint.V2024/Model/AccessRequestPreApproval1.ps1
 src/PSSailpoint.V2024/Model/AccessRequestPreApprovalRequestedItemsInner.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationActionItemDto.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationActionItemResponseDto.ps1
-src/PSSailpoint.V2024/Model/AccessRequestRecommendationConfigDto.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationItem.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationItemDetail.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationItemDetailAccess.ps1
@@ -1919,8 +1908,6 @@ src/PSSailpoint.V2024/Model/LocalizedMessage.ps1
 src/PSSailpoint.V2024/Model/Lookup.ps1
 src/PSSailpoint.V2024/Model/LookupStep.ps1
 src/PSSailpoint.V2024/Model/Lower.ps1
-src/PSSailpoint.V2024/Model/MachineAccount.ps1
-src/PSSailpoint.V2024/Model/MachineIdentity.ps1
 src/PSSailpoint.V2024/Model/MailFromAttributes.ps1
 src/PSSailpoint.V2024/Model/MailFromAttributesDto.ps1
 src/PSSailpoint.V2024/Model/ManagedClient.ps1
@@ -2344,7 +2331,6 @@ src/PSSailpoint.V2024/Model/SpConfigMessage.ps1
 src/PSSailpoint.V2024/Model/SpConfigMessage1.ps1
 src/PSSailpoint.V2024/Model/SpConfigObject.ps1
 src/PSSailpoint.V2024/Model/SpConfigRule.ps1
-src/PSSailpoint.V2024/Model/SpConfigRuleValue.ps1
 src/PSSailpoint.V2024/Model/SpConfigRules.ps1
 src/PSSailpoint.V2024/Model/Split.ps1
 src/PSSailpoint.V2024/Model/StandardLevel.ps1
@@ -2517,8 +2503,6 @@ tests/Api/V2024IdentityHistoryApi.Tests.ps1
 tests/Api/V2024IdentityProfilesApi.Tests.ps1
 tests/Api/V2024LifecycleStatesApi.Tests.ps1
 tests/Api/V2024MFAConfigurationApi.Tests.ps1
-tests/Api/V2024MachineAccountsApi.Tests.ps1
-tests/Api/V2024MachineIdentitiesApi.Tests.ps1
 tests/Api/V2024ManagedClientsApi.Tests.ps1
 tests/Api/V2024ManagedClustersApi.Tests.ps1
 tests/Api/V2024NonEmployeeLifecycleManagementApi.Tests.ps1
@@ -2622,7 +2606,6 @@ tests/Model/AccessRequestPreApproval1.Tests.ps1
 tests/Model/AccessRequestPreApprovalRequestedItemsInner.Tests.ps1
 tests/Model/AccessRequestRecommendationActionItemDto.Tests.ps1
 tests/Model/AccessRequestRecommendationActionItemResponseDto.Tests.ps1
-tests/Model/AccessRequestRecommendationConfigDto.Tests.ps1
 tests/Model/AccessRequestRecommendationItem.Tests.ps1
 tests/Model/AccessRequestRecommendationItemDetail.Tests.ps1
 tests/Model/AccessRequestRecommendationItemDetailAccess.Tests.ps1
@@ -3115,8 +3098,6 @@ tests/Model/LocalizedMessage.Tests.ps1
 tests/Model/Lookup.Tests.ps1
 tests/Model/LookupStep.Tests.ps1
 tests/Model/Lower.Tests.ps1
-tests/Model/MachineAccount.Tests.ps1
-tests/Model/MachineIdentity.Tests.ps1
 tests/Model/MailFromAttributes.Tests.ps1
 tests/Model/MailFromAttributesDto.Tests.ps1
 tests/Model/ManagedClient.Tests.ps1
@@ -3540,7 +3521,6 @@ tests/Model/SpConfigMessage.Tests.ps1
 tests/Model/SpConfigMessage1.Tests.ps1
 tests/Model/SpConfigObject.Tests.ps1
 tests/Model/SpConfigRule.Tests.ps1
-tests/Model/SpConfigRuleValue.Tests.ps1
 tests/Model/SpConfigRules.Tests.ps1
 tests/Model/Split.Tests.ps1
 tests/Model/StandardLevel.Tests.ps1

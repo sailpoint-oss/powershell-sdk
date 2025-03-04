@@ -955,7 +955,6 @@ docs/SpConfigJob.md
 docs/SpConfigMessage.md
 docs/SpConfigObject.md
 docs/SpConfigRule.md
-docs/SpConfigRuleValue.md
 docs/SpConfigRules.md
 docs/Split.md
 docs/StandardLevel.md
@@ -1956,7 +1955,6 @@ src/PSSailpoint.Beta/Model/SpConfigJob.ps1
 src/PSSailpoint.Beta/Model/SpConfigMessage.ps1
 src/PSSailpoint.Beta/Model/SpConfigObject.ps1
 src/PSSailpoint.Beta/Model/SpConfigRule.ps1
-src/PSSailpoint.Beta/Model/SpConfigRuleValue.ps1
 src/PSSailpoint.Beta/Model/SpConfigRules.ps1
 src/PSSailpoint.Beta/Model/Split.ps1
 src/PSSailpoint.Beta/Model/StandardLevel.ps1
@@ -2963,7 +2961,6 @@ tests/Model/SpConfigJob.Tests.ps1
 tests/Model/SpConfigMessage.Tests.ps1
 tests/Model/SpConfigObject.Tests.ps1
 tests/Model/SpConfigRule.Tests.ps1
-tests/Model/SpConfigRuleValue.Tests.ps1
 tests/Model/SpConfigRules.Tests.ps1
 tests/Model/Split.Tests.ps1
 tests/Model/StandardLevel.Tests.ps1

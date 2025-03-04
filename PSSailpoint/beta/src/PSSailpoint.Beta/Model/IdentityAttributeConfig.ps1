@@ -15,7 +15,7 @@ No summary available.
 No description available.
 
 .PARAMETER Enabled
-Backend will only promote values if the profile/mapping is enabled.
+If the profile or mapping is enabled
 .PARAMETER AttributeTransforms
 No description available.
 .OUTPUTS

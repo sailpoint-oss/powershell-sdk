@@ -12,10 +12,10 @@ No summary available.
 
 .DESCRIPTION
 
-Transform definition for an identity attribute.
+Defines a transformation definition for an identity attribute.
 
 .PARAMETER IdentityAttributeName
-Identity attribute's name.
+Name of the identity attribute.
 .PARAMETER TransformDefinition
 No description available.
 .OUTPUTS

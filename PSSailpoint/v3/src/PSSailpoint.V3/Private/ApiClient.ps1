@@ -217,7 +217,7 @@ function Invoke-ApiClient {
     }
 
     return @{
-        Response = if ($Response.Content) {
+        Response = if ($Response.Content -is [string]) {
             DeserializeResponse -Response $Response.Content -ReturnType $ReturnType -ContentTypes $Response.Headers["Content-Type"]
         } else {
             DeserializeResponse -Response $Response -ReturnType $ReturnType -ContentTypes $Response.Headers["Content-Type"]

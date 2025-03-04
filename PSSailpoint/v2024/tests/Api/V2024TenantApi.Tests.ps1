@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024TenantApi' {
     Context 'Get-V2024Tenant' {
         It 'Test Get-V2024Tenant' {
-            #$TestResult = Get-V2024Tenant
+            #$TestResult = Get-V2024Tenant -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Create Identity Profile
+Create an Identity Profile
 
 .DESCRIPTION
 
-Create an identity profile. A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
 
 .PARAMETER IdentityProfile
 No description available.
@@ -98,14 +98,14 @@ function New-BetaIdentityProfile {
 <#
 .SYNOPSIS
 
-Delete Identity Profile
+Delete an Identity Profile
 
 .DESCRIPTION
 
-Delete an identity profile by ID. On success, this endpoint will return a reference to the bulk delete task result. A token with ORG_ADMIN authority is required to call this API.
+This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
 
 .PARAMETER IdentityProfileId
-Identity profile ID.
+The Identity Profile ID.
 
 .PARAMETER WithHttpInfo
 
@@ -450,14 +450,14 @@ function Get-BetaDefaultIdentityAttributeConfig {
 <#
 .SYNOPSIS
 
-Get Identity Profile
+Gets a single Identity Profile
 
 .DESCRIPTION
 
-Get a single identity profile by ID. A token with ORG_ADMIN or API authority is required to call this API.
+This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
 
 .PARAMETER IdentityProfileId
-Identity profile ID.
+The Identity Profile ID
 
 .PARAMETER WithHttpInfo
 
@@ -614,11 +614,11 @@ function Import-BetaIdentityProfiles {
 <#
 .SYNOPSIS
 
-List Identity Profiles
+Identity Profiles List
 
 .DESCRIPTION
 
-Get a list of identity profiles, based on the specified query parameters. A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
+This returns a list of Identity Profiles based on the specified query parameters. A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -630,7 +630,7 @@ Offset into the full result set. Usually specified with *limit* to paginate thro
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne*
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, in, le, lt, isnull, sw*  **priority**: *eq, ne*
 
 .PARAMETER Sorters
 Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name**
@@ -892,17 +892,17 @@ function Sync-BetaIdentityProfile {
 <#
 .SYNOPSIS
 
-Update Identity Profile
+Update the Identity Profile
 
 .DESCRIPTION
 
-Update the specified identity profile with this PATCH request.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile. These fields cannot be updated: * id * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
 
 .PARAMETER IdentityProfileId
-Identity profile ID.
+The Identity Profile ID
 
 .PARAMETER JsonPatchOperation
-List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER WithHttpInfo
 

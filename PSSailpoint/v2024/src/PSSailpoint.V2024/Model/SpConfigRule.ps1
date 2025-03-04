@@ -17,8 +17,8 @@ Format of Config Hub Object Rules
 .PARAMETER Path
 JSONPath expression denoting the path within the object where a value substitution should be applied
 .PARAMETER Value
-No description available.
-.PARAMETER Modes
+Value to be assigned at the jsonPath location within the object
+.PARAMETER Mode
 Draft modes to which this rule will apply
 .OUTPUTS
 
@@ -37,7 +37,7 @@ function Initialize-V2024SpConfigRule {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("RESTORE", "PROMOTE", "UPLOAD")]
         [String[]]
-        ${Modes}
+        ${Mode}
     )
 
     Process {
@@ -48,7 +48,7 @@ function Initialize-V2024SpConfigRule {
         $PSO = [PSCustomObject]@{
             "path" = ${Path}
             "value" = ${Value}
-            "modes" = ${Modes}
+            "mode" = ${Mode}
         }
 
         return $PSO
@@ -85,7 +85,7 @@ function ConvertFrom-V2024JsonToSpConfigRule {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024SpConfigRule
-        $AllProperties = ("path", "value", "modes")
+        $AllProperties = ("path", "value", "mode")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -104,16 +104,16 @@ function ConvertFrom-V2024JsonToSpConfigRule {
             $Value = $JsonParameters.PSobject.Properties["value"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modes"))) { #optional property not found
-            $Modes = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "mode"))) { #optional property not found
+            $Mode = $null
         } else {
-            $Modes = $JsonParameters.PSobject.Properties["modes"].value
+            $Mode = $JsonParameters.PSobject.Properties["mode"].value
         }
 
         $PSO = [PSCustomObject]@{
             "path" = ${Path}
             "value" = ${Value}
-            "modes" = ${Modes}
+            "mode" = ${Mode}
         }
 
         return $PSO

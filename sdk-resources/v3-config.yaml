@@ -1,6 +1,6 @@
 templateDir: ./sdk-resources/resources
 packageName: PSSailpoint.V3
-packageVersion: 1.4.8
+packageVersion: 1.4.9
 apiVersion: v3
 companyName: SailPoint Technologies
 packageGuid: 7A197170-97E8-4DCD-A171-271D4AEC2F34
@@ -12,7 +12,7 @@ funtionPrefix:
 files:
   developerSite_code_examples.mustache:
     templateType: APIDocs
-    destinationFilename: developerSite_code_examples.yaml 
+    destinationFilename: developerSite_code_examples.yaml
   docs_methods_index.mustache:
     templateType: SupportingFiles
     destinationFilename: docs/Methods/Index.md

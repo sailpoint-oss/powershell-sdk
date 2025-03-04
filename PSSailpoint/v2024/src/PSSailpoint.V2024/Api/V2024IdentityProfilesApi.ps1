@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Create an Identity Profile
+Create Identity Profile
 
 .DESCRIPTION
 
-This creates an Identity Profile.    
+Creates an identity profile.    
 
 .PARAMETER IdentityProfile
 No description available.
@@ -98,14 +98,14 @@ function New-V2024IdentityProfile {
 <#
 .SYNOPSIS
 
-Delete an Identity Profile
+Delete Identity Profile
 
 .DESCRIPTION
 
-This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.       The following rights are required to access this endpoint: idn:identity-profile:delete
+Delete an identity profile by ID. On success, this endpoint will return a reference to the bulk delete task result.
 
 .PARAMETER IdentityProfileId
-The Identity Profile ID.
+Identity profile ID.
 
 .PARAMETER WithHttpInfo
 
@@ -450,14 +450,14 @@ function Get-V2024DefaultIdentityAttributeConfig {
 <#
 .SYNOPSIS
 
-Get single Identity Profile
+Get Identity Profile
 
 .DESCRIPTION
 
-This returns a single Identity Profile based on ID.
+Get a single identity profile by ID.
 
 .PARAMETER IdentityProfileId
-The Identity Profile ID.
+Identity profile ID.
 
 .PARAMETER WithHttpInfo
 
@@ -615,11 +615,11 @@ function Import-V2024IdentityProfiles {
 <#
 .SYNOPSIS
 
-Identity Profiles List
+List Identity Profiles
 
 .DESCRIPTION
 
-This returns a list of Identity Profiles based on the specified query parameters.
+Get a list of identity profiles, based on the specified query parameters.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -631,7 +631,7 @@ Offset into the full result set. Usually specified with *limit* to paginate thro
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **priority**: *eq, ne*
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne*
 
 .PARAMETER Sorters
 Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name**
@@ -894,17 +894,17 @@ function Sync-V2024IdentityProfile {
 <#
 .SYNOPSIS
 
-Update the Identity Profile
+Update Identity Profile
 
 .DESCRIPTION
 
-This updates the specified Identity Profile.     Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+Update a specified identity profile with this PATCH request.    You cannot update these fields: * id * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at the same time.
 
 .PARAMETER IdentityProfileId
-The Identity Profile ID
+Identity profile ID.
 
 .PARAMETER JsonPatchOperation
-A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER WithHttpInfo
 

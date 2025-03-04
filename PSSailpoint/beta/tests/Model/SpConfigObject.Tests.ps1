@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaSpConfigObject' {
     Context 'BetaSpConfigObject' {
         It 'Initialize-BetaSpConfigObject' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaSpConfigObject -ObjectType "TEST_VALUE" -ReferenceExtractors "TEST_VALUE" -SignatureRequired "TEST_VALUE" -LegacyObject "TEST_VALUE" -OnePerTenant "TEST_VALUE" -Exportable "TEST_VALUE" -Rules "TEST_VALUE"
+            #$NewObject = Initialize-BetaSpConfigObject -ObjectType "TEST_VALUE" -ReferenceExtractors "TEST_VALUE" -SignatureRequired "TEST_VALUE" -AlwaysResolveById "TEST_VALUE" -LegacyObject "TEST_VALUE" -OnePerTenant "TEST_VALUE" -Exportable "TEST_VALUE" -Rules "TEST_VALUE"
             #$NewObject | Should -BeOfType SpConfigObject
             #$NewObject.property | Should -Be 0
         }

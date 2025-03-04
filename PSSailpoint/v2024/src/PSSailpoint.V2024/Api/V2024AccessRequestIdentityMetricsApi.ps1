@@ -23,9 +23,6 @@ Requested access item's ID.
 .PARAMETER Type
 Requested access item's type.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -47,9 +44,6 @@ function Get-V2024AccessRequestIdentityMetrics {
         [ValidateSet("ENTITLEMENT", "ROLE", "ACCESS_PROFILE")]
         [String]
         ${Type},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -83,11 +77,6 @@ function Get-V2024AccessRequestIdentityMetrics {
             throw "Error! The required parameter `Type` missing when calling getAccessRequestIdentityMetrics."
         }
         $LocalVarUri = $LocalVarUri.replace('{type}', [System.Web.HTTPUtility]::UrlEncode($Type))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getAccessRequestIdentityMetrics."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 

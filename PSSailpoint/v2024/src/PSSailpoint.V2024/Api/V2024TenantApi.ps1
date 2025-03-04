@@ -14,6 +14,9 @@ Get Tenant Information.
 
 This rest endpoint can be used to retrieve tenant details.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -25,6 +28,9 @@ Tenant
 function Get-V2024Tenant {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -46,6 +52,11 @@ function Get-V2024Tenant {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/tenant'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getTenant."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 

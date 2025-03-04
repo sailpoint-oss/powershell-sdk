@@ -15,7 +15,7 @@ No summary available.
 No description available.
 
 .PARAMETER Type
-Transform definition type.
+The type of the transform definition.
 .PARAMETER Attributes
 Arbitrary key-value pairs to store any metadata for the object
 .OUTPUTS

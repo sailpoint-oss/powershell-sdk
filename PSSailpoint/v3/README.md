@@ -166,17 +166,17 @@ Class | Method | HTTP request | Description
 *GlobalTenantSecuritySettingsApi* | [**Update-AuthOrgNetworkConfig**](docs/GlobalTenantSecuritySettingsApi.md#Update-AuthOrgNetworkConfig) | **PATCH** /auth-org/network-config | Update security network configuration.
 *GlobalTenantSecuritySettingsApi* | [**Update-AuthOrgServiceProviderConfig**](docs/GlobalTenantSecuritySettingsApi.md#Update-AuthOrgServiceProviderConfig) | **PATCH** /auth-org/service-provider-config | Update Service Provider Configuration
 *GlobalTenantSecuritySettingsApi* | [**Update-AuthOrgSessionConfig**](docs/GlobalTenantSecuritySettingsApi.md#Update-AuthOrgSessionConfig) | **PATCH** /auth-org/session-config | Update Auth Org Session Configuration
-*IdentityProfilesApi* | [**New-IdentityProfile**](docs/IdentityProfilesApi.md#New-IdentityProfile) | **POST** /identity-profiles | Create Identity Profile
-*IdentityProfilesApi* | [**Remove-IdentityProfile**](docs/IdentityProfilesApi.md#Remove-IdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete Identity Profile
+*IdentityProfilesApi* | [**New-IdentityProfile**](docs/IdentityProfilesApi.md#New-IdentityProfile) | **POST** /identity-profiles | Create an Identity Profile
+*IdentityProfilesApi* | [**Remove-IdentityProfile**](docs/IdentityProfilesApi.md#Remove-IdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete an Identity Profile
 *IdentityProfilesApi* | [**Remove-IdentityProfiles**](docs/IdentityProfilesApi.md#Remove-IdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
 *IdentityProfilesApi* | [**Export-IdentityProfiles**](docs/IdentityProfilesApi.md#Export-IdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
 *IdentityProfilesApi* | [**Get-DefaultIdentityAttributeConfig**](docs/IdentityProfilesApi.md#Get-DefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Get default Identity Attribute Config
-*IdentityProfilesApi* | [**Get-IdentityProfile**](docs/IdentityProfilesApi.md#Get-IdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get Identity Profile
+*IdentityProfilesApi* | [**Get-IdentityProfile**](docs/IdentityProfilesApi.md#Get-IdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get single Identity Profile
 *IdentityProfilesApi* | [**Import-IdentityProfiles**](docs/IdentityProfilesApi.md#Import-IdentityProfiles) | **POST** /identity-profiles/import | Import Identity Profiles
-*IdentityProfilesApi* | [**Get-IdentityProfiles**](docs/IdentityProfilesApi.md#Get-IdentityProfiles) | **GET** /identity-profiles | List Identity Profiles
+*IdentityProfilesApi* | [**Get-IdentityProfiles**](docs/IdentityProfilesApi.md#Get-IdentityProfiles) | **GET** /identity-profiles | Identity Profiles List
 *IdentityProfilesApi* | [**Show-IdentityPreview**](docs/IdentityProfilesApi.md#Show-IdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
 *IdentityProfilesApi* | [**Sync-IdentityProfile**](docs/IdentityProfilesApi.md#Sync-IdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
-*IdentityProfilesApi* | [**Update-IdentityProfile**](docs/IdentityProfilesApi.md#Update-IdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update Identity Profile
+*IdentityProfilesApi* | [**Update-IdentityProfile**](docs/IdentityProfilesApi.md#Update-IdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
 *LifecycleStatesApi* | [**New-LifecycleState**](docs/LifecycleStatesApi.md#New-LifecycleState) | **POST** /identity-profiles/{identity-profile-id}/lifecycle-states | Create Lifecycle State
 *LifecycleStatesApi* | [**Remove-LifecycleState**](docs/LifecycleStatesApi.md#Remove-LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete Lifecycle State
 *LifecycleStatesApi* | [**Get-LifecycleState**](docs/LifecycleStatesApi.md#Get-LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get Lifecycle State

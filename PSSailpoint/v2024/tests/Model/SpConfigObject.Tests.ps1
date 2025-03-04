@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024SpConfigObject' {
     Context 'V2024SpConfigObject' {
         It 'Initialize-V2024SpConfigObject' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024SpConfigObject -ObjectType "TEST_VALUE" -ReferenceExtractors "TEST_VALUE" -SignatureRequired "TEST_VALUE" -AlwaysResolveById "TEST_VALUE" -LegacyObject "TEST_VALUE" -OnePerTenant "TEST_VALUE" -Exportable "TEST_VALUE" -Rules "TEST_VALUE"
+            #$NewObject = Initialize-V2024SpConfigObject -ObjectType "TEST_VALUE" -ReferenceExtractors "TEST_VALUE" -SignatureRequired "TEST_VALUE" -LegacyObject "TEST_VALUE" -OnePerTenant "TEST_VALUE" -Exportable "TEST_VALUE" -Rules "TEST_VALUE"
             #$NewObject | Should -BeOfType SpConfigObject
             #$NewObject.property | Should -Be 0
         }

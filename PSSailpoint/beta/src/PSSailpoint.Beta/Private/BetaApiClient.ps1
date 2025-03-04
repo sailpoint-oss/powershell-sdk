@@ -217,7 +217,11 @@ function Invoke-BetaApiClient {
     }
 
     return @{
-        Response = DeserializeResponse -Response $Response -ReturnType $ReturnType -ContentTypes $Response.Headers["Content-Type"]
+        Response = if ($Response.Content -is [string]) {
+            DeserializeResponse -Response $Response.Content -ReturnType $ReturnType -ContentTypes $Response.Headers["Content-Type"]
+        } else {
+            DeserializeResponse -Response $Response -ReturnType $ReturnType -ContentTypes $Response.Headers["Content-Type"]
+        }
         StatusCode = $Response.StatusCode
         Headers = $Response.Headers
     }

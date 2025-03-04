@@ -15,7 +15,7 @@ No summary available.
 Defines all the identity attribute mapping configurations. This defines how to generate or collect data for each identity attributes in identity refresh process.
 
 .PARAMETER Enabled
-Backend will only promote values if the profile/mapping is enabled.
+The backend will only promote values if the profile/mapping is enabled.
 .PARAMETER AttributeTransforms
 No description available.
 .OUTPUTS

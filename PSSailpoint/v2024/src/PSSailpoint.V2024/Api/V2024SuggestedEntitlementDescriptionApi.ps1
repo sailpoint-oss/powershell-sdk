@@ -17,6 +17,9 @@ Submit Sed Batch Stats Request
 .PARAMETER BatchId
 Batch Id
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -31,6 +34,9 @@ function Get-V2024SedBatchStats {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${BatchId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -56,6 +62,11 @@ function Get-V2024SedBatchStats {
             throw "Error! The required parameter `BatchId` missing when calling getSedBatchStats."
         }
         $LocalVarUri = $LocalVarUri.replace('{batchId}', [System.Web.HTTPUtility]::UrlEncode($BatchId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSedBatchStats."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -88,6 +99,9 @@ List Sed Batch Request
 
 List Sed Batches. API responses with Sed Batch Status
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -99,6 +113,9 @@ SedBatchStatus
 function Get-V2024SedBatches {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -120,6 +137,11 @@ function Get-V2024SedBatches {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/suggested-entitlement-description-batches'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSedBatches."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -152,14 +174,11 @@ List Suggested Entitlement Descriptions
 
 List of Suggested Entitlement Descriptions (SED)  SED field descriptions:  **batchId**: the ID of the batch of entitlements that are submitted for description generation  **displayName**: the display name of the entitlement that we are generating a description for  **sourceName**: the name of the source associated with the entitlement that we are generating the description for  **sourceId**: the ID of the source associated with the entitlement that we are generating the description for  **status**: the status of the suggested entitlement description, valid status options: ""requested"", ""suggested"", ""not_suggested"", ""failed"", ""assigned"", ""approved"", ""denied""  **fullText**: will filter suggested entitlement description records by text found in any of the following fields: entitlement name, entitlement display name, suggested description, source name
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER Limit
-Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-
-.PARAMETER Offset
-Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-
-.PARAMETER Count
-If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
 
 .PARAMETER Filters
 Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co*
@@ -167,8 +186,11 @@ Filter results using the standard syntax described in [V3 API Standard Collectio
 .PARAMETER Sorters
 Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status**
 
+.PARAMETER Count
+If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used.
+
 .PARAMETER CountOnly
-If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array.
+If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array.
 
 .PARAMETER RequestedByAnyone
 By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested
@@ -188,20 +210,20 @@ function Get-V2024Seds {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Limit},
+        [String]
+        $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Offset},
+        [System.Nullable[Int64]]
+        ${Limit},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Boolean]]
-        ${Count},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${CountOnly},
@@ -233,16 +255,13 @@ function Get-V2024Seds {
 
         $LocalVarUri = '/suggested-entitlement-descriptions'
 
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling listSeds."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
         if ($Limit) {
             $LocalVarQueryParameters['limit'] = $Limit
-        }
-
-        if ($Offset) {
-            $LocalVarQueryParameters['offset'] = $Offset
-        }
-
-        if ($Count) {
-            $LocalVarQueryParameters['count'] = $Count
         }
 
         if ($Filters) {
@@ -251,6 +270,10 @@ function Get-V2024Seds {
 
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
         }
 
         if ($CountOnly) {
@@ -299,6 +322,9 @@ Patch Suggested Entitlement Description
 .PARAMETER Id
 id is sed id
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER SedPatch
 Sed Patch Request
 
@@ -317,6 +343,9 @@ function Update-V2024Sed {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${SedPatch},
         [Switch]
@@ -347,6 +376,11 @@ function Update-V2024Sed {
             throw "Error! The required parameter `Id` missing when calling patchSed."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchSed."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$SedPatch) {
             throw "Error! The required parameter `SedPatch` missing when calling patchSed."
@@ -396,6 +430,9 @@ Submit Bulk Approval Request
 
 Submit Bulk Approval Request for SED. Request body takes list of SED Ids. API responses with list of SED Approval Status
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER SedApproval
 Sed Approval
 
@@ -411,6 +448,9 @@ function Submit-V2024SedApproval {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${SedApproval},
         [Switch]
@@ -437,6 +477,11 @@ function Submit-V2024SedApproval {
         $LocalVarContentTypes = @('application/json-patch+json')
 
         $LocalVarUri = '/suggested-entitlement-description-approvals'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling submitSedApproval."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$SedApproval) {
             throw "Error! The required parameter `SedApproval` missing when calling submitSedApproval."
@@ -486,6 +531,9 @@ Submit Sed Assignment Request
 
 Submit Assignment Request. Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER SedAssignment
 Sed Assignment Request
 
@@ -501,6 +549,9 @@ function Submit-V2024SedAssignment {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${SedAssignment},
         [Switch]
@@ -527,6 +578,11 @@ function Submit-V2024SedAssignment {
         $LocalVarContentTypes = @('application/json-patch+json')
 
         $LocalVarUri = '/suggested-entitlement-description-assignments'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling submitSedAssignment."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$SedAssignment) {
             throw "Error! The required parameter `SedAssignment` missing when calling submitSedAssignment."
@@ -576,6 +632,9 @@ Submit Sed Batch Request
 
 Submit Sed Batch Request. Request body has one of the following: - a list of entitlement Ids - a list of SED Ids that user wants to have description generated by LLM. API responses with batchId that groups Ids together
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER SedBatchRequest
 Sed Batch Request
 
@@ -591,6 +650,9 @@ function Submit-V2024SedBatchRequest {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${SedBatchRequest},
         [Switch]
@@ -617,6 +679,11 @@ function Submit-V2024SedBatchRequest {
         $LocalVarContentTypes = @('application/json-patch+json')
 
         $LocalVarUri = '/suggested-entitlement-description-batches'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling submitSedBatchRequest."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SedBatchRequest -is [array])) {
             $LocalVarBodyParameter = $SedBatchRequest | ConvertTo-Json -AsArray -Depth 100

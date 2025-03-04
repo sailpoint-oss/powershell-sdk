@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Identity profile's owner.
+The owner of the Identity Profile.
 
 .PARAMETER Type
-Owner's object type.
+Type of the object to which this reference applies
 .PARAMETER Id
-Owner's ID.
+ID of the object to which this reference applies
 .PARAMETER Name
-Owner's name.
+Human-readable display name of the object to which this reference applies
 .OUTPUTS
 
 IdentityProfileAllOfOwner<PSCustomObject>

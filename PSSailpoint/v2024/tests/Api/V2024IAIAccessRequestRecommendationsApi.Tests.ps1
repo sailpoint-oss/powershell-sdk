@@ -46,14 +46,6 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IAIAccessRequestRecommendatio
         }
     }
 
-    Context 'Get-V2024AccessRequestRecommendationsConfig' {
-        It 'Test Get-V2024AccessRequestRecommendationsConfig' {
-            #$TestResult = Get-V2024AccessRequestRecommendationsConfig -XSailPointExperimental "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-V2024AccessRequestRecommendationsIgnoredItems' {
         It 'Test Get-V2024AccessRequestRecommendationsIgnoredItems' {
             #$TestResult = Get-V2024AccessRequestRecommendationsIgnoredItems -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
@@ -73,14 +65,6 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IAIAccessRequestRecommendatio
     Context 'Get-V2024AccessRequestRecommendationsViewedItems' {
         It 'Test Get-V2024AccessRequestRecommendationsViewedItems' {
             #$TestResult = Get-V2024AccessRequestRecommendationsViewedItems -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Set-V2024AccessRequestRecommendationsConfig' {
-        It 'Test Set-V2024AccessRequestRecommendationsConfig' {
-            #$TestResult = Set-V2024AccessRequestRecommendationsConfig -XSailPointExperimental "TEST_VALUE" -AccessRequestRecommendationConfigDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

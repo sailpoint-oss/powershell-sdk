@@ -38,6 +38,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentityProfilesApi' {
         }
     }
 
+    Context 'New-V2024IdentityPreview' {
+        It 'Test New-V2024IdentityPreview' {
+            #$TestResult = New-V2024IdentityPreview -XSailPointExperimental "TEST_VALUE" -IdentityPreviewRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2024DefaultIdentityAttributeConfig' {
         It 'Test Get-V2024DefaultIdentityAttributeConfig' {
             #$TestResult = Get-V2024DefaultIdentityAttributeConfig -IdentityProfileId "TEST_VALUE"
@@ -65,14 +73,6 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentityProfilesApi' {
     Context 'Get-V2024IdentityProfiles' {
         It 'Test Get-V2024IdentityProfiles' {
             #$TestResult = Get-V2024IdentityProfiles -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Show-V2024IdentityPreview' {
-        It 'Test Show-V2024IdentityPreview' {
-            #$TestResult = Show-V2024IdentityPreview -IdentityPreviewRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

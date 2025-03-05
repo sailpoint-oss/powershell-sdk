@@ -32,7 +32,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlement1
+Entitlement
 #>
 function New-V2024AccessModelMetadataForEntitlement {
     [CmdletBinding()]
@@ -99,7 +99,7 @@ function New-V2024AccessModelMetadataForEntitlement {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlement1" `
+                                -ReturnType "Entitlement" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -236,7 +236,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlement1
+Entitlement
 #>
 function Get-V2024Entitlement {
     [CmdletBinding()]
@@ -289,7 +289,7 @@ function Get-V2024Entitlement {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlement1" `
+                                -ReturnType "Entitlement" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -519,7 +519,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlement1[]
+Entitlement[]
 #>
 function Get-V2024EntitlementChildren {
     [CmdletBinding()]
@@ -607,7 +607,7 @@ function Get-V2024EntitlementChildren {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlement1[]" `
+                                -ReturnType "Entitlement[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -654,7 +654,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlement1[]
+Entitlement[]
 #>
 function Get-V2024EntitlementParents {
     [CmdletBinding()]
@@ -742,7 +742,7 @@ function Get-V2024EntitlementParents {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlement1[]" `
+                                -ReturnType "Entitlement[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -798,7 +798,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlement1[]
+Entitlement[]
 #>
 function Get-V2024Entitlements {
     [CmdletBinding()]
@@ -907,7 +907,7 @@ function Get-V2024Entitlements {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlement1[]" `
+                                -ReturnType "Entitlement[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -942,7 +942,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlement1
+Entitlement
 #>
 function Update-V2024Entitlement {
     [CmdletBinding()]
@@ -1014,7 +1014,7 @@ function Update-V2024Entitlement {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlement1" `
+                                -ReturnType "Entitlement" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

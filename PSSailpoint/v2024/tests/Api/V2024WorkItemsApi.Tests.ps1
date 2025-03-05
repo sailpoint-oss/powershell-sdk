@@ -30,6 +30,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024WorkItemsApi' {
         }
     }
 
+    Context 'Invoke-V2024ForwardWorkItem' {
+        It 'Test Invoke-V2024ForwardWorkItem' {
+            #$TestResult = Invoke-V2024ForwardWorkItem -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -WorkItemForward "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2024CompletedWorkItems' {
         It 'Test Get-V2024CompletedWorkItems' {
             #$TestResult = Get-V2024CompletedWorkItems -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
@@ -40,7 +48,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024WorkItemsApi' {
 
     Context 'Get-V2024CountCompletedWorkItems' {
         It 'Test Get-V2024CountCompletedWorkItems' {
-            #$TestResult = Get-V2024CountCompletedWorkItems -OwnerId "TEST_VALUE"
+            #$TestResult = Get-V2024CountCompletedWorkItems -XSailPointExperimental "TEST_VALUE" -OwnerId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -89,14 +97,6 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024WorkItemsApi' {
     Context 'Deny-V2024ApprovalItemsInBulk' {
         It 'Test Deny-V2024ApprovalItemsInBulk' {
             #$TestResult = Deny-V2024ApprovalItemsInBulk -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Send-V2024WorkItemForward' {
-        It 'Test Send-V2024WorkItemForward' {
-            #$TestResult = Send-V2024WorkItemForward -Id "TEST_VALUE" -WorkItemForward "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

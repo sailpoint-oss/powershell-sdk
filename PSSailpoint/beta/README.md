@@ -281,17 +281,17 @@ Class | Method | HTTP request | Description
 *BetaIdentityHistoryApi* | [**Get-BetaIdentityAccessItems**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentityAccessItems) | **GET** /historical-identities/{id}/access-items | List Access Items by Identity
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshotAccessItems**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Get Identity Access Items Snapshot
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshots**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
-*BetaIdentityProfilesApi* | [**New-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#New-BetaIdentityProfile) | **POST** /identity-profiles | Create an Identity Profile
-*BetaIdentityProfilesApi* | [**Remove-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Remove-BetaIdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete an Identity Profile
+*BetaIdentityProfilesApi* | [**New-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#New-BetaIdentityProfile) | **POST** /identity-profiles | Create Identity Profile
+*BetaIdentityProfilesApi* | [**Remove-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Remove-BetaIdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete Identity Profile
 *BetaIdentityProfilesApi* | [**Remove-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Remove-BetaIdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
 *BetaIdentityProfilesApi* | [**Export-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Export-BetaIdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
 *BetaIdentityProfilesApi* | [**Get-BetaDefaultIdentityAttributeConfig**](docs/BetaIdentityProfilesApi.md#Get-BetaDefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Default identity attribute config
-*BetaIdentityProfilesApi* | [**Get-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Get-BetaIdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Gets a single Identity Profile
+*BetaIdentityProfilesApi* | [**Get-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Get-BetaIdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get Identity Profile
 *BetaIdentityProfilesApi* | [**Import-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Import-BetaIdentityProfiles) | **POST** /identity-profiles/import | Import Identity Profiles
-*BetaIdentityProfilesApi* | [**Get-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Get-BetaIdentityProfiles) | **GET** /identity-profiles | Identity Profiles List
+*BetaIdentityProfilesApi* | [**Get-BetaIdentityProfiles**](docs/BetaIdentityProfilesApi.md#Get-BetaIdentityProfiles) | **GET** /identity-profiles | List Identity Profiles
 *BetaIdentityProfilesApi* | [**Show-BetaGenerateIdentityPreview**](docs/BetaIdentityProfilesApi.md#Show-BetaGenerateIdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
 *BetaIdentityProfilesApi* | [**Sync-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Sync-BetaIdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
-*BetaIdentityProfilesApi* | [**Update-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Update-BetaIdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
+*BetaIdentityProfilesApi* | [**Update-BetaIdentityProfile**](docs/BetaIdentityProfilesApi.md#Update-BetaIdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update Identity Profile
 *BetaLaunchersApi* | [**New-BetaLauncher**](docs/BetaLaunchersApi.md#New-BetaLauncher) | **POST** /launchers | Create launcher
 *BetaLaunchersApi* | [**Remove-BetaLauncher**](docs/BetaLaunchersApi.md#Remove-BetaLauncher) | **DELETE** /launchers/{launcherID} | Delete Launcher
 *BetaLaunchersApi* | [**Get-BetaLauncher**](docs/BetaLaunchersApi.md#Get-BetaLauncher) | **GET** /launchers/{launcherID} | Get Launcher by ID
@@ -1417,6 +1417,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.SpConfigMessage](docs/SpConfigMessage.md)
  - [PSSailpoint.Beta\Model.SpConfigObject](docs/SpConfigObject.md)
  - [PSSailpoint.Beta\Model.SpConfigRule](docs/SpConfigRule.md)
+ - [PSSailpoint.Beta\Model.SpConfigRuleValue](docs/SpConfigRuleValue.md)
  - [PSSailpoint.Beta\Model.SpConfigRules](docs/SpConfigRules.md)
  - [PSSailpoint.Beta\Model.Split](docs/Split.md)
  - [PSSailpoint.Beta\Model.StandardLevel](docs/StandardLevel.md)

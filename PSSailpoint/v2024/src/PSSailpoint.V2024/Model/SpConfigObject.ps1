@@ -20,6 +20,8 @@ The object type this configuration is for.
 List of json paths within an exported object of this type that represent references that need to be resolved.
 .PARAMETER SignatureRequired
 If true, this type of object will be JWS signed and cannot be modified before import.
+.PARAMETER AlwaysResolveById
+Whether this object type has to be resolved always by ID
 .PARAMETER LegacyObject
 Whether this is a legacy object
 .PARAMETER OnePerTenant
@@ -47,6 +49,9 @@ function Initialize-V2024SpConfigObject {
         ${SignatureRequired} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
+        ${AlwaysResolveById} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
         ${LegacyObject} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
@@ -68,6 +73,7 @@ function Initialize-V2024SpConfigObject {
             "objectType" = ${ObjectType}
             "referenceExtractors" = ${ReferenceExtractors}
             "signatureRequired" = ${SignatureRequired}
+            "alwaysResolveById" = ${AlwaysResolveById}
             "legacyObject" = ${LegacyObject}
             "onePerTenant" = ${OnePerTenant}
             "exportable" = ${Exportable}
@@ -108,7 +114,7 @@ function ConvertFrom-V2024JsonToSpConfigObject {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024SpConfigObject
-        $AllProperties = ("objectType", "referenceExtractors", "signatureRequired", "legacyObject", "onePerTenant", "exportable", "rules")
+        $AllProperties = ("objectType", "referenceExtractors", "signatureRequired", "alwaysResolveById", "legacyObject", "onePerTenant", "exportable", "rules")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -131,6 +137,12 @@ function ConvertFrom-V2024JsonToSpConfigObject {
             $SignatureRequired = $null
         } else {
             $SignatureRequired = $JsonParameters.PSobject.Properties["signatureRequired"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "alwaysResolveById"))) { #optional property not found
+            $AlwaysResolveById = $null
+        } else {
+            $AlwaysResolveById = $JsonParameters.PSobject.Properties["alwaysResolveById"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "legacyObject"))) { #optional property not found
@@ -161,6 +173,7 @@ function ConvertFrom-V2024JsonToSpConfigObject {
             "objectType" = ${ObjectType}
             "referenceExtractors" = ${ReferenceExtractors}
             "signatureRequired" = ${SignatureRequired}
+            "alwaysResolveById" = ${AlwaysResolveById}
             "legacyObject" = ${LegacyObject}
             "onePerTenant" = ${OnePerTenant}
             "exportable" = ${Exportable}

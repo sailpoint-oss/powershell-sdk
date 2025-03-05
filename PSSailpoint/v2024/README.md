@@ -275,9 +275,11 @@ Class | Method | HTTP request | Description
 *V2024IAIAccessRequestRecommendationsApi* | [**Add-V2024AccessRequestRecommendationsViewedItem**](docs/V2024IAIAccessRequestRecommendationsApi.md#Add-V2024AccessRequestRecommendationsViewedItem) | **POST** /ai-access-request-recommendations/viewed-items | Notification of Viewed Access Request Recommendations
 *V2024IAIAccessRequestRecommendationsApi* | [**Add-V2024AccessRequestRecommendationsViewedItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Add-V2024AccessRequestRecommendationsViewedItems) | **POST** /ai-access-request-recommendations/viewed-items/bulk-create | Notification of Viewed Access Request Recommendations in Bulk
 *V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendations**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendations) | **GET** /ai-access-request-recommendations | Identity Access Request Recommendations
+*V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsConfig**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsConfig) | **GET** /ai-access-request-recommendations/config | Get Access Request Recommendations config
 *V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsIgnoredItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsIgnoredItems) | **GET** /ai-access-request-recommendations/ignored-items | List of Ignored Access Request Recommendations
 *V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsRequestedItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsRequestedItems) | **GET** /ai-access-request-recommendations/requested-items | List of Requested Access Request Recommendations
 *V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsViewedItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsViewedItems) | **GET** /ai-access-request-recommendations/viewed-items | List of Viewed Access Request Recommendations
+*V2024IAIAccessRequestRecommendationsApi* | [**Set-V2024AccessRequestRecommendationsConfig**](docs/V2024IAIAccessRequestRecommendationsApi.md#Set-V2024AccessRequestRecommendationsConfig) | **PUT** /ai-access-request-recommendations/config | Update Access Request Recommendations config
 *V2024IAICommonAccessApi* | [**New-V2024CommonAccess**](docs/V2024IAICommonAccessApi.md#New-V2024CommonAccess) | **POST** /common-access | Create common access items
 *V2024IAICommonAccessApi* | [**Get-V2024CommonAccess**](docs/V2024IAICommonAccessApi.md#Get-V2024CommonAccess) | **GET** /common-access | Get a paginated list of common access
 *V2024IAICommonAccessApi* | [**Update-V2024CommonAccessStatusInBulk**](docs/V2024IAICommonAccessApi.md#Update-V2024CommonAccessStatusInBulk) | **POST** /common-access/update-status | Bulk update common access status
@@ -349,17 +351,17 @@ Class | Method | HTTP request | Description
 *V2024IdentityHistoryApi* | [**Get-V2024IdentityAccessItems**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentityAccessItems) | **GET** /historical-identities/{id}/access-items | List Access Items by Identity
 *V2024IdentityHistoryApi* | [**Get-V2024IdentitySnapshotAccessItems**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Gets the list of identity access items at a given date filterd by item type
 *V2024IdentityHistoryApi* | [**Get-V2024IdentitySnapshots**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
-*V2024IdentityProfilesApi* | [**New-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#New-V2024IdentityProfile) | **POST** /identity-profiles | Create an Identity Profile
-*V2024IdentityProfilesApi* | [**Remove-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Remove-V2024IdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete an Identity Profile
+*V2024IdentityProfilesApi* | [**New-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#New-V2024IdentityProfile) | **POST** /identity-profiles | Create Identity Profile
+*V2024IdentityProfilesApi* | [**Remove-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Remove-V2024IdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete Identity Profile
 *V2024IdentityProfilesApi* | [**Remove-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Remove-V2024IdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
 *V2024IdentityProfilesApi* | [**Export-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Export-V2024IdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
 *V2024IdentityProfilesApi* | [**Get-V2024DefaultIdentityAttributeConfig**](docs/V2024IdentityProfilesApi.md#Get-V2024DefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Get default Identity Attribute Config
-*V2024IdentityProfilesApi* | [**Get-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Get-V2024IdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get single Identity Profile
+*V2024IdentityProfilesApi* | [**Get-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Get-V2024IdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get Identity Profile
 *V2024IdentityProfilesApi* | [**Import-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Import-V2024IdentityProfiles) | **POST** /identity-profiles/import | Import Identity Profiles
-*V2024IdentityProfilesApi* | [**Get-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Get-V2024IdentityProfiles) | **GET** /identity-profiles | Identity Profiles List
+*V2024IdentityProfilesApi* | [**Get-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Get-V2024IdentityProfiles) | **GET** /identity-profiles | List Identity Profiles
 *V2024IdentityProfilesApi* | [**Show-V2024IdentityPreview**](docs/V2024IdentityProfilesApi.md#Show-V2024IdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
 *V2024IdentityProfilesApi* | [**Sync-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Sync-V2024IdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
-*V2024IdentityProfilesApi* | [**Update-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Update-V2024IdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update the Identity Profile
+*V2024IdentityProfilesApi* | [**Update-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Update-V2024IdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update Identity Profile
 *V2024LifecycleStatesApi* | [**New-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#New-V2024LifecycleState) | **POST** /identity-profiles/{identity-profile-id}/lifecycle-states | Create Lifecycle State
 *V2024LifecycleStatesApi* | [**Remove-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#Remove-V2024LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete Lifecycle State
 *V2024LifecycleStatesApi* | [**Get-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#Get-V2024LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get Lifecycle State
@@ -373,6 +375,14 @@ Class | Method | HTTP request | Description
 *V2024MFAConfigurationApi* | [**Set-V2024MFAKBAConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAKBAConfig) | **POST** /mfa/kba/config/answers | Set MFA KBA configuration
 *V2024MFAConfigurationApi* | [**Set-V2024MFAOktaConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
 *V2024MFAConfigurationApi* | [**Test-V2024MFAConfig**](docs/V2024MFAConfigurationApi.md#Test-V2024MFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
+*V2024MachineAccountsApi* | [**Get-V2024MachineAccount**](docs/V2024MachineAccountsApi.md#Get-V2024MachineAccount) | **GET** /machine-accounts/{id} | Machine Account Details
+*V2024MachineAccountsApi* | [**Get-V2024MachineAccounts**](docs/V2024MachineAccountsApi.md#Get-V2024MachineAccounts) | **GET** /machine-accounts | Machine Accounts List
+*V2024MachineAccountsApi* | [**Update-V2024MachineAccount**](docs/V2024MachineAccountsApi.md#Update-V2024MachineAccount) | **PATCH** /machine-accounts/{id} | Update a Machine Account
+*V2024MachineIdentitiesApi* | [**New-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#New-V2024MachineIdentity) | **POST** /machine-identities | Create Machine Identities
+*V2024MachineIdentitiesApi* | [**Remove-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Remove-V2024MachineIdentity) | **DELETE** /machine-identities/{id} | Delete machine identity
+*V2024MachineIdentitiesApi* | [**Get-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Get-V2024MachineIdentity) | **GET** /machine-identities/{id} | Machine Identity Details
+*V2024MachineIdentitiesApi* | [**Get-V2024MachineIdentities**](docs/V2024MachineIdentitiesApi.md#Get-V2024MachineIdentities) | **GET** /machine-identities | List Machine Identities
+*V2024MachineIdentitiesApi* | [**Update-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Update-V2024MachineIdentity) | **PATCH** /machine-identities/{id} | Update a Machine Identity
 *V2024ManagedClientsApi* | [**New-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#New-V2024ManagedClient) | **POST** /managed-clients | Create Managed Client
 *V2024ManagedClientsApi* | [**Remove-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Remove-V2024ManagedClient) | **DELETE** /managed-clients/{id} | Delete Managed Client
 *V2024ManagedClientsApi* | [**Get-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClient) | **GET** /managed-clients/{id} | Get Managed Client
@@ -764,6 +774,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccessRequestPreApprovalRequestedItemsInner](docs/AccessRequestPreApprovalRequestedItemsInner.md)
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationActionItemDto](docs/AccessRequestRecommendationActionItemDto.md)
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationActionItemResponseDto](docs/AccessRequestRecommendationActionItemResponseDto.md)
+ - [PSSailpoint.V2024\Model.AccessRequestRecommendationConfigDto](docs/AccessRequestRecommendationConfigDto.md)
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationItem](docs/AccessRequestRecommendationItem.md)
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationItemDetail](docs/AccessRequestRecommendationItemDetail.md)
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationItemDetailAccess](docs/AccessRequestRecommendationItemDetailAccess.md)
@@ -1256,6 +1267,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.Lookup](docs/Lookup.md)
  - [PSSailpoint.V2024\Model.LookupStep](docs/LookupStep.md)
  - [PSSailpoint.V2024\Model.Lower](docs/Lower.md)
+ - [PSSailpoint.V2024\Model.MachineAccount](docs/MachineAccount.md)
+ - [PSSailpoint.V2024\Model.MachineIdentity](docs/MachineIdentity.md)
  - [PSSailpoint.V2024\Model.MailFromAttributes](docs/MailFromAttributes.md)
  - [PSSailpoint.V2024\Model.MailFromAttributesDto](docs/MailFromAttributesDto.md)
  - [PSSailpoint.V2024\Model.ManagedClient](docs/ManagedClient.md)
@@ -1679,6 +1692,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SpConfigMessage1](docs/SpConfigMessage1.md)
  - [PSSailpoint.V2024\Model.SpConfigObject](docs/SpConfigObject.md)
  - [PSSailpoint.V2024\Model.SpConfigRule](docs/SpConfigRule.md)
+ - [PSSailpoint.V2024\Model.SpConfigRuleValue](docs/SpConfigRuleValue.md)
  - [PSSailpoint.V2024\Model.SpConfigRules](docs/SpConfigRules.md)
  - [PSSailpoint.V2024\Model.Split](docs/Split.md)
  - [PSSailpoint.V2024\Model.StandardLevel](docs/StandardLevel.md)

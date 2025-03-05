@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The authoritative source for this Identity Profile.
+Identity profile's authoritative source.
 
 .PARAMETER Type
-Type of the object to which this reference applies
+Authoritative source's object type.
 .PARAMETER Id
-ID of the object to which this reference applies
+Authoritative source's ID.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Authoritative source's name.
 .OUTPUTS
 
 IdentityProfileAllOfAuthoritativeSource<PSCustomObject>

@@ -1,6 +1,6 @@
 templateDir: ./sdk-resources/resources
 packageName: PSSailpoint.V3
-packageVersion: 1.4.10
+packageVersion: 1.4.11
 apiVersion: v3
 companyName: SailPoint Technologies
 packageGuid: 7A197170-97E8-4DCD-A171-271D4AEC2F34

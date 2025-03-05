@@ -218,8 +218,30 @@ function Invoke-BetaApiClient {
 
     return @{
         Response = if ($Response.Content -is [string]) {
+            # If the content is a string, deserialize it
             DeserializeResponse -Response $Response.Content -ReturnType $ReturnType -ContentTypes $Response.Headers["Content-Type"]
+        } elseif ($Response.Headers["Content-Type"] -eq "application/zip") {
+            # Remove the leading slash using -replace
+            $fileName = $Uri -replace '^/', ''
+
+            # If you want to remove any further slashes or problematic characters, use the following
+            $fileName = $fileName -replace '/', '-'  # Replace slashes with dashes if you need a cleaner file name
+
+            # Append .zip to the file name
+            $zipFileName = "$fileName.zip"
+    
+            # Get the current working directory (base directory)
+            $currentDir = Get-Location
+    
+            # Combine the current directory with the file name to get the full path
+            $zipFilePath = Join-Path $currentDir $zipFileName
+    
+            # Write the zip file content (in byte array format) to the file
+            [System.IO.File]::WriteAllBytes($zipFilePath, $Response.Content)
+            Write-Host "Zip file has been saved to: $zipFilePath"
+            $null  # Since we saved the zip file, return null as the response
         } else {
+            # Otherwise, deserialize the full response object
             DeserializeResponse -Response $Response -ReturnType $ReturnType -ContentTypes $Response.Headers["Content-Type"]
         }
         StatusCode = $Response.StatusCode

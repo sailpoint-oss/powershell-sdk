@@ -30,6 +30,14 @@ The description of the entitlement
 True if the entitlement is privileged
 .PARAMETER CloudGoverned
 True if the entitlement is cloud governed
+.PARAMETER Requestable
+True if the entitlement is able to be directly requested
+.PARAMETER Owner
+No description available.
+.PARAMETER ManuallyUpdatedFields
+A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
+.PARAMETER AccessModelMetadata
+No description available.
 .PARAMETER Created
 Time when the entitlement was created
 .PARAMETER Modified
@@ -75,6 +83,18 @@ function Initialize-V2024Entitlement {
         [System.Nullable[Boolean]]
         ${CloudGoverned},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Requestable} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Owner},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Collections.Hashtable]
+        ${ManuallyUpdatedFields},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${AccessModelMetadata},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${Created},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -108,6 +128,10 @@ function Initialize-V2024Entitlement {
             "description" = ${Description}
             "privileged" = ${Privileged}
             "cloudGoverned" = ${CloudGoverned}
+            "requestable" = ${Requestable}
+            "owner" = ${Owner}
+            "manuallyUpdatedFields" = ${ManuallyUpdatedFields}
+            "accessModelMetadata" = ${AccessModelMetadata}
             "created" = ${Created}
             "modified" = ${Modified}
             "source" = ${Source}
@@ -150,7 +174,7 @@ function ConvertFrom-V2024JsonToEntitlement {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024Entitlement
-        $AllProperties = ("id", "name", "attribute", "value", "sourceSchemaObjectType", "description", "privileged", "cloudGoverned", "created", "modified", "source", "attributes", "segments", "directPermissions")
+        $AllProperties = ("id", "name", "attribute", "value", "sourceSchemaObjectType", "description", "privileged", "cloudGoverned", "requestable", "owner", "manuallyUpdatedFields", "accessModelMetadata", "created", "modified", "source", "attributes", "segments", "directPermissions")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -205,6 +229,30 @@ function ConvertFrom-V2024JsonToEntitlement {
             $CloudGoverned = $JsonParameters.PSobject.Properties["cloudGoverned"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestable"))) { #optional property not found
+            $Requestable = $null
+        } else {
+            $Requestable = $JsonParameters.PSobject.Properties["requestable"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owner"))) { #optional property not found
+            $Owner = $null
+        } else {
+            $Owner = $JsonParameters.PSobject.Properties["owner"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "manuallyUpdatedFields"))) { #optional property not found
+            $ManuallyUpdatedFields = $null
+        } else {
+            $ManuallyUpdatedFields = $JsonParameters.PSobject.Properties["manuallyUpdatedFields"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessModelMetadata"))) { #optional property not found
+            $AccessModelMetadata = $null
+        } else {
+            $AccessModelMetadata = $JsonParameters.PSobject.Properties["accessModelMetadata"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) { #optional property not found
             $Created = $null
         } else {
@@ -250,6 +298,10 @@ function ConvertFrom-V2024JsonToEntitlement {
             "description" = ${Description}
             "privileged" = ${Privileged}
             "cloudGoverned" = ${CloudGoverned}
+            "requestable" = ${Requestable}
+            "owner" = ${Owner}
+            "manuallyUpdatedFields" = ${ManuallyUpdatedFields}
+            "accessModelMetadata" = ${AccessModelMetadata}
             "created" = ${Created}
             "modified" = ${Modified}
             "source" = ${Source}

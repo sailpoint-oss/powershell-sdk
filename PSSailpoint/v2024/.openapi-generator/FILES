@@ -25,6 +25,8 @@ docs/AccessItemRequester.md
 docs/AccessItemRequesterDto.md
 docs/AccessItemReviewedBy.md
 docs/AccessItemRoleResponse.md
+docs/AccessModelMetadata.md
+docs/AccessModelMetadataValuesInner.md
 docs/AccessProfile.md
 docs/AccessProfileApprovalScheme.md
 docs/AccessProfileBulkDeleteRequest.md
@@ -92,6 +94,10 @@ docs/AccountAggregationCompleted.md
 docs/AccountAggregationCompletedSource.md
 docs/AccountAggregationCompletedStats.md
 docs/AccountAggregationStatus.md
+docs/AccountAllOfIdentity.md
+docs/AccountAllOfOwnerIdentity.md
+docs/AccountAllOfRecommendation.md
+docs/AccountAllOfSourceOwner.md
 docs/AccountAttribute.md
 docs/AccountAttributes.md
 docs/AccountAttributesChanged.md
@@ -367,6 +373,7 @@ docs/Entitlement1AccessModelMetadata.md
 docs/Entitlement1ManuallyUpdatedFields.md
 docs/Entitlement1Owner.md
 docs/Entitlement1Source.md
+docs/EntitlementAccessModelMetadata.md
 docs/EntitlementAccessRequestConfig.md
 docs/EntitlementApprovalScheme.md
 docs/EntitlementBulkUpdateRequest.md
@@ -374,7 +381,7 @@ docs/EntitlementDocument.md
 docs/EntitlementDocumentAllOfManuallyUpdatedFields.md
 docs/EntitlementDocumentAllOfPermissions.md
 docs/EntitlementDocumentAllOfSource.md
-docs/EntitlementDto.md
+docs/EntitlementOwner.md
 docs/EntitlementRef.md
 docs/EntitlementRef1.md
 docs/EntitlementRequestConfig.md
@@ -539,6 +546,7 @@ docs/ListAccessProfiles401Response.md
 docs/ListAccessProfiles429Response.md
 docs/ListCampaignFilters200Response.md
 docs/ListCompleteWorkflowLibrary200ResponseInner.md
+docs/ListDeploys200Response.md
 docs/ListFormDefinitionsByTenantResponse.md
 docs/ListFormElementDataByElementIDResponse.md
 docs/ListFormInstancesByTenantResponse.md
@@ -1386,6 +1394,8 @@ src/PSSailpoint.V2024/Model/AccessItemRequester.ps1
 src/PSSailpoint.V2024/Model/AccessItemRequesterDto.ps1
 src/PSSailpoint.V2024/Model/AccessItemReviewedBy.ps1
 src/PSSailpoint.V2024/Model/AccessItemRoleResponse.ps1
+src/PSSailpoint.V2024/Model/AccessModelMetadata.ps1
+src/PSSailpoint.V2024/Model/AccessModelMetadataValuesInner.ps1
 src/PSSailpoint.V2024/Model/AccessProfile.ps1
 src/PSSailpoint.V2024/Model/AccessProfileApprovalScheme.ps1
 src/PSSailpoint.V2024/Model/AccessProfileBulkDeleteRequest.ps1
@@ -1453,6 +1463,10 @@ src/PSSailpoint.V2024/Model/AccountAggregationCompleted.ps1
 src/PSSailpoint.V2024/Model/AccountAggregationCompletedSource.ps1
 src/PSSailpoint.V2024/Model/AccountAggregationCompletedStats.ps1
 src/PSSailpoint.V2024/Model/AccountAggregationStatus.ps1
+src/PSSailpoint.V2024/Model/AccountAllOfIdentity.ps1
+src/PSSailpoint.V2024/Model/AccountAllOfOwnerIdentity.ps1
+src/PSSailpoint.V2024/Model/AccountAllOfRecommendation.ps1
+src/PSSailpoint.V2024/Model/AccountAllOfSourceOwner.ps1
 src/PSSailpoint.V2024/Model/AccountAttribute.ps1
 src/PSSailpoint.V2024/Model/AccountAttributes.ps1
 src/PSSailpoint.V2024/Model/AccountAttributesChanged.ps1
@@ -1728,6 +1742,7 @@ src/PSSailpoint.V2024/Model/Entitlement1AccessModelMetadata.ps1
 src/PSSailpoint.V2024/Model/Entitlement1ManuallyUpdatedFields.ps1
 src/PSSailpoint.V2024/Model/Entitlement1Owner.ps1
 src/PSSailpoint.V2024/Model/Entitlement1Source.ps1
+src/PSSailpoint.V2024/Model/EntitlementAccessModelMetadata.ps1
 src/PSSailpoint.V2024/Model/EntitlementAccessRequestConfig.ps1
 src/PSSailpoint.V2024/Model/EntitlementApprovalScheme.ps1
 src/PSSailpoint.V2024/Model/EntitlementBulkUpdateRequest.ps1
@@ -1735,7 +1750,7 @@ src/PSSailpoint.V2024/Model/EntitlementDocument.ps1
 src/PSSailpoint.V2024/Model/EntitlementDocumentAllOfManuallyUpdatedFields.ps1
 src/PSSailpoint.V2024/Model/EntitlementDocumentAllOfPermissions.ps1
 src/PSSailpoint.V2024/Model/EntitlementDocumentAllOfSource.ps1
-src/PSSailpoint.V2024/Model/EntitlementDto.ps1
+src/PSSailpoint.V2024/Model/EntitlementOwner.ps1
 src/PSSailpoint.V2024/Model/EntitlementRef.ps1
 src/PSSailpoint.V2024/Model/EntitlementRef1.ps1
 src/PSSailpoint.V2024/Model/EntitlementRequestConfig.ps1
@@ -1897,6 +1912,7 @@ src/PSSailpoint.V2024/Model/ListAccessProfiles401Response.ps1
 src/PSSailpoint.V2024/Model/ListAccessProfiles429Response.ps1
 src/PSSailpoint.V2024/Model/ListCampaignFilters200Response.ps1
 src/PSSailpoint.V2024/Model/ListCompleteWorkflowLibrary200ResponseInner.ps1
+src/PSSailpoint.V2024/Model/ListDeploys200Response.ps1
 src/PSSailpoint.V2024/Model/ListFormDefinitionsByTenantResponse.ps1
 src/PSSailpoint.V2024/Model/ListFormElementDataByElementIDResponse.ps1
 src/PSSailpoint.V2024/Model/ListFormInstancesByTenantResponse.ps1
@@ -2582,6 +2598,8 @@ tests/Model/AccessItemRequester.Tests.ps1
 tests/Model/AccessItemRequesterDto.Tests.ps1
 tests/Model/AccessItemReviewedBy.Tests.ps1
 tests/Model/AccessItemRoleResponse.Tests.ps1
+tests/Model/AccessModelMetadata.Tests.ps1
+tests/Model/AccessModelMetadataValuesInner.Tests.ps1
 tests/Model/AccessProfile.Tests.ps1
 tests/Model/AccessProfileApprovalScheme.Tests.ps1
 tests/Model/AccessProfileBulkDeleteRequest.Tests.ps1
@@ -2649,6 +2667,10 @@ tests/Model/AccountAggregationCompleted.Tests.ps1
 tests/Model/AccountAggregationCompletedSource.Tests.ps1
 tests/Model/AccountAggregationCompletedStats.Tests.ps1
 tests/Model/AccountAggregationStatus.Tests.ps1
+tests/Model/AccountAllOfIdentity.Tests.ps1
+tests/Model/AccountAllOfOwnerIdentity.Tests.ps1
+tests/Model/AccountAllOfRecommendation.Tests.ps1
+tests/Model/AccountAllOfSourceOwner.Tests.ps1
 tests/Model/AccountAttribute.Tests.ps1
 tests/Model/AccountAttributes.Tests.ps1
 tests/Model/AccountAttributesChanged.Tests.ps1
@@ -2924,6 +2946,7 @@ tests/Model/Entitlement1AccessModelMetadata.Tests.ps1
 tests/Model/Entitlement1ManuallyUpdatedFields.Tests.ps1
 tests/Model/Entitlement1Owner.Tests.ps1
 tests/Model/Entitlement1Source.Tests.ps1
+tests/Model/EntitlementAccessModelMetadata.Tests.ps1
 tests/Model/EntitlementAccessRequestConfig.Tests.ps1
 tests/Model/EntitlementApprovalScheme.Tests.ps1
 tests/Model/EntitlementBulkUpdateRequest.Tests.ps1
@@ -2931,7 +2954,7 @@ tests/Model/EntitlementDocument.Tests.ps1
 tests/Model/EntitlementDocumentAllOfManuallyUpdatedFields.Tests.ps1
 tests/Model/EntitlementDocumentAllOfPermissions.Tests.ps1
 tests/Model/EntitlementDocumentAllOfSource.Tests.ps1
-tests/Model/EntitlementDto.Tests.ps1
+tests/Model/EntitlementOwner.Tests.ps1
 tests/Model/EntitlementRef.Tests.ps1
 tests/Model/EntitlementRef1.Tests.ps1
 tests/Model/EntitlementRequestConfig.Tests.ps1
@@ -3093,6 +3116,7 @@ tests/Model/ListAccessProfiles401Response.Tests.ps1
 tests/Model/ListAccessProfiles429Response.Tests.ps1
 tests/Model/ListCampaignFilters200Response.Tests.ps1
 tests/Model/ListCompleteWorkflowLibrary200ResponseInner.Tests.ps1
+tests/Model/ListDeploys200Response.Tests.ps1
 tests/Model/ListFormDefinitionsByTenantResponse.Tests.ps1
 tests/Model/ListFormElementDataByElementIDResponse.Tests.ps1
 tests/Model/ListFormInstancesByTenantResponse.Tests.ps1

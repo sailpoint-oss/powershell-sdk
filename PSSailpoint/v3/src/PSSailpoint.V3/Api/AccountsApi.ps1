@@ -470,7 +470,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-EntitlementDto[]
+Entitlement[]
 #>
 function Get-AccountEntitlements {
     [CmdletBinding()]
@@ -536,7 +536,7 @@ function Get-AccountEntitlements {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "EntitlementDto[]" `
+                                -ReturnType "Entitlement[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

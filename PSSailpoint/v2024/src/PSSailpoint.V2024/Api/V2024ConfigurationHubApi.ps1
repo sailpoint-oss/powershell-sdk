@@ -1001,7 +1001,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-DeployResponse[]
+ListDeploys200Response
 #>
 function Get-V2024Deploys {
     [CmdletBinding()]
@@ -1039,7 +1039,7 @@ function Get-V2024Deploys {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "DeployResponse[]" `
+                                -ReturnType "ListDeploys200Response" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

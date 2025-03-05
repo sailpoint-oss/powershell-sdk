@@ -29,7 +29,7 @@ function Initialize-BetaImportObject {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("IDENTITY_OBJECT_CONFIG", "IDENTITY_PROFILE", "RULE", "SOURCE", "TRANSFORM", "TRIGGER_SUBSCRIPTION")]
+        [ValidateSet("CONNECTOR_RULE", "IDENTITY_OBJECT_CONFIG", "IDENTITY_PROFILE", "RULE", "SOURCE", "TRANSFORM", "TRIGGER_SUBSCRIPTION")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

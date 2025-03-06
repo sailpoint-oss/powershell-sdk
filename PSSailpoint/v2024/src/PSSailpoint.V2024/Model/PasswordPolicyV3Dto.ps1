@@ -94,10 +94,10 @@ function Initialize-V2024PasswordPolicyV3Dto {
         [String]
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
+        [System.Nullable[Int64]]
         ${DateCreated},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
+        [System.Nullable[Int64]]
         ${LastUpdated},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]

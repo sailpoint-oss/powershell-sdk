@@ -121,8 +121,8 @@ Class | Method | HTTP request | Description
 *V2024AppsApi* | [**Update-V2024SourceApp**](docs/V2024AppsApi.md#Update-V2024SourceApp) | **PATCH** /source-apps/{id} | Patch source app by ID
 *V2024AppsApi* | [**Update-V2024UserApp**](docs/V2024AppsApi.md#Update-V2024UserApp) | **PATCH** /user-apps/{id} | Patch user app by ID
 *V2024AppsApi* | [**Update-V2024SourceAppsInBulk**](docs/V2024AppsApi.md#Update-V2024SourceAppsInBulk) | **POST** /source-apps/bulk-update | Bulk update source apps
-*V2024AuthProfileApi* | [**Get-V2024ProfileConfig**](docs/V2024AuthProfileApi.md#Get-V2024ProfileConfig) | **GET** /auth-profiles/{id} | Get Auth Profile.
-*V2024AuthProfileApi* | [**Get-V2024ProfileConfigList**](docs/V2024AuthProfileApi.md#Get-V2024ProfileConfigList) | **GET** /auth-profiles | Get list of Auth Profiles.
+*V2024AuthProfileApi* | [**Get-V2024ProfileConfig**](docs/V2024AuthProfileApi.md#Get-V2024ProfileConfig) | **GET** /auth-profiles/{id} | Get Auth Profile
+*V2024AuthProfileApi* | [**Get-V2024ProfileConfigList**](docs/V2024AuthProfileApi.md#Get-V2024ProfileConfigList) | **GET** /auth-profiles | Get list of Auth Profiles
 *V2024AuthProfileApi* | [**Update-V2024ProfileConfig**](docs/V2024AuthProfileApi.md#Update-V2024ProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified Auth Profile
 *V2024AuthUsersApi* | [**Get-V2024AuthUser**](docs/V2024AuthUsersApi.md#Get-V2024AuthUser) | **GET** /auth-users/{id} | Auth User Details
 *V2024AuthUsersApi* | [**Update-V2024AuthUser**](docs/V2024AuthUsersApi.md#Update-V2024AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
@@ -930,6 +930,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.CampaignAllOfMachineAccountCampaignInfo](docs/CampaignAllOfMachineAccountCampaignInfo.md)
  - [PSSailpoint.V2024\Model.CampaignAllOfRoleCompositionCampaignInfo](docs/CampaignAllOfRoleCompositionCampaignInfo.md)
  - [PSSailpoint.V2024\Model.CampaignAllOfRoleCompositionCampaignInfoRemediatorRef](docs/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.md)
+ - [PSSailpoint.V2024\Model.CampaignAllOfRoleCompositionCampaignInfoReviewer](docs/CampaignAllOfRoleCompositionCampaignInfoReviewer.md)
  - [PSSailpoint.V2024\Model.CampaignAllOfSearchCampaignInfo](docs/CampaignAllOfSearchCampaignInfo.md)
  - [PSSailpoint.V2024\Model.CampaignAllOfSearchCampaignInfoReviewer](docs/CampaignAllOfSearchCampaignInfoReviewer.md)
  - [PSSailpoint.V2024\Model.CampaignAllOfSourceOwnerCampaignInfo](docs/CampaignAllOfSourceOwnerCampaignInfo.md)
@@ -1343,11 +1344,11 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.OrphanIdentitiesReportArguments](docs/OrphanIdentitiesReportArguments.md)
  - [PSSailpoint.V2024\Model.Outlier](docs/Outlier.md)
  - [PSSailpoint.V2024\Model.OutlierContributingFeature](docs/OutlierContributingFeature.md)
- - [PSSailpoint.V2024\Model.OutlierContributingFeatureValue](docs/OutlierContributingFeatureValue.md)
  - [PSSailpoint.V2024\Model.OutlierFeatureSummary](docs/OutlierFeatureSummary.md)
  - [PSSailpoint.V2024\Model.OutlierFeatureSummaryOutlierFeatureDisplayValuesInner](docs/OutlierFeatureSummaryOutlierFeatureDisplayValuesInner.md)
  - [PSSailpoint.V2024\Model.OutlierFeatureTranslation](docs/OutlierFeatureTranslation.md)
  - [PSSailpoint.V2024\Model.OutlierSummary](docs/OutlierSummary.md)
+ - [PSSailpoint.V2024\Model.OutlierValueType](docs/OutlierValueType.md)
  - [PSSailpoint.V2024\Model.OutliersContributingFeatureAccessItems](docs/OutliersContributingFeatureAccessItems.md)
  - [PSSailpoint.V2024\Model.OwnerDto](docs/OwnerDto.md)
  - [PSSailpoint.V2024\Model.OwnerReference](docs/OwnerReference.md)
@@ -1474,6 +1475,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.RightPad](docs/RightPad.md)
  - [PSSailpoint.V2024\Model.Role](docs/Role.md)
  - [PSSailpoint.V2024\Model.RoleAssignmentDto](docs/RoleAssignmentDto.md)
+ - [PSSailpoint.V2024\Model.RoleAssignmentDtoAssigner](docs/RoleAssignmentDtoAssigner.md)
+ - [PSSailpoint.V2024\Model.RoleAssignmentDtoAssignmentContext](docs/RoleAssignmentDtoAssignmentContext.md)
  - [PSSailpoint.V2024\Model.RoleAssignmentRef](docs/RoleAssignmentRef.md)
  - [PSSailpoint.V2024\Model.RoleAssignmentSourceType](docs/RoleAssignmentSourceType.md)
  - [PSSailpoint.V2024\Model.RoleBulkDeleteRequest](docs/RoleBulkDeleteRequest.md)
@@ -1788,6 +1791,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.WorkflowTriggerAttributes](docs/WorkflowTriggerAttributes.md)
  - [PSSailpoint.V2024\Model.WorkgroupBulkDeleteRequest](docs/WorkgroupBulkDeleteRequest.md)
  - [PSSailpoint.V2024\Model.WorkgroupConnectionDto](docs/WorkgroupConnectionDto.md)
+ - [PSSailpoint.V2024\Model.WorkgroupConnectionDtoObject](docs/WorkgroupConnectionDtoObject.md)
  - [PSSailpoint.V2024\Model.WorkgroupDeleteItem](docs/WorkgroupDeleteItem.md)
  - [PSSailpoint.V2024\Model.WorkgroupDto](docs/WorkgroupDto.md)
  - [PSSailpoint.V2024\Model.WorkgroupDtoOwner](docs/WorkgroupDtoOwner.md)

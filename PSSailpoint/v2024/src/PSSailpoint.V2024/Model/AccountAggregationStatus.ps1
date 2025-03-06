@@ -34,7 +34,7 @@ function Initialize-V2024AccountAggregationStatus {
         [System.Nullable[System.DateTime]]
         ${Start},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("STARTED", "ACCOUNTS_COLLECTED", "COMPLETED", "CANCELLED", "RETRIED", "TERMINATED")]
+        [ValidateSet("STARTED", "ACCOUNTS_COLLECTED", "COMPLETED", "CANCELLED", "RETRIED", "TERMINATED", "NOT_FOUND")]
         [String]
         ${Status},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

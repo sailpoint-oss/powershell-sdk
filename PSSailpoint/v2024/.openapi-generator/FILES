@@ -221,6 +221,7 @@ docs/CampaignAllOfFilter.md
 docs/CampaignAllOfMachineAccountCampaignInfo.md
 docs/CampaignAllOfRoleCompositionCampaignInfo.md
 docs/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.md
+docs/CampaignAllOfRoleCompositionCampaignInfoReviewer.md
 docs/CampaignAllOfSearchCampaignInfo.md
 docs/CampaignAllOfSearchCampaignInfoReviewer.md
 docs/CampaignAllOfSourceOwnerCampaignInfo.md
@@ -635,11 +636,11 @@ docs/OriginalRequest.md
 docs/OrphanIdentitiesReportArguments.md
 docs/Outlier.md
 docs/OutlierContributingFeature.md
-docs/OutlierContributingFeatureValue.md
 docs/OutlierFeatureSummary.md
 docs/OutlierFeatureSummaryOutlierFeatureDisplayValuesInner.md
 docs/OutlierFeatureTranslation.md
 docs/OutlierSummary.md
+docs/OutlierValueType.md
 docs/OutliersContributingFeatureAccessItems.md
 docs/OwnerDto.md
 docs/OwnerReference.md
@@ -766,6 +767,8 @@ docs/RevocabilityForRole.md
 docs/RightPad.md
 docs/Role.md
 docs/RoleAssignmentDto.md
+docs/RoleAssignmentDtoAssigner.md
+docs/RoleAssignmentDtoAssignmentContext.md
 docs/RoleAssignmentRef.md
 docs/RoleAssignmentSourceType.md
 docs/RoleBulkDeleteRequest.md
@@ -1250,6 +1253,7 @@ docs/WorkflowTrigger.md
 docs/WorkflowTriggerAttributes.md
 docs/WorkgroupBulkDeleteRequest.md
 docs/WorkgroupConnectionDto.md
+docs/WorkgroupConnectionDtoObject.md
 docs/WorkgroupDeleteItem.md
 docs/WorkgroupDto.md
 docs/WorkgroupDtoOwner.md
@@ -1559,6 +1563,7 @@ src/PSSailpoint.V2024/Model/CampaignAllOfFilter.ps1
 src/PSSailpoint.V2024/Model/CampaignAllOfMachineAccountCampaignInfo.ps1
 src/PSSailpoint.V2024/Model/CampaignAllOfRoleCompositionCampaignInfo.ps1
 src/PSSailpoint.V2024/Model/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.ps1
+src/PSSailpoint.V2024/Model/CampaignAllOfRoleCompositionCampaignInfoReviewer.ps1
 src/PSSailpoint.V2024/Model/CampaignAllOfSearchCampaignInfo.ps1
 src/PSSailpoint.V2024/Model/CampaignAllOfSearchCampaignInfoReviewer.ps1
 src/PSSailpoint.V2024/Model/CampaignAllOfSourceOwnerCampaignInfo.ps1
@@ -1972,11 +1977,11 @@ src/PSSailpoint.V2024/Model/OriginalRequest.ps1
 src/PSSailpoint.V2024/Model/OrphanIdentitiesReportArguments.ps1
 src/PSSailpoint.V2024/Model/Outlier.ps1
 src/PSSailpoint.V2024/Model/OutlierContributingFeature.ps1
-src/PSSailpoint.V2024/Model/OutlierContributingFeatureValue.ps1
 src/PSSailpoint.V2024/Model/OutlierFeatureSummary.ps1
 src/PSSailpoint.V2024/Model/OutlierFeatureSummaryOutlierFeatureDisplayValuesInner.ps1
 src/PSSailpoint.V2024/Model/OutlierFeatureTranslation.ps1
 src/PSSailpoint.V2024/Model/OutlierSummary.ps1
+src/PSSailpoint.V2024/Model/OutlierValueType.ps1
 src/PSSailpoint.V2024/Model/OutliersContributingFeatureAccessItems.ps1
 src/PSSailpoint.V2024/Model/OwnerDto.ps1
 src/PSSailpoint.V2024/Model/OwnerReference.ps1
@@ -2103,6 +2108,8 @@ src/PSSailpoint.V2024/Model/RevocabilityForRole.ps1
 src/PSSailpoint.V2024/Model/RightPad.ps1
 src/PSSailpoint.V2024/Model/Role.ps1
 src/PSSailpoint.V2024/Model/RoleAssignmentDto.ps1
+src/PSSailpoint.V2024/Model/RoleAssignmentDtoAssigner.ps1
+src/PSSailpoint.V2024/Model/RoleAssignmentDtoAssignmentContext.ps1
 src/PSSailpoint.V2024/Model/RoleAssignmentRef.ps1
 src/PSSailpoint.V2024/Model/RoleAssignmentSourceType.ps1
 src/PSSailpoint.V2024/Model/RoleBulkDeleteRequest.ps1
@@ -2417,6 +2424,7 @@ src/PSSailpoint.V2024/Model/WorkflowTrigger.ps1
 src/PSSailpoint.V2024/Model/WorkflowTriggerAttributes.ps1
 src/PSSailpoint.V2024/Model/WorkgroupBulkDeleteRequest.ps1
 src/PSSailpoint.V2024/Model/WorkgroupConnectionDto.ps1
+src/PSSailpoint.V2024/Model/WorkgroupConnectionDtoObject.ps1
 src/PSSailpoint.V2024/Model/WorkgroupDeleteItem.ps1
 src/PSSailpoint.V2024/Model/WorkgroupDto.ps1
 src/PSSailpoint.V2024/Model/WorkgroupDtoOwner.ps1
@@ -2732,6 +2740,7 @@ tests/Model/CampaignAllOfFilter.Tests.ps1
 tests/Model/CampaignAllOfMachineAccountCampaignInfo.Tests.ps1
 tests/Model/CampaignAllOfRoleCompositionCampaignInfo.Tests.ps1
 tests/Model/CampaignAllOfRoleCompositionCampaignInfoRemediatorRef.Tests.ps1
+tests/Model/CampaignAllOfRoleCompositionCampaignInfoReviewer.Tests.ps1
 tests/Model/CampaignAllOfSearchCampaignInfo.Tests.ps1
 tests/Model/CampaignAllOfSearchCampaignInfoReviewer.Tests.ps1
 tests/Model/CampaignAllOfSourceOwnerCampaignInfo.Tests.ps1
@@ -3145,11 +3154,11 @@ tests/Model/OriginalRequest.Tests.ps1
 tests/Model/OrphanIdentitiesReportArguments.Tests.ps1
 tests/Model/Outlier.Tests.ps1
 tests/Model/OutlierContributingFeature.Tests.ps1
-tests/Model/OutlierContributingFeatureValue.Tests.ps1
 tests/Model/OutlierFeatureSummary.Tests.ps1
 tests/Model/OutlierFeatureSummaryOutlierFeatureDisplayValuesInner.Tests.ps1
 tests/Model/OutlierFeatureTranslation.Tests.ps1
 tests/Model/OutlierSummary.Tests.ps1
+tests/Model/OutlierValueType.Tests.ps1
 tests/Model/OutliersContributingFeatureAccessItems.Tests.ps1
 tests/Model/OwnerDto.Tests.ps1
 tests/Model/OwnerReference.Tests.ps1
@@ -3276,6 +3285,8 @@ tests/Model/RevocabilityForRole.Tests.ps1
 tests/Model/RightPad.Tests.ps1
 tests/Model/Role.Tests.ps1
 tests/Model/RoleAssignmentDto.Tests.ps1
+tests/Model/RoleAssignmentDtoAssigner.Tests.ps1
+tests/Model/RoleAssignmentDtoAssignmentContext.Tests.ps1
 tests/Model/RoleAssignmentRef.Tests.ps1
 tests/Model/RoleAssignmentSourceType.Tests.ps1
 tests/Model/RoleBulkDeleteRequest.Tests.ps1
@@ -3590,6 +3601,7 @@ tests/Model/WorkflowTrigger.Tests.ps1
 tests/Model/WorkflowTriggerAttributes.Tests.ps1
 tests/Model/WorkgroupBulkDeleteRequest.Tests.ps1
 tests/Model/WorkgroupConnectionDto.Tests.ps1
+tests/Model/WorkgroupConnectionDtoObject.Tests.ps1
 tests/Model/WorkgroupDeleteItem.Tests.ps1
 tests/Model/WorkgroupDto.Tests.ps1
 tests/Model/WorkgroupDtoOwner.Tests.ps1

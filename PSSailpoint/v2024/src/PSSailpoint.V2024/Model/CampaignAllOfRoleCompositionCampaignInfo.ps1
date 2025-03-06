@@ -14,6 +14,8 @@ No summary available.
 
 Optional configuration options for role composition campaigns.
 
+.PARAMETER ReviewerId
+The ID of the identity or governance group reviewing this campaign. Deprecated in favor of the ""reviewer"" object.
 .PARAMETER Reviewer
 No description available.
 .PARAMETER RoleIds
@@ -32,6 +34,9 @@ CampaignAllOfRoleCompositionCampaignInfo<PSCustomObject>
 function Initialize-V2024CampaignAllOfRoleCompositionCampaignInfo {
     [CmdletBinding()]
     Param (
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ReviewerId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Reviewer},
@@ -59,6 +64,7 @@ function Initialize-V2024CampaignAllOfRoleCompositionCampaignInfo {
 
 
         $PSO = [PSCustomObject]@{
+            "reviewerId" = ${ReviewerId}
             "reviewer" = ${Reviewer}
             "roleIds" = ${RoleIds}
             "remediatorRef" = ${RemediatorRef}
@@ -100,7 +106,7 @@ function ConvertFrom-V2024JsonToCampaignAllOfRoleCompositionCampaignInfo {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024CampaignAllOfRoleCompositionCampaignInfo
-        $AllProperties = ("reviewer", "roleIds", "remediatorRef", "query", "description")
+        $AllProperties = ("reviewerId", "reviewer", "roleIds", "remediatorRef", "query", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -115,6 +121,12 @@ function ConvertFrom-V2024JsonToCampaignAllOfRoleCompositionCampaignInfo {
             throw "Error! JSON cannot be serialized due to the required property 'remediatorRef' missing."
         } else {
             $RemediatorRef = $JsonParameters.PSobject.Properties["remediatorRef"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reviewerId"))) { #optional property not found
+            $ReviewerId = $null
+        } else {
+            $ReviewerId = $JsonParameters.PSobject.Properties["reviewerId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "reviewer"))) { #optional property not found
@@ -142,6 +154,7 @@ function ConvertFrom-V2024JsonToCampaignAllOfRoleCompositionCampaignInfo {
         }
 
         $PSO = [PSCustomObject]@{
+            "reviewerId" = ${ReviewerId}
             "reviewer" = ${Reviewer}
             "roleIds" = ${RoleIds}
             "remediatorRef" = ${RemediatorRef}

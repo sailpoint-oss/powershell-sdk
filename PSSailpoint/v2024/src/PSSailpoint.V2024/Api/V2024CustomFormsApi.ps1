@@ -1548,7 +1548,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ListFormInstancesByTenantResponse
+ListFormInstancesByTenantResponse[]
 #>
 function Search-V2024FormInstancesByTenant {
     [CmdletBinding()]
@@ -1594,7 +1594,7 @@ function Search-V2024FormInstancesByTenant {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ListFormInstancesByTenantResponse" `
+                                -ReturnType "ListFormInstancesByTenantResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

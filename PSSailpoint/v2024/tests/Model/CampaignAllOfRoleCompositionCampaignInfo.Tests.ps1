@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024CampaignAllOfRoleCompositionCampai
     Context 'V2024CampaignAllOfRoleCompositionCampaignInfo' {
         It 'Initialize-V2024CampaignAllOfRoleCompositionCampaignInfo' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024CampaignAllOfRoleCompositionCampaignInfo -Reviewer "TEST_VALUE" -RoleIds "TEST_VALUE" -RemediatorRef "TEST_VALUE" -Query "TEST_VALUE" -Description "TEST_VALUE"
+            #$NewObject = Initialize-V2024CampaignAllOfRoleCompositionCampaignInfo -ReviewerId "TEST_VALUE" -Reviewer "TEST_VALUE" -RoleIds "TEST_VALUE" -RemediatorRef "TEST_VALUE" -Query "TEST_VALUE" -Description "TEST_VALUE"
             #$NewObject | Should -BeOfType CampaignAllOfRoleCompositionCampaignInfo
             #$NewObject.property | Should -Be 0
         }

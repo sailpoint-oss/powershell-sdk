@@ -19,7 +19,7 @@ display name
 .PARAMETER Value
 value
 .PARAMETER ValueType
-The data type of the value field
+No description available.
 .OUTPUTS
 
 OutlierFeatureSummaryOutlierFeatureDisplayValuesInner<PSCustomObject>
@@ -35,8 +35,7 @@ function Initialize-V2024OutlierFeatureSummaryOutlierFeatureDisplayValuesInner {
         [String]
         ${Value},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("INTEGER", "FLOAT")]
-        [String]
+        [PSCustomObject]
         ${ValueType}
     )
 

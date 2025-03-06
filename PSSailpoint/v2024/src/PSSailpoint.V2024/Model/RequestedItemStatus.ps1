@@ -15,7 +15,7 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-The ID of the access request.
+The ID of the access request. As of 2025, this is a new property. Older access requests might not have an ID.
 .PARAMETER Name
 Human-readable display name of the item being requested.
 .PARAMETER Type

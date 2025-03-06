@@ -676,7 +676,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-TemplateDto[]
+TemplateDto
 #>
 function Get-V2024NotificationTemplate {
     [CmdletBinding()]
@@ -729,7 +729,7 @@ function Get-V2024NotificationTemplate {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "TemplateDto[]" `
+                                -ReturnType "TemplateDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -958,7 +958,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-PreferencesDto[]
+PreferencesDto
 #>
 function Get-V2024NotificationPreferences {
     [CmdletBinding()]
@@ -1004,7 +1004,7 @@ function Get-V2024NotificationPreferences {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "PreferencesDto[]" `
+                                -ReturnType "PreferencesDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

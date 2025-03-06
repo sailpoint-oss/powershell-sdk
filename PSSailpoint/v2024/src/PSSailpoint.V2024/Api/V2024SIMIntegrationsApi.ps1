@@ -294,7 +294,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ServiceDeskIntegrationDto
+ServiceDeskIntegrationDto[]
 #>
 function Get-V2024SIMIntegrations {
     [CmdletBinding()]
@@ -340,7 +340,7 @@ function Get-V2024SIMIntegrations {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ServiceDeskIntegrationDto" `
+                                -ReturnType "ServiceDeskIntegrationDto[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

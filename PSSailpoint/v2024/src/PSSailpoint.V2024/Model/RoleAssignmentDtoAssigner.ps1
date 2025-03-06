@@ -12,40 +12,36 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+The identity that performed the assignment. This could be blank or system
 
 .PARAMETER Type
-No description available.
+Object type
 .PARAMETER Id
 ID of the object to which this reference applies
 .PARAMETER Name
-Human-readable name of Connected object
-.PARAMETER Description
-Description of the Connected object.
+Human-readable display name of the object to which this reference applies
 .OUTPUTS
 
-ConnectedObject<PSCustomObject>
+RoleAssignmentDtoAssigner<PSCustomObject>
 #>
 
-function Initialize-V2024ConnectedObject {
+function Initialize-V2024RoleAssignmentDtoAssigner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [ValidateSet("IDENTITY", "UNKNOWN")]
+        [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Description}
+        ${Name}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2024 => V2024ConnectedObject' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2024 => V2024RoleAssignmentDtoAssigner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -53,7 +49,6 @@ function Initialize-V2024ConnectedObject {
             "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
-            "description" = ${Description}
         }
 
         return $PSO
@@ -63,11 +58,11 @@ function Initialize-V2024ConnectedObject {
 <#
 .SYNOPSIS
 
-Convert from JSON to ConnectedObject<PSCustomObject>
+Convert from JSON to RoleAssignmentDtoAssigner<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ConnectedObject<PSCustomObject>
+Convert from JSON to RoleAssignmentDtoAssigner<PSCustomObject>
 
 .PARAMETER Json
 
@@ -75,22 +70,22 @@ Json object
 
 .OUTPUTS
 
-ConnectedObject<PSCustomObject>
+RoleAssignmentDtoAssigner<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToConnectedObject {
+function ConvertFrom-V2024JsonToRoleAssignmentDtoAssigner {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024ConnectedObject' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024RoleAssignmentDtoAssigner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2024ConnectedObject
-        $AllProperties = ("type", "id", "name", "description")
+        # check if Json contains properties not defined in V2024RoleAssignmentDtoAssigner
+        $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -115,17 +110,10 @@ function ConvertFrom-V2024JsonToConnectedObject {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
-            $Description = $null
-        } else {
-            $Description = $JsonParameters.PSobject.Properties["description"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
-            "description" = ${Description}
         }
 
         return $PSO

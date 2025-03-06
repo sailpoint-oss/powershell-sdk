@@ -75,7 +75,7 @@ function Initialize-V2024RoleMiningPotentialRoleSummary {
         [String]
         ${IdentityGroupStatus},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("POTENTIAL", "PENDING", "COMPLETE", "FAILED")]
+        [ValidateSet("POTENTIAL", "PENDING", "COMPLETE", "FAILED", "")]
         [PSCustomObject]
         ${ProvisionState},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

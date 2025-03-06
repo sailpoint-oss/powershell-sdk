@@ -473,7 +473,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-WorkItemsCount[]
+WorkItemsCount
 #>
 function Get-V2024CountCompletedWorkItems {
     [CmdletBinding()]
@@ -526,7 +526,7 @@ function Get-V2024CountCompletedWorkItems {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "WorkItemsCount[]" `
+                                -ReturnType "WorkItemsCount" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

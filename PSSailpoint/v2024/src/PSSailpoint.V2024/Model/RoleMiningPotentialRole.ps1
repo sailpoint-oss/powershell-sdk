@@ -91,7 +91,6 @@ function Initialize-V2024RoleMiningPotentialRole {
         [String]
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("POTENTIAL", "PENDING", "COMPLETE", "FAILED")]
         [PSCustomObject]
         ${ProvisionState},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

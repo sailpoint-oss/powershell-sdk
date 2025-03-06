@@ -19,9 +19,9 @@ Contributing feature id
 .PARAMETER Name
 The name of the feature
 .PARAMETER ValueType
-The data type of the value field
-.PARAMETER Value
 No description available.
+.PARAMETER Value
+The feature value
 .PARAMETER Importance
 The importance of the feature. This can also be a negative value
 .PARAMETER DisplayName
@@ -45,11 +45,10 @@ function Initialize-V2024OutlierContributingFeature {
         [String]
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("INTEGER", "FLOAT")]
-        [String]
+        [PSCustomObject]
         ${ValueType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [System.Nullable[Double]]
         ${Value},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
@@ -69,12 +68,8 @@ function Initialize-V2024OutlierContributingFeature {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024OutlierContributingFeature' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($Importance -and $Importance -gt 1.0) {
-          throw "invalid value for 'Importance', must be smaller than or equal to 1.0."
-        }
-
-        if ($Importance -and $Importance -lt -1.0) {
-          throw "invalid value for 'Importance', must be greater than or equal to -1.0."
+        if ($Value -and $Value -lt 0.0) {
+          throw "invalid value for 'Value', must be greater than or equal to 0.0."
         }
 
 

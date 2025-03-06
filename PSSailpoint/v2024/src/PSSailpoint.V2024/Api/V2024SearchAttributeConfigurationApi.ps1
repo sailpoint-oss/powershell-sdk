@@ -287,7 +287,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SearchAttributeConfig[]
+SearchAttributeConfig
 #>
 function Get-V2024SingleSearchAttributeConfig {
     [CmdletBinding()]
@@ -340,7 +340,7 @@ function Get-V2024SingleSearchAttributeConfig {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SearchAttributeConfig[]" `
+                                -ReturnType "SearchAttributeConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

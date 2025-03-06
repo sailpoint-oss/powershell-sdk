@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Auth Profile.
+Get Auth Profile
 
 .DESCRIPTION
 
@@ -93,7 +93,7 @@ function Get-V2024ProfileConfig {
 <#
 .SYNOPSIS
 
-Get list of Auth Profiles.
+Get list of Auth Profiles
 
 .DESCRIPTION
 
@@ -108,7 +108,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-AuthProfileSummary
+AuthProfileSummary[]
 #>
 function Get-V2024ProfileConfigList {
     [CmdletBinding()]
@@ -154,7 +154,7 @@ function Get-V2024ProfileConfigList {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "AuthProfileSummary" `
+                                -ReturnType "AuthProfileSummary[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

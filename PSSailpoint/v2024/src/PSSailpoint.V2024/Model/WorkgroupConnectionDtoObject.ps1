@@ -24,10 +24,10 @@ Human-readable name of Connected object
 Description of the Connected object.
 .OUTPUTS
 
-ConnectedObject<PSCustomObject>
+WorkgroupConnectionDtoObject<PSCustomObject>
 #>
 
-function Initialize-V2024ConnectedObject {
+function Initialize-V2024WorkgroupConnectionDtoObject {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -45,7 +45,7 @@ function Initialize-V2024ConnectedObject {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2024 => V2024ConnectedObject' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2024 => V2024WorkgroupConnectionDtoObject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -63,11 +63,11 @@ function Initialize-V2024ConnectedObject {
 <#
 .SYNOPSIS
 
-Convert from JSON to ConnectedObject<PSCustomObject>
+Convert from JSON to WorkgroupConnectionDtoObject<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ConnectedObject<PSCustomObject>
+Convert from JSON to WorkgroupConnectionDtoObject<PSCustomObject>
 
 .PARAMETER Json
 
@@ -75,21 +75,21 @@ Json object
 
 .OUTPUTS
 
-ConnectedObject<PSCustomObject>
+WorkgroupConnectionDtoObject<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToConnectedObject {
+function ConvertFrom-V2024JsonToWorkgroupConnectionDtoObject {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024ConnectedObject' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024WorkgroupConnectionDtoObject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2024ConnectedObject
+        # check if Json contains properties not defined in V2024WorkgroupConnectionDtoObject
         $AllProperties = ("type", "id", "name", "description")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

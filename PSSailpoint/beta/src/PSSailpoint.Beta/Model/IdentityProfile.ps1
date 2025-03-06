@@ -17,23 +17,23 @@ No description available.
 .PARAMETER Name
 Name of the Object
 .PARAMETER Description
-The description of the Identity Profile.
+Identity profile's description.
 .PARAMETER Owner
 No description available.
 .PARAMETER Priority
-The priority for an Identity Profile.
+Identity profile's priority.
 .PARAMETER AuthoritativeSource
 No description available.
 .PARAMETER IdentityRefreshRequired
-True if a identity refresh is needed. Typically triggered when a change on the source has been made
+Set this value to 'True' if an identity refresh is necessary. You would typically want to trigger an identity refresh when a change has been made on the source.
 .PARAMETER IdentityCount
-The number of identities that belong to the Identity Profile.
+Number of identities belonging to the identity profile.
 .PARAMETER IdentityAttributeConfig
 No description available.
 .PARAMETER IdentityExceptionReportReference
 No description available.
 .PARAMETER HasTimeBasedAttr
-Indicates the value of requiresPeriodicRefresh attribute for the Identity Profile.
+Indicates the value of `requiresPeriodicRefresh` attribute for the identity profile.
 .OUTPUTS
 
 IdentityProfile<PSCustomObject>

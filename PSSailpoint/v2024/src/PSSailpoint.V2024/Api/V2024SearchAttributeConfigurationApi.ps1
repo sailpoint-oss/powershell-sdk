@@ -14,6 +14,9 @@ Create Extended Search Attributes
 
 Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER SearchAttributeConfig
 No description available.
 
@@ -29,6 +32,9 @@ function New-V2024SearchAttributeConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${SearchAttributeConfig},
         [Switch]
@@ -55,6 +61,11 @@ function New-V2024SearchAttributeConfig {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/accounts/search-attribute-config'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling createSearchAttributeConfig."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$SearchAttributeConfig) {
             throw "Error! The required parameter `SearchAttributeConfig` missing when calling createSearchAttributeConfig."
@@ -107,6 +118,9 @@ Delete an extended attribute configuration by name.
 .PARAMETER Name
 Name of the extended search attribute configuration to delete.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -121,6 +135,9 @@ function Remove-V2024SearchAttributeConfig {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Name},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -146,6 +163,11 @@ function Remove-V2024SearchAttributeConfig {
             throw "Error! The required parameter `Name` missing when calling deleteSearchAttributeConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{name}', [System.Web.HTTPUtility]::UrlEncode($Name))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteSearchAttributeConfig."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -178,6 +200,9 @@ List Extended Search Attributes
 
 Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -189,6 +214,9 @@ SearchAttributeConfig[]
 function Get-V2024SearchAttributeConfig {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -210,6 +238,11 @@ function Get-V2024SearchAttributeConfig {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/accounts/search-attribute-config'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSearchAttributeConfig."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -243,7 +276,10 @@ Get Extended Search Attribute
 Get an extended attribute configuration by name.
 
 .PARAMETER Name
-Name of the extended search attribute configuration to retrieve.
+Name of the extended search attribute configuration to get.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
 
 .PARAMETER WithHttpInfo
 
@@ -259,6 +295,9 @@ function Get-V2024SingleSearchAttributeConfig {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Name},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -284,6 +323,11 @@ function Get-V2024SingleSearchAttributeConfig {
             throw "Error! The required parameter `Name` missing when calling getSingleSearchAttributeConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{name}', [System.Web.HTTPUtility]::UrlEncode($Name))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSingleSearchAttributeConfig."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -319,6 +363,9 @@ Update an existing search attribute configuration.  You can patch these fields: 
 .PARAMETER Name
 Name of the search attribute configuration to patch.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER JsonPatchOperation
 No description available.
 
@@ -337,6 +384,9 @@ function Update-V2024SearchAttributeConfig {
         [String]
         ${Name},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${JsonPatchOperation},
         [Switch]
@@ -367,6 +417,11 @@ function Update-V2024SearchAttributeConfig {
             throw "Error! The required parameter `Name` missing when calling patchSearchAttributeConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{name}', [System.Web.HTTPUtility]::UrlEncode($Name))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchSearchAttributeConfig."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$JsonPatchOperation) {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchSearchAttributeConfig."

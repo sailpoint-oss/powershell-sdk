@@ -31,7 +31,7 @@ When the request was last modified.
 .PARAMETER Created
 When the request was created.
 .PARAMETER NonEmployeeCount
-Number of non-employee records associated with this source.
+Number of non-employee records associated with this source. This value is 'NULL' by default. To get the non-employee count, you must set the `non-employee-count` flag in your request to 'true'.
 .OUTPUTS
 
 NonEmployeeSourceWithNECount<PSCustomObject>

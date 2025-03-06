@@ -25,7 +25,7 @@ The ID of the item being operated on by this task.
 .PARAMETER Status
 The status of the task.
 .PARAMETER Errors
-No description available.
+List of error messages
 .PARAMETER ReassignmentTrailDTOs
 Reassignment trails that lead to self certification identity
 .PARAMETER Created

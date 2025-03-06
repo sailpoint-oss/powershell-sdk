@@ -8,11 +8,11 @@
 <#
 .SYNOPSIS
 
-Create an Identity Profile
+Create Identity Profile
 
 .DESCRIPTION
 
-This creates an Identity Profile.    
+Creates an identity profile.    
 
 .PARAMETER IdentityProfile
 No description available.
@@ -98,14 +98,14 @@ function New-V2024IdentityProfile {
 <#
 .SYNOPSIS
 
-Delete an Identity Profile
+Delete Identity Profile
 
 .DESCRIPTION
 
-This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.       The following rights are required to access this endpoint: idn:identity-profile:delete
+Delete an identity profile by ID. On success, this endpoint will return a reference to the bulk delete task result.
 
 .PARAMETER IdentityProfileId
-The Identity Profile ID.
+Identity profile ID.
 
 .PARAMETER WithHttpInfo
 
@@ -376,6 +376,107 @@ function Export-V2024IdentityProfiles {
 <#
 .SYNOPSIS
 
+Generate Identity Profile Preview
+
+.DESCRIPTION
+
+This generates a non-persisted IdentityDetails object that will represent as the preview of the identities attribute when the given policy''s attribute config is applied.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER IdentityPreviewRequest
+Identity Preview request body.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+IdentityPreviewResponse
+#>
+function New-V2024IdentityPreview {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${IdentityPreviewRequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: New-V2024IdentityPreview' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/identity-profiles/identity-preview'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling generateIdentityPreview."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if (!$IdentityPreviewRequest) {
+            throw "Error! The required parameter `IdentityPreviewRequest` missing when calling generateIdentityPreview."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityPreviewRequest -is [array])) {
+            $LocalVarBodyParameter = $IdentityPreviewRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $IdentityPreviewRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "IdentityPreviewResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Get default Identity Attribute Config
 
 .DESCRIPTION
@@ -450,14 +551,14 @@ function Get-V2024DefaultIdentityAttributeConfig {
 <#
 .SYNOPSIS
 
-Get single Identity Profile
+Get Identity Profile
 
 .DESCRIPTION
 
-This returns a single Identity Profile based on ID.
+Get a single identity profile by ID.
 
 .PARAMETER IdentityProfileId
-The Identity Profile ID.
+Identity profile ID.
 
 .PARAMETER WithHttpInfo
 
@@ -615,11 +716,11 @@ function Import-V2024IdentityProfiles {
 <#
 .SYNOPSIS
 
-Identity Profiles List
+List Identity Profiles
 
 .DESCRIPTION
 
-This returns a list of Identity Profiles based on the specified query parameters.
+Get a list of identity profiles, based on the specified query parameters.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -631,7 +732,7 @@ Offset into the full result set. Usually specified with *limit* to paginate thro
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **name**: *eq, ne, ge, gt, in, le, lt, isnull, sw*  **priority**: *eq, ne*
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne*
 
 .PARAMETER Sorters
 Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name**
@@ -730,96 +831,6 @@ function Get-V2024IdentityProfiles {
 <#
 .SYNOPSIS
 
-Generate Identity Profile Preview
-
-.DESCRIPTION
-
-Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
-
-.PARAMETER IdentityPreviewRequest
-Identity Preview request body.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-IdentityPreviewResponse
-#>
-function Show-V2024IdentityPreview {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${IdentityPreviewRequest},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Show-V2024IdentityPreview' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json')
-
-        $LocalVarUri = '/identity-profiles/identity-preview'
-
-        if (!$IdentityPreviewRequest) {
-            throw "Error! The required parameter `IdentityPreviewRequest` missing when calling showIdentityPreview."
-        }
-
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityPreviewRequest -is [array])) {
-            $LocalVarBodyParameter = $IdentityPreviewRequest | ConvertTo-Json -AsArray -Depth 100
-        } else {
-            $LocalVarBodyParameter = $IdentityPreviewRequest | ForEach-Object {
-            # Get array of names of object properties that can be cast to boolean TRUE
-            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
-            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
-        
-            # Convert object to JSON with only non-empty properties
-            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
-            }
-        }
-
-
-
-        $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "IdentityPreviewResponse" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
 Process identities under profile
 
 .DESCRIPTION
@@ -894,17 +905,17 @@ function Sync-V2024IdentityProfile {
 <#
 .SYNOPSIS
 
-Update the Identity Profile
+Update Identity Profile
 
 .DESCRIPTION
 
-This updates the specified Identity Profile.     Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+Update a specified identity profile with this PATCH request.    You cannot update these fields: * id * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at the same time.
 
 .PARAMETER IdentityProfileId
-The Identity Profile ID
+Identity profile ID.
 
 .PARAMETER JsonPatchOperation
-A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER WithHttpInfo
 

@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER TaskResultId
-The id of the task result.
+Task result ID.
 .PARAMETER ReportName
-The name of the report.
+Report name.
 .OUTPUTS
 
 IdentityExceptionReportReference<PSCustomObject>

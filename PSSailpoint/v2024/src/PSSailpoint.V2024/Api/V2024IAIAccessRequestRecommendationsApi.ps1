@@ -557,6 +557,81 @@ function Get-V2024AccessRequestRecommendations {
 <#
 .SYNOPSIS
 
+Get Access Request Recommendations config
+
+.DESCRIPTION
+
+This API returns the configurations for Access Request Recommender for the tenant.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+AccessRequestRecommendationConfigDto
+#>
+function Get-V2024AccessRequestRecommendationsConfig {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2024AccessRequestRecommendationsConfig' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/ai-access-request-recommendations/config'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getAccessRequestRecommendationsConfig."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+
+
+        $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "AccessRequestRecommendationConfigDto" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 List of Ignored Access Request Recommendations
 
 .DESCRIPTION
@@ -919,6 +994,107 @@ function Get-V2024AccessRequestRecommendationsViewedItems {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "AccessRequestRecommendationActionItemResponseDto[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Update Access Request Recommendations config
+
+.DESCRIPTION
+
+This API updates the configurations for Access Request Recommender for the tenant.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER AccessRequestRecommendationConfigDto
+The desired configurations for Access Request Recommender for the tenant.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+AccessRequestRecommendationConfigDto
+#>
+function Set-V2024AccessRequestRecommendationsConfig {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AccessRequestRecommendationConfigDto},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Set-V2024AccessRequestRecommendationsConfig' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/ai-access-request-recommendations/config'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling setAccessRequestRecommendationsConfig."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if (!$AccessRequestRecommendationConfigDto) {
+            throw "Error! The required parameter `AccessRequestRecommendationConfigDto` missing when calling setAccessRequestRecommendationsConfig."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AccessRequestRecommendationConfigDto -is [array])) {
+            $LocalVarBodyParameter = $AccessRequestRecommendationConfigDto | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $AccessRequestRecommendationConfigDto | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-V2024ApiClient -Method 'PUT' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "AccessRequestRecommendationConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

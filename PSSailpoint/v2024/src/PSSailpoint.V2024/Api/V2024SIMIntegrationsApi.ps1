@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ServiceDeskIntegrationDto1
+ServiceDeskIntegrationDto
 #>
 function New-V2024SIMIntegration {
     [CmdletBinding()]
@@ -95,7 +95,7 @@ function New-V2024SIMIntegration {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ServiceDeskIntegrationDto1" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -212,7 +212,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ServiceDeskIntegrationDto1
+ServiceDeskIntegrationDto
 #>
 function Get-V2024SIMIntegration {
     [CmdletBinding()]
@@ -265,7 +265,7 @@ function Get-V2024SIMIntegration {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ServiceDeskIntegrationDto1" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -294,7 +294,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ServiceDeskIntegrationDto1
+ServiceDeskIntegrationDto
 #>
 function Get-V2024SIMIntegrations {
     [CmdletBinding()]
@@ -340,7 +340,7 @@ function Get-V2024SIMIntegrations {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ServiceDeskIntegrationDto1" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -375,7 +375,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ServiceDeskIntegrationDto1
+ServiceDeskIntegrationDto
 #>
 function Update-V2024BeforeProvisioningRule {
     [CmdletBinding()]
@@ -451,7 +451,7 @@ function Update-V2024BeforeProvisioningRule {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ServiceDeskIntegrationDto1" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -486,7 +486,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ServiceDeskIntegrationDto1
+ServiceDeskIntegrationDto
 #>
 function Update-V2024SIMAttributes {
     [CmdletBinding()]
@@ -562,7 +562,7 @@ function Update-V2024SIMAttributes {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ServiceDeskIntegrationDto1" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -597,7 +597,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ServiceDeskIntegrationDto1
+ServiceDeskIntegrationDto
 #>
 function Send-V2024SIMIntegration {
     [CmdletBinding()]
@@ -673,7 +673,7 @@ function Send-V2024SIMIntegration {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ServiceDeskIntegrationDto1" `
+                                -ReturnType "ServiceDeskIntegrationDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SearchAttributeConfigurationApi' {
     Context 'New-V2024SearchAttributeConfig' {
         It 'Test New-V2024SearchAttributeConfig' {
-            #$TestResult = New-V2024SearchAttributeConfig -SearchAttributeConfig "TEST_VALUE"
+            #$TestResult = New-V2024SearchAttributeConfig -XSailPointExperimental "TEST_VALUE" -SearchAttributeConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SearchAttributeConfigurationA
 
     Context 'Remove-V2024SearchAttributeConfig' {
         It 'Test Remove-V2024SearchAttributeConfig' {
-            #$TestResult = Remove-V2024SearchAttributeConfig -Name "TEST_VALUE"
+            #$TestResult = Remove-V2024SearchAttributeConfig -Name "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SearchAttributeConfigurationA
 
     Context 'Get-V2024SearchAttributeConfig' {
         It 'Test Get-V2024SearchAttributeConfig' {
-            #$TestResult = Get-V2024SearchAttributeConfig
+            #$TestResult = Get-V2024SearchAttributeConfig -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SearchAttributeConfigurationA
 
     Context 'Get-V2024SingleSearchAttributeConfig' {
         It 'Test Get-V2024SingleSearchAttributeConfig' {
-            #$TestResult = Get-V2024SingleSearchAttributeConfig -Name "TEST_VALUE"
+            #$TestResult = Get-V2024SingleSearchAttributeConfig -Name "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SearchAttributeConfigurationA
 
     Context 'Update-V2024SearchAttributeConfig' {
         It 'Test Update-V2024SearchAttributeConfig' {
-            #$TestResult = Update-V2024SearchAttributeConfig -Name "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-V2024SearchAttributeConfig -Name "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

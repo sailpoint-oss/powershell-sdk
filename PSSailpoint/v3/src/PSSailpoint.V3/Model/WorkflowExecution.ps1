@@ -50,7 +50,7 @@ function Initialize-WorkflowExecution {
         [System.Nullable[System.DateTime]]
         ${CloseTime},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("Completed", "Failed", "Canceled", "Executing")]
+        [ValidateSet("Completed", "Failed", "Canceled", "Running")]
         [String]
         ${Status}
     )

@@ -14,8 +14,14 @@ No summary available.
 
 No description available.
 
-.PARAMETER AccessRequestConfig
-No description available.
+.PARAMETER AllowEntitlementRequest
+If this is true, entitlement requests are allowed.
+.PARAMETER RequestCommentsRequired
+If this is true, comments are required to submit entitlement requests.
+.PARAMETER DeniedCommentsRequired
+If this is true, comments are required to reject entitlement requests.
+.PARAMETER GrantRequestApprovalSchemes
+Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are ""entitlementOwner"", ""sourceOwner"", ""manager"" and ""`workgroup:{id}`"". You can use multiple governance groups (workgroups). 
 .OUTPUTS
 
 EntitlementRequestConfig<PSCustomObject>
@@ -25,8 +31,17 @@ function Initialize-V2024EntitlementRequestConfig {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${AccessRequestConfig}
+        [System.Nullable[Boolean]]
+        ${AllowEntitlementRequest} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${RequestCommentsRequired} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${DeniedCommentsRequired} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${GrantRequestApprovalSchemes} = "sourceOwner"
     )
 
     Process {
@@ -35,7 +50,10 @@ function Initialize-V2024EntitlementRequestConfig {
 
 
         $PSO = [PSCustomObject]@{
-            "accessRequestConfig" = ${AccessRequestConfig}
+            "allowEntitlementRequest" = ${AllowEntitlementRequest}
+            "requestCommentsRequired" = ${RequestCommentsRequired}
+            "deniedCommentsRequired" = ${DeniedCommentsRequired}
+            "grantRequestApprovalSchemes" = ${GrantRequestApprovalSchemes}
         }
 
         return $PSO
@@ -72,21 +90,42 @@ function ConvertFrom-V2024JsonToEntitlementRequestConfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024EntitlementRequestConfig
-        $AllProperties = ("accessRequestConfig")
+        $AllProperties = ("allowEntitlementRequest", "requestCommentsRequired", "deniedCommentsRequired", "grantRequestApprovalSchemes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessRequestConfig"))) { #optional property not found
-            $AccessRequestConfig = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "allowEntitlementRequest"))) { #optional property not found
+            $AllowEntitlementRequest = $null
         } else {
-            $AccessRequestConfig = $JsonParameters.PSobject.Properties["accessRequestConfig"].value
+            $AllowEntitlementRequest = $JsonParameters.PSobject.Properties["allowEntitlementRequest"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestCommentsRequired"))) { #optional property not found
+            $RequestCommentsRequired = $null
+        } else {
+            $RequestCommentsRequired = $JsonParameters.PSobject.Properties["requestCommentsRequired"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "deniedCommentsRequired"))) { #optional property not found
+            $DeniedCommentsRequired = $null
+        } else {
+            $DeniedCommentsRequired = $JsonParameters.PSobject.Properties["deniedCommentsRequired"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "grantRequestApprovalSchemes"))) { #optional property not found
+            $GrantRequestApprovalSchemes = $null
+        } else {
+            $GrantRequestApprovalSchemes = $JsonParameters.PSobject.Properties["grantRequestApprovalSchemes"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "accessRequestConfig" = ${AccessRequestConfig}
+            "allowEntitlementRequest" = ${AllowEntitlementRequest}
+            "requestCommentsRequired" = ${RequestCommentsRequired}
+            "deniedCommentsRequired" = ${DeniedCommentsRequired}
+            "grantRequestApprovalSchemes" = ${GrantRequestApprovalSchemes}
         }
 
         return $PSO

@@ -1513,7 +1513,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ConnectorDetail1
+ConnectorDetail
 #>
 function Get-V2024SourceConfig {
     [CmdletBinding()]
@@ -1574,7 +1574,7 @@ function Get-V2024SourceConfig {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ConnectorDetail1" `
+                                -ReturnType "ConnectorDetail" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

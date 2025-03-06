@@ -240,6 +240,117 @@ function Complete-V2024WorkItem {
 <#
 .SYNOPSIS
 
+Forward a Work Item
+
+.DESCRIPTION
+
+This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
+
+.PARAMETER Id
+The ID of the work item
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER WorkItemForward
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+None
+#>
+function Invoke-V2024ForwardWorkItem {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${WorkItemForward},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Invoke-V2024ForwardWorkItem' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/work-items/{id}/forward'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling forwardWorkItem."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling forwardWorkItem."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if (!$WorkItemForward) {
+            throw "Error! The required parameter `WorkItemForward` missing when calling forwardWorkItem."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($WorkItemForward -is [array])) {
+            $LocalVarBodyParameter = $WorkItemForward | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $WorkItemForward | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Completed Work Items
 
 .DESCRIPTION
@@ -350,6 +461,9 @@ Count Completed Work Items
 
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER OwnerId
 ID of the work item owner.
 
@@ -359,12 +473,15 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-WorkItemsCount
+WorkItemsCount[]
 #>
 function Get-V2024CountCompletedWorkItems {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${OwnerId},
         [Switch]
@@ -389,6 +506,11 @@ function Get-V2024CountCompletedWorkItems {
 
         $LocalVarUri = '/work-items/completed/count'
 
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getCountCompletedWorkItems."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
         if ($OwnerId) {
             $LocalVarQueryParameters['ownerId'] = $OwnerId
         }
@@ -404,7 +526,7 @@ function Get-V2024CountCompletedWorkItems {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "WorkItemsCount" `
+                                -ReturnType "WorkItemsCount[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -889,106 +1011,6 @@ function Deny-V2024ApprovalItemsInBulk {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "WorkItems" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
-Forward a Work Item
-
-.DESCRIPTION
-
-This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
-
-.PARAMETER Id
-The ID of the work item
-
-.PARAMETER WorkItemForward
-No description available.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-None
-#>
-function Send-V2024WorkItemForward {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${WorkItemForward},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Send-V2024WorkItemForward' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json')
-
-        $LocalVarUri = '/work-items/{id}/forward'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling sendWorkItemForward."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$WorkItemForward) {
-            throw "Error! The required parameter `WorkItemForward` missing when calling sendWorkItemForward."
-        }
-
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($WorkItemForward -is [array])) {
-            $LocalVarBodyParameter = $WorkItemForward | ConvertTo-Json -AsArray -Depth 100
-        } else {
-            $LocalVarBodyParameter = $WorkItemForward | ForEach-Object {
-            # Get array of names of object properties that can be cast to boolean TRUE
-            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
-            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
-        
-            # Convert object to JSON with only non-empty properties
-            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
-            }
-        }
-
-
-
-        $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

@@ -21,7 +21,7 @@ Value that was derived during the preview.
 .PARAMETER PreviousValue
 The value of the attribute before the preview.
 .PARAMETER ErrorMessages
-No description available.
+List of error messages
 .OUTPUTS
 
 IdentityAttributePreview<PSCustomObject>

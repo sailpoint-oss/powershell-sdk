@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SPConfigApi' {
     Context 'Export-V2024SpConfig' {
         It 'Test Export-V2024SpConfig' {
-            #$TestResult = Export-V2024SpConfig -XSailPointExperimental "TEST_VALUE" -ExportPayload "TEST_VALUE"
+            #$TestResult = Export-V2024SpConfig -ExportPayload "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SPConfigApi' {
 
     Context 'Get-V2024SpConfigExport' {
         It 'Test Get-V2024SpConfigExport' {
-            #$TestResult = Get-V2024SpConfigExport -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024SpConfigExport -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SPConfigApi' {
 
     Context 'Get-V2024SpConfigExportStatus' {
         It 'Test Get-V2024SpConfigExportStatus' {
-            #$TestResult = Get-V2024SpConfigExportStatus -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024SpConfigExportStatus -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SPConfigApi' {
 
     Context 'Get-V2024SpConfigImport' {
         It 'Test Get-V2024SpConfigImport' {
-            #$TestResult = Get-V2024SpConfigImport -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024SpConfigImport -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SPConfigApi' {
 
     Context 'Get-V2024SpConfigImportStatus' {
         It 'Test Get-V2024SpConfigImportStatus' {
-            #$TestResult = Get-V2024SpConfigImportStatus -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024SpConfigImportStatus -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SPConfigApi' {
 
     Context 'Import-V2024SpConfig' {
         It 'Test Import-V2024SpConfig' {
-            #$TestResult = Import-V2024SpConfig -XSailPointExperimental "TEST_VALUE" -Data "TEST_VALUE" -Preview "TEST_VALUE" -Options "TEST_VALUE"
+            #$TestResult = Import-V2024SpConfig -Data "TEST_VALUE" -Preview "TEST_VALUE" -Options "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SPConfigApi' {
 
     Context 'Get-V2024SpConfigObjects' {
         It 'Test Get-V2024SpConfigObjects' {
-            #$TestResult = Get-V2024SpConfigObjects -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024SpConfigObjects
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

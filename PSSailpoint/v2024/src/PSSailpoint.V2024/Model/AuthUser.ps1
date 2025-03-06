@@ -46,6 +46,8 @@ Date of last password change.
 Timestamp of the last login (long type value).
 .PARAMETER CurrentLoginTimestamp
 Timestamp of the current login (long type value).
+.PARAMETER LastUnlockTimestamp
+The date and time when the user was last unlocked.
 .PARAMETER Capabilities
 Array of the auth user's capabilities.
 .OUTPUTS
@@ -96,7 +98,7 @@ function Initialize-V2024AuthUser {
         [String]
         ${Alias},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [System.Nullable[System.DateTime]]
         ${LastPasswordChangeDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
@@ -104,6 +106,9 @@ function Initialize-V2024AuthUser {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${CurrentLoginTimestamp},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${LastUnlockTimestamp},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("CERT_ADMIN", "CLOUD_GOV_ADMIN", "CLOUD_GOV_USER", "HELPDESK", "ORG_ADMIN", "REPORT_ADMIN", "ROLE_ADMIN", "ROLE_SUBADMIN", "SAAS_MANAGEMENT_ADMIN", "SAAS_MANAGEMENT_READER", "SOURCE_ADMIN", "SOURCE_SUBADMIN", "das:ui-administrator", "das:ui-compliance_manager", "das:ui-auditor", "das:ui-data-scope", "sp:aic-dashboard-read", "sp:aic-dashboard-write", "sp:ui-config-hub-admin", "sp:ui-config-hub-backup-admin", "sp:ui-config-hub-read")]
         [String[]]
@@ -132,6 +137,7 @@ function Initialize-V2024AuthUser {
             "lastPasswordChangeDate" = ${LastPasswordChangeDate}
             "lastLoginTimestamp" = ${LastLoginTimestamp}
             "currentLoginTimestamp" = ${CurrentLoginTimestamp}
+            "lastUnlockTimestamp" = ${LastUnlockTimestamp}
             "capabilities" = ${Capabilities}
         }
 
@@ -169,7 +175,7 @@ function ConvertFrom-V2024JsonToAuthUser {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024AuthUser
-        $AllProperties = ("tenant", "id", "uid", "profile", "identificationNumber", "email", "phone", "workPhone", "personalEmail", "firstname", "lastname", "displayName", "alias", "lastPasswordChangeDate", "lastLoginTimestamp", "currentLoginTimestamp", "capabilities")
+        $AllProperties = ("tenant", "id", "uid", "profile", "identificationNumber", "email", "phone", "workPhone", "personalEmail", "firstname", "lastname", "displayName", "alias", "lastPasswordChangeDate", "lastLoginTimestamp", "currentLoginTimestamp", "lastUnlockTimestamp", "capabilities")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -272,6 +278,12 @@ function ConvertFrom-V2024JsonToAuthUser {
             $CurrentLoginTimestamp = $JsonParameters.PSobject.Properties["currentLoginTimestamp"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "lastUnlockTimestamp"))) { #optional property not found
+            $LastUnlockTimestamp = $null
+        } else {
+            $LastUnlockTimestamp = $JsonParameters.PSobject.Properties["lastUnlockTimestamp"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "capabilities"))) { #optional property not found
             $Capabilities = $null
         } else {
@@ -295,6 +307,7 @@ function ConvertFrom-V2024JsonToAuthUser {
             "lastPasswordChangeDate" = ${LastPasswordChangeDate}
             "lastLoginTimestamp" = ${LastLoginTimestamp}
             "currentLoginTimestamp" = ${CurrentLoginTimestamp}
+            "lastUnlockTimestamp" = ${LastUnlockTimestamp}
             "capabilities" = ${Capabilities}
         }
 

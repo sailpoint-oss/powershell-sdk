@@ -14,9 +14,6 @@ Initiates configuration objects export job
 
 This post will export objects from the tenant to a JSON configuration file. For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER ExportPayload
 Export options control what will be included in the export.
 
@@ -32,9 +29,6 @@ function Export-V2024SpConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${ExportPayload},
         [Switch]
@@ -61,11 +55,6 @@ function Export-V2024SpConfig {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/sp-config/export'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling exportSpConfig."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$ExportPayload) {
             throw "Error! The required parameter `ExportPayload` missing when calling exportSpConfig."
@@ -118,9 +107,6 @@ This endpoint gets the export file resulting from the export job with the reques
 .PARAMETER Id
 The ID of the export job whose results will be downloaded.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -135,9 +121,6 @@ function Get-V2024SpConfigExport {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -163,11 +146,6 @@ function Get-V2024SpConfigExport {
             throw "Error! The required parameter `Id` missing when calling getSpConfigExport."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSpConfigExport."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -203,9 +181,6 @@ This gets the status of the export job identified by the `id` parameter. The req
 .PARAMETER Id
 The ID of the export job whose status will be returned.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -220,9 +195,6 @@ function Get-V2024SpConfigExportStatus {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -248,11 +220,6 @@ function Get-V2024SpConfigExportStatus {
             throw "Error! The required parameter `Id` missing when calling getSpConfigExportStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSpConfigExportStatus."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -288,9 +255,6 @@ This gets import file resulting from the import job with the requested id and do
 .PARAMETER Id
 The ID of the import job whose results will be downloaded.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -305,9 +269,6 @@ function Get-V2024SpConfigImport {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -333,11 +294,6 @@ function Get-V2024SpConfigImport {
             throw "Error! The required parameter `Id` missing when calling getSpConfigImport."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSpConfigImport."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -373,9 +329,6 @@ Get import job status
 .PARAMETER Id
 The ID of the import job whose status will be returned.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -390,9 +343,6 @@ function Get-V2024SpConfigImportStatus {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -418,11 +368,6 @@ function Get-V2024SpConfigImportStatus {
             throw "Error! The required parameter `Id` missing when calling getSpConfigImportStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSpConfigImportStatus."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -453,10 +398,7 @@ Initiates configuration objects import job
 
 .DESCRIPTION
 
-""This post will import objects from a JSON configuration file into\  \ a tenant. By default, every import will first export all existing objects supported\  \ by sp-config as a backup before the import is attempted. The backup is provided\  \ so that the state of the configuration prior to the import is available for\  \ inspection or restore if needed. The backup can be skipped by setting \""excludeBackup\""\  \ to true in the import options. If a backup is performed, the id of the backup\  \ will be provided in the ImportResult as the \""exportJobId\"". This can be downloaded\  \  using the `/sp-config/export/{exportJobId}/download` endpoint.\nYou cannot currently\  \ import from the Non-Employee Lifecycle Management (NELM) source. You cannot\  \ use this endpoint to back up or store NELM data. \nFor more information about\  \ the object types that currently support import functionality, refer to [SaaS\  \ Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects)."" 
-
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
+This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting ""excludeBackup"" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the ""exportJobId"". This can be downloaded  using the `/sp-config/export/{exportJobId}/download` endpoint.  You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data.   For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects). 
 
 .PARAMETER Data
 JSON file containing the objects to be imported.
@@ -479,15 +421,12 @@ function Import-V2024SpConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.IO.FileInfo]
         ${Data},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Preview},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${Options},
         [Switch]
@@ -514,11 +453,6 @@ function Import-V2024SpConfig {
         $LocalVarContentTypes = @('multipart/form-data')
 
         $LocalVarUri = '/sp-config/import'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling importSpConfig."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Preview) {
             $LocalVarQueryParameters['preview'] = $Preview
@@ -564,9 +498,6 @@ Get config object details
 
 This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain ""importUrl"" and ""exportUrl"" are available for export/import.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -578,9 +509,6 @@ SpConfigObject[]
 function Get-V2024SpConfigObjects {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -602,11 +530,6 @@ function Get-V2024SpConfigObjects {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/sp-config/config-objects'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling listSpConfigObjects."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 

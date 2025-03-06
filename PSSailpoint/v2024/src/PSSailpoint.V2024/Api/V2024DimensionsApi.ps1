@@ -409,7 +409,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlement1[]
+Entitlement[]
 #>
 function Get-V2024DimensionEntitlements {
     [CmdletBinding()]
@@ -496,7 +496,7 @@ function Get-V2024DimensionEntitlements {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlement1[]" `
+                                -ReturnType "Entitlement[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -520,7 +520,7 @@ This API lists the Access Profiles associated with a given Dimension  A token wi
 Parent Role Id of the dimension.
 
 .PARAMETER DimensionId
-ID of the Dimension
+Id of the Dimension
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.

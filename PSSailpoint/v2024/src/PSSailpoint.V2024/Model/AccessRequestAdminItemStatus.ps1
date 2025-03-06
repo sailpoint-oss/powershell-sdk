@@ -14,6 +14,8 @@ No summary available.
 
 No description available.
 
+.PARAMETER Id
+ID of the access request
 .PARAMETER Name
 Human-readable display name of the item being requested.
 .PARAMETER Type
@@ -70,6 +72,9 @@ AccessRequestAdminItemStatus<PSCustomObject>
 function Initialize-V2024AccessRequestAdminItemStatus {
     [CmdletBinding()]
     Param (
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
@@ -153,6 +158,7 @@ function Initialize-V2024AccessRequestAdminItemStatus {
 
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
             "name" = ${Name}
             "type" = ${Type}
             "cancelledRequestDetails" = ${CancelledRequestDetails}
@@ -213,11 +219,17 @@ function ConvertFrom-V2024JsonToAccessRequestAdminItemStatus {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024AccessRequestAdminItemStatus
-        $AllProperties = ("name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "removeDate", "cancelable", "reauthorizationRequired", "accessRequestId", "clientMetadata")
+        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "removeDate", "cancelable", "reauthorizationRequired", "accessRequestId", "clientMetadata")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -365,6 +377,7 @@ function ConvertFrom-V2024JsonToAccessRequestAdminItemStatus {
         }
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
             "name" = ${Name}
             "type" = ${Type}
             "cancelledRequestDetails" = ${CancelledRequestDetails}

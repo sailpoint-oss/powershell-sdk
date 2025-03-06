@@ -484,6 +484,12 @@ List Reassignment Configurations
 
 Gets all Reassignment configuration for the current org.
 
+.PARAMETER Limit
+Max number of results to return.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -495,6 +501,12 @@ ConfigurationResponse[]
 function Get-BetaReassignmentConfigurations {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
         [Switch]
         $WithHttpInfo
     )
@@ -516,6 +528,14 @@ function Get-BetaReassignmentConfigurations {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/reassignment-configurations'
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
 
 
 

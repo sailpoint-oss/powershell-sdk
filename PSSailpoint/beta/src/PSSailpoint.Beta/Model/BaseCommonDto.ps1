@@ -33,10 +33,6 @@ function Initialize-BetaBaseCommonDto {
         'Creating PSCustomObject: PSSailpoint.Beta => BetaBaseCommonDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}

@@ -54,6 +54,8 @@ If true, then the request is to change the remove date or sunset date.
 The remove date or sunset date that was assigned at the time of the request.
 .PARAMETER SodViolationContext
 No description available.
+.PARAMETER ClientMetadata
+Arbitrary key-value pairs, if any were included in the corresponding access request item
 .OUTPUTS
 
 PendingApproval<PSCustomObject>
@@ -123,7 +125,10 @@ function Initialize-V2024PendingApproval {
         ${CurrentRemoveDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${SodViolationContext}
+        ${SodViolationContext},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Collections.Hashtable]
+        ${ClientMetadata}
     )
 
     Process {
@@ -152,6 +157,7 @@ function Initialize-V2024PendingApproval {
             "removeDateUpdateRequested" = ${RemoveDateUpdateRequested}
             "currentRemoveDate" = ${CurrentRemoveDate}
             "sodViolationContext" = ${SodViolationContext}
+            "clientMetadata" = ${ClientMetadata}
         }
 
         return $PSO
@@ -188,7 +194,7 @@ function ConvertFrom-V2024JsonToPendingApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024PendingApproval
-        $AllProperties = ("id", "accessRequestId", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext")
+        $AllProperties = ("id", "accessRequestId", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "clientMetadata")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -315,6 +321,12 @@ function ConvertFrom-V2024JsonToPendingApproval {
             $SodViolationContext = $JsonParameters.PSobject.Properties["sodViolationContext"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "clientMetadata"))) { #optional property not found
+            $ClientMetadata = $null
+        } else {
+            $ClientMetadata = $JsonParameters.PSobject.Properties["clientMetadata"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "accessRequestId" = ${AccessRequestId}
@@ -336,6 +348,7 @@ function ConvertFrom-V2024JsonToPendingApproval {
             "removeDateUpdateRequested" = ${RemoveDateUpdateRequested}
             "currentRemoveDate" = ${CurrentRemoveDate}
             "sodViolationContext" = ${SodViolationContext}
+            "clientMetadata" = ${ClientMetadata}
         }
 
         return $PSO

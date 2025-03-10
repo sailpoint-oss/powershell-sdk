@@ -48,10 +48,6 @@ function Initialize-V2024ServiceDeskIntegrationTemplateDto {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024ServiceDeskIntegrationTemplateDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
-
         if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }

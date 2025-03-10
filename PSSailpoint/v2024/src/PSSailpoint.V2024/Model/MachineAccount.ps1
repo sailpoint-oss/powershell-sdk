@@ -119,10 +119,6 @@ function Initialize-V2024MachineAccount {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024MachineAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
-
         if (!$NativeIdentity) {
             throw "invalid value for 'NativeIdentity', 'NativeIdentity' cannot be null."
         }

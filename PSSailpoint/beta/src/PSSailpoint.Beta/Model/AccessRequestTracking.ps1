@@ -37,7 +37,7 @@ function Initialize-BetaAccessRequestTracking {
         [PSCustomObject[]]
         ${RequestedItemsDetails},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [System.Nullable[Int32]]
         ${AttributesHash},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]

@@ -53,10 +53,6 @@ function Initialize-V2024MachineIdentity {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024MachineIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
-
         if (!$BusinessApplication) {
             throw "invalid value for 'BusinessApplication', 'BusinessApplication' cannot be null."
         }

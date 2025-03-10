@@ -34,7 +34,7 @@ function Initialize-V2024FormDefinitionInput {
         [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("STRING")]
+        [ValidateSet("STRING", "ARRAY")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

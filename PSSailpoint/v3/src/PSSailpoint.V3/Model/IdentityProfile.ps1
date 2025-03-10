@@ -78,10 +78,6 @@ function Initialize-IdentityProfile {
         'Creating PSCustomObject: PSSailpoint.V3 => IdentityProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
-
         if (!$AuthoritativeSource) {
             throw "invalid value for 'AuthoritativeSource', 'AuthoritativeSource' cannot be null."
         }

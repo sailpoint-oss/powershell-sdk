@@ -37,7 +37,7 @@ function Initialize-V2024AccessRequestTracking {
         [PSCustomObject[]]
         ${RequestedItemsDetails},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [System.Nullable[Int32]]
         ${AttributesHash},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]

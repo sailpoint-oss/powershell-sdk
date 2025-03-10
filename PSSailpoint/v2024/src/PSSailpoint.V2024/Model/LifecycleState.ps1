@@ -68,10 +68,6 @@ function Initialize-V2024LifecycleState {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024LifecycleState' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
-
         if (!$TechnicalName) {
             throw "invalid value for 'TechnicalName', 'TechnicalName' cannot be null."
         }

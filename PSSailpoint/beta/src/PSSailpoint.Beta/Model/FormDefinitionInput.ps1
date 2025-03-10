@@ -34,7 +34,7 @@ function Initialize-BetaFormDefinitionInput {
         [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("STRING")]
+        [ValidateSet("STRING", "ARRAY")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

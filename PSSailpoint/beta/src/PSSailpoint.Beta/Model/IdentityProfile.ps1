@@ -78,10 +78,6 @@ function Initialize-BetaIdentityProfile {
         'Creating PSCustomObject: PSSailpoint.Beta => BetaIdentityProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
-
         if (!$AuthoritativeSource) {
             throw "invalid value for 'AuthoritativeSource', 'AuthoritativeSource' cannot be null."
         }

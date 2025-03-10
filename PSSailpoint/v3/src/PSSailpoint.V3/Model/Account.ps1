@@ -154,10 +154,6 @@ function Initialize-Account {
         'Creating PSCustomObject: PSSailpoint.V3 => Account' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
-
         if (!$SourceId) {
             throw "invalid value for 'SourceId', 'SourceId' cannot be null."
         }

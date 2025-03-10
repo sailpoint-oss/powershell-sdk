@@ -73,10 +73,6 @@ function Initialize-BetaSimIntegrationDetails {
         'Creating PSCustomObject: PSSailpoint.Beta => BetaSimIntegrationDetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}

@@ -175,6 +175,9 @@ This API completes a work item. Either an admin, or the owning/current user must
 .PARAMETER Id
 The ID of the work item
 
+.PARAMETER Body
+Body is the request payload to create form definition request
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -189,6 +192,9 @@ function Complete-BetaWorkItem {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Body},
         [Switch]
         $WithHttpInfo
     )
@@ -209,11 +215,27 @@ function Complete-BetaWorkItem {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/work-items/{id}'
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling completeWorkItem."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
+            $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Body | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
 
 
 
@@ -227,7 +249,7 @@ function Complete-BetaWorkItem {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "WorkItems" `
-                                -IsBodyNullable $false
+                                -IsBodyNullable $true
 
         if ($WithHttpInfo.IsPresent) {
             return $LocalVarResult
@@ -610,7 +632,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-WorkItems[]
+SystemCollectionsHashtable
 #>
 function Get-BetaWorkItem {
     [CmdletBinding()]
@@ -662,7 +684,7 @@ function Get-BetaWorkItem {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "WorkItems[]" `
+                                -ReturnType "SystemCollectionsHashtable" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

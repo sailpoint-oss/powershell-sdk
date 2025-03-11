@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024WorkItemsApi' {
 
     Context 'Complete-V2024WorkItem' {
         It 'Test Complete-V2024WorkItem' {
-            #$TestResult = Complete-V2024WorkItem -Id "TEST_VALUE"
+            #$TestResult = Complete-V2024WorkItem -Id "TEST_VALUE" -Body "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

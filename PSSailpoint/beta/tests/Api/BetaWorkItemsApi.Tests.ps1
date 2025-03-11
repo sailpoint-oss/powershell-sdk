@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaWorkItemsApi' {
 
     Context 'Complete-BetaWorkItem' {
         It 'Test Complete-BetaWorkItem' {
-            #$TestResult = Complete-BetaWorkItem -Id "TEST_VALUE"
+            #$TestResult = Complete-BetaWorkItem -Id "TEST_VALUE" -Body "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

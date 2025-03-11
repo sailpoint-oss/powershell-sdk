@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Notification of Ignored Access Request Recommendations
+Ignore Access Request Recommendation
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function Add-BetaAccessRequestRecommendationsIgnoredItem {
 <#
 .SYNOPSIS
 
-Notification of Requested Access Request Recommendations
+Accept Access Request Recommendation
 
 .DESCRIPTION
 
@@ -188,7 +188,7 @@ function Add-BetaAccessRequestRecommendationsRequestedItem {
 <#
 .SYNOPSIS
 
-Notification of Viewed Access Request Recommendations
+Mark Viewed Access Request Recommendations
 
 .DESCRIPTION
 
@@ -278,7 +278,7 @@ function Add-BetaAccessRequestRecommendationsViewedItem {
 <#
 .SYNOPSIS
 
-Notification of Viewed Access Request Recommendations in Bulk
+Bulk Mark Viewed Access Request Recommendations
 
 .DESCRIPTION
 
@@ -502,7 +502,7 @@ function Get-BetaAccessRequestRecommendations {
 <#
 .SYNOPSIS
 
-List of Ignored Access Request Recommendations
+List Ignored Access Request Recommendations
 
 .DESCRIPTION
 
@@ -616,7 +616,7 @@ function Get-BetaAccessRequestRecommendationsIgnoredItems {
 <#
 .SYNOPSIS
 
-List of Requested Access Request Recommendations
+List Accepted Access Request Recommendations
 
 .DESCRIPTION
 
@@ -730,7 +730,7 @@ function Get-BetaAccessRequestRecommendationsRequestedItems {
 <#
 .SYNOPSIS
 
-List of Viewed Access Request Recommendations
+List Viewed Access Request Recommendations
 
 .DESCRIPTION
 

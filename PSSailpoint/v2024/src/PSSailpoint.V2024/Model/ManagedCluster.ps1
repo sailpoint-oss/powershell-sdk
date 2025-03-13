@@ -120,6 +120,7 @@ function Initialize-V2024ManagedCluster {
         [System.Nullable[Boolean]]
         ${Operational} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("CONFIGURING", "FAILED", "NO_CLIENTS", "NORMAL", "WARNING")]
         [String]
         ${Status},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

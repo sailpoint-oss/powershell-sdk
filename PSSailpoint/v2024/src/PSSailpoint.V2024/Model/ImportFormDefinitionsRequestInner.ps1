@@ -22,17 +22,17 @@ No description available.
 No description available.
 .OUTPUTS
 
-ExportFormDefinitionsByTenant200ResponseInner<PSCustomObject>
+ImportFormDefinitionsRequestInner<PSCustomObject>
 #>
 
-function Initialize-V2024ExportFormDefinitionsByTenant200ResponseInner {
+function Initialize-V2024ImportFormDefinitionsRequestInner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Object},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${Self},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
@@ -40,7 +40,7 @@ function Initialize-V2024ExportFormDefinitionsByTenant200ResponseInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2024 => V2024ExportFormDefinitionsByTenant200ResponseInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2024 => V2024ImportFormDefinitionsRequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -57,11 +57,11 @@ function Initialize-V2024ExportFormDefinitionsByTenant200ResponseInner {
 <#
 .SYNOPSIS
 
-Convert from JSON to ExportFormDefinitionsByTenant200ResponseInner<PSCustomObject>
+Convert from JSON to ImportFormDefinitionsRequestInner<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ExportFormDefinitionsByTenant200ResponseInner<PSCustomObject>
+Convert from JSON to ImportFormDefinitionsRequestInner<PSCustomObject>
 
 .PARAMETER Json
 
@@ -69,21 +69,21 @@ Json object
 
 .OUTPUTS
 
-ExportFormDefinitionsByTenant200ResponseInner<PSCustomObject>
+ImportFormDefinitionsRequestInner<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToExportFormDefinitionsByTenant200ResponseInner {
+function ConvertFrom-V2024JsonToImportFormDefinitionsRequestInner {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024ExportFormDefinitionsByTenant200ResponseInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024ImportFormDefinitionsRequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2024ExportFormDefinitionsByTenant200ResponseInner
+        # check if Json contains properties not defined in V2024ImportFormDefinitionsRequestInner
         $AllProperties = ("object", "self", "version")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

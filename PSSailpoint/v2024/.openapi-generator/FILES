@@ -393,6 +393,7 @@ docs/ExceptionCriteriaCriteriaListInner.md
 docs/ExecutionStatus.md
 docs/ExpansionItem.md
 docs/ExportFormDefinitionsByTenant200ResponseInner.md
+docs/ExportFormDefinitionsByTenant200ResponseInnerSelf.md
 docs/ExportOptions.md
 docs/ExportOptions1.md
 docs/ExportPayload.md
@@ -412,6 +413,7 @@ docs/FormDefinitionDynamicSchemaResponse.md
 docs/FormDefinitionFileUploadResponse.md
 docs/FormDefinitionInput.md
 docs/FormDefinitionResponse.md
+docs/FormDefinitionSelfImportExportDto.md
 docs/FormDetails.md
 docs/FormElement.md
 docs/FormElementDataSourceConfigOptions.md
@@ -504,6 +506,7 @@ docs/ImportAccountsRequest.md
 docs/ImportEntitlementsBySourceRequest.md
 docs/ImportFormDefinitions202Response.md
 docs/ImportFormDefinitions202ResponseErrorsInner.md
+docs/ImportFormDefinitionsRequestInner.md
 docs/ImportNonEmployeeRecordsInBulkRequest.md
 docs/ImportObject.md
 docs/ImportOptions.md
@@ -1733,6 +1736,7 @@ src/PSSailpoint.V2024/Model/ExceptionCriteriaCriteriaListInner.ps1
 src/PSSailpoint.V2024/Model/ExecutionStatus.ps1
 src/PSSailpoint.V2024/Model/ExpansionItem.ps1
 src/PSSailpoint.V2024/Model/ExportFormDefinitionsByTenant200ResponseInner.ps1
+src/PSSailpoint.V2024/Model/ExportFormDefinitionsByTenant200ResponseInnerSelf.ps1
 src/PSSailpoint.V2024/Model/ExportOptions.ps1
 src/PSSailpoint.V2024/Model/ExportOptions1.ps1
 src/PSSailpoint.V2024/Model/ExportPayload.ps1
@@ -1751,6 +1755,7 @@ src/PSSailpoint.V2024/Model/FormDefinitionDynamicSchemaResponse.ps1
 src/PSSailpoint.V2024/Model/FormDefinitionFileUploadResponse.ps1
 src/PSSailpoint.V2024/Model/FormDefinitionInput.ps1
 src/PSSailpoint.V2024/Model/FormDefinitionResponse.ps1
+src/PSSailpoint.V2024/Model/FormDefinitionSelfImportExportDto.ps1
 src/PSSailpoint.V2024/Model/FormDetails.ps1
 src/PSSailpoint.V2024/Model/FormElement.ps1
 src/PSSailpoint.V2024/Model/FormElementDataSourceConfigOptions.ps1
@@ -1843,6 +1848,7 @@ src/PSSailpoint.V2024/Model/ImportAccountsRequest.ps1
 src/PSSailpoint.V2024/Model/ImportEntitlementsBySourceRequest.ps1
 src/PSSailpoint.V2024/Model/ImportFormDefinitions202Response.ps1
 src/PSSailpoint.V2024/Model/ImportFormDefinitions202ResponseErrorsInner.ps1
+src/PSSailpoint.V2024/Model/ImportFormDefinitionsRequestInner.ps1
 src/PSSailpoint.V2024/Model/ImportNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint.V2024/Model/ImportObject.ps1
 src/PSSailpoint.V2024/Model/ImportOptions.ps1
@@ -2910,6 +2916,7 @@ tests/Model/ExceptionCriteriaCriteriaListInner.Tests.ps1
 tests/Model/ExecutionStatus.Tests.ps1
 tests/Model/ExpansionItem.Tests.ps1
 tests/Model/ExportFormDefinitionsByTenant200ResponseInner.Tests.ps1
+tests/Model/ExportFormDefinitionsByTenant200ResponseInnerSelf.Tests.ps1
 tests/Model/ExportOptions.Tests.ps1
 tests/Model/ExportOptions1.Tests.ps1
 tests/Model/ExportPayload.Tests.ps1
@@ -2928,6 +2935,7 @@ tests/Model/FormDefinitionDynamicSchemaResponse.Tests.ps1
 tests/Model/FormDefinitionFileUploadResponse.Tests.ps1
 tests/Model/FormDefinitionInput.Tests.ps1
 tests/Model/FormDefinitionResponse.Tests.ps1
+tests/Model/FormDefinitionSelfImportExportDto.Tests.ps1
 tests/Model/FormDetails.Tests.ps1
 tests/Model/FormElement.Tests.ps1
 tests/Model/FormElementDataSourceConfigOptions.Tests.ps1
@@ -3020,6 +3028,7 @@ tests/Model/ImportAccountsRequest.Tests.ps1
 tests/Model/ImportEntitlementsBySourceRequest.Tests.ps1
 tests/Model/ImportFormDefinitions202Response.Tests.ps1
 tests/Model/ImportFormDefinitions202ResponseErrorsInner.Tests.ps1
+tests/Model/ImportFormDefinitionsRequestInner.Tests.ps1
 tests/Model/ImportNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/ImportObject.Tests.ps1
 tests/Model/ImportOptions.Tests.ps1

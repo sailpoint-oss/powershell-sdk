@@ -293,7 +293,7 @@ Class | Method | HTTP request | Description
 *V2024IAIOutliersApi* | [**Get-V2024OutliersContributingFeatureAccessItems**](docs/V2024IAIOutliersApi.md#Get-V2024OutliersContributingFeatureAccessItems) | **GET** /outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items | Gets a list of access items associated with each identity outlier contributing feature
 *V2024IAIOutliersApi* | [**Invoke-V2024UnIgnoreIdentityOutliers**](docs/V2024IAIOutliersApi.md#Invoke-V2024UnIgnoreIdentityOutliers) | **POST** /outliers/unignore | IAI Identity Outliers Unignore
 *V2024IAIPeerGroupStrategiesApi* | [**Get-V2024PeerGroupOutliers**](docs/V2024IAIPeerGroupStrategiesApi.md#Get-V2024PeerGroupOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity Outliers List
-*V2024IAIRecommendationsApi* | [**Get-V2024Recommendations**](docs/V2024IAIRecommendationsApi.md#Get-V2024Recommendations) | **POST** /recommendations/request | Returns a Recommendation Based on Object
+*V2024IAIRecommendationsApi* | [**Get-V2024Recommendations**](docs/V2024IAIRecommendationsApi.md#Get-V2024Recommendations) | **POST** /recommendations/request | Returns Recommendation Based on Object
 *V2024IAIRecommendationsApi* | [**Get-V2024RecommendationsConfig**](docs/V2024IAIRecommendationsApi.md#Get-V2024RecommendationsConfig) | **GET** /recommendations/config | Get certification recommendation config values
 *V2024IAIRecommendationsApi* | [**Update-V2024RecommendationsConfig**](docs/V2024IAIRecommendationsApi.md#Update-V2024RecommendationsConfig) | **PUT** /recommendations/config | Update certification recommendation config values
 *V2024IAIRoleMiningApi* | [**New-V2024PotentialRoleProvisionRequest**](docs/V2024IAIRoleMiningApi.md#New-V2024PotentialRoleProvisionRequest) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/provision | Create request to provision a potential role into an actual role.
@@ -1100,6 +1100,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ExecutionStatus](docs/ExecutionStatus.md)
  - [PSSailpoint.V2024\Model.ExpansionItem](docs/ExpansionItem.md)
  - [PSSailpoint.V2024\Model.ExportFormDefinitionsByTenant200ResponseInner](docs/ExportFormDefinitionsByTenant200ResponseInner.md)
+ - [PSSailpoint.V2024\Model.ExportFormDefinitionsByTenant200ResponseInnerSelf](docs/ExportFormDefinitionsByTenant200ResponseInnerSelf.md)
  - [PSSailpoint.V2024\Model.ExportOptions](docs/ExportOptions.md)
  - [PSSailpoint.V2024\Model.ExportOptions1](docs/ExportOptions1.md)
  - [PSSailpoint.V2024\Model.ExportPayload](docs/ExportPayload.md)
@@ -1118,6 +1119,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.FormDefinitionFileUploadResponse](docs/FormDefinitionFileUploadResponse.md)
  - [PSSailpoint.V2024\Model.FormDefinitionInput](docs/FormDefinitionInput.md)
  - [PSSailpoint.V2024\Model.FormDefinitionResponse](docs/FormDefinitionResponse.md)
+ - [PSSailpoint.V2024\Model.FormDefinitionSelfImportExportDto](docs/FormDefinitionSelfImportExportDto.md)
  - [PSSailpoint.V2024\Model.FormDetails](docs/FormDetails.md)
  - [PSSailpoint.V2024\Model.FormElement](docs/FormElement.md)
  - [PSSailpoint.V2024\Model.FormElementDataSourceConfigOptions](docs/FormElementDataSourceConfigOptions.md)
@@ -1210,6 +1212,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ImportEntitlementsBySourceRequest](docs/ImportEntitlementsBySourceRequest.md)
  - [PSSailpoint.V2024\Model.ImportFormDefinitions202Response](docs/ImportFormDefinitions202Response.md)
  - [PSSailpoint.V2024\Model.ImportFormDefinitions202ResponseErrorsInner](docs/ImportFormDefinitions202ResponseErrorsInner.md)
+ - [PSSailpoint.V2024\Model.ImportFormDefinitionsRequestInner](docs/ImportFormDefinitionsRequestInner.md)
  - [PSSailpoint.V2024\Model.ImportNonEmployeeRecordsInBulkRequest](docs/ImportNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint.V2024\Model.ImportObject](docs/ImportObject.md)
  - [PSSailpoint.V2024\Model.ImportOptions](docs/ImportOptions.md)

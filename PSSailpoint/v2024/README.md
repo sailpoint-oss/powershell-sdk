@@ -395,6 +395,7 @@ Class | Method | HTTP request | Description
 *V2024ManagedClustersApi* | [**Get-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedCluster) | **GET** /managed-clusters/{id} | Get Managed Cluster
 *V2024ManagedClustersApi* | [**Get-V2024ManagedClusters**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedClusters) | **GET** /managed-clusters | Get Managed Clusters
 *V2024ManagedClustersApi* | [**Send-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster Log Configuration
+*V2024ManagedClustersApi* | [**Update-V2024**](docs/V2024ManagedClustersApi.md#Update-V2024) | **POST** /managed-clusters/{id}/manualUpgrade | Trigger Manual Upgrade for Managed Cluster
 *V2024ManagedClustersApi* | [**Update-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update Managed Cluster
 *V2024NonEmployeeLifecycleManagementApi* | [**Approve-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Approve-V2024NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
@@ -966,6 +967,14 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ClientLogConfigurationExpiration](docs/ClientLogConfigurationExpiration.md)
  - [PSSailpoint.V2024\Model.ClientType](docs/ClientType.md)
  - [PSSailpoint.V2024\Model.CloseAccessRequest](docs/CloseAccessRequest.md)
+ - [PSSailpoint.V2024\Model.ClusterManualUpgrade](docs/ClusterManualUpgrade.md)
+ - [PSSailpoint.V2024\Model.ClusterManualUpgradeJobsInner](docs/ClusterManualUpgradeJobsInner.md)
+ - [PSSailpoint.V2024\Model.ClusterManualUpgradeJobsInnerManagedProcessConfiguration](docs/ClusterManualUpgradeJobsInnerManagedProcessConfiguration.md)
+ - [PSSailpoint.V2024\Model.ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg](docs/ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg.md)
+ - [PSSailpoint.V2024\Model.ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon](docs/ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon.md)
+ - [PSSailpoint.V2024\Model.ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent](docs/ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent.md)
+ - [PSSailpoint.V2024\Model.ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay](docs/ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay.md)
+ - [PSSailpoint.V2024\Model.ClusterManualUpgradeJobsInnerManagedProcessConfigurationToolbox](docs/ClusterManualUpgradeJobsInnerManagedProcessConfigurationToolbox.md)
  - [PSSailpoint.V2024\Model.Column](docs/Column.md)
  - [PSSailpoint.V2024\Model.Comment](docs/Comment.md)
  - [PSSailpoint.V2024\Model.CommentDto](docs/CommentDto.md)

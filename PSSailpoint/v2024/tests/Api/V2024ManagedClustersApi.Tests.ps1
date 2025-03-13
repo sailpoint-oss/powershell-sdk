@@ -54,6 +54,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ManagedClustersApi' {
         }
     }
 
+    Context 'Update-V2024' {
+        It 'Test Update-V2024' {
+            #$TestResult = Update-V2024 -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-V2024ManagedCluster' {
         It 'Test Update-V2024ManagedCluster' {
             #$TestResult = Update-V2024ManagedCluster -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"

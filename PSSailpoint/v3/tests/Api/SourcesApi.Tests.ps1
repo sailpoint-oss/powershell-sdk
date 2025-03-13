@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.V3' -name 'SourcesApi' {
 
     Context 'Get-SourceConnections' {
         It 'Test Get-SourceConnections' {
-            #$TestResult = Get-SourceConnections -Id "TEST_VALUE"
+            #$TestResult = Get-SourceConnections -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

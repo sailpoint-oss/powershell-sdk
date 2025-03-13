@@ -150,6 +150,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
         }
     }
 
+    Context 'Get-V2024SourceConnections' {
+        It 'Test Get-V2024SourceConnections' {
+            #$TestResult = Get-V2024SourceConnections -SourceId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2024SourceEntitlementRequestConfig' {
         It 'Test Get-V2024SourceEntitlementRequestConfig' {
             #$TestResult = Get-V2024SourceEntitlementRequestConfig -XSailPointExperimental "TEST_VALUE"

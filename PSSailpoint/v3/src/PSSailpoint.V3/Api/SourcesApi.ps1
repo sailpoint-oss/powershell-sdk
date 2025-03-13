@@ -898,7 +898,7 @@ Get Source Connections by ID
 
 Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
 
-.PARAMETER Id
+.PARAMETER SourceId
 Source ID.
 
 .PARAMETER WithHttpInfo
@@ -914,7 +914,7 @@ function Get-SourceConnections {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Switch]
         $WithHttpInfo
     )
@@ -936,10 +936,10 @@ function Get-SourceConnections {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/sources/{sourceId}/connections'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getSourceConnections."
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling getSourceConnections."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
 
 

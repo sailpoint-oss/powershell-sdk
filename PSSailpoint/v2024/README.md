@@ -597,6 +597,7 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Get-V2024Source**](docs/V2024SourcesApi.md#Get-V2024Source) | **GET** /sources/{id} | Get Source by ID
 *V2024SourcesApi* | [**Get-V2024SourceAttrSyncConfig**](docs/V2024SourcesApi.md#Get-V2024SourceAttrSyncConfig) | **GET** /sources/{id}/attribute-sync-config | Attribute Sync Config
 *V2024SourcesApi* | [**Get-V2024SourceConfig**](docs/V2024SourcesApi.md#Get-V2024SourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language translations
+*V2024SourcesApi* | [**Get-V2024SourceConnections**](docs/V2024SourcesApi.md#Get-V2024SourceConnections) | **GET** /sources/{sourceId}/connections | Get Source Connections by ID
 *V2024SourcesApi* | [**Get-V2024SourceEntitlementRequestConfig**](docs/V2024SourcesApi.md#Get-V2024SourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get Source Entitlement Request Configuration
 *V2024SourcesApi* | [**Get-V2024SourceHealth**](docs/V2024SourcesApi.md#Get-V2024SourceHealth) | **GET** /sources/{sourceId}/source-health | Fetches source health by id
 *V2024SourcesApi* | [**Get-V2024SourceSchedule**](docs/V2024SourcesApi.md#Get-V2024SourceSchedule) | **GET** /sources/{sourceId}/schedules/{scheduleType} | Get Source Schedule by Type
@@ -1054,6 +1055,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.DeleteNonEmployeeRecordsInBulkRequest](docs/DeleteNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint.V2024\Model.DeleteSource202Response](docs/DeleteSource202Response.md)
  - [PSSailpoint.V2024\Model.DeleteVendorConnectorMapping200Response](docs/DeleteVendorConnectorMapping200Response.md)
+ - [PSSailpoint.V2024\Model.DependantAppConnections](docs/DependantAppConnections.md)
+ - [PSSailpoint.V2024\Model.DependantAppConnectionsAccountSource](docs/DependantAppConnectionsAccountSource.md)
+ - [PSSailpoint.V2024\Model.DependantAppConnectionsAccountSourcePasswordPoliciesInner](docs/DependantAppConnectionsAccountSourcePasswordPoliciesInner.md)
+ - [PSSailpoint.V2024\Model.DependantConnectionsMissingDto](docs/DependantConnectionsMissingDto.md)
  - [PSSailpoint.V2024\Model.DeployRequest](docs/DeployRequest.md)
  - [PSSailpoint.V2024\Model.DeployResponse](docs/DeployResponse.md)
  - [PSSailpoint.V2024\Model.Dimension](docs/Dimension.md)
@@ -1208,6 +1213,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.IdentityProfileExportedObject](docs/IdentityProfileExportedObject.md)
  - [PSSailpoint.V2024\Model.IdentityProfileExportedObjectSelf](docs/IdentityProfileExportedObjectSelf.md)
  - [PSSailpoint.V2024\Model.IdentityProfileIdentityErrorReportArguments](docs/IdentityProfileIdentityErrorReportArguments.md)
+ - [PSSailpoint.V2024\Model.IdentityProfilesConnections](docs/IdentityProfilesConnections.md)
  - [PSSailpoint.V2024\Model.IdentityReference](docs/IdentityReference.md)
  - [PSSailpoint.V2024\Model.IdentityReferenceWithNameAndEmail](docs/IdentityReferenceWithNameAndEmail.md)
  - [PSSailpoint.V2024\Model.IdentitySnapshotSummaryResponse](docs/IdentitySnapshotSummaryResponse.md)
@@ -1655,6 +1661,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SourceCluster](docs/SourceCluster.md)
  - [PSSailpoint.V2024\Model.SourceClusterDto](docs/SourceClusterDto.md)
  - [PSSailpoint.V2024\Model.SourceCode](docs/SourceCode.md)
+ - [PSSailpoint.V2024\Model.SourceConnectionsDto](docs/SourceConnectionsDto.md)
  - [PSSailpoint.V2024\Model.SourceCreated](docs/SourceCreated.md)
  - [PSSailpoint.V2024\Model.SourceCreatedActor](docs/SourceCreatedActor.md)
  - [PSSailpoint.V2024\Model.SourceDeleted](docs/SourceDeleted.md)

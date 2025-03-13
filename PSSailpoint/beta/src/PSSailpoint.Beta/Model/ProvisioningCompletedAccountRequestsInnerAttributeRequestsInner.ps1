@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER AttributeName
-The name of the attribute being provisioned.
+Name of the attribute being provisioned.
 .PARAMETER AttributeValue
-The value of the attribute being provisioned.
+Value of the attribute being provisioned.
 .PARAMETER Operation
 The operation to handle the attribute.
 .OUTPUTS
@@ -36,7 +36,7 @@ function Initialize-BetaProvisioningCompletedAccountRequestsInnerAttributeReques
         ${AttributeValue},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Add", "Set", "Remove")]
-        [PSCustomObject]
+        [String]
         ${Operation}
     )
 

@@ -15,15 +15,15 @@ No summary available.
 Overall statistics about the account aggregation.
 
 .PARAMETER Scanned
-The number of accounts which were scanned / iterated over.
+Number of accounts scanned/iterated over.
 .PARAMETER Unchanged
-The number of accounts which existed before, but had no changes.
+Number of accounts that existed before but had no changes.
 .PARAMETER Changed
-The number of accounts which existed before, but had changes.
+Number of accounts that existed before but had changes.
 .PARAMETER Added
-The number of accounts which are new - have not existed before.
+Number of accounts that are new and didn't previously exist.
 .PARAMETER Removed
-The number accounts which existed before, but no longer exist (thus getting removed).
+Number accounts that existed before but were removed and no longer exist.
 .OUTPUTS
 
 AccountAggregationCompletedStats<PSCustomObject>

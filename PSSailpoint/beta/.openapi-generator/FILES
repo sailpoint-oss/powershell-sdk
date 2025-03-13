@@ -18,8 +18,10 @@ docs/AccessItemOwnerDto.md
 docs/AccessItemRef.md
 docs/AccessItemRemoved.md
 docs/AccessItemRequestedForDto.md
+docs/AccessItemRequestedForDto1.md
 docs/AccessItemRequester.md
 docs/AccessItemRequesterDto.md
+docs/AccessItemRequesterDto1.md
 docs/AccessItemReviewedBy.md
 docs/AccessItemRoleResponse.md
 docs/AccessProfile.md
@@ -47,7 +49,6 @@ docs/AccessRequestPhases.md
 docs/AccessRequestPostApproval.md
 docs/AccessRequestPostApprovalRequestedItemsStatusInner.md
 docs/AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner.md
-docs/AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover.md
 docs/AccessRequestPreApproval.md
 docs/AccessRequestPreApproval1.md
 docs/AccessRequestPreApprovalRequestedItemsInner.md
@@ -1170,8 +1171,10 @@ src/PSSailpoint.Beta/Model/AccessItemOwnerDto.ps1
 src/PSSailpoint.Beta/Model/AccessItemRef.ps1
 src/PSSailpoint.Beta/Model/AccessItemRemoved.ps1
 src/PSSailpoint.Beta/Model/AccessItemRequestedForDto.ps1
+src/PSSailpoint.Beta/Model/AccessItemRequestedForDto1.ps1
 src/PSSailpoint.Beta/Model/AccessItemRequester.ps1
 src/PSSailpoint.Beta/Model/AccessItemRequesterDto.ps1
+src/PSSailpoint.Beta/Model/AccessItemRequesterDto1.ps1
 src/PSSailpoint.Beta/Model/AccessItemReviewedBy.ps1
 src/PSSailpoint.Beta/Model/AccessItemRoleResponse.ps1
 src/PSSailpoint.Beta/Model/AccessProfile.ps1
@@ -1199,7 +1202,6 @@ src/PSSailpoint.Beta/Model/AccessRequestPhases.ps1
 src/PSSailpoint.Beta/Model/AccessRequestPostApproval.ps1
 src/PSSailpoint.Beta/Model/AccessRequestPostApprovalRequestedItemsStatusInner.ps1
 src/PSSailpoint.Beta/Model/AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner.ps1
-src/PSSailpoint.Beta/Model/AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover.ps1
 src/PSSailpoint.Beta/Model/AccessRequestPreApproval.ps1
 src/PSSailpoint.Beta/Model/AccessRequestPreApproval1.ps1
 src/PSSailpoint.Beta/Model/AccessRequestPreApprovalRequestedItemsInner.ps1
@@ -2177,8 +2179,10 @@ tests/Model/AccessItemOwnerDto.Tests.ps1
 tests/Model/AccessItemRef.Tests.ps1
 tests/Model/AccessItemRemoved.Tests.ps1
 tests/Model/AccessItemRequestedForDto.Tests.ps1
+tests/Model/AccessItemRequestedForDto1.Tests.ps1
 tests/Model/AccessItemRequester.Tests.ps1
 tests/Model/AccessItemRequesterDto.Tests.ps1
+tests/Model/AccessItemRequesterDto1.Tests.ps1
 tests/Model/AccessItemReviewedBy.Tests.ps1
 tests/Model/AccessItemRoleResponse.Tests.ps1
 tests/Model/AccessProfile.Tests.ps1
@@ -2206,7 +2210,6 @@ tests/Model/AccessRequestPhases.Tests.ps1
 tests/Model/AccessRequestPostApproval.Tests.ps1
 tests/Model/AccessRequestPostApprovalRequestedItemsStatusInner.Tests.ps1
 tests/Model/AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner.Tests.ps1
-tests/Model/AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover.Tests.ps1
 tests/Model/AccessRequestPreApproval.Tests.ps1
 tests/Model/AccessRequestPreApproval1.Tests.ps1
 tests/Model/AccessRequestPreApprovalRequestedItemsInner.Tests.ps1

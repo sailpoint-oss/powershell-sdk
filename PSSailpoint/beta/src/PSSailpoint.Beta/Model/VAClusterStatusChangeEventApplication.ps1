@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Details about the `CLUSTER` or `SOURCE` that initiated this event.
+Details about the `CLUSTER` or `SOURCE` that initiated the event.
 
 .PARAMETER Id
-The GUID of the application
+Application's globally unique identifier (GUID).
 .PARAMETER Name
-The name of the application
+Application name.
 .PARAMETER Attributes
-Custom map of attributes for a source.  This will only be populated if type is `SOURCE` and the source has a proxy.
+Custom map of attributes for a source. Attributes only populate if the type is `SOURCE` and the source has a proxy.
 .OUTPUTS
 
 VAClusterStatusChangeEventApplication<PSCustomObject>

@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-The value of the identity attribute before it changed.
+Identity attribute's previous value before the change.
 
 .PARAMETER Json
 

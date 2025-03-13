@@ -15,11 +15,11 @@ No summary available.
 Identity who updated the source.
 
 .PARAMETER Type
-DTO type of identity who updated the source.
+DTO type of the identity who updated the source.
 .PARAMETER Id
-ID of identity who updated the source.
+ID of the identity who updated the source.
 .PARAMETER Name
-Display name of identity who updated the source.
+Name of the identity who updated the source.
 .OUTPUTS
 
 SourceUpdatedActor<PSCustomObject>
@@ -46,6 +46,10 @@ function Initialize-BetaSourceUpdatedActor {
 
         if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
+        }
+
+        if (!$Id) {
+            throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
         if (!$Name) {
@@ -110,16 +114,16 @@ function ConvertFrom-BetaJsonToSourceUpdatedActor {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
             throw "Error! JSON cannot be serialized due to the required property 'name' missing."
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         $PSO = [PSCustomObject]@{

@@ -12,20 +12,20 @@ No summary available.
 
 .DESCRIPTION
 
-Identity who created the source.
+Access item requester's identity.
 
 .PARAMETER Type
-DTO type of the identity who created the source.
+Access item requester's DTO type.
 .PARAMETER Id
-ID of the identity who created the source.
+Access item requester's identity ID.
 .PARAMETER Name
-Name of the identity who created the source.
+Access item requester's name.
 .OUTPUTS
 
-SourceCreatedActor<PSCustomObject>
+AccessItemRequesterDto1<PSCustomObject>
 #>
 
-function Initialize-BetaSourceCreatedActor {
+function Initialize-BetaAccessItemRequesterDto1 {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -41,20 +41,8 @@ function Initialize-BetaSourceCreatedActor {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Beta => BetaSourceCreatedActor' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Beta => BetaAccessItemRequesterDto1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$Type) {
-            throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
-        if (!$Id) {
-            throw "invalid value for 'Id', 'Id' cannot be null."
-        }
-
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
 
 
         $PSO = [PSCustomObject]@{
@@ -70,11 +58,11 @@ function Initialize-BetaSourceCreatedActor {
 <#
 .SYNOPSIS
 
-Convert from JSON to SourceCreatedActor<PSCustomObject>
+Convert from JSON to AccessItemRequesterDto1<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SourceCreatedActor<PSCustomObject>
+Convert from JSON to AccessItemRequesterDto1<PSCustomObject>
 
 .PARAMETER Json
 
@@ -82,21 +70,21 @@ Json object
 
 .OUTPUTS
 
-SourceCreatedActor<PSCustomObject>
+AccessItemRequesterDto1<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSourceCreatedActor {
+function ConvertFrom-BetaJsonToAccessItemRequesterDto1 {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaSourceCreatedActor' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaAccessItemRequesterDto1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSourceCreatedActor
+        # check if Json contains properties not defined in BetaAccessItemRequesterDto1
         $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
@@ -104,24 +92,20 @@ function ConvertFrom-BetaJsonToSourceCreatedActor {
             }
         }
 
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'type' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'type' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }

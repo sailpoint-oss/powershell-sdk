@@ -15,15 +15,15 @@ No summary available.
 No description available.
 
 .PARAMETER FileName
-A name for the report file.
+Report file name.
 .PARAMETER OwnerEmail
-The email address of the identity that owns the saved search.
+Email address of the identity who owns the saved search.
 .PARAMETER OwnerName
-The name of the identity that owns the saved search.
+Name of the identity who owns the saved search.
 .PARAMETER Query
-The search query that was used to generate the report.
+Search query used to generate the report.
 .PARAMETER SearchName
-The name of the saved search.
+Saved search name.
 .PARAMETER SearchResults
 No description available.
 .PARAMETER SignedS3Url

@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The results of the most recent health check.
+Results of the most recent health check.
 
 .PARAMETER Message
-Detailed message of the result of the health check.
+Detailed message of the health check result..
 .PARAMETER ResultType
-The type of the health check result.
+Health check result type.
 .PARAMETER Status
-The status of the health check.
+Health check status.
 .OUTPUTS
 
 VAClusterStatusChangeEventHealthCheckResult<PSCustomObject>
@@ -36,7 +36,7 @@ function Initialize-BetaVAClusterStatusChangeEventHealthCheckResult {
         ${ResultType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("Succeeded", "Failed")]
-        [PSCustomObject]
+        [String]
         ${Status}
     )
 

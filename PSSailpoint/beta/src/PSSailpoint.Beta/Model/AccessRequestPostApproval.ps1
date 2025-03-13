@@ -15,11 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER AccessRequestId
-The unique ID of the access request.
+Access request's unique ID.
 .PARAMETER RequestedFor
-Identities access was requested for.
+Identities whom access was requested for.
 .PARAMETER RequestedItemsStatus
-Details on the outcome of each access item.
+Details about the outcome of each requested access item.
 .PARAMETER RequestedBy
 No description available.
 .OUTPUTS

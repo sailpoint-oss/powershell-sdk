@@ -19,7 +19,7 @@ Provisioning recipient DTO type.
 .PARAMETER Id
 Provisioning recipient's identity ID.
 .PARAMETER Name
-Provisioning recipient's display name.
+Provisioning recipient's name.
 .OUTPUTS
 
 ProvisioningCompletedRecipient<PSCustomObject>

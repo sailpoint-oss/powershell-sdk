@@ -19,7 +19,7 @@ Provisioning requester's DTO type.
 .PARAMETER Id
 Provisioning requester's identity ID.
 .PARAMETER Name
-Provisioning owner's human-readable display name.
+Provisioning requester's name.
 .OUTPUTS
 
 ProvisioningCompletedRequester<PSCustomObject>

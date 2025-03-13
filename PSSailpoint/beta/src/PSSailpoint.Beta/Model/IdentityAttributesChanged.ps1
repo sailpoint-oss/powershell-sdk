@@ -17,7 +17,7 @@ No description available.
 .PARAMETER Identity
 No description available.
 .PARAMETER Changes
-A list of one or more identity attributes that changed on the identity.
+List of identity's attributes that changed.
 .OUTPUTS
 
 IdentityAttributesChanged<PSCustomObject>

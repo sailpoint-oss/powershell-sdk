@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Reference to the source being provisioned against.
+Source that ISC is provisioning access on.
 
 .PARAMETER Id
-ID of the object to which this reference applies
+Source ID.
 .PARAMETER Type
-The type of object that is referenced
+Source DTO type.
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies
+Source name.
 .OUTPUTS
 
 ProvisioningCompletedAccountRequestsInnerSource<PSCustomObject>

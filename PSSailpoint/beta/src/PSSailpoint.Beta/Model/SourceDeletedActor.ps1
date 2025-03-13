@@ -15,11 +15,11 @@ No summary available.
 Identity who deleted the source.
 
 .PARAMETER Type
-DTO type of identity who deleted the source.
+DTO type of the identity who deleted the source.
 .PARAMETER Id
-ID of identity who deleted the source.
+ID of the identity who deleted the source.
 .PARAMETER Name
-Display name of identity who deleted the source.
+Name of the identity who deleted the source.
 .OUTPUTS
 
 SourceDeletedActor<PSCustomObject>

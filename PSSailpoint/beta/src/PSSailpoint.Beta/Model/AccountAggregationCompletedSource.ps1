@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-The source the accounts are being aggregated from.
+Source ISC is aggregating accounts from.
 
 .PARAMETER Type
-The DTO type of the source the accounts are being aggregated from.
+Source's DTO type.
 .PARAMETER Id
-The ID of the source the accounts are being aggregated from.
+Source's unique ID.
 .PARAMETER Name
-Display name of the source the accounts are being aggregated from.
+Source's name.
 .OUTPUTS
 
 AccountAggregationCompletedSource<PSCustomObject>

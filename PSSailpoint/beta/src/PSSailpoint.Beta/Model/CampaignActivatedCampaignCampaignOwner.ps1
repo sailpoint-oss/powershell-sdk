@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Details of the identity that owns the campaign.
+Details of the identity who owns the campaign.
 
 .PARAMETER Id
-The unique ID of the identity.
+Identity's unique ID.
 .PARAMETER DisplayName
-The human friendly name of the identity.
+Identity's name.
 .PARAMETER Email
-The primary email address of the identity.
+Identity's primary email address.
 .OUTPUTS
 
 CampaignActivatedCampaignCampaignOwner<PSCustomObject>

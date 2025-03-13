@@ -15,21 +15,21 @@ No summary available.
 No description available.
 
 .PARAMETER TrackingNumber
-The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface.
+Provisioning request's reference number. Useful for tracking status in the 'Account Activity' search interface.
 .PARAMETER Sources
-One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated.
+Sources the provisioning transactions were performed on. Sources are comma separated.
 .PARAMETER Action
-Origin of where the provisioning request came from.
+Origin of the provisioning request.
 .PARAMETER Errors
-A list of any accumulated error messages that occurred during provisioning.
+List of any accumulated error messages that occurred during provisioning.
 .PARAMETER Warnings
-A list of any accumulated warning messages that occurred during provisioning.
+List of any accumulated warning messages that occurred during provisioning.
 .PARAMETER Recipient
 No description available.
 .PARAMETER Requester
 No description available.
 .PARAMETER AccountRequests
-A list of provisioning instructions to perform on an account-by-account basis.
+List of provisioning instructions to perform on an account-by-account basis.
 .OUTPUTS
 
 ProvisioningCompleted<PSCustomObject>

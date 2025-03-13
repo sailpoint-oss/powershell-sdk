@@ -15,23 +15,23 @@ No summary available.
 Details about the campaign that was generated.
 
 .PARAMETER Id
-The unique ID of the campaign.
+Campaign's unique ID.
 .PARAMETER Name
-Human friendly name of the campaign.
+Campaign's name.
 .PARAMETER Description
-Extended description of the campaign.
+Campaign's extended description.
 .PARAMETER Created
-The date and time the campaign was created.
+Date and time when the campaign was created.
 .PARAMETER Modified
-The date and time the campaign was last modified.
+Date and time when the campaign was last modified.
 .PARAMETER Deadline
-The date and time when the campaign must be finished by.
+Date and time when the campaign must be finished.
 .PARAMETER Type
-The type of campaign that was generated.
+Campaign's type.
 .PARAMETER CampaignOwner
 No description available.
 .PARAMETER Status
-The current status of the campaign.
+Campaign's current status.
 .OUTPUTS
 
 CampaignGeneratedCampaign<PSCustomObject>

@@ -15,17 +15,17 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-The unique ID of the access item.
+Access item's unique identifier.
 .PARAMETER Name
-Human friendly name of the access item.
+Access item's name.
 .PARAMETER Description
-Extended description of the access item.
+Access item's extended description.
 .PARAMETER Type
-The type of access item being requested.
+Type of access item being requested.
 .PARAMETER Operation
-Grant or revoke the access item
+Action to perform on the requested access item.
 .PARAMETER Comment
-A comment from the requestor on why the access is needed.
+Comment from the requester about why the access is necessary.
 .OUTPUTS
 
 AccessRequestDynamicApproverRequestedItemsInner<PSCustomObject>

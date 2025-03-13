@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-A preview of the search results for each object type. This includes a count as well as headers, and the first several rows of data, per object type.
+Preview of the search results for each object type. This includes a count as well as headers and the first several rows of data, per object type.
 
 .PARAMETER Account
 No description available.

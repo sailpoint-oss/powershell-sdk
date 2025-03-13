@@ -15,23 +15,23 @@ No summary available.
 Details about the certification campaign that ended.
 
 .PARAMETER Id
-Unique ID for the campaign.
+Campaign's unique ID for the campaign.
 .PARAMETER Name
-The human friendly name of the campaign.
+Campaign's unique ID.
 .PARAMETER Description
-Extended description of the campaign.
+Campaign's extended description.
 .PARAMETER Created
-The date and time the campaign was created.
+Date and time when the campaign was created.
 .PARAMETER Modified
-The date and time the campaign was last modified.
+Date and time when the campaign was last modified.
 .PARAMETER Deadline
-The date and time the campaign is due.
+Date and time when the campaign is due.
 .PARAMETER Type
-The type of campaign.
+Campaign's type.
 .PARAMETER CampaignOwner
 No description available.
 .PARAMETER Status
-The current status of the campaign.
+Campaign's current status.
 .OUTPUTS
 
 CampaignEndedCampaign<PSCustomObject>

@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-A table of accounts that match the search criteria.
+Table of accounts matching the search criteria.
 
 .PARAMETER Count
-The number of rows in the table.
+Number of rows in the table.
 .PARAMETER Noun
-The type of object represented in the table.
+Type of object represented in the table.
 .PARAMETER Preview
-A sample of the data in the table.
+Sample of table data.
 .OUTPUTS
 
 SavedSearchCompleteSearchResultsAccount<PSCustomObject>

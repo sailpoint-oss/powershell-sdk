@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Identity who approved the access item request.
+No description available.
 
 .PARAMETER Type
-DTO type of identity who approved the access item request.
+DTO type of the identity who approved the access item request.
 .PARAMETER Id
-ID of identity who approved the access item request.
+ID of the identity who approved the access item request.
 .PARAMETER Name
-Human-readable display name of identity who approved the access item request.
+Name of the identity who approved the access item request.
 .OUTPUTS
 
 AccessItemApproverDto<PSCustomObject>

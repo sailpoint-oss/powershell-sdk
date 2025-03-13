@@ -17,15 +17,15 @@ No description available.
 .PARAMETER Source
 No description available.
 .PARAMETER Status
-The overall status of the aggregation.
+Aggregation's overall status.
 .PARAMETER Started
-The date and time when the account aggregation started.
+Date and time when the account aggregation started.
 .PARAMETER Completed
-The date and time when the account aggregation finished.
+Date and time when the account aggregation finished.
 .PARAMETER Errors
-A list of errors that occurred during the aggregation.
+List of errors that occurred during the aggregation.
 .PARAMETER Warnings
-A list of warnings that occurred during the aggregation.
+List of warnings that occurred during the aggregation.
 .PARAMETER Stats
 No description available.
 .OUTPUTS

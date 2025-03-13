@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER Created
-The date and time the status change occurred.
+Date and time when the status change occurred.
 .PARAMETER Type
-The type of the object that initiated this event.
+Type of the object that initiated the event.
 .PARAMETER Application
 No description available.
 .PARAMETER HealthCheckResult

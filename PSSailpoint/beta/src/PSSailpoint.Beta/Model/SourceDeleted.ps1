@@ -15,15 +15,15 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-The unique ID of the source.
+Source's unique ID.
 .PARAMETER Name
-Human friendly name of the source.
+Source name.
 .PARAMETER Type
-The connection type.
+Connection type.
 .PARAMETER Deleted
-The date and time the source was deleted.
+Date and time when the source was deleted.
 .PARAMETER Connector
-The connector type used to connect to the source.
+Connector type used to connect to the source.
 .PARAMETER Actor
 No description available.
 .OUTPUTS

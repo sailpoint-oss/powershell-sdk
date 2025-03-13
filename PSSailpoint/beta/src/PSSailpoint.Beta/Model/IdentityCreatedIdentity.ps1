@@ -15,11 +15,11 @@ No summary available.
 Created identity.
 
 .PARAMETER Type
-Created identity's DTO type.
+Identity's DTO type.
 .PARAMETER Id
-Created identity ID.
+Identity's unique ID.
 .PARAMETER Name
-Created identity's display name.
+Identity's name.
 .OUTPUTS
 
 IdentityCreatedIdentity<PSCustomObject>

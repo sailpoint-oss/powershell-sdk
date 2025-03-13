@@ -15,17 +15,17 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-The unique ID of the access item being requested.
+Access item's unique ID.
 .PARAMETER Name
-The human friendly name of the access item.
+Access item's name.
 .PARAMETER Description
-Detailed description of the access item.
+Access item's description.
 .PARAMETER Type
-The type of access item.
+Access item's type.
 .PARAMETER Operation
-The action to perform on the access item.
+Action to perform on the access item.
 .PARAMETER Comment
-A comment from the identity requesting the access.
+Comment from the identity requesting access.
 .OUTPUTS
 
 AccessRequestPreApprovalRequestedItemsInner<PSCustomObject>

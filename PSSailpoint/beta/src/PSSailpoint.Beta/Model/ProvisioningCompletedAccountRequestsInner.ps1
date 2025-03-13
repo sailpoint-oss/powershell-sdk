@@ -17,17 +17,17 @@ No description available.
 .PARAMETER Source
 No description available.
 .PARAMETER AccountId
-The unique idenfier of the account being provisioned.
+Unique idenfier of the account being provisioned.
 .PARAMETER AccountOperation
-The provisioning operation; typically Create, Modify, Enable, Disable, Unlock, or Delete.
+Provisioning operation.
 .PARAMETER ProvisioningResult
-The overall result of the provisioning transaction; this could be success, pending, failed, etc.
+Overall result of the provisioning transaction.
 .PARAMETER ProvisioningTarget
-The name of the provisioning channel selected; this could be the same as the source, or could be a Service Desk Integration Module (SDIM).
+Nme of the selected provisioning channel selected. This could be the same as the source, or it could be a Service Desk Integration Module (SDIM).
 .PARAMETER TicketId
-A reference to a tracking number, if this is sent to a Service Desk Integration Module (SDIM).
+Reference to a tracking number for if this is sent to a SDIM.
 .PARAMETER AttributeRequests
-A list of attributes as part of the provisioning transaction.
+List of attributes to include in the provisioning transaction.
 .OUTPUTS
 
 ProvisioningCompletedAccountRequestsInner<PSCustomObject>
@@ -43,6 +43,7 @@ function Initialize-BetaProvisioningCompletedAccountRequestsInner {
         [String]
         ${AccountId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("Create", "Modify", "Enable", "Disable", "Unlock", "Delete")]
         [String]
         ${AccountOperation},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

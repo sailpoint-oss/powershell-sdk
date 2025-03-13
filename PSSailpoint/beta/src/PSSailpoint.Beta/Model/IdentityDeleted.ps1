@@ -17,7 +17,7 @@ No description available.
 .PARAMETER Identity
 No description available.
 .PARAMETER Attributes
-The attributes assigned to the identity. Attributes are determined by the identity profile.
+Identity attributes. The attributes are determined by the identity profile.
 .OUTPUTS
 
 IdentityDeleted<PSCustomObject>

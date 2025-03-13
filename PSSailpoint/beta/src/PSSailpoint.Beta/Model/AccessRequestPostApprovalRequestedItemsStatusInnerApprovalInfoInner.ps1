@@ -15,13 +15,13 @@ No summary available.
 No description available.
 
 .PARAMETER ApprovalComment
-A comment left by the approver.
+Approver's comment.
 .PARAMETER ApprovalDecision
-The final decision of the approver.
+Approver's final decision.
 .PARAMETER ApproverName
-The name of the approver
+Approver's name.
 .PARAMETER Approver
-No description available.
+Approver's identity.
 .OUTPUTS
 
 AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner<PSCustomObject>

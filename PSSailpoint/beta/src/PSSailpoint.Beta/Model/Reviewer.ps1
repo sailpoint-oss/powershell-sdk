@@ -12,16 +12,16 @@ No summary available.
 
 .DESCRIPTION
 
-Details of the reviewer for certification.
+Details of the reviewer for a certification.
 
 .PARAMETER Type
-The reviewer's DTO type.
+Reviewer's DTO type.
 .PARAMETER Id
-The reviewer's ID.
+Reviewer's ID.
 .PARAMETER Name
-The reviewer's display name.
+Reviewer's display name.
 .PARAMETER Email
-The reviewing identity's email. Only applicable to `IDENTITY`.
+Reviewing identity's email. This is only applicable to reviewers of the `IDENTITY` type.
 .OUTPUTS
 
 Reviewer<PSCustomObject>

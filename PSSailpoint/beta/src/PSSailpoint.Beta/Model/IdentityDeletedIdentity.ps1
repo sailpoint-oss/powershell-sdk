@@ -19,7 +19,7 @@ Deleted identity's DTO type.
 .PARAMETER Id
 Deleted identity ID.
 .PARAMETER Name
-Deleted identity's display name.
+Deleted identity's name.
 .OUTPUTS
 
 IdentityDeletedIdentity<PSCustomObject>

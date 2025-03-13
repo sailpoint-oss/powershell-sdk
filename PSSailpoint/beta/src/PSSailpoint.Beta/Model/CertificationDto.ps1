@@ -19,27 +19,27 @@ No description available.
 .PARAMETER Phase
 No description available.
 .PARAMETER Due
-The due date of the certification.
+Date and time when the certification is due.
 .PARAMETER Signed
-The date the reviewer signed off on the certification.
+Date and time when the reviewer signed off on the certification.
 .PARAMETER Reviewer
 No description available.
 .PARAMETER Reassignment
 No description available.
 .PARAMETER HasErrors
-Indicates it the certification has any errors.
+Indicates whether the certification has any errors.
 .PARAMETER ErrorMessage
-A message indicating what the error is.
+Message indicating what the error is.
 .PARAMETER Completed
-Indicates if all certification decisions have been made.
+Indicates whether all certification decisions have been made.
 .PARAMETER DecisionsMade
-The number of approve/revoke/acknowledge decisions that have been made by the reviewer.
+Number of approve/revoke/acknowledge decisions the reviewer has made.
 .PARAMETER DecisionsTotal
-The total number of approve/revoke/acknowledge decisions for the certification.
+Total number of approve/revoke/acknowledge decisions for the certification.
 .PARAMETER EntitiesCompleted
-The number of entities (identities, access profiles, roles, etc.) for which all decisions have been made and are complete.
+Number of entities (identities, access profiles, roles, etc.) that are complete and all decisions have been made for.
 .PARAMETER EntitiesTotal
-The total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete.
+Total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete.
 .OUTPUTS
 
 CertificationDto<PSCustomObject>

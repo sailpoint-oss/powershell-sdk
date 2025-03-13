@@ -15,11 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER AccessRequestId
-The unique ID of the access request object. Can be used with the [access request status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the status of the request. 
+Unique ID of the access request object. You can use this ID with the [Access Request Status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the request's status.
 .PARAMETER RequestedFor
 Identities access was requested for.
 .PARAMETER RequestedItems
-The access items that are being requested.
+Requested access items.
 .PARAMETER RequestedBy
 No description available.
 .OUTPUTS

@@ -15,7 +15,7 @@ No summary available.
 No description available.
 
 .PARAMETER Attribute
-The name of the identity attribute that changed.
+Identity attribute's name.
 .PARAMETER OldValue
 No description available.
 .PARAMETER NewValue

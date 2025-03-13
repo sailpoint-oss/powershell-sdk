@@ -12,20 +12,20 @@ No summary available.
 
 .DESCRIPTION
 
-Identity who created the source.
+Identity whom the access item is requested for.
 
 .PARAMETER Type
-DTO type of the identity who created the source.
+DTO type of the identity whom the access item is requested for.
 .PARAMETER Id
-ID of the identity who created the source.
+ID of the identity whom the access item is requested for.
 .PARAMETER Name
-Name of the identity who created the source.
+Name of the identity whom the access item is requested for.
 .OUTPUTS
 
-SourceCreatedActor<PSCustomObject>
+AccessItemRequestedForDto1<PSCustomObject>
 #>
 
-function Initialize-BetaSourceCreatedActor {
+function Initialize-BetaAccessItemRequestedForDto1 {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -41,20 +41,8 @@ function Initialize-BetaSourceCreatedActor {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Beta => BetaSourceCreatedActor' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Beta => BetaAccessItemRequestedForDto1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$Type) {
-            throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
-        if (!$Id) {
-            throw "invalid value for 'Id', 'Id' cannot be null."
-        }
-
-        if (!$Name) {
-            throw "invalid value for 'Name', 'Name' cannot be null."
-        }
 
 
         $PSO = [PSCustomObject]@{
@@ -70,11 +58,11 @@ function Initialize-BetaSourceCreatedActor {
 <#
 .SYNOPSIS
 
-Convert from JSON to SourceCreatedActor<PSCustomObject>
+Convert from JSON to AccessItemRequestedForDto1<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SourceCreatedActor<PSCustomObject>
+Convert from JSON to AccessItemRequestedForDto1<PSCustomObject>
 
 .PARAMETER Json
 
@@ -82,21 +70,21 @@ Json object
 
 .OUTPUTS
 
-SourceCreatedActor<PSCustomObject>
+AccessItemRequestedForDto1<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSourceCreatedActor {
+function ConvertFrom-BetaJsonToAccessItemRequestedForDto1 {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaSourceCreatedActor' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaAccessItemRequestedForDto1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSourceCreatedActor
+        # check if Json contains properties not defined in BetaAccessItemRequestedForDto1
         $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
@@ -104,24 +92,20 @@ function ConvertFrom-BetaJsonToSourceCreatedActor {
             }
         }
 
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'type' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'type' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'name' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }

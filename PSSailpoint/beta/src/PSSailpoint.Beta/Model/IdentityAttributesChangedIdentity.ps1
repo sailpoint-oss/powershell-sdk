@@ -19,7 +19,7 @@ DTO type of identity whose attributes changed.
 .PARAMETER Id
 ID of identity whose attributes changed.
 .PARAMETER Name
-Display name of identity whose attributes changed.
+Name of identity whose attributes changed.
 .OUTPUTS
 
 IdentityAttributesChangedIdentity<PSCustomObject>

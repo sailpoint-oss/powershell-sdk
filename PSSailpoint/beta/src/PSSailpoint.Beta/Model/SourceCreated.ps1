@@ -15,15 +15,15 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-The unique ID of the source.
+Source's unique ID.
 .PARAMETER Name
-Human friendly name of the source.
+Source name.
 .PARAMETER Type
-The connection type.
+Connection type.
 .PARAMETER Created
-The date and time the source was created.
+Date and time when the source was created.
 .PARAMETER Connector
-The connector type used to connect to the source.
+Connector type used to connect to the source.
 .PARAMETER Actor
 No description available.
 .OUTPUTS

@@ -19,10 +19,12 @@ Frequency of execution
 .PARAMETER TimeZone
 Time zone identifier
 .PARAMETER CronString
-No description available.
+A valid CRON expression
 .PARAMETER WeeklyDays
 Scheduled days of the week for execution
 .PARAMETER WeeklyTimes
+Scheduled execution times
+.PARAMETER YearlyTimes
 Scheduled execution times
 .OUTPUTS
 
@@ -47,7 +49,10 @@ function Initialize-BetaScheduledAttributes {
         ${WeeklyDays},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${WeeklyTimes}
+        ${WeeklyTimes},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${YearlyTimes}
     )
 
     Process {
@@ -65,6 +70,7 @@ function Initialize-BetaScheduledAttributes {
             "cronString" = ${CronString}
             "weeklyDays" = ${WeeklyDays}
             "weeklyTimes" = ${WeeklyTimes}
+            "yearlyTimes" = ${YearlyTimes}
         }
 
         return $PSO
@@ -101,7 +107,7 @@ function ConvertFrom-BetaJsonToScheduledAttributes {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaScheduledAttributes
-        $AllProperties = ("frequency", "timeZone", "cronString", "weeklyDays", "weeklyTimes")
+        $AllProperties = ("frequency", "timeZone", "cronString", "weeklyDays", "weeklyTimes", "yearlyTimes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -142,12 +148,19 @@ function ConvertFrom-BetaJsonToScheduledAttributes {
             $WeeklyTimes = $JsonParameters.PSobject.Properties["weeklyTimes"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "yearlyTimes"))) { #optional property not found
+            $YearlyTimes = $null
+        } else {
+            $YearlyTimes = $JsonParameters.PSobject.Properties["yearlyTimes"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "frequency" = ${Frequency}
             "timeZone" = ${TimeZone}
             "cronString" = ${CronString}
             "weeklyDays" = ${WeeklyDays}
             "weeklyTimes" = ${WeeklyTimes}
+            "yearlyTimes" = ${YearlyTimes}
         }
 
         return $PSO

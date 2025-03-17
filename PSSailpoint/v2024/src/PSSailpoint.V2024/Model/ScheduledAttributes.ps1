@@ -24,6 +24,8 @@ Time zone identifier
 Scheduled days of the week for execution
 .PARAMETER WeeklyTimes
 Scheduled execution times
+.PARAMETER YearlyTimes
+Scheduled execution times
 .OUTPUTS
 
 ScheduledAttributes<PSCustomObject>
@@ -47,7 +49,10 @@ function Initialize-V2024ScheduledAttributes {
         ${WeeklyDays},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${WeeklyTimes}
+        ${WeeklyTimes},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${YearlyTimes}
     )
 
     Process {
@@ -65,6 +70,7 @@ function Initialize-V2024ScheduledAttributes {
             "timeZone" = ${TimeZone}
             "weeklyDays" = ${WeeklyDays}
             "weeklyTimes" = ${WeeklyTimes}
+            "yearlyTimes" = ${YearlyTimes}
         }
 
         return $PSO
@@ -101,7 +107,7 @@ function ConvertFrom-V2024JsonToScheduledAttributes {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024ScheduledAttributes
-        $AllProperties = ("cronString", "frequency", "timeZone", "weeklyDays", "weeklyTimes")
+        $AllProperties = ("cronString", "frequency", "timeZone", "weeklyDays", "weeklyTimes", "yearlyTimes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -142,12 +148,19 @@ function ConvertFrom-V2024JsonToScheduledAttributes {
             $WeeklyTimes = $JsonParameters.PSobject.Properties["weeklyTimes"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "yearlyTimes"))) { #optional property not found
+            $YearlyTimes = $null
+        } else {
+            $YearlyTimes = $JsonParameters.PSobject.Properties["yearlyTimes"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "cronString" = ${CronString}
             "frequency" = ${Frequency}
             "timeZone" = ${TimeZone}
             "weeklyDays" = ${WeeklyDays}
             "weeklyTimes" = ${WeeklyTimes}
+            "yearlyTimes" = ${YearlyTimes}
         }
 
         return $PSO

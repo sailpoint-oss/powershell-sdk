@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaWorkflowTriggerAttributes' {
     Context 'BetaWorkflowTriggerAttributes' {
         It 'Initialize-BetaWorkflowTriggerAttributes' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaWorkflowTriggerAttributes -Id "TEST_VALUE" -VarFilter "TEST_VALUE" -Description "TEST_VALUE" -Name "TEST_VALUE" -ClientId "TEST_VALUE" -Url "TEST_VALUE" -Frequency "TEST_VALUE" -TimeZone "TEST_VALUE" -CronString "TEST_VALUE" -WeeklyDays "TEST_VALUE" -WeeklyTimes "TEST_VALUE"
+            #$NewObject = Initialize-BetaWorkflowTriggerAttributes -Id "TEST_VALUE" -VarFilter "TEST_VALUE" -Description "TEST_VALUE" -AttributeToFilter "TEST_VALUE" -FormDefinitionId "TEST_VALUE" -Name "TEST_VALUE" -ClientId "TEST_VALUE" -Url "TEST_VALUE" -Frequency "TEST_VALUE" -TimeZone "TEST_VALUE" -CronString "TEST_VALUE" -WeeklyDays "TEST_VALUE" -WeeklyTimes "TEST_VALUE" -YearlyTimes "TEST_VALUE"
             #$NewObject | Should -BeOfType WorkflowTriggerAttributes
             #$NewObject.property | Should -Be 0
         }

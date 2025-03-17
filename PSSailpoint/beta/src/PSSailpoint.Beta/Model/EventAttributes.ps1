@@ -20,6 +20,10 @@ The unique ID of the trigger
 JSON path expression that will limit which events the trigger will fire on
 .PARAMETER Description
 Description of the event trigger
+.PARAMETER AttributeToFilter
+The attribute to filter on
+.PARAMETER FormDefinitionId
+Form definition's unique identifier.
 .OUTPUTS
 
 EventAttributes<PSCustomObject>
@@ -36,7 +40,13 @@ function Initialize-BetaEventAttributes {
         ${VarFilter},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Description}
+        ${Description},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${AttributeToFilter},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${FormDefinitionId}
     )
 
     Process {
@@ -52,6 +62,8 @@ function Initialize-BetaEventAttributes {
             "id" = ${Id}
             "filter.$" = ${VarFilter}
             "description" = ${Description}
+            "attributeToFilter" = ${AttributeToFilter}
+            "formDefinitionId" = ${FormDefinitionId}
         }
 
         return $PSO
@@ -88,7 +100,7 @@ function ConvertFrom-BetaJsonToEventAttributes {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaEventAttributes
-        $AllProperties = ("id", "filter.$", "description")
+        $AllProperties = ("id", "filter.$", "description", "attributeToFilter", "formDefinitionId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -117,10 +129,24 @@ function ConvertFrom-BetaJsonToEventAttributes {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributeToFilter"))) { #optional property not found
+            $AttributeToFilter = $null
+        } else {
+            $AttributeToFilter = $JsonParameters.PSobject.Properties["attributeToFilter"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "formDefinitionId"))) { #optional property not found
+            $FormDefinitionId = $null
+        } else {
+            $FormDefinitionId = $JsonParameters.PSobject.Properties["formDefinitionId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "filter.$" = ${VarFilter}
             "description" = ${Description}
+            "attributeToFilter" = ${AttributeToFilter}
+            "formDefinitionId" = ${FormDefinitionId}
         }
 
         return $PSO

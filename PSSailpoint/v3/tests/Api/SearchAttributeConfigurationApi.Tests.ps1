@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V3' -name 'SearchAttributeConfigurationApi' {
 
     Context 'Get-SearchAttributeConfig' {
         It 'Test Get-SearchAttributeConfig' {
-            #$TestResult = Get-SearchAttributeConfig
+            #$TestResult = Get-SearchAttributeConfig -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

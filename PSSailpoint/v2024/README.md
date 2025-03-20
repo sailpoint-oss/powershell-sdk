@@ -500,7 +500,7 @@ Class | Method | HTTP request | Description
 *V2024RolesApi* | [**Get-V2024BulkUpdateStatusById**](docs/V2024RolesApi.md#Get-V2024BulkUpdateStatusById) | **GET** /roles/access-model-metadata/bulk-update/id | Get Bulk-Update Status by ID
 *V2024RolesApi* | [**Get-V2024Role**](docs/V2024RolesApi.md#Get-V2024Role) | **GET** /roles/{id} | Get a Role
 *V2024RolesApi* | [**Get-V2024RoleAssignedIdentities**](docs/V2024RolesApi.md#Get-V2024RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
-*V2024RolesApi* | [**Get-V2024RoleEntitlements**](docs/V2024RolesApi.md#Get-V2024RoleEntitlements) | **GET** /roles/{id}/entitlements | List role's Entitlements
+*V2024RolesApi* | [**Get-V2024RoleEntitlements**](docs/V2024RolesApi.md#Get-V2024RoleEntitlements) | **GET** /roles/{id}/entitlements | List Role's Entitlements
 *V2024RolesApi* | [**Get-V2024Roles**](docs/V2024RolesApi.md#Get-V2024Roles) | **GET** /roles | List Roles
 *V2024RolesApi* | [**Update-V2024Role**](docs/V2024RolesApi.md#Update-V2024Role) | **PATCH** /roles/{id} | Patch a specified Role
 *V2024RolesApi* | [**Search-V2024RolesByFilter**](docs/V2024RolesApi.md#Search-V2024RolesByFilter) | **POST** /roles/filter | Filter Roles by Metadata

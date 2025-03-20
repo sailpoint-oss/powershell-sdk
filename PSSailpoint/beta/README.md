@@ -428,7 +428,7 @@ Class | Method | HTTP request | Description
 *BetaRolesApi* | [**Remove-BetaRole**](docs/BetaRolesApi.md#Remove-BetaRole) | **DELETE** /roles/{id} | Delete a Role
 *BetaRolesApi* | [**Get-BetaRole**](docs/BetaRolesApi.md#Get-BetaRole) | **GET** /roles/{id} | Get a Role
 *BetaRolesApi* | [**Get-BetaRoleAssignedIdentities**](docs/BetaRolesApi.md#Get-BetaRoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | Identities assigned a Role
-*BetaRolesApi* | [**Get-BetaRoleEntitlements**](docs/BetaRolesApi.md#Get-BetaRoleEntitlements) | **GET** /roles/{id}/entitlements | List role's Entitlements
+*BetaRolesApi* | [**Get-BetaRoleEntitlements**](docs/BetaRolesApi.md#Get-BetaRoleEntitlements) | **GET** /roles/{id}/entitlements | List Role's Entitlements
 *BetaRolesApi* | [**Get-BetaRoles**](docs/BetaRolesApi.md#Get-BetaRoles) | **GET** /roles | List Roles
 *BetaRolesApi* | [**Update-BetaRole**](docs/BetaRolesApi.md#Update-BetaRole) | **PATCH** /roles/{id} | Patch a specified Role
 *BetaSIMIntegrationsApi* | [**New-BetaSIMIntegration**](docs/BetaSIMIntegrationsApi.md#New-BetaSIMIntegration) | **POST** /sim-integrations | Create new SIM integration

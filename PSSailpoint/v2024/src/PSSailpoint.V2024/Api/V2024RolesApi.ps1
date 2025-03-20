@@ -692,20 +692,20 @@ function Get-V2024RoleAssignedIdentities {
 <#
 .SYNOPSIS
 
-List role's Entitlements
+List Role's Entitlements
 
 .DESCRIPTION
 
-This API lists the Entitlements associated with a given role.
+Get a list of entitlements associated with a specified role.
 
 .PARAMETER Id
-ID of the containing role
+Containing role's ID.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
 .PARAMETER Limit
-Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.

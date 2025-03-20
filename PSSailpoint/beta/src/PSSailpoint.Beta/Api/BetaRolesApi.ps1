@@ -460,17 +460,17 @@ function Get-BetaRoleAssignedIdentities {
 <#
 .SYNOPSIS
 
-List role's Entitlements
+List Role's Entitlements
 
 .DESCRIPTION
 
-This API lists the Entitlements associated with a given role.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+Get a list of entitlements associated with a specified role.
 
 .PARAMETER Id
-ID of the containing role
+Containing role's ID.
 
 .PARAMETER Limit
-Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -558,6 +558,7 @@ function Get-BetaRoleEntitlements {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
+
 
 
 

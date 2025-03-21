@@ -59,7 +59,7 @@ function Initialize-V2024TaskResultDetails {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("ACCOUNTS", "IDENTITIES_DETAILS", "IDENTITIES", "IDENTITY_PROFILE_IDENTITY_ERROR", "ORPHAN_IDENTITIES", "SEARCH_EXPORT", "UNCORRELATED_ACCOUNTS")]
-        [PSCustomObject]
+        [String]
         ${ReportType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -90,7 +90,7 @@ function Initialize-V2024TaskResultDetails {
         [PSCustomObject[]]
         ${Returns},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Collections.Hashtable]
+        [PSCustomObject]
         ${Attributes},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]

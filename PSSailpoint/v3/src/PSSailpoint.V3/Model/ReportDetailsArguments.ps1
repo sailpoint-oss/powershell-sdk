@@ -34,128 +34,140 @@ function ConvertFrom-JsonToReportDetailsArguments {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match AccountsExportReportArguments defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-JsonToAccountsExportReportArguments $Json
+        if ($match -ne 0) { # no match yet
+            # try to match AccountsExportReportArguments defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-JsonToAccountsExportReportArguments $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "AccountsExportReportArguments"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "AccountsExportReportArguments"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'AccountsExportReportArguments' defined in anyOf (ReportDetailsArguments). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'AccountsExportReportArguments' defined in oneOf (ReportDetailsArguments). Proceeding to the next one if any."
         }
 
-        # try to match IdentitiesDetailsReportArguments defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-JsonToIdentitiesDetailsReportArguments $Json
+        if ($match -ne 0) { # no match yet
+            # try to match IdentitiesDetailsReportArguments defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-JsonToIdentitiesDetailsReportArguments $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "IdentitiesDetailsReportArguments"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "IdentitiesDetailsReportArguments"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'IdentitiesDetailsReportArguments' defined in anyOf (ReportDetailsArguments). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'IdentitiesDetailsReportArguments' defined in oneOf (ReportDetailsArguments). Proceeding to the next one if any."
         }
 
-        # try to match IdentitiesReportArguments defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-JsonToIdentitiesReportArguments $Json
+        if ($match -ne 0) { # no match yet
+            # try to match IdentitiesReportArguments defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-JsonToIdentitiesReportArguments $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "IdentitiesReportArguments"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "IdentitiesReportArguments"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'IdentitiesReportArguments' defined in anyOf (ReportDetailsArguments). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'IdentitiesReportArguments' defined in oneOf (ReportDetailsArguments). Proceeding to the next one if any."
         }
 
-        # try to match IdentityProfileIdentityErrorReportArguments defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-JsonToIdentityProfileIdentityErrorReportArguments $Json
+        if ($match -ne 0) { # no match yet
+            # try to match IdentityProfileIdentityErrorReportArguments defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-JsonToIdentityProfileIdentityErrorReportArguments $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "IdentityProfileIdentityErrorReportArguments"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "IdentityProfileIdentityErrorReportArguments"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'IdentityProfileIdentityErrorReportArguments' defined in anyOf (ReportDetailsArguments). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'IdentityProfileIdentityErrorReportArguments' defined in oneOf (ReportDetailsArguments). Proceeding to the next one if any."
         }
 
-        # try to match OrphanIdentitiesReportArguments defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-JsonToOrphanIdentitiesReportArguments $Json
+        if ($match -ne 0) { # no match yet
+            # try to match OrphanIdentitiesReportArguments defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-JsonToOrphanIdentitiesReportArguments $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "OrphanIdentitiesReportArguments"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "OrphanIdentitiesReportArguments"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'OrphanIdentitiesReportArguments' defined in anyOf (ReportDetailsArguments). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'OrphanIdentitiesReportArguments' defined in oneOf (ReportDetailsArguments). Proceeding to the next one if any."
         }
 
-        # try to match SearchExportReportArguments defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-JsonToSearchExportReportArguments $Json
+        if ($match -ne 0) { # no match yet
+            # try to match SearchExportReportArguments defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-JsonToSearchExportReportArguments $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "SearchExportReportArguments"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "SearchExportReportArguments"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'SearchExportReportArguments' defined in anyOf (ReportDetailsArguments). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'SearchExportReportArguments' defined in oneOf (ReportDetailsArguments). Proceeding to the next one if any."
         }
 
-        # try to match UncorrelatedAccountsReportArguments defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-JsonToUncorrelatedAccountsReportArguments $Json
+        if ($match -ne 0) { # no match yet
+            # try to match UncorrelatedAccountsReportArguments defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-JsonToUncorrelatedAccountsReportArguments $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "UncorrelatedAccountsReportArguments"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "UncorrelatedAccountsReportArguments"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'UncorrelatedAccountsReportArguments' defined in anyOf (ReportDetailsArguments). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'UncorrelatedAccountsReportArguments' defined in oneOf (ReportDetailsArguments). Proceeding to the next one if any."
         }
 
-        if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccountsExportReportArguments, IdentitiesDetailsReportArguments, IdentitiesReportArguments, IdentityProfileIdentityErrorReportArguments, OrphanIdentitiesReportArguments, SearchExportReportArguments, UncorrelatedAccountsReportArguments]). JSON Payload: $($Json)"
-        } elseif ($match -eq 1) {
+        if ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("AccountsExportReportArguments", "IdentitiesDetailsReportArguments", "IdentitiesReportArguments", "IdentityProfileIdentityErrorReportArguments", "OrphanIdentitiesReportArguments", "SearchExportReportArguments", "UncorrelatedAccountsReportArguments")
+                "anyOfSchemas" = @("AccountsExportReportArguments", "IdentitiesDetailsReportArguments", "IdentitiesReportArguments", "IdentityProfileIdentityErrorReportArguments", "OrphanIdentitiesReportArguments", "SearchExportReportArguments", "UncorrelatedAccountsReportArguments")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccountsExportReportArguments, IdentitiesDetailsReportArguments, IdentitiesReportArguments, IdentityProfileIdentityErrorReportArguments, OrphanIdentitiesReportArguments, SearchExportReportArguments, UncorrelatedAccountsReportArguments]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([AccountsExportReportArguments, IdentitiesDetailsReportArguments, IdentitiesReportArguments, IdentityProfileIdentityErrorReportArguments, OrphanIdentitiesReportArguments, SearchExportReportArguments, UncorrelatedAccountsReportArguments]). JSON Payload: $($Json)"
         }
     }
 }

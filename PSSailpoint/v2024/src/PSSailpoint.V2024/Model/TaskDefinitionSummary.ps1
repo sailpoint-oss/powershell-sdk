@@ -66,10 +66,6 @@ function Initialize-V2024TaskDefinitionSummary {
             throw "invalid value for 'UniqueName', 'UniqueName' cannot be null."
         }
 
-        if (!$Description) {
-            throw "invalid value for 'Description', 'Description' cannot be null."
-        }
-
         if (!$ParentName) {
             throw "invalid value for 'ParentName', 'ParentName' cannot be null."
         }

@@ -450,6 +450,7 @@ docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
 docs/GetReferenceIdentityAttribute.md
 docs/GetRoleAssignments200ResponseInner.md
+docs/GetTenantContext200ResponseInner.md
 docs/GrantType.md
 docs/HttpAuthenticationType.md
 docs/HttpConfig.md
@@ -1211,6 +1212,8 @@ docs/V2024TaskManagementApi.md
 docs/V2024TaskManagementApideveloperSite_code_examples.yaml
 docs/V2024TenantApi.md
 docs/V2024TenantApideveloperSite_code_examples.yaml
+docs/V2024TenantContextApi.md
+docs/V2024TenantContextApideveloperSite_code_examples.yaml
 docs/V2024TransformsApi.md
 docs/V2024TransformsApideveloperSite_code_examples.yaml
 docs/V2024TriggersApi.md
@@ -1355,6 +1358,7 @@ src/PSSailpoint.V2024/Api/V2024SuggestedEntitlementDescriptionApi.ps1
 src/PSSailpoint.V2024/Api/V2024TaggedObjectsApi.ps1
 src/PSSailpoint.V2024/Api/V2024TaskManagementApi.ps1
 src/PSSailpoint.V2024/Api/V2024TenantApi.ps1
+src/PSSailpoint.V2024/Api/V2024TenantContextApi.ps1
 src/PSSailpoint.V2024/Api/V2024TransformsApi.ps1
 src/PSSailpoint.V2024/Api/V2024TriggersApi.ps1
 src/PSSailpoint.V2024/Api/V2024UIMetadataApi.ps1
@@ -1807,6 +1811,7 @@ src/PSSailpoint.V2024/Model/GetOAuthClientResponse.ps1
 src/PSSailpoint.V2024/Model/GetPersonalAccessTokenResponse.ps1
 src/PSSailpoint.V2024/Model/GetReferenceIdentityAttribute.ps1
 src/PSSailpoint.V2024/Model/GetRoleAssignments200ResponseInner.ps1
+src/PSSailpoint.V2024/Model/GetTenantContext200ResponseInner.ps1
 src/PSSailpoint.V2024/Model/GrantType.ps1
 src/PSSailpoint.V2024/Model/HttpAuthenticationType.ps1
 src/PSSailpoint.V2024/Model/HttpConfig.ps1
@@ -2551,6 +2556,7 @@ tests/Api/V2024SuggestedEntitlementDescriptionApi.Tests.ps1
 tests/Api/V2024TaggedObjectsApi.Tests.ps1
 tests/Api/V2024TaskManagementApi.Tests.ps1
 tests/Api/V2024TenantApi.Tests.ps1
+tests/Api/V2024TenantContextApi.Tests.ps1
 tests/Api/V2024TransformsApi.Tests.ps1
 tests/Api/V2024TriggersApi.Tests.ps1
 tests/Api/V2024UIMetadataApi.Tests.ps1
@@ -3002,6 +3008,7 @@ tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
 tests/Model/GetReferenceIdentityAttribute.Tests.ps1
 tests/Model/GetRoleAssignments200ResponseInner.Tests.ps1
+tests/Model/GetTenantContext200ResponseInner.Tests.ps1
 tests/Model/GrantType.Tests.ps1
 tests/Model/HttpAuthenticationType.Tests.ps1
 tests/Model/HttpConfig.Tests.ps1

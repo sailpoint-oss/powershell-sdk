@@ -650,6 +650,8 @@ Class | Method | HTTP request | Description
 *V2024TaskManagementApi* | [**Get-V2024TaskStatusList**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatusList) | **GET** /task-status | Retrieve Task Status List
 *V2024TaskManagementApi* | [**Update-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Update-V2024TaskStatus) | **PATCH** /task-status/{id} | Update Task Status by ID
 *V2024TenantApi* | [**Get-V2024Tenant**](docs/V2024TenantApi.md#Get-V2024Tenant) | **GET** /tenant | Get Tenant Information.
+*V2024TenantContextApi* | [**Get-V2024TenantContext**](docs/V2024TenantContextApi.md#Get-V2024TenantContext) | **GET** /tenant-context | Retrieve tenant context
+*V2024TenantContextApi* | [**Update-V2024TenantContext**](docs/V2024TenantContextApi.md#Update-V2024TenantContext) | **PATCH** /tenant-context | Update tenant context
 *V2024TransformsApi* | [**New-V2024Transform**](docs/V2024TransformsApi.md#New-V2024Transform) | **POST** /transforms | Create transform
 *V2024TransformsApi* | [**Remove-V2024Transform**](docs/V2024TransformsApi.md#Remove-V2024Transform) | **DELETE** /transforms/{id} | Delete a transform
 *V2024TransformsApi* | [**Get-V2024Transform**](docs/V2024TransformsApi.md#Get-V2024Transform) | **GET** /transforms/{id} | Transform by ID
@@ -1158,6 +1160,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.GetPersonalAccessTokenResponse](docs/GetPersonalAccessTokenResponse.md)
  - [PSSailpoint.V2024\Model.GetReferenceIdentityAttribute](docs/GetReferenceIdentityAttribute.md)
  - [PSSailpoint.V2024\Model.GetRoleAssignments200ResponseInner](docs/GetRoleAssignments200ResponseInner.md)
+ - [PSSailpoint.V2024\Model.GetTenantContext200ResponseInner](docs/GetTenantContext200ResponseInner.md)
  - [PSSailpoint.V2024\Model.GrantType](docs/GrantType.md)
  - [PSSailpoint.V2024\Model.HttpAuthenticationType](docs/HttpAuthenticationType.md)
  - [PSSailpoint.V2024\Model.HttpConfig](docs/HttpConfig.md)

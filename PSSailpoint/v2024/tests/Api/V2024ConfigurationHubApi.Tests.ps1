@@ -30,6 +30,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
         }
     }
 
+    Context 'New-V2024ScheduledAction' {
+        It 'Test New-V2024ScheduledAction' {
+            #$TestResult = New-V2024ScheduledAction -ScheduledActionPayload "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-V2024UploadedConfiguration' {
         It 'Test New-V2024UploadedConfiguration' {
             #$TestResult = New-V2024UploadedConfiguration -Data "TEST_VALUE" -Name "TEST_VALUE"
@@ -57,6 +65,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
     Context 'Remove-V2024ObjectMapping' {
         It 'Test Remove-V2024ObjectMapping' {
             #$TestResult = Remove-V2024ObjectMapping -SourceOrg "TEST_VALUE" -ObjectMappingId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-V2024ScheduledAction' {
+        It 'Test Remove-V2024ScheduledAction' {
+            #$TestResult = Remove-V2024ScheduledAction -ScheduledActionId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -118,6 +134,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
         }
     }
 
+    Context 'Get-V2024ScheduledActions' {
+        It 'Test Get-V2024ScheduledActions' {
+            #$TestResult = Get-V2024ScheduledActions
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2024UploadedConfigurations' {
         It 'Test Get-V2024UploadedConfigurations' {
             #$TestResult = Get-V2024UploadedConfigurations -Filters "TEST_VALUE"
@@ -129,6 +153,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ConfigurationHubApi' {
     Context 'Update-V2024ObjectMappings' {
         It 'Test Update-V2024ObjectMappings' {
             #$TestResult = Update-V2024ObjectMappings -SourceOrg "TEST_VALUE" -ObjectMappingBulkPatchRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2024ScheduledAction' {
+        It 'Test Update-V2024ScheduledAction' {
+            #$TestResult = Update-V2024ScheduledAction -ScheduledActionId "TEST_VALUE" -JsonPatch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

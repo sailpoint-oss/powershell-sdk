@@ -176,10 +176,12 @@ Class | Method | HTTP request | Description
 *V2024ConfigurationHubApi* | [**New-V2024Deploy**](docs/V2024ConfigurationHubApi.md#New-V2024Deploy) | **POST** /configuration-hub/deploys | Create a Deploy
 *V2024ConfigurationHubApi* | [**New-V2024ObjectMapping**](docs/V2024ConfigurationHubApi.md#New-V2024ObjectMapping) | **POST** /configuration-hub/object-mappings/{sourceOrg} | Creates an object mapping
 *V2024ConfigurationHubApi* | [**New-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#New-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-create | Bulk creates object mappings
+*V2024ConfigurationHubApi* | [**New-V2024ScheduledAction**](docs/V2024ConfigurationHubApi.md#New-V2024ScheduledAction) | **POST** /configuration-hub/scheduled-actions | Create Scheduled Action
 *V2024ConfigurationHubApi* | [**New-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#New-V2024UploadedConfiguration) | **POST** /configuration-hub/backups/uploads | Upload a Configuration
 *V2024ConfigurationHubApi* | [**Remove-V2024Backup**](docs/V2024ConfigurationHubApi.md#Remove-V2024Backup) | **DELETE** /configuration-hub/backups/{id} | Delete a Backup
 *V2024ConfigurationHubApi* | [**Remove-V2024Draft**](docs/V2024ConfigurationHubApi.md#Remove-V2024Draft) | **DELETE** /configuration-hub/drafts/{id} | Delete a draft
 *V2024ConfigurationHubApi* | [**Remove-V2024ObjectMapping**](docs/V2024ConfigurationHubApi.md#Remove-V2024ObjectMapping) | **DELETE** /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId} | Deletes an object mapping
+*V2024ConfigurationHubApi* | [**Remove-V2024ScheduledAction**](docs/V2024ConfigurationHubApi.md#Remove-V2024ScheduledAction) | **DELETE** /configuration-hub/scheduled-actions/{id} | Delete Scheduled Action
 *V2024ConfigurationHubApi* | [**Remove-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#Remove-V2024UploadedConfiguration) | **DELETE** /configuration-hub/backups/uploads/{id} | Delete an Uploaded Configuration
 *V2024ConfigurationHubApi* | [**Get-V2024Deploy**](docs/V2024ConfigurationHubApi.md#Get-V2024Deploy) | **GET** /configuration-hub/deploys/{id} | Get a Deploy
 *V2024ConfigurationHubApi* | [**Get-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Get-V2024ObjectMappings) | **GET** /configuration-hub/object-mappings/{sourceOrg} | Gets list of object mappings
@@ -187,8 +189,10 @@ Class | Method | HTTP request | Description
 *V2024ConfigurationHubApi* | [**Get-V2024Backups**](docs/V2024ConfigurationHubApi.md#Get-V2024Backups) | **GET** /configuration-hub/backups | List Backups
 *V2024ConfigurationHubApi* | [**Get-V2024Deploys**](docs/V2024ConfigurationHubApi.md#Get-V2024Deploys) | **GET** /configuration-hub/deploys | List Deploys
 *V2024ConfigurationHubApi* | [**Get-V2024Drafts**](docs/V2024ConfigurationHubApi.md#Get-V2024Drafts) | **GET** /configuration-hub/drafts | List Drafts
+*V2024ConfigurationHubApi* | [**Get-V2024ScheduledActions**](docs/V2024ConfigurationHubApi.md#Get-V2024ScheduledActions) | **GET** /configuration-hub/scheduled-actions | List Scheduled Actions
 *V2024ConfigurationHubApi* | [**Get-V2024UploadedConfigurations**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
 *V2024ConfigurationHubApi* | [**Update-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Update-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
+*V2024ConfigurationHubApi* | [**Update-V2024ScheduledAction**](docs/V2024ConfigurationHubApi.md#Update-V2024ScheduledAction) | **PATCH** /configuration-hub/scheduled-actions/{id} | Update Scheduled Action
 *V2024ConnectorRuleManagementApi* | [**New-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#New-V2024ConnectorRule) | **POST** /connector-rules | Create Connector Rule
 *V2024ConnectorRuleManagementApi* | [**Remove-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Remove-V2024ConnectorRule) | **DELETE** /connector-rules/{id} | Delete Connector Rule
 *V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRule) | **GET** /connector-rules/{id} | Get Connector Rule
@@ -1585,6 +1589,13 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ScheduleHours](docs/ScheduleHours.md)
  - [PSSailpoint.V2024\Model.ScheduleMonths](docs/ScheduleMonths.md)
  - [PSSailpoint.V2024\Model.ScheduleType](docs/ScheduleType.md)
+ - [PSSailpoint.V2024\Model.ScheduledActionPayload](docs/ScheduledActionPayload.md)
+ - [PSSailpoint.V2024\Model.ScheduledActionPayloadContent](docs/ScheduledActionPayloadContent.md)
+ - [PSSailpoint.V2024\Model.ScheduledActionPayloadContentBackupOptions](docs/ScheduledActionPayloadContentBackupOptions.md)
+ - [PSSailpoint.V2024\Model.ScheduledActionResponse](docs/ScheduledActionResponse.md)
+ - [PSSailpoint.V2024\Model.ScheduledActionResponseContent](docs/ScheduledActionResponseContent.md)
+ - [PSSailpoint.V2024\Model.ScheduledActionResponseContentBackupOptions](docs/ScheduledActionResponseContentBackupOptions.md)
+ - [PSSailpoint.V2024\Model.ScheduledActionResponseContentBackupOptionsObjectOptionsValue](docs/ScheduledActionResponseContentBackupOptionsObjectOptionsValue.md)
  - [PSSailpoint.V2024\Model.ScheduledAttributes](docs/ScheduledAttributes.md)
  - [PSSailpoint.V2024\Model.ScheduledSearch](docs/ScheduledSearch.md)
  - [PSSailpoint.V2024\Model.ScheduledSearchAllOfOwner](docs/ScheduledSearchAllOfOwner.md)

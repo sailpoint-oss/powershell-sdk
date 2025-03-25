@@ -1244,6 +1244,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.RequestableObjectReference](docs/RequestableObjectReference.md)
  - [PSSailpoint.Beta\Model.RequestableObjectRequestStatus](docs/RequestableObjectRequestStatus.md)
  - [PSSailpoint.Beta\Model.RequestableObjectType](docs/RequestableObjectType.md)
+ - [PSSailpoint.Beta\Model.RequestedAccountRef](docs/RequestedAccountRef.md)
  - [PSSailpoint.Beta\Model.RequestedItemDetails](docs/RequestedItemDetails.md)
  - [PSSailpoint.Beta\Model.RequestedItemStatus](docs/RequestedItemStatus.md)
  - [PSSailpoint.Beta\Model.RequestedItemStatusCancelledRequestDetails](docs/RequestedItemStatusCancelledRequestDetails.md)

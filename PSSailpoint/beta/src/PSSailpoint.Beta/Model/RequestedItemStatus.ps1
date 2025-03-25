@@ -64,6 +64,8 @@ True if the request can be canceled.
 This is the account activity id.
 .PARAMETER ClientMetadata
 Arbitrary key-value pairs, if any were included in the corresponding access request
+.PARAMETER RequestedAccounts
+The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
 .OUTPUTS
 
 RequestedItemStatus<PSCustomObject>
@@ -149,7 +151,10 @@ function Initialize-BetaRequestedItemStatus {
         ${AccessRequestId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
-        ${ClientMetadata}
+        ${ClientMetadata},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${RequestedAccounts}
     )
 
     Process {
@@ -183,6 +188,7 @@ function Initialize-BetaRequestedItemStatus {
             "cancelable" = ${Cancelable}
             "accessRequestId" = ${AccessRequestId}
             "clientMetadata" = ${ClientMetadata}
+            "requestedAccounts" = ${RequestedAccounts}
         }
 
         return $PSO
@@ -219,7 +225,7 @@ function ConvertFrom-BetaJsonToRequestedItemStatus {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRequestedItemStatus
-        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "approvalIds", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "removeDate", "cancelable", "accessRequestId", "clientMetadata")
+        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "approvalIds", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "removeDate", "cancelable", "accessRequestId", "clientMetadata", "requestedAccounts")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -376,6 +382,12 @@ function ConvertFrom-BetaJsonToRequestedItemStatus {
             $ClientMetadata = $JsonParameters.PSobject.Properties["clientMetadata"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestedAccounts"))) { #optional property not found
+            $RequestedAccounts = $null
+        } else {
+            $RequestedAccounts = $JsonParameters.PSobject.Properties["requestedAccounts"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -402,6 +414,7 @@ function ConvertFrom-BetaJsonToRequestedItemStatus {
             "cancelable" = ${Cancelable}
             "accessRequestId" = ${AccessRequestId}
             "clientMetadata" = ${ClientMetadata}
+            "requestedAccounts" = ${RequestedAccounts}
         }
 
         return $PSO

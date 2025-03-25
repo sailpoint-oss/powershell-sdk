@@ -508,6 +508,7 @@ docs/RequestableObjectRequestStatus.md
 docs/RequestableObjectType.md
 docs/RequestableObjectsApi.md
 docs/RequestableObjectsApideveloperSite_code_examples.yaml
+docs/RequestedAccountRef.md
 docs/RequestedItemDetails.md
 docs/RequestedItemStatus.md
 docs/RequestedItemStatusCancelledRequestDetails.md
@@ -1217,6 +1218,7 @@ src/PSSailpoint.V3/Model/RequestableObject.ps1
 src/PSSailpoint.V3/Model/RequestableObjectReference.ps1
 src/PSSailpoint.V3/Model/RequestableObjectRequestStatus.ps1
 src/PSSailpoint.V3/Model/RequestableObjectType.ps1
+src/PSSailpoint.V3/Model/RequestedAccountRef.ps1
 src/PSSailpoint.V3/Model/RequestedItemDetails.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatus.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatusCancelledRequestDetails.ps1
@@ -1900,6 +1902,7 @@ tests/Model/RequestableObject.Tests.ps1
 tests/Model/RequestableObjectReference.Tests.ps1
 tests/Model/RequestableObjectRequestStatus.Tests.ps1
 tests/Model/RequestableObjectType.Tests.ps1
+tests/Model/RequestedAccountRef.Tests.ps1
 tests/Model/RequestedItemDetails.Tests.ps1
 tests/Model/RequestedItemStatus.Tests.ps1
 tests/Model/RequestedItemStatusCancelledRequestDetails.Tests.ps1

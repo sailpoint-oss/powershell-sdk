@@ -756,6 +756,7 @@ docs/RequestableObject.md
 docs/RequestableObjectReference.md
 docs/RequestableObjectRequestStatus.md
 docs/RequestableObjectType.md
+docs/RequestedAccountRef.md
 docs/RequestedItemDetails.md
 docs/RequestedItemStatus.md
 docs/RequestedItemStatusCancelledRequestDetails.md
@@ -2114,6 +2115,7 @@ src/PSSailpoint.V2024/Model/RequestableObject.ps1
 src/PSSailpoint.V2024/Model/RequestableObjectReference.ps1
 src/PSSailpoint.V2024/Model/RequestableObjectRequestStatus.ps1
 src/PSSailpoint.V2024/Model/RequestableObjectType.ps1
+src/PSSailpoint.V2024/Model/RequestedAccountRef.ps1
 src/PSSailpoint.V2024/Model/RequestedItemDetails.ps1
 src/PSSailpoint.V2024/Model/RequestedItemStatus.ps1
 src/PSSailpoint.V2024/Model/RequestedItemStatusCancelledRequestDetails.ps1
@@ -3308,6 +3310,7 @@ tests/Model/RequestableObject.Tests.ps1
 tests/Model/RequestableObjectReference.Tests.ps1
 tests/Model/RequestableObjectRequestStatus.Tests.ps1
 tests/Model/RequestableObjectType.Tests.ps1
+tests/Model/RequestedAccountRef.Tests.ps1
 tests/Model/RequestedItemDetails.Tests.ps1
 tests/Model/RequestedItemStatus.Tests.ps1
 tests/Model/RequestedItemStatusCancelledRequestDetails.Tests.ps1

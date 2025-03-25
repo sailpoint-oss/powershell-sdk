@@ -854,6 +854,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.RequestableObjectReference](docs/RequestableObjectReference.md)
  - [PSSailpoint.V3\Model.RequestableObjectRequestStatus](docs/RequestableObjectRequestStatus.md)
  - [PSSailpoint.V3\Model.RequestableObjectType](docs/RequestableObjectType.md)
+ - [PSSailpoint.V3\Model.RequestedAccountRef](docs/RequestedAccountRef.md)
  - [PSSailpoint.V3\Model.RequestedItemDetails](docs/RequestedItemDetails.md)
  - [PSSailpoint.V3\Model.RequestedItemStatus](docs/RequestedItemStatus.md)
  - [PSSailpoint.V3\Model.RequestedItemStatusCancelledRequestDetails](docs/RequestedItemStatusCancelledRequestDetails.md)

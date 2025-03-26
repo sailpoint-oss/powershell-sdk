@@ -14,9 +14,6 @@ Creates a form definition.
 
 No description or notes available.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Body
 Body is the request payload to create form definition request
 
@@ -32,9 +29,6 @@ function New-V2024FormDefinition {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${Body},
         [Switch]
@@ -61,11 +55,6 @@ function New-V2024FormDefinition {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/form-definitions'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling createFormDefinition."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
             $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
@@ -111,9 +100,6 @@ Generate JSON Schema dynamically.
 
 No description or notes available.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Body
 Body is the request payload to create a form definition dynamic schema
 
@@ -129,9 +115,6 @@ function New-V2024FormDefinitionDynamicSchema {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${Body},
         [Switch]
@@ -158,11 +141,6 @@ function New-V2024FormDefinitionDynamicSchema {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/form-definitions/forms-action-dynamic-schema'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling createFormDefinitionDynamicSchema."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
             $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
@@ -211,9 +189,6 @@ Parameter `{formDefinitionID}` should match a form definition ID.
 .PARAMETER FormDefinitionID
 FormDefinitionID  String specifying FormDefinitionID
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER File
 File specifying the multipart
 
@@ -232,9 +207,6 @@ function New-V2024FormDefinitionFileRequest {
         [String]
         ${FormDefinitionID},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.IO.FileInfo]
         ${File},
         [Switch]
@@ -265,11 +237,6 @@ function New-V2024FormDefinitionFileRequest {
             throw "Error! The required parameter `FormDefinitionID` missing when calling createFormDefinitionFileRequest."
         }
         $LocalVarUri = $LocalVarUri.replace('{formDefinitionID}', [System.Web.HTTPUtility]::UrlEncode($FormDefinitionID))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling createFormDefinitionFileRequest."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$File) {
             throw "Error! The required parameter `File` missing when calling createFormDefinitionFileRequest."
@@ -307,9 +274,6 @@ Creates a form instance.
 
 No description or notes available.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Body
 Body is the request payload to create a form instance
 
@@ -325,9 +289,6 @@ function New-V2024FormInstance {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${Body},
         [Switch]
@@ -354,11 +315,6 @@ function New-V2024FormInstance {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/form-instances'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling createFormInstance."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
             $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
@@ -407,9 +363,6 @@ Parameter `{formDefinitionID}` should match a form definition ID.
 .PARAMETER FormDefinitionID
 Form definition ID
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -424,9 +377,6 @@ function Remove-V2024FormDefinition {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${FormDefinitionID},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -452,11 +402,6 @@ function Remove-V2024FormDefinition {
             throw "Error! The required parameter `FormDefinitionID` missing when calling deleteFormDefinition."
         }
         $LocalVarUri = $LocalVarUri.replace('{formDefinitionID}', [System.Web.HTTPUtility]::UrlEncode($FormDefinitionID))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteFormDefinition."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -489,9 +434,6 @@ List form definitions by tenant.
 
 No parameters required.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Offset
 Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
 
@@ -516,18 +458,15 @@ function Export-V2024FormDefinitionsByTenant {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int64]]
         ${Offset},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int64]]
         ${Limit},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
         [Switch]
@@ -551,11 +490,6 @@ function Export-V2024FormDefinitionsByTenant {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/form-definitions/export'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling exportFormDefinitionsByTenant."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
@@ -610,9 +544,6 @@ FormDefinitionID  Form definition ID
 .PARAMETER FileID
 FileID  String specifying the hashed name of the uploaded file we are retrieving.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, image/jpeg, image/png, application/octet-stream
@@ -634,9 +565,6 @@ function Get-V2024FileFromS3 {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${FileID},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [String]
         [ValidateSet("application/json", "image/jpeg", "image/png", "application/octet-stream")]
         $ReturnType,
@@ -675,11 +603,6 @@ function Get-V2024FileFromS3 {
         }
         $LocalVarUri = $LocalVarUri.replace('{fileID}', [System.Web.HTTPUtility]::UrlEncode($FileID))
 
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getFileFromS3."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
-
 
 
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
@@ -714,9 +637,6 @@ Parameter `{formDefinitionID}` should match a form definition ID.
 .PARAMETER FormDefinitionID
 Form definition ID
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -731,9 +651,6 @@ function Get-V2024FormDefinitionByKey {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${FormDefinitionID},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -759,11 +676,6 @@ function Get-V2024FormDefinitionByKey {
             throw "Error! The required parameter `FormDefinitionID` missing when calling getFormDefinitionByKey."
         }
         $LocalVarUri = $LocalVarUri.replace('{formDefinitionID}', [System.Web.HTTPUtility]::UrlEncode($FormDefinitionID))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getFormDefinitionByKey."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -799,9 +711,6 @@ Parameter `{formInstanceID}` should match a form instance ID.
 .PARAMETER FormInstanceID
 Form instance ID
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -816,9 +725,6 @@ function Get-V2024FormInstanceByKey {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${FormInstanceID},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -844,11 +750,6 @@ function Get-V2024FormInstanceByKey {
             throw "Error! The required parameter `FormInstanceID` missing when calling getFormInstanceByKey."
         }
         $LocalVarUri = $LocalVarUri.replace('{formInstanceID}', [System.Web.HTTPUtility]::UrlEncode($FormInstanceID))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getFormInstanceByKey."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -887,9 +788,6 @@ FormInstanceID  Form instance ID
 .PARAMETER FileID
 FileID  String specifying the hashed name of the uploaded file we are retrieving.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER ReturnType
 
 Select the return type (optional): application/json, image/jpeg, image/png, application/octet-stream
@@ -911,9 +809,6 @@ function Get-V2024FormInstanceFile {
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${FileID},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [String]
         [ValidateSet("application/json", "image/jpeg", "image/png", "application/octet-stream")]
         $ReturnType,
@@ -952,11 +847,6 @@ function Get-V2024FormInstanceFile {
         }
         $LocalVarUri = $LocalVarUri.replace('{fileID}', [System.Web.HTTPUtility]::UrlEncode($FileID))
 
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getFormInstanceFile."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
-
 
 
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
@@ -988,9 +878,6 @@ Import form definitions from export.
 
 No description or notes available.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Body
 Body is the request payload to import form definitions
 
@@ -1006,9 +893,6 @@ function Import-V2024FormDefinitions {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${Body},
         [Switch]
@@ -1035,11 +919,6 @@ function Import-V2024FormDefinitions {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/form-definitions/import'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling importFormDefinitions."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
             $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
@@ -1088,9 +967,6 @@ Parameter `{formDefinitionID}` should match a form definition ID.
 .PARAMETER FormDefinitionID
 Form definition ID
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Body
 Body is the request payload to patch a form definition, check: https://jsonpatch.com
 
@@ -1109,9 +985,6 @@ function Update-V2024FormDefinition {
         [String]
         ${FormDefinitionID},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Collections.Hashtable[]]
         ${Body},
         [Switch]
@@ -1142,11 +1015,6 @@ function Update-V2024FormDefinition {
             throw "Error! The required parameter `FormDefinitionID` missing when calling patchFormDefinition."
         }
         $LocalVarUri = $LocalVarUri.replace('{formDefinitionID}', [System.Web.HTTPUtility]::UrlEncode($FormDefinitionID))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchFormDefinition."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
             $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
@@ -1195,9 +1063,6 @@ Parameter `{formInstanceID}` should match a form instance ID.
 .PARAMETER FormInstanceID
 Form instance ID
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Body
 Body is the request payload to patch a form instance, check: https://jsonpatch.com
 
@@ -1216,9 +1081,6 @@ function Update-V2024FormInstance {
         [String]
         ${FormInstanceID},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Collections.Hashtable[]]
         ${Body},
         [Switch]
@@ -1249,11 +1111,6 @@ function Update-V2024FormInstance {
             throw "Error! The required parameter `FormInstanceID` missing when calling patchFormInstance."
         }
         $LocalVarUri = $LocalVarUri.replace('{formInstanceID}', [System.Web.HTTPUtility]::UrlEncode($FormInstanceID))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchFormInstance."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Body -is [array])) {
             $LocalVarBodyParameter = $Body | ConvertTo-Json -AsArray -Depth 100
@@ -1299,9 +1156,6 @@ Export form definitions by tenant.
 
 No parameters required.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Offset
 Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
 
@@ -1326,18 +1180,15 @@ function Search-V2024FormDefinitionsByTenant {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int64]]
         ${Offset},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int64]]
         ${Limit},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
         [Switch]
@@ -1361,11 +1212,6 @@ function Search-V2024FormDefinitionsByTenant {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/form-definitions'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling searchFormDefinitionsByTenant."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
@@ -1420,9 +1266,6 @@ Form instance ID
 .PARAMETER FormElementID
 Form element ID
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Limit
 Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
 
@@ -1450,15 +1293,12 @@ function Search-V2024FormElementDataByElementID {
         [String]
         ${FormElementID},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int64]]
         ${Limit},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Query},
         [Switch]
@@ -1490,11 +1330,6 @@ function Search-V2024FormElementDataByElementID {
             throw "Error! The required parameter `FormElementID` missing when calling searchFormElementDataByElementID."
         }
         $LocalVarUri = $LocalVarUri.replace('{formElementID}', [System.Web.HTTPUtility]::UrlEncode($FormElementID))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling searchFormElementDataByElementID."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Limit) {
             $LocalVarQueryParameters['limit'] = $Limit
@@ -1539,9 +1374,6 @@ List form instances by tenant.
 
 No parameters required.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1553,9 +1385,6 @@ ListFormInstancesByTenantResponse[]
 function Search-V2024FormInstancesByTenant {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -1577,11 +1406,6 @@ function Search-V2024FormInstancesByTenant {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/form-instances'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling searchFormInstancesByTenant."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -1614,9 +1438,6 @@ List predefined select options.
 
 No parameters required.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1628,9 +1449,6 @@ ListPredefinedSelectOptionsResponse
 function Search-V2024PreDefinedSelectOptions {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -1652,11 +1470,6 @@ function Search-V2024PreDefinedSelectOptions {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/form-definitions/predefined-select-options'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling searchPreDefinedSelectOptions."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -1692,9 +1505,6 @@ No description or notes available.
 .PARAMETER FormDefinitionID
 Form definition ID
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Limit
 Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
 
@@ -1722,18 +1532,15 @@ function Show-V2024PreviewDataSource {
         [String]
         ${FormDefinitionID},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int64]]
         ${Limit},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Query},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${FormElementPreviewRequest},
         [Switch]
@@ -1764,11 +1571,6 @@ function Show-V2024PreviewDataSource {
             throw "Error! The required parameter `FormDefinitionID` missing when calling showPreviewDataSource."
         }
         $LocalVarUri = $LocalVarUri.replace('{formDefinitionID}', [System.Web.HTTPUtility]::UrlEncode($FormDefinitionID))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling showPreviewDataSource."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Limit) {
             $LocalVarQueryParameters['limit'] = $Limit

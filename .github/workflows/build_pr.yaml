@@ -41,9 +41,17 @@ jobs:
         id: prescript
         run: |
           node sdk-resources/prescript.js api-specs/idn
-
+      
+      - name: Build V2025 SDK
+        id: buildV2025
+        run: |
+          rm -rf ./PSSailpoint/v2025
+          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2025.yaml -g powershell -o PSSailpoint/v2025 --global-property skipFormModel=false,apiDocs=true,modelDocs=true --config sdk-resources/v2025-config.yaml
+          node sdk-resources/postscript.js ./PSSailpoint/v2025
+  
       - name: Build V2024 SDK
         id: buildV2024
+        if: steps.buildV2025.outcome == 'success'
         run: |
           rm -rf ./PSSailpoint/v2024
           java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2024.yaml -g powershell -o PSSailpoint/v2024 --global-property skipFormModel=false,apiDocs=true,modelDocs=true --config sdk-resources/v2024-config.yaml
@@ -73,6 +81,7 @@ jobs:
           Import-Module -Name '.\PSSailpoint\beta\src\PSSailpoint.Beta' -Verbose
           Import-Module -Name '.\PSSailpoint\v3\src\PSSailpoint.V3' -Verbose
           Import-Module -Name '.\PSSailpoint\v2024\src\PSSailpoint.V2024' -Verbose
+          Import-Module -Name '.\PSSailpoint\v2025\src\PSSailpoint.V2025' -Verbose
 
           . .\PSSailpoint\Configuration.ps1
           . .\PSSailpoint\Pagination.ps1

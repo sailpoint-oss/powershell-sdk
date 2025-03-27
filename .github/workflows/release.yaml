@@ -33,12 +33,17 @@ jobs:
               -Path './PSSailpoint/v2024/src/PSSailpoint.V2024' `
               -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
               -Verbose -Force
+          Publish-Module `
+              -Path './PSSailpoint/v2025/src/PSSailpoint.V2025' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force
 
           Start-Sleep -Seconds 60
           
           Install-Module -Name 'PSSailpoint.Beta' -Force
           Install-Module -Name 'PSSailpoint.V3' -Force
-          Install-Module -Name 'PSSailpoint.V2024' -Force    
+          Install-Module -Name 'PSSailpoint.V2024' -Force  
+          Install-Module -Name 'PSSailpoint.V2025' -Force  
           
           Publish-Module `
               -Path './PSSailpoint' `

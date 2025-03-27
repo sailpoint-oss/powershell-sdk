@@ -67,7 +67,8 @@ $Manifest = @{
     RequiredModules = @(
         @{ModuleName = 'PSSailpoint.Beta'; RequiredVersion = '1.4.13'; }, 
         @{ModuleName = 'PSSailpoint.V3'; RequiredVersion = '1.4.13'; },
-        @{ModuleName = 'PSSailpoint.V2024'; RequiredVersion = '1.4.13'; }
+        @{ModuleName = 'PSSailpoint.V2024'; RequiredVersion = '1.4.13'; },
+        @{ModuleName = 'PSSailpoint.V2025'; RequiredVersion = '1.4.13'; }
     )
 
     VariablesToExport = @()

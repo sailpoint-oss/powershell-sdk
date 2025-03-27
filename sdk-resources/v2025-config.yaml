@@ -1,0 +1,21 @@
+templateDir: ./sdk-resources/resources
+packageName: PSSailpoint.V2025
+packageVersion: 1.4.13
+apiNamePrefix: V2025
+apiVersion: v2025
+companyName: SailPoint Technologies
+packageGuid: 7BEADB67-EE21-4CFB-9601-86E90518DFDA
+commonVerbs: Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select
+discardReadOnly: true
+subModuleName: V2025
+funtionPrefix: V2025
+files:
+  developerSite_code_examples.mustache:
+    templateType: APIDocs
+    destinationFilename: developerSite_code_examples.yaml
+  docs_methods_index.mustache:
+    templateType: SupportingFiles
+    destinationFilename: docs/Methods/Index.md
+  docs_models_index.mustache:
+    templateType: SupportingFiles
+    destinationFilename: Index.md

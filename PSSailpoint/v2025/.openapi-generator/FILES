@@ -302,6 +302,12 @@ docs/ConfigurationResponse.md
 docs/ConflictingAccessCriteria.md
 docs/ConnectedObject.md
 docs/ConnectedObjectType.md
+docs/ConnectorCustomizerCreateRequest.md
+docs/ConnectorCustomizerCreateResponse.md
+docs/ConnectorCustomizerUpdateRequest.md
+docs/ConnectorCustomizerUpdateResponse.md
+docs/ConnectorCustomizerVersionCreateResponse.md
+docs/ConnectorCustomizersResponse.md
 docs/ConnectorDetail.md
 docs/ConnectorRuleCreateRequest.md
 docs/ConnectorRuleCreateRequestSignature.md
@@ -538,7 +544,6 @@ docs/InvocationStatus.md
 docs/InvocationStatusType.md
 docs/JsonPatch.md
 docs/JsonPatchOperation.md
-docs/JsonPatchOperationValue.md
 docs/KbaAnswerRequestItem.md
 docs/KbaAnswerResponseItem.md
 docs/KbaQuestion.md
@@ -590,6 +595,7 @@ docs/ManagedClusterKeyPair.md
 docs/ManagedClusterQueue.md
 docs/ManagedClusterRedis.md
 docs/ManagedClusterRequest.md
+docs/ManagedClusterType.md
 docs/ManagedClusterTypes.md
 docs/ManagerCorrelationMapping.md
 docs/ManualDiscoverApplications.md
@@ -608,6 +614,17 @@ docs/MetricType.md
 docs/MfaConfigTestResponse.md
 docs/MfaDuoConfig.md
 docs/MfaOktaConfig.md
+docs/MultiHostIntegrationTemplateType.md
+docs/MultiHostIntegrations.md
+docs/MultiHostIntegrationsAccountsFile.md
+docs/MultiHostIntegrationsAggScheduleUpdate.md
+docs/MultiHostIntegrationsBeforeProvisioningRule.md
+docs/MultiHostIntegrationsConnectorAttributes.md
+docs/MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory.md
+docs/MultiHostIntegrationsConnectorAttributesMultiHostAttributes.md
+docs/MultiHostIntegrationsCreate.md
+docs/MultiHostIntegrationsCreateSources.md
+docs/MultiHostSources.md
 docs/MultiPolicyRequest.md
 docs/NameNormalizer.md
 docs/NamedConstructs.md
@@ -967,6 +984,7 @@ docs/SourceCode.md
 docs/SourceConnectionsDto.md
 docs/SourceCreated.md
 docs/SourceCreatedActor.md
+docs/SourceCreationErrors.md
 docs/SourceDeleted.md
 docs/SourceDeletedActor.md
 docs/SourceEntitlementRequestConfig.md
@@ -1040,6 +1058,7 @@ docs/TenantUiMetadataItemUpdateRequest.md
 docs/TestExternalExecuteWorkflow200Response.md
 docs/TestExternalExecuteWorkflowRequest.md
 docs/TestInvocation.md
+docs/TestSourceConnectionMultihost200Response.md
 docs/TestWorkflow200Response.md
 docs/TestWorkflowRequest.md
 docs/TextQuery.md
@@ -1060,6 +1079,8 @@ docs/UUIDGenerator.md
 docs/UncorrelatedAccountsReportArguments.md
 docs/UpdateAccessProfilesInBulk412Response.md
 docs/UpdateDetail.md
+docs/UpdateMultiHostSourcesRequestInner.md
+docs/UpdateMultiHostSourcesRequestInnerValue.md
 docs/Upper.md
 docs/UsageType.md
 docs/UserApp.md
@@ -1107,6 +1128,8 @@ docs/V2025CertificationsApi.md
 docs/V2025CertificationsApideveloperSite_code_examples.yaml
 docs/V2025ConfigurationHubApi.md
 docs/V2025ConfigurationHubApideveloperSite_code_examples.yaml
+docs/V2025ConnectorCustomizersApi.md
+docs/V2025ConnectorCustomizersApideveloperSite_code_examples.yaml
 docs/V2025ConnectorRuleManagementApi.md
 docs/V2025ConnectorRuleManagementApideveloperSite_code_examples.yaml
 docs/V2025ConnectorsApi.md
@@ -1157,8 +1180,12 @@ docs/V2025MachineIdentitiesApi.md
 docs/V2025MachineIdentitiesApideveloperSite_code_examples.yaml
 docs/V2025ManagedClientsApi.md
 docs/V2025ManagedClientsApideveloperSite_code_examples.yaml
+docs/V2025ManagedClusterTypesApi.md
+docs/V2025ManagedClusterTypesApideveloperSite_code_examples.yaml
 docs/V2025ManagedClustersApi.md
 docs/V2025ManagedClustersApideveloperSite_code_examples.yaml
+docs/V2025MultiHostIntegrationApi.md
+docs/V2025MultiHostIntegrationApideveloperSite_code_examples.yaml
 docs/V2025NonEmployeeLifecycleManagementApi.md
 docs/V2025NonEmployeeLifecycleManagementApideveloperSite_code_examples.yaml
 docs/V2025NotificationsApi.md
@@ -1311,6 +1338,7 @@ src/PSSailpoint.V2025/Api/V2025CertificationCampaignsApi.ps1
 src/PSSailpoint.V2025/Api/V2025CertificationSummariesApi.ps1
 src/PSSailpoint.V2025/Api/V2025CertificationsApi.ps1
 src/PSSailpoint.V2025/Api/V2025ConfigurationHubApi.ps1
+src/PSSailpoint.V2025/Api/V2025ConnectorCustomizersApi.ps1
 src/PSSailpoint.V2025/Api/V2025ConnectorRuleManagementApi.ps1
 src/PSSailpoint.V2025/Api/V2025ConnectorsApi.ps1
 src/PSSailpoint.V2025/Api/V2025CustomFormsApi.ps1
@@ -1336,7 +1364,9 @@ src/PSSailpoint.V2025/Api/V2025MFAConfigurationApi.ps1
 src/PSSailpoint.V2025/Api/V2025MachineAccountsApi.ps1
 src/PSSailpoint.V2025/Api/V2025MachineIdentitiesApi.ps1
 src/PSSailpoint.V2025/Api/V2025ManagedClientsApi.ps1
+src/PSSailpoint.V2025/Api/V2025ManagedClusterTypesApi.ps1
 src/PSSailpoint.V2025/Api/V2025ManagedClustersApi.ps1
+src/PSSailpoint.V2025/Api/V2025MultiHostIntegrationApi.ps1
 src/PSSailpoint.V2025/Api/V2025NonEmployeeLifecycleManagementApi.ps1
 src/PSSailpoint.V2025/Api/V2025NotificationsApi.ps1
 src/PSSailpoint.V2025/Api/V2025OAuthClientsApi.ps1
@@ -1677,6 +1707,12 @@ src/PSSailpoint.V2025/Model/ConfigurationResponse.ps1
 src/PSSailpoint.V2025/Model/ConflictingAccessCriteria.ps1
 src/PSSailpoint.V2025/Model/ConnectedObject.ps1
 src/PSSailpoint.V2025/Model/ConnectedObjectType.ps1
+src/PSSailpoint.V2025/Model/ConnectorCustomizerCreateRequest.ps1
+src/PSSailpoint.V2025/Model/ConnectorCustomizerCreateResponse.ps1
+src/PSSailpoint.V2025/Model/ConnectorCustomizerUpdateRequest.ps1
+src/PSSailpoint.V2025/Model/ConnectorCustomizerUpdateResponse.ps1
+src/PSSailpoint.V2025/Model/ConnectorCustomizerVersionCreateResponse.ps1
+src/PSSailpoint.V2025/Model/ConnectorCustomizersResponse.ps1
 src/PSSailpoint.V2025/Model/ConnectorDetail.ps1
 src/PSSailpoint.V2025/Model/ConnectorRuleCreateRequest.ps1
 src/PSSailpoint.V2025/Model/ConnectorRuleCreateRequestSignature.ps1
@@ -1910,7 +1946,6 @@ src/PSSailpoint.V2025/Model/InvocationStatus.ps1
 src/PSSailpoint.V2025/Model/InvocationStatusType.ps1
 src/PSSailpoint.V2025/Model/JsonPatch.ps1
 src/PSSailpoint.V2025/Model/JsonPatchOperation.ps1
-src/PSSailpoint.V2025/Model/JsonPatchOperationValue.ps1
 src/PSSailpoint.V2025/Model/KbaAnswerRequestItem.ps1
 src/PSSailpoint.V2025/Model/KbaAnswerResponseItem.ps1
 src/PSSailpoint.V2025/Model/KbaQuestion.ps1
@@ -1962,6 +1997,7 @@ src/PSSailpoint.V2025/Model/ManagedClusterKeyPair.ps1
 src/PSSailpoint.V2025/Model/ManagedClusterQueue.ps1
 src/PSSailpoint.V2025/Model/ManagedClusterRedis.ps1
 src/PSSailpoint.V2025/Model/ManagedClusterRequest.ps1
+src/PSSailpoint.V2025/Model/ManagedClusterType.ps1
 src/PSSailpoint.V2025/Model/ManagedClusterTypes.ps1
 src/PSSailpoint.V2025/Model/ManagerCorrelationMapping.ps1
 src/PSSailpoint.V2025/Model/ManualDiscoverApplications.ps1
@@ -1982,6 +2018,17 @@ src/PSSailpoint.V2025/Model/MfaOktaConfig.ps1
 src/PSSailpoint.V2025/Model/ModelError.ps1
 src/PSSailpoint.V2025/Model/ModelEvent.ps1
 src/PSSailpoint.V2025/Model/ModelFilter.ps1
+src/PSSailpoint.V2025/Model/MultiHostIntegrationTemplateType.ps1
+src/PSSailpoint.V2025/Model/MultiHostIntegrations.ps1
+src/PSSailpoint.V2025/Model/MultiHostIntegrationsAccountsFile.ps1
+src/PSSailpoint.V2025/Model/MultiHostIntegrationsAggScheduleUpdate.ps1
+src/PSSailpoint.V2025/Model/MultiHostIntegrationsBeforeProvisioningRule.ps1
+src/PSSailpoint.V2025/Model/MultiHostIntegrationsConnectorAttributes.ps1
+src/PSSailpoint.V2025/Model/MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory.ps1
+src/PSSailpoint.V2025/Model/MultiHostIntegrationsConnectorAttributesMultiHostAttributes.ps1
+src/PSSailpoint.V2025/Model/MultiHostIntegrationsCreate.ps1
+src/PSSailpoint.V2025/Model/MultiHostIntegrationsCreateSources.ps1
+src/PSSailpoint.V2025/Model/MultiHostSources.ps1
 src/PSSailpoint.V2025/Model/MultiPolicyRequest.ps1
 src/PSSailpoint.V2025/Model/NameNormalizer.ps1
 src/PSSailpoint.V2025/Model/NamedConstructs.ps1
@@ -2341,6 +2388,7 @@ src/PSSailpoint.V2025/Model/SourceCode.ps1
 src/PSSailpoint.V2025/Model/SourceConnectionsDto.ps1
 src/PSSailpoint.V2025/Model/SourceCreated.ps1
 src/PSSailpoint.V2025/Model/SourceCreatedActor.ps1
+src/PSSailpoint.V2025/Model/SourceCreationErrors.ps1
 src/PSSailpoint.V2025/Model/SourceDeleted.ps1
 src/PSSailpoint.V2025/Model/SourceDeletedActor.ps1
 src/PSSailpoint.V2025/Model/SourceEntitlementRequestConfig.ps1
@@ -2414,6 +2462,7 @@ src/PSSailpoint.V2025/Model/TenantUiMetadataItemUpdateRequest.ps1
 src/PSSailpoint.V2025/Model/TestExternalExecuteWorkflow200Response.ps1
 src/PSSailpoint.V2025/Model/TestExternalExecuteWorkflowRequest.ps1
 src/PSSailpoint.V2025/Model/TestInvocation.ps1
+src/PSSailpoint.V2025/Model/TestSourceConnectionMultihost200Response.ps1
 src/PSSailpoint.V2025/Model/TestWorkflow200Response.ps1
 src/PSSailpoint.V2025/Model/TestWorkflowRequest.ps1
 src/PSSailpoint.V2025/Model/TextQuery.ps1
@@ -2434,6 +2483,8 @@ src/PSSailpoint.V2025/Model/UUIDGenerator.ps1
 src/PSSailpoint.V2025/Model/UncorrelatedAccountsReportArguments.ps1
 src/PSSailpoint.V2025/Model/UpdateAccessProfilesInBulk412Response.ps1
 src/PSSailpoint.V2025/Model/UpdateDetail.ps1
+src/PSSailpoint.V2025/Model/UpdateMultiHostSourcesRequestInner.ps1
+src/PSSailpoint.V2025/Model/UpdateMultiHostSourcesRequestInnerValue.ps1
 src/PSSailpoint.V2025/Model/Upper.ps1
 src/PSSailpoint.V2025/Model/UsageType.ps1
 src/PSSailpoint.V2025/Model/UserApp.ps1
@@ -2520,6 +2571,7 @@ tests/Api/V2025CertificationCampaignsApi.Tests.ps1
 tests/Api/V2025CertificationSummariesApi.Tests.ps1
 tests/Api/V2025CertificationsApi.Tests.ps1
 tests/Api/V2025ConfigurationHubApi.Tests.ps1
+tests/Api/V2025ConnectorCustomizersApi.Tests.ps1
 tests/Api/V2025ConnectorRuleManagementApi.Tests.ps1
 tests/Api/V2025ConnectorsApi.Tests.ps1
 tests/Api/V2025CustomFormsApi.Tests.ps1
@@ -2545,7 +2597,9 @@ tests/Api/V2025MFAConfigurationApi.Tests.ps1
 tests/Api/V2025MachineAccountsApi.Tests.ps1
 tests/Api/V2025MachineIdentitiesApi.Tests.ps1
 tests/Api/V2025ManagedClientsApi.Tests.ps1
+tests/Api/V2025ManagedClusterTypesApi.Tests.ps1
 tests/Api/V2025ManagedClustersApi.Tests.ps1
+tests/Api/V2025MultiHostIntegrationApi.Tests.ps1
 tests/Api/V2025NonEmployeeLifecycleManagementApi.Tests.ps1
 tests/Api/V2025NotificationsApi.Tests.ps1
 tests/Api/V2025OAuthClientsApi.Tests.ps1
@@ -2885,6 +2939,12 @@ tests/Model/ConfigurationResponse.Tests.ps1
 tests/Model/ConflictingAccessCriteria.Tests.ps1
 tests/Model/ConnectedObject.Tests.ps1
 tests/Model/ConnectedObjectType.Tests.ps1
+tests/Model/ConnectorCustomizerCreateRequest.Tests.ps1
+tests/Model/ConnectorCustomizerCreateResponse.Tests.ps1
+tests/Model/ConnectorCustomizerUpdateRequest.Tests.ps1
+tests/Model/ConnectorCustomizerUpdateResponse.Tests.ps1
+tests/Model/ConnectorCustomizerVersionCreateResponse.Tests.ps1
+tests/Model/ConnectorCustomizersResponse.Tests.ps1
 tests/Model/ConnectorDetail.Tests.ps1
 tests/Model/ConnectorRuleCreateRequest.Tests.ps1
 tests/Model/ConnectorRuleCreateRequestSignature.Tests.ps1
@@ -3118,7 +3178,6 @@ tests/Model/InvocationStatus.Tests.ps1
 tests/Model/InvocationStatusType.Tests.ps1
 tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
-tests/Model/JsonPatchOperationValue.Tests.ps1
 tests/Model/KbaAnswerRequestItem.Tests.ps1
 tests/Model/KbaAnswerResponseItem.Tests.ps1
 tests/Model/KbaQuestion.Tests.ps1
@@ -3170,6 +3229,7 @@ tests/Model/ManagedClusterKeyPair.Tests.ps1
 tests/Model/ManagedClusterQueue.Tests.ps1
 tests/Model/ManagedClusterRedis.Tests.ps1
 tests/Model/ManagedClusterRequest.Tests.ps1
+tests/Model/ManagedClusterType.Tests.ps1
 tests/Model/ManagedClusterTypes.Tests.ps1
 tests/Model/ManagerCorrelationMapping.Tests.ps1
 tests/Model/ManualDiscoverApplications.Tests.ps1
@@ -3190,6 +3250,17 @@ tests/Model/MfaOktaConfig.Tests.ps1
 tests/Model/ModelError.Tests.ps1
 tests/Model/ModelEvent.Tests.ps1
 tests/Model/ModelFilter.Tests.ps1
+tests/Model/MultiHostIntegrationTemplateType.Tests.ps1
+tests/Model/MultiHostIntegrations.Tests.ps1
+tests/Model/MultiHostIntegrationsAccountsFile.Tests.ps1
+tests/Model/MultiHostIntegrationsAggScheduleUpdate.Tests.ps1
+tests/Model/MultiHostIntegrationsBeforeProvisioningRule.Tests.ps1
+tests/Model/MultiHostIntegrationsConnectorAttributes.Tests.ps1
+tests/Model/MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory.Tests.ps1
+tests/Model/MultiHostIntegrationsConnectorAttributesMultiHostAttributes.Tests.ps1
+tests/Model/MultiHostIntegrationsCreate.Tests.ps1
+tests/Model/MultiHostIntegrationsCreateSources.Tests.ps1
+tests/Model/MultiHostSources.Tests.ps1
 tests/Model/MultiPolicyRequest.Tests.ps1
 tests/Model/NameNormalizer.Tests.ps1
 tests/Model/NamedConstructs.Tests.ps1
@@ -3549,6 +3620,7 @@ tests/Model/SourceCode.Tests.ps1
 tests/Model/SourceConnectionsDto.Tests.ps1
 tests/Model/SourceCreated.Tests.ps1
 tests/Model/SourceCreatedActor.Tests.ps1
+tests/Model/SourceCreationErrors.Tests.ps1
 tests/Model/SourceDeleted.Tests.ps1
 tests/Model/SourceDeletedActor.Tests.ps1
 tests/Model/SourceEntitlementRequestConfig.Tests.ps1
@@ -3622,6 +3694,7 @@ tests/Model/TenantUiMetadataItemUpdateRequest.Tests.ps1
 tests/Model/TestExternalExecuteWorkflow200Response.Tests.ps1
 tests/Model/TestExternalExecuteWorkflowRequest.Tests.ps1
 tests/Model/TestInvocation.Tests.ps1
+tests/Model/TestSourceConnectionMultihost200Response.Tests.ps1
 tests/Model/TestWorkflow200Response.Tests.ps1
 tests/Model/TestWorkflowRequest.Tests.ps1
 tests/Model/TextQuery.Tests.ps1
@@ -3642,6 +3715,8 @@ tests/Model/UUIDGenerator.Tests.ps1
 tests/Model/UncorrelatedAccountsReportArguments.Tests.ps1
 tests/Model/UpdateAccessProfilesInBulk412Response.Tests.ps1
 tests/Model/UpdateDetail.Tests.ps1
+tests/Model/UpdateMultiHostSourcesRequestInner.Tests.ps1
+tests/Model/UpdateMultiHostSourcesRequestInnerValue.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/UserApp.Tests.ps1

@@ -193,6 +193,12 @@ Class | Method | HTTP request | Description
 *V2025ConfigurationHubApi* | [**Get-V2025UploadedConfigurations**](docs/V2025ConfigurationHubApi.md#Get-V2025UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
 *V2025ConfigurationHubApi* | [**Update-V2025ObjectMappings**](docs/V2025ConfigurationHubApi.md#Update-V2025ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
 *V2025ConfigurationHubApi* | [**Update-V2025ScheduledAction**](docs/V2025ConfigurationHubApi.md#Update-V2025ScheduledAction) | **PATCH** /configuration-hub/scheduled-actions/{id} | Update Scheduled Action
+*V2025ConnectorCustomizersApi* | [**New-V2025ConnectorCustomizer**](docs/V2025ConnectorCustomizersApi.md#New-V2025ConnectorCustomizer) | **POST** /connector-customizers | Create Connector Customizer
+*V2025ConnectorCustomizersApi* | [**New-V2025ConnectorCustomizerVersion**](docs/V2025ConnectorCustomizersApi.md#New-V2025ConnectorCustomizerVersion) | **POST** /connector-customizers/{id}/versions | Creates a connector customizer version
+*V2025ConnectorCustomizersApi* | [**Remove-V2025ConnectorCustomizer**](docs/V2025ConnectorCustomizersApi.md#Remove-V2025ConnectorCustomizer) | **DELETE** /connector-customizers/{id} | Delete Connector Customizer
+*V2025ConnectorCustomizersApi* | [**Get-V2025ConnectorCustomizer**](docs/V2025ConnectorCustomizersApi.md#Get-V2025ConnectorCustomizer) | **GET** /connector-customizers/{id} | Get connector customizer
+*V2025ConnectorCustomizersApi* | [**Get-V2025ConnectorCustomizers**](docs/V2025ConnectorCustomizersApi.md#Get-V2025ConnectorCustomizers) | **GET** /connector-customizers | List All Connector Customizers
+*V2025ConnectorCustomizersApi* | [**Send-V2025ConnectorCustomizer**](docs/V2025ConnectorCustomizersApi.md#Send-V2025ConnectorCustomizer) | **PUT** /connector-customizers/{id} | Update Connector Customizer
 *V2025ConnectorRuleManagementApi* | [**New-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#New-V2025ConnectorRule) | **POST** /connector-rules | Create Connector Rule
 *V2025ConnectorRuleManagementApi* | [**Remove-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#Remove-V2025ConnectorRule) | **DELETE** /connector-rules/{id} | Delete Connector Rule
 *V2025ConnectorRuleManagementApi* | [**Get-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#Get-V2025ConnectorRule) | **GET** /connector-rules/{id} | Get Connector Rule
@@ -393,6 +399,11 @@ Class | Method | HTTP request | Description
 *V2025ManagedClientsApi* | [**Get-V2025ManagedClientStatus**](docs/V2025ManagedClientsApi.md#Get-V2025ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status
 *V2025ManagedClientsApi* | [**Get-V2025ManagedClients**](docs/V2025ManagedClientsApi.md#Get-V2025ManagedClients) | **GET** /managed-clients | Get Managed Clients
 *V2025ManagedClientsApi* | [**Update-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#Update-V2025ManagedClient) | **PATCH** /managed-clients/{id} | Update Managed Client
+*V2025ManagedClusterTypesApi* | [**New-V2025ManagedClusterType**](docs/V2025ManagedClusterTypesApi.md#New-V2025ManagedClusterType) | **POST** /managed-cluster-types | Create new Managed Cluster Type
+*V2025ManagedClusterTypesApi* | [**Remove-V2025ManagedClusterType**](docs/V2025ManagedClusterTypesApi.md#Remove-V2025ManagedClusterType) | **DELETE** /managed-cluster-types/{id} | Delete a Managed Cluster Type
+*V2025ManagedClusterTypesApi* | [**Get-V2025ManagedClusterType**](docs/V2025ManagedClusterTypesApi.md#Get-V2025ManagedClusterType) | **GET** /managed-cluster-types/{id} | Get a Managed Cluster Type
+*V2025ManagedClusterTypesApi* | [**Get-V2025ManagedClusterTypes**](docs/V2025ManagedClusterTypesApi.md#Get-V2025ManagedClusterTypes) | **GET** /managed-cluster-types | List Managed Cluster Types
+*V2025ManagedClusterTypesApi* | [**Update-V2025ManagedClusterType**](docs/V2025ManagedClusterTypesApi.md#Update-V2025ManagedClusterType) | **PATCH** /managed-cluster-types/{id} | Update a Managed Cluster Type
 *V2025ManagedClustersApi* | [**New-V2025ManagedCluster**](docs/V2025ManagedClustersApi.md#New-V2025ManagedCluster) | **POST** /managed-clusters | Create Create Managed Cluster
 *V2025ManagedClustersApi* | [**Remove-V2025ManagedCluster**](docs/V2025ManagedClustersApi.md#Remove-V2025ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete Managed Cluster
 *V2025ManagedClustersApi* | [**Get-V2025ClientLogConfiguration**](docs/V2025ManagedClustersApi.md#Get-V2025ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster Log Configuration
@@ -401,6 +412,19 @@ Class | Method | HTTP request | Description
 *V2025ManagedClustersApi* | [**Send-V2025ClientLogConfiguration**](docs/V2025ManagedClustersApi.md#Send-V2025ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster Log Configuration
 *V2025ManagedClustersApi* | [**Update-V2025**](docs/V2025ManagedClustersApi.md#Update-V2025) | **POST** /managed-clusters/{id}/manualUpgrade | Trigger Manual Upgrade for Managed Cluster
 *V2025ManagedClustersApi* | [**Update-V2025ManagedCluster**](docs/V2025ManagedClustersApi.md#Update-V2025ManagedCluster) | **PATCH** /managed-clusters/{id} | Update Managed Cluster
+*V2025MultiHostIntegrationApi* | [**New-V2025MultiHostIntegration**](docs/V2025MultiHostIntegrationApi.md#New-V2025MultiHostIntegration) | **POST** /multihosts | Create Multi-Host Integration
+*V2025MultiHostIntegrationApi* | [**New-V2025SourcesWithinMultiHost**](docs/V2025MultiHostIntegrationApi.md#New-V2025SourcesWithinMultiHost) | **POST** /multihosts/{multihostId} | Create Sources Within Multi-Host Integration
+*V2025MultiHostIntegrationApi* | [**Remove-V2025MultiHost**](docs/V2025MultiHostIntegrationApi.md#Remove-V2025MultiHost) | **DELETE** /multihosts/{multihostId} | Delete Multi-Host Integration
+*V2025MultiHostIntegrationApi* | [**Get-V2025AcctAggregationGroups**](docs/V2025MultiHostIntegrationApi.md#Get-V2025AcctAggregationGroups) | **GET** /multihosts/{multihostId}/acctAggregationGroups | List Account-Aggregation-Groups by Multi-Host ID
+*V2025MultiHostIntegrationApi* | [**Get-V2025EntitlementAggregationGroups**](docs/V2025MultiHostIntegrationApi.md#Get-V2025EntitlementAggregationGroups) | **GET** /multihosts/{multiHostId}/entitlementAggregationGroups | List Entitlement-Aggregation-Groups by Integration ID
+*V2025MultiHostIntegrationApi* | [**Get-V2025MultiHostIntegrations**](docs/V2025MultiHostIntegrationApi.md#Get-V2025MultiHostIntegrations) | **GET** /multihosts/{multihostId} | Get Multi-Host Integration By ID
+*V2025MultiHostIntegrationApi* | [**Get-V2025MultiHostIntegrationsList**](docs/V2025MultiHostIntegrationApi.md#Get-V2025MultiHostIntegrationsList) | **GET** /multihosts | List All Existing Multi-Host Integrations
+*V2025MultiHostIntegrationApi* | [**Get-V2025MultiHostSourceCreationErrors**](docs/V2025MultiHostIntegrationApi.md#Get-V2025MultiHostSourceCreationErrors) | **GET** /multihosts/{multiHostId}/sources/errors | List Multi-Host Source Creation Errors
+*V2025MultiHostIntegrationApi* | [**Get-V2025MultihostIntegrationTypes**](docs/V2025MultiHostIntegrationApi.md#Get-V2025MultihostIntegrationTypes) | **GET** /multihosts/types | List Multi-Host Integration Types
+*V2025MultiHostIntegrationApi* | [**Get-V2025SourcesWithinMultiHost**](docs/V2025MultiHostIntegrationApi.md#Get-V2025SourcesWithinMultiHost) | **GET** /multihosts/{multihostId}/sources | List Sources Within Multi-Host Integration
+*V2025MultiHostIntegrationApi* | [**Test-V2025ConnectionMultiHostSources**](docs/V2025MultiHostIntegrationApi.md#Test-V2025ConnectionMultiHostSources) | **POST** /multihosts/{multihostId}/sources/testConnection | Test Configuration For Multi-Host Integration
+*V2025MultiHostIntegrationApi* | [**Test-V2025SourceConnectionMultihost**](docs/V2025MultiHostIntegrationApi.md#Test-V2025SourceConnectionMultihost) | **GET** /multihosts/{multihostId}/sources/{sourceId}/testConnection | Test Configuration For Multi-Host Integration's Single Source
+*V2025MultiHostIntegrationApi* | [**Update-V2025MultiHostSources**](docs/V2025MultiHostIntegrationApi.md#Update-V2025MultiHostSources) | **PATCH** /multihosts/{multihostId} | Update Multi-Host Integration
 *V2025NonEmployeeLifecycleManagementApi* | [**Approve-V2025NonEmployeeRequest**](docs/V2025NonEmployeeLifecycleManagementApi.md#Approve-V2025NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *V2025NonEmployeeLifecycleManagementApi* | [**New-V2025NonEmployeeRecord**](docs/V2025NonEmployeeLifecycleManagementApi.md#New-V2025NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 *V2025NonEmployeeLifecycleManagementApi* | [**New-V2025NonEmployeeRequest**](docs/V2025NonEmployeeLifecycleManagementApi.md#New-V2025NonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
@@ -600,7 +624,7 @@ Class | Method | HTTP request | Description
 *V2025SourcesApi* | [**Get-V2025ProvisioningPolicy**](docs/V2025SourcesApi.md#Get-V2025ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
 *V2025SourcesApi* | [**Get-V2025Source**](docs/V2025SourcesApi.md#Get-V2025Source) | **GET** /sources/{id} | Get Source by ID
 *V2025SourcesApi* | [**Get-V2025SourceAttrSyncConfig**](docs/V2025SourcesApi.md#Get-V2025SourceAttrSyncConfig) | **GET** /sources/{id}/attribute-sync-config | Attribute Sync Config
-*V2025SourcesApi* | [**Get-V2025SourceConfig**](docs/V2025SourcesApi.md#Get-V2025SourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language translations
+*V2025SourcesApi* | [**Get-V2025SourceConfig**](docs/V2025SourcesApi.md#Get-V2025SourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language-translations
 *V2025SourcesApi* | [**Get-V2025SourceConnections**](docs/V2025SourcesApi.md#Get-V2025SourceConnections) | **GET** /sources/{sourceId}/connections | Get Source Connections by ID
 *V2025SourcesApi* | [**Get-V2025SourceEntitlementRequestConfig**](docs/V2025SourcesApi.md#Get-V2025SourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get Source Entitlement Request Configuration
 *V2025SourcesApi* | [**Get-V2025SourceHealth**](docs/V2025SourcesApi.md#Get-V2025SourceHealth) | **GET** /sources/{sourceId}/source-health | Fetches source health by id
@@ -615,7 +639,6 @@ Class | Method | HTTP request | Description
 *V2025SourcesApi* | [**Import-V2025UncorrelatedAccounts**](docs/V2025SourcesApi.md#Import-V2025UncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process Uncorrelated Accounts
 *V2025SourcesApi* | [**Get-V2025ProvisioningPolicies**](docs/V2025SourcesApi.md#Get-V2025ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
 *V2025SourcesApi* | [**Get-V2025Sources**](docs/V2025SourcesApi.md#Get-V2025Sources) | **GET** /sources | Lists all sources in IdentityNow.
-*V2025SourcesApi* | [**Receive-V2025ResourceObjects**](docs/V2025SourcesApi.md#Receive-V2025ResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
 *V2025SourcesApi* | [**Ping-V2025Cluster**](docs/V2025SourcesApi.md#Ping-V2025Cluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
 *V2025SourcesApi* | [**Send-V2025CorrelationConfig**](docs/V2025SourcesApi.md#Send-V2025CorrelationConfig) | **PUT** /sources/{id}/correlation-config | Update Source Correlation Configuration
 *V2025SourcesApi* | [**Send-V2025NativeChangeDetectionConfig**](docs/V2025SourcesApi.md#Send-V2025NativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update Native Change Detection Configuration
@@ -623,6 +646,7 @@ Class | Method | HTTP request | Description
 *V2025SourcesApi* | [**Send-V2025Source**](docs/V2025SourcesApi.md#Send-V2025Source) | **PUT** /sources/{id} | Update Source (Full)
 *V2025SourcesApi* | [**Send-V2025SourceAttrSyncConfig**](docs/V2025SourcesApi.md#Send-V2025SourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update Attribute Sync Config
 *V2025SourcesApi* | [**Send-V2025SourceSchema**](docs/V2025SourcesApi.md#Send-V2025SourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
+*V2025SourcesApi* | [**Search-V2025ResourceObjects**](docs/V2025SourcesApi.md#Search-V2025ResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
 *V2025SourcesApi* | [**Sync-V2025AttributesForSource**](docs/V2025SourcesApi.md#Sync-V2025AttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
 *V2025SourcesApi* | [**Test-V2025SourceConfiguration**](docs/V2025SourcesApi.md#Test-V2025SourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for source connector
 *V2025SourcesApi* | [**Test-V2025SourceConnection**](docs/V2025SourcesApi.md#Test-V2025SourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for source connector.
@@ -1019,6 +1043,12 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.ConflictingAccessCriteria](docs/ConflictingAccessCriteria.md)
  - [PSSailpoint.V2025\Model.ConnectedObject](docs/ConnectedObject.md)
  - [PSSailpoint.V2025\Model.ConnectedObjectType](docs/ConnectedObjectType.md)
+ - [PSSailpoint.V2025\Model.ConnectorCustomizerCreateRequest](docs/ConnectorCustomizerCreateRequest.md)
+ - [PSSailpoint.V2025\Model.ConnectorCustomizerCreateResponse](docs/ConnectorCustomizerCreateResponse.md)
+ - [PSSailpoint.V2025\Model.ConnectorCustomizerUpdateRequest](docs/ConnectorCustomizerUpdateRequest.md)
+ - [PSSailpoint.V2025\Model.ConnectorCustomizerUpdateResponse](docs/ConnectorCustomizerUpdateResponse.md)
+ - [PSSailpoint.V2025\Model.ConnectorCustomizerVersionCreateResponse](docs/ConnectorCustomizerVersionCreateResponse.md)
+ - [PSSailpoint.V2025\Model.ConnectorCustomizersResponse](docs/ConnectorCustomizersResponse.md)
  - [PSSailpoint.V2025\Model.ConnectorDetail](docs/ConnectorDetail.md)
  - [PSSailpoint.V2025\Model.ConnectorRuleCreateRequest](docs/ConnectorRuleCreateRequest.md)
  - [PSSailpoint.V2025\Model.ConnectorRuleCreateRequestSignature](docs/ConnectorRuleCreateRequestSignature.md)
@@ -1252,7 +1282,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.InvocationStatusType](docs/InvocationStatusType.md)
  - [PSSailpoint.V2025\Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpoint.V2025\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
- - [PSSailpoint.V2025\Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
  - [PSSailpoint.V2025\Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)
  - [PSSailpoint.V2025\Model.KbaAnswerResponseItem](docs/KbaAnswerResponseItem.md)
  - [PSSailpoint.V2025\Model.KbaQuestion](docs/KbaQuestion.md)
@@ -1304,6 +1333,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.ManagedClusterQueue](docs/ManagedClusterQueue.md)
  - [PSSailpoint.V2025\Model.ManagedClusterRedis](docs/ManagedClusterRedis.md)
  - [PSSailpoint.V2025\Model.ManagedClusterRequest](docs/ManagedClusterRequest.md)
+ - [PSSailpoint.V2025\Model.ManagedClusterType](docs/ManagedClusterType.md)
  - [PSSailpoint.V2025\Model.ManagedClusterTypes](docs/ManagedClusterTypes.md)
  - [PSSailpoint.V2025\Model.ManagerCorrelationMapping](docs/ManagerCorrelationMapping.md)
  - [PSSailpoint.V2025\Model.ManualDiscoverApplications](docs/ManualDiscoverApplications.md)
@@ -1324,6 +1354,17 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.ModelError](docs/ModelError.md)
  - [PSSailpoint.V2025\Model.ModelEvent](docs/ModelEvent.md)
  - [PSSailpoint.V2025\Model.ModelFilter](docs/ModelFilter.md)
+ - [PSSailpoint.V2025\Model.MultiHostIntegrationTemplateType](docs/MultiHostIntegrationTemplateType.md)
+ - [PSSailpoint.V2025\Model.MultiHostIntegrations](docs/MultiHostIntegrations.md)
+ - [PSSailpoint.V2025\Model.MultiHostIntegrationsAccountsFile](docs/MultiHostIntegrationsAccountsFile.md)
+ - [PSSailpoint.V2025\Model.MultiHostIntegrationsAggScheduleUpdate](docs/MultiHostIntegrationsAggScheduleUpdate.md)
+ - [PSSailpoint.V2025\Model.MultiHostIntegrationsBeforeProvisioningRule](docs/MultiHostIntegrationsBeforeProvisioningRule.md)
+ - [PSSailpoint.V2025\Model.MultiHostIntegrationsConnectorAttributes](docs/MultiHostIntegrationsConnectorAttributes.md)
+ - [PSSailpoint.V2025\Model.MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory](docs/MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory.md)
+ - [PSSailpoint.V2025\Model.MultiHostIntegrationsConnectorAttributesMultiHostAttributes](docs/MultiHostIntegrationsConnectorAttributesMultiHostAttributes.md)
+ - [PSSailpoint.V2025\Model.MultiHostIntegrationsCreate](docs/MultiHostIntegrationsCreate.md)
+ - [PSSailpoint.V2025\Model.MultiHostIntegrationsCreateSources](docs/MultiHostIntegrationsCreateSources.md)
+ - [PSSailpoint.V2025\Model.MultiHostSources](docs/MultiHostSources.md)
  - [PSSailpoint.V2025\Model.MultiPolicyRequest](docs/MultiPolicyRequest.md)
  - [PSSailpoint.V2025\Model.NameNormalizer](docs/NameNormalizer.md)
  - [PSSailpoint.V2025\Model.NamedConstructs](docs/NamedConstructs.md)
@@ -1683,6 +1724,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.SourceConnectionsDto](docs/SourceConnectionsDto.md)
  - [PSSailpoint.V2025\Model.SourceCreated](docs/SourceCreated.md)
  - [PSSailpoint.V2025\Model.SourceCreatedActor](docs/SourceCreatedActor.md)
+ - [PSSailpoint.V2025\Model.SourceCreationErrors](docs/SourceCreationErrors.md)
  - [PSSailpoint.V2025\Model.SourceDeleted](docs/SourceDeleted.md)
  - [PSSailpoint.V2025\Model.SourceDeletedActor](docs/SourceDeletedActor.md)
  - [PSSailpoint.V2025\Model.SourceEntitlementRequestConfig](docs/SourceEntitlementRequestConfig.md)
@@ -1756,6 +1798,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.TestExternalExecuteWorkflow200Response](docs/TestExternalExecuteWorkflow200Response.md)
  - [PSSailpoint.V2025\Model.TestExternalExecuteWorkflowRequest](docs/TestExternalExecuteWorkflowRequest.md)
  - [PSSailpoint.V2025\Model.TestInvocation](docs/TestInvocation.md)
+ - [PSSailpoint.V2025\Model.TestSourceConnectionMultihost200Response](docs/TestSourceConnectionMultihost200Response.md)
  - [PSSailpoint.V2025\Model.TestWorkflow200Response](docs/TestWorkflow200Response.md)
  - [PSSailpoint.V2025\Model.TestWorkflowRequest](docs/TestWorkflowRequest.md)
  - [PSSailpoint.V2025\Model.TextQuery](docs/TextQuery.md)
@@ -1776,6 +1819,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.UncorrelatedAccountsReportArguments](docs/UncorrelatedAccountsReportArguments.md)
  - [PSSailpoint.V2025\Model.UpdateAccessProfilesInBulk412Response](docs/UpdateAccessProfilesInBulk412Response.md)
  - [PSSailpoint.V2025\Model.UpdateDetail](docs/UpdateDetail.md)
+ - [PSSailpoint.V2025\Model.UpdateMultiHostSourcesRequestInner](docs/UpdateMultiHostSourcesRequestInner.md)
+ - [PSSailpoint.V2025\Model.UpdateMultiHostSourcesRequestInnerValue](docs/UpdateMultiHostSourcesRequestInnerValue.md)
  - [PSSailpoint.V2025\Model.Upper](docs/Upper.md)
  - [PSSailpoint.V2025\Model.UsageType](docs/UsageType.md)
  - [PSSailpoint.V2025\Model.UserApp](docs/UserApp.md)

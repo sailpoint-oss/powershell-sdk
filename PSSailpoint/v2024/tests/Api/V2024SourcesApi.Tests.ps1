@@ -144,7 +144,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
 
     Context 'Get-V2024SourceConfig' {
         It 'Test Get-V2024SourceConfig' {
-            #$TestResult = Get-V2024SourceConfig -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Locale "TEST_VALUE"
+            #$TestResult = Get-V2024SourceConfig -Id "TEST_VALUE" -Locale "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -262,17 +262,9 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
         }
     }
 
-    Context 'Receive-V2024ResourceObjects' {
-        It 'Test Receive-V2024ResourceObjects' {
-            #$TestResult = Receive-V2024ResourceObjects -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -ResourceObjectsRequest "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Ping-V2024Cluster' {
         It 'Test Ping-V2024Cluster' {
-            #$TestResult = Ping-V2024Cluster -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Ping-V2024Cluster -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -326,6 +318,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
         }
     }
 
+    Context 'Search-V2024ResourceObjects' {
+        It 'Test Search-V2024ResourceObjects' {
+            #$TestResult = Search-V2024ResourceObjects -SourceId "TEST_VALUE" -ResourceObjectsRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Sync-V2024AttributesForSource' {
         It 'Test Sync-V2024AttributesForSource' {
             #$TestResult = Sync-V2024AttributesForSource -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
@@ -336,7 +336,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
 
     Context 'Test-V2024SourceConfiguration' {
         It 'Test Test-V2024SourceConfiguration' {
-            #$TestResult = Test-V2024SourceConfiguration -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Test-V2024SourceConfiguration -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -344,7 +344,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
 
     Context 'Test-V2024SourceConnection' {
         It 'Test Test-V2024SourceConnection' {
-            #$TestResult = Test-V2024SourceConnection -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Test-V2024SourceConnection -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

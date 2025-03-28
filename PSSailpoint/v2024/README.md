@@ -193,6 +193,12 @@ Class | Method | HTTP request | Description
 *V2024ConfigurationHubApi* | [**Get-V2024UploadedConfigurations**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
 *V2024ConfigurationHubApi* | [**Update-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Update-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
 *V2024ConfigurationHubApi* | [**Update-V2024ScheduledAction**](docs/V2024ConfigurationHubApi.md#Update-V2024ScheduledAction) | **PATCH** /configuration-hub/scheduled-actions/{id} | Update Scheduled Action
+*V2024ConnectorCustomizersApi* | [**New-V2024ConnectorCustomizer**](docs/V2024ConnectorCustomizersApi.md#New-V2024ConnectorCustomizer) | **POST** /connector-customizers | Create Connector Customizer
+*V2024ConnectorCustomizersApi* | [**New-V2024ConnectorCustomizerVersion**](docs/V2024ConnectorCustomizersApi.md#New-V2024ConnectorCustomizerVersion) | **POST** /connector-customizers/{id}/versions | Creates a connector customizer version
+*V2024ConnectorCustomizersApi* | [**Remove-V2024ConnectorCustomizer**](docs/V2024ConnectorCustomizersApi.md#Remove-V2024ConnectorCustomizer) | **DELETE** /connector-customizers/{id} | Delete Connector Customizer
+*V2024ConnectorCustomizersApi* | [**Get-V2024ConnectorCustomizer**](docs/V2024ConnectorCustomizersApi.md#Get-V2024ConnectorCustomizer) | **GET** /connector-customizers/{id} | Get connector customizer
+*V2024ConnectorCustomizersApi* | [**Get-V2024ConnectorCustomizers**](docs/V2024ConnectorCustomizersApi.md#Get-V2024ConnectorCustomizers) | **GET** /connector-customizers | List All Connector Customizers
+*V2024ConnectorCustomizersApi* | [**Send-V2024ConnectorCustomizer**](docs/V2024ConnectorCustomizersApi.md#Send-V2024ConnectorCustomizer) | **PUT** /connector-customizers/{id} | Update Connector Customizer
 *V2024ConnectorRuleManagementApi* | [**New-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#New-V2024ConnectorRule) | **POST** /connector-rules | Create Connector Rule
 *V2024ConnectorRuleManagementApi* | [**Remove-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Remove-V2024ConnectorRule) | **DELETE** /connector-rules/{id} | Delete Connector Rule
 *V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRule) | **GET** /connector-rules/{id} | Get Connector Rule
@@ -393,6 +399,11 @@ Class | Method | HTTP request | Description
 *V2024ManagedClientsApi* | [**Get-V2024ManagedClientStatus**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status
 *V2024ManagedClientsApi* | [**Get-V2024ManagedClients**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClients) | **GET** /managed-clients | Get Managed Clients
 *V2024ManagedClientsApi* | [**Update-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Update-V2024ManagedClient) | **PATCH** /managed-clients/{id} | Update Managed Client
+*V2024ManagedClusterTypesApi* | [**New-V2024ManagedClusterType**](docs/V2024ManagedClusterTypesApi.md#New-V2024ManagedClusterType) | **POST** /managed-cluster-types | Create new Managed Cluster Type
+*V2024ManagedClusterTypesApi* | [**Remove-V2024ManagedClusterType**](docs/V2024ManagedClusterTypesApi.md#Remove-V2024ManagedClusterType) | **DELETE** /managed-cluster-types/{id} | Delete a Managed Cluster Type
+*V2024ManagedClusterTypesApi* | [**Get-V2024ManagedClusterType**](docs/V2024ManagedClusterTypesApi.md#Get-V2024ManagedClusterType) | **GET** /managed-cluster-types/{id} | Get a Managed Cluster Type
+*V2024ManagedClusterTypesApi* | [**Get-V2024ManagedClusterTypes**](docs/V2024ManagedClusterTypesApi.md#Get-V2024ManagedClusterTypes) | **GET** /managed-cluster-types | Get Managed Cluster Types
+*V2024ManagedClusterTypesApi* | [**Update-V2024ManagedClusterType**](docs/V2024ManagedClusterTypesApi.md#Update-V2024ManagedClusterType) | **PATCH** /managed-cluster-types/{id} | Update a Managed Cluster Type
 *V2024ManagedClustersApi* | [**New-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create Create Managed Cluster
 *V2024ManagedClustersApi* | [**Remove-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete Managed Cluster
 *V2024ManagedClustersApi* | [**Get-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster Log Configuration
@@ -401,6 +412,19 @@ Class | Method | HTTP request | Description
 *V2024ManagedClustersApi* | [**Send-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster Log Configuration
 *V2024ManagedClustersApi* | [**Update-V2024**](docs/V2024ManagedClustersApi.md#Update-V2024) | **POST** /managed-clusters/{id}/manualUpgrade | Trigger Manual Upgrade for Managed Cluster
 *V2024ManagedClustersApi* | [**Update-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update Managed Cluster
+*V2024MultiHostIntegrationApi* | [**New-V2024MultiHostIntegration**](docs/V2024MultiHostIntegrationApi.md#New-V2024MultiHostIntegration) | **POST** /multihosts | Create Multi-Host Integration
+*V2024MultiHostIntegrationApi* | [**New-V2024SourcesWithinMultiHost**](docs/V2024MultiHostIntegrationApi.md#New-V2024SourcesWithinMultiHost) | **POST** /multihosts/{multihostId} | Create Sources Within Multi-Host Integration
+*V2024MultiHostIntegrationApi* | [**Remove-V2024MultiHost**](docs/V2024MultiHostIntegrationApi.md#Remove-V2024MultiHost) | **DELETE** /multihosts/{multihostId} | Delete Multi-Host Integration
+*V2024MultiHostIntegrationApi* | [**Get-V2024AcctAggregationGroups**](docs/V2024MultiHostIntegrationApi.md#Get-V2024AcctAggregationGroups) | **GET** /multihosts/{multihostId}/acctAggregationGroups | List Account-Aggregation-Groups by Multi-Host ID
+*V2024MultiHostIntegrationApi* | [**Get-V2024EntitlementAggregationGroups**](docs/V2024MultiHostIntegrationApi.md#Get-V2024EntitlementAggregationGroups) | **GET** /multihosts/{multiHostId}/entitlementAggregationGroups | List Entitlement-Aggregation-Groups by Integration ID
+*V2024MultiHostIntegrationApi* | [**Get-V2024MultiHostIntegrations**](docs/V2024MultiHostIntegrationApi.md#Get-V2024MultiHostIntegrations) | **GET** /multihosts/{multihostId} | Get Multi-Host Integration By ID
+*V2024MultiHostIntegrationApi* | [**Get-V2024MultiHostIntegrationsList**](docs/V2024MultiHostIntegrationApi.md#Get-V2024MultiHostIntegrationsList) | **GET** /multihosts | List All Existing Multi-Host Integrations
+*V2024MultiHostIntegrationApi* | [**Get-V2024MultiHostSourceCreationErrors**](docs/V2024MultiHostIntegrationApi.md#Get-V2024MultiHostSourceCreationErrors) | **GET** /multihosts/{multiHostId}/sources/errors | List Multi-Host Source Creation Errors
+*V2024MultiHostIntegrationApi* | [**Get-V2024MultihostIntegrationTypes**](docs/V2024MultiHostIntegrationApi.md#Get-V2024MultihostIntegrationTypes) | **GET** /multihosts/types | List Multi-Host Integration Types
+*V2024MultiHostIntegrationApi* | [**Get-V2024SourcesWithinMultiHost**](docs/V2024MultiHostIntegrationApi.md#Get-V2024SourcesWithinMultiHost) | **GET** /multihosts/{multihostId}/sources | List Sources Within Multi-Host Integration
+*V2024MultiHostIntegrationApi* | [**Test-V2024ConnectionMultiHostSources**](docs/V2024MultiHostIntegrationApi.md#Test-V2024ConnectionMultiHostSources) | **POST** /multihosts/{multihostId}/sources/testConnection | Test Configuration For Multi-Host Integration
+*V2024MultiHostIntegrationApi* | [**Test-V2024SourceConnectionMultihost**](docs/V2024MultiHostIntegrationApi.md#Test-V2024SourceConnectionMultihost) | **GET** /multihosts/{multihostId}/sources/{sourceId}/testConnection | Test Configuration For Multi-Host Integration's Single Source
+*V2024MultiHostIntegrationApi* | [**Update-V2024MultiHostSources**](docs/V2024MultiHostIntegrationApi.md#Update-V2024MultiHostSources) | **PATCH** /multihosts/{multihostId} | Update Multi-Host Integration
 *V2024NonEmployeeLifecycleManagementApi* | [**Approve-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Approve-V2024NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
 *V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
 *V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
@@ -600,7 +624,7 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Get-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Get-V2024ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
 *V2024SourcesApi* | [**Get-V2024Source**](docs/V2024SourcesApi.md#Get-V2024Source) | **GET** /sources/{id} | Get Source by ID
 *V2024SourcesApi* | [**Get-V2024SourceAttrSyncConfig**](docs/V2024SourcesApi.md#Get-V2024SourceAttrSyncConfig) | **GET** /sources/{id}/attribute-sync-config | Attribute Sync Config
-*V2024SourcesApi* | [**Get-V2024SourceConfig**](docs/V2024SourcesApi.md#Get-V2024SourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language translations
+*V2024SourcesApi* | [**Get-V2024SourceConfig**](docs/V2024SourcesApi.md#Get-V2024SourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language-translations
 *V2024SourcesApi* | [**Get-V2024SourceConnections**](docs/V2024SourcesApi.md#Get-V2024SourceConnections) | **GET** /sources/{sourceId}/connections | Get Source Connections by ID
 *V2024SourcesApi* | [**Get-V2024SourceEntitlementRequestConfig**](docs/V2024SourcesApi.md#Get-V2024SourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get Source Entitlement Request Configuration
 *V2024SourcesApi* | [**Get-V2024SourceHealth**](docs/V2024SourcesApi.md#Get-V2024SourceHealth) | **GET** /sources/{sourceId}/source-health | Fetches source health by id
@@ -615,7 +639,6 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Import-V2024UncorrelatedAccounts**](docs/V2024SourcesApi.md#Import-V2024UncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process Uncorrelated Accounts
 *V2024SourcesApi* | [**Get-V2024ProvisioningPolicies**](docs/V2024SourcesApi.md#Get-V2024ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
 *V2024SourcesApi* | [**Get-V2024Sources**](docs/V2024SourcesApi.md#Get-V2024Sources) | **GET** /sources | Lists all sources in IdentityNow.
-*V2024SourcesApi* | [**Receive-V2024ResourceObjects**](docs/V2024SourcesApi.md#Receive-V2024ResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
 *V2024SourcesApi* | [**Ping-V2024Cluster**](docs/V2024SourcesApi.md#Ping-V2024Cluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
 *V2024SourcesApi* | [**Send-V2024CorrelationConfig**](docs/V2024SourcesApi.md#Send-V2024CorrelationConfig) | **PUT** /sources/{id}/correlation-config | Update Source Correlation Configuration
 *V2024SourcesApi* | [**Send-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Send-V2024NativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update Native Change Detection Configuration
@@ -623,6 +646,7 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Send-V2024Source**](docs/V2024SourcesApi.md#Send-V2024Source) | **PUT** /sources/{id} | Update Source (Full)
 *V2024SourcesApi* | [**Send-V2024SourceAttrSyncConfig**](docs/V2024SourcesApi.md#Send-V2024SourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update Attribute Sync Config
 *V2024SourcesApi* | [**Send-V2024SourceSchema**](docs/V2024SourcesApi.md#Send-V2024SourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
+*V2024SourcesApi* | [**Search-V2024ResourceObjects**](docs/V2024SourcesApi.md#Search-V2024ResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
 *V2024SourcesApi* | [**Sync-V2024AttributesForSource**](docs/V2024SourcesApi.md#Sync-V2024AttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
 *V2024SourcesApi* | [**Test-V2024SourceConfiguration**](docs/V2024SourcesApi.md#Test-V2024SourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for source connector
 *V2024SourcesApi* | [**Test-V2024SourceConnection**](docs/V2024SourcesApi.md#Test-V2024SourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for source connector.
@@ -1017,6 +1041,12 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ConflictingAccessCriteria](docs/ConflictingAccessCriteria.md)
  - [PSSailpoint.V2024\Model.ConnectedObject](docs/ConnectedObject.md)
  - [PSSailpoint.V2024\Model.ConnectedObjectType](docs/ConnectedObjectType.md)
+ - [PSSailpoint.V2024\Model.ConnectorCustomizerCreateRequest](docs/ConnectorCustomizerCreateRequest.md)
+ - [PSSailpoint.V2024\Model.ConnectorCustomizerCreateResponse](docs/ConnectorCustomizerCreateResponse.md)
+ - [PSSailpoint.V2024\Model.ConnectorCustomizerUpdateRequest](docs/ConnectorCustomizerUpdateRequest.md)
+ - [PSSailpoint.V2024\Model.ConnectorCustomizerUpdateResponse](docs/ConnectorCustomizerUpdateResponse.md)
+ - [PSSailpoint.V2024\Model.ConnectorCustomizerVersionCreateResponse](docs/ConnectorCustomizerVersionCreateResponse.md)
+ - [PSSailpoint.V2024\Model.ConnectorCustomizersResponse](docs/ConnectorCustomizersResponse.md)
  - [PSSailpoint.V2024\Model.ConnectorDetail](docs/ConnectorDetail.md)
  - [PSSailpoint.V2024\Model.ConnectorRuleCreateRequest](docs/ConnectorRuleCreateRequest.md)
  - [PSSailpoint.V2024\Model.ConnectorRuleCreateRequestSignature](docs/ConnectorRuleCreateRequestSignature.md)
@@ -1248,7 +1278,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.InvocationStatusType](docs/InvocationStatusType.md)
  - [PSSailpoint.V2024\Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpoint.V2024\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
- - [PSSailpoint.V2024\Model.JsonPatchOperationValue](docs/JsonPatchOperationValue.md)
  - [PSSailpoint.V2024\Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)
  - [PSSailpoint.V2024\Model.KbaAnswerResponseItem](docs/KbaAnswerResponseItem.md)
  - [PSSailpoint.V2024\Model.KbaQuestion](docs/KbaQuestion.md)
@@ -1300,6 +1329,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ManagedClusterQueue](docs/ManagedClusterQueue.md)
  - [PSSailpoint.V2024\Model.ManagedClusterRedis](docs/ManagedClusterRedis.md)
  - [PSSailpoint.V2024\Model.ManagedClusterRequest](docs/ManagedClusterRequest.md)
+ - [PSSailpoint.V2024\Model.ManagedClusterType](docs/ManagedClusterType.md)
  - [PSSailpoint.V2024\Model.ManagedClusterTypes](docs/ManagedClusterTypes.md)
  - [PSSailpoint.V2024\Model.ManagerCorrelationMapping](docs/ManagerCorrelationMapping.md)
  - [PSSailpoint.V2024\Model.ManualDiscoverApplications](docs/ManualDiscoverApplications.md)
@@ -1320,6 +1350,17 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ModelError](docs/ModelError.md)
  - [PSSailpoint.V2024\Model.ModelEvent](docs/ModelEvent.md)
  - [PSSailpoint.V2024\Model.ModelFilter](docs/ModelFilter.md)
+ - [PSSailpoint.V2024\Model.MultiHostIntegrationTemplateType](docs/MultiHostIntegrationTemplateType.md)
+ - [PSSailpoint.V2024\Model.MultiHostIntegrations](docs/MultiHostIntegrations.md)
+ - [PSSailpoint.V2024\Model.MultiHostIntegrationsAccountsFile](docs/MultiHostIntegrationsAccountsFile.md)
+ - [PSSailpoint.V2024\Model.MultiHostIntegrationsAggScheduleUpdate](docs/MultiHostIntegrationsAggScheduleUpdate.md)
+ - [PSSailpoint.V2024\Model.MultiHostIntegrationsBeforeProvisioningRule](docs/MultiHostIntegrationsBeforeProvisioningRule.md)
+ - [PSSailpoint.V2024\Model.MultiHostIntegrationsConnectorAttributes](docs/MultiHostIntegrationsConnectorAttributes.md)
+ - [PSSailpoint.V2024\Model.MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory](docs/MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory.md)
+ - [PSSailpoint.V2024\Model.MultiHostIntegrationsConnectorAttributesMultiHostAttributes](docs/MultiHostIntegrationsConnectorAttributesMultiHostAttributes.md)
+ - [PSSailpoint.V2024\Model.MultiHostIntegrationsCreate](docs/MultiHostIntegrationsCreate.md)
+ - [PSSailpoint.V2024\Model.MultiHostIntegrationsCreateSources](docs/MultiHostIntegrationsCreateSources.md)
+ - [PSSailpoint.V2024\Model.MultiHostSources](docs/MultiHostSources.md)
  - [PSSailpoint.V2024\Model.MultiPolicyRequest](docs/MultiPolicyRequest.md)
  - [PSSailpoint.V2024\Model.NameNormalizer](docs/NameNormalizer.md)
  - [PSSailpoint.V2024\Model.NamedConstructs](docs/NamedConstructs.md)
@@ -1679,6 +1720,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SourceConnectionsDto](docs/SourceConnectionsDto.md)
  - [PSSailpoint.V2024\Model.SourceCreated](docs/SourceCreated.md)
  - [PSSailpoint.V2024\Model.SourceCreatedActor](docs/SourceCreatedActor.md)
+ - [PSSailpoint.V2024\Model.SourceCreationErrors](docs/SourceCreationErrors.md)
  - [PSSailpoint.V2024\Model.SourceDeleted](docs/SourceDeleted.md)
  - [PSSailpoint.V2024\Model.SourceDeletedActor](docs/SourceDeletedActor.md)
  - [PSSailpoint.V2024\Model.SourceEntitlementRequestConfig](docs/SourceEntitlementRequestConfig.md)
@@ -1752,6 +1794,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.TestExternalExecuteWorkflow200Response](docs/TestExternalExecuteWorkflow200Response.md)
  - [PSSailpoint.V2024\Model.TestExternalExecuteWorkflowRequest](docs/TestExternalExecuteWorkflowRequest.md)
  - [PSSailpoint.V2024\Model.TestInvocation](docs/TestInvocation.md)
+ - [PSSailpoint.V2024\Model.TestSourceConnectionMultihost200Response](docs/TestSourceConnectionMultihost200Response.md)
  - [PSSailpoint.V2024\Model.TestWorkflow200Response](docs/TestWorkflow200Response.md)
  - [PSSailpoint.V2024\Model.TestWorkflowRequest](docs/TestWorkflowRequest.md)
  - [PSSailpoint.V2024\Model.TextQuery](docs/TextQuery.md)
@@ -1772,6 +1815,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.UncorrelatedAccountsReportArguments](docs/UncorrelatedAccountsReportArguments.md)
  - [PSSailpoint.V2024\Model.UpdateAccessProfilesInBulk412Response](docs/UpdateAccessProfilesInBulk412Response.md)
  - [PSSailpoint.V2024\Model.UpdateDetail](docs/UpdateDetail.md)
+ - [PSSailpoint.V2024\Model.UpdateMultiHostSourcesRequestInner](docs/UpdateMultiHostSourcesRequestInner.md)
+ - [PSSailpoint.V2024\Model.UpdateMultiHostSourcesRequestInnerValue](docs/UpdateMultiHostSourcesRequestInnerValue.md)
  - [PSSailpoint.V2024\Model.Upper](docs/Upper.md)
  - [PSSailpoint.V2024\Model.UsageType](docs/UsageType.md)
  - [PSSailpoint.V2024\Model.UserApp](docs/UserApp.md)

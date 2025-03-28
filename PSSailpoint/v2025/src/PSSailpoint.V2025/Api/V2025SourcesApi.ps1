@@ -1492,7 +1492,7 @@ function Get-V2025SourceAttrSyncConfig {
 <#
 .SYNOPSIS
 
-Gets source config with language translations
+Gets source config with language-translations
 
 .DESCRIPTION
 
@@ -1500,9 +1500,6 @@ Looks up and returns the source config for the requested source id after populat
 
 .PARAMETER Id
 The Source id
-
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
 
 .PARAMETER Locale
 The locale to apply to the config. If no viable locale is given, it will default to ""en""
@@ -1522,9 +1519,6 @@ function Get-V2025SourceConfig {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [ValidateSet("de", "false", "fi", "sv", "ru", "pt", "ko", "zh-TW", "en", "it", "fr", "zh-CN", "hu", "es", "cs", "ja", "pl", "da", "nl")]
         [String]
         ${Locale},
@@ -1553,11 +1547,6 @@ function Get-V2025SourceConfig {
             throw "Error! The required parameter `Id` missing when calling getSourceConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getSourceConfig."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Locale) {
             $LocalVarQueryParameters['locale'] = $Locale
@@ -2836,117 +2825,6 @@ function Get-V2025Sources {
 <#
 .SYNOPSIS
 
-Peek source connector's resource objects
-
-.DESCRIPTION
-
-Retrieves a sample of data returned from account and group aggregation requests.
-
-.PARAMETER SourceId
-The ID of the Source
-
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
-.PARAMETER ResourceObjectsRequest
-No description available.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-ResourceObjectsResponse
-#>
-function Receive-V2025ResourceObjects {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${SourceId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${ResourceObjectsRequest},
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Receive-V2025ResourceObjects' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json')
-
-        $LocalVarUri = '/sources/{sourceId}/connector/peek-resource-objects'
-        if (!$SourceId) {
-            throw "Error! The required parameter `SourceId` missing when calling peekResourceObjects."
-        }
-        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling peekResourceObjects."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
-
-        if (!$ResourceObjectsRequest) {
-            throw "Error! The required parameter `ResourceObjectsRequest` missing when calling peekResourceObjects."
-        }
-
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ResourceObjectsRequest -is [array])) {
-            $LocalVarBodyParameter = $ResourceObjectsRequest | ConvertTo-Json -AsArray -Depth 100
-        } else {
-            $LocalVarBodyParameter = $ResourceObjectsRequest | ForEach-Object {
-            # Get array of names of object properties that can be cast to boolean TRUE
-            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
-            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
-        
-            # Convert object to JSON with only non-empty properties
-            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
-            }
-        }
-
-
-
-        $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ResourceObjectsResponse" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
 Ping cluster for source connector
 
 .DESCRIPTION
@@ -2955,9 +2833,6 @@ This endpoint validates that the cluster being used by the source is reachable f
 
 .PARAMETER SourceId
 The ID of the Source
-
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
 
 .PARAMETER WithHttpInfo
 
@@ -2973,9 +2848,6 @@ function Ping-V2025Cluster {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${SourceId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -3001,11 +2873,6 @@ function Ping-V2025Cluster {
             throw "Error! The required parameter `SourceId` missing when calling pingCluster."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling pingCluster."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -3675,6 +3542,106 @@ function Send-V2025SourceSchema {
 <#
 .SYNOPSIS
 
+Peek source connector's resource objects
+
+.DESCRIPTION
+
+Retrieves a sample of data returned from account and group aggregation requests.
+
+.PARAMETER SourceId
+The ID of the Source
+
+.PARAMETER ResourceObjectsRequest
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+ResourceObjectsResponse
+#>
+function Search-V2025ResourceObjects {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ResourceObjectsRequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Search-V2025ResourceObjects' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/sources/{sourceId}/connector/peek-resource-objects'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling searchResourceObjects."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
+        if (!$ResourceObjectsRequest) {
+            throw "Error! The required parameter `ResourceObjectsRequest` missing when calling searchResourceObjects."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ResourceObjectsRequest -is [array])) {
+            $LocalVarBodyParameter = $ResourceObjectsRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $ResourceObjectsRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "ResourceObjectsResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Synchronize single source attributes.
 
 .DESCRIPTION
@@ -3769,9 +3736,6 @@ This endpoint performs a more detailed validation of the source''s configuration
 .PARAMETER SourceId
 The ID of the Source
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -3786,9 +3750,6 @@ function Test-V2025SourceConfiguration {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${SourceId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -3814,11 +3775,6 @@ function Test-V2025SourceConfiguration {
             throw "Error! The required parameter `SourceId` missing when calling testSourceConfiguration."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling testSourceConfiguration."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -3854,9 +3810,6 @@ This endpoint validates that the configured credentials are valid and will prope
 .PARAMETER SourceId
 The ID of the Source.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -3871,9 +3824,6 @@ function Test-V2025SourceConnection {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${SourceId},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -3899,11 +3849,6 @@ function Test-V2025SourceConnection {
             throw "Error! The required parameter `SourceId` missing when calling testSourceConnection."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling testSourceConnection."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 

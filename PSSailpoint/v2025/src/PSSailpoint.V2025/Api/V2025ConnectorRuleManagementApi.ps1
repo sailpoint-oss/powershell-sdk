@@ -14,9 +14,6 @@ Create Connector Rule
 
 Create a connector rule from the available types.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER ConnectorRuleCreateRequest
 Connector rule to create.
 
@@ -32,9 +29,6 @@ function New-V2025ConnectorRule {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${ConnectorRuleCreateRequest},
         [Switch]
@@ -61,11 +55,6 @@ function New-V2025ConnectorRule {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/connector-rules'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling createConnectorRule."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$ConnectorRuleCreateRequest) {
             throw "Error! The required parameter `ConnectorRuleCreateRequest` missing when calling createConnectorRule."
@@ -118,9 +107,6 @@ Delete the connector rule for the given ID.
 .PARAMETER Id
 ID of the connector rule to delete.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -135,9 +121,6 @@ function Remove-V2025ConnectorRule {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -163,11 +146,6 @@ function Remove-V2025ConnectorRule {
             throw "Error! The required parameter `Id` missing when calling deleteConnectorRule."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteConnectorRule."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -203,9 +181,6 @@ Get a connector rule by ID.
 .PARAMETER Id
 ID of the connector rule to get.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -220,9 +195,6 @@ function Get-V2025ConnectorRule {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -248,11 +220,6 @@ function Get-V2025ConnectorRule {
             throw "Error! The required parameter `Id` missing when calling getConnectorRule."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getConnectorRule."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -285,9 +252,6 @@ List Connector Rules
 
 List existing connector rules.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Limit
 Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -309,15 +273,12 @@ function Get-V2025ConnectorRuleList {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
         [Switch]
@@ -341,11 +302,6 @@ function Get-V2025ConnectorRuleList {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/connector-rules'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getConnectorRuleList."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Limit) {
             $LocalVarQueryParameters['limit'] = $Limit
@@ -393,9 +349,6 @@ Update an existing connector rule with the one provided in the request body. The
 .PARAMETER Id
 ID of the connector rule to update.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER ConnectorRuleUpdateRequest
 Connector rule with updated data.
 
@@ -414,9 +367,6 @@ function Send-V2025ConnectorRule {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${ConnectorRuleUpdateRequest},
         [Switch]
@@ -447,11 +397,6 @@ function Send-V2025ConnectorRule {
             throw "Error! The required parameter `Id` missing when calling putConnectorRule."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling putConnectorRule."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ConnectorRuleUpdateRequest -is [array])) {
             $LocalVarBodyParameter = $ConnectorRuleUpdateRequest | ConvertTo-Json -AsArray -Depth 100
@@ -497,9 +442,6 @@ Validate Connector Rule
 
 Detect issues within the connector rule's code to fix and list them.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER SourceCode
 Code to validate.
 
@@ -515,9 +457,6 @@ function Test-V2025ConnectorRule {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${SourceCode},
         [Switch]
@@ -544,11 +483,6 @@ function Test-V2025ConnectorRule {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/connector-rules/validate'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling testConnectorRule."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$SourceCode) {
             throw "Error! The required parameter `SourceCode` missing when calling testConnectorRule."

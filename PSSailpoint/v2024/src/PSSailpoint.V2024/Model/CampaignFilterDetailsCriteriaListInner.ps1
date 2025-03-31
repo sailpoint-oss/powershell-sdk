@@ -22,6 +22,18 @@ No description available.
 Specified key from the type of criteria.
 .PARAMETER Value
 Value for the specified key from the type of criteria.
+.PARAMETER NegateResult
+If true, the filter will negate the result of the criteria.
+.PARAMETER ShortCircuit
+If true, the filter will short circuit the evaluation of the criteria.
+.PARAMETER RecordChildMatches
+If true, the filter will record child matches for the criteria.
+.PARAMETER Id
+The unique ID of the criteria.
+.PARAMETER SuppressMatchedItems
+If this value is true, then matched items will not only be excluded from the campaign, they will also not have archived certification items created.  Such items will not appear in the exclusion report. 
+.PARAMETER Children
+List of child criteria.
 .OUTPUTS
 
 CampaignFilterDetailsCriteriaListInner<PSCustomObject>
@@ -31,10 +43,11 @@ function Initialize-V2024CampaignFilterDetailsCriteriaListInner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("COMPOSITE", "ROLE", "IDENTITY", "IDENTITY_ATTRIBUTE", "ENTITLEMENT", "ACCESS_PROFILE", "SOURCE", "ACCOUNT", "AGGREGATED_ENTITLEMENT", "INVALID_CERTIFIABLE_ENTITY")]
+        [ValidateSet("COMPOSITE", "ROLE", "IDENTITY", "IDENTITY_ATTRIBUTE", "ENTITLEMENT", "ACCESS_PROFILE", "SOURCE", "ACCOUNT", "AGGREGATED_ENTITLEMENT", "INVALID_CERTIFIABLE_ENTITY", "INVALID_CERTIFIABLE_BUNDLE")]
         [PSCustomObject]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("EQUALS", "NOT_EQUALS", "CONTAINS", "STARTS_WITH", "ENDS_WITH", "AND", "OR", "")]
         [PSCustomObject]
         ${Operation},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -42,7 +55,25 @@ function Initialize-V2024CampaignFilterDetailsCriteriaListInner {
         ${Property},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Value}
+        ${Value},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${NegateResult} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${ShortCircuit} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${RecordChildMatches} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${SuppressMatchedItems} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Children}
     )
 
     Process {
@@ -53,16 +84,18 @@ function Initialize-V2024CampaignFilterDetailsCriteriaListInner {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if (!$Operation) {
-            throw "invalid value for 'Operation', 'Operation' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "operation" = ${Operation}
             "property" = ${Property}
             "value" = ${Value}
+            "negateResult" = ${NegateResult}
+            "shortCircuit" = ${ShortCircuit}
+            "recordChildMatches" = ${RecordChildMatches}
+            "id" = ${Id}
+            "suppressMatchedItems" = ${SuppressMatchedItems}
+            "children" = ${Children}
         }
 
         return $PSO
@@ -99,7 +132,7 @@ function ConvertFrom-V2024JsonToCampaignFilterDetailsCriteriaListInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024CampaignFilterDetailsCriteriaListInner
-        $AllProperties = ("type", "operation", "property", "value")
+        $AllProperties = ("type", "operation", "property", "value", "negateResult", "shortCircuit", "recordChildMatches", "id", "suppressMatchedItems", "children")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -116,12 +149,6 @@ function ConvertFrom-V2024JsonToCampaignFilterDetailsCriteriaListInner {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "operation"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'operation' missing."
-        } else {
-            $Operation = $JsonParameters.PSobject.Properties["operation"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "property"))) {
             throw "Error! JSON cannot be serialized due to the required property 'property' missing."
         } else {
@@ -134,11 +161,59 @@ function ConvertFrom-V2024JsonToCampaignFilterDetailsCriteriaListInner {
             $Value = $JsonParameters.PSobject.Properties["value"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "operation"))) { #optional property not found
+            $Operation = $null
+        } else {
+            $Operation = $JsonParameters.PSobject.Properties["operation"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "negateResult"))) { #optional property not found
+            $NegateResult = $null
+        } else {
+            $NegateResult = $JsonParameters.PSobject.Properties["negateResult"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "shortCircuit"))) { #optional property not found
+            $ShortCircuit = $null
+        } else {
+            $ShortCircuit = $JsonParameters.PSobject.Properties["shortCircuit"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "recordChildMatches"))) { #optional property not found
+            $RecordChildMatches = $null
+        } else {
+            $RecordChildMatches = $JsonParameters.PSobject.Properties["recordChildMatches"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "suppressMatchedItems"))) { #optional property not found
+            $SuppressMatchedItems = $null
+        } else {
+            $SuppressMatchedItems = $JsonParameters.PSobject.Properties["suppressMatchedItems"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "children"))) { #optional property not found
+            $Children = $null
+        } else {
+            $Children = $JsonParameters.PSobject.Properties["children"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "operation" = ${Operation}
             "property" = ${Property}
             "value" = ${Value}
+            "negateResult" = ${NegateResult}
+            "shortCircuit" = ${ShortCircuit}
+            "recordChildMatches" = ${RecordChildMatches}
+            "id" = ${Id}
+            "suppressMatchedItems" = ${SuppressMatchedItems}
+            "children" = ${Children}
         }
 
         return $PSO

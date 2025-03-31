@@ -35,7 +35,7 @@ function Initialize-BetaScheduledAttributes {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("daily", "weekly", "monthly", "yearly", "cronSchedule")]
+        [ValidateSet("daily", "weekly", "monthly", "yearly", "cronSchedule", "")]
         [String]
         ${Frequency},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -58,10 +58,6 @@ function Initialize-BetaScheduledAttributes {
     Process {
         'Creating PSCustomObject: PSSailpoint.Beta => BetaScheduledAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        if (!$Frequency) {
-            throw "invalid value for 'Frequency', 'Frequency' cannot be null."
-        }
 
 
         $PSO = [PSCustomObject]@{

@@ -50,7 +50,7 @@ function Initialize-V2025CampaignFilterDetails {
         ${Owner},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("INCLUSION", "EXCLUSION")]
-        [PSCustomObject]
+        [String]
         ${Mode},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]

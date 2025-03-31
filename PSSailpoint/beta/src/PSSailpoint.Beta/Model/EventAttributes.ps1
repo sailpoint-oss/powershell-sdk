@@ -53,10 +53,6 @@ function Initialize-BetaEventAttributes {
         'Creating PSCustomObject: PSSailpoint.Beta => BetaEventAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Id) {
-            throw "invalid value for 'Id', 'Id' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}

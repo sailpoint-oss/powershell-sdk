@@ -14,12 +14,12 @@ No summary available.
 
 Attributes related to a scheduled trigger
 
-.PARAMETER CronString
-A valid CRON expression
 .PARAMETER Frequency
 Frequency of execution
 .PARAMETER TimeZone
 Time zone identifier
+.PARAMETER CronString
+A valid CRON expression
 .PARAMETER WeeklyDays
 Scheduled days of the week for execution
 .PARAMETER WeeklyTimes
@@ -35,15 +35,15 @@ function Initialize-V2024ScheduledAttributes {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${CronString},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("daily", "weekly", "monthly", "yearly", "cronSchedule")]
+        [ValidateSet("daily", "weekly", "monthly", "yearly", "cronSchedule", "")]
         [String]
         ${Frequency},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${TimeZone},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${CronString},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${WeeklyDays},
@@ -59,15 +59,11 @@ function Initialize-V2024ScheduledAttributes {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024ScheduledAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Frequency) {
-            throw "invalid value for 'Frequency', 'Frequency' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
-            "cronString" = ${CronString}
             "frequency" = ${Frequency}
             "timeZone" = ${TimeZone}
+            "cronString" = ${CronString}
             "weeklyDays" = ${WeeklyDays}
             "weeklyTimes" = ${WeeklyTimes}
             "yearlyTimes" = ${YearlyTimes}
@@ -107,7 +103,7 @@ function ConvertFrom-V2024JsonToScheduledAttributes {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024ScheduledAttributes
-        $AllProperties = ("cronString", "frequency", "timeZone", "weeklyDays", "weeklyTimes", "yearlyTimes")
+        $AllProperties = ("frequency", "timeZone", "cronString", "weeklyDays", "weeklyTimes", "yearlyTimes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -124,16 +120,16 @@ function ConvertFrom-V2024JsonToScheduledAttributes {
             $Frequency = $JsonParameters.PSobject.Properties["frequency"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cronString"))) { #optional property not found
-            $CronString = $null
-        } else {
-            $CronString = $JsonParameters.PSobject.Properties["cronString"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "timeZone"))) { #optional property not found
             $TimeZone = $null
         } else {
             $TimeZone = $JsonParameters.PSobject.Properties["timeZone"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cronString"))) { #optional property not found
+            $CronString = $null
+        } else {
+            $CronString = $JsonParameters.PSobject.Properties["cronString"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "weeklyDays"))) { #optional property not found
@@ -155,9 +151,9 @@ function ConvertFrom-V2024JsonToScheduledAttributes {
         }
 
         $PSO = [PSCustomObject]@{
-            "cronString" = ${CronString}
             "frequency" = ${Frequency}
             "timeZone" = ${TimeZone}
+            "cronString" = ${CronString}
             "weeklyDays" = ${WeeklyDays}
             "weeklyTimes" = ${WeeklyTimes}
             "yearlyTimes" = ${YearlyTimes}

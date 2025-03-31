@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024ScheduledAttributes' {
     Context 'V2024ScheduledAttributes' {
         It 'Initialize-V2024ScheduledAttributes' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024ScheduledAttributes -CronString "TEST_VALUE" -Frequency "TEST_VALUE" -TimeZone "TEST_VALUE" -WeeklyDays "TEST_VALUE" -WeeklyTimes "TEST_VALUE" -YearlyTimes "TEST_VALUE"
+            #$NewObject = Initialize-V2024ScheduledAttributes -Frequency "TEST_VALUE" -TimeZone "TEST_VALUE" -CronString "TEST_VALUE" -WeeklyDays "TEST_VALUE" -WeeklyTimes "TEST_VALUE" -YearlyTimes "TEST_VALUE"
             #$NewObject | Should -BeOfType ScheduledAttributes
             #$NewObject.property | Should -Be 0
         }

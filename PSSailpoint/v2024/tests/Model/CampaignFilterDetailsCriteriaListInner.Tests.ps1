@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024CampaignFilterDetailsCriteriaListI
     Context 'V2024CampaignFilterDetailsCriteriaListInner' {
         It 'Initialize-V2024CampaignFilterDetailsCriteriaListInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024CampaignFilterDetailsCriteriaListInner -Type "TEST_VALUE" -Operation "TEST_VALUE" -Property "TEST_VALUE" -Value "TEST_VALUE"
+            #$NewObject = Initialize-V2024CampaignFilterDetailsCriteriaListInner -Type "TEST_VALUE" -Operation "TEST_VALUE" -Property "TEST_VALUE" -Value "TEST_VALUE" -NegateResult "TEST_VALUE" -ShortCircuit "TEST_VALUE" -RecordChildMatches "TEST_VALUE" -Id "TEST_VALUE" -SuppressMatchedItems "TEST_VALUE" -Children "TEST_VALUE"
             #$NewObject | Should -BeOfType CampaignFilterDetailsCriteriaListInner
             #$NewObject.property | Should -Be 0
         }

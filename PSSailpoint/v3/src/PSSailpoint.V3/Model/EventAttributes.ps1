@@ -53,10 +53,6 @@ function Initialize-EventAttributes {
         'Creating PSCustomObject: PSSailpoint.V3 => EventAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Id) {
-            throw "invalid value for 'Id', 'Id' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}

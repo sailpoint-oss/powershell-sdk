@@ -41,7 +41,7 @@ function Initialize-V2024ConnectorRuleCreateRequest {
         [String]
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("BuildMap", "ConnectorAfterCreate", "ConnectorAfterDelete", "ConnectorAfterModify", "ConnectorBeforeCreate", "ConnectorBeforeDelete", "ConnectorBeforeModify", "JDBCBuildMap", "JDBCOperationProvisioning", "JDBCProvision", "PeopleSoftHRMSBuildMap", "PeopleSoftHRMSOperationProvisioning", "PeopleSoftHRMSProvision", "RACFPermissionCustomization", "ResourceObjectCustomization", "SAPBuildMap", "SapHrManagerRule", "SapHrOperationProvisioning", "SapHrProvision", "SuccessFactorsOperationProvisioning", "WebServiceAfterOperationRule", "WebServiceBeforeOperationRule")]
+        [ValidateSet("BuildMap", "ConnectorAfterCreate", "ConnectorAfterDelete", "ConnectorAfterModify", "ConnectorBeforeCreate", "ConnectorBeforeDelete", "ConnectorBeforeModify", "JDBCBuildMap", "JDBCOperationProvisioning", "JDBCProvision", "PeopleSoftHRMSBuildMap", "PeopleSoftHRMSOperationProvisioning", "PeopleSoftHRMSProvision", "RACFPermissionCustomization", "ResourceObjectCustomization", "SAPBuildMap", "SapHrManagerRule", "SapHrOperationProvisioning", "SapHrProvision", "SuccessFactorsOperationProvisioning", "WebServiceAfterOperationRule", "WebServiceBeforeOperationRule", "ResourceObjectCustomization")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

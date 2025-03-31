@@ -17,7 +17,7 @@ Attributes related to an external trigger
 .PARAMETER Name
 A unique name for the external trigger
 .PARAMETER Description
-Additonal context about the external trigger
+Additional context about the external trigger
 .PARAMETER ClientId
 OAuth Client ID to authenticate with this trigger
 .PARAMETER Url

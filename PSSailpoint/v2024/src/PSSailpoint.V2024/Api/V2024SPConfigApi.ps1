@@ -492,11 +492,11 @@ function Import-V2024SpConfig {
 <#
 .SYNOPSIS
 
-Get config object details
+List Config Objects
 
 .DESCRIPTION
 
-This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain ""importUrl"" and ""exportUrl"" are available for export/import.
+Get a list of object configurations that the tenant export/import service knows.
 
 .PARAMETER WithHttpInfo
 

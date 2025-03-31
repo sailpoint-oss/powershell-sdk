@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-Value to be assigned at the jsonPath location within the object
+Value to be assigned at the jsonPath location within the object.
 
 .PARAMETER Json
 

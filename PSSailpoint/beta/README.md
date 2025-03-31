@@ -461,7 +461,7 @@ Class | Method | HTTP request | Description
 *BetaSPConfigApi* | [**Get-BetaSpConfigImport**](docs/BetaSPConfigApi.md#Get-BetaSpConfigImport) | **GET** /sp-config/import/{id}/download | Download import job result
 *BetaSPConfigApi* | [**Get-BetaSpConfigImportStatus**](docs/BetaSPConfigApi.md#Get-BetaSpConfigImportStatus) | **GET** /sp-config/import/{id} | Get import job status
 *BetaSPConfigApi* | [**Import-BetaSpConfig**](docs/BetaSPConfigApi.md#Import-BetaSpConfig) | **POST** /sp-config/import | Initiates configuration objects import job
-*BetaSPConfigApi* | [**Get-BetaSpConfigObjects**](docs/BetaSPConfigApi.md#Get-BetaSpConfigObjects) | **GET** /sp-config/config-objects | Get config object details
+*BetaSPConfigApi* | [**Get-BetaSpConfigObjects**](docs/BetaSPConfigApi.md#Get-BetaSpConfigObjects) | **GET** /sp-config/config-objects | List Config Objects
 *BetaSearchAttributeConfigurationApi* | [**New-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#New-BetaSearchAttributeConfig) | **POST** /accounts/search-attribute-config | Create Extended Search Attributes
 *BetaSearchAttributeConfigurationApi* | [**Remove-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Remove-BetaSearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete Extended Search Attribute
 *BetaSearchAttributeConfigurationApi* | [**Get-BetaSearchAttributeConfig**](docs/BetaSearchAttributeConfigurationApi.md#Get-BetaSearchAttributeConfig) | **GET** /accounts/search-attribute-config | List Extended Search Attributes

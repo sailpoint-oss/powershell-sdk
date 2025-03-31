@@ -12,22 +12,22 @@ No summary available.
 
 .DESCRIPTION
 
-Response model for get object configuration.
+Response model for object configuration.
 
 .PARAMETER ObjectType
-The object type this configuration is for.
+Object type the configuration is for.
 .PARAMETER ReferenceExtractors
-List of json paths within an exported object of this type that represent references that need to be resolved.
+List of JSON paths within an exported object of this type, representing references that must be resolved.
 .PARAMETER SignatureRequired
-If true, this type of object will be JWS signed and cannot be modified before import.
+Indicates whether this type of object will be JWS signed and cannot be modified before import.
 .PARAMETER AlwaysResolveById
-Whether this object type has to be resolved always by ID
+Indicates whether this object type must be always be resolved by ID.
 .PARAMETER LegacyObject
-Whether this is a legacy object
+Indicates whether this is a legacy object.
 .PARAMETER OnePerTenant
-Whether there is only one object of this type
+Indicates whether there is only one object of this type.
 .PARAMETER Exportable
-Whether this object can be exported or it is just a reference object
+Indicates whether the object can be exported or is just a reference object.
 .PARAMETER Rules
 No description available.
 .OUTPUTS

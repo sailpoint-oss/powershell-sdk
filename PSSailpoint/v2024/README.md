@@ -568,7 +568,7 @@ Class | Method | HTTP request | Description
 *V2024SPConfigApi* | [**Get-V2024SpConfigImport**](docs/V2024SPConfigApi.md#Get-V2024SpConfigImport) | **GET** /sp-config/import/{id}/download | Download import job result
 *V2024SPConfigApi* | [**Get-V2024SpConfigImportStatus**](docs/V2024SPConfigApi.md#Get-V2024SpConfigImportStatus) | **GET** /sp-config/import/{id} | Get import job status
 *V2024SPConfigApi* | [**Import-V2024SpConfig**](docs/V2024SPConfigApi.md#Import-V2024SpConfig) | **POST** /sp-config/import | Initiates configuration objects import job
-*V2024SPConfigApi* | [**Get-V2024SpConfigObjects**](docs/V2024SPConfigApi.md#Get-V2024SpConfigObjects) | **GET** /sp-config/config-objects | Get config object details
+*V2024SPConfigApi* | [**Get-V2024SpConfigObjects**](docs/V2024SPConfigApi.md#Get-V2024SpConfigObjects) | **GET** /sp-config/config-objects | List Config Objects
 *V2024SavedSearchApi* | [**New-V2024SavedSearch**](docs/V2024SavedSearchApi.md#New-V2024SavedSearch) | **POST** /saved-searches | Create a saved search
 *V2024SavedSearchApi* | [**Remove-V2024SavedSearch**](docs/V2024SavedSearchApi.md#Remove-V2024SavedSearch) | **DELETE** /saved-searches/{id} | Delete document by ID
 *V2024SavedSearchApi* | [**Invoke-V2024ExecuteSavedSearch**](docs/V2024SavedSearchApi.md#Invoke-V2024ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID

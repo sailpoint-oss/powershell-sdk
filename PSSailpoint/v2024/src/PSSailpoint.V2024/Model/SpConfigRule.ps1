@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Format of Config Hub Object Rules
+Format of Config Hub object rules.
 
 .PARAMETER Path
-JSONPath expression denoting the path within the object where a value substitution should be applied
+JSONPath expression denoting the path within the object where a value substitution should be applied.
 .PARAMETER Value
 No description available.
 .PARAMETER Modes
-Draft modes to which this rule will apply
+Draft modes the rule will apply to.
 .OUTPUTS
 
 SpConfigRule<PSCustomObject>

@@ -568,7 +568,7 @@ Class | Method | HTTP request | Description
 *V2025SPConfigApi* | [**Get-V2025SpConfigImport**](docs/V2025SPConfigApi.md#Get-V2025SpConfigImport) | **GET** /sp-config/import/{id}/download | Download import job result
 *V2025SPConfigApi* | [**Get-V2025SpConfigImportStatus**](docs/V2025SPConfigApi.md#Get-V2025SpConfigImportStatus) | **GET** /sp-config/import/{id} | Get import job status
 *V2025SPConfigApi* | [**Import-V2025SpConfig**](docs/V2025SPConfigApi.md#Import-V2025SpConfig) | **POST** /sp-config/import | Initiates configuration objects import job
-*V2025SPConfigApi* | [**Get-V2025SpConfigObjects**](docs/V2025SPConfigApi.md#Get-V2025SpConfigObjects) | **GET** /sp-config/config-objects | Get config object details
+*V2025SPConfigApi* | [**Get-V2025SpConfigObjects**](docs/V2025SPConfigApi.md#Get-V2025SpConfigObjects) | **GET** /sp-config/config-objects | List Config Objects
 *V2025SavedSearchApi* | [**New-V2025SavedSearch**](docs/V2025SavedSearchApi.md#New-V2025SavedSearch) | **POST** /saved-searches | Create a saved search
 *V2025SavedSearchApi* | [**Remove-V2025SavedSearch**](docs/V2025SavedSearchApi.md#Remove-V2025SavedSearch) | **DELETE** /saved-searches/{id} | Delete document by ID
 *V2025SavedSearchApi* | [**Invoke-V2025ExecuteSavedSearch**](docs/V2025SavedSearchApi.md#Invoke-V2025ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID

@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Rules to be applied to the config object during draft process
+Rules to be applied to the config object during the draft process.
 
 .PARAMETER TakeFromTargetRules
 No description available.
 .PARAMETER DefaultRules
 No description available.
 .PARAMETER Editable
-Whether this object can be edited
+Indicates whether the object can be edited.
 .OUTPUTS
 
 SpConfigRules<PSCustomObject>

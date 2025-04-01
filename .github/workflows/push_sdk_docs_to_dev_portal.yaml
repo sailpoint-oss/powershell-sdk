@@ -55,16 +55,26 @@ jobs:
           CURRENT_V2024_SPEC_PATH_MODELS="powershell-sdk/PSSailpoint/v2024/docs/Models"
           NEW_V2024_API_SPEC_PATH_MODELS="developer-community/docs/tools/sdk/powershell/Reference/V2024"
 
+          CURRENT_V2025_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/v2025/docs/Examples/powershell_code_examples_overlay.yaml"
+          NEW_V2025_CODE_EXAMPLES_PATH="developer-community/static/code-examples/v2025/"
+          CURRENT_V2025_SPEC_PATH_METHODS="powershell-sdk/PSSailpoint/v2025/docs/Methods"
+          NEW_V2025_API_SPEC_PATH_METHODS="developer-community/docs/tools/sdk/powershell/Reference/V2025"
+          CURRENT_V2025_SPEC_PATH_MODELS="powershell-sdk/PSSailpoint/v2025/docs/Models"
+          NEW_V2025_API_SPEC_PATH_MODELS="developer-community/docs/tools/sdk/powershell/Reference/V2025"
+
           rsync -cav --delete $CURRENT_V3_SPEC_PATH_METHODS $NEW_V3_API_SPEC_PATH_METHODS 
           rsync -cav --delete $CURRENT_BETA_SPEC_PATH_METHODS $NEW_BETA_API_SPEC_PATH_METHODS
           rsync -cav --delete $CURRENT_V2024_SPEC_PATH_METHODS $NEW_V2024_API_SPEC_PATH_METHODS
+          rsync -cav --delete $CURRENT_V2025_SPEC_PATH_METHODS $NEW_V2025_API_SPEC_PATH_METHODS
           rsync -cav --delete $CURRENT_V3_SPEC_PATH_MODELS $NEW_V3_API_SPEC_PATH_MODELS
           rsync -cav --delete $CURRENT_BETA_SPEC_PATH_MODELS $NEW_BETA_API_SPEC_PATH_MODELS
           rsync -cav --delete $CURRENT_V2024_SPEC_PATH_MODELS $NEW_V2024_API_SPEC_PATH_MODELS
+          rsync -cav --delete $CURRENT_V2025_SPEC_PATH_MODELS $NEW_V2025_API_SPEC_PATH_MODELS
           
           rsync -av $CURRENT_V3_CODE_EXAMPLES_PATH $NEW_V3_CODE_EXAMPLES_PATH
           rsync -av $CURRENT_BETA_CODE_EXAMPLES_PATH $NEW_BETA_CODE_EXAMPLES_PATH
           rsync -av $CURRENT_V2024_CODE_EXAMPLES_PATH $NEW_V2024_CODE_EXAMPLES_PATH
+          rsync -av $CURRENT_V2025_CODE_EXAMPLES_PATH $NEW_V2025_CODE_EXAMPLES_PATH
 
       - name: Check for changes and commit if any
         run: |

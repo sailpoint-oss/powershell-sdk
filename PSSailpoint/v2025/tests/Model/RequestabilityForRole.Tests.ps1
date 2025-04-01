@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025RequestabilityForRole' {
     Context 'V2025RequestabilityForRole' {
         It 'Initialize-V2025RequestabilityForRole' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025RequestabilityForRole -CommentsRequired "TEST_VALUE" -DenialCommentsRequired "TEST_VALUE" -ApprovalSchemes "TEST_VALUE"
+            #$NewObject = Initialize-V2025RequestabilityForRole -CommentsRequired "TEST_VALUE" -DenialCommentsRequired "TEST_VALUE" -ReauthorizationRequired "TEST_VALUE" -ApprovalSchemes "TEST_VALUE"
             #$NewObject | Should -BeOfType RequestabilityForRole
             #$NewObject.property | Should -Be 0
         }

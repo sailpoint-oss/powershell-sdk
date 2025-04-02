@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.4.13'
+ModuleVersion = '1.5.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -51,10 +51,10 @@ PowerShellVersion = '6.2'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @(@{ModuleName = 'PSSailpoint.Beta'; RequiredVersion = '1.4.13'; }, 
-               @{ModuleName = 'PSSailpoint.V3'; RequiredVersion = '1.4.13'; }, 
-               @{ModuleName = 'PSSailpoint.V2024'; RequiredVersion = '1.4.13'; }, 
-               @{ModuleName = 'PSSailpoint.V2025'; RequiredVersion = '1.4.13'; })
+RequiredModules = @(@{ModuleName = 'PSSailpoint.Beta'; RequiredVersion = '1.5.0'; }, 
+               @{ModuleName = 'PSSailpoint.V3'; RequiredVersion = '1.5.0'; }, 
+               @{ModuleName = 'PSSailpoint.V2024'; RequiredVersion = '1.5.0'; }, 
+               @{ModuleName = 'PSSailpoint.V2025'; RequiredVersion = '1.5.0'; })
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()

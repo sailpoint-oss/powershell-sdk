@@ -1,6 +1,6 @@
 templateDir: ./sdk-resources/resources
 packageName: PSSailpoint.V2025
-packageVersion: 1.4.13
+packageVersion: 1.5.0
 apiNamePrefix: V2025
 apiVersion: v2025
 companyName: SailPoint Technologies

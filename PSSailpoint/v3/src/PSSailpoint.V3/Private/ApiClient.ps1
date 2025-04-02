@@ -77,8 +77,8 @@ function Invoke-ApiClient {
     }
 
     # Add Custom Header
-    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.4.13"
-    $HeaderParameters['User-Agent'] = "OpenAPI-Generator/1.4.13/ps"
+    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.5.0"
+    $HeaderParameters['User-Agent'] = "OpenAPI-Generator/1.5.0/ps"
 
 
     $HasFormData = $False

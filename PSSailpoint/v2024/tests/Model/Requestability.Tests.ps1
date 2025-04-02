@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024Requestability' {
     Context 'V2024Requestability' {
         It 'Initialize-V2024Requestability' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024Requestability -CommentsRequired "TEST_VALUE" -DenialCommentsRequired "TEST_VALUE" -ApprovalSchemes "TEST_VALUE"
+            #$NewObject = Initialize-V2024Requestability -CommentsRequired "TEST_VALUE" -DenialCommentsRequired "TEST_VALUE" -ReauthorizationRequired "TEST_VALUE" -ApprovalSchemes "TEST_VALUE"
             #$NewObject | Should -BeOfType Requestability
             #$NewObject.property | Should -Be 0
         }

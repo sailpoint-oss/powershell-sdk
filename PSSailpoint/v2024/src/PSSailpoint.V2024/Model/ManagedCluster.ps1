@@ -64,6 +64,18 @@ CC ID only used in calling CC, will be removed without notice when Migration to 
 The date/time this cluster was created
 .PARAMETER UpdatedAt
 The date/time this cluster was last updated
+.PARAMETER LastReleaseNotifiedAt
+The date/time this cluster was notified for the last release
+.PARAMETER UpdatePreferences
+No description available.
+.PARAMETER CurrentInstalledReleaseVersion
+The current installed release on the Managed cluster
+.PARAMETER UpdatePackage
+New available updates for the Managed cluster
+.PARAMETER IsOutOfDateNotifiedAt
+The time at which out of date notification was sent for the Managed cluster
+.PARAMETER ConsolidatedHealthIndicatorsStatus
+The consolidated Health Status for the Managed cluster
 .OUTPUTS
 
 ManagedCluster<PSCustomObject>
@@ -149,7 +161,26 @@ function Initialize-V2024ManagedCluster {
         ${CreatedAt},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${UpdatedAt}
+        ${UpdatedAt},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${LastReleaseNotifiedAt},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${UpdatePreferences},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${CurrentInstalledReleaseVersion},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${UpdatePackage},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${IsOutOfDateNotifiedAt},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("", "NORMAL", "WARNING", "ERROR")]
+        [String]
+        ${ConsolidatedHealthIndicatorsStatus}
     )
 
     Process {
@@ -191,6 +222,12 @@ function Initialize-V2024ManagedCluster {
             "ccId" = ${CcId}
             "createdAt" = ${CreatedAt}
             "updatedAt" = ${UpdatedAt}
+            "lastReleaseNotifiedAt" = ${LastReleaseNotifiedAt}
+            "updatePreferences" = ${UpdatePreferences}
+            "currentInstalledReleaseVersion" = ${CurrentInstalledReleaseVersion}
+            "updatePackage" = ${UpdatePackage}
+            "isOutOfDateNotifiedAt" = ${IsOutOfDateNotifiedAt}
+            "consolidatedHealthIndicatorsStatus" = ${ConsolidatedHealthIndicatorsStatus}
         }
 
         return $PSO
@@ -227,7 +264,7 @@ function ConvertFrom-V2024JsonToManagedCluster {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024ManagedCluster
-        $AllProperties = ("id", "name", "pod", "org", "type", "configuration", "keyPair", "attributes", "description", "redis", "clientType", "ccgVersion", "pinnedConfig", "logConfiguration", "operational", "status", "publicKeyCertificate", "publicKeyThumbprint", "publicKey", "alertKey", "clientIds", "serviceCount", "ccId", "createdAt", "updatedAt")
+        $AllProperties = ("id", "name", "pod", "org", "type", "configuration", "keyPair", "attributes", "description", "redis", "clientType", "ccgVersion", "pinnedConfig", "logConfiguration", "operational", "status", "publicKeyCertificate", "publicKeyThumbprint", "publicKey", "alertKey", "clientIds", "serviceCount", "ccId", "createdAt", "updatedAt", "lastReleaseNotifiedAt", "updatePreferences", "currentInstalledReleaseVersion", "updatePackage", "isOutOfDateNotifiedAt", "consolidatedHealthIndicatorsStatus")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -388,6 +425,42 @@ function ConvertFrom-V2024JsonToManagedCluster {
             $UpdatedAt = $JsonParameters.PSobject.Properties["updatedAt"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "lastReleaseNotifiedAt"))) { #optional property not found
+            $LastReleaseNotifiedAt = $null
+        } else {
+            $LastReleaseNotifiedAt = $JsonParameters.PSobject.Properties["lastReleaseNotifiedAt"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "updatePreferences"))) { #optional property not found
+            $UpdatePreferences = $null
+        } else {
+            $UpdatePreferences = $JsonParameters.PSobject.Properties["updatePreferences"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "currentInstalledReleaseVersion"))) { #optional property not found
+            $CurrentInstalledReleaseVersion = $null
+        } else {
+            $CurrentInstalledReleaseVersion = $JsonParameters.PSobject.Properties["currentInstalledReleaseVersion"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "updatePackage"))) { #optional property not found
+            $UpdatePackage = $null
+        } else {
+            $UpdatePackage = $JsonParameters.PSobject.Properties["updatePackage"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isOutOfDateNotifiedAt"))) { #optional property not found
+            $IsOutOfDateNotifiedAt = $null
+        } else {
+            $IsOutOfDateNotifiedAt = $JsonParameters.PSobject.Properties["isOutOfDateNotifiedAt"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "consolidatedHealthIndicatorsStatus"))) { #optional property not found
+            $ConsolidatedHealthIndicatorsStatus = $null
+        } else {
+            $ConsolidatedHealthIndicatorsStatus = $JsonParameters.PSobject.Properties["consolidatedHealthIndicatorsStatus"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -414,6 +487,12 @@ function ConvertFrom-V2024JsonToManagedCluster {
             "ccId" = ${CcId}
             "createdAt" = ${CreatedAt}
             "updatedAt" = ${UpdatedAt}
+            "lastReleaseNotifiedAt" = ${LastReleaseNotifiedAt}
+            "updatePreferences" = ${UpdatePreferences}
+            "currentInstalledReleaseVersion" = ${CurrentInstalledReleaseVersion}
+            "updatePackage" = ${UpdatePackage}
+            "isOutOfDateNotifiedAt" = ${IsOutOfDateNotifiedAt}
+            "consolidatedHealthIndicatorsStatus" = ${ConsolidatedHealthIndicatorsStatus}
         }
 
         return $PSO

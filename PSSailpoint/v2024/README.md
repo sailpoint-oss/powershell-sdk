@@ -1331,6 +1331,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ManagedClusterRequest](docs/ManagedClusterRequest.md)
  - [PSSailpoint.V2024\Model.ManagedClusterType](docs/ManagedClusterType.md)
  - [PSSailpoint.V2024\Model.ManagedClusterTypes](docs/ManagedClusterTypes.md)
+ - [PSSailpoint.V2024\Model.ManagedClusterUpdatePreferences](docs/ManagedClusterUpdatePreferences.md)
  - [PSSailpoint.V2024\Model.ManagerCorrelationMapping](docs/ManagerCorrelationMapping.md)
  - [PSSailpoint.V2024\Model.ManualDiscoverApplications](docs/ManualDiscoverApplications.md)
  - [PSSailpoint.V2024\Model.ManualDiscoverApplicationsTemplate](docs/ManualDiscoverApplicationsTemplate.md)

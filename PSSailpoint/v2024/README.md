@@ -1188,6 +1188,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.FullDiscoveredApplications](docs/FullDiscoveredApplications.md)
  - [PSSailpoint.V2024\Model.GenerateRandomString](docs/GenerateRandomString.md)
  - [PSSailpoint.V2024\Model.GetActiveCampaigns200ResponseInner](docs/GetActiveCampaigns200ResponseInner.md)
+ - [PSSailpoint.V2024\Model.GetCampaign200Response](docs/GetCampaign200Response.md)
  - [PSSailpoint.V2024\Model.GetDiscoveredApplications200ResponseInner](docs/GetDiscoveredApplications200ResponseInner.md)
  - [PSSailpoint.V2024\Model.GetHistoricalIdentityEvents200ResponseInner](docs/GetHistoricalIdentityEvents200ResponseInner.md)
  - [PSSailpoint.V2024\Model.GetOAuthClientResponse](docs/GetOAuthClientResponse.md)

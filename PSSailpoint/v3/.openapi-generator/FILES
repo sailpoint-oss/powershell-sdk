@@ -270,6 +270,7 @@ docs/ForwardApprovalDto.md
 docs/FullDiscoveredApplications.md
 docs/GenerateRandomString.md
 docs/GetActiveCampaigns200ResponseInner.md
+docs/GetCampaign200Response.md
 docs/GetDiscoveredApplications200ResponseInner.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
@@ -1017,6 +1018,7 @@ src/PSSailpoint.V3/Model/ForwardApprovalDto.ps1
 src/PSSailpoint.V3/Model/FullDiscoveredApplications.ps1
 src/PSSailpoint.V3/Model/GenerateRandomString.ps1
 src/PSSailpoint.V3/Model/GetActiveCampaigns200ResponseInner.ps1
+src/PSSailpoint.V3/Model/GetCampaign200Response.ps1
 src/PSSailpoint.V3/Model/GetDiscoveredApplications200ResponseInner.ps1
 src/PSSailpoint.V3/Model/GetOAuthClientResponse.ps1
 src/PSSailpoint.V3/Model/GetPersonalAccessTokenResponse.ps1
@@ -1701,6 +1703,7 @@ tests/Model/ForwardApprovalDto.Tests.ps1
 tests/Model/FullDiscoveredApplications.Tests.ps1
 tests/Model/GenerateRandomString.Tests.ps1
 tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
+tests/Model/GetCampaign200Response.Tests.ps1
 tests/Model/GetDiscoveredApplications200ResponseInner.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1

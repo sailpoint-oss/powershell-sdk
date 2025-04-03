@@ -450,6 +450,7 @@ docs/ForwardApprovalDto.md
 docs/FullDiscoveredApplications.md
 docs/GenerateRandomString.md
 docs/GetActiveCampaigns200ResponseInner.md
+docs/GetCampaign200Response.md
 docs/GetDiscoveredApplications200ResponseInner.md
 docs/GetHistoricalIdentityEvents200ResponseInner.md
 docs/GetOAuthClientResponse.md
@@ -1849,6 +1850,7 @@ src/PSSailpoint.V2024/Model/ForwardApprovalDto.ps1
 src/PSSailpoint.V2024/Model/FullDiscoveredApplications.ps1
 src/PSSailpoint.V2024/Model/GenerateRandomString.ps1
 src/PSSailpoint.V2024/Model/GetActiveCampaigns200ResponseInner.ps1
+src/PSSailpoint.V2024/Model/GetCampaign200Response.ps1
 src/PSSailpoint.V2024/Model/GetDiscoveredApplications200ResponseInner.ps1
 src/PSSailpoint.V2024/Model/GetHistoricalIdentityEvents200ResponseInner.ps1
 src/PSSailpoint.V2024/Model/GetOAuthClientResponse.ps1
@@ -3078,6 +3080,7 @@ tests/Model/ForwardApprovalDto.Tests.ps1
 tests/Model/FullDiscoveredApplications.Tests.ps1
 tests/Model/GenerateRandomString.Tests.ps1
 tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
+tests/Model/GetCampaign200Response.Tests.ps1
 tests/Model/GetDiscoveredApplications200ResponseInner.Tests.ps1
 tests/Model/GetHistoricalIdentityEvents200ResponseInner.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1

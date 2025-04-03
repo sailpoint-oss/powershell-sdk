@@ -653,6 +653,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.FullDiscoveredApplications](docs/FullDiscoveredApplications.md)
  - [PSSailpoint.V3\Model.GenerateRandomString](docs/GenerateRandomString.md)
  - [PSSailpoint.V3\Model.GetActiveCampaigns200ResponseInner](docs/GetActiveCampaigns200ResponseInner.md)
+ - [PSSailpoint.V3\Model.GetCampaign200Response](docs/GetCampaign200Response.md)
  - [PSSailpoint.V3\Model.GetDiscoveredApplications200ResponseInner](docs/GetDiscoveredApplications200ResponseInner.md)
  - [PSSailpoint.V3\Model.GetOAuthClientResponse](docs/GetOAuthClientResponse.md)
  - [PSSailpoint.V3\Model.GetPersonalAccessTokenResponse](docs/GetPersonalAccessTokenResponse.md)

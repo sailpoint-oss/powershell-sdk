@@ -29,7 +29,7 @@ function Initialize-V2024LifecyclestateDeleted {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("LIFECYCLE_STATE")]
+        [ValidateSet("LIFECYCLE_STATE", "TASK_RESULT")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

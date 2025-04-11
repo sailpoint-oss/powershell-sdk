@@ -81,6 +81,7 @@ Class | Method | HTTP request | Description
 *V2024AccessRequestsApi* | [**Get-V2024AccessRequestConfig**](docs/V2024AccessRequestsApi.md#Get-V2024AccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
 *V2024AccessRequestsApi* | [**Get-V2024AccessRequestStatus**](docs/V2024AccessRequestsApi.md#Get-V2024AccessRequestStatus) | **GET** /access-request-status | Access Request Status
 *V2024AccessRequestsApi* | [**Get-V2024AdministratorsAccessRequestStatus**](docs/V2024AccessRequestsApi.md#Get-V2024AdministratorsAccessRequestStatus) | **GET** /access-request-administration | Access Request Status for Administrators
+*V2024AccessRequestsApi* | [**Invoke-V2024LoadAccountSelections**](docs/V2024AccessRequestsApi.md#Invoke-V2024LoadAccountSelections) | **POST** /access-requests/accounts-selection | Get accounts selections for identity
 *V2024AccessRequestsApi* | [**Set-V2024AccessRequestConfig**](docs/V2024AccessRequestsApi.md#Set-V2024AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
 *V2024AccountActivitiesApi* | [**Get-V2024AccountActivity**](docs/V2024AccountActivitiesApi.md#Get-V2024AccountActivity) | **GET** /account-activities/{id} | Get an Account Activity
 *V2024AccountActivitiesApi* | [**Get-V2024AccountActivities**](docs/V2024AccountActivitiesApi.md#Get-V2024AccountActivities) | **GET** /account-activities | List Account Activities
@@ -268,8 +269,14 @@ Class | Method | HTTP request | Description
 *V2024EntitlementsApi* | [**Reset-V2024SourceEntitlements**](docs/V2024EntitlementsApi.md#Reset-V2024SourceEntitlements) | **POST** /entitlements/reset/sources/{id} | Reset Source Entitlements
 *V2024EntitlementsApi* | [**Update-V2024EntitlementsInBulk**](docs/V2024EntitlementsApi.md#Update-V2024EntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 *V2024GlobalTenantSecuritySettingsApi* | [**New-V2024AuthOrgNetworkConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#New-V2024AuthOrgNetworkConfig) | **POST** /auth-org/network-config | Create security network configuration.
+*V2024GlobalTenantSecuritySettingsApi* | [**Get-V2024AuthOrgLockoutConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Get-V2024AuthOrgLockoutConfig) | **GET** /auth-org/lockout-config | Get Auth Org Lockout Configuration.
 *V2024GlobalTenantSecuritySettingsApi* | [**Get-V2024AuthOrgNetworkConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Get-V2024AuthOrgNetworkConfig) | **GET** /auth-org/network-config | Get security network configuration.
+*V2024GlobalTenantSecuritySettingsApi* | [**Get-V2024AuthOrgServiceProviderConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Get-V2024AuthOrgServiceProviderConfig) | **GET** /auth-org/service-provider-config | Get Service Provider Configuration.
+*V2024GlobalTenantSecuritySettingsApi* | [**Get-V2024AuthOrgSessionConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Get-V2024AuthOrgSessionConfig) | **GET** /auth-org/session-config | Get Auth Org Session Configuration.
+*V2024GlobalTenantSecuritySettingsApi* | [**Update-V2024AuthOrgLockoutConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Update-V2024AuthOrgLockoutConfig) | **PATCH** /auth-org/lockout-config | Update Auth Org Lockout Configuration
 *V2024GlobalTenantSecuritySettingsApi* | [**Update-V2024AuthOrgNetworkConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Update-V2024AuthOrgNetworkConfig) | **PATCH** /auth-org/network-config | Update security network configuration.
+*V2024GlobalTenantSecuritySettingsApi* | [**Update-V2024AuthOrgServiceProviderConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Update-V2024AuthOrgServiceProviderConfig) | **PATCH** /auth-org/service-provider-config | Update Service Provider Configuration
+*V2024GlobalTenantSecuritySettingsApi* | [**Update-V2024AuthOrgSessionConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Update-V2024AuthOrgSessionConfig) | **PATCH** /auth-org/session-config | Update Auth Org Session Configuration
 *V2024GovernanceGroupsApi* | [**New-V2024Workgroup**](docs/V2024GovernanceGroupsApi.md#New-V2024Workgroup) | **POST** /workgroups | Create a new Governance Group.
 *V2024GovernanceGroupsApi* | [**Remove-V2024Workgroup**](docs/V2024GovernanceGroupsApi.md#Remove-V2024Workgroup) | **DELETE** /workgroups/{id} | Delete a Governance Group
 *V2024GovernanceGroupsApi* | [**Remove-V2024WorkgroupMembers**](docs/V2024GovernanceGroupsApi.md#Remove-V2024WorkgroupMembers) | **POST** /workgroups/{workgroupId}/members/bulk-delete | Remove members from Governance Group
@@ -853,6 +860,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccountCorrelatedIdentity](docs/AccountCorrelatedIdentity.md)
  - [PSSailpoint.V2024\Model.AccountCorrelatedSource](docs/AccountCorrelatedSource.md)
  - [PSSailpoint.V2024\Model.AccountInfoDto](docs/AccountInfoDto.md)
+ - [PSSailpoint.V2024\Model.AccountInfoRef](docs/AccountInfoRef.md)
+ - [PSSailpoint.V2024\Model.AccountItemRef](docs/AccountItemRef.md)
  - [PSSailpoint.V2024\Model.AccountRequest](docs/AccountRequest.md)
  - [PSSailpoint.V2024\Model.AccountRequestInfo](docs/AccountRequestInfo.md)
  - [PSSailpoint.V2024\Model.AccountRequestResult](docs/AccountRequestResult.md)
@@ -872,6 +881,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccountsCollectedForAggregationSource](docs/AccountsCollectedForAggregationSource.md)
  - [PSSailpoint.V2024\Model.AccountsCollectedForAggregationStats](docs/AccountsCollectedForAggregationStats.md)
  - [PSSailpoint.V2024\Model.AccountsExportReportArguments](docs/AccountsExportReportArguments.md)
+ - [PSSailpoint.V2024\Model.AccountsSelectionRequest](docs/AccountsSelectionRequest.md)
+ - [PSSailpoint.V2024\Model.AccountsSelectionResponse](docs/AccountsSelectionResponse.md)
  - [PSSailpoint.V2024\Model.ActivateCampaignOptions](docs/ActivateCampaignOptions.md)
  - [PSSailpoint.V2024\Model.ActivityIdentity](docs/ActivityIdentity.md)
  - [PSSailpoint.V2024\Model.ActivityInsights](docs/ActivityInsights.md)
@@ -1158,6 +1169,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ExpressionChildrenInner](docs/ExpressionChildrenInner.md)
  - [PSSailpoint.V2024\Model.ExternalAttributes](docs/ExternalAttributes.md)
  - [PSSailpoint.V2024\Model.FeatureValueDto](docs/FeatureValueDto.md)
+ - [PSSailpoint.V2024\Model.FederationProtocolDetails](docs/FederationProtocolDetails.md)
  - [PSSailpoint.V2024\Model.FieldDetailsDto](docs/FieldDetailsDto.md)
  - [PSSailpoint.V2024\Model.FilterAggregation](docs/FilterAggregation.md)
  - [PSSailpoint.V2024\Model.FilterType](docs/FilterType.md)
@@ -1207,6 +1219,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.Identity](docs/Identity.md)
  - [PSSailpoint.V2024\Model.Identity1](docs/Identity1.md)
  - [PSSailpoint.V2024\Model.IdentityAccess](docs/IdentityAccess.md)
+ - [PSSailpoint.V2024\Model.IdentityAccountSelections](docs/IdentityAccountSelections.md)
  - [PSSailpoint.V2024\Model.IdentityAssociationDetails](docs/IdentityAssociationDetails.md)
  - [PSSailpoint.V2024\Model.IdentityAssociationDetailsAssociationDetailsInner](docs/IdentityAssociationDetailsAssociationDetailsInner.md)
  - [PSSailpoint.V2024\Model.IdentityAttribute](docs/IdentityAttribute.md)
@@ -1261,6 +1274,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.IdentityWithNewAccess](docs/IdentityWithNewAccess.md)
  - [PSSailpoint.V2024\Model.IdentityWithNewAccess1](docs/IdentityWithNewAccess1.md)
  - [PSSailpoint.V2024\Model.IdentityWithNewAccessAccessRefsInner](docs/IdentityWithNewAccessAccessRefsInner.md)
+ - [PSSailpoint.V2024\Model.IdpDetails](docs/IdpDetails.md)
  - [PSSailpoint.V2024\Model.ImportAccountsRequest](docs/ImportAccountsRequest.md)
  - [PSSailpoint.V2024\Model.ImportEntitlementsBySourceRequest](docs/ImportEntitlementsBySourceRequest.md)
  - [PSSailpoint.V2024\Model.ImportFormDefinitions202Response](docs/ImportFormDefinitions202Response.md)
@@ -1277,6 +1291,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.Invocation](docs/Invocation.md)
  - [PSSailpoint.V2024\Model.InvocationStatus](docs/InvocationStatus.md)
  - [PSSailpoint.V2024\Model.InvocationStatusType](docs/InvocationStatusType.md)
+ - [PSSailpoint.V2024\Model.JITConfiguration](docs/JITConfiguration.md)
  - [PSSailpoint.V2024\Model.JsonPatch](docs/JsonPatch.md)
  - [PSSailpoint.V2024\Model.JsonPatchOperation](docs/JsonPatchOperation.md)
  - [PSSailpoint.V2024\Model.KbaAnswerRequestItem](docs/KbaAnswerRequestItem.md)
@@ -1312,6 +1327,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.LoadUncorrelatedAccountsTaskTaskMessagesInner](docs/LoadUncorrelatedAccountsTaskTaskMessagesInner.md)
  - [PSSailpoint.V2024\Model.LocaleOrigin](docs/LocaleOrigin.md)
  - [PSSailpoint.V2024\Model.LocalizedMessage](docs/LocalizedMessage.md)
+ - [PSSailpoint.V2024\Model.LockoutConfiguration](docs/LockoutConfiguration.md)
  - [PSSailpoint.V2024\Model.Lookup](docs/Lookup.md)
  - [PSSailpoint.V2024\Model.LookupStep](docs/LookupStep.md)
  - [PSSailpoint.V2024\Model.Lower](docs/Lower.md)
@@ -1517,7 +1533,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.RequestableObjectRequestStatus](docs/RequestableObjectRequestStatus.md)
  - [PSSailpoint.V2024\Model.RequestableObjectType](docs/RequestableObjectType.md)
  - [PSSailpoint.V2024\Model.RequestedAccountRef](docs/RequestedAccountRef.md)
+ - [PSSailpoint.V2024\Model.RequestedForDtoRef](docs/RequestedForDtoRef.md)
+ - [PSSailpoint.V2024\Model.RequestedItemAccountSelections](docs/RequestedItemAccountSelections.md)
  - [PSSailpoint.V2024\Model.RequestedItemDetails](docs/RequestedItemDetails.md)
+ - [PSSailpoint.V2024\Model.RequestedItemDtoRef](docs/RequestedItemDtoRef.md)
  - [PSSailpoint.V2024\Model.RequestedItemStatus](docs/RequestedItemStatus.md)
  - [PSSailpoint.V2024\Model.RequestedItemStatusCancelledRequestDetails](docs/RequestedItemStatusCancelledRequestDetails.md)
  - [PSSailpoint.V2024\Model.RequestedItemStatusPreApprovalTriggerDetails](docs/RequestedItemStatusPreApprovalTriggerDetails.md)
@@ -1680,6 +1699,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ServiceDeskIntegrationTemplateDto](docs/ServiceDeskIntegrationTemplateDto.md)
  - [PSSailpoint.V2024\Model.ServiceDeskIntegrationTemplateType](docs/ServiceDeskIntegrationTemplateType.md)
  - [PSSailpoint.V2024\Model.ServiceDeskSource](docs/ServiceDeskSource.md)
+ - [PSSailpoint.V2024\Model.ServiceProviderConfiguration](docs/ServiceProviderConfiguration.md)
+ - [PSSailpoint.V2024\Model.ServiceProviderConfigurationFederationProtocolDetailsInner](docs/ServiceProviderConfigurationFederationProtocolDetailsInner.md)
+ - [PSSailpoint.V2024\Model.SessionConfiguration](docs/SessionConfiguration.md)
  - [PSSailpoint.V2024\Model.SetIcon200Response](docs/SetIcon200Response.md)
  - [PSSailpoint.V2024\Model.SetIconRequest](docs/SetIconRequest.md)
  - [PSSailpoint.V2024\Model.SetLifecycleState200Response](docs/SetLifecycleState200Response.md)
@@ -1708,6 +1730,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SourceAccountCorrelationRule](docs/SourceAccountCorrelationRule.md)
  - [PSSailpoint.V2024\Model.SourceAccountCreated](docs/SourceAccountCreated.md)
  - [PSSailpoint.V2024\Model.SourceAccountDeleted](docs/SourceAccountDeleted.md)
+ - [PSSailpoint.V2024\Model.SourceAccountSelections](docs/SourceAccountSelections.md)
  - [PSSailpoint.V2024\Model.SourceAccountUpdated](docs/SourceAccountUpdated.md)
  - [PSSailpoint.V2024\Model.SourceApp](docs/SourceApp.md)
  - [PSSailpoint.V2024\Model.SourceAppAccountSource](docs/SourceAppAccountSource.md)
@@ -1727,6 +1750,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SourceDeletedActor](docs/SourceDeletedActor.md)
  - [PSSailpoint.V2024\Model.SourceEntitlementRequestConfig](docs/SourceEntitlementRequestConfig.md)
  - [PSSailpoint.V2024\Model.SourceHealthDto](docs/SourceHealthDto.md)
+ - [PSSailpoint.V2024\Model.SourceItemRef](docs/SourceItemRef.md)
  - [PSSailpoint.V2024\Model.SourceManagementWorkgroup](docs/SourceManagementWorkgroup.md)
  - [PSSailpoint.V2024\Model.SourceManagerCorrelationMapping](docs/SourceManagerCorrelationMapping.md)
  - [PSSailpoint.V2024\Model.SourceManagerCorrelationRule](docs/SourceManagerCorrelationRule.md)
@@ -1752,6 +1776,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SpConfigRule](docs/SpConfigRule.md)
  - [PSSailpoint.V2024\Model.SpConfigRuleValue](docs/SpConfigRuleValue.md)
  - [PSSailpoint.V2024\Model.SpConfigRules](docs/SpConfigRules.md)
+ - [PSSailpoint.V2024\Model.SpDetails](docs/SpDetails.md)
  - [PSSailpoint.V2024\Model.Split](docs/Split.md)
  - [PSSailpoint.V2024\Model.StandardLevel](docs/StandardLevel.md)
  - [PSSailpoint.V2024\Model.StartInvocationInput](docs/StartInvocationInput.md)

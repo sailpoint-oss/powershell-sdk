@@ -90,6 +90,7 @@ docs/AccountCorrelatedAccount.md
 docs/AccountCorrelatedIdentity.md
 docs/AccountCorrelatedSource.md
 docs/AccountInfoDto.md
+docs/AccountItemRef.md
 docs/AccountRequestInfo.md
 docs/AccountStatusChanged.md
 docs/AccountStatusChangedAccount.md
@@ -783,7 +784,9 @@ docs/RequestableObjectReference.md
 docs/RequestableObjectRequestStatus.md
 docs/RequestableObjectType.md
 docs/RequestedAccountRef.md
+docs/RequestedForDtoRef.md
 docs/RequestedItemDetails.md
+docs/RequestedItemDtoRef.md
 docs/RequestedItemStatus.md
 docs/RequestedItemStatusCancelledRequestDetails.md
 docs/RequestedItemStatusPreApprovalTriggerDetails.md
@@ -942,6 +945,7 @@ docs/SourceCreationErrors.md
 docs/SourceDeleted.md
 docs/SourceDeletedActor.md
 docs/SourceEntitlementRequestConfig.md
+docs/SourceItemRef.md
 docs/SourceSyncJob.md
 docs/SourceSyncPayload.md
 docs/SourceUpdated.md
@@ -1244,6 +1248,7 @@ src/PSSailpoint.Beta/Model/AccountCorrelatedAccount.ps1
 src/PSSailpoint.Beta/Model/AccountCorrelatedIdentity.ps1
 src/PSSailpoint.Beta/Model/AccountCorrelatedSource.ps1
 src/PSSailpoint.Beta/Model/AccountInfoDto.ps1
+src/PSSailpoint.Beta/Model/AccountItemRef.ps1
 src/PSSailpoint.Beta/Model/AccountRequestInfo.ps1
 src/PSSailpoint.Beta/Model/AccountStatusChanged.ps1
 src/PSSailpoint.Beta/Model/AccountStatusChangedAccount.ps1
@@ -1786,7 +1791,9 @@ src/PSSailpoint.Beta/Model/RequestableObjectReference.ps1
 src/PSSailpoint.Beta/Model/RequestableObjectRequestStatus.ps1
 src/PSSailpoint.Beta/Model/RequestableObjectType.ps1
 src/PSSailpoint.Beta/Model/RequestedAccountRef.ps1
+src/PSSailpoint.Beta/Model/RequestedForDtoRef.ps1
 src/PSSailpoint.Beta/Model/RequestedItemDetails.ps1
+src/PSSailpoint.Beta/Model/RequestedItemDtoRef.ps1
 src/PSSailpoint.Beta/Model/RequestedItemStatus.ps1
 src/PSSailpoint.Beta/Model/RequestedItemStatusCancelledRequestDetails.ps1
 src/PSSailpoint.Beta/Model/RequestedItemStatusPreApprovalTriggerDetails.ps1
@@ -1945,6 +1952,7 @@ src/PSSailpoint.Beta/Model/SourceCreationErrors.ps1
 src/PSSailpoint.Beta/Model/SourceDeleted.ps1
 src/PSSailpoint.Beta/Model/SourceDeletedActor.ps1
 src/PSSailpoint.Beta/Model/SourceEntitlementRequestConfig.ps1
+src/PSSailpoint.Beta/Model/SourceItemRef.ps1
 src/PSSailpoint.Beta/Model/SourceSyncJob.ps1
 src/PSSailpoint.Beta/Model/SourceSyncPayload.ps1
 src/PSSailpoint.Beta/Model/SourceUpdated.ps1
@@ -2253,6 +2261,7 @@ tests/Model/AccountCorrelatedAccount.Tests.ps1
 tests/Model/AccountCorrelatedIdentity.Tests.ps1
 tests/Model/AccountCorrelatedSource.Tests.ps1
 tests/Model/AccountInfoDto.Tests.ps1
+tests/Model/AccountItemRef.Tests.ps1
 tests/Model/AccountRequestInfo.Tests.ps1
 tests/Model/AccountStatusChanged.Tests.ps1
 tests/Model/AccountStatusChangedAccount.Tests.ps1
@@ -2795,7 +2804,9 @@ tests/Model/RequestableObjectReference.Tests.ps1
 tests/Model/RequestableObjectRequestStatus.Tests.ps1
 tests/Model/RequestableObjectType.Tests.ps1
 tests/Model/RequestedAccountRef.Tests.ps1
+tests/Model/RequestedForDtoRef.Tests.ps1
 tests/Model/RequestedItemDetails.Tests.ps1
+tests/Model/RequestedItemDtoRef.Tests.ps1
 tests/Model/RequestedItemStatus.Tests.ps1
 tests/Model/RequestedItemStatusCancelledRequestDetails.Tests.ps1
 tests/Model/RequestedItemStatusPreApprovalTriggerDetails.Tests.ps1
@@ -2954,6 +2965,7 @@ tests/Model/SourceCreationErrors.Tests.ps1
 tests/Model/SourceDeleted.Tests.ps1
 tests/Model/SourceDeletedActor.Tests.ps1
 tests/Model/SourceEntitlementRequestConfig.Tests.ps1
+tests/Model/SourceItemRef.Tests.ps1
 tests/Model/SourceSyncJob.Tests.ps1
 tests/Model/SourceSyncPayload.Tests.ps1
 tests/Model/SourceUpdated.Tests.ps1

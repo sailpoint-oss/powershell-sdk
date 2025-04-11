@@ -609,9 +609,9 @@ Class | Method | HTTP request | Description
 *BetaWorkflowsApi* | [**Update-BetaWorkflow**](docs/BetaWorkflowsApi.md#Update-BetaWorkflow) | **PATCH** /workflows/{id} | Patch Workflow
 *BetaWorkflowsApi* | [**Submit-BetaExternalExecuteWorkflow**](docs/BetaWorkflowsApi.md#Submit-BetaExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id} | Execute Workflow via External Trigger
 *BetaWorkflowsApi* | [**Submit-BetaWorkflowExternalTrigger**](docs/BetaWorkflowsApi.md#Submit-BetaWorkflowExternalTrigger) | **POST** /workflows/{id}/external/oauth-clients | Generate External Trigger OAuth Client
+*BetaWorkflowsApi* | [**Send-BetaWorkflow**](docs/BetaWorkflowsApi.md#Send-BetaWorkflow) | **PUT** /workflows/{id} | Update Workflow
 *BetaWorkflowsApi* | [**Test-BetaExternalExecuteWorkflow**](docs/BetaWorkflowsApi.md#Test-BetaExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id}/test | Test Workflow via External Trigger
 *BetaWorkflowsApi* | [**Test-BetaWorkflow**](docs/BetaWorkflowsApi.md#Test-BetaWorkflow) | **POST** /workflows/{id}/test | Test Workflow By Id
-*BetaWorkflowsApi* | [**Update-BetaWorkflow**](docs/BetaWorkflowsApi.md#Update-BetaWorkflow) | **PUT** /workflows/{id} | Update Workflow
 
 
 ## Documentation for Models
@@ -703,6 +703,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.AccountCorrelatedIdentity](docs/AccountCorrelatedIdentity.md)
  - [PSSailpoint.Beta\Model.AccountCorrelatedSource](docs/AccountCorrelatedSource.md)
  - [PSSailpoint.Beta\Model.AccountInfoDto](docs/AccountInfoDto.md)
+ - [PSSailpoint.Beta\Model.AccountItemRef](docs/AccountItemRef.md)
  - [PSSailpoint.Beta\Model.AccountRequestInfo](docs/AccountRequestInfo.md)
  - [PSSailpoint.Beta\Model.AccountStatusChanged](docs/AccountStatusChanged.md)
  - [PSSailpoint.Beta\Model.AccountStatusChangedAccount](docs/AccountStatusChangedAccount.md)
@@ -1245,7 +1246,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.RequestableObjectRequestStatus](docs/RequestableObjectRequestStatus.md)
  - [PSSailpoint.Beta\Model.RequestableObjectType](docs/RequestableObjectType.md)
  - [PSSailpoint.Beta\Model.RequestedAccountRef](docs/RequestedAccountRef.md)
+ - [PSSailpoint.Beta\Model.RequestedForDtoRef](docs/RequestedForDtoRef.md)
  - [PSSailpoint.Beta\Model.RequestedItemDetails](docs/RequestedItemDetails.md)
+ - [PSSailpoint.Beta\Model.RequestedItemDtoRef](docs/RequestedItemDtoRef.md)
  - [PSSailpoint.Beta\Model.RequestedItemStatus](docs/RequestedItemStatus.md)
  - [PSSailpoint.Beta\Model.RequestedItemStatusCancelledRequestDetails](docs/RequestedItemStatusCancelledRequestDetails.md)
  - [PSSailpoint.Beta\Model.RequestedItemStatusPreApprovalTriggerDetails](docs/RequestedItemStatusPreApprovalTriggerDetails.md)
@@ -1404,6 +1407,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.SourceDeleted](docs/SourceDeleted.md)
  - [PSSailpoint.Beta\Model.SourceDeletedActor](docs/SourceDeletedActor.md)
  - [PSSailpoint.Beta\Model.SourceEntitlementRequestConfig](docs/SourceEntitlementRequestConfig.md)
+ - [PSSailpoint.Beta\Model.SourceItemRef](docs/SourceItemRef.md)
  - [PSSailpoint.Beta\Model.SourceSyncJob](docs/SourceSyncJob.md)
  - [PSSailpoint.Beta\Model.SourceSyncPayload](docs/SourceSyncPayload.md)
  - [PSSailpoint.Beta\Model.SourceUpdated](docs/SourceUpdated.md)

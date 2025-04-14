@@ -23,7 +23,11 @@ function Invoke-Paginate {
 
     try {
         while ($InitialOffset -lt $Limit) {
-            $Command = "$Function -Limit $Increment -Offset $InitialOffset -WithHttpInfo @Parameters"
+            if ($Limit -lt $Increment) {
+                $Command = "$Function -Limit $Limit -Offset $InitialOffset -WithHttpInfo @Parameters"
+            }else {
+                $Command = "$Function -Limit $Increment -Offset $InitialOffset -WithHttpInfo @Parameters"
+            }
             $Result = Invoke-Expression $Command
 
             Write-Debug "Retrieved $(($Result.Response | Measure-Object).Count) Results"

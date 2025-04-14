@@ -40,7 +40,7 @@ function Initialize-V2024AttributeDefinition {
         [String]
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("STRING", "LONG", "INT", "BOOLEAN")]
+        [ValidateSet("STRING", "LONG", "INT", "BOOLEAN", "DATE")]
         [PSCustomObject]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

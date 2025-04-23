@@ -12,28 +12,28 @@ No summary available.
 
 .DESCRIPTION
 
-Access Profile
+Access profile.
 
 .PARAMETER Name
-Name of the Access Profile
+Access profile name.
 .PARAMETER Description
-Information about the Access Profile
+Access profile description.
 .PARAMETER Enabled
-Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement.
+Indicates whether the access profile is enabled. If it's enabled, you must include at least one entitlement.
 .PARAMETER Owner
 No description available.
 .PARAMETER Source
 No description available.
 .PARAMETER Entitlements
-A list of entitlements associated with the Access Profile. If enabled is false this is allowed to be empty otherwise it needs to contain at least one Entitlement.
+List of entitlements associated with the access profile. If `enabled` is false, this can be empty. Otherwise, it must contain at least one entitlement.
 .PARAMETER Requestable
-Whether the Access Profile is requestable via access request. Currently, making an Access Profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an Access Profile with a value  **false** in this field results in a 400 error.
+Indicates whether the access profile is requestable by access request. Currently, making an access profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an access profile with a value  **false** in this field results in a 400 error.
 .PARAMETER AccessRequestConfig
 No description available.
 .PARAMETER RevocationRequestConfig
 No description available.
 .PARAMETER Segments
-List of IDs of segments, if any, to which this Access Profile is assigned.
+List of segment IDs, if any, that the access profile is assigned to.
 .PARAMETER ProvisioningCriteria
 No description available.
 .OUTPUTS

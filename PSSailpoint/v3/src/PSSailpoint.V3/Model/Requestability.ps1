@@ -15,11 +15,13 @@ No summary available.
 No description available.
 
 .PARAMETER CommentsRequired
-Whether the requester of the containing object must provide comments justifying the request
+Indicates whether the requester of the containing object must provide comments justifying the request.
 .PARAMETER DenialCommentsRequired
-Whether an approver must provide comments when denying the request
+Indicates whether an approver must provide comments when denying the request.
+.PARAMETER ReauthorizationRequired
+Indicates whether reauthorization is required for the request.
 .PARAMETER ApprovalSchemes
-List describing the steps in approving the request
+List describing the steps involved in approving the request.
 .OUTPUTS
 
 Requestability<PSCustomObject>
@@ -35,6 +37,9 @@ function Initialize-Requestability {
         [System.Nullable[Boolean]]
         ${DenialCommentsRequired} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${ReauthorizationRequired} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalSchemes}
     )
@@ -47,6 +52,7 @@ function Initialize-Requestability {
         $PSO = [PSCustomObject]@{
             "commentsRequired" = ${CommentsRequired}
             "denialCommentsRequired" = ${DenialCommentsRequired}
+            "reauthorizationRequired" = ${ReauthorizationRequired}
             "approvalSchemes" = ${ApprovalSchemes}
         }
 
@@ -84,7 +90,7 @@ function ConvertFrom-JsonToRequestability {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Requestability
-        $AllProperties = ("commentsRequired", "denialCommentsRequired", "approvalSchemes")
+        $AllProperties = ("commentsRequired", "denialCommentsRequired", "reauthorizationRequired", "approvalSchemes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -103,6 +109,12 @@ function ConvertFrom-JsonToRequestability {
             $DenialCommentsRequired = $JsonParameters.PSobject.Properties["denialCommentsRequired"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reauthorizationRequired"))) { #optional property not found
+            $ReauthorizationRequired = $null
+        } else {
+            $ReauthorizationRequired = $JsonParameters.PSobject.Properties["reauthorizationRequired"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvalSchemes"))) { #optional property not found
             $ApprovalSchemes = $null
         } else {
@@ -112,6 +124,7 @@ function ConvertFrom-JsonToRequestability {
         $PSO = [PSCustomObject]@{
             "commentsRequired" = ${CommentsRequired}
             "denialCommentsRequired" = ${DenialCommentsRequired}
+            "reauthorizationRequired" = ${ReauthorizationRequired}
             "approvalSchemes" = ${ApprovalSchemes}
         }
 

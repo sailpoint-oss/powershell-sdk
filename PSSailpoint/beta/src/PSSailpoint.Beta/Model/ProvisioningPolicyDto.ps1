@@ -49,6 +49,10 @@ function Initialize-BetaProvisioningPolicyDto {
         'Creating PSCustomObject: PSSailpoint.Beta => BetaProvisioningPolicyDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$Name) {
+            throw "invalid value for 'Name', 'Name' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}

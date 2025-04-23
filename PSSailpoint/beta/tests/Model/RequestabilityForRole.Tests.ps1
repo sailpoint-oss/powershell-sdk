@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaRequestabilityForRole' {
     Context 'BetaRequestabilityForRole' {
         It 'Initialize-BetaRequestabilityForRole' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaRequestabilityForRole -CommentsRequired "TEST_VALUE" -DenialCommentsRequired "TEST_VALUE" -ReauthorizationRequired "TEST_VALUE" -ApprovalSchemes "TEST_VALUE"
+            #$NewObject = Initialize-BetaRequestabilityForRole -CommentsRequired "TEST_VALUE" -DenialCommentsRequired "TEST_VALUE" -ApprovalSchemes "TEST_VALUE"
             #$NewObject | Should -BeOfType RequestabilityForRole
             #$NewObject.property | Should -Be 0
         }

@@ -28,10 +28,8 @@ docs/AccessProfileSummary.md
 docs/AccessProfileUsage.md
 docs/AccessProfileUsageUsedByInner.md
 docs/AccessProfilesApi.md
-docs/AccessProfilesApideveloperSite_code_examples.yaml
 docs/AccessRequest.md
 docs/AccessRequestApprovalsApi.md
-docs/AccessRequestApprovalsApideveloperSite_code_examples.yaml
 docs/AccessRequestConfig.md
 docs/AccessRequestItem.md
 docs/AccessRequestPhases.md
@@ -39,7 +37,6 @@ docs/AccessRequestResponse.md
 docs/AccessRequestTracking.md
 docs/AccessRequestType.md
 docs/AccessRequestsApi.md
-docs/AccessRequestsApideveloperSite_code_examples.yaml
 docs/AccessReviewItem.md
 docs/AccessReviewReassignment.md
 docs/AccessSummary.md
@@ -48,7 +45,6 @@ docs/AccessType.md
 docs/Account.md
 docs/AccountAction.md
 docs/AccountActivitiesApi.md
-docs/AccountActivitiesApideveloperSite_code_examples.yaml
 docs/AccountActivity.md
 docs/AccountActivityApprovalStatus.md
 docs/AccountActivityDocument.md
@@ -63,7 +59,6 @@ docs/AccountAttribute.md
 docs/AccountAttributes.md
 docs/AccountAttributesCreate.md
 docs/AccountAttributesCreateAttributes.md
-docs/AccountItemRef.md
 docs/AccountRequest.md
 docs/AccountRequestInfo.md
 docs/AccountRequestResult.md
@@ -72,9 +67,7 @@ docs/AccountToggleRequest.md
 docs/AccountUnlockRequest.md
 docs/AccountUsage.md
 docs/AccountUsagesApi.md
-docs/AccountUsagesApideveloperSite_code_examples.yaml
 docs/AccountsApi.md
-docs/AccountsApideveloperSite_code_examples.yaml
 docs/AccountsAsyncResult.md
 docs/AccountsExportReportArguments.md
 docs/ActivateCampaignOptions.md
@@ -88,7 +81,6 @@ docs/Aggregations.md
 docs/App.md
 docs/AppAllOfAccount.md
 docs/ApplicationDiscoveryApi.md
-docs/ApplicationDiscoveryApideveloperSite_code_examples.yaml
 docs/Approval.md
 docs/ApprovalComment.md
 docs/ApprovalForwardHistory.md
@@ -113,7 +105,6 @@ docs/AttributeRequestValue.md
 docs/AttributeValueDTO.md
 docs/AuthUser.md
 docs/AuthUsersApi.md
-docs/AuthUsersApideveloperSite_code_examples.yaml
 docs/BackupOptions.md
 docs/BackupResponse.md
 docs/Base64Decode.md
@@ -130,7 +121,6 @@ docs/BaseSegment.md
 docs/BeforeProvisioningRuleDto.md
 docs/Bound.md
 docs/BrandingApi.md
-docs/BrandingApideveloperSite_code_examples.yaml
 docs/BrandingItem.md
 docs/BrandingItemCreate.md
 docs/BucketAggregation.md
@@ -161,18 +151,14 @@ docs/CancelAccessRequest.md
 docs/CancelledRequestDetails.md
 docs/Certification.md
 docs/CertificationCampaignFiltersApi.md
-docs/CertificationCampaignFiltersApideveloperSite_code_examples.yaml
 docs/CertificationCampaignsApi.md
-docs/CertificationCampaignsApideveloperSite_code_examples.yaml
 docs/CertificationDecision.md
 docs/CertificationIdentitySummary.md
 docs/CertificationPhase.md
 docs/CertificationReference.md
 docs/CertificationSummariesApi.md
-docs/CertificationSummariesApideveloperSite_code_examples.yaml
 docs/CertificationTask.md
 docs/CertificationsApi.md
-docs/CertificationsApideveloperSite_code_examples.yaml
 docs/ClientLogConfiguration.md
 docs/ClientLogConfigurationDurationMinutes.md
 docs/ClientLogConfigurationExpiration.md
@@ -190,11 +176,9 @@ docs/CompletionStatus.md
 docs/Concatenation.md
 docs/Conditional.md
 docs/ConfigurationHubApi.md
-docs/ConfigurationHubApideveloperSite_code_examples.yaml
 docs/ConflictingAccessCriteria.md
 docs/ConnectorDetail.md
 docs/ConnectorsApi.md
-docs/ConnectorsApideveloperSite_code_examples.yaml
 docs/CreateExternalExecuteWorkflow200Response.md
 docs/CreateExternalExecuteWorkflowRequest.md
 docs/CreateOAuthClientRequest.md
@@ -250,6 +234,7 @@ docs/EventActor.md
 docs/EventAttributes.md
 docs/EventDocument.md
 docs/EventTarget.md
+docs/Examples/powershell_code_examples_overlay.yaml
 docs/ExceptionAccessCriteria.md
 docs/ExceptionCriteria.md
 docs/ExceptionCriteriaAccess.md
@@ -271,14 +256,12 @@ docs/ForwardApprovalDto.md
 docs/FullDiscoveredApplications.md
 docs/GenerateRandomString.md
 docs/GetActiveCampaigns200ResponseInner.md
-docs/GetCampaign200Response.md
 docs/GetDiscoveredApplications200ResponseInner.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
 docs/GetReferenceIdentityAttribute.md
 docs/GetVendorConnectorMappings405Response.md
 docs/GlobalTenantSecuritySettingsApi.md
-docs/GlobalTenantSecuritySettingsApideveloperSite_code_examples.yaml
 docs/GrantType.md
 docs/ISO3166.md
 docs/IdentitiesDetailsReportArguments.md
@@ -305,7 +288,6 @@ docs/IdentityProfileExportedObject.md
 docs/IdentityProfileExportedObjectSelf.md
 docs/IdentityProfileIdentityErrorReportArguments.md
 docs/IdentityProfilesApi.md
-docs/IdentityProfilesApideveloperSite_code_examples.yaml
 docs/IdentityProfilesConnections.md
 docs/IdentityReference.md
 docs/IdentityReferenceWithNameAndEmail.md
@@ -330,7 +312,6 @@ docs/KbaQuestion.md
 docs/LeftPad.md
 docs/LifecycleState.md
 docs/LifecycleStatesApi.md
-docs/LifecycleStatesApideveloperSite_code_examples.yaml
 docs/LifecyclestateDeleted.md
 docs/ListAccessProfiles401Response.md
 docs/ListAccessProfiles429Response.md
@@ -341,16 +322,13 @@ docs/LockoutConfiguration.md
 docs/Lookup.md
 docs/Lower.md
 docs/MFAConfigurationApi.md
-docs/MFAConfigurationApideveloperSite_code_examples.yaml
 docs/MFAControllerApi.md
-docs/MFAControllerApideveloperSite_code_examples.yaml
 docs/ManagedClient.md
 docs/ManagedClientRequest.md
 docs/ManagedClientStatus.md
 docs/ManagedClientStatusCode.md
 docs/ManagedClientType.md
 docs/ManagedClientsApi.md
-docs/ManagedClientsApideveloperSite_code_examples.yaml
 docs/ManagedCluster.md
 docs/ManagedClusterAttributes.md
 docs/ManagedClusterKeyPair.md
@@ -359,7 +337,6 @@ docs/ManagedClusterRedis.md
 docs/ManagedClusterRequest.md
 docs/ManagedClusterTypes.md
 docs/ManagedClustersApi.md
-docs/ManagedClustersApideveloperSite_code_examples.yaml
 docs/ManagerCorrelationMapping.md
 docs/ManualDiscoverApplications.md
 docs/ManualDiscoverApplicationsTemplate.md
@@ -389,7 +366,6 @@ docs/NonEmployeeIdentityDtoType.md
 docs/NonEmployeeIdentityReferenceWithId.md
 docs/NonEmployeeIdnUserRequest.md
 docs/NonEmployeeLifecycleManagementApi.md
-docs/NonEmployeeLifecycleManagementApideveloperSite_code_examples.yaml
 docs/NonEmployeeRecord.md
 docs/NonEmployeeRejectApprovalDecision.md
 docs/NonEmployeeRequest.md
@@ -407,7 +383,6 @@ docs/NonEmployeeSourceRequestBody.md
 docs/NonEmployeeSourceWithCloudExternalId.md
 docs/NonEmployeeSourceWithNECount.md
 docs/OAuthClientsApi.md
-docs/OAuthClientsApideveloperSite_code_examples.yaml
 docs/ObjectExportImportNames.md
 docs/ObjectImportResult.md
 docs/ObjectMappingBulkCreateRequest.md
@@ -427,22 +402,17 @@ docs/Owns.md
 docs/PasswordChangeRequest.md
 docs/PasswordChangeResponse.md
 docs/PasswordConfigurationApi.md
-docs/PasswordConfigurationApideveloperSite_code_examples.yaml
 docs/PasswordDictionaryApi.md
-docs/PasswordDictionaryApideveloperSite_code_examples.yaml
 docs/PasswordInfo.md
 docs/PasswordInfoAccount.md
 docs/PasswordInfoQueryDTO.md
 docs/PasswordManagementApi.md
-docs/PasswordManagementApideveloperSite_code_examples.yaml
 docs/PasswordOrgConfig.md
 docs/PasswordPoliciesApi.md
-docs/PasswordPoliciesApideveloperSite_code_examples.yaml
 docs/PasswordPolicyV3Dto.md
 docs/PasswordStatus.md
 docs/PasswordSyncGroup.md
 docs/PasswordSyncGroupsApi.md
-docs/PasswordSyncGroupsApideveloperSite_code_examples.yaml
 docs/PatOwner.md
 docs/PatchServiceDeskIntegrationRequest.md
 docs/PendingApproval.md
@@ -450,7 +420,6 @@ docs/PendingApprovalAction.md
 docs/PendingApprovalOwner.md
 docs/PermissionDto.md
 docs/PersonalAccessTokensApi.md
-docs/PersonalAccessTokensApideveloperSite_code_examples.yaml
 docs/PreApprovalTriggerDetails.md
 docs/ProcessingDetails.md
 docs/ProvisioningConfig.md
@@ -464,9 +433,7 @@ docs/ProvisioningPolicy.md
 docs/ProvisioningPolicyDto.md
 docs/ProvisioningState.md
 docs/PublicIdentitiesApi.md
-docs/PublicIdentitiesApideveloperSite_code_examples.yaml
 docs/PublicIdentitiesConfigApi.md
-docs/PublicIdentitiesConfigApideveloperSite_code_examples.yaml
 docs/PublicIdentity.md
 docs/PublicIdentityAttributeConfig.md
 docs/PublicIdentityAttributesInner.md
@@ -500,7 +467,6 @@ docs/ReportResultReference.md
 docs/ReportResults.md
 docs/ReportType.md
 docs/ReportsDataExtractionApi.md
-docs/ReportsDataExtractionApideveloperSite_code_examples.yaml
 docs/RequestOnBehalfOfConfig.md
 docs/Requestability.md
 docs/RequestabilityForRole.md
@@ -509,11 +475,8 @@ docs/RequestableObjectReference.md
 docs/RequestableObjectRequestStatus.md
 docs/RequestableObjectType.md
 docs/RequestableObjectsApi.md
-docs/RequestableObjectsApideveloperSite_code_examples.yaml
 docs/RequestedAccountRef.md
-docs/RequestedForDtoRef.md
 docs/RequestedItemDetails.md
-docs/RequestedItemDtoRef.md
 docs/RequestedItemStatus.md
 docs/RequestedItemStatusCancelledRequestDetails.md
 docs/RequestedItemStatusPreApprovalTriggerDetails.md
@@ -555,15 +518,11 @@ docs/RoleMembershipSelector.md
 docs/RoleMembershipSelectorType.md
 docs/RoleSummary.md
 docs/RolesApi.md
-docs/RolesApideveloperSite_code_examples.yaml
 docs/Rule.md
 docs/SODPoliciesApi.md
-docs/SODPoliciesApideveloperSite_code_examples.yaml
 docs/SODViolationsApi.md
-docs/SODViolationsApideveloperSite_code_examples.yaml
 docs/SavedSearch.md
 docs/SavedSearchApi.md
-docs/SavedSearchApideveloperSite_code_examples.yaml
 docs/SavedSearchDetail.md
 docs/SavedSearchDetailFilters.md
 docs/SavedSearchName.md
@@ -580,17 +539,14 @@ docs/ScheduledAttributes.md
 docs/ScheduledSearch.md
 docs/ScheduledSearchAllOfOwner.md
 docs/ScheduledSearchApi.md
-docs/ScheduledSearchApideveloperSite_code_examples.yaml
 docs/ScheduledSearchName.md
 docs/Schema.md
 docs/Search.md
 docs/SearchAggregationSpecification.md
 docs/SearchApi.md
-docs/SearchApideveloperSite_code_examples.yaml
 docs/SearchArguments.md
 docs/SearchAttributeConfig.md
 docs/SearchAttributeConfigurationApi.md
-docs/SearchAttributeConfigurationApideveloperSite_code_examples.yaml
 docs/SearchExportReportArguments.md
 docs/SearchFilterType.md
 docs/SearchSchedule.md
@@ -599,13 +555,11 @@ docs/SectionDetails.md
 docs/Segment.md
 docs/SegmentVisibilityCriteria.md
 docs/SegmentsApi.md
-docs/SegmentsApideveloperSite_code_examples.yaml
 docs/Selector.md
 docs/SelectorType.md
 docs/SendTokenRequest.md
 docs/SendTokenResponse.md
 docs/ServiceDeskIntegrationApi.md
-docs/ServiceDeskIntegrationApideveloperSite_code_examples.yaml
 docs/ServiceDeskIntegrationDto.md
 docs/ServiceDeskIntegrationTemplateDto.md
 docs/ServiceDeskIntegrationTemplateType.md
@@ -639,7 +593,6 @@ docs/SourceCluster.md
 docs/SourceClusterDto.md
 docs/SourceConnectionsDto.md
 docs/SourceHealthDto.md
-docs/SourceItemRef.md
 docs/SourceManagementWorkgroup.md
 docs/SourceManagerCorrelationMapping.md
 docs/SourceManagerCorrelationRule.md
@@ -649,9 +602,7 @@ docs/SourceSchemasInner.md
 docs/SourceUsage.md
 docs/SourceUsageStatus.md
 docs/SourceUsagesApi.md
-docs/SourceUsagesApideveloperSite_code_examples.yaml
 docs/SourcesApi.md
-docs/SourcesApideveloperSite_code_examples.yaml
 docs/SpConfigMessage.md
 docs/SpDetails.md
 docs/Split.md
@@ -662,7 +613,6 @@ docs/Substring.md
 docs/TaggedObject.md
 docs/TaggedObjectDto.md
 docs/TaggedObjectsApi.md
-docs/TaggedObjectsApideveloperSite_code_examples.yaml
 docs/TaskResultDetails.md
 docs/TaskResultDetailsMessagesInner.md
 docs/TaskResultDetailsReturnsInner.md
@@ -681,7 +631,6 @@ docs/TransformDefinition.md
 docs/TransformRead.md
 docs/TransformRule.md
 docs/TransformsApi.md
-docs/TransformsApideveloperSite_code_examples.yaml
 docs/Trim.md
 docs/TypeAheadQuery.md
 docs/TypedReference.md
@@ -699,7 +648,6 @@ docs/VendorConnectorMappingDeletedBy.md
 docs/VendorConnectorMappingUpdatedAt.md
 docs/VendorConnectorMappingUpdatedBy.md
 docs/VendorConnectorMappingsApi.md
-docs/VendorConnectorMappingsApideveloperSite_code_examples.yaml
 docs/VerificationPollRequest.md
 docs/VerificationResponse.md
 docs/ViolationContext.md
@@ -714,7 +662,6 @@ docs/WorkItemStateManualWorkItems.md
 docs/WorkItemTypeManualWorkItems.md
 docs/WorkItems.md
 docs/WorkItemsApi.md
-docs/WorkItemsApideveloperSite_code_examples.yaml
 docs/WorkItemsCount.md
 docs/WorkItemsForm.md
 docs/WorkItemsSummary.md
@@ -735,7 +682,6 @@ docs/WorkflowOAuthClient.md
 docs/WorkflowTrigger.md
 docs/WorkflowTriggerAttributes.md
 docs/WorkflowsApi.md
-docs/WorkflowsApideveloperSite_code_examples.yaml
 src/PSSailpoint.V3/Api/AccessProfilesApi.ps1
 src/PSSailpoint.V3/Api/AccessRequestApprovalsApi.ps1
 src/PSSailpoint.V3/Api/AccessRequestsApi.ps1
@@ -839,7 +785,6 @@ src/PSSailpoint.V3/Model/AccountAttribute.ps1
 src/PSSailpoint.V3/Model/AccountAttributes.ps1
 src/PSSailpoint.V3/Model/AccountAttributesCreate.ps1
 src/PSSailpoint.V3/Model/AccountAttributesCreateAttributes.ps1
-src/PSSailpoint.V3/Model/AccountItemRef.ps1
 src/PSSailpoint.V3/Model/AccountRequest.ps1
 src/PSSailpoint.V3/Model/AccountRequestInfo.ps1
 src/PSSailpoint.V3/Model/AccountRequestResult.ps1
@@ -1023,7 +968,6 @@ src/PSSailpoint.V3/Model/ForwardApprovalDto.ps1
 src/PSSailpoint.V3/Model/FullDiscoveredApplications.ps1
 src/PSSailpoint.V3/Model/GenerateRandomString.ps1
 src/PSSailpoint.V3/Model/GetActiveCampaigns200ResponseInner.ps1
-src/PSSailpoint.V3/Model/GetCampaign200Response.ps1
 src/PSSailpoint.V3/Model/GetDiscoveredApplications200ResponseInner.ps1
 src/PSSailpoint.V3/Model/GetOAuthClientResponse.ps1
 src/PSSailpoint.V3/Model/GetPersonalAccessTokenResponse.ps1
@@ -1226,9 +1170,7 @@ src/PSSailpoint.V3/Model/RequestableObjectReference.ps1
 src/PSSailpoint.V3/Model/RequestableObjectRequestStatus.ps1
 src/PSSailpoint.V3/Model/RequestableObjectType.ps1
 src/PSSailpoint.V3/Model/RequestedAccountRef.ps1
-src/PSSailpoint.V3/Model/RequestedForDtoRef.ps1
 src/PSSailpoint.V3/Model/RequestedItemDetails.ps1
-src/PSSailpoint.V3/Model/RequestedItemDtoRef.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatus.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatusCancelledRequestDetails.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatusPreApprovalTriggerDetails.ps1
@@ -1336,7 +1278,6 @@ src/PSSailpoint.V3/Model/SourceCluster.ps1
 src/PSSailpoint.V3/Model/SourceClusterDto.ps1
 src/PSSailpoint.V3/Model/SourceConnectionsDto.ps1
 src/PSSailpoint.V3/Model/SourceHealthDto.ps1
-src/PSSailpoint.V3/Model/SourceItemRef.ps1
 src/PSSailpoint.V3/Model/SourceManagementWorkgroup.ps1
 src/PSSailpoint.V3/Model/SourceManagerCorrelationMapping.ps1
 src/PSSailpoint.V3/Model/SourceManagerCorrelationRule.ps1
@@ -1528,7 +1469,6 @@ tests/Model/AccountAttribute.Tests.ps1
 tests/Model/AccountAttributes.Tests.ps1
 tests/Model/AccountAttributesCreate.Tests.ps1
 tests/Model/AccountAttributesCreateAttributes.Tests.ps1
-tests/Model/AccountItemRef.Tests.ps1
 tests/Model/AccountRequest.Tests.ps1
 tests/Model/AccountRequestInfo.Tests.ps1
 tests/Model/AccountRequestResult.Tests.ps1
@@ -1712,7 +1652,6 @@ tests/Model/ForwardApprovalDto.Tests.ps1
 tests/Model/FullDiscoveredApplications.Tests.ps1
 tests/Model/GenerateRandomString.Tests.ps1
 tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
-tests/Model/GetCampaign200Response.Tests.ps1
 tests/Model/GetDiscoveredApplications200ResponseInner.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
@@ -1915,9 +1854,7 @@ tests/Model/RequestableObjectReference.Tests.ps1
 tests/Model/RequestableObjectRequestStatus.Tests.ps1
 tests/Model/RequestableObjectType.Tests.ps1
 tests/Model/RequestedAccountRef.Tests.ps1
-tests/Model/RequestedForDtoRef.Tests.ps1
 tests/Model/RequestedItemDetails.Tests.ps1
-tests/Model/RequestedItemDtoRef.Tests.ps1
 tests/Model/RequestedItemStatus.Tests.ps1
 tests/Model/RequestedItemStatusCancelledRequestDetails.Tests.ps1
 tests/Model/RequestedItemStatusPreApprovalTriggerDetails.Tests.ps1
@@ -2025,7 +1962,6 @@ tests/Model/SourceCluster.Tests.ps1
 tests/Model/SourceClusterDto.Tests.ps1
 tests/Model/SourceConnectionsDto.Tests.ps1
 tests/Model/SourceHealthDto.Tests.ps1
-tests/Model/SourceItemRef.Tests.ps1
 tests/Model/SourceManagementWorkgroup.Tests.ps1
 tests/Model/SourceManagerCorrelationMapping.Tests.ps1
 tests/Model/SourceManagerCorrelationRule.Tests.ps1

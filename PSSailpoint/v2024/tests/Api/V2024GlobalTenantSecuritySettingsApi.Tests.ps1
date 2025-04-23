@@ -14,14 +14,6 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024GlobalTenantSecuritySettingsA
         }
     }
 
-    Context 'Get-V2024AuthOrgLockoutConfig' {
-        It 'Test Get-V2024AuthOrgLockoutConfig' {
-            #$TestResult = Get-V2024AuthOrgLockoutConfig
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-V2024AuthOrgNetworkConfig' {
         It 'Test Get-V2024AuthOrgNetworkConfig' {
             #$TestResult = Get-V2024AuthOrgNetworkConfig
@@ -30,49 +22,9 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024GlobalTenantSecuritySettingsA
         }
     }
 
-    Context 'Get-V2024AuthOrgServiceProviderConfig' {
-        It 'Test Get-V2024AuthOrgServiceProviderConfig' {
-            #$TestResult = Get-V2024AuthOrgServiceProviderConfig
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-V2024AuthOrgSessionConfig' {
-        It 'Test Get-V2024AuthOrgSessionConfig' {
-            #$TestResult = Get-V2024AuthOrgSessionConfig
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Update-V2024AuthOrgLockoutConfig' {
-        It 'Test Update-V2024AuthOrgLockoutConfig' {
-            #$TestResult = Update-V2024AuthOrgLockoutConfig -JsonPatchOperation "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Update-V2024AuthOrgNetworkConfig' {
         It 'Test Update-V2024AuthOrgNetworkConfig' {
             #$TestResult = Update-V2024AuthOrgNetworkConfig -JsonPatchOperation "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Update-V2024AuthOrgServiceProviderConfig' {
-        It 'Test Update-V2024AuthOrgServiceProviderConfig' {
-            #$TestResult = Update-V2024AuthOrgServiceProviderConfig -JsonPatchOperation "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Update-V2024AuthOrgSessionConfig' {
-        It 'Test Update-V2024AuthOrgSessionConfig' {
-            #$TestResult = Update-V2024AuthOrgSessionConfig -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -78,10 +78,10 @@ function Initialize-V2025Entitlement {
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Privileged} = $false,
+        ${Privileged},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${CloudGoverned} = $false,
+        ${CloudGoverned},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Requestable} = $false,

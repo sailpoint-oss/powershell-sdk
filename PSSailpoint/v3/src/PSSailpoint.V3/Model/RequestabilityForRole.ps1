@@ -18,8 +18,6 @@ No description available.
 Whether the requester of the containing object must provide comments justifying the request
 .PARAMETER DenialCommentsRequired
 Whether an approver must provide comments when denying the request
-.PARAMETER ReauthorizationRequired
-Indicates whether reauthorization is required for the request.
 .PARAMETER ApprovalSchemes
 List describing the steps in approving the request
 .OUTPUTS
@@ -37,9 +35,6 @@ function Initialize-RequestabilityForRole {
         [System.Nullable[Boolean]]
         ${DenialCommentsRequired} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${ReauthorizationRequired} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalSchemes}
     )
@@ -52,7 +47,6 @@ function Initialize-RequestabilityForRole {
         $PSO = [PSCustomObject]@{
             "commentsRequired" = ${CommentsRequired}
             "denialCommentsRequired" = ${DenialCommentsRequired}
-            "reauthorizationRequired" = ${ReauthorizationRequired}
             "approvalSchemes" = ${ApprovalSchemes}
         }
 
@@ -90,7 +84,7 @@ function ConvertFrom-JsonToRequestabilityForRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in RequestabilityForRole
-        $AllProperties = ("commentsRequired", "denialCommentsRequired", "reauthorizationRequired", "approvalSchemes")
+        $AllProperties = ("commentsRequired", "denialCommentsRequired", "approvalSchemes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,12 +103,6 @@ function ConvertFrom-JsonToRequestabilityForRole {
             $DenialCommentsRequired = $JsonParameters.PSobject.Properties["denialCommentsRequired"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reauthorizationRequired"))) { #optional property not found
-            $ReauthorizationRequired = $null
-        } else {
-            $ReauthorizationRequired = $JsonParameters.PSobject.Properties["reauthorizationRequired"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvalSchemes"))) { #optional property not found
             $ApprovalSchemes = $null
         } else {
@@ -124,7 +112,6 @@ function ConvertFrom-JsonToRequestabilityForRole {
         $PSO = [PSCustomObject]@{
             "commentsRequired" = ${CommentsRequired}
             "denialCommentsRequired" = ${DenialCommentsRequired}
-            "reauthorizationRequired" = ${ReauthorizationRequired}
             "approvalSchemes" = ${ApprovalSchemes}
         }
 

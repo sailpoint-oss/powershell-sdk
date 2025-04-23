@@ -22,8 +22,6 @@ No description available.
 No description available.
 .PARAMETER ClientMetadata
 Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities.
-.PARAMETER RequestedForWithRequestedItems
-Additional submit data structure with requestedFor containing requestedItems allowing distinction for each request item and Identity. * Can only be used when 'requestedFor' and 'requestedItems' are not separately provided * Adds ability to specify which account the user wants the access on, in case they have multiple accounts on a source * Allows the ability to request items with different remove dates * Also allows different combinations of request items and identities in the same request 
 .OUTPUTS
 
 AccessRequest<PSCustomObject>
@@ -44,10 +42,7 @@ function Initialize-V2025AccessRequest {
         ${RequestedItems},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
-        ${ClientMetadata},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject[]]
-        ${RequestedForWithRequestedItems}
+        ${ClientMetadata}
     )
 
     Process {
@@ -76,7 +71,6 @@ function Initialize-V2025AccessRequest {
             "requestType" = ${RequestType}
             "requestedItems" = ${RequestedItems}
             "clientMetadata" = ${ClientMetadata}
-            "requestedForWithRequestedItems" = ${RequestedForWithRequestedItems}
         }
 
         return $PSO
@@ -113,7 +107,7 @@ function ConvertFrom-V2025JsonToAccessRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025AccessRequest
-        $AllProperties = ("requestedFor", "requestType", "requestedItems", "clientMetadata", "requestedForWithRequestedItems")
+        $AllProperties = ("requestedFor", "requestType", "requestedItems", "clientMetadata")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -148,18 +142,11 @@ function ConvertFrom-V2025JsonToAccessRequest {
             $ClientMetadata = $JsonParameters.PSobject.Properties["clientMetadata"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestedForWithRequestedItems"))) { #optional property not found
-            $RequestedForWithRequestedItems = $null
-        } else {
-            $RequestedForWithRequestedItems = $JsonParameters.PSobject.Properties["requestedForWithRequestedItems"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "requestedFor" = ${RequestedFor}
             "requestType" = ${RequestType}
             "requestedItems" = ${RequestedItems}
             "clientMetadata" = ${ClientMetadata}
-            "requestedForWithRequestedItems" = ${RequestedForWithRequestedItems}
         }
 
         return $PSO

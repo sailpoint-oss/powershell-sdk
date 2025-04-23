@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'SpDetails' {
     Context 'SpDetails' {
         It 'Initialize-SpDetails' {
             # a simple test to create an object
-            #$NewObject = Initialize-SpDetails -Role "TEST_VALUE" -EntityId "TEST_VALUE" -Alias "TEST_VALUE" -CallbackUrl "TEST_VALUE" -LegacyAcsUrl "TEST_VALUE"
+            #$NewObject = Initialize-SpDetails -Role "TEST_VALUE" -EntityId "TEST_VALUE" -Alias "TEST_VALUE" -CallbackUrl "TEST_VALUE"
             #$NewObject | Should -BeOfType SpDetails
             #$NewObject.property | Should -Be 0
         }

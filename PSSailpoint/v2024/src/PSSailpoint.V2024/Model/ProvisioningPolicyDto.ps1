@@ -49,6 +49,10 @@ function Initialize-V2024ProvisioningPolicyDto {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024ProvisioningPolicyDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$Name) {
+            throw "invalid value for 'Name', 'Name' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}

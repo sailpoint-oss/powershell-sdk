@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'ServiceProviderConfigurationFederationProt
     Context 'ServiceProviderConfigurationFederationProtocolDetailsInner' {
         It 'Initialize-ServiceProviderConfigurationFederationProtocolDetailsInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-ServiceProviderConfigurationFederationProtocolDetailsInner -Role "TEST_VALUE" -EntityId "TEST_VALUE" -Binding "TEST_VALUE" -AuthContext "TEST_VALUE" -LogoutUrl "TEST_VALUE" -IncludeAuthContext "TEST_VALUE" -NameId "TEST_VALUE" -JitConfiguration "TEST_VALUE" -Cert "TEST_VALUE" -LoginUrlPost "TEST_VALUE" -LoginUrlRedirect "TEST_VALUE" -MappingAttribute "TEST_VALUE" -CertificateExpirationDate "TEST_VALUE" -CertificateName "TEST_VALUE" -Alias "TEST_VALUE" -CallbackUrl "TEST_VALUE"
+            #$NewObject = Initialize-ServiceProviderConfigurationFederationProtocolDetailsInner -Role "TEST_VALUE" -EntityId "TEST_VALUE" -Binding "TEST_VALUE" -AuthnContext "TEST_VALUE" -LogoutUrl "TEST_VALUE" -IncludeAuthnContext "TEST_VALUE" -NameId "TEST_VALUE" -JitConfiguration "TEST_VALUE" -Cert "TEST_VALUE" -LoginUrlPost "TEST_VALUE" -LoginUrlRedirect "TEST_VALUE" -MappingAttribute "TEST_VALUE" -CertificateExpirationDate "TEST_VALUE" -CertificateName "TEST_VALUE" -Alias "TEST_VALUE" -CallbackUrl "TEST_VALUE" -LegacyAcsUrl "TEST_VALUE"
             #$NewObject | Should -BeOfType ServiceProviderConfigurationFederationProtocolDetailsInner
             #$NewObject.property | Should -Be 0
         }

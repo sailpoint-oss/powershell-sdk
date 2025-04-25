@@ -70,6 +70,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccessRequestsApi' {
         }
     }
 
+    Context 'Invoke-V2024LoadAccountSelections' {
+        It 'Test Invoke-V2024LoadAccountSelections' {
+            #$TestResult = Invoke-V2024LoadAccountSelections -AccountsSelectionRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Set-V2024AccessRequestConfig' {
         It 'Test Set-V2024AccessRequestConfig' {
             #$TestResult = Set-V2024AccessRequestConfig -AccessRequestConfig "TEST_VALUE"

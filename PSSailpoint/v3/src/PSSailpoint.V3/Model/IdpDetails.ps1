@@ -20,11 +20,11 @@ Federation protocol role
 An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP).
 .PARAMETER Binding
 Defines the binding used for the SAML flow. Used with IDP configurations.
-.PARAMETER AuthContext
+.PARAMETER AuthnContext
 Specifies the SAML authentication method to use. Used with IDP configurations.
 .PARAMETER LogoutUrl
 The IDP logout URL. Used with IDP configurations.
-.PARAMETER IncludeAuthContext
+.PARAMETER IncludeAuthnContext
 Determines if the configured AuthnContext should be used or the default. Used with IDP configurations.
 .PARAMETER NameId
 The name id format to use. Used with IDP configurations.
@@ -51,7 +51,7 @@ function Initialize-IdpDetails {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SAML_IDP")]
+        [ValidateSet("SAML_IDP", "SAML_SP")]
         [String]
         ${Role},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -62,13 +62,13 @@ function Initialize-IdpDetails {
         ${Binding},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AuthContext},
+        ${AuthnContext},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${LogoutUrl},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IncludeAuthContext} = $false,
+        ${IncludeAuthnContext} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${NameId},
@@ -99,14 +99,18 @@ function Initialize-IdpDetails {
         'Creating PSCustomObject: PSSailpoint.V3 => IdpDetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$MappingAttribute) {
+            throw "invalid value for 'MappingAttribute', 'MappingAttribute' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "role" = ${Role}
             "entityId" = ${EntityId}
             "binding" = ${Binding}
-            "authContext" = ${AuthContext}
+            "authnContext" = ${AuthnContext}
             "logoutUrl" = ${LogoutUrl}
-            "includeAuthContext" = ${IncludeAuthContext}
+            "includeAuthnContext" = ${IncludeAuthnContext}
             "nameId" = ${NameId}
             "jitConfiguration" = ${JitConfiguration}
             "cert" = ${Cert}
@@ -151,11 +155,21 @@ function ConvertFrom-JsonToIdpDetails {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in IdpDetails
-        $AllProperties = ("role", "entityId", "binding", "authContext", "logoutUrl", "includeAuthContext", "nameId", "jitConfiguration", "cert", "loginUrlPost", "loginUrlRedirect", "mappingAttribute", "certificateExpirationDate", "certificateName")
+        $AllProperties = ("role", "entityId", "binding", "authnContext", "logoutUrl", "includeAuthnContext", "nameId", "jitConfiguration", "cert", "loginUrlPost", "loginUrlRedirect", "mappingAttribute", "certificateExpirationDate", "certificateName")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'mappingAttribute' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "mappingAttribute"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'mappingAttribute' missing."
+        } else {
+            $MappingAttribute = $JsonParameters.PSobject.Properties["mappingAttribute"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "role"))) { #optional property not found
@@ -176,10 +190,10 @@ function ConvertFrom-JsonToIdpDetails {
             $Binding = $JsonParameters.PSobject.Properties["binding"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "authContext"))) { #optional property not found
-            $AuthContext = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "authnContext"))) { #optional property not found
+            $AuthnContext = $null
         } else {
-            $AuthContext = $JsonParameters.PSobject.Properties["authContext"].value
+            $AuthnContext = $JsonParameters.PSobject.Properties["authnContext"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "logoutUrl"))) { #optional property not found
@@ -188,10 +202,10 @@ function ConvertFrom-JsonToIdpDetails {
             $LogoutUrl = $JsonParameters.PSobject.Properties["logoutUrl"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "includeAuthContext"))) { #optional property not found
-            $IncludeAuthContext = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "includeAuthnContext"))) { #optional property not found
+            $IncludeAuthnContext = $null
         } else {
-            $IncludeAuthContext = $JsonParameters.PSobject.Properties["includeAuthContext"].value
+            $IncludeAuthnContext = $JsonParameters.PSobject.Properties["includeAuthnContext"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "nameId"))) { #optional property not found
@@ -224,12 +238,6 @@ function ConvertFrom-JsonToIdpDetails {
             $LoginUrlRedirect = $JsonParameters.PSobject.Properties["loginUrlRedirect"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "mappingAttribute"))) { #optional property not found
-            $MappingAttribute = $null
-        } else {
-            $MappingAttribute = $JsonParameters.PSobject.Properties["mappingAttribute"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "certificateExpirationDate"))) { #optional property not found
             $CertificateExpirationDate = $null
         } else {
@@ -246,9 +254,9 @@ function ConvertFrom-JsonToIdpDetails {
             "role" = ${Role}
             "entityId" = ${EntityId}
             "binding" = ${Binding}
-            "authContext" = ${AuthContext}
+            "authnContext" = ${AuthnContext}
             "logoutUrl" = ${LogoutUrl}
-            "includeAuthContext" = ${IncludeAuthContext}
+            "includeAuthnContext" = ${IncludeAuthnContext}
             "nameId" = ${NameId}
             "jitConfiguration" = ${JitConfiguration}
             "cert" = ${Cert}

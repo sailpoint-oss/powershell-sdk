@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'AccessRequest' {
     Context 'AccessRequest' {
         It 'Initialize-AccessRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-AccessRequest -RequestedFor "TEST_VALUE" -RequestType "TEST_VALUE" -RequestedItems "TEST_VALUE" -ClientMetadata "TEST_VALUE"
+            #$NewObject = Initialize-AccessRequest -RequestedFor "TEST_VALUE" -RequestType "TEST_VALUE" -RequestedItems "TEST_VALUE" -ClientMetadata "TEST_VALUE" -RequestedForWithRequestedItems "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessRequest
             #$NewObject.property | Should -Be 0
         }

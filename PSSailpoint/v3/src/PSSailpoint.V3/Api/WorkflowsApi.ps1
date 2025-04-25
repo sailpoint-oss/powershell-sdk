@@ -425,6 +425,9 @@ Get a single workflow by id.
 .PARAMETER Id
 Id of the workflow
 
+.PARAMETER WorkflowMetrics
+disable workflow metrics
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -439,6 +442,9 @@ function Get-Workflow {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${WorkflowMetrics},
         [Switch]
         $WithHttpInfo
     )
@@ -464,6 +470,10 @@ function Get-Workflow {
             throw "Error! The required parameter `Id` missing when calling getWorkflow."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if ($WorkflowMetrics) {
+            $LocalVarQueryParameters['workflowMetrics'] = $WorkflowMetrics
+        }
 
 
 
@@ -494,7 +504,7 @@ Get Workflow Execution
 
 .DESCRIPTION
 
-Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a ""404 Not Found"" response.
+Get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a ""404 Not Found"" response.
 
 .PARAMETER Id
 Workflow execution ID.
@@ -1094,6 +1104,18 @@ List Workflows
 
 List all workflows in the tenant.
 
+.PARAMETER TriggerId
+Trigger ID
+
+.PARAMETER ConnectorInstanceId
+Connector Instance ID
+
+.PARAMETER Limit
+Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1105,6 +1127,18 @@ Workflow[]
 function Get-Workflows {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${TriggerId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ConnectorInstanceId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
         [Switch]
         $WithHttpInfo
     )
@@ -1126,6 +1160,22 @@ function Get-Workflows {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/workflows'
+
+        if ($TriggerId) {
+            $LocalVarQueryParameters['triggerId'] = $TriggerId
+        }
+
+        if ($ConnectorInstanceId) {
+            $LocalVarQueryParameters['connectorInstanceId'] = $ConnectorInstanceId
+        }
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
 
 
 

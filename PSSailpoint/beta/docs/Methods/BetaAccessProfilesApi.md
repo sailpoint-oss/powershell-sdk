@@ -65,6 +65,7 @@ Method | HTTP request | Description
 Create an access profile.
 A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile's source.
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+>**Note:** To use this endpoint, you need all the listed scopes.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-access-profile)
 
@@ -127,6 +128,7 @@ $AccessProfile = @"{
   "segments" : [ "f7b1b8a3-5fed-4fd4-ad29-82014e137e19", "29cb6c06-1da8-43ea-8be4-b3125f248f2a" ],
   "accessRequestConfig" : {
     "commentsRequired" : true,
+    "reauthorizationRequired" : true,
     "approvalSchemes" : [ {
       "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
       "approverType" : "GOVERNANCE_GROUP"

@@ -22,6 +22,8 @@ An entity ID is a globally unique name for a SAML entity, either an Identity Pro
 Unique alias used to identify the selected local service provider based on used URL. Used with SP configurations.
 .PARAMETER CallbackUrl
 The allowed callback URL where users will be redirected to after authentication. Used with SP configurations.
+.PARAMETER LegacyAcsUrl
+The legacy ACS URL used for SAML authentication. Used with SP configurations.
 .OUTPUTS
 
 SpDetails<PSCustomObject>
@@ -31,7 +33,7 @@ function Initialize-SpDetails {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SAML_SP")]
+        [ValidateSet("SAML_IDP", "SAML_SP")]
         [String]
         ${Role},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -42,12 +44,19 @@ function Initialize-SpDetails {
         ${Alias},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CallbackUrl}
+        ${CallbackUrl},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${LegacyAcsUrl}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.V3 => SpDetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$CallbackUrl) {
+            throw "invalid value for 'CallbackUrl', 'CallbackUrl' cannot be null."
+        }
 
 
         $PSO = [PSCustomObject]@{
@@ -55,6 +64,7 @@ function Initialize-SpDetails {
             "entityId" = ${EntityId}
             "alias" = ${Alias}
             "callbackUrl" = ${CallbackUrl}
+            "legacyAcsUrl" = ${LegacyAcsUrl}
         }
 
         return $PSO
@@ -91,11 +101,21 @@ function ConvertFrom-JsonToSpDetails {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in SpDetails
-        $AllProperties = ("role", "entityId", "alias", "callbackUrl")
+        $AllProperties = ("role", "entityId", "alias", "callbackUrl", "legacyAcsUrl")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'callbackUrl' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "callbackUrl"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'callbackUrl' missing."
+        } else {
+            $CallbackUrl = $JsonParameters.PSobject.Properties["callbackUrl"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "role"))) { #optional property not found
@@ -116,10 +136,10 @@ function ConvertFrom-JsonToSpDetails {
             $Alias = $JsonParameters.PSobject.Properties["alias"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "callbackUrl"))) { #optional property not found
-            $CallbackUrl = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "legacyAcsUrl"))) { #optional property not found
+            $LegacyAcsUrl = $null
         } else {
-            $CallbackUrl = $JsonParameters.PSobject.Properties["callbackUrl"].value
+            $LegacyAcsUrl = $JsonParameters.PSobject.Properties["legacyAcsUrl"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -127,6 +147,7 @@ function ConvertFrom-JsonToSpDetails {
             "entityId" = ${EntityId}
             "alias" = ${Alias}
             "callbackUrl" = ${CallbackUrl}
+            "legacyAcsUrl" = ${LegacyAcsUrl}
         }
 
         return $PSO

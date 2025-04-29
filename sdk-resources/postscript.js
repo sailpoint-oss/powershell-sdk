@@ -15,36 +15,6 @@ const getAllFiles = async (dirPath, arrayOfFiles = []) => {
   return arrayOfFiles;
 };
 
-const mergeCodeExampleFiles = async (srcDir) => {
-  try {
-    // Check if the source directory exists asynchronously
-    await fs.access(srcDir);
-
-    const destFile = path.join(srcDir, 'powershell_code_examples_overlay.yaml');
-    const files = await fs.readdir(srcDir);
-
-    // Use writeFile instead of createWriteStream to simplify handling in async/await context
-    let allContent = '';
-
-    for (const file of files) {
-      const filePath = path.join(srcDir, file);
-      const stat = await fs.stat(filePath);
-
-      if (stat.isFile()) {
-        const fileContent = await fs.readFile(filePath, 'utf8');
-        allContent += fileContent;  // Concatenate file contents
-        await fs.unlink(filePath);  // Delete the original file after merging
-      }
-    }
-
-    // Write all content into the destination file
-    await fs.writeFile(destFile, allContent);
-
-    console.log(`All files have been merged into ${destFile}`);
-  } catch (error) {
-    console.error(`Error processing the directory: ${error.message}`);
-  }
-};
 
 const renameFileToIndices = async (filePath) => {
   try {
@@ -94,39 +64,35 @@ const moveFiles = async (srcPath, destPath, filename = null) => {
 
 const processDirectory = async (srcDir) => {
   const files = await fs.readdir(srcDir);
-  const examplesDir = await createDir(srcDir, 'Examples');
   const methodsDir = await createDir(srcDir, 'Methods');
   const modelsDir = await createDir(srcDir, 'Models');
 
   for (const file of files) {
     const currentPath = path.join(srcDir, file);
-    const destExamplePath = path.join(examplesDir, file);
     const destMethodPath = path.join(methodsDir, file);
     const destModelPath = path.join(modelsDir, file);
 
     try {
       const stat = await fs.stat(currentPath);
       if (stat.isDirectory()) {
-        if (file.includes('developerSite_code_examples')) {
-          await moveFiles(currentPath, examplesDir);
-        } else if (file.includes('Api.md')) {
+        if (file.includes('Api.md')) {
           await moveFiles(currentPath, methodsDir);
-        } else if (file.includes('index.md') || file.includes('Methods') || file.includes('Models')) {
-          if (file.includes('Methods')) {
-            await moveFiles(currentPath, methodsDir);
-          } else {
-            await moveFiles(currentPath, modelsDir);
-          }
-        } else {
+        } else if (file.includes('Methods')) {
+          await moveFiles(currentPath, methodsDir);
+        } else if (file.includes('Models')) {
           await moveFiles(currentPath, modelsDir);
+        } else {
+          await moveFiles(currentPath, currentPath); // default for directories
         }
       } else {
-        if (file.includes('developerSite_code_examples')) {
-          await fs.rename(currentPath, destExamplePath);
-        } else if (file.includes('Api.md')) {
+        if (file === 'powershell_code_examples_overlay.yaml') {
+          continue; 
+        }
+      
+        if (file.includes('Api.md')) {
           await fs.rename(currentPath, destMethodPath);
         } else {
-          await fs.rename(currentPath, destModelPath);
+          await fs.rename(currentPath, destModelPath); // default for files
         }
       }
     } catch (err) {
@@ -279,7 +245,6 @@ const main = async () => {
   await getAllFiles(process.argv[2], myArray);
   await fixFiles(myArray);
   await moveFiles(process.argv[2], path.join(process.argv[2], '/docs/Models'), "Index.md");
-  await mergeCodeExampleFiles(path.join(process.argv[2], 'docs/Examples'));
 };
 
 main().catch((error) => {

@@ -11,8 +11,8 @@ subModuleName: V2025
 funtionPrefix: V2025
 files:
   developerSite_code_examples.mustache:
-    templateType: SupportingFiles
-    destinationFilename: docs/Examples/powershell_code_examples_overlay.yaml
+    templateType: APIDocs
+    destinationFilename: developerSite_code_examples.yaml
   docs_methods_index.mustache:
     templateType: SupportingFiles
     destinationFilename: docs/Methods/Index.md

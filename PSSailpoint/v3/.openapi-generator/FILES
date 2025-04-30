@@ -59,7 +59,6 @@ docs/AccountAttribute.md
 docs/AccountAttributes.md
 docs/AccountAttributesCreate.md
 docs/AccountAttributesCreateAttributes.md
-docs/AccountItemRef.md
 docs/AccountRequest.md
 docs/AccountRequestInfo.md
 docs/AccountRequestResult.md
@@ -257,7 +256,6 @@ docs/ForwardApprovalDto.md
 docs/FullDiscoveredApplications.md
 docs/GenerateRandomString.md
 docs/GetActiveCampaigns200ResponseInner.md
-docs/GetCampaign200Response.md
 docs/GetDiscoveredApplications200ResponseInner.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
@@ -478,9 +476,7 @@ docs/RequestableObjectRequestStatus.md
 docs/RequestableObjectType.md
 docs/RequestableObjectsApi.md
 docs/RequestedAccountRef.md
-docs/RequestedForDtoRef.md
 docs/RequestedItemDetails.md
-docs/RequestedItemDtoRef.md
 docs/RequestedItemStatus.md
 docs/RequestedItemStatusCancelledRequestDetails.md
 docs/RequestedItemStatusPreApprovalTriggerDetails.md
@@ -597,7 +593,6 @@ docs/SourceCluster.md
 docs/SourceClusterDto.md
 docs/SourceConnectionsDto.md
 docs/SourceHealthDto.md
-docs/SourceItemRef.md
 docs/SourceManagementWorkgroup.md
 docs/SourceManagerCorrelationMapping.md
 docs/SourceManagerCorrelationRule.md
@@ -790,7 +785,6 @@ src/PSSailpoint.V3/Model/AccountAttribute.ps1
 src/PSSailpoint.V3/Model/AccountAttributes.ps1
 src/PSSailpoint.V3/Model/AccountAttributesCreate.ps1
 src/PSSailpoint.V3/Model/AccountAttributesCreateAttributes.ps1
-src/PSSailpoint.V3/Model/AccountItemRef.ps1
 src/PSSailpoint.V3/Model/AccountRequest.ps1
 src/PSSailpoint.V3/Model/AccountRequestInfo.ps1
 src/PSSailpoint.V3/Model/AccountRequestResult.ps1
@@ -974,7 +968,6 @@ src/PSSailpoint.V3/Model/ForwardApprovalDto.ps1
 src/PSSailpoint.V3/Model/FullDiscoveredApplications.ps1
 src/PSSailpoint.V3/Model/GenerateRandomString.ps1
 src/PSSailpoint.V3/Model/GetActiveCampaigns200ResponseInner.ps1
-src/PSSailpoint.V3/Model/GetCampaign200Response.ps1
 src/PSSailpoint.V3/Model/GetDiscoveredApplications200ResponseInner.ps1
 src/PSSailpoint.V3/Model/GetOAuthClientResponse.ps1
 src/PSSailpoint.V3/Model/GetPersonalAccessTokenResponse.ps1
@@ -1177,9 +1170,7 @@ src/PSSailpoint.V3/Model/RequestableObjectReference.ps1
 src/PSSailpoint.V3/Model/RequestableObjectRequestStatus.ps1
 src/PSSailpoint.V3/Model/RequestableObjectType.ps1
 src/PSSailpoint.V3/Model/RequestedAccountRef.ps1
-src/PSSailpoint.V3/Model/RequestedForDtoRef.ps1
 src/PSSailpoint.V3/Model/RequestedItemDetails.ps1
-src/PSSailpoint.V3/Model/RequestedItemDtoRef.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatus.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatusCancelledRequestDetails.ps1
 src/PSSailpoint.V3/Model/RequestedItemStatusPreApprovalTriggerDetails.ps1
@@ -1287,7 +1278,6 @@ src/PSSailpoint.V3/Model/SourceCluster.ps1
 src/PSSailpoint.V3/Model/SourceClusterDto.ps1
 src/PSSailpoint.V3/Model/SourceConnectionsDto.ps1
 src/PSSailpoint.V3/Model/SourceHealthDto.ps1
-src/PSSailpoint.V3/Model/SourceItemRef.ps1
 src/PSSailpoint.V3/Model/SourceManagementWorkgroup.ps1
 src/PSSailpoint.V3/Model/SourceManagerCorrelationMapping.ps1
 src/PSSailpoint.V3/Model/SourceManagerCorrelationRule.ps1
@@ -1479,7 +1469,6 @@ tests/Model/AccountAttribute.Tests.ps1
 tests/Model/AccountAttributes.Tests.ps1
 tests/Model/AccountAttributesCreate.Tests.ps1
 tests/Model/AccountAttributesCreateAttributes.Tests.ps1
-tests/Model/AccountItemRef.Tests.ps1
 tests/Model/AccountRequest.Tests.ps1
 tests/Model/AccountRequestInfo.Tests.ps1
 tests/Model/AccountRequestResult.Tests.ps1
@@ -1663,7 +1652,6 @@ tests/Model/ForwardApprovalDto.Tests.ps1
 tests/Model/FullDiscoveredApplications.Tests.ps1
 tests/Model/GenerateRandomString.Tests.ps1
 tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
-tests/Model/GetCampaign200Response.Tests.ps1
 tests/Model/GetDiscoveredApplications200ResponseInner.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
@@ -1866,9 +1854,7 @@ tests/Model/RequestableObjectReference.Tests.ps1
 tests/Model/RequestableObjectRequestStatus.Tests.ps1
 tests/Model/RequestableObjectType.Tests.ps1
 tests/Model/RequestedAccountRef.Tests.ps1
-tests/Model/RequestedForDtoRef.Tests.ps1
 tests/Model/RequestedItemDetails.Tests.ps1
-tests/Model/RequestedItemDtoRef.Tests.ps1
 tests/Model/RequestedItemStatus.Tests.ps1
 tests/Model/RequestedItemStatusCancelledRequestDetails.Tests.ps1
 tests/Model/RequestedItemStatusPreApprovalTriggerDetails.Tests.ps1
@@ -1976,7 +1962,6 @@ tests/Model/SourceCluster.Tests.ps1
 tests/Model/SourceClusterDto.Tests.ps1
 tests/Model/SourceConnectionsDto.Tests.ps1
 tests/Model/SourceHealthDto.Tests.ps1
-tests/Model/SourceItemRef.Tests.ps1
 tests/Model/SourceManagementWorkgroup.Tests.ps1
 tests/Model/SourceManagerCorrelationMapping.Tests.ps1
 tests/Model/SourceManagerCorrelationRule.Tests.ps1

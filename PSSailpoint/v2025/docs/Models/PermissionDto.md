@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PermissionDto = Initialize-PSSailpoint.V2025PermissionDto  -Rights HereIsRight1 `
+$PermissionDto = Initialize-PSSailpoint.V2025PermissionDto  -Rights null `
  -Target SYS.GV_$TRANSACTION
 ```
 

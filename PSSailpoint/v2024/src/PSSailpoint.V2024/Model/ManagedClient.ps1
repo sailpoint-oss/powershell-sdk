@@ -15,9 +15,9 @@ No summary available.
 Managed Client
 
 .PARAMETER ApiGatewayBaseUrl
-apiGatewayBaseUrl for the Managed client
+No description available.
 .PARAMETER Cookbook
-cookbook id for the Managed client
+No description available.
 .PARAMETER CcId
 Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
 .PARAMETER ClientId
@@ -36,8 +36,6 @@ Client's apiKey
 The date/time this ManagedClient was created
 .PARAMETER UpdatedAt
 The date/time this ManagedClient was last updated
-.PARAMETER HealthIndicators
-The health indicators of the ManagedClient
 .OUTPUTS
 
 ManagedClient<PSCustomObject>
@@ -78,10 +76,7 @@ function Initialize-V2024ManagedClient {
         ${CreatedAt},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${UpdatedAt},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${HealthIndicators}
+        ${UpdatedAt}
     )
 
     Process {
@@ -117,7 +112,6 @@ function Initialize-V2024ManagedClient {
             "secret" = ${Secret}
             "createdAt" = ${CreatedAt}
             "updatedAt" = ${UpdatedAt}
-            "healthIndicators" = ${HealthIndicators}
         }
 
         return $PSO
@@ -154,7 +148,7 @@ function ConvertFrom-V2024JsonToManagedClient {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024ManagedClient
-        $AllProperties = ("id", "alertKey", "apiGatewayBaseUrl", "cookbook", "ccId", "clientId", "clusterId", "description", "ipAddress", "lastSeen", "name", "sinceLastSeen", "status", "type", "clusterType", "vaDownloadUrl", "vaVersion", "secret", "createdAt", "updatedAt", "provisionStatus", "healthIndicators")
+        $AllProperties = ("id", "alertKey", "apiGatewayBaseUrl", "cookbook", "ccId", "clientId", "clusterId", "description", "ipAddress", "lastSeen", "name", "sinceLastSeen", "status", "type", "clusterType", "vaDownloadUrl", "vaVersion", "secret", "createdAt", "updatedAt", "provisionStatus")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -291,12 +285,6 @@ function ConvertFrom-V2024JsonToManagedClient {
             $ProvisionStatus = $JsonParameters.PSobject.Properties["provisionStatus"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "healthIndicators"))) { #optional property not found
-            $HealthIndicators = $null
-        } else {
-            $HealthIndicators = $JsonParameters.PSobject.Properties["healthIndicators"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "alertKey" = ${AlertKey}
@@ -319,7 +307,6 @@ function ConvertFrom-V2024JsonToManagedClient {
             "createdAt" = ${CreatedAt}
             "updatedAt" = ${UpdatedAt}
             "provisionStatus" = ${ProvisionStatus}
-            "healthIndicators" = ${HealthIndicators}
         }
 
         return $PSO

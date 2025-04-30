@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaWorkflowsApi' {
 
     Context 'Get-BetaWorkflow' {
         It 'Test Get-BetaWorkflow' {
-            #$TestResult = Get-BetaWorkflow -Id "TEST_VALUE" -WorkflowMetrics "TEST_VALUE"
+            #$TestResult = Get-BetaWorkflow -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -96,7 +96,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaWorkflowsApi' {
 
     Context 'Get-BetaWorkflows' {
         It 'Test Get-BetaWorkflows' {
-            #$TestResult = Get-BetaWorkflows -Limit "TEST_VALUE" -Offset "TEST_VALUE" -TriggerId "TEST_VALUE" -ConnectorInstanceId "TEST_VALUE"
+            #$TestResult = Get-BetaWorkflows
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -126,14 +126,6 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaWorkflowsApi' {
         }
     }
 
-    Context 'Send-BetaWorkflow' {
-        It 'Test Send-BetaWorkflow' {
-            #$TestResult = Send-BetaWorkflow -Id "TEST_VALUE" -WorkflowBody "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Test-BetaExternalExecuteWorkflow' {
         It 'Test Test-BetaExternalExecuteWorkflow' {
             #$TestResult = Test-BetaExternalExecuteWorkflow -Id "TEST_VALUE" -TestExternalExecuteWorkflowRequest "TEST_VALUE"
@@ -145,6 +137,14 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaWorkflowsApi' {
     Context 'Test-BetaWorkflow' {
         It 'Test Test-BetaWorkflow' {
             #$TestResult = Test-BetaWorkflow -Id "TEST_VALUE" -TestWorkflowRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-BetaWorkflow' {
+        It 'Test Update-BetaWorkflow' {
+            #$TestResult = Update-BetaWorkflow -Id "TEST_VALUE" -WorkflowBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

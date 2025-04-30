@@ -15,7 +15,7 @@ No summary available.
 No description available.
 
 .PARAMETER ApprovalSchemes
-List describing the steps involved in approving the revocation request.
+List describing the steps in approving the revocation request
 .OUTPUTS
 
 Revocability<PSCustomObject>

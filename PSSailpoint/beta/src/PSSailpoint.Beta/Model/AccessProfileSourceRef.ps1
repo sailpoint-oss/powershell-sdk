@@ -15,11 +15,11 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-ID of the source the access profile is associated with.
+The ID of the Source with with which the Access Profile is associated
 .PARAMETER Type
-Source's DTO type.
+The type of the Source, will always be SOURCE
 .PARAMETER Name
-Source name.
+The display name of the associated Source
 .OUTPUTS
 
 AccessProfileSourceRef<PSCustomObject>

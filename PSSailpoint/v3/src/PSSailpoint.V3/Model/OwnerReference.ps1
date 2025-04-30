@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Owner of the object.
+The owner of this object.
 
 .PARAMETER Type
 Owner type. This field must be either left null or set to 'IDENTITY' on input, otherwise a 400 Bad Request error will result.
 .PARAMETER Id
-Owner's identity ID.
+Identity id
 .PARAMETER Name
-Owner's name. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner's display name, otherwise a 400 Bad Request error will result.
+Human-readable display name of the owner. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner's display name, otherwise a 400 Bad Request error will result.
 .OUTPUTS
 
 OwnerReference<PSCustomObject>

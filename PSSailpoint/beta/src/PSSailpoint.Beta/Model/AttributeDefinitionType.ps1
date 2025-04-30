@@ -24,7 +24,5 @@ enum AttributeDefinitionType {
     INT
     # enum value: "BOOLEAN"
     BOOLEAN
-    # enum value: "DATE"
-    DATE
 }
 

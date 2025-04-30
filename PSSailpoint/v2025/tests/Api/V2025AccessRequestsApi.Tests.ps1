@@ -54,14 +54,6 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025AccessRequestsApi' {
         }
     }
 
-    Context 'Get-V2025EntitlementDetailsForIdentity' {
-        It 'Test Get-V2025EntitlementDetailsForIdentity' {
-            #$TestResult = Get-V2025EntitlementDetailsForIdentity -XSailPointExperimental "TEST_VALUE" -IdentityId "TEST_VALUE" -EntitlementId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-V2025AccessRequestStatus' {
         It 'Test Get-V2025AccessRequestStatus' {
             #$TestResult = Get-V2025AccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -AssignedTo "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -RequestState "TEST_VALUE"
@@ -73,14 +65,6 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025AccessRequestsApi' {
     Context 'Get-V2025AdministratorsAccessRequestStatus' {
         It 'Test Get-V2025AdministratorsAccessRequestStatus' {
             #$TestResult = Get-V2025AdministratorsAccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -AssignedTo "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -RequestState "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Invoke-V2025LoadAccountSelections' {
-        It 'Test Invoke-V2025LoadAccountSelections' {
-            #$TestResult = Invoke-V2025LoadAccountSelections -AccountsSelectionRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -23,8 +23,6 @@ tags: ['SDK', 'Software Development Kit', 'AttributeDefinitionType', 'BetaAttrib
 
 * `BOOLEAN` (value: `"BOOLEAN"`)
 
-* `DATE` (value: `"DATE"`)
-
 
 [[Back to top]](#) 
 

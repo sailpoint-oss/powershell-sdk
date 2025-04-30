@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.V3' -name 'ServiceDeskIntegrationApi' {
 
     Context 'Update-ServiceDeskIntegration' {
         It 'Test Update-ServiceDeskIntegration' {
-            #$TestResult = Update-ServiceDeskIntegration -Id "TEST_VALUE" -PatchServiceDeskIntegrationRequest "TEST_VALUE"
+            #$TestResult = Update-ServiceDeskIntegration -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

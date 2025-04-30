@@ -208,7 +208,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025SourcesApi' {
 
     Context 'Import-V2025Accounts' {
         It 'Test Import-V2025Accounts' {
-            #$TestResult = Import-V2025Accounts -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -File "TEST_VALUE" -DisableOptimization "TEST_VALUE"
+            #$TestResult = Import-V2025Accounts -Id "TEST_VALUE" -File "TEST_VALUE" -DisableOptimization "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

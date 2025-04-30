@@ -800,7 +800,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.PasswordStatus](docs/PasswordStatus.md)
  - [PSSailpoint.V3\Model.PasswordSyncGroup](docs/PasswordSyncGroup.md)
  - [PSSailpoint.V3\Model.PatOwner](docs/PatOwner.md)
- - [PSSailpoint.V3\Model.PatchServiceDeskIntegrationRequest](docs/PatchServiceDeskIntegrationRequest.md)
  - [PSSailpoint.V3\Model.PendingApproval](docs/PendingApproval.md)
  - [PSSailpoint.V3\Model.PendingApprovalAction](docs/PendingApprovalAction.md)
  - [PSSailpoint.V3\Model.PendingApprovalOwner](docs/PendingApprovalOwner.md)

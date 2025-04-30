@@ -444,7 +444,6 @@ docs/PasswordSyncGroup.md
 docs/PasswordSyncGroupsApi.md
 docs/PasswordSyncGroupsApideveloperSite_code_examples.yaml
 docs/PatOwner.md
-docs/PatchServiceDeskIntegrationRequest.md
 docs/PendingApproval.md
 docs/PendingApprovalAction.md
 docs/PendingApprovalOwner.md
@@ -1169,7 +1168,6 @@ src/PSSailpoint.V3/Model/PasswordPolicyV3Dto.ps1
 src/PSSailpoint.V3/Model/PasswordStatus.ps1
 src/PSSailpoint.V3/Model/PasswordSyncGroup.ps1
 src/PSSailpoint.V3/Model/PatOwner.ps1
-src/PSSailpoint.V3/Model/PatchServiceDeskIntegrationRequest.ps1
 src/PSSailpoint.V3/Model/PendingApproval.ps1
 src/PSSailpoint.V3/Model/PendingApprovalAction.ps1
 src/PSSailpoint.V3/Model/PendingApprovalOwner.ps1
@@ -1858,7 +1856,6 @@ tests/Model/PasswordPolicyV3Dto.Tests.ps1
 tests/Model/PasswordStatus.Tests.ps1
 tests/Model/PasswordSyncGroup.Tests.ps1
 tests/Model/PatOwner.Tests.ps1
-tests/Model/PatchServiceDeskIntegrationRequest.Tests.ps1
 tests/Model/PendingApproval.Tests.ps1
 tests/Model/PendingApprovalAction.Tests.ps1
 tests/Model/PendingApprovalOwner.Tests.ps1

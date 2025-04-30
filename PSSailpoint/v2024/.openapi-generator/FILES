@@ -708,7 +708,6 @@ docs/PasswordStatus.md
 docs/PasswordSyncGroup.md
 docs/PatOwner.md
 docs/PatchPotentialRoleRequestInner.md
-docs/PatchServiceDeskIntegrationRequest.md
 docs/PeerGroupMember.md
 docs/PendingApproval.md
 docs/PendingApprovalAction.md
@@ -2039,7 +2038,6 @@ src/PSSailpoint.V2024/Model/PasswordStatus.ps1
 src/PSSailpoint.V2024/Model/PasswordSyncGroup.ps1
 src/PSSailpoint.V2024/Model/PatOwner.ps1
 src/PSSailpoint.V2024/Model/PatchPotentialRoleRequestInner.ps1
-src/PSSailpoint.V2024/Model/PatchServiceDeskIntegrationRequest.ps1
 src/PSSailpoint.V2024/Model/PeerGroupMember.ps1
 src/PSSailpoint.V2024/Model/PendingApproval.ps1
 src/PSSailpoint.V2024/Model/PendingApprovalAction.ps1
@@ -3287,7 +3285,6 @@ tests/Model/PasswordStatus.Tests.ps1
 tests/Model/PasswordSyncGroup.Tests.ps1
 tests/Model/PatOwner.Tests.ps1
 tests/Model/PatchPotentialRoleRequestInner.Tests.ps1
-tests/Model/PatchServiceDeskIntegrationRequest.Tests.ps1
 tests/Model/PeerGroupMember.Tests.ps1
 tests/Model/PendingApproval.Tests.ps1
 tests/Model/PendingApprovalAction.Tests.ps1

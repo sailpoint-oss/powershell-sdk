@@ -571,7 +571,7 @@ Update an existing Service Desk integration by ID with a PATCH request.
 .PARAMETER Id
 ID of the Service Desk integration to update
 
-.PARAMETER PatchServiceDeskIntegrationRequest
+.PARAMETER JsonPatchOperation
 A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
 .PARAMETER WithHttpInfo
@@ -589,8 +589,8 @@ function Update-BetaServiceDeskIntegration {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${PatchServiceDeskIntegrationRequest},
+        [PSCustomObject[]]
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
@@ -620,14 +620,14 @@ function Update-BetaServiceDeskIntegration {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if (!$PatchServiceDeskIntegrationRequest) {
-            throw "Error! The required parameter `PatchServiceDeskIntegrationRequest` missing when calling patchServiceDeskIntegration."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchServiceDeskIntegration."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PatchServiceDeskIntegrationRequest -is [array])) {
-            $LocalVarBodyParameter = $PatchServiceDeskIntegrationRequest | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $PatchServiceDeskIntegrationRequest | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

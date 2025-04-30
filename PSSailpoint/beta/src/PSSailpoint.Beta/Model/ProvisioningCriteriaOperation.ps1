@@ -12,7 +12,7 @@ Enum ProvisioningCriteriaOperation.
 
 .DESCRIPTION
 
-Supported operations on ProvisioningCriteria
+Supported operations on `ProvisioningCriteria`.
 #>
 
 enum ProvisioningCriteriaOperation {

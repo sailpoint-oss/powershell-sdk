@@ -34,48 +34,50 @@ function ConvertFrom-JsonToServiceProviderConfigurationFederationProtocolDetails
         $matchType = $null
         $matchInstance = $null
 
-        # try to match IdpDetails defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-JsonToIdpDetails $Json
+        if ($match -ne 0) { # no match yet
+            # try to match IdpDetails defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-JsonToIdpDetails $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "IdpDetails"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "IdpDetails"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'IdpDetails' defined in anyOf (ServiceProviderConfigurationFederationProtocolDetailsInner). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'IdpDetails' defined in oneOf (ServiceProviderConfigurationFederationProtocolDetailsInner). Proceeding to the next one if any."
         }
 
-        # try to match SpDetails defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-JsonToSpDetails $Json
+        if ($match -ne 0) { # no match yet
+            # try to match SpDetails defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-JsonToSpDetails $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "SpDetails"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "SpDetails"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'SpDetails' defined in anyOf (ServiceProviderConfigurationFederationProtocolDetailsInner). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'SpDetails' defined in oneOf (ServiceProviderConfigurationFederationProtocolDetailsInner). Proceeding to the next one if any."
         }
 
-        if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([IdpDetails, SpDetails]). JSON Payload: $($Json)"
-        } elseif ($match -eq 1) {
+        if ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("IdpDetails", "SpDetails")
+                "anyOfSchemas" = @("IdpDetails", "SpDetails")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([IdpDetails, SpDetails]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([IdpDetails, SpDetails]). JSON Payload: $($Json)"
         }
     }
 }

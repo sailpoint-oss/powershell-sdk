@@ -665,7 +665,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-GetActiveCampaigns200ResponseInner
+GetCampaign200Response
 #>
 function Get-Campaign {
     [CmdletBinding()]
@@ -718,11 +718,11 @@ function Get-Campaign {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "GetActiveCampaigns200ResponseInner" `
+                                -ReturnType "GetCampaign200Response" `
                                 -IsBodyNullable $false
 
         # process anyOf response
-        $LocalVarResult["Response"] = ConvertFrom-JsonToGetActiveCampaigns200ResponseInner (ConvertTo-Json $LocalVarResult["Response"] -Depth 100)
+        $LocalVarResult["Response"] = ConvertFrom-JsonToGetCampaign200Response (ConvertTo-Json $LocalVarResult["Response"] -Depth 100)
 
         if ($WithHttpInfo.IsPresent) {
             return $LocalVarResult

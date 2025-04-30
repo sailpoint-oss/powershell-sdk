@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'IdpDetails' {
     Context 'IdpDetails' {
         It 'Initialize-IdpDetails' {
             # a simple test to create an object
-            #$NewObject = Initialize-IdpDetails -Role "TEST_VALUE" -EntityId "TEST_VALUE" -Binding "TEST_VALUE" -AuthContext "TEST_VALUE" -LogoutUrl "TEST_VALUE" -IncludeAuthContext "TEST_VALUE" -NameId "TEST_VALUE" -JitConfiguration "TEST_VALUE" -Cert "TEST_VALUE" -LoginUrlPost "TEST_VALUE" -LoginUrlRedirect "TEST_VALUE" -MappingAttribute "TEST_VALUE" -CertificateExpirationDate "TEST_VALUE" -CertificateName "TEST_VALUE"
+            #$NewObject = Initialize-IdpDetails -Role "TEST_VALUE" -EntityId "TEST_VALUE" -Binding "TEST_VALUE" -AuthnContext "TEST_VALUE" -LogoutUrl "TEST_VALUE" -IncludeAuthnContext "TEST_VALUE" -NameId "TEST_VALUE" -JitConfiguration "TEST_VALUE" -Cert "TEST_VALUE" -LoginUrlPost "TEST_VALUE" -LoginUrlRedirect "TEST_VALUE" -MappingAttribute "TEST_VALUE" -CertificateExpirationDate "TEST_VALUE" -CertificateName "TEST_VALUE"
             #$NewObject | Should -BeOfType IdpDetails
             #$NewObject.property | Should -Be 0
         }

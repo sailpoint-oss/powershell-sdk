@@ -279,11 +279,11 @@ Class | Method | HTTP request | Description
 *RequestableObjectsApi* | [**Get-RequestableObjects**](docs/RequestableObjectsApi.md#Get-RequestableObjects) | **GET** /requestable-objects | Requestable Objects List
 *RolesApi* | [**New-Role**](docs/RolesApi.md#New-Role) | **POST** /roles | Create a Role
 *RolesApi* | [**Remove-BulkRoles**](docs/RolesApi.md#Remove-BulkRoles) | **POST** /roles/bulk-delete | Delete Role(s)
-*RolesApi* | [**Remove-Role**](docs/RolesApi.md#Remove-Role) | **DELETE** /roles/{id} | Delete a Role
-*RolesApi* | [**Get-Role**](docs/RolesApi.md#Get-Role) | **GET** /roles/{id} | Get a Role
+*RolesApi* | [**Remove-Role**](docs/RolesApi.md#Remove-Role) | **DELETE** /roles/{id} | Delete Role
+*RolesApi* | [**Get-Role**](docs/RolesApi.md#Get-Role) | **GET** /roles/{id} | Get Role
 *RolesApi* | [**Get-RoleAssignedIdentities**](docs/RolesApi.md#Get-RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
 *RolesApi* | [**Get-Roles**](docs/RolesApi.md#Get-Roles) | **GET** /roles | List Roles
-*RolesApi* | [**Update-Role**](docs/RolesApi.md#Update-Role) | **PATCH** /roles/{id} | Patch a specified Role
+*RolesApi* | [**Update-Role**](docs/RolesApi.md#Update-Role) | **PATCH** /roles/{id} | Patch Role
 *SODPoliciesApi* | [**New-SodPolicy**](docs/SODPoliciesApi.md#New-SodPolicy) | **POST** /sod-policies | Create SOD policy
 *SODPoliciesApi* | [**Remove-SodPolicy**](docs/SODPoliciesApi.md#Remove-SodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
 *SODPoliciesApi* | [**Remove-SodPolicySchedule**](docs/SODPoliciesApi.md#Remove-SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
@@ -470,6 +470,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.AccountAttributes](docs/AccountAttributes.md)
  - [PSSailpoint.V3\Model.AccountAttributesCreate](docs/AccountAttributesCreate.md)
  - [PSSailpoint.V3\Model.AccountAttributesCreateAttributes](docs/AccountAttributesCreateAttributes.md)
+ - [PSSailpoint.V3\Model.AccountItemRef](docs/AccountItemRef.md)
  - [PSSailpoint.V3\Model.AccountRequest](docs/AccountRequest.md)
  - [PSSailpoint.V3\Model.AccountRequestInfo](docs/AccountRequestInfo.md)
  - [PSSailpoint.V3\Model.AccountRequestResult](docs/AccountRequestResult.md)
@@ -653,6 +654,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.FullDiscoveredApplications](docs/FullDiscoveredApplications.md)
  - [PSSailpoint.V3\Model.GenerateRandomString](docs/GenerateRandomString.md)
  - [PSSailpoint.V3\Model.GetActiveCampaigns200ResponseInner](docs/GetActiveCampaigns200ResponseInner.md)
+ - [PSSailpoint.V3\Model.GetCampaign200Response](docs/GetCampaign200Response.md)
  - [PSSailpoint.V3\Model.GetDiscoveredApplications200ResponseInner](docs/GetDiscoveredApplications200ResponseInner.md)
  - [PSSailpoint.V3\Model.GetOAuthClientResponse](docs/GetOAuthClientResponse.md)
  - [PSSailpoint.V3\Model.GetPersonalAccessTokenResponse](docs/GetPersonalAccessTokenResponse.md)
@@ -855,7 +857,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.RequestableObjectRequestStatus](docs/RequestableObjectRequestStatus.md)
  - [PSSailpoint.V3\Model.RequestableObjectType](docs/RequestableObjectType.md)
  - [PSSailpoint.V3\Model.RequestedAccountRef](docs/RequestedAccountRef.md)
+ - [PSSailpoint.V3\Model.RequestedForDtoRef](docs/RequestedForDtoRef.md)
  - [PSSailpoint.V3\Model.RequestedItemDetails](docs/RequestedItemDetails.md)
+ - [PSSailpoint.V3\Model.RequestedItemDtoRef](docs/RequestedItemDtoRef.md)
  - [PSSailpoint.V3\Model.RequestedItemStatus](docs/RequestedItemStatus.md)
  - [PSSailpoint.V3\Model.RequestedItemStatusCancelledRequestDetails](docs/RequestedItemStatusCancelledRequestDetails.md)
  - [PSSailpoint.V3\Model.RequestedItemStatusPreApprovalTriggerDetails](docs/RequestedItemStatusPreApprovalTriggerDetails.md)
@@ -963,6 +967,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.SourceClusterDto](docs/SourceClusterDto.md)
  - [PSSailpoint.V3\Model.SourceConnectionsDto](docs/SourceConnectionsDto.md)
  - [PSSailpoint.V3\Model.SourceHealthDto](docs/SourceHealthDto.md)
+ - [PSSailpoint.V3\Model.SourceItemRef](docs/SourceItemRef.md)
  - [PSSailpoint.V3\Model.SourceManagementWorkgroup](docs/SourceManagementWorkgroup.md)
  - [PSSailpoint.V3\Model.SourceManagerCorrelationMapping](docs/SourceManagerCorrelationMapping.md)
  - [PSSailpoint.V3\Model.SourceManagerCorrelationRule](docs/SourceManagerCorrelationRule.md)

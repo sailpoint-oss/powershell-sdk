@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025EntitlementRequestConfig' {
     Context 'V2025EntitlementRequestConfig' {
         It 'Initialize-V2025EntitlementRequestConfig' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025EntitlementRequestConfig -AllowEntitlementRequest "TEST_VALUE" -RequestCommentsRequired "TEST_VALUE" -DeniedCommentsRequired "TEST_VALUE" -GrantRequestApprovalSchemes "TEST_VALUE"
+            #$NewObject = Initialize-V2025EntitlementRequestConfig -AccessRequestConfig "TEST_VALUE"
             #$NewObject | Should -BeOfType EntitlementRequestConfig
             #$NewObject.property | Should -Be 0
         }

@@ -1,6 +1,6 @@
 templateDir: ./sdk-resources/resources
 packageName: PSSailpoint.Beta
-packageVersion: 1.6.0
+packageVersion: 1.6.1
 apiNamePrefix: Beta
 apiVersion: beta
 companyName: SailPoint Technologies

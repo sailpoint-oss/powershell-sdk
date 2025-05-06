@@ -392,9 +392,17 @@ Class | Method | HTTP request | Description
 *V2024MFAConfigurationApi* | [**Set-V2024MFAKBAConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAKBAConfig) | **POST** /mfa/kba/config/answers | Set MFA KBA configuration
 *V2024MFAConfigurationApi* | [**Set-V2024MFAOktaConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
 *V2024MFAConfigurationApi* | [**Test-V2024MFAConfig**](docs/V2024MFAConfigurationApi.md#Test-V2024MFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
+*V2024MachineAccountClassifyApi* | [**Send-V2024ClassifyMachineAccount**](docs/V2024MachineAccountClassifyApi.md#Send-V2024ClassifyMachineAccount) | **POST** /accounts/{id}/classify | Classify a Single Machine Account
+*V2024MachineAccountMappingsApi* | [**New-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#New-V2024MachineAccountMappings) | **POST** /sources/{sourceId}/machine-account-mappings | Create Machine Account Mappings
+*V2024MachineAccountMappingsApi* | [**Remove-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Remove-V2024MachineAccountMappings) | **DELETE** /sources/{sourceId}/machine-account-mappings | Delete Source's Machine Account Mappings
+*V2024MachineAccountMappingsApi* | [**Get-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Get-V2024MachineAccountMappings) | **GET** /sources/{sourceId}/machine-account-mappings | Machine Account Mapping for Source
+*V2024MachineAccountMappingsApi* | [**Set-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Set-V2024MachineAccountMappings) | **PUT** /sources/{sourceId}/machine-mappings | Update Source's Machine Account Mappings
 *V2024MachineAccountsApi* | [**Get-V2024MachineAccount**](docs/V2024MachineAccountsApi.md#Get-V2024MachineAccount) | **GET** /machine-accounts/{id} | Machine Account Details
 *V2024MachineAccountsApi* | [**Get-V2024MachineAccounts**](docs/V2024MachineAccountsApi.md#Get-V2024MachineAccounts) | **GET** /machine-accounts | Machine Accounts List
 *V2024MachineAccountsApi* | [**Update-V2024MachineAccount**](docs/V2024MachineAccountsApi.md#Update-V2024MachineAccount) | **PATCH** /machine-accounts/{id} | Update a Machine Account
+*V2024MachineClassificationConfigApi* | [**Remove-V2024MachineClassificationConfig**](docs/V2024MachineClassificationConfigApi.md#Remove-V2024MachineClassificationConfig) | **DELETE** /sources/{sourceId}/machine-classification-config | Delete Source's Classification Config
+*V2024MachineClassificationConfigApi* | [**Get-V2024MachineClassificationConfig**](docs/V2024MachineClassificationConfigApi.md#Get-V2024MachineClassificationConfig) | **GET** /sources/{sourceId}/machine-classification-config | Machine Classification Config for Source
+*V2024MachineClassificationConfigApi* | [**Set-V2024MachineClassificationConfig**](docs/V2024MachineClassificationConfigApi.md#Set-V2024MachineClassificationConfig) | **PUT** /sources/{sourceId}/machine-classification-config | Update Source's Classification Config
 *V2024MachineIdentitiesApi* | [**New-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#New-V2024MachineIdentity) | **POST** /machine-identities | Create Machine Identities
 *V2024MachineIdentitiesApi* | [**Remove-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Remove-V2024MachineIdentity) | **DELETE** /machine-identities/{id} | Delete machine identity
 *V2024MachineIdentitiesApi* | [**Get-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Get-V2024MachineIdentity) | **GET** /machine-identities/{id} | Machine Identity Details
@@ -929,6 +937,12 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AttributeDefinition](docs/AttributeDefinition.md)
  - [PSSailpoint.V2024\Model.AttributeDefinitionSchema](docs/AttributeDefinitionSchema.md)
  - [PSSailpoint.V2024\Model.AttributeDefinitionType](docs/AttributeDefinitionType.md)
+ - [PSSailpoint.V2024\Model.AttributeMappings](docs/AttributeMappings.md)
+ - [PSSailpoint.V2024\Model.AttributeMappingsAllOfTarget](docs/AttributeMappingsAllOfTarget.md)
+ - [PSSailpoint.V2024\Model.AttributeMappingsAllOfTransformDefinition](docs/AttributeMappingsAllOfTransformDefinition.md)
+ - [PSSailpoint.V2024\Model.AttributeMappingsAllOfTransformDefinitionAttributes](docs/AttributeMappingsAllOfTransformDefinitionAttributes.md)
+ - [PSSailpoint.V2024\Model.AttributeMappingsAllOfTransformDefinitionAttributesInput](docs/AttributeMappingsAllOfTransformDefinitionAttributesInput.md)
+ - [PSSailpoint.V2024\Model.AttributeMappingsAllOfTransformDefinitionAttributesInputAttributes](docs/AttributeMappingsAllOfTransformDefinitionAttributesInputAttributes.md)
  - [PSSailpoint.V2024\Model.AttributeRequest](docs/AttributeRequest.md)
  - [PSSailpoint.V2024\Model.AttributeRequestValue](docs/AttributeRequestValue.md)
  - [PSSailpoint.V2024\Model.AttributeValueDTO](docs/AttributeValueDTO.md)
@@ -1332,6 +1346,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.LookupStep](docs/LookupStep.md)
  - [PSSailpoint.V2024\Model.Lower](docs/Lower.md)
  - [PSSailpoint.V2024\Model.MachineAccount](docs/MachineAccount.md)
+ - [PSSailpoint.V2024\Model.MachineClassificationConfig](docs/MachineClassificationConfig.md)
  - [PSSailpoint.V2024\Model.MachineIdentity](docs/MachineIdentity.md)
  - [PSSailpoint.V2024\Model.MailFromAttributes](docs/MailFromAttributes.md)
  - [PSSailpoint.V2024\Model.MailFromAttributesDto](docs/MailFromAttributesDto.md)
@@ -1693,6 +1708,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SelectorAccountMatchConfigMatchExpression](docs/SelectorAccountMatchConfigMatchExpression.md)
  - [PSSailpoint.V2024\Model.SelfImportExportDto](docs/SelfImportExportDto.md)
  - [PSSailpoint.V2024\Model.SendAccountVerificationRequest](docs/SendAccountVerificationRequest.md)
+ - [PSSailpoint.V2024\Model.SendClassifyMachineAccount200Response](docs/SendClassifyMachineAccount200Response.md)
  - [PSSailpoint.V2024\Model.SendTestNotificationRequestDto](docs/SendTestNotificationRequestDto.md)
  - [PSSailpoint.V2024\Model.ServiceDeskIntegrationDto](docs/ServiceDeskIntegrationDto.md)
  - [PSSailpoint.V2024\Model.ServiceDeskIntegrationTemplateDto](docs/ServiceDeskIntegrationTemplateDto.md)

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormError = Initialize-PSSailpoint.V2024FormError  -Key department `
+$FormError = Initialize-FormError  -Key department `
  -Messages null `
  -Value Engineering
 ```

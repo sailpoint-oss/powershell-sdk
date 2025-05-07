@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EmailStatusDto = Initialize-PSSailpoint.V2024EmailStatusDto  -Id null `
+$EmailStatusDto = Initialize-EmailStatusDto  -Id null `
  -Email sender@example.com `
  -IsVerifiedByDomain false `
  -VerificationStatus null

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordPolicyHoldersDtoAttributes = Initialize-PSSailpoint.V2025PasswordPolicyHoldersDtoAttributes  -IdentityAttr null
+$PasswordPolicyHoldersDtoAttributes = Initialize-PasswordPolicyHoldersDtoAttributes  -IdentityAttr null
 ```
 
 - Convert the resource to JSON

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Recommendation = Initialize-PSSailpoint.BetaRecommendation  -Type MACHINE `
+$Recommendation = Initialize-Recommendation  -Type MACHINE `
  -Method DISCOVERY
 ```
 

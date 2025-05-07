@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributesChanged = Initialize-PSSailpoint.V2025IdentityAttributesChanged  -Identity null `
+$IdentityAttributesChanged = Initialize-IdentityAttributesChanged  -Identity null `
  -Changes null
 ```
 

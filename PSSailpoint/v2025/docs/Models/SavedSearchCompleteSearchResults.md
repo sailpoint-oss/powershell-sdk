@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchCompleteSearchResults = Initialize-PSSailpoint.V2025SavedSearchCompleteSearchResults  -Account null `
+$SavedSearchCompleteSearchResults = Initialize-SavedSearchCompleteSearchResults  -Account null `
  -Entitlement null `
  -Identity null
 ```

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OutlierFeatureSummaryOutlierFeatureDisplayValuesInner = Initialize-PSSailpoint.V2024OutlierFeatureSummaryOutlierFeatureDisplayValuesInner  -DisplayName Aliza Chris `
+$OutlierFeatureSummaryOutlierFeatureDisplayValuesInner = Initialize-OutlierFeatureSummaryOutlierFeatureDisplayValuesInner  -DisplayName Aliza Chris `
  -Value 55 `
  -ValueType null
 ```

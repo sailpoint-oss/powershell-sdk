@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FullcampaignAllOfSearchCampaignInfo = Initialize-PSSailpoint.BetaFullcampaignAllOfSearchCampaignInfo  -Type ACCESS `
+$FullcampaignAllOfSearchCampaignInfo = Initialize-FullcampaignAllOfSearchCampaignInfo  -Type ACCESS `
  -Description Search Campaign description `
  -Reviewer null `
  -Query Search Campaign query description `

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskStatusMessage = Initialize-PSSailpoint.BetaTaskStatusMessage  -Type INFO `
+$TaskStatusMessage = Initialize-TaskStatusMessage  -Type INFO `
  -LocalizedText null `
  -Key akey `
  -Parameters [{name=value}]

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Children = Initialize-PSSailpoint.BetaChildren  -Operator EQUALS `
+$Children = Initialize-Children  -Operator EQUALS `
  -Attribute country `
  -Value null `
  -Children null

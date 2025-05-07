@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TemplateTeams = Initialize-PSSailpoint.BetaTemplateTeams  -Key null `
+$TemplateTeams = Initialize-TemplateTeams  -Key null `
  -Title null `
  -Text null `
  -MessageJSON null `

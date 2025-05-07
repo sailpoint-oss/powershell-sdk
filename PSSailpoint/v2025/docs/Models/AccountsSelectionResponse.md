@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountsSelectionResponse = Initialize-PSSailpoint.V2025AccountsSelectionResponse  -Identities null
+$AccountsSelectionResponse = Initialize-AccountsSelectionResponse  -Identities null
 ```
 
 - Convert the resource to JSON

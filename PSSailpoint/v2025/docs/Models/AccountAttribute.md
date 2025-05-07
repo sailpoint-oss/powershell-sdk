@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAttribute = Initialize-PSSailpoint.V2025AccountAttribute  -SourceName Workday `
+$AccountAttribute = Initialize-AccountAttribute  -SourceName Workday `
  -AttributeName DEPARTMENT `
  -AccountSortAttribute created `
  -AccountSortDescending false `

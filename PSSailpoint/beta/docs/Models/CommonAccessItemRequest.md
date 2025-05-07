@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommonAccessItemRequest = Initialize-PSSailpoint.BetaCommonAccessItemRequest  -Access null `
+$CommonAccessItemRequest = Initialize-CommonAccessItemRequest  -Access null `
  -Status null
 ```
 

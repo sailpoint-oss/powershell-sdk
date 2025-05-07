@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MessageCatalogDto = Initialize-PSSailpoint.BetaMessageCatalogDto  -Locale en_US `
+$MessageCatalogDto = Initialize-MessageCatalogDto  -Locale en_US `
  -Messages null
 ```
 

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityDeleted = Initialize-PSSailpoint.V2025IdentityDeleted  -Identity null `
+$IdentityDeleted = Initialize-IdentityDeleted  -Identity null `
  -Attributes {firstname=John}
 ```
 

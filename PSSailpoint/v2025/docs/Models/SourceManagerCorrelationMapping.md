@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceManagerCorrelationMapping = Initialize-PSSailpoint.V2025SourceManagerCorrelationMapping  -AccountAttributeName manager `
+$SourceManagerCorrelationMapping = Initialize-SourceManagerCorrelationMapping  -AccountAttributeName manager `
  -IdentityAttributeName manager
 ```
 

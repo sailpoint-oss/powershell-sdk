@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedBatchRequest = Initialize-PSSailpoint.BetaSedBatchRequest  -Entitlements null `
+$SedBatchRequest = Initialize-SedBatchRequest  -Entitlements null `
  -Seds null
 ```
 

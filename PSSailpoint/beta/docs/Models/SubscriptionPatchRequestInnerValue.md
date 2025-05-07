@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SubscriptionPatchRequestInnerValue = Initialize-PSSailpoint.BetaSubscriptionPatchRequestInnerValue 
+$SubscriptionPatchRequestInnerValue = Initialize-SubscriptionPatchRequestInnerValue 
 ```
 
 - Convert the resource to JSON

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorRuleCreateRequestSignature = Initialize-PSSailpoint.BetaConnectorRuleCreateRequestSignature  -VarInput null `
+$ConnectorRuleCreateRequestSignature = Initialize-ConnectorRuleCreateRequestSignature  -VarInput null `
  -Output null
 ```
 

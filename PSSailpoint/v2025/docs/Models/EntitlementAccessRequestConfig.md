@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementAccessRequestConfig = Initialize-PSSailpoint.V2025EntitlementAccessRequestConfig  -ApprovalSchemes null `
+$EntitlementAccessRequestConfig = Initialize-EntitlementAccessRequestConfig  -ApprovalSchemes null `
  -RequestCommentRequired true `
  -DenialCommentRequired false
 ```

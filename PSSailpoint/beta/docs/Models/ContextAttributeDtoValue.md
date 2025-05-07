@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ContextAttributeDtoValue = Initialize-PSSailpoint.BetaContextAttributeDtoValue 
+$ContextAttributeDtoValue = Initialize-ContextAttributeDtoValue 
 ```
 
 - Convert the resource to JSON

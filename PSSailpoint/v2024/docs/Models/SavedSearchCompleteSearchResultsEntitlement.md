@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchCompleteSearchResultsEntitlement = Initialize-PSSailpoint.V2024SavedSearchCompleteSearchResultsEntitlement  -Count 2 `
+$SavedSearchCompleteSearchResultsEntitlement = Initialize-SavedSearchCompleteSearchResultsEntitlement  -Count 2 `
  -Noun entitlements `
  -Preview null
 ```

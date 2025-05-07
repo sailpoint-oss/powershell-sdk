@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAttributesChangedChangesInnerNewValue = Initialize-AccountAttributesChangedChangesInnerNewValue 
+$AccountAttributesChangedChangesInnerNewValue = Initialize-V2024AccountAttributesChangedChangesInnerNewValue 
 ```
 
 - Convert the resource to JSON

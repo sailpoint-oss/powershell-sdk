@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityPreviewResponse = Initialize-IdentityPreviewResponse  -Identity null `
+$IdentityPreviewResponse = Initialize-BetaIdentityPreviewResponse  -Identity null `
  -PreviewAttributes null
 ```
 

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Children = Initialize-Children  -Operator EQUALS `
+$Children = Initialize-BetaChildren  -Operator EQUALS `
  -Attribute country `
  -Value null `
  -Children null

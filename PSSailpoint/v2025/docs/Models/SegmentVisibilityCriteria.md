@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SegmentVisibilityCriteria = Initialize-SegmentVisibilityCriteria  -Expression null
+$SegmentVisibilityCriteria = Initialize-V2025SegmentVisibilityCriteria  -Expression null
 ```
 
 - Convert the resource to JSON

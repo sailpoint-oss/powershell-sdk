@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionStatus = Initialize-RoleMiningSessionStatus  -State null
+$RoleMiningSessionStatus = Initialize-BetaRoleMiningSessionStatus  -State null
 ```
 
 - Convert the resource to JSON

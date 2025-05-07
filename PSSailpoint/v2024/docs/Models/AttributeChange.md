@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeChange = Initialize-AttributeChange  -Name null `
+$AttributeChange = Initialize-V2024AttributeChange  -Name null `
  -PreviousValue null `
  -NewValue null
 ```

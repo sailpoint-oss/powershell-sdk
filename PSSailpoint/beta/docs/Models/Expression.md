@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Expression = Initialize-Expression  -Operator EQUALS `
+$Expression = Initialize-BetaExpression  -Operator EQUALS `
  -Attribute location `
  -Value null `
  -Children []

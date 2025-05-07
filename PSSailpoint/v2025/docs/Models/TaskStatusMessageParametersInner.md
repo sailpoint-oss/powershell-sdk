@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskStatusMessageParametersInner = Initialize-TaskStatusMessageParametersInner 
+$TaskStatusMessageParametersInner = Initialize-V2025TaskStatusMessageParametersInner 
 ```
 
 - Convert the resource to JSON

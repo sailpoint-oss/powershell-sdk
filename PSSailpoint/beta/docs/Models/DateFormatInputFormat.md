@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DateFormatInputFormat = Initialize-DateFormatInputFormat 
+$DateFormatInputFormat = Initialize-BetaDateFormatInputFormat 
 ```
 
 - Convert the resource to JSON

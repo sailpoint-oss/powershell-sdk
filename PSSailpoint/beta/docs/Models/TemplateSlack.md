@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TemplateSlack = Initialize-TemplateSlack  -Key null `
+$TemplateSlack = Initialize-BetaTemplateSlack  -Key null `
  -Text null `
  -Blocks null `
  -Attachments null `

@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionDto = Initialize-RoleMiningSessionDto  -Scope null `
+$RoleMiningSessionDto = Initialize-BetaRoleMiningSessionDto  -Scope null `
  -PruneThreshold 50 `
  -PrescribedPruneThreshold 10 `
  -MinNumIdentitiesInPotentialRole 20 `

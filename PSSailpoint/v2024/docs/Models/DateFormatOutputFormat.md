@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DateFormatOutputFormat = Initialize-DateFormatOutputFormat 
+$DateFormatOutputFormat = Initialize-V2024DateFormatOutputFormat 
 ```
 
 - Convert the resource to JSON

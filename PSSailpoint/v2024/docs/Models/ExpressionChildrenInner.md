@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ExpressionChildrenInner = Initialize-ExpressionChildrenInner  -Operator EQUALS `
+$ExpressionChildrenInner = Initialize-V2024ExpressionChildrenInner  -Operator EQUALS `
  -Attribute location `
  -Value null `
  -Children null

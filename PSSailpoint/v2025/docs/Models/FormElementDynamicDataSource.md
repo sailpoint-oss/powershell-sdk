@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormElementDynamicDataSource = Initialize-FormElementDynamicDataSource  -Config null `
+$FormElementDynamicDataSource = Initialize-V2025FormElementDynamicDataSource  -Config null `
  -DataSourceType STATIC
 ```
 

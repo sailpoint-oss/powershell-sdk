@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkgroupConnectionDto = Initialize-WorkgroupConnectionDto  -Object null `
+$WorkgroupConnectionDto = Initialize-BetaWorkgroupConnectionDto  -Object null `
  -ConnectionType AccessRequestReviewer
 ```
 

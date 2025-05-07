@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReportConfigDTO = Initialize-ReportConfigDTO  -ColumnName SOD Business Name `
+$ReportConfigDTO = Initialize-V2025ReportConfigDTO  -ColumnName SOD Business Name `
  -Required true `
  -Included false `
  -Order 2

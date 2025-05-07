@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadAccountsTask = Initialize-LoadAccountsTask  -Success true `
+$LoadAccountsTask = Initialize-BetaLoadAccountsTask  -Success true `
  -Task null
 ```
 

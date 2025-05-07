@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PutPasswordDictionaryRequest = Initialize-PutPasswordDictionaryRequest  -File null
+$PutPasswordDictionaryRequest = Initialize-V2024PutPasswordDictionaryRequest  -File null
 ```
 
 - Convert the resource to JSON

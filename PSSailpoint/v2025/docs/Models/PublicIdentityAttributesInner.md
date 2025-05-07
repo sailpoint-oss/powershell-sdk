@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PublicIdentityAttributesInner = Initialize-PublicIdentityAttributesInner  -Key country `
+$PublicIdentityAttributesInner = Initialize-V2025PublicIdentityAttributesInner  -Key country `
  -Name Country `
  -Value US
 ```

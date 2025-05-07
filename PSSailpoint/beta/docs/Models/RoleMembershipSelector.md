@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMembershipSelector = Initialize-RoleMembershipSelector  -Type null `
+$RoleMembershipSelector = Initialize-BetaRoleMembershipSelector  -Type null `
  -Criteria null `
  -Identities null
 ```

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormItemDetails = Initialize-FormItemDetails  -Name Field1
+$FormItemDetails = Initialize-V2025FormItemDetails  -Name Field1
 ```
 
 - Convert the resource to JSON

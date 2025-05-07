@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ContextAttributeDtoValue = Initialize-ContextAttributeDtoValue 
+$ContextAttributeDtoValue = Initialize-BetaContextAttributeDtoValue 
 ```
 
 - Convert the resource to JSON

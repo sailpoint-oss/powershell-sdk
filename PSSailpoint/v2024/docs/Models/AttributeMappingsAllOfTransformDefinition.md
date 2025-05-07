@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeMappingsAllOfTransformDefinition = Initialize-AttributeMappingsAllOfTransformDefinition  -Type reference `
+$AttributeMappingsAllOfTransformDefinition = Initialize-V2024AttributeMappingsAllOfTransformDefinition  -Type reference `
  -Attributes null `
  -Id ToUpper
 ```

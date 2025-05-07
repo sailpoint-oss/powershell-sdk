@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ForwardApprovalDto = Initialize-ForwardApprovalDto  -NewOwnerId null `
+$ForwardApprovalDto = Initialize-BetaForwardApprovalDto  -NewOwnerId null `
  -Comment null
 ```
 

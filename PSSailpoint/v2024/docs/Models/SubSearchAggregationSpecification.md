@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SubSearchAggregationSpecification = Initialize-SubSearchAggregationSpecification  -Nested null `
+$SubSearchAggregationSpecification = Initialize-V2024SubSearchAggregationSpecification  -Nested null `
  -Metric null `
  -VarFilter null `
  -Bucket null `

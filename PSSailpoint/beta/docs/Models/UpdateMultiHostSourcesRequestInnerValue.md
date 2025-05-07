@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UpdateMultiHostSourcesRequestInnerValue = Initialize-UpdateMultiHostSourcesRequestInnerValue 
+$UpdateMultiHostSourcesRequestInnerValue = Initialize-BetaUpdateMultiHostSourcesRequestInnerValue 
 ```
 
 - Convert the resource to JSON

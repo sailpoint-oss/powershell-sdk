@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeRequestValue = Initialize-AttributeRequestValue 
+$AttributeRequestValue = Initialize-V2025AttributeRequestValue 
 ```
 
 - Convert the resource to JSON

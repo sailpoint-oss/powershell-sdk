@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MetricResponse = Initialize-MetricResponse  -Name null `
+$MetricResponse = Initialize-V2025MetricResponse  -Name null `
  -Value null
 ```
 

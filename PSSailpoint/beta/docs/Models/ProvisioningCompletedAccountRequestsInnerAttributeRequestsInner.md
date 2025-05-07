@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner = Initialize-ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner  -AttributeName memberOf `
+$ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner = Initialize-BetaProvisioningCompletedAccountRequestsInnerAttributeRequestsInner  -AttributeName memberOf `
  -AttributeValue CN=sales,DC=helpco,DC=com `
  -Operation Add
 ```

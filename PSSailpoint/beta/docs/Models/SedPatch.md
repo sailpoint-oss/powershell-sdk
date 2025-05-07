@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedPatch = Initialize-SedPatch  -Op replace `
+$SedPatch = Initialize-BetaSedPatch  -Op replace `
  -Path status `
  -Value approved
 ```

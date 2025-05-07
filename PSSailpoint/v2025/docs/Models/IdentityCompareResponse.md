@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityCompareResponse = Initialize-IdentityCompareResponse  -AccessItemDiff null
+$IdentityCompareResponse = Initialize-V2025IdentityCompareResponse  -AccessItemDiff null
 ```
 
 - Convert the resource to JSON

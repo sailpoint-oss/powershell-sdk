@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAllOfRecommendation = Initialize-AccountAllOfRecommendation  -Type MACHINE `
+$AccountAllOfRecommendation = Initialize-V2024AccountAllOfRecommendation  -Type MACHINE `
  -Method DISCOVERY
 ```
 

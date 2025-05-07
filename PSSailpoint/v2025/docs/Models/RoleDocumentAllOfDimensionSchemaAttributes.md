@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleDocumentAllOfDimensionSchemaAttributes = Initialize-RoleDocumentAllOfDimensionSchemaAttributes  -Derived true `
+$RoleDocumentAllOfDimensionSchemaAttributes = Initialize-V2025RoleDocumentAllOfDimensionSchemaAttributes  -Derived true `
  -DisplayName Department `
  -Name department
 ```

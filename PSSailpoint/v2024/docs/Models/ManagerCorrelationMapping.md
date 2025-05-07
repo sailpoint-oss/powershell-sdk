@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagerCorrelationMapping = Initialize-ManagerCorrelationMapping  -AccountAttributeName manager `
+$ManagerCorrelationMapping = Initialize-V2024ManagerCorrelationMapping  -AccountAttributeName manager `
  -IdentityAttributeName manager
 ```
 

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RecommenderCalculationsIdentityAttributesValue = Initialize-RecommenderCalculationsIdentityAttributesValue  -Value null
+$RecommenderCalculationsIdentityAttributesValue = Initialize-BetaRecommenderCalculationsIdentityAttributesValue  -Value null
 ```
 
 - Convert the resource to JSON

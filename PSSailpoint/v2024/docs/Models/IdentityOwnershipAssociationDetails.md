@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityOwnershipAssociationDetails = Initialize-IdentityOwnershipAssociationDetails  -AssociationDetails null
+$IdentityOwnershipAssociationDetails = Initialize-V2024IdentityOwnershipAssociationDetails  -AssociationDetails null
 ```
 
 - Convert the resource to JSON

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleInsightsEntitlementChanges = Initialize-RoleInsightsEntitlementChanges  -Name null `
+$RoleInsightsEntitlementChanges = Initialize-BetaRoleInsightsEntitlementChanges  -Name null `
  -Id null `
  -Description null `
  -Attribute null `

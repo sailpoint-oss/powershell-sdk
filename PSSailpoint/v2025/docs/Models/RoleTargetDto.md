@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleTargetDto = Initialize-RoleTargetDto  -Source null `
+$RoleTargetDto = Initialize-V2025RoleTargetDto  -Source null `
  -AccountInfo null `
  -RoleName Marketing
 ```

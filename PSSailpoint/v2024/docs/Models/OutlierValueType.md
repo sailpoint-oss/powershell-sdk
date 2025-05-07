@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OutlierValueType = Initialize-OutlierValueType  -Name INTEGER `
+$OutlierValueType = Initialize-V2024OutlierValueType  -Name INTEGER `
  -Ordinal 0
 ```
 

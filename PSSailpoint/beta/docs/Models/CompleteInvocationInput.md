@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CompleteInvocationInput = Initialize-CompleteInvocationInput  -LocalizedError null `
+$CompleteInvocationInput = Initialize-BetaCompleteInvocationInput  -LocalizedError null `
  -Output {approved=false}
 ```
 

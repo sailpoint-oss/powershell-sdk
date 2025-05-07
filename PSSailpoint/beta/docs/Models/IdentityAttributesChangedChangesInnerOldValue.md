@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributesChangedChangesInnerOldValue = Initialize-IdentityAttributesChangedChangesInnerOldValue 
+$IdentityAttributesChangedChangesInnerOldValue = Initialize-BetaIdentityAttributesChangedChangesInnerOldValue 
 ```
 
 - Convert the resource to JSON

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Column = Initialize-Column  -Field email `
+$Column = Initialize-V2025Column  -Field email `
  -Header Work Email
 ```
 

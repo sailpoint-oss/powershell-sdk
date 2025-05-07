@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedBatchRequest = Initialize-SedBatchRequest  -Entitlements null `
+$SedBatchRequest = Initialize-BetaSedBatchRequest  -Entitlements null `
  -Seds null
 ```
 

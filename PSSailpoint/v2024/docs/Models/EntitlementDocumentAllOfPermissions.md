@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementDocumentAllOfPermissions = Initialize-EntitlementDocumentAllOfPermissions  -Target SYS.GV_$TRANSACTION `
+$EntitlementDocumentAllOfPermissions = Initialize-V2024EntitlementDocumentAllOfPermissions  -Target SYS.GV_$TRANSACTION `
  -Rights null
 ```
 

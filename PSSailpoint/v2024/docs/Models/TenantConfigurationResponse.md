@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TenantConfigurationResponse = Initialize-TenantConfigurationResponse  -AuditDetails null `
+$TenantConfigurationResponse = Initialize-V2024TenantConfigurationResponse  -AuditDetails null `
  -ConfigDetails null
 ```
 

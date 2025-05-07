@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchExportReportArguments = Initialize-SearchExportReportArguments  -Indices [entitlements] `
+$SearchExportReportArguments = Initialize-V2025SearchExportReportArguments  -Indices [entitlements] `
  -Query name:a* `
  -Columns displayName,firstName,lastName,email,created,attributes.cloudLifecycleState `
  -Sort [displayName, +id]

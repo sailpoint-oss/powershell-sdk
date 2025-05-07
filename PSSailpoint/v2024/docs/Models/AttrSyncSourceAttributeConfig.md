@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttrSyncSourceAttributeConfig = Initialize-AttrSyncSourceAttributeConfig  -Name email `
+$AttrSyncSourceAttributeConfig = Initialize-V2024AttrSyncSourceAttributeConfig  -Name email `
  -DisplayName Email `
  -Enabled true `
  -Target mail

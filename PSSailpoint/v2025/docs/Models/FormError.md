@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormError = Initialize-FormError  -Key department `
+$FormError = Initialize-V2025FormError  -Key department `
  -Messages null `
  -Value Engineering
 ```

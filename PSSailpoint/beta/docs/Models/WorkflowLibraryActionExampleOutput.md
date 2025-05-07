@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowLibraryActionExampleOutput = Initialize-WorkflowLibraryActionExampleOutput 
+$WorkflowLibraryActionExampleOutput = Initialize-BetaWorkflowLibraryActionExampleOutput 
 ```
 
 - Convert the resource to JSON

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PutConnectorCorrelationConfigRequest = Initialize-PutConnectorCorrelationConfigRequest  -File null
+$PutConnectorCorrelationConfigRequest = Initialize-V2025PutConnectorCorrelationConfigRequest  -File null
 ```
 
 - Convert the resource to JSON

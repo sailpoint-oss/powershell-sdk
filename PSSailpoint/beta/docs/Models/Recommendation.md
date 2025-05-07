@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Recommendation = Initialize-Recommendation  -Type MACHINE `
+$Recommendation = Initialize-BetaRecommendation  -Type MACHINE `
  -Method DISCOVERY
 ```
 

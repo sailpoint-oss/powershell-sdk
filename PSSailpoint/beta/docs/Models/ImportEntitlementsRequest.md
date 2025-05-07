@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportEntitlementsRequest = Initialize-ImportEntitlementsRequest  -File null
+$ImportEntitlementsRequest = Initialize-BetaImportEntitlementsRequest  -File null
 ```
 
 - Convert the resource to JSON

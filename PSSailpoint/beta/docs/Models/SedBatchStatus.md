@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedBatchStatus = Initialize-SedBatchStatus  -Status OK
+$SedBatchStatus = Initialize-BetaSedBatchStatus  -Status OK
 ```
 
 - Convert the resource to JSON

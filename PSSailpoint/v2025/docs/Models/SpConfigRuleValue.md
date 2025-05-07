@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigRuleValue = Initialize-SpConfigRuleValue 
+$SpConfigRuleValue = Initialize-V2025SpConfigRuleValue 
 ```
 
 - Convert the resource to JSON

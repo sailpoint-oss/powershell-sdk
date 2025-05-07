@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MfaConfigTestResponse = Initialize-MfaConfigTestResponse  -State SUCCESS `
+$MfaConfigTestResponse = Initialize-V2025MfaConfigTestResponse  -State SUCCESS `
  -VarError MFA Method is disabled.
 ```
 

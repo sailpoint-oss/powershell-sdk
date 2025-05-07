@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PublicIdentityAttributeConfig = Initialize-PublicIdentityAttributeConfig  -Key country `
+$PublicIdentityAttributeConfig = Initialize-V2025PublicIdentityAttributeConfig  -Key country `
  -Name Country
 ```
 

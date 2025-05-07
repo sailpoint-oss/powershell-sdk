@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignAlert = Initialize-CampaignAlert  -Level ERROR `
+$CampaignAlert = Initialize-V2025CampaignAlert  -Level ERROR `
  -Localizations null
 ```
 

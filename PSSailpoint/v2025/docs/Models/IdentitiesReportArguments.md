@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentitiesReportArguments = Initialize-IdentitiesReportArguments  -CorrelatedOnly true
+$IdentitiesReportArguments = Initialize-V2025IdentitiesReportArguments  -CorrelatedOnly true
 ```
 
 - Convert the resource to JSON

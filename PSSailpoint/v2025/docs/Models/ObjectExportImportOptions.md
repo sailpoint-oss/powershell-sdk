@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ObjectExportImportOptions = Initialize-ObjectExportImportOptions  -IncludedIds null `
+$ObjectExportImportOptions = Initialize-V2025ObjectExportImportOptions  -IncludedIds null `
  -IncludedNames null
 ```
 

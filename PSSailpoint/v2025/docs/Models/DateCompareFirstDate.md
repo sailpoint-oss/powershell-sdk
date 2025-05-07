@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DateCompareFirstDate = Initialize-DateCompareFirstDate  -SourceName Workday `
+$DateCompareFirstDate = Initialize-V2025DateCompareFirstDate  -SourceName Workday `
  -AttributeName DEPARTMENT `
  -AccountSortAttribute created `
  -AccountSortDescending false `

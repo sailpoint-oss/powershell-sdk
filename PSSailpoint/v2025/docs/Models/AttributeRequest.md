@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeRequest = Initialize-AttributeRequest  -Name groups `
+$AttributeRequest = Initialize-V2025AttributeRequest  -Name groups `
  -Op Add `
  -Value null
 ```

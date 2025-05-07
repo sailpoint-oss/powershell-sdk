@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowTrigger = Initialize-WorkflowTrigger  -Type EVENT `
+$WorkflowTrigger = Initialize-V2025WorkflowTrigger  -Type EVENT `
  -DisplayName null `
  -Attributes null
 ```

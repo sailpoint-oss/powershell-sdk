@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRejectApprovalDecision = Initialize-NonEmployeeRejectApprovalDecision  -Comment approved
+$NonEmployeeRejectApprovalDecision = Initialize-V2025NonEmployeeRejectApprovalDecision  -Comment approved
 ```
 
 - Convert the resource to JSON

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Range = Initialize-Range  -Lower null `
+$Range = Initialize-V2024Range  -Lower null `
  -Upper null
 ```
 

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigurationResponse = Initialize-ConfigurationResponse  -Identity null `
+$ConfigurationResponse = Initialize-V2024ConfigurationResponse  -Identity null `
  -ConfigDetails null
 ```
 

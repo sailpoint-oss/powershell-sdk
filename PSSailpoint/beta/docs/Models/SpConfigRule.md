@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigRule = Initialize-SpConfigRule  -Path $.enabled `
+$SpConfigRule = Initialize-BetaSpConfigRule  -Path $.enabled `
  -Value null `
  -Modes [RESTORE, PROMOTE]
 ```

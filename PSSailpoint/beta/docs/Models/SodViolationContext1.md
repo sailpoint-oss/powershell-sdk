@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodViolationContext1 = Initialize-SodViolationContext1  -Policy null `
+$SodViolationContext1 = Initialize-BetaSodViolationContext1  -Policy null `
  -ConflictingAccessCriteria null
 ```
 

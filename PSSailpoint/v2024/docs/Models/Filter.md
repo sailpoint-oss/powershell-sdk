@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ModelFilter = Initialize-ModelFilter  -Type null `
+$ModelFilter = Initialize-V2024ModelFilter  -Type null `
  -Range null `
  -Terms null `
  -Exclude false

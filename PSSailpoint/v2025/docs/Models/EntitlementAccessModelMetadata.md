@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementAccessModelMetadata = Initialize-EntitlementAccessModelMetadata  -Attributes null
+$EntitlementAccessModelMetadata = Initialize-V2025EntitlementAccessModelMetadata  -Attributes null
 ```
 
 - Convert the resource to JSON

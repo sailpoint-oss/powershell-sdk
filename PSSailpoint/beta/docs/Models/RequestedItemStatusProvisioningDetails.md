@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemStatusProvisioningDetails = Initialize-RequestedItemStatusProvisioningDetails  -OrderedSubPhaseReferences manualWorkItemDetails
+$RequestedItemStatusProvisioningDetails = Initialize-BetaRequestedItemStatusProvisioningDetails  -OrderedSubPhaseReferences manualWorkItemDetails
 ```
 
 - Convert the resource to JSON

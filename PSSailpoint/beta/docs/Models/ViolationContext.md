@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ViolationContext = Initialize-ViolationContext  -Policy null `
+$ViolationContext = Initialize-BetaViolationContext  -Policy null `
  -ConflictingAccessCriteria null
 ```
 

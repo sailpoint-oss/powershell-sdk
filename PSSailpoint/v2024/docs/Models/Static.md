@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Static = Initialize-Static  -Values string$variable `
+$Static = Initialize-V2024Static  -Values string$variable `
  -RequiresPeriodicRefresh false
 ```
 

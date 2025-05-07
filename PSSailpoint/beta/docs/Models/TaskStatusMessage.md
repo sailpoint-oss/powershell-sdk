@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskStatusMessage = Initialize-TaskStatusMessage  -Type INFO `
+$TaskStatusMessage = Initialize-BetaTaskStatusMessage  -Type INFO `
  -LocalizedText null `
  -Key akey `
  -Parameters [{name=value}]

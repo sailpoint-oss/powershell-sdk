@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormCondition = Initialize-FormCondition  -RuleOperator AND `
+$FormCondition = Initialize-V2024FormCondition  -RuleOperator AND `
  -Rules null `
  -Effects null
 ```

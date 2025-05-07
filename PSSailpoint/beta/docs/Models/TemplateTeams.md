@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TemplateTeams = Initialize-TemplateTeams  -Key null `
+$TemplateTeams = Initialize-BetaTemplateTeams  -Key null `
  -Title null `
  -Text null `
  -MessageJSON null `

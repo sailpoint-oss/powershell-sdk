@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigurationItemResponse = Initialize-ConfigurationItemResponse  -Identity null `
+$ConfigurationItemResponse = Initialize-V2025ConfigurationItemResponse  -Identity null `
  -ConfigDetails null
 ```
 

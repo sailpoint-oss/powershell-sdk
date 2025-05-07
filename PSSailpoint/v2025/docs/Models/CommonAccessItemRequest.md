@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommonAccessItemRequest = Initialize-CommonAccessItemRequest  -Access null `
+$CommonAccessItemRequest = Initialize-V2025CommonAccessItemRequest  -Access null `
  -Status null
 ```
 

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordInfoQueryDTO = Initialize-PasswordInfoQueryDTO  -UserName Abby.Smith `
+$PasswordInfoQueryDTO = Initialize-V2024PasswordInfoQueryDTO  -UserName Abby.Smith `
  -SourceName My-AD
 ```
 

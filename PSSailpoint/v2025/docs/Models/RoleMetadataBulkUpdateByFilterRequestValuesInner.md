@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMetadataBulkUpdateByFilterRequestValuesInner = Initialize-RoleMetadataBulkUpdateByFilterRequestValuesInner  -AttributeKey iscFederalClassifications `
+$RoleMetadataBulkUpdateByFilterRequestValuesInner = Initialize-V2025RoleMetadataBulkUpdateByFilterRequestValuesInner  -AttributeKey iscFederalClassifications `
  -Values [secret]
 ```
 

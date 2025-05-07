@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportFormDefinitions202ResponseErrorsInner = Initialize-ImportFormDefinitions202ResponseErrorsInner  -Detail null `
+$ImportFormDefinitions202ResponseErrorsInner = Initialize-V2025ImportFormDefinitions202ResponseErrorsInner  -Detail null `
  -Key null `
  -Text null
 ```

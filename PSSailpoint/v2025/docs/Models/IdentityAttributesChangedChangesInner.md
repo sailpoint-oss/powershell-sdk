@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributesChangedChangesInner = Initialize-IdentityAttributesChangedChangesInner  -Attribute department `
+$IdentityAttributesChangedChangesInner = Initialize-V2025IdentityAttributesChangedChangesInner  -Attribute department `
  -OldValue null `
  -NewValue null
 ```

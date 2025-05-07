@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateUploadedConfigurationRequest = Initialize-CreateUploadedConfigurationRequest  -VarData null `
+$CreateUploadedConfigurationRequest = Initialize-V2024CreateUploadedConfigurationRequest  -VarData null `
  -Name null
 ```
 

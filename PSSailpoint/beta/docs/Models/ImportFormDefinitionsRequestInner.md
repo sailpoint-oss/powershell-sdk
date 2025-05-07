@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportFormDefinitionsRequestInner = Initialize-ImportFormDefinitionsRequestInner  -Object null `
+$ImportFormDefinitionsRequestInner = Initialize-BetaImportFormDefinitionsRequestInner  -Object null `
  -Self null `
  -Version null
 ```

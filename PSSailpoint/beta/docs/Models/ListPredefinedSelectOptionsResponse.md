@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListPredefinedSelectOptionsResponse = Initialize-ListPredefinedSelectOptionsResponse  -Results null
+$ListPredefinedSelectOptionsResponse = Initialize-BetaListPredefinedSelectOptionsResponse  -Results null
 ```
 
 - Convert the resource to JSON

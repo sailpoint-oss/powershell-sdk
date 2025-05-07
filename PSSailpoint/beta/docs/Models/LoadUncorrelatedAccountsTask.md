@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadUncorrelatedAccountsTask = Initialize-LoadUncorrelatedAccountsTask  -Success true `
+$LoadUncorrelatedAccountsTask = Initialize-BetaLoadUncorrelatedAccountsTask  -Success true `
  -Task null
 ```
 

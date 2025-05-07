@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskReturnDetails = Initialize-TaskReturnDetails  -Name label `
+$TaskReturnDetails = Initialize-BetaTaskReturnDetails  -Name label `
  -AttributeName identityCount
 ```
 

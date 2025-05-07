@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchCompleteSearchResultsAccount = Initialize-SavedSearchCompleteSearchResultsAccount  -Count 3 `
+$SavedSearchCompleteSearchResultsAccount = Initialize-BetaSavedSearchCompleteSearchResultsAccount  -Count 3 `
  -Noun accounts `
  -Preview null
 ```

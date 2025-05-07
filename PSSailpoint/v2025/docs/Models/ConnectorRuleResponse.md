@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorRuleResponse = Initialize-ConnectorRuleResponse  -Name WebServiceBeforeOperationRule `
+$ConnectorRuleResponse = Initialize-V2025ConnectorRuleResponse  -Name WebServiceBeforeOperationRule `
  -Description This rule does that `
  -Type BuildMap `
  -Signature null `

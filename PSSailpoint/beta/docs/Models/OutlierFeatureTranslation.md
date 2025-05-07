@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OutlierFeatureTranslation = Initialize-OutlierFeatureTranslation  -DisplayName null `
+$OutlierFeatureTranslation = Initialize-BetaOutlierFeatureTranslation  -DisplayName null `
  -Description null
 ```
 

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RecommendationResponseDto = Initialize-RecommendationResponseDto  -Response null
+$RecommendationResponseDto = Initialize-BetaRecommendationResponseDto  -Response null
 ```
 
 - Convert the resource to JSON

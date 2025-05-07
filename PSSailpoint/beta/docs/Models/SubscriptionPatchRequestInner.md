@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SubscriptionPatchRequestInner = Initialize-SubscriptionPatchRequestInner  -Op replace `
+$SubscriptionPatchRequestInner = Initialize-BetaSubscriptionPatchRequestInner  -Op replace `
  -Path /description `
  -Value null
 ```

@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorDetail = Initialize-ConnectorDetail  -Name name `
+$ConnectorDetail = Initialize-V2024ConnectorDetail  -Name name `
  -Type ServiceNow `
  -ClassName class name `
  -ScriptName servicenow `

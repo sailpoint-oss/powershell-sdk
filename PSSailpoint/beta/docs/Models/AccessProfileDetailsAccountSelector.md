@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileDetailsAccountSelector = Initialize-AccessProfileDetailsAccountSelector  -Selectors null
+$AccessProfileDetailsAccountSelector = Initialize-BetaAccessProfileDetailsAccountSelector  -Selectors null
 ```
 
 - Convert the resource to JSON

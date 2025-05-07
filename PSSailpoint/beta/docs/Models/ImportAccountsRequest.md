@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportAccountsRequest = Initialize-ImportAccountsRequest  -File null `
+$ImportAccountsRequest = Initialize-BetaImportAccountsRequest  -File null `
  -DisableOptimization true
 ```
 

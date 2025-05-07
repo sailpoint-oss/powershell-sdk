@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributeTransform = Initialize-IdentityAttributeTransform  -IdentityAttributeName email `
+$IdentityAttributeTransform = Initialize-V2024IdentityAttributeTransform  -IdentityAttributeName email `
  -TransformDefinition null
 ```
 

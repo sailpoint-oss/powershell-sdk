@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DataAccessImpactScore = Initialize-DataAccessImpactScore  -Value Medium
+$DataAccessImpactScore = Initialize-V2024DataAccessImpactScore  -Value Medium
 ```
 
 - Convert the resource to JSON

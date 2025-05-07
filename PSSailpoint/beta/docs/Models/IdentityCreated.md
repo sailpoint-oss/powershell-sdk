@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityCreated = Initialize-IdentityCreated  -Identity null `
+$IdentityCreated = Initialize-BetaIdentityCreated  -Identity null `
  -Attributes {firstname=John}
 ```
 

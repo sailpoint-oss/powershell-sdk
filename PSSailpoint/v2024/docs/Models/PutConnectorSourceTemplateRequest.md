@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PutConnectorSourceTemplateRequest = Initialize-PutConnectorSourceTemplateRequest  -File null
+$PutConnectorSourceTemplateRequest = Initialize-V2024PutConnectorSourceTemplateRequest  -File null
 ```
 
 - Convert the resource to JSON

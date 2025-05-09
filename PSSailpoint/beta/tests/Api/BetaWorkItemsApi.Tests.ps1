@@ -30,14 +30,6 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaWorkItemsApi' {
         }
     }
 
-    Context 'Invoke-BetaForwardWorkItem' {
-        It 'Test Invoke-BetaForwardWorkItem' {
-            #$TestResult = Invoke-BetaForwardWorkItem -Id "TEST_VALUE" -WorkItemForward "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-BetaCompletedWorkItems' {
         It 'Test Get-BetaCompletedWorkItems' {
             #$TestResult = Get-BetaCompletedWorkItems -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
@@ -48,7 +40,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaWorkItemsApi' {
 
     Context 'Get-BetaCountCompletedWorkItems' {
         It 'Test Get-BetaCountCompletedWorkItems' {
-            #$TestResult = Get-BetaCountCompletedWorkItems -OwnerId "TEST_VALUE"
+            #$TestResult = Get-BetaCountCompletedWorkItems -OwnerId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -105,6 +97,14 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaWorkItemsApi' {
     Context 'Submit-BetaAccountSelection' {
         It 'Test Submit-BetaAccountSelection' {
             #$TestResult = Submit-BetaAccountSelection -Id "TEST_VALUE" -RequestBody "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Submit-BetaForwardWorkItem' {
+        It 'Test Submit-BetaForwardWorkItem' {
+            #$TestResult = Submit-BetaForwardWorkItem -Id "TEST_VALUE" -WorkItemForward "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

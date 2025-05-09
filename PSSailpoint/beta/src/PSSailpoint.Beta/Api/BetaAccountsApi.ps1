@@ -956,7 +956,7 @@ Accounts List
 
 .DESCRIPTION
 
-List accounts.  
+List accounts.
 
 .PARAMETER DetailLevel
 This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior.

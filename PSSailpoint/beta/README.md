@@ -575,7 +575,6 @@ Class | Method | HTTP request | Description
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItem**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItemsInBulk**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
 *BetaWorkItemsApi* | [**Complete-BetaWorkItem**](docs/BetaWorkItemsApi.md#Complete-BetaWorkItem) | **POST** /work-items/{id} | Complete a Work Item
-*BetaWorkItemsApi* | [**Invoke-BetaForwardWorkItem**](docs/BetaWorkItemsApi.md#Invoke-BetaForwardWorkItem) | **POST** /work-items/{id}/forward | Forward a Work Item
 *BetaWorkItemsApi* | [**Get-BetaCompletedWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCompletedWorkItems) | **GET** /work-items/completed | Completed Work Items
 *BetaWorkItemsApi* | [**Get-BetaCountCompletedWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCountCompletedWorkItems) | **GET** /work-items/completed/count | Count Completed Work Items
 *BetaWorkItemsApi* | [**Get-BetaCountWorkItems**](docs/BetaWorkItemsApi.md#Get-BetaCountWorkItems) | **GET** /work-items/count | Count Work Items
@@ -585,6 +584,7 @@ Class | Method | HTTP request | Description
 *BetaWorkItemsApi* | [**Deny-BetaApprovalItem**](docs/BetaWorkItemsApi.md#Deny-BetaApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an Approval Item
 *BetaWorkItemsApi* | [**Deny-BetaApprovalItemsInBulk**](docs/BetaWorkItemsApi.md#Deny-BetaApprovalItemsInBulk) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
 *BetaWorkItemsApi* | [**Submit-BetaAccountSelection**](docs/BetaWorkItemsApi.md#Submit-BetaAccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
+*BetaWorkItemsApi* | [**Submit-BetaForwardWorkItem**](docs/BetaWorkItemsApi.md#Submit-BetaForwardWorkItem) | **POST** /work-items/{id}/forward | Forward a Work Item
 *BetaWorkReassignmentApi* | [**New-BetaReassignmentConfiguration**](docs/BetaWorkReassignmentApi.md#New-BetaReassignmentConfiguration) | **POST** /reassignment-configurations | Create a Reassignment Configuration
 *BetaWorkReassignmentApi* | [**Remove-BetaReassignmentConfiguration**](docs/BetaWorkReassignmentApi.md#Remove-BetaReassignmentConfiguration) | **DELETE** /reassignment-configurations/{identityId}/{configType} | Delete Reassignment Configuration
 *BetaWorkReassignmentApi* | [**Get-BetaEvaluateReassignmentConfiguration**](docs/BetaWorkReassignmentApi.md#Get-BetaEvaluateReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId}/evaluate/{configType} | Evaluate Reassignment Configuration

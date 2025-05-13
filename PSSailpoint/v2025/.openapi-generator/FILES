@@ -54,7 +54,6 @@ docs/AccessRequestDynamicApprover.md
 docs/AccessRequestDynamicApprover1.md
 docs/AccessRequestDynamicApproverRequestedItemsInner.md
 docs/AccessRequestItem.md
-docs/AccessRequestItem1.md
 docs/AccessRequestItemResponse.md
 docs/AccessRequestPhases.md
 docs/AccessRequestPostApproval.md
@@ -1481,7 +1480,6 @@ src/PSSailpoint.V2025/Model/AccessRequestDynamicApprover.ps1
 src/PSSailpoint.V2025/Model/AccessRequestDynamicApprover1.ps1
 src/PSSailpoint.V2025/Model/AccessRequestDynamicApproverRequestedItemsInner.ps1
 src/PSSailpoint.V2025/Model/AccessRequestItem.ps1
-src/PSSailpoint.V2025/Model/AccessRequestItem1.ps1
 src/PSSailpoint.V2025/Model/AccessRequestItemResponse.ps1
 src/PSSailpoint.V2025/Model/AccessRequestPhases.ps1
 src/PSSailpoint.V2025/Model/AccessRequestPostApproval.ps1
@@ -2735,7 +2733,6 @@ tests/Model/AccessRequestDynamicApprover.Tests.ps1
 tests/Model/AccessRequestDynamicApprover1.Tests.ps1
 tests/Model/AccessRequestDynamicApproverRequestedItemsInner.Tests.ps1
 tests/Model/AccessRequestItem.Tests.ps1
-tests/Model/AccessRequestItem1.Tests.ps1
 tests/Model/AccessRequestItemResponse.Tests.ps1
 tests/Model/AccessRequestPhases.Tests.ps1
 tests/Model/AccessRequestPostApproval.Tests.ps1

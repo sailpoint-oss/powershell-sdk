@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024RequestedItemDtoRef' {
     Context 'V2024RequestedItemDtoRef' {
         It 'Initialize-V2024RequestedItemDtoRef' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024RequestedItemDtoRef -Type "TEST_VALUE" -Id "TEST_VALUE" -Comment "TEST_VALUE" -ClientMetadata "TEST_VALUE" -RemoveDate "TEST_VALUE" -AssignmentId "TEST_VALUE" -NativeIdentity "TEST_VALUE" -AccountSelection "TEST_VALUE"
+            #$NewObject = Initialize-V2024RequestedItemDtoRef -Type "TEST_VALUE" -Id "TEST_VALUE" -Comment "TEST_VALUE" -ClientMetadata "TEST_VALUE" -RemoveDate "TEST_VALUE" -AccountSelection "TEST_VALUE"
             #$NewObject | Should -BeOfType RequestedItemDtoRef
             #$NewObject.property | Should -Be 0
         }

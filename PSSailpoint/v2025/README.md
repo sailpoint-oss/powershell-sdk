@@ -803,7 +803,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.AccessRequestDynamicApprover1](docs/AccessRequestDynamicApprover1.md)
  - [PSSailpoint.V2025\Model.AccessRequestDynamicApproverRequestedItemsInner](docs/AccessRequestDynamicApproverRequestedItemsInner.md)
  - [PSSailpoint.V2025\Model.AccessRequestItem](docs/AccessRequestItem.md)
- - [PSSailpoint.V2025\Model.AccessRequestItem1](docs/AccessRequestItem1.md)
  - [PSSailpoint.V2025\Model.AccessRequestItemResponse](docs/AccessRequestItemResponse.md)
  - [PSSailpoint.V2025\Model.AccessRequestPhases](docs/AccessRequestPhases.md)
  - [PSSailpoint.V2025\Model.AccessRequestPostApproval](docs/AccessRequestPostApproval.md)

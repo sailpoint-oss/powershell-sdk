@@ -24,10 +24,6 @@ Comment provided by requester. * Comment is required when the request is of type
 Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities and /access-request-status.
 .PARAMETER RemoveDate
 The date the role or access profile or entitlement is no longer assigned to the specified identity. Also known as the expiration date. * Specify a date in the future. * The current SLA for the deprovisioning is 24 hours. * This date can be modified to either extend or decrease the duration of access item assignments for the specified identity. You can change the expiration date for requests for yourself or direct reports, but you cannot remove an expiration date on an already approved item. If the access request has not been approved, you can cancel it and submit a new one without the expiration. If it has already been approved, then you have to revoke the access and then re-request without the expiration. 
-.PARAMETER AssignmentId
-The assignmentId for a specific role assignment on the identity. This id is used to revoke that specific roleAssignment on that identity. * For use with REVOKE_ACCESS requests for roles for identities with multiple accounts on a single source. 
-.PARAMETER NativeIdentity
-The 'distinguishedName' field for an account on the identity, also called nativeIdentity. This nativeIdentity is used to revoke a specific attributeAssignment on the identity. * For use with REVOKE_ACCESS requests for entitlements for identities with multiple accounts on a single source. 
 .PARAMETER AccountSelection
 The accounts where the access item will be provisioned to * Includes selections performed by the user in the event of multiple accounts existing on the same source * Also includes details for sources where user only has one account 
 .OUTPUTS
@@ -55,12 +51,6 @@ function Initialize-V2025RequestedItemDtoRef {
         [System.Nullable[System.DateTime]]
         ${RemoveDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AssignmentId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${NativeIdentity},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccountSelection}
     )
@@ -84,8 +74,6 @@ function Initialize-V2025RequestedItemDtoRef {
             "comment" = ${Comment}
             "clientMetadata" = ${ClientMetadata}
             "removeDate" = ${RemoveDate}
-            "assignmentId" = ${AssignmentId}
-            "nativeIdentity" = ${NativeIdentity}
             "accountSelection" = ${AccountSelection}
         }
 
@@ -123,7 +111,7 @@ function ConvertFrom-V2025JsonToRequestedItemDtoRef {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025RequestedItemDtoRef
-        $AllProperties = ("type", "id", "comment", "clientMetadata", "removeDate", "assignmentId", "nativeIdentity", "accountSelection")
+        $AllProperties = ("type", "id", "comment", "clientMetadata", "removeDate", "accountSelection")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -164,18 +152,6 @@ function ConvertFrom-V2025JsonToRequestedItemDtoRef {
             $RemoveDate = $JsonParameters.PSobject.Properties["removeDate"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "assignmentId"))) { #optional property not found
-            $AssignmentId = $null
-        } else {
-            $AssignmentId = $JsonParameters.PSobject.Properties["assignmentId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "nativeIdentity"))) { #optional property not found
-            $NativeIdentity = $null
-        } else {
-            $NativeIdentity = $JsonParameters.PSobject.Properties["nativeIdentity"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountSelection"))) { #optional property not found
             $AccountSelection = $null
         } else {
@@ -188,8 +164,6 @@ function ConvertFrom-V2025JsonToRequestedItemDtoRef {
             "comment" = ${Comment}
             "clientMetadata" = ${ClientMetadata}
             "removeDate" = ${RemoveDate}
-            "assignmentId" = ${AssignmentId}
-            "nativeIdentity" = ${NativeIdentity}
             "accountSelection" = ${AccountSelection}
         }
 

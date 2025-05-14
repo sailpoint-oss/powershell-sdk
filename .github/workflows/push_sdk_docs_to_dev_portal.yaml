@@ -11,14 +11,12 @@ jobs:
     name: Push API spec changes
     runs-on: ubuntu-latest
     steps:
-      # Checkout the master branch request to run rsync
       - name: Checkout PR branch
         uses: actions/checkout@v2
         with:
           ref: ${{ github.ref }}
           path: powershell-sdk
 
-      # Checkout the main branch of the developer portal to push changes
       - name: Checkout API Specs Repo
         uses: actions/checkout@v2
         with:
@@ -27,71 +25,61 @@ jobs:
           ref: main
 
       - name: Install rsync
-        run: |
-          sudo apt install rsync grsync
+        run: sudo apt update && sudo apt install -y rsync grsync
+
       - name: Sync files between folders
         run: |
-          CURRENT_V3_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/v3/docs/Examples/powershell_code_examples_overlay.yaml"
-          NEW_V3_CODE_EXAMPLES_PATH="developer-community/static/code-examples/v3/"
-          CURRENT_V3_SPEC_PATH_METHODS="powershell-sdk/PSSailpoint/v3/docs/Methods"
-          NEW_V3_API_SPEC_PATH_METHODS="developer-community/docs/tools/sdk/powershell/Reference/V3"
-          CURRENT_V3_SPEC_PATH_MODELS="powershell-sdk/PSSailpoint/v3/docs/Models"
-          NEW_V3_API_SPEC_PATH_MODELS="developer-community/docs/tools/sdk/powershell/Reference/V3"
+          # v3
+          rsync -cav --delete powershell-sdk/PSSailpoint/v3/docs/Methods    developer-community/docs/tools/sdk/powershell/Reference/V3
+          rsync -cav --delete powershell-sdk/PSSailpoint/v3/docs/Models     developer-community/docs/tools/sdk/powershell/Reference/V3
+          rsync -av  powershell-sdk/PSSailpoint/v3/docs/Examples/powershell_code_examples_overlay.yaml \
+                        developer-community/static/code-examples/v3/
 
+          # beta
+          rsync -cav --delete powershell-sdk/PSSailpoint/beta/docs/Methods  developer-community/docs/tools/sdk/powershell/Reference/Beta
+          rsync -cav --delete powershell-sdk/PSSailpoint/beta/docs/Models   developer-community/docs/tools/sdk/powershell/Reference/Beta
+          rsync -av  powershell-sdk/PSSailpoint/beta/docs/Examples/powershell_code_examples_overlay.yaml \
+                        developer-community/static/code-examples/beta/
 
+          # v2024
+          rsync -cav --delete powershell-sdk/PSSailpoint/v2024/docs/Methods    developer-community/docs/tools/sdk/powershell/Reference/V2024
+          rsync -cav --delete powershell-sdk/PSSailpoint/v2024/docs/Models     developer-community/docs/tools/sdk/powershell/Reference/V2024
+          rsync -av  powershell-sdk/PSSailpoint/v2024/docs/Examples/powershell_code_examples_overlay.yaml \
+                        developer-community/static/code-examples/v2024/
 
-          CURRENT_BETA_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/beta/docs/Examples/powershell_code_examples_overlay.yaml"
-          NEW_BETA_CODE_EXAMPLES_PATH="developer-community/static/code-examples/beta/"
-          CURRENT_BETA_SPEC_PATH_METHODS="powershell-sdk/PSSailpoint/beta/docs/Methods"
-          NEW_BETA_API_SPEC_PATH_METHODS="developer-community/docs/tools/sdk/powershell/Reference/Beta"
-          CURRENT_BETA_SPEC_PATH_MODELS="powershell-sdk/PSSailpoint/beta/docs/Models"
-          NEW_BETA_API_SPEC_PATH_MODELS="developer-community/docs/tools/sdk/powershell/Reference/Beta"
-
-
-          CURRENT_V2024_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/v2024/docs/Examples/powershell_code_examples_overlay.yaml"
-          NEW_V2024_CODE_EXAMPLES_PATH="developer-community/static/code-examples/v2024/"
-          CURRENT_V2024_SPEC_PATH_METHODS="powershell-sdk/PSSailpoint/v2024/docs/Methods"
-          NEW_V2024_API_SPEC_PATH_METHODS="developer-community/docs/tools/sdk/powershell/Reference/V2024"
-          CURRENT_V2024_SPEC_PATH_MODELS="powershell-sdk/PSSailpoint/v2024/docs/Models"
-          NEW_V2024_API_SPEC_PATH_MODELS="developer-community/docs/tools/sdk/powershell/Reference/V2024"
-
-          CURRENT_V2025_CODE_EXAMPLES_PATH="powershell-sdk/PSSailpoint/v2025/docs/Examples/powershell_code_examples_overlay.yaml"
-          NEW_V2025_CODE_EXAMPLES_PATH="developer-community/static/code-examples/v2025/"
-          CURRENT_V2025_SPEC_PATH_METHODS="powershell-sdk/PSSailpoint/v2025/docs/Methods"
-          NEW_V2025_API_SPEC_PATH_METHODS="developer-community/docs/tools/sdk/powershell/Reference/V2025"
-          CURRENT_V2025_SPEC_PATH_MODELS="powershell-sdk/PSSailpoint/v2025/docs/Models"
-          NEW_V2025_API_SPEC_PATH_MODELS="developer-community/docs/tools/sdk/powershell/Reference/V2025"
-
-          rsync -cav --delete $CURRENT_V3_SPEC_PATH_METHODS $NEW_V3_API_SPEC_PATH_METHODS 
-          rsync -cav --delete $CURRENT_BETA_SPEC_PATH_METHODS $NEW_BETA_API_SPEC_PATH_METHODS
-          rsync -cav --delete $CURRENT_V2024_SPEC_PATH_METHODS $NEW_V2024_API_SPEC_PATH_METHODS
-          rsync -cav --delete $CURRENT_V2025_SPEC_PATH_METHODS $NEW_V2025_API_SPEC_PATH_METHODS
-          rsync -cav --delete $CURRENT_V3_SPEC_PATH_MODELS $NEW_V3_API_SPEC_PATH_MODELS
-          rsync -cav --delete $CURRENT_BETA_SPEC_PATH_MODELS $NEW_BETA_API_SPEC_PATH_MODELS
-          rsync -cav --delete $CURRENT_V2024_SPEC_PATH_MODELS $NEW_V2024_API_SPEC_PATH_MODELS
-          rsync -cav --delete $CURRENT_V2025_SPEC_PATH_MODELS $NEW_V2025_API_SPEC_PATH_MODELS
-          
-          rsync -av $CURRENT_V3_CODE_EXAMPLES_PATH $NEW_V3_CODE_EXAMPLES_PATH
-          rsync -av $CURRENT_BETA_CODE_EXAMPLES_PATH $NEW_BETA_CODE_EXAMPLES_PATH
-          rsync -av $CURRENT_V2024_CODE_EXAMPLES_PATH $NEW_V2024_CODE_EXAMPLES_PATH
-          rsync -av $CURRENT_V2025_CODE_EXAMPLES_PATH $NEW_V2025_CODE_EXAMPLES_PATH
+          # v2025
+          rsync -cav --delete powershell-sdk/PSSailpoint/v2025/docs/Methods    developer-community/docs/tools/sdk/powershell/Reference/V2025
+          rsync -cav --delete powershell-sdk/PSSailpoint/v2025/docs/Models     developer-community/docs/tools/sdk/powershell/Reference/V2025
+          rsync -av  powershell-sdk/PSSailpoint/v2025/docs/Examples/powershell_code_examples_overlay.yaml \
+                        developer-community/static/code-examples/v2025/
 
       - name: Check for changes and commit if any
         run: |
-            cd developer-community
-            git status
+          cd developer-community
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config --local user.email "devrel-service@sailpoint.com"
+          git config --local user.name "developer-relations-sp"
+          git add .
+          git commit -m "Update PowerShell SDK docs: ${{ github.run_id }}"
+          git remote set-url origin https://${{ secrets.DEVREL_SERVICE_TOKEN }}@github.com/sailpoint-oss/developer.sailpoint.com.git
+          git push
 
-            if git diff --exit-code; then
-              echo "No changes to commit."
-              exit 0
-            else
-              git config --unset-all http.https://github.com/.extraheader
-              git config --local user.email "devrel-service@sailpoint.com"
-              git config --local user.name "developer-relations-sp"
-              git add .
-              git commit -m "Update to powershell SDK docs: ${{ github.run_id }}"
-              git status
-              git remote set-url origin https://${{secrets.DEVREL_SERVICE_TOKEN}}@github.com/sailpoint-oss/developer.sailpoint.com.git
-              git remote -v
-              git push
-            fi
+  publish-failure:
+    name: Notify on failure
+    runs-on: ubuntu-latest
+    needs: push_spec_workflow
+    if: ${{ always() && (needs.push_spec_workflow.result == 'failure' || needs.push_spec_workflow.result == 'timed_out') }}
+    steps:
+      - name: Invoke GithubNotificationsFunction Lambda
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d '{
+              "workflowName": "${{ github.job }}",
+              "repositoryName": "${{ github.event.repository.name }}",
+              "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }' \
+            "${{ secrets.NOTIFICATIONS_FUNCTION_URL }}"

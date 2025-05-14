@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024SourceEntitlementRequestConfig' {
     Context 'V2024SourceEntitlementRequestConfig' {
         It 'Initialize-V2024SourceEntitlementRequestConfig' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024SourceEntitlementRequestConfig -AccessRequestConfig "TEST_VALUE"
+            #$NewObject = Initialize-V2024SourceEntitlementRequestConfig -AccessRequestConfig "TEST_VALUE" -RevocationRequestConfig "TEST_VALUE"
             #$NewObject | Should -BeOfType SourceEntitlementRequestConfig
             #$NewObject.property | Should -Be 0
         }

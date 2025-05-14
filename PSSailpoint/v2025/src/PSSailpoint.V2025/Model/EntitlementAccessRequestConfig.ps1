@@ -20,6 +20,8 @@ Ordered list of approval steps for the access request. Empty when no approval is
 If the requester must provide a comment during access request.
 .PARAMETER DenialCommentRequired
 If the reviewer must provide a comment when denying the access request.
+.PARAMETER ReauthorizationRequired
+Is Reauthorization Required
 .OUTPUTS
 
 EntitlementAccessRequestConfig<PSCustomObject>
@@ -36,7 +38,10 @@ function Initialize-V2025EntitlementAccessRequestConfig {
         ${RequestCommentRequired} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${DenialCommentRequired} = $false
+        ${DenialCommentRequired} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${ReauthorizationRequired} = $false
     )
 
     Process {
@@ -48,6 +53,7 @@ function Initialize-V2025EntitlementAccessRequestConfig {
             "approvalSchemes" = ${ApprovalSchemes}
             "requestCommentRequired" = ${RequestCommentRequired}
             "denialCommentRequired" = ${DenialCommentRequired}
+            "reauthorizationRequired" = ${ReauthorizationRequired}
         }
 
         return $PSO
@@ -84,7 +90,7 @@ function ConvertFrom-V2025JsonToEntitlementAccessRequestConfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025EntitlementAccessRequestConfig
-        $AllProperties = ("approvalSchemes", "requestCommentRequired", "denialCommentRequired")
+        $AllProperties = ("approvalSchemes", "requestCommentRequired", "denialCommentRequired", "reauthorizationRequired")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,10 +115,17 @@ function ConvertFrom-V2025JsonToEntitlementAccessRequestConfig {
             $DenialCommentRequired = $JsonParameters.PSobject.Properties["denialCommentRequired"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reauthorizationRequired"))) { #optional property not found
+            $ReauthorizationRequired = $null
+        } else {
+            $ReauthorizationRequired = $JsonParameters.PSobject.Properties["reauthorizationRequired"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "approvalSchemes" = ${ApprovalSchemes}
             "requestCommentRequired" = ${RequestCommentRequired}
             "denialCommentRequired" = ${DenialCommentRequired}
+            "reauthorizationRequired" = ${ReauthorizationRequired}
         }
 
         return $PSO

@@ -16,6 +16,8 @@ Entitlement Request Configuration
 
 .PARAMETER AccessRequestConfig
 No description available.
+.PARAMETER RevocationRequestConfig
+No description available.
 .OUTPUTS
 
 SourceEntitlementRequestConfig<PSCustomObject>
@@ -26,7 +28,10 @@ function Initialize-V2025SourceEntitlementRequestConfig {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${AccessRequestConfig}
+        ${AccessRequestConfig},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${RevocationRequestConfig}
     )
 
     Process {
@@ -36,6 +41,7 @@ function Initialize-V2025SourceEntitlementRequestConfig {
 
         $PSO = [PSCustomObject]@{
             "accessRequestConfig" = ${AccessRequestConfig}
+            "revocationRequestConfig" = ${RevocationRequestConfig}
         }
 
         return $PSO
@@ -72,7 +78,7 @@ function ConvertFrom-V2025JsonToSourceEntitlementRequestConfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025SourceEntitlementRequestConfig
-        $AllProperties = ("accessRequestConfig")
+        $AllProperties = ("accessRequestConfig", "revocationRequestConfig")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -85,8 +91,15 @@ function ConvertFrom-V2025JsonToSourceEntitlementRequestConfig {
             $AccessRequestConfig = $JsonParameters.PSobject.Properties["accessRequestConfig"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "revocationRequestConfig"))) { #optional property not found
+            $RevocationRequestConfig = $null
+        } else {
+            $RevocationRequestConfig = $JsonParameters.PSobject.Properties["revocationRequestConfig"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "accessRequestConfig" = ${AccessRequestConfig}
+            "revocationRequestConfig" = ${RevocationRequestConfig}
         }
 
         return $PSO

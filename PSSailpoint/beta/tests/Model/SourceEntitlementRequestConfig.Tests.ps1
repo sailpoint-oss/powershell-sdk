@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaSourceEntitlementRequestConfig' {
     Context 'BetaSourceEntitlementRequestConfig' {
         It 'Initialize-BetaSourceEntitlementRequestConfig' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaSourceEntitlementRequestConfig -AccessRequestConfig "TEST_VALUE"
+            #$NewObject = Initialize-BetaSourceEntitlementRequestConfig -AccessRequestConfig "TEST_VALUE" -RevocationRequestConfig "TEST_VALUE"
             #$NewObject | Should -BeOfType SourceEntitlementRequestConfig
             #$NewObject.property | Should -Be 0
         }

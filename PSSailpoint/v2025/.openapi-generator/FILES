@@ -395,6 +395,7 @@ docs/EntitlementOwner.md
 docs/EntitlementRef.md
 docs/EntitlementRef1.md
 docs/EntitlementRequestConfig.md
+docs/EntitlementRevocationRequestConfig.md
 docs/EntitlementSource.md
 docs/EntitlementSourceResetBaseReferenceDto.md
 docs/EntitlementSummary.md
@@ -1821,6 +1822,7 @@ src/PSSailpoint.V2025/Model/EntitlementOwner.ps1
 src/PSSailpoint.V2025/Model/EntitlementRef.ps1
 src/PSSailpoint.V2025/Model/EntitlementRef1.ps1
 src/PSSailpoint.V2025/Model/EntitlementRequestConfig.ps1
+src/PSSailpoint.V2025/Model/EntitlementRevocationRequestConfig.ps1
 src/PSSailpoint.V2025/Model/EntitlementSource.ps1
 src/PSSailpoint.V2025/Model/EntitlementSourceResetBaseReferenceDto.ps1
 src/PSSailpoint.V2025/Model/EntitlementSummary.ps1
@@ -3074,6 +3076,7 @@ tests/Model/EntitlementOwner.Tests.ps1
 tests/Model/EntitlementRef.Tests.ps1
 tests/Model/EntitlementRef1.Tests.ps1
 tests/Model/EntitlementRequestConfig.Tests.ps1
+tests/Model/EntitlementRevocationRequestConfig.Tests.ps1
 tests/Model/EntitlementSource.Tests.ps1
 tests/Model/EntitlementSourceResetBaseReferenceDto.Tests.ps1
 tests/Model/EntitlementSummary.Tests.ps1

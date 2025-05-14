@@ -892,6 +892,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.EntitlementRef](docs/EntitlementRef.md)
  - [PSSailpoint.Beta\Model.EntitlementRequestConfig](docs/EntitlementRequestConfig.md)
  - [PSSailpoint.Beta\Model.EntitlementRequestConfig1](docs/EntitlementRequestConfig1.md)
+ - [PSSailpoint.Beta\Model.EntitlementRevocationRequestConfig](docs/EntitlementRevocationRequestConfig.md)
  - [PSSailpoint.Beta\Model.EntitlementSource](docs/EntitlementSource.md)
  - [PSSailpoint.Beta\Model.EntitlementSourceResetBaseReferenceDto](docs/EntitlementSourceResetBaseReferenceDto.md)
  - [PSSailpoint.Beta\Model.EntityCreatedByDTO](docs/EntityCreatedByDTO.md)

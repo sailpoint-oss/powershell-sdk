@@ -1155,6 +1155,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.EntitlementRef](docs/EntitlementRef.md)
  - [PSSailpoint.V2024\Model.EntitlementRef1](docs/EntitlementRef1.md)
  - [PSSailpoint.V2024\Model.EntitlementRequestConfig](docs/EntitlementRequestConfig.md)
+ - [PSSailpoint.V2024\Model.EntitlementRevocationRequestConfig](docs/EntitlementRevocationRequestConfig.md)
  - [PSSailpoint.V2024\Model.EntitlementSource](docs/EntitlementSource.md)
  - [PSSailpoint.V2024\Model.EntitlementSourceResetBaseReferenceDto](docs/EntitlementSourceResetBaseReferenceDto.md)
  - [PSSailpoint.V2024\Model.EntitlementSummary](docs/EntitlementSummary.md)

@@ -429,6 +429,7 @@ docs/EntitlementOwner.md
 docs/EntitlementRef.md
 docs/EntitlementRequestConfig.md
 docs/EntitlementRequestConfig1.md
+docs/EntitlementRevocationRequestConfig.md
 docs/EntitlementSource.md
 docs/EntitlementSourceResetBaseReferenceDto.md
 docs/EntityCreatedByDTO.md
@@ -1436,6 +1437,7 @@ src/PSSailpoint.Beta/Model/EntitlementOwner.ps1
 src/PSSailpoint.Beta/Model/EntitlementRef.ps1
 src/PSSailpoint.Beta/Model/EntitlementRequestConfig.ps1
 src/PSSailpoint.Beta/Model/EntitlementRequestConfig1.ps1
+src/PSSailpoint.Beta/Model/EntitlementRevocationRequestConfig.ps1
 src/PSSailpoint.Beta/Model/EntitlementSource.ps1
 src/PSSailpoint.Beta/Model/EntitlementSourceResetBaseReferenceDto.ps1
 src/PSSailpoint.Beta/Model/EntityCreatedByDTO.ps1
@@ -2448,6 +2450,7 @@ tests/Model/EntitlementOwner.Tests.ps1
 tests/Model/EntitlementRef.Tests.ps1
 tests/Model/EntitlementRequestConfig.Tests.ps1
 tests/Model/EntitlementRequestConfig1.Tests.ps1
+tests/Model/EntitlementRevocationRequestConfig.Tests.ps1
 tests/Model/EntitlementSource.Tests.ps1
 tests/Model/EntitlementSourceResetBaseReferenceDto.Tests.ps1
 tests/Model/EntityCreatedByDTO.Tests.ps1

@@ -32,26 +32,22 @@ jobs:
           # v3
           rsync -cav --delete powershell-sdk/PSSailpoint/v3/docs/Methods    developer-community/docs/tools/sdk/powershell/Reference/V3
           rsync -cav --delete powershell-sdk/PSSailpoint/v3/docs/Models     developer-community/docs/tools/sdk/powershell/Reference/V3
-          rsync -av  powershell-sdk/PSSailpoint/v3/docs/Examples/powershell_code_examples_overlay.yaml \
-                        developer-community/static/code-examples/v3/
+          rsync -av  powershell-sdk/PSSailpoint/v3/docs/Examples/powershell_code_examples_overlay.yaml developer-community/static/code-examples/v3/
 
           # beta
           rsync -cav --delete powershell-sdk/PSSailpoint/beta/docs/Methods  developer-community/docs/tools/sdk/powershell/Reference/Beta
           rsync -cav --delete powershell-sdk/PSSailpoint/beta/docs/Models   developer-community/docs/tools/sdk/powershell/Reference/Beta
-          rsync -av  powershell-sdk/PSSailpoint/beta/docs/Examples/powershell_code_examples_overlay.yaml \
-                        developer-community/static/code-examples/beta/
+          rsync -av  powershell-sdk/PSSailpoint/beta/docs/Examples/powershell_code_examples_overlay.yaml developer-community/static/code-examples/beta/
 
           # v2024
           rsync -cav --delete powershell-sdk/PSSailpoint/v2024/docs/Methods    developer-community/docs/tools/sdk/powershell/Reference/V2024
           rsync -cav --delete powershell-sdk/PSSailpoint/v2024/docs/Models     developer-community/docs/tools/sdk/powershell/Reference/V2024
-          rsync -av  powershell-sdk/PSSailpoint/v2024/docs/Examples/powershell_code_examples_overlay.yaml \
-                        developer-community/static/code-examples/v2024/
+          rsync -av  powershell-sdk/PSSailpoint/v2024/docs/Examples/powershell_code_examples_overlay.yaml developer-community/static/code-examples/v2024/
 
           # v2025
           rsync -cav --delete powershell-sdk/PSSailpoint/v2025/docs/Methods    developer-community/docs/tools/sdk/powershell/Reference/V2025
           rsync -cav --delete powershell-sdk/PSSailpoint/v2025/docs/Models     developer-community/docs/tools/sdk/powershell/Reference/V2025
-          rsync -av  powershell-sdk/PSSailpoint/v2025/docs/Examples/powershell_code_examples_overlay.yaml \
-                        developer-community/static/code-examples/v2025/
+          rsync -av  powershell-sdk/PSSailpoint/v2025/docs/Examples/powershell_code_examples_overlay.yaml developer-community/static/code-examples/v2025/
 
       - name: Check for changes and commit if any
         run: |

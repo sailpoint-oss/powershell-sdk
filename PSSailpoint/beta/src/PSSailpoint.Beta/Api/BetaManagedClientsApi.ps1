@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Specified Managed Client Status.
+Specified managed client status.
 
 .DESCRIPTION
 

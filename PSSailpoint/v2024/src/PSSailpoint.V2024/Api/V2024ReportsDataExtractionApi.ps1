@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Cancel Report
+Cancel report
 
 .DESCRIPTION
 
@@ -82,7 +82,7 @@ function Suspend-V2024Report {
 <#
 .SYNOPSIS
 
-Get Report File
+Get report file
 
 .DESCRIPTION
 
@@ -200,7 +200,7 @@ function Get-V2024Report {
 <#
 .SYNOPSIS
 
-Get Report Result
+Get report result
 
 .DESCRIPTION
 
@@ -284,7 +284,7 @@ function Get-V2024ReportResult {
 <#
 .SYNOPSIS
 
-Run Report
+Run report
 
 .DESCRIPTION
 

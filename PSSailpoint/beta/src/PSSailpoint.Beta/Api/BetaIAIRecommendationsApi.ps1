@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Returns Recommendation Based on Object
+Returns recommendation based on object
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get a tenant UI metadata
+Get a tenant ui metadata
 
 .DESCRIPTION
 
@@ -83,7 +83,7 @@ function Get-V2025TenantUiMetadata {
 <#
 .SYNOPSIS
 
-Update tenant UI metadata
+Update tenant ui metadata
 
 .DESCRIPTION
 

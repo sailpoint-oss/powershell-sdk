@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Cancel Workflow Execution by ID
+Cancel workflow execution by id
 
 .DESCRIPTION
 
@@ -82,7 +82,7 @@ function Suspend-WorkflowExecution {
 <#
 .SYNOPSIS
 
-Execute Workflow via External Trigger
+Execute workflow via external trigger
 
 .DESCRIPTION
 
@@ -178,7 +178,7 @@ function New-ExternalExecuteWorkflow {
 <#
 .SYNOPSIS
 
-Create Workflow
+Create workflow
 
 .DESCRIPTION
 
@@ -268,7 +268,7 @@ function New-Workflow {
 <#
 .SYNOPSIS
 
-Generate External Trigger OAuth Client
+Generate external trigger oauth client
 
 .DESCRIPTION
 
@@ -342,7 +342,7 @@ function New-WorkflowExternalTrigger {
 <#
 .SYNOPSIS
 
-Delete Workflow By Id
+Delete workflow by id
 
 .DESCRIPTION
 
@@ -416,7 +416,7 @@ function Remove-Workflow {
 <#
 .SYNOPSIS
 
-Get Workflow By Id
+Get workflow by id
 
 .DESCRIPTION
 
@@ -500,7 +500,7 @@ function Get-Workflow {
 <#
 .SYNOPSIS
 
-Get Workflow Execution
+Get workflow execution
 
 .DESCRIPTION
 
@@ -574,7 +574,7 @@ function Get-WorkflowExecution {
 <#
 .SYNOPSIS
 
-Get Workflow Execution History
+Get workflow execution history
 
 .DESCRIPTION
 
@@ -648,7 +648,7 @@ function Get-WorkflowExecutionHistory {
 <#
 .SYNOPSIS
 
-List Workflow Executions
+List workflow executions
 
 .DESCRIPTION
 
@@ -762,7 +762,7 @@ function Get-WorkflowExecutions {
 <#
 .SYNOPSIS
 
-List Complete Workflow Library
+List complete workflow library
 
 .DESCRIPTION
 
@@ -846,7 +846,7 @@ function Get-CompleteWorkflowLibrary {
 <#
 .SYNOPSIS
 
-List Workflow Library Actions
+List workflow library actions
 
 .DESCRIPTION
 
@@ -940,7 +940,7 @@ function Get-WorkflowLibraryActions {
 <#
 .SYNOPSIS
 
-List Workflow Library Operators
+List workflow library operators
 
 .DESCRIPTION
 
@@ -1004,7 +1004,7 @@ function Get-WorkflowLibraryOperators {
 <#
 .SYNOPSIS
 
-List Workflow Library Triggers
+List workflow library triggers
 
 .DESCRIPTION
 
@@ -1098,7 +1098,7 @@ function Get-WorkflowLibraryTriggers {
 <#
 .SYNOPSIS
 
-List Workflows
+List workflows
 
 .DESCRIPTION
 
@@ -1202,7 +1202,7 @@ function Get-Workflows {
 <#
 .SYNOPSIS
 
-Patch Workflow
+Patch workflow
 
 .DESCRIPTION
 
@@ -1302,7 +1302,7 @@ function Update-Workflow {
 <#
 .SYNOPSIS
 
-Update Workflow
+Update workflow
 
 .DESCRIPTION
 
@@ -1402,7 +1402,7 @@ function Send-Workflow {
 <#
 .SYNOPSIS
 
-Test Workflow via External Trigger
+Test workflow via external trigger
 
 .DESCRIPTION
 
@@ -1498,7 +1498,7 @@ function Test-ExternalExecuteWorkflow {
 <#
 .SYNOPSIS
 
-Test Workflow By Id
+Test workflow by id
 
 .DESCRIPTION
 

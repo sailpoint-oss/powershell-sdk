@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Ignore Access Request Recommendation
+Ignore access request recommendation
 
 .DESCRIPTION
 
@@ -109,7 +109,7 @@ function Add-V2024AccessRequestRecommendationsIgnoredItem {
 <#
 .SYNOPSIS
 
-Accept Access Request Recommendation
+Accept access request recommendation
 
 .DESCRIPTION
 
@@ -210,7 +210,7 @@ function Add-V2024AccessRequestRecommendationsRequestedItem {
 <#
 .SYNOPSIS
 
-Mark Viewed Access Request Recommendations
+Mark viewed access request recommendations
 
 .DESCRIPTION
 
@@ -311,7 +311,7 @@ function Add-V2024AccessRequestRecommendationsViewedItem {
 <#
 .SYNOPSIS
 
-Bulk Mark Viewed Access Request Recommendations
+Bulk mark viewed access request recommendations
 
 .DESCRIPTION
 
@@ -412,7 +412,7 @@ function Add-V2024AccessRequestRecommendationsViewedItems {
 <#
 .SYNOPSIS
 
-Identity Access Request Recommendations
+Identity access request recommendations
 
 .DESCRIPTION
 
@@ -557,7 +557,7 @@ function Get-V2024AccessRequestRecommendations {
 <#
 .SYNOPSIS
 
-Get Access Request Recommendations config
+Get access request recommendations config
 
 .DESCRIPTION
 
@@ -632,7 +632,7 @@ function Get-V2024AccessRequestRecommendationsConfig {
 <#
 .SYNOPSIS
 
-List Ignored Access Request Recommendations
+List ignored access request recommendations
 
 .DESCRIPTION
 
@@ -757,7 +757,7 @@ function Get-V2024AccessRequestRecommendationsIgnoredItems {
 <#
 .SYNOPSIS
 
-List Accepted Access Request Recommendations
+List accepted access request recommendations
 
 .DESCRIPTION
 
@@ -882,7 +882,7 @@ function Get-V2024AccessRequestRecommendationsRequestedItems {
 <#
 .SYNOPSIS
 
-List Viewed Access Request Recommendations
+List viewed access request recommendations
 
 .DESCRIPTION
 
@@ -1007,7 +1007,7 @@ function Get-V2024AccessRequestRecommendationsViewedItems {
 <#
 .SYNOPSIS
 
-Update Access Request Recommendations config
+Update access request recommendations config
 
 .DESCRIPTION
 

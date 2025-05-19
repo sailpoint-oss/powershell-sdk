@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Retrieve Pending Task List Headers
+Retrieve pending task list headers
 
 .DESCRIPTION
 
@@ -114,7 +114,7 @@ function Get-V2024PendingTaskHeaders {
 <#
 .SYNOPSIS
 
-Retrieve Pending Task Status List
+Retrieve pending task status list
 
 .DESCRIPTION
 
@@ -220,7 +220,7 @@ function Get-V2024PendingTasks {
 <#
 .SYNOPSIS
 
-Get Task Status by ID
+Get task status by id
 
 .DESCRIPTION
 
@@ -306,7 +306,7 @@ function Get-V2024TaskStatus {
 <#
 .SYNOPSIS
 
-Retrieve Task Status List
+Retrieve task status list
 
 .DESCRIPTION
 
@@ -432,7 +432,7 @@ function Get-V2024TaskStatusList {
 <#
 .SYNOPSIS
 
-Update Task Status by ID
+Update task status by id
 
 .DESCRIPTION
 

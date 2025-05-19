@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Identity Profile
+Create identity profile
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-IdentityProfile {
 <#
 .SYNOPSIS
 
-Delete Identity Profile
+Delete identity profile
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-IdentityProfile {
 <#
 .SYNOPSIS
 
-Delete Identity Profiles
+Delete identity profiles
 
 .DESCRIPTION
 
@@ -262,7 +262,7 @@ function Remove-IdentityProfiles {
 <#
 .SYNOPSIS
 
-Export Identity Profiles
+Export identity profiles
 
 .DESCRIPTION
 
@@ -376,7 +376,7 @@ function Export-IdentityProfiles {
 <#
 .SYNOPSIS
 
-Get default Identity Attribute Config
+Get default identity attribute config
 
 .DESCRIPTION
 
@@ -450,7 +450,7 @@ function Get-DefaultIdentityAttributeConfig {
 <#
 .SYNOPSIS
 
-Get Identity Profile
+Get identity profile
 
 .DESCRIPTION
 
@@ -525,7 +525,7 @@ function Get-IdentityProfile {
 <#
 .SYNOPSIS
 
-Import Identity Profiles
+Import identity profiles
 
 .DESCRIPTION
 
@@ -615,7 +615,7 @@ function Import-IdentityProfiles {
 <#
 .SYNOPSIS
 
-List Identity Profiles
+List identity profiles
 
 .DESCRIPTION
 
@@ -730,7 +730,7 @@ function Get-IdentityProfiles {
 <#
 .SYNOPSIS
 
-Generate Identity Profile Preview
+Generate identity profile preview
 
 .DESCRIPTION
 
@@ -894,7 +894,7 @@ function Sync-IdentityProfile {
 <#
 .SYNOPSIS
 
-Update Identity Profile
+Update identity profile
 
 .DESCRIPTION
 

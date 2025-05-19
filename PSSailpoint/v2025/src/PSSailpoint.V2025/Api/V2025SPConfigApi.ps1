@@ -492,7 +492,7 @@ function Import-V2025SpConfig {
 <#
 .SYNOPSIS
 
-List Config Objects
+List config objects
 
 .DESCRIPTION
 

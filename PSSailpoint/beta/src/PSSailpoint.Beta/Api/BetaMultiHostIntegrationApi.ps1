@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Multi-Host Integration
+Create multi-host integration
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaMultiHostIntegration {
 <#
 .SYNOPSIS
 
-Create Sources Within Multi-Host Integration
+Create sources within multi-host integration
 
 .DESCRIPTION
 
@@ -198,7 +198,7 @@ function New-BetaSourcesWithinMultiHost {
 <#
 .SYNOPSIS
 
-Delete Multi-Host Integration
+Delete multi-host integration
 
 .DESCRIPTION
 
@@ -272,7 +272,7 @@ function Remove-BetaMultiHost {
 <#
 .SYNOPSIS
 
-Get Account Aggregation Groups Within Multi-Host Integration ID
+Get account aggregation groups within multi-host integration id
 
 .DESCRIPTION
 
@@ -346,7 +346,7 @@ function Get-BetaAcctAggregationGroups {
 <#
 .SYNOPSIS
 
-Get Entitlement Aggregation Groups Within Multi-Host Integration ID
+Get entitlement aggregation groups within multi-host integration id
 
 .DESCRIPTION
 
@@ -420,7 +420,7 @@ function Get-BetaEntitlementAggregationGroups {
 <#
 .SYNOPSIS
 
-Get Multi-Host Integration By ID
+Get multi-host integration by id
 
 .DESCRIPTION
 
@@ -494,7 +494,7 @@ function Get-BetaMultiHostIntegrations {
 <#
 .SYNOPSIS
 
-List All Existing Multi-Host Integrations
+List all existing multi-host integrations
 
 .DESCRIPTION
 
@@ -618,7 +618,7 @@ function Get-BetaMultiHostIntegrationsList {
 <#
 .SYNOPSIS
 
-List Multi-Host Source Creation Errors
+List multi-host source creation errors
 
 .DESCRIPTION
 
@@ -692,7 +692,7 @@ function Get-BetaMultiHostSourceCreationErrors {
 <#
 .SYNOPSIS
 
-List Multi-Host Integration Types
+List multi-host integration types
 
 .DESCRIPTION
 
@@ -756,7 +756,7 @@ function Get-BetaMultihostIntegrationTypes {
 <#
 .SYNOPSIS
 
-List Sources Within Multi-Host Integration
+List sources within multi-host integration
 
 .DESCRIPTION
 
@@ -880,7 +880,7 @@ function Get-BetaSourcesWithinMultiHost {
 <#
 .SYNOPSIS
 
-Test Configuration For Multi-Host Integration
+Test configuration for multi-host integration
 
 .DESCRIPTION
 
@@ -954,7 +954,7 @@ function Test-BetaConnectionMultiHostSources {
 <#
 .SYNOPSIS
 
-Test Configuration For Multi-Host Integration's Single Source
+Test configuration for multi-host integration's single source
 
 .DESCRIPTION
 
@@ -1038,7 +1038,7 @@ function Test-BetaSourceConnectionMultihost {
 <#
 .SYNOPSIS
 
-Update Multi-Host Integration
+Update multi-host integration
 
 .DESCRIPTION
 

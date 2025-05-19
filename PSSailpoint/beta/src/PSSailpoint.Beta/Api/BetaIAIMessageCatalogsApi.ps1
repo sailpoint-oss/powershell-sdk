@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Message catalogs
+Get message catalogs
 
 .DESCRIPTION
 

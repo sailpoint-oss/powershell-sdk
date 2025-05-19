@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Segment
+Create segment
 
 .DESCRIPTION
 
@@ -99,7 +99,7 @@ function New-V2024Segment {
 <#
 .SYNOPSIS
 
-Delete Segment by ID
+Delete segment by id
 
 .DESCRIPTION
 
@@ -174,7 +174,7 @@ function Remove-V2024Segment {
 <#
 .SYNOPSIS
 
-Get Segment by ID
+Get segment by id
 
 .DESCRIPTION
 
@@ -249,7 +249,7 @@ function Get-V2024Segment {
 <#
 .SYNOPSIS
 
-List Segments
+List segments
 
 .DESCRIPTION
 
@@ -344,7 +344,7 @@ function Get-V2024Segments {
 <#
 .SYNOPSIS
 
-Update Segment
+Update segment
 
 .DESCRIPTION
 

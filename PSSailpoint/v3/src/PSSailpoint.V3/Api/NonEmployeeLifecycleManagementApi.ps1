@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Approve a Non-Employee Request
+Approve a non-employee request
 
 .DESCRIPTION
 
@@ -108,7 +108,7 @@ function Approve-NonEmployeeRequest {
 <#
 .SYNOPSIS
 
-Create Non-Employee Record
+Create non-employee record
 
 .DESCRIPTION
 
@@ -198,7 +198,7 @@ function New-NonEmployeeRecord {
 <#
 .SYNOPSIS
 
-Create Non-Employee Request
+Create non-employee request
 
 .DESCRIPTION
 
@@ -288,7 +288,7 @@ function New-NonEmployeeRequest {
 <#
 .SYNOPSIS
 
-Create Non-Employee Source
+Create non-employee source
 
 .DESCRIPTION
 
@@ -378,7 +378,7 @@ function New-NonEmployeeSource {
 <#
 .SYNOPSIS
 
-Create a new Schema Attribute for Non-Employee Source
+Create a new schema attribute for non-employee source
 
 .DESCRIPTION
 
@@ -478,7 +478,7 @@ function New-NonEmployeeSourceSchemaAttributes {
 <#
 .SYNOPSIS
 
-Delete Non-Employee Record
+Delete non-employee record
 
 .DESCRIPTION
 
@@ -552,7 +552,7 @@ function Remove-NonEmployeeRecord {
 <#
 .SYNOPSIS
 
-Delete Multiple Non-Employee Records
+Delete multiple non-employee records
 
 .DESCRIPTION
 
@@ -642,7 +642,7 @@ function Remove-NonEmployeeRecordsInBulk {
 <#
 .SYNOPSIS
 
-Delete Non-Employee Request
+Delete non-employee request
 
 .DESCRIPTION
 
@@ -716,7 +716,7 @@ function Remove-NonEmployeeRequest {
 <#
 .SYNOPSIS
 
-Delete a Schema Attribute for Non-Employee Source
+Delete a schema attribute for non-employee source
 
 .DESCRIPTION
 
@@ -800,7 +800,7 @@ function Remove-NonEmployeeSchemaAttribute {
 <#
 .SYNOPSIS
 
-Delete Non-Employee Source
+Delete non-employee source
 
 .DESCRIPTION
 
@@ -874,7 +874,7 @@ function Remove-NonEmployeeSource {
 <#
 .SYNOPSIS
 
-Delete all custom schema attributes for Non-Employee Source
+Delete all custom schema attributes for non-employee source
 
 .DESCRIPTION
 
@@ -948,7 +948,7 @@ function Remove-NonEmployeeSourceSchemaAttributes {
 <#
 .SYNOPSIS
 
-Exports Non-Employee Records to CSV
+Exports non-employee records to csv
 
 .DESCRIPTION
 
@@ -1034,7 +1034,7 @@ function Export-NonEmployeeRecords {
 <#
 .SYNOPSIS
 
-Exports Source Schema Template
+Exports source schema template
 
 .DESCRIPTION
 
@@ -1204,7 +1204,7 @@ function Get-NonEmployeeApproval {
 <#
 .SYNOPSIS
 
-Get Summary of Non-Employee Approval Requests
+Get summary of non-employee approval requests
 
 .DESCRIPTION
 
@@ -1352,7 +1352,7 @@ function Get-NonEmployeeBulkUploadStatus {
 <#
 .SYNOPSIS
 
-Get a Non-Employee Record
+Get a non-employee record
 
 .DESCRIPTION
 
@@ -1426,7 +1426,7 @@ function Get-NonEmployeeRecord {
 <#
 .SYNOPSIS
 
-Get a Non-Employee Request
+Get a non-employee request
 
 .DESCRIPTION
 
@@ -1500,7 +1500,7 @@ function Get-NonEmployeeRequest {
 <#
 .SYNOPSIS
 
-Get Summary of Non-Employee Requests
+Get summary of non-employee requests
 
 .DESCRIPTION
 
@@ -1574,7 +1574,7 @@ function Get-NonEmployeeRequestSummary {
 <#
 .SYNOPSIS
 
-Get Schema Attribute Non-Employee Source
+Get schema attribute non-employee source
 
 .DESCRIPTION
 
@@ -1658,7 +1658,7 @@ function Get-NonEmployeeSchemaAttribute {
 <#
 .SYNOPSIS
 
-Get a Non-Employee Source
+Get a non-employee source
 
 .DESCRIPTION
 
@@ -1732,7 +1732,7 @@ function Get-NonEmployeeSource {
 <#
 .SYNOPSIS
 
-List Schema Attributes Non-Employee Source
+List schema attributes non-employee source
 
 .DESCRIPTION
 
@@ -1806,7 +1806,7 @@ function Get-NonEmployeeSourceSchemaAttributes {
 <#
 .SYNOPSIS
 
-Imports, or Updates, Non-Employee Records
+Imports, or updates, non-employee records
 
 .DESCRIPTION
 
@@ -1894,7 +1894,7 @@ function Import-NonEmployeeRecordsInBulk {
 <#
 .SYNOPSIS
 
-Get List of Non-Employee Approval Requests
+Get list of non-employee approval requests
 
 .DESCRIPTION
 
@@ -2018,7 +2018,7 @@ function Get-NonEmployeeApprovals {
 <#
 .SYNOPSIS
 
-List Non-Employee Records
+List non-employee records
 
 .DESCRIPTION
 
@@ -2132,7 +2132,7 @@ function Get-NonEmployeeRecords {
 <#
 .SYNOPSIS
 
-List Non-Employee Requests
+List non-employee requests
 
 .DESCRIPTION
 
@@ -2257,7 +2257,7 @@ function Get-NonEmployeeRequests {
 <#
 .SYNOPSIS
 
-List Non-Employee Sources
+List non-employee sources
 
 .DESCRIPTION
 
@@ -2381,7 +2381,7 @@ function Get-NonEmployeeSources {
 <#
 .SYNOPSIS
 
-Patch Non-Employee Record
+Patch non-employee record
 
 .DESCRIPTION
 
@@ -2481,7 +2481,7 @@ function Update-NonEmployeeRecord {
 <#
 .SYNOPSIS
 
-Patch a Schema Attribute for Non-Employee Source
+Patch a schema attribute for non-employee source
 
 .DESCRIPTION
 
@@ -2591,7 +2591,7 @@ function Update-NonEmployeeSchemaAttribute {
 <#
 .SYNOPSIS
 
-Patch a Non-Employee Source
+Patch a non-employee source
 
 .DESCRIPTION
 
@@ -2691,7 +2691,7 @@ function Update-NonEmployeeSource {
 <#
 .SYNOPSIS
 
-Reject a Non-Employee Request
+Reject a non-employee request
 
 .DESCRIPTION
 
@@ -2791,7 +2791,7 @@ function Deny-NonEmployeeRequest {
 <#
 .SYNOPSIS
 
-Update Non-Employee Record
+Update non-employee record
 
 .DESCRIPTION
 

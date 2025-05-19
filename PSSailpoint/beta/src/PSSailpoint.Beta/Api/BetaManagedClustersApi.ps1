@@ -82,7 +82,7 @@ function Get-BetaClientLogConfiguration {
 <#
 .SYNOPSIS
 
-Get a specified ManagedCluster.
+Get a specified managedcluster.
 
 .DESCRIPTION
 
@@ -156,7 +156,7 @@ function Get-BetaManagedCluster {
 <#
 .SYNOPSIS
 
-Retrieve all Managed Clusters.
+Retrieve all managed clusters.
 
 .DESCRIPTION
 

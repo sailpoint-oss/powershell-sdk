@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Delete MFA method configuration
+Delete mfa method configuration
 
 .DESCRIPTION
 
@@ -83,7 +83,7 @@ function Remove-MFAConfig {
 <#
 .SYNOPSIS
 
-Configuration of Duo MFA method
+Configuration of duo mfa method
 
 .DESCRIPTION
 
@@ -147,7 +147,7 @@ function Get-MFADuoConfig {
 <#
 .SYNOPSIS
 
-Configuration of KBA MFA method
+Configuration of kba mfa method
 
 .DESCRIPTION
 
@@ -221,7 +221,7 @@ function Get-MFAKbaConfig {
 <#
 .SYNOPSIS
 
-Configuration of Okta MFA method
+Configuration of okta mfa method
 
 .DESCRIPTION
 
@@ -285,7 +285,7 @@ function Get-MFAOktaConfig {
 <#
 .SYNOPSIS
 
-Set Duo MFA configuration
+Set duo mfa configuration
 
 .DESCRIPTION
 
@@ -375,7 +375,7 @@ function Set-MFADuoConfig {
 <#
 .SYNOPSIS
 
-Set MFA KBA configuration
+Set mfa kba configuration
 
 .DESCRIPTION
 
@@ -465,7 +465,7 @@ function Set-MFAKBAConfig {
 <#
 .SYNOPSIS
 
-Set Okta MFA configuration
+Set okta mfa configuration
 
 .DESCRIPTION
 
@@ -555,7 +555,7 @@ function Set-MFAOktaConfig {
 <#
 .SYNOPSIS
 
-MFA method's test configuration
+Mfa method's test configuration
 
 .DESCRIPTION
 

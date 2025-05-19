@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-In-progress Account Aggregation status
+In-progress account aggregation status
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Identity Profile
+Create identity profile
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaIdentityProfile {
 <#
 .SYNOPSIS
 
-Delete Identity Profile
+Delete identity profile
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-BetaIdentityProfile {
 <#
 .SYNOPSIS
 
-Delete Identity Profiles
+Delete identity profiles
 
 .DESCRIPTION
 
@@ -262,7 +262,7 @@ function Remove-BetaIdentityProfiles {
 <#
 .SYNOPSIS
 
-Export Identity Profiles
+Export identity profiles
 
 .DESCRIPTION
 
@@ -450,7 +450,7 @@ function Get-BetaDefaultIdentityAttributeConfig {
 <#
 .SYNOPSIS
 
-Get Identity Profile
+Get identity profile
 
 .DESCRIPTION
 
@@ -524,7 +524,7 @@ function Get-BetaIdentityProfile {
 <#
 .SYNOPSIS
 
-Import Identity Profiles
+Import identity profiles
 
 .DESCRIPTION
 
@@ -614,7 +614,7 @@ function Import-BetaIdentityProfiles {
 <#
 .SYNOPSIS
 
-List Identity Profiles
+List identity profiles
 
 .DESCRIPTION
 
@@ -728,7 +728,7 @@ function Get-BetaIdentityProfiles {
 <#
 .SYNOPSIS
 
-Generate Identity Profile Preview
+Generate identity profile preview
 
 .DESCRIPTION
 
@@ -892,7 +892,7 @@ function Sync-BetaIdentityProfile {
 <#
 .SYNOPSIS
 
-Update Identity Profile
+Update identity profile
 
 .DESCRIPTION
 

@@ -426,7 +426,7 @@ function Export-BetaRoleMiningPotentialRole {
 <#
 .SYNOPSIS
 
-Asynchronously export details for a potential role in a role mining session and upload to S3
+Asynchronously export details for a potential role in a role mining session and upload to s3
 
 .DESCRIPTION
 

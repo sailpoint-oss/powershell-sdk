@@ -172,7 +172,7 @@ function Remove-BetaTransform {
 <#
 .SYNOPSIS
 
-Transform by ID
+Transform by id
 
 .DESCRIPTION
 

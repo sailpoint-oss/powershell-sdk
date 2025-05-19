@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Create Managed Cluster
+Create create managed cluster
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-V2025ManagedCluster {
 <#
 .SYNOPSIS
 
-Delete Managed Cluster
+Delete managed cluster
 
 .DESCRIPTION
 
@@ -182,7 +182,7 @@ function Remove-V2025ManagedCluster {
 <#
 .SYNOPSIS
 
-Get Managed Cluster Log Configuration
+Get managed cluster log configuration
 
 .DESCRIPTION
 
@@ -256,7 +256,7 @@ function Get-V2025ClientLogConfiguration {
 <#
 .SYNOPSIS
 
-Get Managed Cluster
+Get managed cluster
 
 .DESCRIPTION
 
@@ -330,7 +330,7 @@ function Get-V2025ManagedCluster {
 <#
 .SYNOPSIS
 
-Get Managed Clusters
+Get managed clusters
 
 .DESCRIPTION
 
@@ -434,7 +434,7 @@ function Get-V2025ManagedClusters {
 <#
 .SYNOPSIS
 
-Update Managed Cluster Log Configuration
+Update managed cluster log configuration
 
 .DESCRIPTION
 
@@ -534,7 +534,7 @@ function Send-V2025ClientLogConfiguration {
 <#
 .SYNOPSIS
 
-Trigger Manual Upgrade for Managed Cluster
+Trigger manual upgrade for managed cluster
 
 .DESCRIPTION
 
@@ -608,7 +608,7 @@ function Update-V2025 {
 <#
 .SYNOPSIS
 
-Update Managed Cluster
+Update managed cluster
 
 .DESCRIPTION
 

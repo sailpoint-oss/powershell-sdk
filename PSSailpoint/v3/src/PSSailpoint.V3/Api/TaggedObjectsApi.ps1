@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Delete Object Tags
+Delete object tags
 
 .DESCRIPTION
 
@@ -93,7 +93,7 @@ function Remove-TaggedObject {
 <#
 .SYNOPSIS
 
-Remove Tags from Multiple Objects
+Remove tags from multiple objects
 
 .DESCRIPTION
 
@@ -184,7 +184,7 @@ function Remove-TagsToManyObject {
 <#
 .SYNOPSIS
 
-Get Tagged Object
+Get tagged object
 
 .DESCRIPTION
 
@@ -269,7 +269,7 @@ function Get-TaggedObject {
 <#
 .SYNOPSIS
 
-List Tagged Objects
+List tagged objects
 
 .DESCRIPTION
 
@@ -373,7 +373,7 @@ function Get-TaggedObjects {
 <#
 .SYNOPSIS
 
-List Tagged Objects by Type
+List tagged objects by type
 
 .DESCRIPTION
 
@@ -488,7 +488,7 @@ function Get-TaggedObjectsByType {
 <#
 .SYNOPSIS
 
-Update Tagged Object
+Update tagged object
 
 .DESCRIPTION
 
@@ -599,7 +599,7 @@ function Send-TaggedObject {
 <#
 .SYNOPSIS
 
-Add Tag to Object
+Add tag to object
 
 .DESCRIPTION
 
@@ -689,7 +689,7 @@ function Set-TagToObject {
 <#
 .SYNOPSIS
 
-Tag Multiple Objects
+Tag multiple objects
 
 .DESCRIPTION
 

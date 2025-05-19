@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Create Managed Cluster
+Create create managed cluster
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-ManagedCluster {
 <#
 .SYNOPSIS
 
-Delete Managed Cluster
+Delete managed cluster
 
 .DESCRIPTION
 
@@ -182,7 +182,7 @@ function Remove-ManagedCluster {
 <#
 .SYNOPSIS
 
-Get Managed Cluster Log Configuration
+Get managed cluster log configuration
 
 .DESCRIPTION
 
@@ -256,7 +256,7 @@ function Get-ClientLogConfiguration {
 <#
 .SYNOPSIS
 
-Get Managed Cluster
+Get managed cluster
 
 .DESCRIPTION
 
@@ -330,7 +330,7 @@ function Get-ManagedCluster {
 <#
 .SYNOPSIS
 
-Get Managed Clusters
+Get managed clusters
 
 .DESCRIPTION
 
@@ -434,7 +434,7 @@ function Get-ManagedClusters {
 <#
 .SYNOPSIS
 
-Update Managed Cluster Log Configuration
+Update managed cluster log configuration
 
 .DESCRIPTION
 
@@ -534,7 +534,7 @@ function Send-ClientLogConfiguration {
 <#
 .SYNOPSIS
 
-Update Managed Cluster
+Update managed cluster
 
 .DESCRIPTION
 

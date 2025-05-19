@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Identity Outliers List
+Identity outliers list
 
 .DESCRIPTION
 

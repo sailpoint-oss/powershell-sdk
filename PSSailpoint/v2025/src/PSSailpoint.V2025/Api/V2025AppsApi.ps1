@@ -230,7 +230,7 @@ function Remove-V2025AccessProfilesFromSourceAppByBulk {
 <#
 .SYNOPSIS
 
-Delete source app by ID
+Delete source app by id
 
 .DESCRIPTION
 
@@ -315,7 +315,7 @@ function Remove-V2025SourceApp {
 <#
 .SYNOPSIS
 
-Get source app by ID
+Get source app by id
 
 .DESCRIPTION
 
@@ -1226,7 +1226,7 @@ function Get-V2025OwnedUserApps {
 <#
 .SYNOPSIS
 
-Patch source app by ID
+Patch source app by id
 
 .DESCRIPTION
 
@@ -1333,7 +1333,7 @@ function Update-V2025SourceApp {
 <#
 .SYNOPSIS
 
-Patch user app by ID
+Patch user app by id
 
 .DESCRIPTION
 

@@ -98,7 +98,7 @@ function New-V2024SavedSearch {
 <#
 .SYNOPSIS
 
-Delete document by ID
+Delete document by id
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-V2024SavedSearch {
 <#
 .SYNOPSIS
 
-Execute a saved search by ID
+Execute a saved search by id
 
 .DESCRIPTION
 
@@ -272,7 +272,7 @@ function Invoke-V2024ExecuteSavedSearch {
 <#
 .SYNOPSIS
 
-Return saved search by ID
+Return saved search by id
 
 .DESCRIPTION
 
@@ -346,7 +346,7 @@ function Get-V2024SavedSearch {
 <#
 .SYNOPSIS
 
-A list of Saved Searches
+A list of saved searches
 
 .DESCRIPTION
 

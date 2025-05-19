@@ -98,7 +98,7 @@ function New-BetaDigitToken {
 <#
 .SYNOPSIS
 
-Get Password Change Request Status
+Get password change request status
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Get-BetaIdentityPasswordChangeStatus {
 <#
 .SYNOPSIS
 
-Query Password Info
+Query password info
 
 .DESCRIPTION
 
@@ -262,7 +262,7 @@ function Search-BetaPasswordInfo {
 <#
 .SYNOPSIS
 
-Set Identity's Password
+Set identity's password
 
 .DESCRIPTION
 

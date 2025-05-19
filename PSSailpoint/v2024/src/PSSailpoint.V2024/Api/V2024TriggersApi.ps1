@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Complete Trigger Invocation
+Complete trigger invocation
 
 .DESCRIPTION
 
@@ -119,7 +119,7 @@ function Complete-V2024TriggerInvocation {
 <#
 .SYNOPSIS
 
-Create a Subscription
+Create a subscription
 
 .DESCRIPTION
 
@@ -220,7 +220,7 @@ function New-V2024Subscription {
 <#
 .SYNOPSIS
 
-Delete a Subscription
+Delete a subscription
 
 .DESCRIPTION
 
@@ -305,7 +305,7 @@ function Remove-V2024Subscription {
 <#
 .SYNOPSIS
 
-List Subscriptions
+List subscriptions
 
 .DESCRIPTION
 
@@ -430,7 +430,7 @@ function Get-V2024Subscriptions {
 <#
 .SYNOPSIS
 
-List Latest Invocation Statuses
+List latest invocation statuses
 
 .DESCRIPTION
 
@@ -555,7 +555,7 @@ function Get-V2024TriggerInvocationStatus {
 <#
 .SYNOPSIS
 
-List Triggers
+List triggers
 
 .DESCRIPTION
 
@@ -680,7 +680,7 @@ function Get-V2024Triggers {
 <#
 .SYNOPSIS
 
-Patch a Subscription
+Patch a subscription
 
 .DESCRIPTION
 
@@ -791,7 +791,7 @@ function Update-V2024Subscription {
 <#
 .SYNOPSIS
 
-Start a Test Invocation
+Start a test invocation
 
 .DESCRIPTION
 
@@ -892,7 +892,7 @@ function Start-V2024TestTriggerInvocation {
 <#
 .SYNOPSIS
 
-Validate a Subscription Filter
+Validate a subscription filter
 
 .DESCRIPTION
 
@@ -993,7 +993,7 @@ function Test-V2024SubscriptionFilter {
 <#
 .SYNOPSIS
 
-Update a Subscription
+Update a subscription
 
 .DESCRIPTION
 

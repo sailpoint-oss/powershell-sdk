@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create a new Governance Group.
+Create a new governance group.
 
 .DESCRIPTION
 
@@ -109,7 +109,7 @@ function New-V2025Workgroup {
 <#
 .SYNOPSIS
 
-Delete a Governance Group
+Delete a governance group
 
 .DESCRIPTION
 
@@ -195,7 +195,7 @@ function Remove-V2025Workgroup {
 <#
 .SYNOPSIS
 
-Remove members from Governance Group
+Remove members from governance group
 
 .DESCRIPTION
 
@@ -307,7 +307,7 @@ function Remove-V2025WorkgroupMembers {
 <#
 .SYNOPSIS
 
-Delete Governance Group(s)
+Delete governance group(s)
 
 .DESCRIPTION
 
@@ -408,7 +408,7 @@ function Remove-V2025WorkgroupsInBulk {
 <#
 .SYNOPSIS
 
-Get Governance Group by Id
+Get governance group by id
 
 .DESCRIPTION
 
@@ -494,7 +494,7 @@ function Get-V2025Workgroup {
 <#
 .SYNOPSIS
 
-List connections for Governance Group
+List connections for governance group
 
 .DESCRIPTION
 
@@ -619,7 +619,7 @@ function Get-V2025Connections {
 <#
 .SYNOPSIS
 
-List Governance Group Members
+List governance group members
 
 .DESCRIPTION
 
@@ -744,7 +744,7 @@ function Get-V2025WorkgroupMembers {
 <#
 .SYNOPSIS
 
-List Governance Groups
+List governance groups
 
 .DESCRIPTION
 
@@ -869,7 +869,7 @@ function Get-V2025Workgroups {
 <#
 .SYNOPSIS
 
-Patch a Governance Group
+Patch a governance group
 
 .DESCRIPTION
 
@@ -977,7 +977,7 @@ function Update-V2025Workgroup {
 <#
 .SYNOPSIS
 
-Add members to Governance Group
+Add members to governance group
 
 .DESCRIPTION
 

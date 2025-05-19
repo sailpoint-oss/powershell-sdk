@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Predict SOD violations for identity.
+Predict sod violations for identity.
 
 .DESCRIPTION
 

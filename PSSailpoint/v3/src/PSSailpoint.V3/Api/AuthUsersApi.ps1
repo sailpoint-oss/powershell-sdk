@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Auth User Details
+Auth user details
 
 .DESCRIPTION
 
@@ -82,7 +82,7 @@ function Get-AuthUser {
 <#
 .SYNOPSIS
 
-Auth User Update
+Auth user update
 
 .DESCRIPTION
 

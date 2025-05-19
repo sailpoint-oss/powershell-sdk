@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get the Public Identities Configuration
+Get the public identities configuration
 
 .DESCRIPTION
 
@@ -72,7 +72,7 @@ function Get-V2024PublicIdentityConfig {
 <#
 .SYNOPSIS
 
-Update the Public Identities Configuration
+Update the public identities configuration
 
 .DESCRIPTION
 

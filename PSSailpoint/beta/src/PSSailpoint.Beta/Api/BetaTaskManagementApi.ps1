@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Retrieve Pending Task List Headers
+Retrieve pending task list headers
 
 .DESCRIPTION
 
@@ -103,7 +103,7 @@ function Get-BetaPendingTaskHeaders {
 <#
 .SYNOPSIS
 
-Retrieve Pending Task Status List
+Retrieve pending task status list
 
 .DESCRIPTION
 
@@ -198,7 +198,7 @@ function Get-BetaPendingTasks {
 <#
 .SYNOPSIS
 
-Get Task Status by ID
+Get task status by id
 
 .DESCRIPTION
 
@@ -273,7 +273,7 @@ function Get-BetaTaskStatus {
 <#
 .SYNOPSIS
 
-Retrieve Task Status List
+Retrieve task status list
 
 .DESCRIPTION
 
@@ -388,7 +388,7 @@ function Get-BetaTaskStatusList {
 <#
 .SYNOPSIS
 
-Update Task Status by ID
+Update task status by id
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Approval
+Get approval
 
 .DESCRIPTION
 
@@ -82,7 +82,7 @@ function Get-BetaApproval {
 <#
 .SYNOPSIS
 
-Get Approvals
+Get approvals
 
 .DESCRIPTION
 

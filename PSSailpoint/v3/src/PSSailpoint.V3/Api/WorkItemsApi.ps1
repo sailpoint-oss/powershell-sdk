@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Approve an Approval Item
+Approve an approval item
 
 .DESCRIPTION
 
@@ -92,7 +92,7 @@ function Approve-ApprovalItem {
 <#
 .SYNOPSIS
 
-Bulk approve Approval Items
+Bulk approve approval items
 
 .DESCRIPTION
 
@@ -166,7 +166,7 @@ function Approve-ApprovalItemsInBulk {
 <#
 .SYNOPSIS
 
-Complete a Work Item
+Complete a work item
 
 .DESCRIPTION
 
@@ -262,7 +262,7 @@ function Complete-WorkItem {
 <#
 .SYNOPSIS
 
-Completed Work Items
+Completed work items
 
 .DESCRIPTION
 
@@ -366,7 +366,7 @@ function Get-CompletedWorkItems {
 <#
 .SYNOPSIS
 
-Count Completed Work Items
+Count completed work items
 
 .DESCRIPTION
 
@@ -440,7 +440,7 @@ function Get-CountCompletedWorkItems {
 <#
 .SYNOPSIS
 
-Count Work Items
+Count work items
 
 .DESCRIPTION
 
@@ -514,7 +514,7 @@ function Get-CountWorkItems {
 <#
 .SYNOPSIS
 
-Get a Work Item
+Get a work item
 
 .DESCRIPTION
 
@@ -588,7 +588,7 @@ function Get-WorkItem {
 <#
 .SYNOPSIS
 
-Work Items Summary
+Work items summary
 
 .DESCRIPTION
 
@@ -662,7 +662,7 @@ function Get-WorkItemsSummary {
 <#
 .SYNOPSIS
 
-List Work Items
+List work items
 
 .DESCRIPTION
 
@@ -766,7 +766,7 @@ function Get-WorkItems {
 <#
 .SYNOPSIS
 
-Reject an Approval Item
+Reject an approval item
 
 .DESCRIPTION
 
@@ -850,7 +850,7 @@ function Deny-ApprovalItem {
 <#
 .SYNOPSIS
 
-Bulk reject Approval Items
+Bulk reject approval items
 
 .DESCRIPTION
 
@@ -924,7 +924,7 @@ function Deny-ApprovalItemsInBulk {
 <#
 .SYNOPSIS
 
-Forward a Work Item
+Forward a work item
 
 .DESCRIPTION
 
@@ -1024,7 +1024,7 @@ function Send-WorkItemForward {
 <#
 .SYNOPSIS
 
-Submit Account Selections
+Submit account selections
 
 .DESCRIPTION
 

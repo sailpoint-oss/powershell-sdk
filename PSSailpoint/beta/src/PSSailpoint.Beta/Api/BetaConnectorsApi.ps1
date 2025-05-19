@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Connector List
+Get connector list
 
 .DESCRIPTION
 

@@ -98,7 +98,7 @@ function New-V2025AuthOrgNetworkConfig {
 <#
 .SYNOPSIS
 
-Get Auth Org Lockout Configuration.
+Get auth org lockout configuration.
 
 .DESCRIPTION
 
@@ -226,7 +226,7 @@ function Get-V2025AuthOrgNetworkConfig {
 <#
 .SYNOPSIS
 
-Get Service Provider Configuration.
+Get service provider configuration.
 
 .DESCRIPTION
 
@@ -290,7 +290,7 @@ function Get-V2025AuthOrgServiceProviderConfig {
 <#
 .SYNOPSIS
 
-Get Auth Org Session Configuration.
+Get auth org session configuration.
 
 .DESCRIPTION
 
@@ -354,7 +354,7 @@ function Get-V2025AuthOrgSessionConfig {
 <#
 .SYNOPSIS
 
-Update Auth Org Lockout Configuration
+Update auth org lockout configuration
 
 .DESCRIPTION
 
@@ -534,7 +534,7 @@ function Update-V2025AuthOrgNetworkConfig {
 <#
 .SYNOPSIS
 
-Update Service Provider Configuration
+Update service provider configuration
 
 .DESCRIPTION
 
@@ -624,7 +624,7 @@ function Update-V2025AuthOrgServiceProviderConfig {
 <#
 .SYNOPSIS
 
-Update Auth Org Session Configuration
+Update auth org session configuration
 
 .DESCRIPTION
 

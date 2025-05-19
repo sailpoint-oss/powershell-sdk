@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Org Config Settings
+Get org config settings
 
 .DESCRIPTION
 
@@ -83,7 +83,7 @@ function Get-V2025OrgConfig {
 <#
 .SYNOPSIS
 
-Get Valid Time Zones
+Get valid time zones
 
 .DESCRIPTION
 
@@ -188,7 +188,7 @@ function Get-V2025ValidTimeZones {
 <#
 .SYNOPSIS
 
-Patch Org Config
+Patch org config
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Connector Customizer
+Create connector customizer
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function New-V2025ConnectorCustomizerVersion {
 <#
 .SYNOPSIS
 
-Delete Connector Customizer
+Delete connector customizer
 
 .DESCRIPTION
 
@@ -320,7 +320,7 @@ function Get-V2025ConnectorCustomizer {
 <#
 .SYNOPSIS
 
-List All Connector Customizers
+List all connector customizers
 
 .DESCRIPTION
 
@@ -404,7 +404,7 @@ function Get-V2025ConnectorCustomizers {
 <#
 .SYNOPSIS
 
-Update Connector Customizer
+Update connector customizer
 
 .DESCRIPTION
 

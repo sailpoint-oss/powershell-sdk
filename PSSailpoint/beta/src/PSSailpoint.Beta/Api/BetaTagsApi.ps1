@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Tag
+Create tag
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaTag {
 <#
 .SYNOPSIS
 
-Delete Tag
+Delete tag
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-BetaTagById {
 <#
 .SYNOPSIS
 
-Get Tag By Id
+Get tag by id
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Get-BetaTagById {
 <#
 .SYNOPSIS
 
-List Tags
+List tags
 
 .DESCRIPTION
 

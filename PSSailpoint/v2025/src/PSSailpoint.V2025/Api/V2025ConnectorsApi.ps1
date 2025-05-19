@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Custom Connector
+Create custom connector
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-V2025CustomConnector {
 <#
 .SYNOPSIS
 
-Delete Connector by Script Name
+Delete connector by script name
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-V2025CustomConnector {
 <#
 .SYNOPSIS
 
-Get Connector by Script Name
+Get connector by script name
 
 .DESCRIPTION
 
@@ -257,7 +257,7 @@ function Get-V2025Connector {
 <#
 .SYNOPSIS
 
-Get Connector Correlation Configuration
+Get connector correlation configuration
 
 .DESCRIPTION
 
@@ -343,7 +343,7 @@ function Get-V2025ConnectorCorrelationConfig {
 <#
 .SYNOPSIS
 
-Get Connector List
+Get connector list
 
 .DESCRIPTION
 
@@ -458,7 +458,7 @@ function Get-V2025ConnectorList {
 <#
 .SYNOPSIS
 
-Get Connector Source Configuration
+Get connector source configuration
 
 .DESCRIPTION
 
@@ -544,7 +544,7 @@ function Get-V2025ConnectorSourceConfig {
 <#
 .SYNOPSIS
 
-Get Connector Source Template
+Get connector source template
 
 .DESCRIPTION
 
@@ -630,7 +630,7 @@ function Get-V2025ConnectorSourceTemplate {
 <#
 .SYNOPSIS
 
-Get Connector Translations
+Get connector translations
 
 .DESCRIPTION
 
@@ -727,7 +727,7 @@ function Get-V2025ConnectorTranslations {
 <#
 .SYNOPSIS
 
-Update Connector Correlation Configuration
+Update connector correlation configuration
 
 .DESCRIPTION
 
@@ -815,7 +815,7 @@ function Send-V2025ConnectorCorrelationConfig {
 <#
 .SYNOPSIS
 
-Update Connector Source Configuration
+Update connector source configuration
 
 .DESCRIPTION
 
@@ -903,7 +903,7 @@ function Send-V2025ConnectorSourceConfig {
 <#
 .SYNOPSIS
 
-Update Connector Source Template
+Update connector source template
 
 .DESCRIPTION
 
@@ -991,7 +991,7 @@ function Send-V2025ConnectorSourceTemplate {
 <#
 .SYNOPSIS
 
-Update Connector Translations
+Update connector translations
 
 .DESCRIPTION
 
@@ -1079,7 +1079,7 @@ function Send-V2025ConnectorTranslations {
 <#
 .SYNOPSIS
 
-Update Connector by Script Name
+Update connector by script name
 
 .DESCRIPTION
 

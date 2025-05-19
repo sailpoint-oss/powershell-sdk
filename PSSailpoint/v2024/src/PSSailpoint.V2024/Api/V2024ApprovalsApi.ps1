@@ -93,7 +93,7 @@ function Get-V2024Approval {
 <#
 .SYNOPSIS
 
-Get Approvals
+Get approvals
 
 .DESCRIPTION
 

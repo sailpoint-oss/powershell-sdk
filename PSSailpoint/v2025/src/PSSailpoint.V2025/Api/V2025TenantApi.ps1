@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Tenant Information.
+Get tenant information.
 
 .DESCRIPTION
 

@@ -270,7 +270,7 @@ function Get-BetaEntitlement {
 <#
 .SYNOPSIS
 
-Get Entitlement Request Config
+Get entitlement request config
 
 .DESCRIPTION
 
@@ -344,7 +344,7 @@ function Get-BetaEntitlementRequestConfig {
 <#
 .SYNOPSIS
 
-Aggregate Entitlements
+Aggregate entitlements
 
 .DESCRIPTION
 
@@ -929,7 +929,7 @@ function Update-BetaEntitlement {
 <#
 .SYNOPSIS
 
-Replace Entitlement Request Config
+Replace entitlement request config
 
 .DESCRIPTION
 
@@ -1029,7 +1029,7 @@ function Send-BetaEntitlementRequestConfig {
 <#
 .SYNOPSIS
 
-Reset Source Entitlements
+Reset source entitlements
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Access Model Metadata Attribute
+Get access model metadata attribute
 
 .DESCRIPTION
 
@@ -93,7 +93,7 @@ function Get-V2024AccessModelMetadataAttribute {
 <#
 .SYNOPSIS
 
-Get Access Model Metadata Value
+Get access model metadata value
 
 .DESCRIPTION
 
@@ -188,7 +188,7 @@ function Get-V2024AccessModelMetadataAttributeValue {
 <#
 .SYNOPSIS
 
-List Access Model Metadata Attributes
+List access model metadata attributes
 
 .DESCRIPTION
 
@@ -273,7 +273,7 @@ function Get-V2024AccessModelMetadataAttribute {
 <#
 .SYNOPSIS
 
-List Access Model Metadata Values
+List access model metadata values
 
 .DESCRIPTION
 

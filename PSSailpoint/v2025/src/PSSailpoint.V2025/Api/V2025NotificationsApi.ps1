@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Verify domain address via DKIM
+Verify domain address via dkim
 
 .DESCRIPTION
 
@@ -109,7 +109,7 @@ function New-V2025DomainDkim {
 <#
 .SYNOPSIS
 
-Create Notification Template
+Create notification template
 
 .DESCRIPTION
 
@@ -210,7 +210,7 @@ function New-V2025NotificationTemplate {
 <#
 .SYNOPSIS
 
-Create Verified From Address
+Create verified from address
 
 .DESCRIPTION
 
@@ -311,7 +311,7 @@ function New-V2025VerifiedFromAddress {
 <#
 .SYNOPSIS
 
-Bulk Delete Notification Templates
+Bulk delete notification templates
 
 .DESCRIPTION
 
@@ -412,7 +412,7 @@ function Remove-V2025NotificationTemplatesInBulk {
 <#
 .SYNOPSIS
 
-Delete Verified From Address
+Delete verified from address
 
 .DESCRIPTION
 
@@ -497,7 +497,7 @@ function Remove-V2025VerifiedFromAddress {
 <#
 .SYNOPSIS
 
-Get DKIM Attributes
+Get dkim attributes
 
 .DESCRIPTION
 
@@ -572,7 +572,7 @@ function Get-V2025DkimAttributes {
 <#
 .SYNOPSIS
 
-Get MAIL FROM Attributes
+Get mail from attributes
 
 .DESCRIPTION
 
@@ -658,7 +658,7 @@ function Get-V2025MailFromAttributes {
 <#
 .SYNOPSIS
 
-Get Notification Template By Id
+Get notification template by id
 
 .DESCRIPTION
 
@@ -743,7 +743,7 @@ function Get-V2025NotificationTemplate {
 <#
 .SYNOPSIS
 
-Get Notification Template Context
+Get notification template context
 
 .DESCRIPTION
 
@@ -818,7 +818,7 @@ function Get-V2025NotificationsTemplateContext {
 <#
 .SYNOPSIS
 
-List From Addresses
+List from addresses
 
 .DESCRIPTION
 
@@ -943,7 +943,7 @@ function Get-V2025FromAddresses {
 <#
 .SYNOPSIS
 
-List Notification Preferences for tenant.
+List notification preferences for tenant.
 
 .DESCRIPTION
 
@@ -1018,7 +1018,7 @@ function Get-V2025NotificationPreferences {
 <#
 .SYNOPSIS
 
-List Notification Template Defaults
+List notification template defaults
 
 .DESCRIPTION
 
@@ -1123,7 +1123,7 @@ function Get-V2025NotificationTemplateDefaults {
 <#
 .SYNOPSIS
 
-List Notification Templates
+List notification templates
 
 .DESCRIPTION
 
@@ -1228,7 +1228,7 @@ function Get-V2025NotificationTemplates {
 <#
 .SYNOPSIS
 
-Change MAIL FROM domain
+Change mail from domain
 
 .DESCRIPTION
 
@@ -1329,7 +1329,7 @@ function Send-V2025MailFromAttributes {
 <#
 .SYNOPSIS
 
-Send Test Notification
+Send test notification
 
 .DESCRIPTION
 

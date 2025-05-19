@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Access Profile
+Create access profile
 
 .DESCRIPTION
 
@@ -99,7 +99,7 @@ function New-BetaAccessProfile {
 <#
 .SYNOPSIS
 
-Delete the specified Access Profile
+Delete the specified access profile
 
 .DESCRIPTION
 
@@ -173,7 +173,7 @@ function Remove-BetaAccessProfile {
 <#
 .SYNOPSIS
 
-Delete Access Profile(s)
+Delete access profile(s)
 
 .DESCRIPTION
 
@@ -264,7 +264,7 @@ function Remove-BetaAccessProfilesInBulk {
 <#
 .SYNOPSIS
 
-Get an Access Profile
+Get an access profile
 
 .DESCRIPTION
 
@@ -339,7 +339,7 @@ function Get-BetaAccessProfile {
 <#
 .SYNOPSIS
 
-List Access Profile's Entitlements
+List access profile's entitlements
 
 .DESCRIPTION
 
@@ -464,7 +464,7 @@ function Get-BetaAccessProfileEntitlements {
 <#
 .SYNOPSIS
 
-List Access Profiles
+List access profiles
 
 .DESCRIPTION
 
@@ -609,7 +609,7 @@ function Get-BetaAccessProfiles {
 <#
 .SYNOPSIS
 
-Patch a specified Access Profile
+Patch a specified access profile
 
 .DESCRIPTION
 
@@ -709,7 +709,7 @@ function Update-BetaAccessProfile {
 <#
 .SYNOPSIS
 
-Update Access Profile(s) requestable field.
+Update access profile(s) requestable field.
 
 .DESCRIPTION
 

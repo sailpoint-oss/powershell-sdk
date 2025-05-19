@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Access Profile
+Create access profile
 
 .DESCRIPTION
 
@@ -99,7 +99,7 @@ function New-V2024AccessProfile {
 <#
 .SYNOPSIS
 
-Delete the specified Access Profile
+Delete the specified access profile
 
 .DESCRIPTION
 
@@ -174,7 +174,7 @@ function Remove-V2024AccessProfile {
 <#
 .SYNOPSIS
 
-Delete Access Profile(s)
+Delete access profile(s)
 
 .DESCRIPTION
 
@@ -265,7 +265,7 @@ function Remove-V2024AccessProfilesInBulk {
 <#
 .SYNOPSIS
 
-Get an Access Profile
+Get an access profile
 
 .DESCRIPTION
 
@@ -340,7 +340,7 @@ function Get-V2024AccessProfile {
 <#
 .SYNOPSIS
 
-List Access Profile's Entitlements
+List access profile's entitlements
 
 .DESCRIPTION
 
@@ -465,7 +465,7 @@ function Get-V2024AccessProfileEntitlements {
 <#
 .SYNOPSIS
 
-List Access Profiles
+List access profiles
 
 .DESCRIPTION
 
@@ -610,7 +610,7 @@ function Get-V2024AccessProfiles {
 <#
 .SYNOPSIS
 
-Patch a specified Access Profile
+Patch a specified access profile
 
 .DESCRIPTION
 
@@ -711,7 +711,7 @@ function Update-V2024AccessProfile {
 <#
 .SYNOPSIS
 
-Update Access Profile(s) requestable field.
+Update access profile(s) requestable field.
 
 .DESCRIPTION
 

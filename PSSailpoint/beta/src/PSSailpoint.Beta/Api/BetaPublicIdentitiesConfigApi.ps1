@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Public Identity Config
+Get public identity config
 
 .DESCRIPTION
 
@@ -72,7 +72,7 @@ function Get-BetaPublicIdentityConfig {
 <#
 .SYNOPSIS
 
-Update Public Identity Config
+Update public identity config
 
 .DESCRIPTION
 

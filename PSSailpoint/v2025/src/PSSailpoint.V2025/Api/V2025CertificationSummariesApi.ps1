@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Access Summaries
+Access summaries
 
 .DESCRIPTION
 
@@ -143,7 +143,7 @@ function Get-V2025IdentityAccessSummaries {
 <#
 .SYNOPSIS
 
-Summary of Certification Decisions
+Summary of certification decisions
 
 .DESCRIPTION
 
@@ -227,7 +227,7 @@ function Get-V2025IdentityDecisionSummary {
 <#
 .SYNOPSIS
 
-Identity Summaries for Campaign Certification
+Identity summaries for campaign certification
 
 .DESCRIPTION
 
@@ -351,7 +351,7 @@ function Get-V2025IdentitySummaries {
 <#
 .SYNOPSIS
 
-Summary for Identity
+Summary for identity
 
 .DESCRIPTION
 

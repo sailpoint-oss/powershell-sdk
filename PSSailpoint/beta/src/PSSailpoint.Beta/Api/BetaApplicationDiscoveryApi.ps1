@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Discovered Application by ID
+Get discovered application by id
 
 .DESCRIPTION
 
@@ -197,7 +197,7 @@ function Get-BetaDiscoveredApplications {
 <#
 .SYNOPSIS
 
-Download CSV Template for Discovery
+Download csv template for discovery
 
 .DESCRIPTION
 
@@ -273,7 +273,7 @@ function Get-BetaManualDiscoverApplicationsCsvTemplate {
 <#
 .SYNOPSIS
 
-Patch Discovered Application by ID
+Patch discovered application by id
 
 .DESCRIPTION
 
@@ -369,7 +369,7 @@ function Update-BetaDiscoveredApplicationByID {
 <#
 .SYNOPSIS
 
-Upload CSV to Discover Applications
+Upload csv to discover applications
 
 .DESCRIPTION
 

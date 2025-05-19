@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Submit Sed Batch Stats Request
+Submit sed batch stats request
 
 .DESCRIPTION
 
@@ -82,7 +82,7 @@ function Get-BetaSedBatchStats {
 <#
 .SYNOPSIS
 
-List Sed Batch Request
+List sed batch request
 
 .DESCRIPTION
 
@@ -146,7 +146,7 @@ function Get-BetaSedBatches {
 <#
 .SYNOPSIS
 
-List Suggested Entitlement Descriptions
+List suggested entitlement descriptions
 
 .DESCRIPTION
 
@@ -280,7 +280,7 @@ function Get-BetaSeds {
 <#
 .SYNOPSIS
 
-Patch Suggested Entitlement Description
+Patch suggested entitlement description
 
 .DESCRIPTION
 
@@ -380,7 +380,7 @@ function Update-BetaSed {
 <#
 .SYNOPSIS
 
-Submit Bulk Approval Request
+Submit bulk approval request
 
 .DESCRIPTION
 
@@ -470,7 +470,7 @@ function Submit-BetaSedApproval {
 <#
 .SYNOPSIS
 
-Submit Sed Assignment Request
+Submit sed assignment request
 
 .DESCRIPTION
 
@@ -560,7 +560,7 @@ function Submit-BetaSedAssignment {
 <#
 .SYNOPSIS
 
-Submit Sed Batch Request
+Submit sed batch request
 
 .DESCRIPTION
 

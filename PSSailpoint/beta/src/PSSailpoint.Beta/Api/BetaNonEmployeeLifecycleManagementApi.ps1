@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Approve a Non-Employee Request
+Approve a non-employee request
 
 .DESCRIPTION
 
@@ -108,7 +108,7 @@ function Approve-BetaNonEmployeeRequest {
 <#
 .SYNOPSIS
 
-Create Non-Employee Record
+Create non-employee record
 
 .DESCRIPTION
 
@@ -198,7 +198,7 @@ function New-BetaNonEmployeeRecord {
 <#
 .SYNOPSIS
 
-Create Non-Employee Request
+Create non-employee request
 
 .DESCRIPTION
 
@@ -288,7 +288,7 @@ function New-BetaNonEmployeeRequest {
 <#
 .SYNOPSIS
 
-Create Non-Employee Source
+Create non-employee source
 
 .DESCRIPTION
 
@@ -378,7 +378,7 @@ function New-BetaNonEmployeeSource {
 <#
 .SYNOPSIS
 
-Create Non-Employee Source Schema Attribute
+Create non-employee source schema attribute
 
 .DESCRIPTION
 
@@ -478,7 +478,7 @@ function New-BetaNonEmployeeSourceSchemaAttributes {
 <#
 .SYNOPSIS
 
-Delete Non-Employee Record
+Delete non-employee record
 
 .DESCRIPTION
 
@@ -552,7 +552,7 @@ function Remove-BetaNonEmployeeRecord {
 <#
 .SYNOPSIS
 
-Delete Multiple Non-Employee Records
+Delete multiple non-employee records
 
 .DESCRIPTION
 
@@ -642,7 +642,7 @@ function Remove-BetaNonEmployeeRecordInBulk {
 <#
 .SYNOPSIS
 
-Delete Non-Employee Request
+Delete non-employee request
 
 .DESCRIPTION
 
@@ -716,7 +716,7 @@ function Remove-BetaNonEmployeeRequest {
 <#
 .SYNOPSIS
 
-Delete Non-Employee Source's Schema Attribute
+Delete non-employee source's schema attribute
 
 .DESCRIPTION
 
@@ -800,7 +800,7 @@ function Remove-BetaNonEmployeeSchemaAttribute {
 <#
 .SYNOPSIS
 
-Delete Non-Employee Source
+Delete non-employee source
 
 .DESCRIPTION
 
@@ -948,7 +948,7 @@ function Remove-BetaNonEmployeeSourceSchemaAttributes {
 <#
 .SYNOPSIS
 
-Exports Non-Employee Records to CSV
+Exports non-employee records to csv
 
 .DESCRIPTION
 
@@ -1034,7 +1034,7 @@ function Export-BetaNonEmployeeRecords {
 <#
 .SYNOPSIS
 
-Exports Source Schema Template
+Exports source schema template
 
 .DESCRIPTION
 
@@ -1204,7 +1204,7 @@ function Get-BetaNonEmployeeApproval {
 <#
 .SYNOPSIS
 
-Get Summary of Non-Employee Approval Requests
+Get summary of non-employee approval requests
 
 .DESCRIPTION
 
@@ -1352,7 +1352,7 @@ function Get-BetaNonEmployeeBulkUploadStatus {
 <#
 .SYNOPSIS
 
-Get a Non-Employee Record
+Get a non-employee record
 
 .DESCRIPTION
 
@@ -1426,7 +1426,7 @@ function Get-BetaNonEmployeeRecord {
 <#
 .SYNOPSIS
 
-Get a Non-Employee Request
+Get a non-employee request
 
 .DESCRIPTION
 
@@ -1500,7 +1500,7 @@ function Get-BetaNonEmployeeRequest {
 <#
 .SYNOPSIS
 
-Get Summary of Non-Employee Requests
+Get summary of non-employee requests
 
 .DESCRIPTION
 
@@ -1574,7 +1574,7 @@ function Get-BetaNonEmployeeRequestSummary {
 <#
 .SYNOPSIS
 
-Get Schema Attribute Non-Employee Source
+Get schema attribute non-employee source
 
 .DESCRIPTION
 
@@ -1658,7 +1658,7 @@ function Get-BetaNonEmployeeSchemaAttribute {
 <#
 .SYNOPSIS
 
-Get a Non-Employee Source
+Get a non-employee source
 
 .DESCRIPTION
 
@@ -1732,7 +1732,7 @@ function Get-BetaNonEmployeeSource {
 <#
 .SYNOPSIS
 
-List Schema Attributes Non-Employee Source
+List schema attributes non-employee source
 
 .DESCRIPTION
 
@@ -1806,7 +1806,7 @@ function Get-BetaNonEmployeeSourceSchemaAttributes {
 <#
 .SYNOPSIS
 
-Imports, or Updates, Non-Employee Records
+Imports, or updates, non-employee records
 
 .DESCRIPTION
 
@@ -1894,7 +1894,7 @@ function Import-BetaNonEmployeeRecordsInBulk {
 <#
 .SYNOPSIS
 
-Get List of Non-Employee Approval Requests
+Get list of non-employee approval requests
 
 .DESCRIPTION
 
@@ -2018,7 +2018,7 @@ function Get-BetaNonEmployeeApproval {
 <#
 .SYNOPSIS
 
-List Non-Employee Records
+List non-employee records
 
 .DESCRIPTION
 
@@ -2132,7 +2132,7 @@ function Get-BetaNonEmployeeRecords {
 <#
 .SYNOPSIS
 
-List Non-Employee Requests
+List non-employee requests
 
 .DESCRIPTION
 
@@ -2257,7 +2257,7 @@ function Get-BetaNonEmployeeRequests {
 <#
 .SYNOPSIS
 
-List Non-Employee Sources
+List non-employee sources
 
 .DESCRIPTION
 
@@ -2381,7 +2381,7 @@ function Get-BetaNonEmployeeSources {
 <#
 .SYNOPSIS
 
-Patch Non-Employee Record
+Patch non-employee record
 
 .DESCRIPTION
 
@@ -2481,7 +2481,7 @@ function Update-BetaNonEmployeeRecord {
 <#
 .SYNOPSIS
 
-Patch Non-Employee Source's Schema Attribute
+Patch non-employee source's schema attribute
 
 .DESCRIPTION
 
@@ -2591,7 +2591,7 @@ function Update-BetaNonEmployeeSchemaAttribute {
 <#
 .SYNOPSIS
 
-Patch a Non-Employee Source
+Patch a non-employee source
 
 .DESCRIPTION
 
@@ -2691,7 +2691,7 @@ function Update-BetaNonEmployeeSource {
 <#
 .SYNOPSIS
 
-Reject a Non-Employee Request
+Reject a non-employee request
 
 .DESCRIPTION
 
@@ -2791,7 +2791,7 @@ function Deny-BetaNonEmployeeRequest {
 <#
 .SYNOPSIS
 
-Update Non-Employee Record
+Update non-employee record
 
 .DESCRIPTION
 

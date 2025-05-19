@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Personal Access Token
+Create personal access token
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-PersonalAccessToken {
 <#
 .SYNOPSIS
 
-Delete Personal Access Token
+Delete personal access token
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-PersonalAccessToken {
 <#
 .SYNOPSIS
 
-List Personal Access Tokens
+List personal access tokens
 
 .DESCRIPTION
 
@@ -256,7 +256,7 @@ function Get-PersonalAccessTokens {
 <#
 .SYNOPSIS
 
-Patch Personal Access Token
+Patch personal access token
 
 .DESCRIPTION
 

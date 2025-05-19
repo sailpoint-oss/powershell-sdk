@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Identity Attribute
+Create identity attribute
 
 .DESCRIPTION
 
@@ -109,7 +109,7 @@ function New-V2024IdentityAttribute {
 <#
 .SYNOPSIS
 
-Delete Identity Attribute
+Delete identity attribute
 
 .DESCRIPTION
 
@@ -194,7 +194,7 @@ function Remove-V2024IdentityAttribute {
 <#
 .SYNOPSIS
 
-Bulk delete Identity Attributes
+Bulk delete identity attributes
 
 .DESCRIPTION
 
@@ -295,7 +295,7 @@ function Remove-V2024IdentityAttributesInBulk {
 <#
 .SYNOPSIS
 
-Get Identity Attribute
+Get identity attribute
 
 .DESCRIPTION
 
@@ -380,7 +380,7 @@ function Get-V2024IdentityAttribute {
 <#
 .SYNOPSIS
 
-List Identity Attributes
+List identity attributes
 
 .DESCRIPTION
 
@@ -495,7 +495,7 @@ function Get-V2024IdentityAttributes {
 <#
 .SYNOPSIS
 
-Update Identity Attribute
+Update identity attribute
 
 .DESCRIPTION
 

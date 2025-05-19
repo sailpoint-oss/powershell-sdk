@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Provisioning Policy
+Create provisioning policy
 
 .DESCRIPTION
 
@@ -108,7 +108,7 @@ function New-V2024ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Creates a source in IdentityNow.
+Creates a source in identitynow.
 
 .DESCRIPTION
 
@@ -208,7 +208,7 @@ function New-V2024Source {
 <#
 .SYNOPSIS
 
-Create Schedule on Source
+Create schedule on source
 
 .DESCRIPTION
 
@@ -308,7 +308,7 @@ function New-V2024SourceSchedule {
 <#
 .SYNOPSIS
 
-Create Schema on Source
+Create schema on source
 
 .DESCRIPTION
 
@@ -408,7 +408,7 @@ function New-V2024SourceSchema {
 <#
 .SYNOPSIS
 
-Remove All Accounts in a Source
+Remove all accounts in a source
 
 .DESCRIPTION
 
@@ -493,7 +493,7 @@ function Remove-V2024AccountsAsync {
 <#
 .SYNOPSIS
 
-Delete Native Change Detection Configuration
+Delete native change detection configuration
 
 .DESCRIPTION
 
@@ -579,7 +579,7 @@ function Remove-V2024NativeChangeDetectionConfig {
 <#
 .SYNOPSIS
 
-Delete Provisioning Policy by UsageType
+Delete provisioning policy by usagetype
 
 .DESCRIPTION
 
@@ -664,7 +664,7 @@ function Remove-V2024ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Delete Source by ID
+Delete source by id
 
 .DESCRIPTION
 
@@ -738,7 +738,7 @@ function Remove-V2024Source {
 <#
 .SYNOPSIS
 
-Delete Source Schedule by type.
+Delete source schedule by type.
 
 .DESCRIPTION
 
@@ -823,7 +823,7 @@ function Remove-V2024SourceSchedule {
 <#
 .SYNOPSIS
 
-Delete Source Schema by ID
+Delete source schema by id
 
 .DESCRIPTION
 
@@ -993,7 +993,7 @@ function Get-V2024AccountsSchema {
 <#
 .SYNOPSIS
 
-Get Source Correlation Configuration
+Get source correlation configuration
 
 .DESCRIPTION
 
@@ -1163,7 +1163,7 @@ function Get-V2024EntitlementsSchema {
 <#
 .SYNOPSIS
 
-Native Change Detection Configuration
+Native change detection configuration
 
 .DESCRIPTION
 
@@ -1248,7 +1248,7 @@ function Get-V2024NativeChangeDetectionConfig {
 <#
 .SYNOPSIS
 
-Get Provisioning Policy by UsageType
+Get provisioning policy by usagetype
 
 .DESCRIPTION
 
@@ -1333,7 +1333,7 @@ function Get-V2024ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Get Source by ID
+Get source by id
 
 .DESCRIPTION
 
@@ -1407,7 +1407,7 @@ function Get-V2024Source {
 <#
 .SYNOPSIS
 
-Attribute Sync Config
+Attribute sync config
 
 .DESCRIPTION
 
@@ -1577,7 +1577,7 @@ function Get-V2024SourceConfig {
 <#
 .SYNOPSIS
 
-Get Source Connections by ID
+Get source connections by id
 
 .DESCRIPTION
 
@@ -1651,7 +1651,7 @@ function Get-V2024SourceConnections {
 <#
 .SYNOPSIS
 
-Get Source Entitlement Request Configuration
+Get source entitlement request configuration
 
 .DESCRIPTION
 
@@ -1800,7 +1800,7 @@ function Get-V2024SourceHealth {
 <#
 .SYNOPSIS
 
-Get Source Schedule by Type
+Get source schedule by type
 
 .DESCRIPTION
 
@@ -1885,7 +1885,7 @@ function Get-V2024SourceSchedule {
 <#
 .SYNOPSIS
 
-List Schedules on Source
+List schedules on source
 
 .DESCRIPTION
 
@@ -1959,7 +1959,7 @@ function Get-V2024SourceSchedules {
 <#
 .SYNOPSIS
 
-Get Source Schema by ID
+Get source schema by id
 
 .DESCRIPTION
 
@@ -2043,7 +2043,7 @@ function Get-V2024SourceSchema {
 <#
 .SYNOPSIS
 
-List Schemas on Source
+List schemas on source
 
 .DESCRIPTION
 
@@ -2138,7 +2138,7 @@ function Get-V2024SourceSchemas {
 <#
 .SYNOPSIS
 
-Account Aggregation
+Account aggregation
 
 .DESCRIPTION
 
@@ -2517,7 +2517,7 @@ function Import-V2024EntitlementsSchema {
 <#
 .SYNOPSIS
 
-Process Uncorrelated Accounts
+Process uncorrelated accounts
 
 .DESCRIPTION
 
@@ -2615,7 +2615,7 @@ function Import-V2024UncorrelatedAccounts {
 <#
 .SYNOPSIS
 
-Lists ProvisioningPolicies
+Lists provisioningpolicies
 
 .DESCRIPTION
 
@@ -2690,7 +2690,7 @@ function Get-V2024ProvisioningPolicies {
 <#
 .SYNOPSIS
 
-Lists all sources in IdentityNow.
+Lists all sources in identitynow.
 
 .DESCRIPTION
 
@@ -2899,7 +2899,7 @@ function Ping-V2024Cluster {
 <#
 .SYNOPSIS
 
-Update Source Correlation Configuration
+Update source correlation configuration
 
 .DESCRIPTION
 
@@ -2999,7 +2999,7 @@ function Send-V2024CorrelationConfig {
 <#
 .SYNOPSIS
 
-Update Native Change Detection Configuration
+Update native change detection configuration
 
 .DESCRIPTION
 
@@ -3110,7 +3110,7 @@ function Send-V2024NativeChangeDetectionConfig {
 <#
 .SYNOPSIS
 
-Update Provisioning Policy by UsageType
+Update provisioning policy by usagetype
 
 .DESCRIPTION
 
@@ -3221,7 +3221,7 @@ function Send-V2024ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Update Source (Full)
+Update source (full)
 
 .DESCRIPTION
 
@@ -3321,7 +3321,7 @@ function Send-V2024Source {
 <#
 .SYNOPSIS
 
-Update Attribute Sync Config
+Update attribute sync config
 
 .DESCRIPTION
 
@@ -3432,7 +3432,7 @@ function Send-V2024SourceAttrSyncConfig {
 <#
 .SYNOPSIS
 
-Update Source Schema (Full)
+Update source schema (full)
 
 .DESCRIPTION
 
@@ -3875,7 +3875,7 @@ function Test-V2024SourceConnection {
 <#
 .SYNOPSIS
 
-Update Password Policy
+Update password policy
 
 .DESCRIPTION
 
@@ -3975,7 +3975,7 @@ function Update-V2024PasswordPolicyHolders {
 <#
 .SYNOPSIS
 
-Bulk Update Provisioning Policies
+Bulk update provisioning policies
 
 .DESCRIPTION
 
@@ -4076,7 +4076,7 @@ function Update-V2024ProvisioningPoliciesInBulk {
 <#
 .SYNOPSIS
 
-Partial update of Provisioning Policy
+Partial update of provisioning policy
 
 .DESCRIPTION
 
@@ -4187,7 +4187,7 @@ function Update-V2024ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Update Source (Partial)
+Update source (partial)
 
 .DESCRIPTION
 
@@ -4287,7 +4287,7 @@ function Update-V2024Source {
 <#
 .SYNOPSIS
 
-Update Source Entitlement Request Configuration
+Update source entitlement request configuration
 
 .DESCRIPTION
 
@@ -4388,7 +4388,7 @@ function Update-V2024SourceEntitlementRequestConfig {
 <#
 .SYNOPSIS
 
-Update Source Schedule (Partial)
+Update source schedule (partial)
 
 .DESCRIPTION
 
@@ -4499,7 +4499,7 @@ function Update-V2024SourceSchedule {
 <#
 .SYNOPSIS
 
-Update Source Schema (Partial)
+Update source schema (partial)
 
 .DESCRIPTION
 

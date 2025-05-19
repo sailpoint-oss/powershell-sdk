@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create a Role
+Create a role
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-V2024Role {
 <#
 .SYNOPSIS
 
-Delete Role(s)
+Delete role(s)
 
 .DESCRIPTION
 
@@ -188,7 +188,7 @@ function Remove-V2024BulkRoles {
 <#
 .SYNOPSIS
 
-Remove a Metadata From Role.
+Remove a metadata from role.
 
 .DESCRIPTION
 
@@ -282,7 +282,7 @@ function Remove-V2024MetadataFromRoleByKeyAndValue {
 <#
 .SYNOPSIS
 
-Delete a Role
+Delete a role
 
 .DESCRIPTION
 
@@ -356,7 +356,7 @@ function Remove-V2024Role {
 <#
 .SYNOPSIS
 
-Get Bulk-Update Statuses
+Get bulk-update statuses
 
 .DESCRIPTION
 
@@ -420,7 +420,7 @@ function Get-V2024BulkUpdateStatus {
 <#
 .SYNOPSIS
 
-Get Bulk-Update Status by ID
+Get bulk-update status by id
 
 .DESCRIPTION
 
@@ -494,7 +494,7 @@ function Get-V2024BulkUpdateStatusById {
 <#
 .SYNOPSIS
 
-Get a Role
+Get a role
 
 .DESCRIPTION
 
@@ -568,7 +568,7 @@ function Get-V2024Role {
 <#
 .SYNOPSIS
 
-List Identities assigned a Role
+List identities assigned a role
 
 .DESCRIPTION
 
@@ -692,7 +692,7 @@ function Get-V2024RoleAssignedIdentities {
 <#
 .SYNOPSIS
 
-List Role's Entitlements
+List role's entitlements
 
 .DESCRIPTION
 
@@ -828,7 +828,7 @@ function Get-V2024RoleEntitlements {
 <#
 .SYNOPSIS
 
-List Roles
+List roles
 
 .DESCRIPTION
 
@@ -972,7 +972,7 @@ function Get-V2024Roles {
 <#
 .SYNOPSIS
 
-Patch a specified Role
+Patch a specified role
 
 .DESCRIPTION
 
@@ -1072,7 +1072,7 @@ function Update-V2024Role {
 <#
 .SYNOPSIS
 
-Filter Roles by Metadata
+Filter roles by metadata
 
 .DESCRIPTION
 
@@ -1228,7 +1228,7 @@ function Search-V2024RolesByFilter {
 <#
 .SYNOPSIS
 
-Add a Metadata to Role.
+Add a metadata to role.
 
 .DESCRIPTION
 
@@ -1322,7 +1322,7 @@ function Update-V2024AttributeKeyAndValueToRole {
 <#
 .SYNOPSIS
 
-Bulk-Update Roles' Metadata by Filters
+Bulk-update roles' metadata by filters
 
 .DESCRIPTION
 
@@ -1412,7 +1412,7 @@ function Update-V2024RolesMetadataByFilter {
 <#
 .SYNOPSIS
 
-Bulk-Update Roles' Metadata by ID
+Bulk-update roles' metadata by id
 
 .DESCRIPTION
 
@@ -1502,7 +1502,7 @@ function Update-V2024RolesMetadataByIds {
 <#
 .SYNOPSIS
 
-Bulk-Update Roles' Metadata by Query
+Bulk-update roles' metadata by query
 
 .DESCRIPTION
 

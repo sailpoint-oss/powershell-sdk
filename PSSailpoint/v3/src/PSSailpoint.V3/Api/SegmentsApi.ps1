@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Segment
+Create segment
 
 .DESCRIPTION
 
@@ -99,7 +99,7 @@ function New-Segment {
 <#
 .SYNOPSIS
 
-Delete Segment by ID
+Delete segment by id
 
 .DESCRIPTION
 
@@ -174,7 +174,7 @@ function Remove-Segment {
 <#
 .SYNOPSIS
 
-Get Segment by ID
+Get segment by id
 
 .DESCRIPTION
 
@@ -249,7 +249,7 @@ function Get-Segment {
 <#
 .SYNOPSIS
 
-List Segments
+List segments
 
 .DESCRIPTION
 
@@ -344,7 +344,7 @@ function Get-Segments {
 <#
 .SYNOPSIS
 
-Update Segment
+Update segment
 
 .DESCRIPTION
 

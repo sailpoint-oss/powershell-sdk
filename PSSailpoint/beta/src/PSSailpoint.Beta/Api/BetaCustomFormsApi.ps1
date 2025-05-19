@@ -180,7 +180,7 @@ function New-BetaFormDefinitionByTemplate {
 <#
 .SYNOPSIS
 
-Generate JSON Schema dynamically.
+Generate json schema dynamically.
 
 .DESCRIPTION
 
@@ -618,7 +618,7 @@ function Export-BetaFormDefinitionsByTenant {
 <#
 .SYNOPSIS
 
-Download definition file by fileId.
+Download definition file by fileid.
 
 .DESCRIPTION
 
@@ -862,7 +862,7 @@ function Get-BetaFormInstanceByKey {
 <#
 .SYNOPSIS
 
-Download instance file by fileId.
+Download instance file by fileid.
 
 .DESCRIPTION
 

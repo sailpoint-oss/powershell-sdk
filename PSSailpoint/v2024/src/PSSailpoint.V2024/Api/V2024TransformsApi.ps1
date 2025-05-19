@@ -172,7 +172,7 @@ function Remove-V2024Transform {
 <#
 .SYNOPSIS
 
-Transform by ID
+Transform by id
 
 .DESCRIPTION
 

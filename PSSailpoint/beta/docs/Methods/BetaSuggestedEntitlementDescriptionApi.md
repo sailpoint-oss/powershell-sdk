@@ -20,13 +20,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaSedBatchStats**](#get-sed-batch-stats) | **GET** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit Sed Batch Stats Request
-[**Get-BetaSedBatches**](#get-sed-batches) | **GET** `/suggested-entitlement-description-batches` | List Sed Batch Request
-[**Get-BetaSeds**](#list-seds) | **GET** `/suggested-entitlement-descriptions` | List Suggested Entitlement Descriptions
-[**Update-BetaSed**](#patch-sed) | **PATCH** `/suggested-entitlement-descriptions` | Patch Suggested Entitlement Description
-[**Submit-BetaSedApproval**](#submit-sed-approval) | **POST** `/suggested-entitlement-description-approvals` | Submit Bulk Approval Request
-[**Submit-BetaSedAssignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit Sed Assignment Request
-[**Submit-BetaSedBatchRequest**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit Sed Batch Request
+[**Get-BetaSedBatchStats**](#get-sed-batch-stats) | **GET** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit sed batch stats request
+[**Get-BetaSedBatches**](#get-sed-batches) | **GET** `/suggested-entitlement-description-batches` | List sed batch request
+[**Get-BetaSeds**](#list-seds) | **GET** `/suggested-entitlement-descriptions` | List suggested entitlement descriptions
+[**Update-BetaSed**](#patch-sed) | **PATCH** `/suggested-entitlement-descriptions` | Patch suggested entitlement description
+[**Submit-BetaSedApproval**](#submit-sed-approval) | **POST** `/suggested-entitlement-description-approvals` | Submit bulk approval request
+[**Submit-BetaSedAssignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit sed assignment request
+[**Submit-BetaSedBatchRequest**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit sed batch request
 
 
 ## get-sed-batch-stats
@@ -65,7 +65,7 @@ Code | Description  | Data Type
 ```powershell
 $BatchId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | Batch Id
 
-# Submit Sed Batch Stats Request
+# Submit sed batch stats request
 
 try {
     Get-BetaSedBatchStats -BatchId $BatchId 
@@ -110,7 +110,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Sed Batch Request
+# List sed batch request
 
 try {
     Get-BetaSedBatches 
@@ -182,7 +182,7 @@ $CountOnly = $false # Boolean | If `true` it will populate the `X-Total-Count` r
 $RequestedByAnyone = $false # Boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional)
 $ShowPendingStatusOnly = $false # Boolean | Will limit records to items that are in ""suggested"" or ""approved"" status (optional)
 
-# List Suggested Entitlement Descriptions
+# List suggested entitlement descriptions
 
 try {
     Get-BetaSeds 
@@ -235,7 +235,7 @@ $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
 }"@ # SedPatch[] | Sed Patch Request
  
 
-# Patch Suggested Entitlement Description
+# Patch suggested entitlement description
 
 try {
     $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
@@ -286,7 +286,7 @@ Code | Description  | Data Type
 }"@ # SedApproval[] | Sed Approval
  
 
-# Submit Bulk Approval Request
+# Submit bulk approval request
 
 try {
     $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
@@ -340,7 +340,7 @@ $SedAssignment = @"{
   "items" : [ "016629d1-1d25-463f-97f3-0c6686846650", "016629d1-1d25-463f-97f3-0c6686846650" ]
 }"@
 
-# Submit Sed Assignment Request
+# Submit sed assignment request
 
 try {
     $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
@@ -394,7 +394,7 @@ $SedBatchRequest = @"{
   "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ]
 }"@
 
-# Submit Sed Batch Request
+# Submit sed batch request
 
 try {
     Submit-BetaSedBatchRequest 

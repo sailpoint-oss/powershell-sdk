@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Account
+Create account
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-V2025Account {
 <#
 .SYNOPSIS
 
-Delete Account
+Delete account
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-V2025Account {
 <#
 .SYNOPSIS
 
-Remove Account
+Remove account
 
 .DESCRIPTION
 
@@ -257,7 +257,7 @@ function Remove-V2025AccountAsync {
 <#
 .SYNOPSIS
 
-Disable Account
+Disable account
 
 .DESCRIPTION
 
@@ -357,7 +357,7 @@ function Disable-V2025Account {
 <#
 .SYNOPSIS
 
-Disable IDN Account for Identity
+Disable idn account for identity
 
 .DESCRIPTION
 
@@ -442,7 +442,7 @@ function Disable-V2025AccountForIdentity {
 <#
 .SYNOPSIS
 
-Disable IDN Accounts for Identities
+Disable idn accounts for identities
 
 .DESCRIPTION
 
@@ -543,7 +543,7 @@ function Disable-V2025AccountsForIdentities {
 <#
 .SYNOPSIS
 
-Enable Account
+Enable account
 
 .DESCRIPTION
 
@@ -643,7 +643,7 @@ function Enable-V2025Account {
 <#
 .SYNOPSIS
 
-Enable IDN Account for Identity
+Enable idn account for identity
 
 .DESCRIPTION
 
@@ -728,7 +728,7 @@ function Enable-V2025AccountForIdentity {
 <#
 .SYNOPSIS
 
-Enable IDN Accounts for Identities
+Enable idn accounts for identities
 
 .DESCRIPTION
 
@@ -829,7 +829,7 @@ function Enable-V2025AccountsForIdentities {
 <#
 .SYNOPSIS
 
-Account Details
+Account details
 
 .DESCRIPTION
 
@@ -903,7 +903,7 @@ function Get-V2025Account {
 <#
 .SYNOPSIS
 
-Account Entitlements
+Account entitlements
 
 .DESCRIPTION
 
@@ -1007,7 +1007,7 @@ function Get-V2025AccountEntitlements {
 <#
 .SYNOPSIS
 
-Accounts List
+Accounts list
 
 .DESCRIPTION
 
@@ -1132,7 +1132,7 @@ function Get-V2025Accounts {
 <#
 .SYNOPSIS
 
-Update Account
+Update account
 
 .DESCRIPTION
 
@@ -1232,7 +1232,7 @@ function Send-V2025Account {
 <#
 .SYNOPSIS
 
-Reload Account
+Reload account
 
 .DESCRIPTION
 
@@ -1306,7 +1306,7 @@ function Submit-V2025ReloadAccount {
 <#
 .SYNOPSIS
 
-Unlock Account
+Unlock account
 
 .DESCRIPTION
 
@@ -1406,7 +1406,7 @@ function Unlock-V2025Account {
 <#
 .SYNOPSIS
 
-Update Account
+Update account
 
 .DESCRIPTION
 

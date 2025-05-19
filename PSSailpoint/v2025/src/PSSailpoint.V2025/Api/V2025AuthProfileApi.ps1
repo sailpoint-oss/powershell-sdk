@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Auth Profile
+Get auth profile
 
 .DESCRIPTION
 
@@ -93,7 +93,7 @@ function Get-V2025ProfileConfig {
 <#
 .SYNOPSIS
 
-Get list of Auth Profiles
+Get list of auth profiles
 
 .DESCRIPTION
 
@@ -168,7 +168,7 @@ function Get-V2025ProfileConfigList {
 <#
 .SYNOPSIS
 
-Patch a specified Auth Profile
+Patch a specified auth profile
 
 .DESCRIPTION
 

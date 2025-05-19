@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Predict SOD violations for identity.
+Predict sod violations for identity.
 
 .DESCRIPTION
 
@@ -99,7 +99,7 @@ function Start-V2025PredictSodViolations {
 <#
 .SYNOPSIS
 
-Check SOD violations
+Check sod violations
 
 .DESCRIPTION
 

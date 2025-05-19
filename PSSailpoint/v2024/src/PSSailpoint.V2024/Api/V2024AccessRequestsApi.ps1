@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Bulk Approve Access Request
+Bulk approve access request
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function Approve-V2024BulkAccessRequest {
 <#
 .SYNOPSIS
 
-Cancel Access Request
+Cancel access request
 
 .DESCRIPTION
 
@@ -188,7 +188,7 @@ function Suspend-V2024AccessRequest {
 <#
 .SYNOPSIS
 
-Bulk Cancel Access Request
+Bulk cancel access request
 
 .DESCRIPTION
 
@@ -278,7 +278,7 @@ function Suspend-V2024AccessRequestInBulk {
 <#
 .SYNOPSIS
 
-Close Access Request
+Close access request
 
 .DESCRIPTION
 
@@ -379,7 +379,7 @@ function Close-V2024AccessRequest {
 <#
 .SYNOPSIS
 
-Submit Access Request
+Submit access request
 
 .DESCRIPTION
 
@@ -469,7 +469,7 @@ function New-V2024AccessRequest {
 <#
 .SYNOPSIS
 
-Get Access Request Configuration
+Get access request configuration
 
 .DESCRIPTION
 
@@ -533,7 +533,7 @@ function Get-V2024AccessRequestConfig {
 <#
 .SYNOPSIS
 
-Access Request Status
+Access request status
 
 .DESCRIPTION
 
@@ -697,7 +697,7 @@ function Get-V2024AccessRequestStatus {
 <#
 .SYNOPSIS
 
-Access Request Status for Administrators
+Access request status for administrators
 
 .DESCRIPTION
 
@@ -951,7 +951,7 @@ function Invoke-V2024LoadAccountSelections {
 <#
 .SYNOPSIS
 
-Update Access Request Configuration
+Update access request configuration
 
 .DESCRIPTION
 

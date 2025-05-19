@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Permissions for Entitlement Certification Item
+Permissions for entitlement certification item
 
 .DESCRIPTION
 
@@ -132,7 +132,7 @@ function Get-BetaIdentityCertificationItemPermissions {
 <#
 .SYNOPSIS
 
-Pending Certification Tasks
+Pending certification tasks
 
 .DESCRIPTION
 
@@ -206,7 +206,7 @@ function Get-BetaIdentityCertificationPendingTasks {
 <#
 .SYNOPSIS
 
-Certification Task Status
+Certification task status
 
 .DESCRIPTION
 
@@ -290,7 +290,7 @@ function Get-BetaIdentityCertificationTaskStatus {
 <#
 .SYNOPSIS
 
-List of Reviewers for certification
+List of reviewers for certification
 
 .DESCRIPTION
 
@@ -414,7 +414,7 @@ function Get-BetaCertificationReviewers {
 <#
 .SYNOPSIS
 
-Certifications by IDs
+Certifications by ids
 
 .DESCRIPTION
 
@@ -538,7 +538,7 @@ function Get-BetaCertifications {
 <#
 .SYNOPSIS
 
-Reassign Certifications Asynchronously
+Reassign certifications asynchronously
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Machine Account Mappings
+Create machine account mappings
 
 .DESCRIPTION
 
@@ -108,7 +108,7 @@ function New-V2024MachineAccountMappings {
 <#
 .SYNOPSIS
 
-Delete Source's Machine Account Mappings
+Delete source's machine account mappings
 
 .DESCRIPTION
 
@@ -182,7 +182,7 @@ function Remove-V2024MachineAccountMappings {
 <#
 .SYNOPSIS
 
-Machine Account Mapping for Source
+Machine account mapping for source
 
 .DESCRIPTION
 
@@ -276,7 +276,7 @@ function Get-V2024MachineAccountMappings {
 <#
 .SYNOPSIS
 
-Update Source's Machine Account Mappings
+Update source's machine account mappings
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create a Role
+Create a role
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-Role {
 <#
 .SYNOPSIS
 
-Delete Role(s)
+Delete role(s)
 
 .DESCRIPTION
 
@@ -188,7 +188,7 @@ function Remove-BulkRoles {
 <#
 .SYNOPSIS
 
-Delete Role
+Delete role
 
 .DESCRIPTION
 
@@ -262,7 +262,7 @@ function Remove-Role {
 <#
 .SYNOPSIS
 
-Get Role
+Get role
 
 .DESCRIPTION
 
@@ -336,7 +336,7 @@ function Get-Role {
 <#
 .SYNOPSIS
 
-List Identities assigned a Role
+List identities assigned a role
 
 .DESCRIPTION
 
@@ -460,7 +460,7 @@ function Get-RoleAssignedIdentities {
 <#
 .SYNOPSIS
 
-List Roles
+List roles
 
 .DESCRIPTION
 
@@ -604,7 +604,7 @@ function Get-Roles {
 <#
 .SYNOPSIS
 
-Patch Role
+Patch role
 
 .DESCRIPTION
 

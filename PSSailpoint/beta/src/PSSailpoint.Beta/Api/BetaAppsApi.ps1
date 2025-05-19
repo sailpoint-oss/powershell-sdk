@@ -208,7 +208,7 @@ function Remove-BetaAccessProfilesFromSourceAppByBulk {
 <#
 .SYNOPSIS
 
-Delete source app by ID
+Delete source app by id
 
 .DESCRIPTION
 
@@ -282,7 +282,7 @@ function Remove-BetaSourceApp {
 <#
 .SYNOPSIS
 
-Get source app by ID
+Get source app by id
 
 .DESCRIPTION
 
@@ -1115,7 +1115,7 @@ function Get-BetaOwnedUserApps {
 <#
 .SYNOPSIS
 
-Patch source app by ID
+Patch source app by id
 
 .DESCRIPTION
 
@@ -1211,7 +1211,7 @@ function Update-BetaSourceApp {
 <#
 .SYNOPSIS
 
-Patch user app by ID
+Patch user app by id
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Submit Sed Batch Stats Request
+Submit sed batch stats request
 
 .DESCRIPTION
 
@@ -82,7 +82,7 @@ function Get-V2025SedBatchStats {
 <#
 .SYNOPSIS
 
-List Sed Batch Request
+List sed batch request
 
 .DESCRIPTION
 
@@ -146,7 +146,7 @@ function Get-V2025SedBatches {
 <#
 .SYNOPSIS
 
-List Suggested Entitlement Descriptions
+List suggested entitlement descriptions
 
 .DESCRIPTION
 
@@ -290,7 +290,7 @@ function Get-V2025Seds {
 <#
 .SYNOPSIS
 
-Patch Suggested Entitlement Description
+Patch suggested entitlement description
 
 .DESCRIPTION
 
@@ -390,7 +390,7 @@ function Update-V2025Sed {
 <#
 .SYNOPSIS
 
-Submit Bulk Approval Request
+Submit bulk approval request
 
 .DESCRIPTION
 
@@ -480,7 +480,7 @@ function Submit-V2025SedApproval {
 <#
 .SYNOPSIS
 
-Submit Sed Assignment Request
+Submit sed assignment request
 
 .DESCRIPTION
 
@@ -570,7 +570,7 @@ function Submit-V2025SedAssignment {
 <#
 .SYNOPSIS
 
-Submit Sed Batch Request
+Submit sed batch request
 
 .DESCRIPTION
 

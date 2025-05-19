@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Provisioning Policy
+Create provisioning policy
 
 .DESCRIPTION
 
@@ -108,7 +108,7 @@ function New-V2025ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Creates a source in IdentityNow.
+Creates a source in identitynow.
 
 .DESCRIPTION
 
@@ -208,7 +208,7 @@ function New-V2025Source {
 <#
 .SYNOPSIS
 
-Create Schedule on Source
+Create schedule on source
 
 .DESCRIPTION
 
@@ -308,7 +308,7 @@ function New-V2025SourceSchedule {
 <#
 .SYNOPSIS
 
-Create Schema on Source
+Create schema on source
 
 .DESCRIPTION
 
@@ -408,7 +408,7 @@ function New-V2025SourceSchema {
 <#
 .SYNOPSIS
 
-Remove All Accounts in a Source
+Remove all accounts in a source
 
 .DESCRIPTION
 
@@ -493,7 +493,7 @@ function Remove-V2025AccountsAsync {
 <#
 .SYNOPSIS
 
-Delete Native Change Detection Configuration
+Delete native change detection configuration
 
 .DESCRIPTION
 
@@ -579,7 +579,7 @@ function Remove-V2025NativeChangeDetectionConfig {
 <#
 .SYNOPSIS
 
-Delete Provisioning Policy by UsageType
+Delete provisioning policy by usagetype
 
 .DESCRIPTION
 
@@ -664,7 +664,7 @@ function Remove-V2025ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Delete Source by ID
+Delete source by id
 
 .DESCRIPTION
 
@@ -738,7 +738,7 @@ function Remove-V2025Source {
 <#
 .SYNOPSIS
 
-Delete Source Schedule by type.
+Delete source schedule by type.
 
 .DESCRIPTION
 
@@ -823,7 +823,7 @@ function Remove-V2025SourceSchedule {
 <#
 .SYNOPSIS
 
-Delete Source Schema by ID
+Delete source schema by id
 
 .DESCRIPTION
 
@@ -993,7 +993,7 @@ function Get-V2025AccountsSchema {
 <#
 .SYNOPSIS
 
-Get Source Correlation Configuration
+Get source correlation configuration
 
 .DESCRIPTION
 
@@ -1163,7 +1163,7 @@ function Get-V2025EntitlementsSchema {
 <#
 .SYNOPSIS
 
-Native Change Detection Configuration
+Native change detection configuration
 
 .DESCRIPTION
 
@@ -1248,7 +1248,7 @@ function Get-V2025NativeChangeDetectionConfig {
 <#
 .SYNOPSIS
 
-Get Provisioning Policy by UsageType
+Get provisioning policy by usagetype
 
 .DESCRIPTION
 
@@ -1333,7 +1333,7 @@ function Get-V2025ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Get Source by ID
+Get source by id
 
 .DESCRIPTION
 
@@ -1407,7 +1407,7 @@ function Get-V2025Source {
 <#
 .SYNOPSIS
 
-Attribute Sync Config
+Attribute sync config
 
 .DESCRIPTION
 
@@ -1577,7 +1577,7 @@ function Get-V2025SourceConfig {
 <#
 .SYNOPSIS
 
-Get Source Connections by ID
+Get source connections by id
 
 .DESCRIPTION
 
@@ -1651,7 +1651,7 @@ function Get-V2025SourceConnections {
 <#
 .SYNOPSIS
 
-Get Source Entitlement Request Configuration
+Get source entitlement request configuration
 
 .DESCRIPTION
 
@@ -1800,7 +1800,7 @@ function Get-V2025SourceHealth {
 <#
 .SYNOPSIS
 
-Get Source Schedule by Type
+Get source schedule by type
 
 .DESCRIPTION
 
@@ -1885,7 +1885,7 @@ function Get-V2025SourceSchedule {
 <#
 .SYNOPSIS
 
-List Schedules on Source
+List schedules on source
 
 .DESCRIPTION
 
@@ -1959,7 +1959,7 @@ function Get-V2025SourceSchedules {
 <#
 .SYNOPSIS
 
-Get Source Schema by ID
+Get source schema by id
 
 .DESCRIPTION
 
@@ -2043,7 +2043,7 @@ function Get-V2025SourceSchema {
 <#
 .SYNOPSIS
 
-List Schemas on Source
+List schemas on source
 
 .DESCRIPTION
 
@@ -2138,7 +2138,7 @@ function Get-V2025SourceSchemas {
 <#
 .SYNOPSIS
 
-Account Aggregation
+Account aggregation
 
 .DESCRIPTION
 
@@ -2506,7 +2506,7 @@ function Import-V2025EntitlementsSchema {
 <#
 .SYNOPSIS
 
-Process Uncorrelated Accounts
+Process uncorrelated accounts
 
 .DESCRIPTION
 
@@ -2604,7 +2604,7 @@ function Import-V2025UncorrelatedAccounts {
 <#
 .SYNOPSIS
 
-Lists ProvisioningPolicies
+Lists provisioningpolicies
 
 .DESCRIPTION
 
@@ -2679,7 +2679,7 @@ function Get-V2025ProvisioningPolicies {
 <#
 .SYNOPSIS
 
-Lists all sources in IdentityNow.
+Lists all sources in identitynow.
 
 .DESCRIPTION
 
@@ -2888,7 +2888,7 @@ function Ping-V2025Cluster {
 <#
 .SYNOPSIS
 
-Update Source Correlation Configuration
+Update source correlation configuration
 
 .DESCRIPTION
 
@@ -2988,7 +2988,7 @@ function Send-V2025CorrelationConfig {
 <#
 .SYNOPSIS
 
-Update Native Change Detection Configuration
+Update native change detection configuration
 
 .DESCRIPTION
 
@@ -3099,7 +3099,7 @@ function Send-V2025NativeChangeDetectionConfig {
 <#
 .SYNOPSIS
 
-Update Provisioning Policy by UsageType
+Update provisioning policy by usagetype
 
 .DESCRIPTION
 
@@ -3210,7 +3210,7 @@ function Send-V2025ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Update Source (Full)
+Update source (full)
 
 .DESCRIPTION
 
@@ -3310,7 +3310,7 @@ function Send-V2025Source {
 <#
 .SYNOPSIS
 
-Update Attribute Sync Config
+Update attribute sync config
 
 .DESCRIPTION
 
@@ -3421,7 +3421,7 @@ function Send-V2025SourceAttrSyncConfig {
 <#
 .SYNOPSIS
 
-Update Source Schema (Full)
+Update source schema (full)
 
 .DESCRIPTION
 
@@ -3864,7 +3864,7 @@ function Test-V2025SourceConnection {
 <#
 .SYNOPSIS
 
-Update Password Policy
+Update password policy
 
 .DESCRIPTION
 
@@ -3964,7 +3964,7 @@ function Update-V2025PasswordPolicyHolders {
 <#
 .SYNOPSIS
 
-Bulk Update Provisioning Policies
+Bulk update provisioning policies
 
 .DESCRIPTION
 
@@ -4065,7 +4065,7 @@ function Update-V2025ProvisioningPoliciesInBulk {
 <#
 .SYNOPSIS
 
-Partial update of Provisioning Policy
+Partial update of provisioning policy
 
 .DESCRIPTION
 
@@ -4176,7 +4176,7 @@ function Update-V2025ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Update Source (Partial)
+Update source (partial)
 
 .DESCRIPTION
 
@@ -4276,7 +4276,7 @@ function Update-V2025Source {
 <#
 .SYNOPSIS
 
-Update Source Entitlement Request Configuration
+Update source entitlement request configuration
 
 .DESCRIPTION
 
@@ -4377,7 +4377,7 @@ function Update-V2025SourceEntitlementRequestConfig {
 <#
 .SYNOPSIS
 
-Update Source Schedule (Partial)
+Update source schedule (partial)
 
 .DESCRIPTION
 
@@ -4488,7 +4488,7 @@ function Update-V2025SourceSchedule {
 <#
 .SYNOPSIS
 
-Update Source Schema (Partial)
+Update source schema (partial)
 
 .DESCRIPTION
 

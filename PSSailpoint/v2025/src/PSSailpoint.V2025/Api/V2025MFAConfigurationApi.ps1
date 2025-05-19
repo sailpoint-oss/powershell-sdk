@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Configuration of Duo MFA method
+Configuration of duo mfa method
 
 .DESCRIPTION
 
@@ -72,7 +72,7 @@ function Get-V2025MFADuoConfig {
 <#
 .SYNOPSIS
 
-Configuration of KBA MFA method
+Configuration of kba mfa method
 
 .DESCRIPTION
 
@@ -146,7 +146,7 @@ function Get-V2025MFAKbaConfig {
 <#
 .SYNOPSIS
 
-Configuration of Okta MFA method
+Configuration of okta mfa method
 
 .DESCRIPTION
 
@@ -210,7 +210,7 @@ function Get-V2025MFAOktaConfig {
 <#
 .SYNOPSIS
 
-Set Duo MFA configuration
+Set duo mfa configuration
 
 .DESCRIPTION
 
@@ -300,7 +300,7 @@ function Set-V2025MFADuoConfig {
 <#
 .SYNOPSIS
 
-Set MFA KBA configuration
+Set mfa kba configuration
 
 .DESCRIPTION
 
@@ -390,7 +390,7 @@ function Set-V2025MFAKBAConfig {
 <#
 .SYNOPSIS
 
-Set Okta MFA configuration
+Set okta mfa configuration
 
 .DESCRIPTION
 
@@ -480,7 +480,7 @@ function Set-V2025MFAOktaConfig {
 <#
 .SYNOPSIS
 
-MFA method's test configuration
+Mfa method's test configuration
 
 .DESCRIPTION
 

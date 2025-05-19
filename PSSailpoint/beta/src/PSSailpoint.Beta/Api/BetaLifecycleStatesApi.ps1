@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Lifecycle State
+Get lifecycle state
 
 .DESCRIPTION
 
@@ -92,7 +92,7 @@ function Get-BetaLifecycleStates {
 <#
 .SYNOPSIS
 
-Update Lifecycle State
+Update lifecycle state
 
 .DESCRIPTION
 

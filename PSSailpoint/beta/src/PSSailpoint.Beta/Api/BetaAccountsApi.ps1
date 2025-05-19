@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Account
+Create account
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaAccount {
 <#
 .SYNOPSIS
 
-Delete Account
+Delete account
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-BetaAccount {
 <#
 .SYNOPSIS
 
-Remove Account
+Remove account
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Remove-BetaAccountAsync {
 <#
 .SYNOPSIS
 
-Disable Account
+Disable account
 
 .DESCRIPTION
 
@@ -346,7 +346,7 @@ function Disable-BetaAccount {
 <#
 .SYNOPSIS
 
-Disable IDN Account for Identity
+Disable idn account for identity
 
 .DESCRIPTION
 
@@ -420,7 +420,7 @@ function Disable-BetaAccountForIdentity {
 <#
 .SYNOPSIS
 
-Disable IDN Accounts for Identities
+Disable idn accounts for identities
 
 .DESCRIPTION
 
@@ -510,7 +510,7 @@ function Disable-BetaAccountsForIdentities {
 <#
 .SYNOPSIS
 
-Enable Account
+Enable account
 
 .DESCRIPTION
 
@@ -610,7 +610,7 @@ function Enable-BetaAccount {
 <#
 .SYNOPSIS
 
-Enable IDN Account for Identity
+Enable idn account for identity
 
 .DESCRIPTION
 
@@ -684,7 +684,7 @@ function Enable-BetaAccountForIdentity {
 <#
 .SYNOPSIS
 
-Enable IDN Accounts for Identities
+Enable idn accounts for identities
 
 .DESCRIPTION
 
@@ -774,7 +774,7 @@ function Enable-BetaAccountsForIdentities {
 <#
 .SYNOPSIS
 
-Account Details
+Account details
 
 .DESCRIPTION
 
@@ -848,7 +848,7 @@ function Get-BetaAccount {
 <#
 .SYNOPSIS
 
-Account Entitlements
+Account entitlements
 
 .DESCRIPTION
 
@@ -952,7 +952,7 @@ function Get-BetaAccountEntitlements {
 <#
 .SYNOPSIS
 
-Accounts List
+Accounts list
 
 .DESCRIPTION
 
@@ -1077,7 +1077,7 @@ function Get-BetaAccounts {
 <#
 .SYNOPSIS
 
-Update Account
+Update account
 
 .DESCRIPTION
 
@@ -1177,7 +1177,7 @@ function Send-BetaAccount {
 <#
 .SYNOPSIS
 
-Reload Account
+Reload account
 
 .DESCRIPTION
 
@@ -1251,7 +1251,7 @@ function Submit-BetaReloadAccount {
 <#
 .SYNOPSIS
 
-Unlock Account
+Unlock account
 
 .DESCRIPTION
 
@@ -1351,7 +1351,7 @@ function Unlock-BetaAccount {
 <#
 .SYNOPSIS
 
-Update Account
+Update account
 
 .DESCRIPTION
 

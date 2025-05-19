@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Managed Client
+Create managed client
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-V2024ManagedClient {
 <#
 .SYNOPSIS
 
-Delete Managed Client
+Delete managed client
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-V2024ManagedClient {
 <#
 .SYNOPSIS
 
-Get Managed Client
+Get managed client
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Get-V2024ManagedClient {
 <#
 .SYNOPSIS
 
-Get Managed Client Status
+Get managed client status
 
 .DESCRIPTION
 
@@ -331,7 +331,7 @@ function Get-V2024ManagedClientStatus {
 <#
 .SYNOPSIS
 
-Get Managed Clients
+Get managed clients
 
 .DESCRIPTION
 
@@ -436,7 +436,7 @@ function Get-V2024ManagedClients {
 <#
 .SYNOPSIS
 
-Update Managed Client
+Update managed client
 
 .DESCRIPTION
 

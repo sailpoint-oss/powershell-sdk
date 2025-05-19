@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Extended Search Attributes
+Create extended search attributes
 
 .DESCRIPTION
 
@@ -109,7 +109,7 @@ function New-V2025SearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Delete Extended Search Attribute
+Delete extended search attribute
 
 .DESCRIPTION
 
@@ -194,7 +194,7 @@ function Remove-V2025SearchAttributeConfig {
 <#
 .SYNOPSIS
 
-List Extended Search Attributes
+List extended search attributes
 
 .DESCRIPTION
 
@@ -289,7 +289,7 @@ function Get-V2025SearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Get Extended Search Attribute
+Get extended search attribute
 
 .DESCRIPTION
 
@@ -374,7 +374,7 @@ function Get-V2025SingleSearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Update Extended Search Attribute
+Update extended search attribute
 
 .DESCRIPTION
 

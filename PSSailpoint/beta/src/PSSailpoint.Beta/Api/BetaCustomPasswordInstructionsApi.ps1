@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Custom Password Instructions
+Create custom password instructions
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaCustomPasswordInstructions {
 <#
 .SYNOPSIS
 
-Delete Custom Password Instructions by page ID
+Delete custom password instructions by page id
 
 .DESCRIPTION
 
@@ -183,7 +183,7 @@ function Remove-BetaCustomPasswordInstructions {
 <#
 .SYNOPSIS
 
-Get Custom Password Instructions by Page ID
+Get custom password instructions by page id
 
 .DESCRIPTION
 

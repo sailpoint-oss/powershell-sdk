@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Certification Task by ID
+Certification task by id
 
 .DESCRIPTION
 
@@ -82,7 +82,7 @@ function Get-V2024CertificationTask {
 <#
 .SYNOPSIS
 
-Identity Certification by ID
+Identity certification by id
 
 .DESCRIPTION
 
@@ -156,7 +156,7 @@ function Get-V2024IdentityCertification {
 <#
 .SYNOPSIS
 
-Permissions for Entitlement Certification Item
+Permissions for entitlement certification item
 
 .DESCRIPTION
 
@@ -280,7 +280,7 @@ function Get-V2024IdentityCertificationItemPermissions {
 <#
 .SYNOPSIS
 
-List of Pending Certification Tasks
+List of pending certification tasks
 
 .DESCRIPTION
 
@@ -394,7 +394,7 @@ function Get-V2024PendingCertificationTasks {
 <#
 .SYNOPSIS
 
-List of Reviewers for certification
+List of reviewers for certification
 
 .DESCRIPTION
 
@@ -518,7 +518,7 @@ function Get-V2024CertificationReviewers {
 <#
 .SYNOPSIS
 
-List of Access Review Items
+List of access review items
 
 .DESCRIPTION
 
@@ -672,7 +672,7 @@ function Get-V2024IdentityAccessReviewItems {
 <#
 .SYNOPSIS
 
-List Identity Campaign Certifications
+List identity campaign certifications
 
 .DESCRIPTION
 
@@ -796,7 +796,7 @@ function Get-V2024IdentityCertifications {
 <#
 .SYNOPSIS
 
-Decide on a Certification Item
+Decide on a certification item
 
 .DESCRIPTION
 
@@ -896,7 +896,7 @@ function Select-V2024IdentityDecision {
 <#
 .SYNOPSIS
 
-Reassign Identities or Items
+Reassign identities or items
 
 .DESCRIPTION
 
@@ -996,7 +996,7 @@ function Invoke-V2024ReassignIdentityCertifications {
 <#
 .SYNOPSIS
 
-Finalize Identity Certification Decisions
+Finalize identity certification decisions
 
 .DESCRIPTION
 
@@ -1070,7 +1070,7 @@ function Invoke-V2024SignOffIdentityCertification {
 <#
 .SYNOPSIS
 
-Reassign Certifications Asynchronously
+Reassign certifications asynchronously
 
 .DESCRIPTION
 

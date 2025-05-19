@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create new Service Desk integration
+Create new service desk integration
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-V2025ServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-Delete a Service Desk integration
+Delete a service desk integration
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-V2025ServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-Get a Service Desk integration
+Get a service desk integration
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Get-V2025ServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-Service Desk integration template by scriptName
+Service desk integration template by scriptname
 
 .DESCRIPTION
 
@@ -320,7 +320,7 @@ function Get-V2025ServiceDeskIntegrationTemplate {
 <#
 .SYNOPSIS
 
-List Service Desk integration types
+List service desk integration types
 
 .DESCRIPTION
 
@@ -384,7 +384,7 @@ function Get-V2025ServiceDeskIntegrationTypes {
 <#
 .SYNOPSIS
 
-List existing Service Desk integrations
+List existing service desk integrations
 
 .DESCRIPTION
 
@@ -562,7 +562,7 @@ function Get-V2025StatusCheckDetails {
 <#
 .SYNOPSIS
 
-Patch a Service Desk Integration
+Patch a service desk integration
 
 .DESCRIPTION
 
@@ -662,7 +662,7 @@ function Update-V2025ServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-Update a Service Desk integration
+Update a service desk integration
 
 .DESCRIPTION
 

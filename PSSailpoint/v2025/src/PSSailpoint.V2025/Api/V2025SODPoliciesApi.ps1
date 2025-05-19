@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create SOD policy
+Create sod policy
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-V2025SodPolicy {
 <#
 .SYNOPSIS
 
-Delete SOD policy by ID
+Delete sod policy by id
 
 .DESCRIPTION
 
@@ -182,7 +182,7 @@ function Remove-V2025SodPolicy {
 <#
 .SYNOPSIS
 
-Delete SOD policy schedule
+Delete sod policy schedule
 
 .DESCRIPTION
 
@@ -502,7 +502,7 @@ function Get-V2025SodAllReportRunStatus {
 <#
 .SYNOPSIS
 
-Get SOD policy by ID
+Get sod policy by id
 
 .DESCRIPTION
 
@@ -576,7 +576,7 @@ function Get-V2025SodPolicy {
 <#
 .SYNOPSIS
 
-Get SOD policy schedule
+Get sod policy schedule
 
 .DESCRIPTION
 
@@ -724,7 +724,7 @@ function Get-V2025SodViolationReportRunStatus {
 <#
 .SYNOPSIS
 
-Get SOD violation report status
+Get sod violation report status
 
 .DESCRIPTION
 
@@ -798,7 +798,7 @@ function Get-V2025SodViolationReportStatus {
 <#
 .SYNOPSIS
 
-List SOD policies
+List sod policies
 
 .DESCRIPTION
 
@@ -912,7 +912,7 @@ function Get-V2025SodPolicies {
 <#
 .SYNOPSIS
 
-Patch SOD policy by ID
+Patch sod policy by id
 
 .DESCRIPTION
 
@@ -1012,7 +1012,7 @@ function Update-V2025SodPolicy {
 <#
 .SYNOPSIS
 
-Update SOD Policy schedule
+Update sod policy schedule
 
 .DESCRIPTION
 
@@ -1112,7 +1112,7 @@ function Send-V2025PolicySchedule {
 <#
 .SYNOPSIS
 
-Update SOD policy by ID
+Update sod policy by id
 
 .DESCRIPTION
 
@@ -1212,7 +1212,7 @@ function Send-V2025SodPolicy {
 <#
 .SYNOPSIS
 
-Evaluate one policy by ID
+Evaluate one policy by id
 
 .DESCRIPTION
 
@@ -1372,7 +1372,7 @@ function Start-V2025SodAllPoliciesForOrg {
 <#
 .SYNOPSIS
 
-Runs SOD policy violation report
+Runs sod policy violation report
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Identity Attribute
+Create identity attribute
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaIdentityAttribute {
 <#
 .SYNOPSIS
 
-Delete Identity Attribute
+Delete identity attribute
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-BetaIdentityAttribute {
 <#
 .SYNOPSIS
 
-Bulk delete Identity Attributes
+Bulk delete identity attributes
 
 .DESCRIPTION
 
@@ -262,7 +262,7 @@ function Remove-BetaIdentityAttributesInBulk {
 <#
 .SYNOPSIS
 
-Get Identity Attribute
+Get identity attribute
 
 .DESCRIPTION
 
@@ -336,7 +336,7 @@ function Get-BetaIdentityAttribute {
 <#
 .SYNOPSIS
 
-List Identity Attributes
+List identity attributes
 
 .DESCRIPTION
 
@@ -440,7 +440,7 @@ function Get-BetaIdentityAttributes {
 <#
 .SYNOPSIS
 
-Update Identity Attribute
+Update identity attribute
 
 .DESCRIPTION
 

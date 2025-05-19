@@ -172,7 +172,7 @@ function Remove-Transform {
 <#
 .SYNOPSIS
 
-Transform by ID
+Transform by id
 
 .DESCRIPTION
 

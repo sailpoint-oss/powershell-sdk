@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create SOD policy
+Create sod policy
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaSodPolicy {
 <#
 .SYNOPSIS
 
-Delete SOD policy by ID
+Delete sod policy by id
 
 .DESCRIPTION
 
@@ -182,7 +182,7 @@ function Remove-BetaSodPolicy {
 <#
 .SYNOPSIS
 
-Delete SOD policy schedule
+Delete sod policy schedule
 
 .DESCRIPTION
 
@@ -502,7 +502,7 @@ function Get-BetaSodAllReportRunStatus {
 <#
 .SYNOPSIS
 
-Get SOD policy by ID
+Get sod policy by id
 
 .DESCRIPTION
 
@@ -576,7 +576,7 @@ function Get-BetaSodPolicy {
 <#
 .SYNOPSIS
 
-Get SOD policy schedule
+Get sod policy schedule
 
 .DESCRIPTION
 
@@ -724,7 +724,7 @@ function Get-BetaSodViolationReportRunStatus {
 <#
 .SYNOPSIS
 
-Get SOD violation report status
+Get sod violation report status
 
 .DESCRIPTION
 
@@ -798,7 +798,7 @@ function Get-BetaSodViolationReportStatus {
 <#
 .SYNOPSIS
 
-List SOD policies
+List sod policies
 
 .DESCRIPTION
 
@@ -912,7 +912,7 @@ function Get-BetaSodPolicies {
 <#
 .SYNOPSIS
 
-Patch a SOD policy
+Patch a sod policy
 
 .DESCRIPTION
 
@@ -1012,7 +1012,7 @@ function Update-BetaSodPolicy {
 <#
 .SYNOPSIS
 
-Update SOD Policy schedule
+Update sod policy schedule
 
 .DESCRIPTION
 
@@ -1112,7 +1112,7 @@ function Send-BetaPolicySchedule {
 <#
 .SYNOPSIS
 
-Update SOD policy by ID
+Update sod policy by id
 
 .DESCRIPTION
 
@@ -1298,7 +1298,7 @@ function Start-BetaSodAllPoliciesForOrg {
 <#
 .SYNOPSIS
 
-Runs SOD policy violation report
+Runs sod policy violation report
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Discovered Applications for Tenant
+Get discovered applications for tenant
 
 .DESCRIPTION
 
@@ -123,7 +123,7 @@ function Get-DiscoveredApplications {
 <#
 .SYNOPSIS
 
-Download CSV Template for Discovery
+Download csv template for discovery
 
 .DESCRIPTION
 
@@ -199,7 +199,7 @@ function Get-ManualDiscoverApplicationsCsvTemplate {
 <#
 .SYNOPSIS
 
-Upload CSV to Discover Applications
+Upload csv to discover applications
 
 .DESCRIPTION
 

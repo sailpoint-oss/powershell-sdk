@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Approve Access Request Approval
+Approve access request approval
 
 .DESCRIPTION
 
@@ -104,7 +104,7 @@ function Approve-AccessRequest {
 <#
 .SYNOPSIS
 
-Forward Access Request Approval
+Forward access request approval
 
 .DESCRIPTION
 
@@ -204,7 +204,7 @@ function Invoke-ForwardAccessRequest {
 <#
 .SYNOPSIS
 
-Get Access Requests Approvals Number
+Get access requests approvals number
 
 .DESCRIPTION
 
@@ -288,7 +288,7 @@ function Get-AccessRequestApprovalSummary {
 <#
 .SYNOPSIS
 
-Completed Access Request Approvals List
+Completed access request approvals list
 
 .DESCRIPTION
 
@@ -412,7 +412,7 @@ function Get-CompletedApprovals {
 <#
 .SYNOPSIS
 
-Pending Access Request Approvals List
+Pending access request approvals list
 
 .DESCRIPTION
 
@@ -536,7 +536,7 @@ function Get-PendingApprovals {
 <#
 .SYNOPSIS
 
-Reject Access Request Approval
+Reject access request approval
 
 .DESCRIPTION
 

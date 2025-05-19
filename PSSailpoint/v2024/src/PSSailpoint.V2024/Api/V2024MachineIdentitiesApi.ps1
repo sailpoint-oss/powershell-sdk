@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Machine Identities
+Create machine identities
 
 .DESCRIPTION
 
@@ -194,7 +194,7 @@ function Remove-V2024MachineIdentity {
 <#
 .SYNOPSIS
 
-Machine Identity Details
+Machine identity details
 
 .DESCRIPTION
 
@@ -279,7 +279,7 @@ function Get-V2024MachineIdentity {
 <#
 .SYNOPSIS
 
-List Machine Identities
+List machine identities
 
 .DESCRIPTION
 
@@ -404,7 +404,7 @@ function Get-V2024MachineIdentities {
 <#
 .SYNOPSIS
 
-Update a Machine Identity
+Update a machine identity
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Access Model Metadata Attribute
+Get access model metadata attribute
 
 .DESCRIPTION
 
@@ -82,7 +82,7 @@ function Get-BetaAccessModelMetadataAttribute {
 <#
 .SYNOPSIS
 
-Get Access Model Metadata Value
+Get access model metadata value
 
 .DESCRIPTION
 
@@ -166,7 +166,7 @@ function Get-BetaAccessModelMetadataAttributeValue {
 <#
 .SYNOPSIS
 
-List Access Model Metadata Attributes
+List access model metadata attributes
 
 .DESCRIPTION
 
@@ -240,7 +240,7 @@ function Get-BetaAccessModelMetadataAttribute {
 <#
 .SYNOPSIS
 
-List Access Model Metadata Values
+List access model metadata values
 
 .DESCRIPTION
 

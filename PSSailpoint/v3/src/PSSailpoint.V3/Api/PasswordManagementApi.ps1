@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Password Change Request Status
+Get password change request status
 
 .DESCRIPTION
 
@@ -83,7 +83,7 @@ function Get-PasswordChangeStatus {
 <#
 .SYNOPSIS
 
-Query Password Info
+Query password info
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Search-PasswordInfo {
 <#
 .SYNOPSIS
 
-Set Identity's Password
+Set identity's password
 
 .DESCRIPTION
 

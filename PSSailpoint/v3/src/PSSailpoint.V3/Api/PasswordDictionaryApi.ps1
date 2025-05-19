@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Password Dictionary
+Get password dictionary
 
 .DESCRIPTION
 
@@ -84,7 +84,7 @@ function Get-PasswordDictionary {
 <#
 .SYNOPSIS
 
-Update Password Dictionary
+Update password dictionary
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create OAuth Client
+Create oauth client
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-OauthClient {
 <#
 .SYNOPSIS
 
-Delete OAuth Client
+Delete oauth client
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-OauthClient {
 <#
 .SYNOPSIS
 
-Get OAuth Client
+Get oauth client
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Get-OauthClient {
 <#
 .SYNOPSIS
 
-List OAuth Clients
+List oauth clients
 
 .DESCRIPTION
 
@@ -320,7 +320,7 @@ function Get-OauthClients {
 <#
 .SYNOPSIS
 
-Patch OAuth Client
+Patch oauth client
 
 .DESCRIPTION
 

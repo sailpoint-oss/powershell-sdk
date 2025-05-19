@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Complete a Campaign
+Complete a campaign
 
 .DESCRIPTION
 
@@ -194,7 +194,7 @@ function New-V2025Campaign {
 <#
 .SYNOPSIS
 
-Create a Campaign Template
+Create a campaign template
 
 .DESCRIPTION
 
@@ -284,7 +284,7 @@ function New-V2025CampaignTemplate {
 <#
 .SYNOPSIS
 
-Delete a Campaign Template
+Delete a campaign template
 
 .DESCRIPTION
 
@@ -358,7 +358,7 @@ function Remove-V2025CampaignTemplate {
 <#
 .SYNOPSIS
 
-Delete Campaign Template Schedule
+Delete campaign template schedule
 
 .DESCRIPTION
 
@@ -432,7 +432,7 @@ function Remove-V2025CampaignTemplateSchedule {
 <#
 .SYNOPSIS
 
-Delete Campaigns
+Delete campaigns
 
 .DESCRIPTION
 
@@ -522,7 +522,7 @@ function Remove-V2025Campaigns {
 <#
 .SYNOPSIS
 
-List Campaigns
+List campaigns
 
 .DESCRIPTION
 
@@ -647,7 +647,7 @@ function Get-V2025ActiveCampaigns {
 <#
 .SYNOPSIS
 
-Get Campaign
+Get campaign
 
 .DESCRIPTION
 
@@ -735,7 +735,7 @@ function Get-V2025Campaign {
 <#
 .SYNOPSIS
 
-Get Campaign Reports
+Get campaign reports
 
 .DESCRIPTION
 
@@ -809,7 +809,7 @@ function Get-V2025CampaignReports {
 <#
 .SYNOPSIS
 
-Get Campaign Reports Configuration
+Get campaign reports configuration
 
 .DESCRIPTION
 
@@ -873,7 +873,7 @@ function Get-V2025CampaignReportsConfig {
 <#
 .SYNOPSIS
 
-Get a Campaign Template
+Get a campaign template
 
 .DESCRIPTION
 
@@ -947,7 +947,7 @@ function Get-V2025CampaignTemplate {
 <#
 .SYNOPSIS
 
-Get Campaign Template Schedule
+Get campaign template schedule
 
 .DESCRIPTION
 
@@ -1021,7 +1021,7 @@ function Get-V2025CampaignTemplateSchedule {
 <#
 .SYNOPSIS
 
-List Campaign Templates
+List campaign templates
 
 .DESCRIPTION
 
@@ -1135,7 +1135,7 @@ function Get-V2025CampaignTemplates {
 <#
 .SYNOPSIS
 
-Reassign Certifications
+Reassign certifications
 
 .DESCRIPTION
 
@@ -1235,7 +1235,7 @@ function Move-V2025 {
 <#
 .SYNOPSIS
 
-Update a Campaign Template
+Update a campaign template
 
 .DESCRIPTION
 
@@ -1335,7 +1335,7 @@ function Update-V2025CampaignTemplate {
 <#
 .SYNOPSIS
 
-Set Campaign Reports Configuration
+Set campaign reports configuration
 
 .DESCRIPTION
 
@@ -1425,7 +1425,7 @@ function Set-V2025CampaignReportsConfig {
 <#
 .SYNOPSIS
 
-Set Campaign Template Schedule
+Set campaign template schedule
 
 .DESCRIPTION
 
@@ -1521,7 +1521,7 @@ function Set-V2025CampaignTemplateSchedule {
 <#
 .SYNOPSIS
 
-Activate a Campaign
+Activate a campaign
 
 .DESCRIPTION
 
@@ -1617,7 +1617,7 @@ function Start-V2025Campaign {
 <#
 .SYNOPSIS
 
-Run Campaign Remediation Scan
+Run campaign remediation scan
 
 .DESCRIPTION
 
@@ -1691,7 +1691,7 @@ function Start-V2025CampaignRemediationScan {
 <#
 .SYNOPSIS
 
-Run Campaign Report
+Run campaign report
 
 .DESCRIPTION
 
@@ -1775,7 +1775,7 @@ function Start-V2025CampaignReport {
 <#
 .SYNOPSIS
 
-Generate a Campaign from Template
+Generate a campaign from template
 
 .DESCRIPTION
 
@@ -1849,7 +1849,7 @@ function Start-V2025GenerateCampaignTemplate {
 <#
 .SYNOPSIS
 
-Update a Campaign
+Update a campaign
 
 .DESCRIPTION
 

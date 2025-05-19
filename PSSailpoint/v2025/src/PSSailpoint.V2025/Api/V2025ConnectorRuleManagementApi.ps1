@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Connector Rule
+Create connector rule
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-V2025ConnectorRule {
 <#
 .SYNOPSIS
 
-Delete Connector Rule
+Delete connector rule
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-V2025ConnectorRule {
 <#
 .SYNOPSIS
 
-Get Connector Rule
+Get connector rule
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Get-V2025ConnectorRule {
 <#
 .SYNOPSIS
 
-List Connector Rules
+List connector rules
 
 .DESCRIPTION
 
@@ -340,7 +340,7 @@ function Get-V2025ConnectorRuleList {
 <#
 .SYNOPSIS
 
-Update Connector Rule
+Update connector rule
 
 .DESCRIPTION
 
@@ -436,7 +436,7 @@ function Send-V2025ConnectorRule {
 <#
 .SYNOPSIS
 
-Validate Connector Rule
+Validate connector rule
 
 .DESCRIPTION
 

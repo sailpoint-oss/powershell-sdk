@@ -208,7 +208,7 @@ function New-ObjectMappings {
 <#
 .SYNOPSIS
 
-Upload a Configuration
+Upload a configuration
 
 .DESCRIPTION
 
@@ -381,7 +381,7 @@ function Remove-ObjectMapping {
 <#
 .SYNOPSIS
 
-Delete an Uploaded Configuration
+Delete an uploaded configuration
 
 .DESCRIPTION
 
@@ -529,7 +529,7 @@ function Get-ObjectMappings {
 <#
 .SYNOPSIS
 
-Get an Uploaded Configuration
+Get an uploaded configuration
 
 .DESCRIPTION
 
@@ -603,7 +603,7 @@ function Get-UploadedConfiguration {
 <#
 .SYNOPSIS
 
-List Uploaded Configurations
+List uploaded configurations
 
 .DESCRIPTION
 

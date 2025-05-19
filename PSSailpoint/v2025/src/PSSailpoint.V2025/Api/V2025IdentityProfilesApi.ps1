@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Identity Profile
+Create identity profile
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-V2025IdentityProfile {
 <#
 .SYNOPSIS
 
-Delete Identity Profile
+Delete identity profile
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-V2025IdentityProfile {
 <#
 .SYNOPSIS
 
-Delete Identity Profiles
+Delete identity profiles
 
 .DESCRIPTION
 
@@ -262,7 +262,7 @@ function Remove-V2025IdentityProfiles {
 <#
 .SYNOPSIS
 
-Export Identity Profiles
+Export identity profiles
 
 .DESCRIPTION
 
@@ -376,7 +376,7 @@ function Export-V2025IdentityProfiles {
 <#
 .SYNOPSIS
 
-Generate Identity Profile Preview
+Generate identity profile preview
 
 .DESCRIPTION
 
@@ -477,7 +477,7 @@ function New-V2025IdentityPreview {
 <#
 .SYNOPSIS
 
-Get default Identity Attribute Config
+Get default identity attribute config
 
 .DESCRIPTION
 
@@ -551,7 +551,7 @@ function Get-V2025DefaultIdentityAttributeConfig {
 <#
 .SYNOPSIS
 
-Get Identity Profile
+Get identity profile
 
 .DESCRIPTION
 
@@ -626,7 +626,7 @@ function Get-V2025IdentityProfile {
 <#
 .SYNOPSIS
 
-Import Identity Profiles
+Import identity profiles
 
 .DESCRIPTION
 
@@ -716,7 +716,7 @@ function Import-V2025IdentityProfiles {
 <#
 .SYNOPSIS
 
-List Identity Profiles
+List identity profiles
 
 .DESCRIPTION
 
@@ -905,7 +905,7 @@ function Sync-V2025IdentityProfile {
 <#
 .SYNOPSIS
 
-Update Identity Profile
+Update identity profile
 
 .DESCRIPTION
 

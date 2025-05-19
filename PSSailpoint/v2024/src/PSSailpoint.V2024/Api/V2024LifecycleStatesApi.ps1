@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Lifecycle State
+Create lifecycle state
 
 .DESCRIPTION
 
@@ -109,7 +109,7 @@ function New-V2024LifecycleState {
 <#
 .SYNOPSIS
 
-Delete Lifecycle State
+Delete lifecycle state
 
 .DESCRIPTION
 
@@ -194,7 +194,7 @@ function Remove-V2024LifecycleState {
 <#
 .SYNOPSIS
 
-Get Lifecycle State
+Get lifecycle state
 
 .DESCRIPTION
 
@@ -278,7 +278,7 @@ function Get-V2024LifecycleState {
 <#
 .SYNOPSIS
 
-Lists LifecycleStates
+Lists lifecyclestates
 
 .DESCRIPTION
 
@@ -393,7 +393,7 @@ function Get-V2024LifecycleStates {
 <#
 .SYNOPSIS
 
-Set Lifecycle State
+Set lifecycle state
 
 .DESCRIPTION
 
@@ -493,7 +493,7 @@ function Set-V2024LifecycleState {
 <#
 .SYNOPSIS
 
-Update Lifecycle State
+Update lifecycle state
 
 .DESCRIPTION
 

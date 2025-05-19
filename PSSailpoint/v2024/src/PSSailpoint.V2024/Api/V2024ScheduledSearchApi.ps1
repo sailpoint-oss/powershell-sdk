@@ -98,7 +98,7 @@ function New-V2024ScheduledSearch {
 <#
 .SYNOPSIS
 
-Delete a Scheduled Search
+Delete a scheduled search
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-V2024ScheduledSearch {
 <#
 .SYNOPSIS
 
-Get a Scheduled Search
+Get a scheduled search
 
 .DESCRIPTION
 
@@ -350,7 +350,7 @@ function Get-V2024ScheduledSearch {
 <#
 .SYNOPSIS
 
-Unsubscribe a recipient from Scheduled Search
+Unsubscribe a recipient from scheduled search
 
 .DESCRIPTION
 
@@ -450,7 +450,7 @@ function Invoke-V2024UnsubscribeScheduledSearch {
 <#
 .SYNOPSIS
 
-Update an existing Scheduled Search
+Update an existing scheduled search
 
 .DESCRIPTION
 

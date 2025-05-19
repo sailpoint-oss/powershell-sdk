@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create a Reassignment Configuration
+Create a reassignment configuration
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaReassignmentConfiguration {
 <#
 .SYNOPSIS
 
-Delete Reassignment Configuration
+Delete reassignment configuration
 
 .DESCRIPTION
 
@@ -182,7 +182,7 @@ function Remove-BetaReassignmentConfiguration {
 <#
 .SYNOPSIS
 
-Evaluate Reassignment Configuration
+Evaluate reassignment configuration
 
 .DESCRIPTION
 
@@ -276,7 +276,7 @@ function Get-BetaEvaluateReassignmentConfiguration {
 <#
 .SYNOPSIS
 
-List Reassignment Config Types
+List reassignment config types
 
 .DESCRIPTION
 
@@ -340,7 +340,7 @@ function Get-BetaReassignmentConfigTypes {
 <#
 .SYNOPSIS
 
-Get Reassignment Configuration
+Get reassignment configuration
 
 .DESCRIPTION
 
@@ -414,7 +414,7 @@ function Get-BetaReassignmentConfiguration {
 <#
 .SYNOPSIS
 
-Get Tenant-wide Reassignment Configuration settings
+Get tenant-wide reassignment configuration settings
 
 .DESCRIPTION
 
@@ -478,7 +478,7 @@ function Get-BetaTenantConfigConfiguration {
 <#
 .SYNOPSIS
 
-List Reassignment Configurations
+List reassignment configurations
 
 .DESCRIPTION
 
@@ -562,7 +562,7 @@ function Get-BetaReassignmentConfigurations {
 <#
 .SYNOPSIS
 
-Update Reassignment Configuration
+Update reassignment configuration
 
 .DESCRIPTION
 
@@ -662,7 +662,7 @@ function Send-BetaReassignmentConfig {
 <#
 .SYNOPSIS
 
-Update Tenant-wide Reassignment Configuration settings
+Update tenant-wide reassignment configuration settings
 
 .DESCRIPTION
 

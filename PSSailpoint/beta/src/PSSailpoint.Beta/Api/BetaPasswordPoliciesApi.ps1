@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Password Policy
+Create password policy
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaPasswordPolicy {
 <#
 .SYNOPSIS
 
-Delete Password Policy by ID
+Delete password policy by id
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-BetaPasswordPolicy {
 <#
 .SYNOPSIS
 
-Get Password Policy by ID
+Get password policy by id
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Get-BetaPasswordPolicyById {
 <#
 .SYNOPSIS
 
-List Password Policies
+List password policies
 
 .DESCRIPTION
 
@@ -340,7 +340,7 @@ function Get-BetaPasswordPolicies {
 <#
 .SYNOPSIS
 
-Update Password Policy by ID
+Update password policy by id
 
 .DESCRIPTION
 

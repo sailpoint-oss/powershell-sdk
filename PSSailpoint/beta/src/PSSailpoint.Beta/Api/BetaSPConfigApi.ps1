@@ -492,7 +492,7 @@ function Import-BetaSpConfig {
 <#
 .SYNOPSIS
 
-List Config Objects
+List config objects
 
 .DESCRIPTION
 

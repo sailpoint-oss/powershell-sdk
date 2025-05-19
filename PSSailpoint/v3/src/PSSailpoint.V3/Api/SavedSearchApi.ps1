@@ -98,7 +98,7 @@ function New-SavedSearch {
 <#
 .SYNOPSIS
 
-Delete document by ID
+Delete document by id
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-SavedSearch {
 <#
 .SYNOPSIS
 
-Execute a saved search by ID
+Execute a saved search by id
 
 .DESCRIPTION
 
@@ -272,7 +272,7 @@ function Invoke-ExecuteSavedSearch {
 <#
 .SYNOPSIS
 
-Return saved search by ID
+Return saved search by id
 
 .DESCRIPTION
 
@@ -346,7 +346,7 @@ function Get-SavedSearch {
 <#
 .SYNOPSIS
 
-A list of Saved Searches
+A list of saved searches
 
 .DESCRIPTION
 

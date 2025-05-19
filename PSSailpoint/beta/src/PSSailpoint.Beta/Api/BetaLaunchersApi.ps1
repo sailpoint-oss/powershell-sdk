@@ -98,7 +98,7 @@ function New-BetaLauncher {
 <#
 .SYNOPSIS
 
-Delete Launcher
+Delete launcher
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-BetaLauncher {
 <#
 .SYNOPSIS
 
-Get Launcher by ID
+Get launcher by id
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Get-BetaLauncher {
 <#
 .SYNOPSIS
 
-List all Launchers for tenant
+List all launchers for tenant
 
 .DESCRIPTION
 
@@ -340,7 +340,7 @@ function Get-BetaLaunchers {
 <#
 .SYNOPSIS
 
-Replace Launcher
+Replace launcher
 
 .DESCRIPTION
 
@@ -440,7 +440,7 @@ function Send-BetaLauncher {
 <#
 .SYNOPSIS
 
-Launch a Launcher
+Launch a launcher
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Approve Access Request Approval
+Approve access request approval
 
 .DESCRIPTION
 
@@ -108,7 +108,7 @@ function Approve-BetaAccessRequest {
 <#
 .SYNOPSIS
 
-Forward Access Request Approval
+Forward access request approval
 
 .DESCRIPTION
 
@@ -208,7 +208,7 @@ function Invoke-BetaForwardAccessRequest {
 <#
 .SYNOPSIS
 
-Get Access Requests Approvals Number
+Get access requests approvals number
 
 .DESCRIPTION
 
@@ -292,7 +292,7 @@ function Get-BetaAccessRequestApprovalSummary {
 <#
 .SYNOPSIS
 
-Completed Access Request Approvals List
+Completed access request approvals list
 
 .DESCRIPTION
 
@@ -416,7 +416,7 @@ function Get-BetaCompletedApprovals {
 <#
 .SYNOPSIS
 
-Pending Access Request Approvals List
+Pending access request approvals list
 
 .DESCRIPTION
 
@@ -540,7 +540,7 @@ function Get-BetaPendingApprovals {
 <#
 .SYNOPSIS
 
-Reject Access Request Approval
+Reject access request approval
 
 .DESCRIPTION
 

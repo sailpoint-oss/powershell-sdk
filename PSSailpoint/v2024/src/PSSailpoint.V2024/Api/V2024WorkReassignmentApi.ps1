@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create a Reassignment Configuration
+Create a reassignment configuration
 
 .DESCRIPTION
 
@@ -109,7 +109,7 @@ function New-V2024ReassignmentConfiguration {
 <#
 .SYNOPSIS
 
-Delete Reassignment Configuration
+Delete reassignment configuration
 
 .DESCRIPTION
 
@@ -204,7 +204,7 @@ function Remove-V2024ReassignmentConfiguration {
 <#
 .SYNOPSIS
 
-Evaluate Reassignment Configuration
+Evaluate reassignment configuration
 
 .DESCRIPTION
 
@@ -309,7 +309,7 @@ function Get-V2024EvaluateReassignmentConfiguration {
 <#
 .SYNOPSIS
 
-List Reassignment Config Types
+List reassignment config types
 
 .DESCRIPTION
 
@@ -384,7 +384,7 @@ function Get-V2024ReassignmentConfigTypes {
 <#
 .SYNOPSIS
 
-Get Reassignment Configuration
+Get reassignment configuration
 
 .DESCRIPTION
 
@@ -469,7 +469,7 @@ function Get-V2024ReassignmentConfiguration {
 <#
 .SYNOPSIS
 
-Get Tenant-wide Reassignment Configuration settings
+Get tenant-wide reassignment configuration settings
 
 .DESCRIPTION
 
@@ -544,7 +544,7 @@ function Get-V2024TenantConfigConfiguration {
 <#
 .SYNOPSIS
 
-List Reassignment Configurations
+List reassignment configurations
 
 .DESCRIPTION
 
@@ -619,7 +619,7 @@ function Get-V2024ReassignmentConfigurations {
 <#
 .SYNOPSIS
 
-Update Reassignment Configuration
+Update reassignment configuration
 
 .DESCRIPTION
 
@@ -730,7 +730,7 @@ function Send-V2024ReassignmentConfig {
 <#
 .SYNOPSIS
 
-Update Tenant-wide Reassignment Configuration settings
+Update tenant-wide reassignment configuration settings
 
 .DESCRIPTION
 

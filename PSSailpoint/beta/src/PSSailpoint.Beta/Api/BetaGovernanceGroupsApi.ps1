@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create a new Governance Group.
+Create a new governance group.
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaWorkgroup {
 <#
 .SYNOPSIS
 
-Delete a Governance Group
+Delete a governance group
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-BetaWorkgroup {
 <#
 .SYNOPSIS
 
-Remove members from Governance Group
+Remove members from governance group
 
 .DESCRIPTION
 
@@ -272,7 +272,7 @@ function Remove-BetaWorkgroupMembers {
 <#
 .SYNOPSIS
 
-Delete Governance Group(s)
+Delete governance group(s)
 
 .DESCRIPTION
 
@@ -362,7 +362,7 @@ function Remove-BetaWorkgroupsInBulk {
 <#
 .SYNOPSIS
 
-Get Governance Group by Id
+Get governance group by id
 
 .DESCRIPTION
 
@@ -436,7 +436,7 @@ function Get-BetaWorkgroup {
 <#
 .SYNOPSIS
 
-List connections for Governance Group
+List connections for governance group
 
 .DESCRIPTION
 
@@ -550,7 +550,7 @@ function Get-BetaConnections {
 <#
 .SYNOPSIS
 
-List Governance Group Members
+List governance group members
 
 .DESCRIPTION
 
@@ -664,7 +664,7 @@ function Get-BetaWorkgroupMembers {
 <#
 .SYNOPSIS
 
-List Governance Groups
+List governance groups
 
 .DESCRIPTION
 
@@ -778,7 +778,7 @@ function Get-BetaWorkgroups {
 <#
 .SYNOPSIS
 
-Patch a Governance Group
+Patch a governance group
 
 .DESCRIPTION
 
@@ -874,7 +874,7 @@ function Update-BetaWorkgroup {
 <#
 .SYNOPSIS
 
-Add members to Governance Group
+Add members to governance group
 
 .DESCRIPTION
 

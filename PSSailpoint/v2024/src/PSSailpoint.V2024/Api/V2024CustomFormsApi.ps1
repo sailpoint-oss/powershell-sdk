@@ -94,7 +94,7 @@ function New-V2024FormDefinition {
 <#
 .SYNOPSIS
 
-Generate JSON Schema dynamically.
+Generate json schema dynamically.
 
 .DESCRIPTION
 
@@ -532,7 +532,7 @@ function Export-V2024FormDefinitionsByTenant {
 <#
 .SYNOPSIS
 
-Download definition file by fileId.
+Download definition file by fileid.
 
 .DESCRIPTION
 
@@ -776,7 +776,7 @@ function Get-V2024FormInstanceByKey {
 <#
 .SYNOPSIS
 
-Download instance file by fileId.
+Download instance file by fileid.
 
 .DESCRIPTION
 

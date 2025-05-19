@@ -93,7 +93,7 @@ function Get-V2025Approval {
 <#
 .SYNOPSIS
 
-Get Approvals
+Get approvals
 
 .DESCRIPTION
 

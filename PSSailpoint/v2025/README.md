@@ -53,66 +53,66 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttribute**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes/{key} | Get Access Model Metadata Attribute
-*V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttributeValue**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values/{value} | Get Access Model Metadata Value
-*V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttribute**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes | List Access Model Metadata Attributes
-*V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttributeValue**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values | List Access Model Metadata Values
-*V2025AccessProfilesApi* | [**New-V2025AccessProfile**](docs/V2025AccessProfilesApi.md#New-V2025AccessProfile) | **POST** /access-profiles | Create Access Profile
-*V2025AccessProfilesApi* | [**Remove-V2025AccessProfile**](docs/V2025AccessProfilesApi.md#Remove-V2025AccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified Access Profile
-*V2025AccessProfilesApi* | [**Remove-V2025AccessProfilesInBulk**](docs/V2025AccessProfilesApi.md#Remove-V2025AccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete Access Profile(s)
-*V2025AccessProfilesApi* | [**Get-V2025AccessProfile**](docs/V2025AccessProfilesApi.md#Get-V2025AccessProfile) | **GET** /access-profiles/{id} | Get an Access Profile
-*V2025AccessProfilesApi* | [**Get-V2025AccessProfileEntitlements**](docs/V2025AccessProfilesApi.md#Get-V2025AccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List Access Profile's Entitlements
-*V2025AccessProfilesApi* | [**Get-V2025AccessProfiles**](docs/V2025AccessProfilesApi.md#Get-V2025AccessProfiles) | **GET** /access-profiles | List Access Profiles
-*V2025AccessProfilesApi* | [**Update-V2025AccessProfile**](docs/V2025AccessProfilesApi.md#Update-V2025AccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified Access Profile
-*V2025AccessProfilesApi* | [**Update-V2025AccessProfilesInBulk**](docs/V2025AccessProfilesApi.md#Update-V2025AccessProfilesInBulk) | **POST** /access-profiles/bulk-update-requestable | Update Access Profile(s) requestable field.
-*V2025AccessRequestApprovalsApi* | [**Approve-V2025AccessRequest**](docs/V2025AccessRequestApprovalsApi.md#Approve-V2025AccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approve Access Request Approval
-*V2025AccessRequestApprovalsApi* | [**Invoke-V2025ForwardAccessRequest**](docs/V2025AccessRequestApprovalsApi.md#Invoke-V2025ForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forward Access Request Approval
-*V2025AccessRequestApprovalsApi* | [**Get-V2025AccessRequestApprovalSummary**](docs/V2025AccessRequestApprovalsApi.md#Get-V2025AccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get Access Requests Approvals Number
-*V2025AccessRequestApprovalsApi* | [**Get-V2025AccessRequestApprovers**](docs/V2025AccessRequestApprovalsApi.md#Get-V2025AccessRequestApprovers) | **GET** /access-request-approvals/{accessRequestId}/approvers | Access Request Approvers
-*V2025AccessRequestApprovalsApi* | [**Get-V2025CompletedApprovals**](docs/V2025AccessRequestApprovalsApi.md#Get-V2025CompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
-*V2025AccessRequestApprovalsApi* | [**Get-V2025PendingApprovals**](docs/V2025AccessRequestApprovalsApi.md#Get-V2025PendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
-*V2025AccessRequestApprovalsApi* | [**Deny-V2025AccessRequest**](docs/V2025AccessRequestApprovalsApi.md#Deny-V2025AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Reject Access Request Approval
+*V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttribute**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes/{key} | Get access model metadata attribute
+*V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttributeValue**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values/{value} | Get access model metadata value
+*V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttribute**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes | List access model metadata attributes
+*V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttributeValue**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values | List access model metadata values
+*V2025AccessProfilesApi* | [**New-V2025AccessProfile**](docs/V2025AccessProfilesApi.md#New-V2025AccessProfile) | **POST** /access-profiles | Create access profile
+*V2025AccessProfilesApi* | [**Remove-V2025AccessProfile**](docs/V2025AccessProfilesApi.md#Remove-V2025AccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified access profile
+*V2025AccessProfilesApi* | [**Remove-V2025AccessProfilesInBulk**](docs/V2025AccessProfilesApi.md#Remove-V2025AccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete access profile(s)
+*V2025AccessProfilesApi* | [**Get-V2025AccessProfile**](docs/V2025AccessProfilesApi.md#Get-V2025AccessProfile) | **GET** /access-profiles/{id} | Get an access profile
+*V2025AccessProfilesApi* | [**Get-V2025AccessProfileEntitlements**](docs/V2025AccessProfilesApi.md#Get-V2025AccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List access profile's entitlements
+*V2025AccessProfilesApi* | [**Get-V2025AccessProfiles**](docs/V2025AccessProfilesApi.md#Get-V2025AccessProfiles) | **GET** /access-profiles | List access profiles
+*V2025AccessProfilesApi* | [**Update-V2025AccessProfile**](docs/V2025AccessProfilesApi.md#Update-V2025AccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified access profile
+*V2025AccessProfilesApi* | [**Update-V2025AccessProfilesInBulk**](docs/V2025AccessProfilesApi.md#Update-V2025AccessProfilesInBulk) | **POST** /access-profiles/bulk-update-requestable | Update access profile(s) requestable field.
+*V2025AccessRequestApprovalsApi* | [**Approve-V2025AccessRequest**](docs/V2025AccessRequestApprovalsApi.md#Approve-V2025AccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approve access request approval
+*V2025AccessRequestApprovalsApi* | [**Invoke-V2025ForwardAccessRequest**](docs/V2025AccessRequestApprovalsApi.md#Invoke-V2025ForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forward access request approval
+*V2025AccessRequestApprovalsApi* | [**Get-V2025AccessRequestApprovalSummary**](docs/V2025AccessRequestApprovalsApi.md#Get-V2025AccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get access requests approvals number
+*V2025AccessRequestApprovalsApi* | [**Get-V2025AccessRequestApprovers**](docs/V2025AccessRequestApprovalsApi.md#Get-V2025AccessRequestApprovers) | **GET** /access-request-approvals/{accessRequestId}/approvers | Access request approvers
+*V2025AccessRequestApprovalsApi* | [**Get-V2025CompletedApprovals**](docs/V2025AccessRequestApprovalsApi.md#Get-V2025CompletedApprovals) | **GET** /access-request-approvals/completed | Completed access request approvals list
+*V2025AccessRequestApprovalsApi* | [**Get-V2025PendingApprovals**](docs/V2025AccessRequestApprovalsApi.md#Get-V2025PendingApprovals) | **GET** /access-request-approvals/pending | Pending access request approvals list
+*V2025AccessRequestApprovalsApi* | [**Deny-V2025AccessRequest**](docs/V2025AccessRequestApprovalsApi.md#Deny-V2025AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Reject access request approval
 *V2025AccessRequestIdentityMetricsApi* | [**Get-V2025AccessRequestIdentityMetrics**](docs/V2025AccessRequestIdentityMetricsApi.md#Get-V2025AccessRequestIdentityMetrics) | **GET** /access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type} | Return access request identity metrics
-*V2025AccessRequestsApi* | [**Approve-V2025BulkAccessRequest**](docs/V2025AccessRequestsApi.md#Approve-V2025BulkAccessRequest) | **POST** /access-request-approvals/bulk-approve | Bulk Approve Access Request
-*V2025AccessRequestsApi* | [**Suspend-V2025AccessRequest**](docs/V2025AccessRequestsApi.md#Suspend-V2025AccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
-*V2025AccessRequestsApi* | [**Suspend-V2025AccessRequestInBulk**](docs/V2025AccessRequestsApi.md#Suspend-V2025AccessRequestInBulk) | **POST** /access-requests/bulk-cancel | Bulk Cancel Access Request
-*V2025AccessRequestsApi* | [**Close-V2025AccessRequest**](docs/V2025AccessRequestsApi.md#Close-V2025AccessRequest) | **POST** /access-requests/close | Close Access Request
-*V2025AccessRequestsApi* | [**New-V2025AccessRequest**](docs/V2025AccessRequestsApi.md#New-V2025AccessRequest) | **POST** /access-requests | Submit Access Request
-*V2025AccessRequestsApi* | [**Get-V2025AccessRequestConfig**](docs/V2025AccessRequestsApi.md#Get-V2025AccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
-*V2025AccessRequestsApi* | [**Get-V2025EntitlementDetailsForIdentity**](docs/V2025AccessRequestsApi.md#Get-V2025EntitlementDetailsForIdentity) | **GET** /access-requests/revocable-objects | Identity Entitlement Details
-*V2025AccessRequestsApi* | [**Get-V2025AccessRequestStatus**](docs/V2025AccessRequestsApi.md#Get-V2025AccessRequestStatus) | **GET** /access-request-status | Access Request Status
-*V2025AccessRequestsApi* | [**Get-V2025AdministratorsAccessRequestStatus**](docs/V2025AccessRequestsApi.md#Get-V2025AdministratorsAccessRequestStatus) | **GET** /access-request-administration | Access Request Status for Administrators
+*V2025AccessRequestsApi* | [**Approve-V2025BulkAccessRequest**](docs/V2025AccessRequestsApi.md#Approve-V2025BulkAccessRequest) | **POST** /access-request-approvals/bulk-approve | Bulk approve access request
+*V2025AccessRequestsApi* | [**Suspend-V2025AccessRequest**](docs/V2025AccessRequestsApi.md#Suspend-V2025AccessRequest) | **POST** /access-requests/cancel | Cancel access request
+*V2025AccessRequestsApi* | [**Suspend-V2025AccessRequestInBulk**](docs/V2025AccessRequestsApi.md#Suspend-V2025AccessRequestInBulk) | **POST** /access-requests/bulk-cancel | Bulk cancel access request
+*V2025AccessRequestsApi* | [**Close-V2025AccessRequest**](docs/V2025AccessRequestsApi.md#Close-V2025AccessRequest) | **POST** /access-requests/close | Close access request
+*V2025AccessRequestsApi* | [**New-V2025AccessRequest**](docs/V2025AccessRequestsApi.md#New-V2025AccessRequest) | **POST** /access-requests | Submit access request
+*V2025AccessRequestsApi* | [**Get-V2025AccessRequestConfig**](docs/V2025AccessRequestsApi.md#Get-V2025AccessRequestConfig) | **GET** /access-request-config | Get access request configuration
+*V2025AccessRequestsApi* | [**Get-V2025EntitlementDetailsForIdentity**](docs/V2025AccessRequestsApi.md#Get-V2025EntitlementDetailsForIdentity) | **GET** /access-requests/revocable-objects | Identity entitlement details
+*V2025AccessRequestsApi* | [**Get-V2025AccessRequestStatus**](docs/V2025AccessRequestsApi.md#Get-V2025AccessRequestStatus) | **GET** /access-request-status | Access request status
+*V2025AccessRequestsApi* | [**Get-V2025AdministratorsAccessRequestStatus**](docs/V2025AccessRequestsApi.md#Get-V2025AdministratorsAccessRequestStatus) | **GET** /access-request-administration | Access request status for administrators
 *V2025AccessRequestsApi* | [**Invoke-V2025LoadAccountSelections**](docs/V2025AccessRequestsApi.md#Invoke-V2025LoadAccountSelections) | **POST** /access-requests/accounts-selection | Get accounts selections for identity
-*V2025AccessRequestsApi* | [**Set-V2025AccessRequestConfig**](docs/V2025AccessRequestsApi.md#Set-V2025AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
-*V2025AccountActivitiesApi* | [**Get-V2025AccountActivity**](docs/V2025AccountActivitiesApi.md#Get-V2025AccountActivity) | **GET** /account-activities/{id} | Get an Account Activity
-*V2025AccountActivitiesApi* | [**Get-V2025AccountActivities**](docs/V2025AccountActivitiesApi.md#Get-V2025AccountActivities) | **GET** /account-activities | List Account Activities
-*V2025AccountAggregationsApi* | [**Get-V2025AccountAggregationStatus**](docs/V2025AccountAggregationsApi.md#Get-V2025AccountAggregationStatus) | **GET** /account-aggregations/{id}/status | In-progress Account Aggregation status
+*V2025AccessRequestsApi* | [**Set-V2025AccessRequestConfig**](docs/V2025AccessRequestsApi.md#Set-V2025AccessRequestConfig) | **PUT** /access-request-config | Update access request configuration
+*V2025AccountActivitiesApi* | [**Get-V2025AccountActivity**](docs/V2025AccountActivitiesApi.md#Get-V2025AccountActivity) | **GET** /account-activities/{id} | Get an account activity
+*V2025AccountActivitiesApi* | [**Get-V2025AccountActivities**](docs/V2025AccountActivitiesApi.md#Get-V2025AccountActivities) | **GET** /account-activities | List account activities
+*V2025AccountAggregationsApi* | [**Get-V2025AccountAggregationStatus**](docs/V2025AccountAggregationsApi.md#Get-V2025AccountAggregationStatus) | **GET** /account-aggregations/{id}/status | In-progress account aggregation status
 *V2025AccountUsagesApi* | [**Get-V2025UsagesByAccountId**](docs/V2025AccountUsagesApi.md#Get-V2025UsagesByAccountId) | **GET** /account-usages/{accountId}/summaries | Returns account usage insights
-*V2025AccountsApi* | [**New-V2025Account**](docs/V2025AccountsApi.md#New-V2025Account) | **POST** /accounts | Create Account
-*V2025AccountsApi* | [**Remove-V2025Account**](docs/V2025AccountsApi.md#Remove-V2025Account) | **DELETE** /accounts/{id} | Delete Account
-*V2025AccountsApi* | [**Remove-V2025AccountAsync**](docs/V2025AccountsApi.md#Remove-V2025AccountAsync) | **POST** /accounts/{id}/remove | Remove Account
-*V2025AccountsApi* | [**Disable-V2025Account**](docs/V2025AccountsApi.md#Disable-V2025Account) | **POST** /accounts/{id}/disable | Disable Account
-*V2025AccountsApi* | [**Disable-V2025AccountForIdentity**](docs/V2025AccountsApi.md#Disable-V2025AccountForIdentity) | **POST** /identities-accounts/{id}/disable | Disable IDN Account for Identity
-*V2025AccountsApi* | [**Disable-V2025AccountsForIdentities**](docs/V2025AccountsApi.md#Disable-V2025AccountsForIdentities) | **POST** /identities-accounts/disable | Disable IDN Accounts for Identities
-*V2025AccountsApi* | [**Enable-V2025Account**](docs/V2025AccountsApi.md#Enable-V2025Account) | **POST** /accounts/{id}/enable | Enable Account
-*V2025AccountsApi* | [**Enable-V2025AccountForIdentity**](docs/V2025AccountsApi.md#Enable-V2025AccountForIdentity) | **POST** /identities-accounts/{id}/enable | Enable IDN Account for Identity
-*V2025AccountsApi* | [**Enable-V2025AccountsForIdentities**](docs/V2025AccountsApi.md#Enable-V2025AccountsForIdentities) | **POST** /identities-accounts/enable | Enable IDN Accounts for Identities
-*V2025AccountsApi* | [**Get-V2025Account**](docs/V2025AccountsApi.md#Get-V2025Account) | **GET** /accounts/{id} | Account Details
-*V2025AccountsApi* | [**Get-V2025AccountEntitlements**](docs/V2025AccountsApi.md#Get-V2025AccountEntitlements) | **GET** /accounts/{id}/entitlements | Account Entitlements
-*V2025AccountsApi* | [**Get-V2025Accounts**](docs/V2025AccountsApi.md#Get-V2025Accounts) | **GET** /accounts | Accounts List
-*V2025AccountsApi* | [**Send-V2025Account**](docs/V2025AccountsApi.md#Send-V2025Account) | **PUT** /accounts/{id} | Update Account
-*V2025AccountsApi* | [**Submit-V2025ReloadAccount**](docs/V2025AccountsApi.md#Submit-V2025ReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
-*V2025AccountsApi* | [**Unlock-V2025Account**](docs/V2025AccountsApi.md#Unlock-V2025Account) | **POST** /accounts/{id}/unlock | Unlock Account
-*V2025AccountsApi* | [**Update-V2025Account**](docs/V2025AccountsApi.md#Update-V2025Account) | **PATCH** /accounts/{id} | Update Account
-*V2025ApplicationDiscoveryApi* | [**Get-V2025DiscoveredApplications**](docs/V2025ApplicationDiscoveryApi.md#Get-V2025DiscoveredApplications) | **GET** /discovered-applications | Get Discovered Applications for Tenant
-*V2025ApplicationDiscoveryApi* | [**Get-V2025ManualDiscoverApplicationsCsvTemplate**](docs/V2025ApplicationDiscoveryApi.md#Get-V2025ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download CSV Template for Discovery
-*V2025ApplicationDiscoveryApi* | [**Send-V2025ManualDiscoverApplicationsCsvTemplate**](docs/V2025ApplicationDiscoveryApi.md#Send-V2025ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload CSV to Discover Applications
+*V2025AccountsApi* | [**New-V2025Account**](docs/V2025AccountsApi.md#New-V2025Account) | **POST** /accounts | Create account
+*V2025AccountsApi* | [**Remove-V2025Account**](docs/V2025AccountsApi.md#Remove-V2025Account) | **DELETE** /accounts/{id} | Delete account
+*V2025AccountsApi* | [**Remove-V2025AccountAsync**](docs/V2025AccountsApi.md#Remove-V2025AccountAsync) | **POST** /accounts/{id}/remove | Remove account
+*V2025AccountsApi* | [**Disable-V2025Account**](docs/V2025AccountsApi.md#Disable-V2025Account) | **POST** /accounts/{id}/disable | Disable account
+*V2025AccountsApi* | [**Disable-V2025AccountForIdentity**](docs/V2025AccountsApi.md#Disable-V2025AccountForIdentity) | **POST** /identities-accounts/{id}/disable | Disable idn account for identity
+*V2025AccountsApi* | [**Disable-V2025AccountsForIdentities**](docs/V2025AccountsApi.md#Disable-V2025AccountsForIdentities) | **POST** /identities-accounts/disable | Disable idn accounts for identities
+*V2025AccountsApi* | [**Enable-V2025Account**](docs/V2025AccountsApi.md#Enable-V2025Account) | **POST** /accounts/{id}/enable | Enable account
+*V2025AccountsApi* | [**Enable-V2025AccountForIdentity**](docs/V2025AccountsApi.md#Enable-V2025AccountForIdentity) | **POST** /identities-accounts/{id}/enable | Enable idn account for identity
+*V2025AccountsApi* | [**Enable-V2025AccountsForIdentities**](docs/V2025AccountsApi.md#Enable-V2025AccountsForIdentities) | **POST** /identities-accounts/enable | Enable idn accounts for identities
+*V2025AccountsApi* | [**Get-V2025Account**](docs/V2025AccountsApi.md#Get-V2025Account) | **GET** /accounts/{id} | Account details
+*V2025AccountsApi* | [**Get-V2025AccountEntitlements**](docs/V2025AccountsApi.md#Get-V2025AccountEntitlements) | **GET** /accounts/{id}/entitlements | Account entitlements
+*V2025AccountsApi* | [**Get-V2025Accounts**](docs/V2025AccountsApi.md#Get-V2025Accounts) | **GET** /accounts | Accounts list
+*V2025AccountsApi* | [**Send-V2025Account**](docs/V2025AccountsApi.md#Send-V2025Account) | **PUT** /accounts/{id} | Update account
+*V2025AccountsApi* | [**Submit-V2025ReloadAccount**](docs/V2025AccountsApi.md#Submit-V2025ReloadAccount) | **POST** /accounts/{id}/reload | Reload account
+*V2025AccountsApi* | [**Unlock-V2025Account**](docs/V2025AccountsApi.md#Unlock-V2025Account) | **POST** /accounts/{id}/unlock | Unlock account
+*V2025AccountsApi* | [**Update-V2025Account**](docs/V2025AccountsApi.md#Update-V2025Account) | **PATCH** /accounts/{id} | Update account
+*V2025ApplicationDiscoveryApi* | [**Get-V2025DiscoveredApplications**](docs/V2025ApplicationDiscoveryApi.md#Get-V2025DiscoveredApplications) | **GET** /discovered-applications | Get discovered applications for tenant
+*V2025ApplicationDiscoveryApi* | [**Get-V2025ManualDiscoverApplicationsCsvTemplate**](docs/V2025ApplicationDiscoveryApi.md#Get-V2025ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download csv template for discovery
+*V2025ApplicationDiscoveryApi* | [**Send-V2025ManualDiscoverApplicationsCsvTemplate**](docs/V2025ApplicationDiscoveryApi.md#Send-V2025ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload csv to discover applications
 *V2025ApprovalsApi* | [**Get-V2025Approval**](docs/V2025ApprovalsApi.md#Get-V2025Approval) | **GET** /generic-approvals/{id} | Get an approval
-*V2025ApprovalsApi* | [**Get-V2025Approvals**](docs/V2025ApprovalsApi.md#Get-V2025Approvals) | **GET** /generic-approvals | Get Approvals
+*V2025ApprovalsApi* | [**Get-V2025Approvals**](docs/V2025ApprovalsApi.md#Get-V2025Approvals) | **GET** /generic-approvals | Get approvals
 *V2025AppsApi* | [**New-V2025SourceApp**](docs/V2025AppsApi.md#New-V2025SourceApp) | **POST** /source-apps | Create source app
 *V2025AppsApi* | [**Remove-V2025AccessProfilesFromSourceAppByBulk**](docs/V2025AppsApi.md#Remove-V2025AccessProfilesFromSourceAppByBulk) | **POST** /source-apps/{id}/access-profiles/bulk-remove | Bulk remove access profiles from the specified source app
-*V2025AppsApi* | [**Remove-V2025SourceApp**](docs/V2025AppsApi.md#Remove-V2025SourceApp) | **DELETE** /source-apps/{id} | Delete source app by ID
-*V2025AppsApi* | [**Get-V2025SourceApp**](docs/V2025AppsApi.md#Get-V2025SourceApp) | **GET** /source-apps/{id} | Get source app by ID
+*V2025AppsApi* | [**Remove-V2025SourceApp**](docs/V2025AppsApi.md#Remove-V2025SourceApp) | **DELETE** /source-apps/{id} | Delete source app by id
+*V2025AppsApi* | [**Get-V2025SourceApp**](docs/V2025AppsApi.md#Get-V2025SourceApp) | **GET** /source-apps/{id} | Get source app by id
 *V2025AppsApi* | [**Get-V2025AccessProfilesForSourceApp**](docs/V2025AppsApi.md#Get-V2025AccessProfilesForSourceApp) | **GET** /source-apps/{id}/access-profiles | List access profiles for the specified source app
 *V2025AppsApi* | [**Get-V2025AllSourceApp**](docs/V2025AppsApi.md#Get-V2025AllSourceApp) | **GET** /source-apps/all | List all source apps
 *V2025AppsApi* | [**Get-V2025AllUserApps**](docs/V2025AppsApi.md#Get-V2025AllUserApps) | **GET** /user-apps/all | List all user apps
@@ -120,116 +120,116 @@ Class | Method | HTTP request | Description
 *V2025AppsApi* | [**Get-V2025AvailableAccountsForUserApp**](docs/V2025AppsApi.md#Get-V2025AvailableAccountsForUserApp) | **GET** /user-apps/{id}/available-accounts | List available accounts for user app
 *V2025AppsApi* | [**Get-V2025AvailableSourceApps**](docs/V2025AppsApi.md#Get-V2025AvailableSourceApps) | **GET** /source-apps | List available source apps
 *V2025AppsApi* | [**Get-V2025OwnedUserApps**](docs/V2025AppsApi.md#Get-V2025OwnedUserApps) | **GET** /user-apps | List owned user apps
-*V2025AppsApi* | [**Update-V2025SourceApp**](docs/V2025AppsApi.md#Update-V2025SourceApp) | **PATCH** /source-apps/{id} | Patch source app by ID
-*V2025AppsApi* | [**Update-V2025UserApp**](docs/V2025AppsApi.md#Update-V2025UserApp) | **PATCH** /user-apps/{id} | Patch user app by ID
+*V2025AppsApi* | [**Update-V2025SourceApp**](docs/V2025AppsApi.md#Update-V2025SourceApp) | **PATCH** /source-apps/{id} | Patch source app by id
+*V2025AppsApi* | [**Update-V2025UserApp**](docs/V2025AppsApi.md#Update-V2025UserApp) | **PATCH** /user-apps/{id} | Patch user app by id
 *V2025AppsApi* | [**Update-V2025SourceAppsInBulk**](docs/V2025AppsApi.md#Update-V2025SourceAppsInBulk) | **POST** /source-apps/bulk-update | Bulk update source apps
-*V2025AuthProfileApi* | [**Get-V2025ProfileConfig**](docs/V2025AuthProfileApi.md#Get-V2025ProfileConfig) | **GET** /auth-profiles/{id} | Get Auth Profile
-*V2025AuthProfileApi* | [**Get-V2025ProfileConfigList**](docs/V2025AuthProfileApi.md#Get-V2025ProfileConfigList) | **GET** /auth-profiles | Get list of Auth Profiles
-*V2025AuthProfileApi* | [**Update-V2025ProfileConfig**](docs/V2025AuthProfileApi.md#Update-V2025ProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified Auth Profile
-*V2025AuthUsersApi* | [**Get-V2025AuthUser**](docs/V2025AuthUsersApi.md#Get-V2025AuthUser) | **GET** /auth-users/{id} | Auth User Details
-*V2025AuthUsersApi* | [**Update-V2025AuthUser**](docs/V2025AuthUsersApi.md#Update-V2025AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
+*V2025AuthProfileApi* | [**Get-V2025ProfileConfig**](docs/V2025AuthProfileApi.md#Get-V2025ProfileConfig) | **GET** /auth-profiles/{id} | Get auth profile
+*V2025AuthProfileApi* | [**Get-V2025ProfileConfigList**](docs/V2025AuthProfileApi.md#Get-V2025ProfileConfigList) | **GET** /auth-profiles | Get list of auth profiles
+*V2025AuthProfileApi* | [**Update-V2025ProfileConfig**](docs/V2025AuthProfileApi.md#Update-V2025ProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified auth profile
+*V2025AuthUsersApi* | [**Get-V2025AuthUser**](docs/V2025AuthUsersApi.md#Get-V2025AuthUser) | **GET** /auth-users/{id} | Auth user details
+*V2025AuthUsersApi* | [**Update-V2025AuthUser**](docs/V2025AuthUsersApi.md#Update-V2025AuthUser) | **PATCH** /auth-users/{id} | Auth user update
 *V2025BrandingApi* | [**New-V2025BrandingItem**](docs/V2025BrandingApi.md#New-V2025BrandingItem) | **POST** /brandings | Create a branding item
 *V2025BrandingApi* | [**Remove-V2025Branding**](docs/V2025BrandingApi.md#Remove-V2025Branding) | **DELETE** /brandings/{name} | Delete a branding item
 *V2025BrandingApi* | [**Get-V2025Branding**](docs/V2025BrandingApi.md#Get-V2025Branding) | **GET** /brandings/{name} | Get a branding item
 *V2025BrandingApi* | [**Get-V2025BrandingList**](docs/V2025BrandingApi.md#Get-V2025BrandingList) | **GET** /brandings | List of branding items
 *V2025BrandingApi* | [**Set-V2025BrandingItem**](docs/V2025BrandingApi.md#Set-V2025BrandingItem) | **PUT** /brandings/{name} | Update a branding item
-*V2025CertificationCampaignFiltersApi* | [**New-V2025CampaignFilter**](docs/V2025CertificationCampaignFiltersApi.md#New-V2025CampaignFilter) | **POST** /campaign-filters | Create Campaign Filter
-*V2025CertificationCampaignFiltersApi* | [**Remove-V2025CampaignFilters**](docs/V2025CertificationCampaignFiltersApi.md#Remove-V2025CampaignFilters) | **POST** /campaign-filters/delete | Deletes Campaign Filters
-*V2025CertificationCampaignFiltersApi* | [**Get-V2025CampaignFilterById**](docs/V2025CertificationCampaignFiltersApi.md#Get-V2025CampaignFilterById) | **GET** /campaign-filters/{id} | Get Campaign Filter by ID
-*V2025CertificationCampaignFiltersApi* | [**Get-V2025CampaignFilters**](docs/V2025CertificationCampaignFiltersApi.md#Get-V2025CampaignFilters) | **GET** /campaign-filters | List Campaign Filters
-*V2025CertificationCampaignFiltersApi* | [**Update-V2025CampaignFilter**](docs/V2025CertificationCampaignFiltersApi.md#Update-V2025CampaignFilter) | **POST** /campaign-filters/{id} | Updates a Campaign Filter
-*V2025CertificationCampaignsApi* | [**Complete-V2025Campaign**](docs/V2025CertificationCampaignsApi.md#Complete-V2025Campaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
+*V2025CertificationCampaignFiltersApi* | [**New-V2025CampaignFilter**](docs/V2025CertificationCampaignFiltersApi.md#New-V2025CampaignFilter) | **POST** /campaign-filters | Create campaign filter
+*V2025CertificationCampaignFiltersApi* | [**Remove-V2025CampaignFilters**](docs/V2025CertificationCampaignFiltersApi.md#Remove-V2025CampaignFilters) | **POST** /campaign-filters/delete | Deletes campaign filters
+*V2025CertificationCampaignFiltersApi* | [**Get-V2025CampaignFilterById**](docs/V2025CertificationCampaignFiltersApi.md#Get-V2025CampaignFilterById) | **GET** /campaign-filters/{id} | Get campaign filter by id
+*V2025CertificationCampaignFiltersApi* | [**Get-V2025CampaignFilters**](docs/V2025CertificationCampaignFiltersApi.md#Get-V2025CampaignFilters) | **GET** /campaign-filters | List campaign filters
+*V2025CertificationCampaignFiltersApi* | [**Update-V2025CampaignFilter**](docs/V2025CertificationCampaignFiltersApi.md#Update-V2025CampaignFilter) | **POST** /campaign-filters/{id} | Updates a campaign filter
+*V2025CertificationCampaignsApi* | [**Complete-V2025Campaign**](docs/V2025CertificationCampaignsApi.md#Complete-V2025Campaign) | **POST** /campaigns/{id}/complete | Complete a campaign
 *V2025CertificationCampaignsApi* | [**New-V2025Campaign**](docs/V2025CertificationCampaignsApi.md#New-V2025Campaign) | **POST** /campaigns | Create a campaign
-*V2025CertificationCampaignsApi* | [**New-V2025CampaignTemplate**](docs/V2025CertificationCampaignsApi.md#New-V2025CampaignTemplate) | **POST** /campaign-templates | Create a Campaign Template
-*V2025CertificationCampaignsApi* | [**Remove-V2025CampaignTemplate**](docs/V2025CertificationCampaignsApi.md#Remove-V2025CampaignTemplate) | **DELETE** /campaign-templates/{id} | Delete a Campaign Template
-*V2025CertificationCampaignsApi* | [**Remove-V2025CampaignTemplateSchedule**](docs/V2025CertificationCampaignsApi.md#Remove-V2025CampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Delete Campaign Template Schedule
-*V2025CertificationCampaignsApi* | [**Remove-V2025Campaigns**](docs/V2025CertificationCampaignsApi.md#Remove-V2025Campaigns) | **POST** /campaigns/delete | Delete Campaigns
-*V2025CertificationCampaignsApi* | [**Get-V2025ActiveCampaigns**](docs/V2025CertificationCampaignsApi.md#Get-V2025ActiveCampaigns) | **GET** /campaigns | List Campaigns
-*V2025CertificationCampaignsApi* | [**Get-V2025Campaign**](docs/V2025CertificationCampaignsApi.md#Get-V2025Campaign) | **GET** /campaigns/{id} | Get Campaign
-*V2025CertificationCampaignsApi* | [**Get-V2025CampaignReports**](docs/V2025CertificationCampaignsApi.md#Get-V2025CampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
-*V2025CertificationCampaignsApi* | [**Get-V2025CampaignReportsConfig**](docs/V2025CertificationCampaignsApi.md#Get-V2025CampaignReportsConfig) | **GET** /campaigns/reports-configuration | Get Campaign Reports Configuration
-*V2025CertificationCampaignsApi* | [**Get-V2025CampaignTemplate**](docs/V2025CertificationCampaignsApi.md#Get-V2025CampaignTemplate) | **GET** /campaign-templates/{id} | Get a Campaign Template
-*V2025CertificationCampaignsApi* | [**Get-V2025CampaignTemplateSchedule**](docs/V2025CertificationCampaignsApi.md#Get-V2025CampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Get Campaign Template Schedule
-*V2025CertificationCampaignsApi* | [**Get-V2025CampaignTemplates**](docs/V2025CertificationCampaignsApi.md#Get-V2025CampaignTemplates) | **GET** /campaign-templates | List Campaign Templates
-*V2025CertificationCampaignsApi* | [**Move-V2025**](docs/V2025CertificationCampaignsApi.md#Move-V2025) | **POST** /campaigns/{id}/reassign | Reassign Certifications
-*V2025CertificationCampaignsApi* | [**Update-V2025CampaignTemplate**](docs/V2025CertificationCampaignsApi.md#Update-V2025CampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a Campaign Template
-*V2025CertificationCampaignsApi* | [**Set-V2025CampaignReportsConfig**](docs/V2025CertificationCampaignsApi.md#Set-V2025CampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
-*V2025CertificationCampaignsApi* | [**Set-V2025CampaignTemplateSchedule**](docs/V2025CertificationCampaignsApi.md#Set-V2025CampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Set Campaign Template Schedule
-*V2025CertificationCampaignsApi* | [**Start-V2025Campaign**](docs/V2025CertificationCampaignsApi.md#Start-V2025Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
-*V2025CertificationCampaignsApi* | [**Start-V2025CampaignRemediationScan**](docs/V2025CertificationCampaignsApi.md#Start-V2025CampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
-*V2025CertificationCampaignsApi* | [**Start-V2025CampaignReport**](docs/V2025CertificationCampaignsApi.md#Start-V2025CampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
-*V2025CertificationCampaignsApi* | [**Start-V2025GenerateCampaignTemplate**](docs/V2025CertificationCampaignsApi.md#Start-V2025GenerateCampaignTemplate) | **POST** /campaign-templates/{id}/generate | Generate a Campaign from Template
-*V2025CertificationCampaignsApi* | [**Update-V2025Campaign**](docs/V2025CertificationCampaignsApi.md#Update-V2025Campaign) | **PATCH** /campaigns/{id} | Update a Campaign
-*V2025CertificationSummariesApi* | [**Get-V2025IdentityAccessSummaries**](docs/V2025CertificationSummariesApi.md#Get-V2025IdentityAccessSummaries) | **GET** /certifications/{id}/access-summaries/{type} | Access Summaries
-*V2025CertificationSummariesApi* | [**Get-V2025IdentityDecisionSummary**](docs/V2025CertificationSummariesApi.md#Get-V2025IdentityDecisionSummary) | **GET** /certifications/{id}/decision-summary | Summary of Certification Decisions
-*V2025CertificationSummariesApi* | [**Get-V2025IdentitySummaries**](docs/V2025CertificationSummariesApi.md#Get-V2025IdentitySummaries) | **GET** /certifications/{id}/identity-summaries | Identity Summaries for Campaign Certification
-*V2025CertificationSummariesApi* | [**Get-V2025IdentitySummary**](docs/V2025CertificationSummariesApi.md#Get-V2025IdentitySummary) | **GET** /certifications/{id}/identity-summaries/{identitySummaryId} | Summary for Identity
-*V2025CertificationsApi* | [**Get-V2025CertificationTask**](docs/V2025CertificationsApi.md#Get-V2025CertificationTask) | **GET** /certification-tasks/{id} | Certification Task by ID
-*V2025CertificationsApi* | [**Get-V2025IdentityCertification**](docs/V2025CertificationsApi.md#Get-V2025IdentityCertification) | **GET** /certifications/{id} | Identity Certification by ID
-*V2025CertificationsApi* | [**Get-V2025IdentityCertificationItemPermissions**](docs/V2025CertificationsApi.md#Get-V2025IdentityCertificationItemPermissions) | **GET** /certifications/{certificationId}/access-review-items/{itemId}/permissions | Permissions for Entitlement Certification Item
-*V2025CertificationsApi* | [**Get-V2025PendingCertificationTasks**](docs/V2025CertificationsApi.md#Get-V2025PendingCertificationTasks) | **GET** /certification-tasks | List of Pending Certification Tasks
-*V2025CertificationsApi* | [**Get-V2025CertificationReviewers**](docs/V2025CertificationsApi.md#Get-V2025CertificationReviewers) | **GET** /certifications/{id}/reviewers | List of Reviewers for certification
-*V2025CertificationsApi* | [**Get-V2025IdentityAccessReviewItems**](docs/V2025CertificationsApi.md#Get-V2025IdentityAccessReviewItems) | **GET** /certifications/{id}/access-review-items | List of Access Review Items
-*V2025CertificationsApi* | [**Get-V2025IdentityCertifications**](docs/V2025CertificationsApi.md#Get-V2025IdentityCertifications) | **GET** /certifications | List Identity Campaign Certifications
-*V2025CertificationsApi* | [**Select-V2025IdentityDecision**](docs/V2025CertificationsApi.md#Select-V2025IdentityDecision) | **POST** /certifications/{id}/decide | Decide on a Certification Item
-*V2025CertificationsApi* | [**Invoke-V2025ReassignIdentityCertifications**](docs/V2025CertificationsApi.md#Invoke-V2025ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign Identities or Items
-*V2025CertificationsApi* | [**Invoke-V2025SignOffIdentityCertification**](docs/V2025CertificationsApi.md#Invoke-V2025SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize Identity Certification Decisions
-*V2025CertificationsApi* | [**Submit-V2025ReassignCertsAsync**](docs/V2025CertificationsApi.md#Submit-V2025ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
-*V2025ConfigurationHubApi* | [**New-V2025Deploy**](docs/V2025ConfigurationHubApi.md#New-V2025Deploy) | **POST** /configuration-hub/deploys | Create a Deploy
+*V2025CertificationCampaignsApi* | [**New-V2025CampaignTemplate**](docs/V2025CertificationCampaignsApi.md#New-V2025CampaignTemplate) | **POST** /campaign-templates | Create a campaign template
+*V2025CertificationCampaignsApi* | [**Remove-V2025CampaignTemplate**](docs/V2025CertificationCampaignsApi.md#Remove-V2025CampaignTemplate) | **DELETE** /campaign-templates/{id} | Delete a campaign template
+*V2025CertificationCampaignsApi* | [**Remove-V2025CampaignTemplateSchedule**](docs/V2025CertificationCampaignsApi.md#Remove-V2025CampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Delete campaign template schedule
+*V2025CertificationCampaignsApi* | [**Remove-V2025Campaigns**](docs/V2025CertificationCampaignsApi.md#Remove-V2025Campaigns) | **POST** /campaigns/delete | Delete campaigns
+*V2025CertificationCampaignsApi* | [**Get-V2025ActiveCampaigns**](docs/V2025CertificationCampaignsApi.md#Get-V2025ActiveCampaigns) | **GET** /campaigns | List campaigns
+*V2025CertificationCampaignsApi* | [**Get-V2025Campaign**](docs/V2025CertificationCampaignsApi.md#Get-V2025Campaign) | **GET** /campaigns/{id} | Get campaign
+*V2025CertificationCampaignsApi* | [**Get-V2025CampaignReports**](docs/V2025CertificationCampaignsApi.md#Get-V2025CampaignReports) | **GET** /campaigns/{id}/reports | Get campaign reports
+*V2025CertificationCampaignsApi* | [**Get-V2025CampaignReportsConfig**](docs/V2025CertificationCampaignsApi.md#Get-V2025CampaignReportsConfig) | **GET** /campaigns/reports-configuration | Get campaign reports configuration
+*V2025CertificationCampaignsApi* | [**Get-V2025CampaignTemplate**](docs/V2025CertificationCampaignsApi.md#Get-V2025CampaignTemplate) | **GET** /campaign-templates/{id} | Get a campaign template
+*V2025CertificationCampaignsApi* | [**Get-V2025CampaignTemplateSchedule**](docs/V2025CertificationCampaignsApi.md#Get-V2025CampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Get campaign template schedule
+*V2025CertificationCampaignsApi* | [**Get-V2025CampaignTemplates**](docs/V2025CertificationCampaignsApi.md#Get-V2025CampaignTemplates) | **GET** /campaign-templates | List campaign templates
+*V2025CertificationCampaignsApi* | [**Move-V2025**](docs/V2025CertificationCampaignsApi.md#Move-V2025) | **POST** /campaigns/{id}/reassign | Reassign certifications
+*V2025CertificationCampaignsApi* | [**Update-V2025CampaignTemplate**](docs/V2025CertificationCampaignsApi.md#Update-V2025CampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a campaign template
+*V2025CertificationCampaignsApi* | [**Set-V2025CampaignReportsConfig**](docs/V2025CertificationCampaignsApi.md#Set-V2025CampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set campaign reports configuration
+*V2025CertificationCampaignsApi* | [**Set-V2025CampaignTemplateSchedule**](docs/V2025CertificationCampaignsApi.md#Set-V2025CampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Set campaign template schedule
+*V2025CertificationCampaignsApi* | [**Start-V2025Campaign**](docs/V2025CertificationCampaignsApi.md#Start-V2025Campaign) | **POST** /campaigns/{id}/activate | Activate a campaign
+*V2025CertificationCampaignsApi* | [**Start-V2025CampaignRemediationScan**](docs/V2025CertificationCampaignsApi.md#Start-V2025CampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run campaign remediation scan
+*V2025CertificationCampaignsApi* | [**Start-V2025CampaignReport**](docs/V2025CertificationCampaignsApi.md#Start-V2025CampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run campaign report
+*V2025CertificationCampaignsApi* | [**Start-V2025GenerateCampaignTemplate**](docs/V2025CertificationCampaignsApi.md#Start-V2025GenerateCampaignTemplate) | **POST** /campaign-templates/{id}/generate | Generate a campaign from template
+*V2025CertificationCampaignsApi* | [**Update-V2025Campaign**](docs/V2025CertificationCampaignsApi.md#Update-V2025Campaign) | **PATCH** /campaigns/{id} | Update a campaign
+*V2025CertificationSummariesApi* | [**Get-V2025IdentityAccessSummaries**](docs/V2025CertificationSummariesApi.md#Get-V2025IdentityAccessSummaries) | **GET** /certifications/{id}/access-summaries/{type} | Access summaries
+*V2025CertificationSummariesApi* | [**Get-V2025IdentityDecisionSummary**](docs/V2025CertificationSummariesApi.md#Get-V2025IdentityDecisionSummary) | **GET** /certifications/{id}/decision-summary | Summary of certification decisions
+*V2025CertificationSummariesApi* | [**Get-V2025IdentitySummaries**](docs/V2025CertificationSummariesApi.md#Get-V2025IdentitySummaries) | **GET** /certifications/{id}/identity-summaries | Identity summaries for campaign certification
+*V2025CertificationSummariesApi* | [**Get-V2025IdentitySummary**](docs/V2025CertificationSummariesApi.md#Get-V2025IdentitySummary) | **GET** /certifications/{id}/identity-summaries/{identitySummaryId} | Summary for identity
+*V2025CertificationsApi* | [**Get-V2025CertificationTask**](docs/V2025CertificationsApi.md#Get-V2025CertificationTask) | **GET** /certification-tasks/{id} | Certification task by id
+*V2025CertificationsApi* | [**Get-V2025IdentityCertification**](docs/V2025CertificationsApi.md#Get-V2025IdentityCertification) | **GET** /certifications/{id} | Identity certification by id
+*V2025CertificationsApi* | [**Get-V2025IdentityCertificationItemPermissions**](docs/V2025CertificationsApi.md#Get-V2025IdentityCertificationItemPermissions) | **GET** /certifications/{certificationId}/access-review-items/{itemId}/permissions | Permissions for entitlement certification item
+*V2025CertificationsApi* | [**Get-V2025PendingCertificationTasks**](docs/V2025CertificationsApi.md#Get-V2025PendingCertificationTasks) | **GET** /certification-tasks | List of pending certification tasks
+*V2025CertificationsApi* | [**Get-V2025CertificationReviewers**](docs/V2025CertificationsApi.md#Get-V2025CertificationReviewers) | **GET** /certifications/{id}/reviewers | List of reviewers for certification
+*V2025CertificationsApi* | [**Get-V2025IdentityAccessReviewItems**](docs/V2025CertificationsApi.md#Get-V2025IdentityAccessReviewItems) | **GET** /certifications/{id}/access-review-items | List of access review items
+*V2025CertificationsApi* | [**Get-V2025IdentityCertifications**](docs/V2025CertificationsApi.md#Get-V2025IdentityCertifications) | **GET** /certifications | List identity campaign certifications
+*V2025CertificationsApi* | [**Select-V2025IdentityDecision**](docs/V2025CertificationsApi.md#Select-V2025IdentityDecision) | **POST** /certifications/{id}/decide | Decide on a certification item
+*V2025CertificationsApi* | [**Invoke-V2025ReassignIdentityCertifications**](docs/V2025CertificationsApi.md#Invoke-V2025ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign identities or items
+*V2025CertificationsApi* | [**Invoke-V2025SignOffIdentityCertification**](docs/V2025CertificationsApi.md#Invoke-V2025SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize identity certification decisions
+*V2025CertificationsApi* | [**Submit-V2025ReassignCertsAsync**](docs/V2025CertificationsApi.md#Submit-V2025ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign certifications asynchronously
+*V2025ConfigurationHubApi* | [**New-V2025Deploy**](docs/V2025ConfigurationHubApi.md#New-V2025Deploy) | **POST** /configuration-hub/deploys | Create a deploy
 *V2025ConfigurationHubApi* | [**New-V2025ObjectMapping**](docs/V2025ConfigurationHubApi.md#New-V2025ObjectMapping) | **POST** /configuration-hub/object-mappings/{sourceOrg} | Creates an object mapping
 *V2025ConfigurationHubApi* | [**New-V2025ObjectMappings**](docs/V2025ConfigurationHubApi.md#New-V2025ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-create | Bulk creates object mappings
-*V2025ConfigurationHubApi* | [**New-V2025ScheduledAction**](docs/V2025ConfigurationHubApi.md#New-V2025ScheduledAction) | **POST** /configuration-hub/scheduled-actions | Create Scheduled Action
-*V2025ConfigurationHubApi* | [**New-V2025UploadedConfiguration**](docs/V2025ConfigurationHubApi.md#New-V2025UploadedConfiguration) | **POST** /configuration-hub/backups/uploads | Upload a Configuration
-*V2025ConfigurationHubApi* | [**Remove-V2025Backup**](docs/V2025ConfigurationHubApi.md#Remove-V2025Backup) | **DELETE** /configuration-hub/backups/{id} | Delete a Backup
+*V2025ConfigurationHubApi* | [**New-V2025ScheduledAction**](docs/V2025ConfigurationHubApi.md#New-V2025ScheduledAction) | **POST** /configuration-hub/scheduled-actions | Create scheduled action
+*V2025ConfigurationHubApi* | [**New-V2025UploadedConfiguration**](docs/V2025ConfigurationHubApi.md#New-V2025UploadedConfiguration) | **POST** /configuration-hub/backups/uploads | Upload a configuration
+*V2025ConfigurationHubApi* | [**Remove-V2025Backup**](docs/V2025ConfigurationHubApi.md#Remove-V2025Backup) | **DELETE** /configuration-hub/backups/{id} | Delete a backup
 *V2025ConfigurationHubApi* | [**Remove-V2025Draft**](docs/V2025ConfigurationHubApi.md#Remove-V2025Draft) | **DELETE** /configuration-hub/drafts/{id} | Delete a draft
 *V2025ConfigurationHubApi* | [**Remove-V2025ObjectMapping**](docs/V2025ConfigurationHubApi.md#Remove-V2025ObjectMapping) | **DELETE** /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId} | Deletes an object mapping
-*V2025ConfigurationHubApi* | [**Remove-V2025ScheduledAction**](docs/V2025ConfigurationHubApi.md#Remove-V2025ScheduledAction) | **DELETE** /configuration-hub/scheduled-actions/{id} | Delete Scheduled Action
-*V2025ConfigurationHubApi* | [**Remove-V2025UploadedConfiguration**](docs/V2025ConfigurationHubApi.md#Remove-V2025UploadedConfiguration) | **DELETE** /configuration-hub/backups/uploads/{id} | Delete an Uploaded Configuration
-*V2025ConfigurationHubApi* | [**Get-V2025Deploy**](docs/V2025ConfigurationHubApi.md#Get-V2025Deploy) | **GET** /configuration-hub/deploys/{id} | Get a Deploy
+*V2025ConfigurationHubApi* | [**Remove-V2025ScheduledAction**](docs/V2025ConfigurationHubApi.md#Remove-V2025ScheduledAction) | **DELETE** /configuration-hub/scheduled-actions/{id} | Delete scheduled action
+*V2025ConfigurationHubApi* | [**Remove-V2025UploadedConfiguration**](docs/V2025ConfigurationHubApi.md#Remove-V2025UploadedConfiguration) | **DELETE** /configuration-hub/backups/uploads/{id} | Delete an uploaded configuration
+*V2025ConfigurationHubApi* | [**Get-V2025Deploy**](docs/V2025ConfigurationHubApi.md#Get-V2025Deploy) | **GET** /configuration-hub/deploys/{id} | Get a deploy
 *V2025ConfigurationHubApi* | [**Get-V2025ObjectMappings**](docs/V2025ConfigurationHubApi.md#Get-V2025ObjectMappings) | **GET** /configuration-hub/object-mappings/{sourceOrg} | Gets list of object mappings
-*V2025ConfigurationHubApi* | [**Get-V2025UploadedConfiguration**](docs/V2025ConfigurationHubApi.md#Get-V2025UploadedConfiguration) | **GET** /configuration-hub/backups/uploads/{id} | Get an Uploaded Configuration
-*V2025ConfigurationHubApi* | [**Get-V2025Backups**](docs/V2025ConfigurationHubApi.md#Get-V2025Backups) | **GET** /configuration-hub/backups | List Backups
-*V2025ConfigurationHubApi* | [**Get-V2025Deploys**](docs/V2025ConfigurationHubApi.md#Get-V2025Deploys) | **GET** /configuration-hub/deploys | List Deploys
-*V2025ConfigurationHubApi* | [**Get-V2025Drafts**](docs/V2025ConfigurationHubApi.md#Get-V2025Drafts) | **GET** /configuration-hub/drafts | List Drafts
-*V2025ConfigurationHubApi* | [**Get-V2025ScheduledActions**](docs/V2025ConfigurationHubApi.md#Get-V2025ScheduledActions) | **GET** /configuration-hub/scheduled-actions | List Scheduled Actions
-*V2025ConfigurationHubApi* | [**Get-V2025UploadedConfigurations**](docs/V2025ConfigurationHubApi.md#Get-V2025UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
+*V2025ConfigurationHubApi* | [**Get-V2025UploadedConfiguration**](docs/V2025ConfigurationHubApi.md#Get-V2025UploadedConfiguration) | **GET** /configuration-hub/backups/uploads/{id} | Get an uploaded configuration
+*V2025ConfigurationHubApi* | [**Get-V2025Backups**](docs/V2025ConfigurationHubApi.md#Get-V2025Backups) | **GET** /configuration-hub/backups | List backups
+*V2025ConfigurationHubApi* | [**Get-V2025Deploys**](docs/V2025ConfigurationHubApi.md#Get-V2025Deploys) | **GET** /configuration-hub/deploys | List deploys
+*V2025ConfigurationHubApi* | [**Get-V2025Drafts**](docs/V2025ConfigurationHubApi.md#Get-V2025Drafts) | **GET** /configuration-hub/drafts | List drafts
+*V2025ConfigurationHubApi* | [**Get-V2025ScheduledActions**](docs/V2025ConfigurationHubApi.md#Get-V2025ScheduledActions) | **GET** /configuration-hub/scheduled-actions | List scheduled actions
+*V2025ConfigurationHubApi* | [**Get-V2025UploadedConfigurations**](docs/V2025ConfigurationHubApi.md#Get-V2025UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List uploaded configurations
 *V2025ConfigurationHubApi* | [**Update-V2025ObjectMappings**](docs/V2025ConfigurationHubApi.md#Update-V2025ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
-*V2025ConfigurationHubApi* | [**Update-V2025ScheduledAction**](docs/V2025ConfigurationHubApi.md#Update-V2025ScheduledAction) | **PATCH** /configuration-hub/scheduled-actions/{id} | Update Scheduled Action
-*V2025ConnectorCustomizersApi* | [**New-V2025ConnectorCustomizer**](docs/V2025ConnectorCustomizersApi.md#New-V2025ConnectorCustomizer) | **POST** /connector-customizers | Create Connector Customizer
+*V2025ConfigurationHubApi* | [**Update-V2025ScheduledAction**](docs/V2025ConfigurationHubApi.md#Update-V2025ScheduledAction) | **PATCH** /configuration-hub/scheduled-actions/{id} | Update scheduled action
+*V2025ConnectorCustomizersApi* | [**New-V2025ConnectorCustomizer**](docs/V2025ConnectorCustomizersApi.md#New-V2025ConnectorCustomizer) | **POST** /connector-customizers | Create connector customizer
 *V2025ConnectorCustomizersApi* | [**New-V2025ConnectorCustomizerVersion**](docs/V2025ConnectorCustomizersApi.md#New-V2025ConnectorCustomizerVersion) | **POST** /connector-customizers/{id}/versions | Creates a connector customizer version
-*V2025ConnectorCustomizersApi* | [**Remove-V2025ConnectorCustomizer**](docs/V2025ConnectorCustomizersApi.md#Remove-V2025ConnectorCustomizer) | **DELETE** /connector-customizers/{id} | Delete Connector Customizer
+*V2025ConnectorCustomizersApi* | [**Remove-V2025ConnectorCustomizer**](docs/V2025ConnectorCustomizersApi.md#Remove-V2025ConnectorCustomizer) | **DELETE** /connector-customizers/{id} | Delete connector customizer
 *V2025ConnectorCustomizersApi* | [**Get-V2025ConnectorCustomizer**](docs/V2025ConnectorCustomizersApi.md#Get-V2025ConnectorCustomizer) | **GET** /connector-customizers/{id} | Get connector customizer
-*V2025ConnectorCustomizersApi* | [**Get-V2025ConnectorCustomizers**](docs/V2025ConnectorCustomizersApi.md#Get-V2025ConnectorCustomizers) | **GET** /connector-customizers | List All Connector Customizers
-*V2025ConnectorCustomizersApi* | [**Send-V2025ConnectorCustomizer**](docs/V2025ConnectorCustomizersApi.md#Send-V2025ConnectorCustomizer) | **PUT** /connector-customizers/{id} | Update Connector Customizer
-*V2025ConnectorRuleManagementApi* | [**New-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#New-V2025ConnectorRule) | **POST** /connector-rules | Create Connector Rule
-*V2025ConnectorRuleManagementApi* | [**Remove-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#Remove-V2025ConnectorRule) | **DELETE** /connector-rules/{id} | Delete Connector Rule
-*V2025ConnectorRuleManagementApi* | [**Get-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#Get-V2025ConnectorRule) | **GET** /connector-rules/{id} | Get Connector Rule
-*V2025ConnectorRuleManagementApi* | [**Get-V2025ConnectorRuleList**](docs/V2025ConnectorRuleManagementApi.md#Get-V2025ConnectorRuleList) | **GET** /connector-rules | List Connector Rules
-*V2025ConnectorRuleManagementApi* | [**Send-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#Send-V2025ConnectorRule) | **PUT** /connector-rules/{id} | Update Connector Rule
-*V2025ConnectorRuleManagementApi* | [**Test-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#Test-V2025ConnectorRule) | **POST** /connector-rules/validate | Validate Connector Rule
-*V2025ConnectorsApi* | [**New-V2025CustomConnector**](docs/V2025ConnectorsApi.md#New-V2025CustomConnector) | **POST** /connectors | Create Custom Connector
-*V2025ConnectorsApi* | [**Remove-V2025CustomConnector**](docs/V2025ConnectorsApi.md#Remove-V2025CustomConnector) | **DELETE** /connectors/{scriptName} | Delete Connector by Script Name
-*V2025ConnectorsApi* | [**Get-V2025Connector**](docs/V2025ConnectorsApi.md#Get-V2025Connector) | **GET** /connectors/{scriptName} | Get Connector by Script Name
-*V2025ConnectorsApi* | [**Get-V2025ConnectorCorrelationConfig**](docs/V2025ConnectorsApi.md#Get-V2025ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | Get Connector Correlation Configuration
-*V2025ConnectorsApi* | [**Get-V2025ConnectorList**](docs/V2025ConnectorsApi.md#Get-V2025ConnectorList) | **GET** /connectors | Get Connector List
-*V2025ConnectorsApi* | [**Get-V2025ConnectorSourceConfig**](docs/V2025ConnectorsApi.md#Get-V2025ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | Get Connector Source Configuration
-*V2025ConnectorsApi* | [**Get-V2025ConnectorSourceTemplate**](docs/V2025ConnectorsApi.md#Get-V2025ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | Get Connector Source Template
-*V2025ConnectorsApi* | [**Get-V2025ConnectorTranslations**](docs/V2025ConnectorsApi.md#Get-V2025ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | Get Connector Translations
-*V2025ConnectorsApi* | [**Send-V2025ConnectorCorrelationConfig**](docs/V2025ConnectorsApi.md#Send-V2025ConnectorCorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | Update Connector Correlation Configuration
-*V2025ConnectorsApi* | [**Send-V2025ConnectorSourceConfig**](docs/V2025ConnectorsApi.md#Send-V2025ConnectorSourceConfig) | **PUT** /connectors/{scriptName}/source-config | Update Connector Source Configuration
-*V2025ConnectorsApi* | [**Send-V2025ConnectorSourceTemplate**](docs/V2025ConnectorsApi.md#Send-V2025ConnectorSourceTemplate) | **PUT** /connectors/{scriptName}/source-template | Update Connector Source Template
-*V2025ConnectorsApi* | [**Send-V2025ConnectorTranslations**](docs/V2025ConnectorsApi.md#Send-V2025ConnectorTranslations) | **PUT** /connectors/{scriptName}/translations/{locale} | Update Connector Translations
-*V2025ConnectorsApi* | [**Update-V2025Connector**](docs/V2025ConnectorsApi.md#Update-V2025Connector) | **PATCH** /connectors/{scriptName} | Update Connector by Script Name
+*V2025ConnectorCustomizersApi* | [**Get-V2025ConnectorCustomizers**](docs/V2025ConnectorCustomizersApi.md#Get-V2025ConnectorCustomizers) | **GET** /connector-customizers | List all connector customizers
+*V2025ConnectorCustomizersApi* | [**Send-V2025ConnectorCustomizer**](docs/V2025ConnectorCustomizersApi.md#Send-V2025ConnectorCustomizer) | **PUT** /connector-customizers/{id} | Update connector customizer
+*V2025ConnectorRuleManagementApi* | [**New-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#New-V2025ConnectorRule) | **POST** /connector-rules | Create connector rule
+*V2025ConnectorRuleManagementApi* | [**Remove-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#Remove-V2025ConnectorRule) | **DELETE** /connector-rules/{id} | Delete connector rule
+*V2025ConnectorRuleManagementApi* | [**Get-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#Get-V2025ConnectorRule) | **GET** /connector-rules/{id} | Get connector rule
+*V2025ConnectorRuleManagementApi* | [**Get-V2025ConnectorRuleList**](docs/V2025ConnectorRuleManagementApi.md#Get-V2025ConnectorRuleList) | **GET** /connector-rules | List connector rules
+*V2025ConnectorRuleManagementApi* | [**Send-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#Send-V2025ConnectorRule) | **PUT** /connector-rules/{id} | Update connector rule
+*V2025ConnectorRuleManagementApi* | [**Test-V2025ConnectorRule**](docs/V2025ConnectorRuleManagementApi.md#Test-V2025ConnectorRule) | **POST** /connector-rules/validate | Validate connector rule
+*V2025ConnectorsApi* | [**New-V2025CustomConnector**](docs/V2025ConnectorsApi.md#New-V2025CustomConnector) | **POST** /connectors | Create custom connector
+*V2025ConnectorsApi* | [**Remove-V2025CustomConnector**](docs/V2025ConnectorsApi.md#Remove-V2025CustomConnector) | **DELETE** /connectors/{scriptName} | Delete connector by script name
+*V2025ConnectorsApi* | [**Get-V2025Connector**](docs/V2025ConnectorsApi.md#Get-V2025Connector) | **GET** /connectors/{scriptName} | Get connector by script name
+*V2025ConnectorsApi* | [**Get-V2025ConnectorCorrelationConfig**](docs/V2025ConnectorsApi.md#Get-V2025ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | Get connector correlation configuration
+*V2025ConnectorsApi* | [**Get-V2025ConnectorList**](docs/V2025ConnectorsApi.md#Get-V2025ConnectorList) | **GET** /connectors | Get connector list
+*V2025ConnectorsApi* | [**Get-V2025ConnectorSourceConfig**](docs/V2025ConnectorsApi.md#Get-V2025ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | Get connector source configuration
+*V2025ConnectorsApi* | [**Get-V2025ConnectorSourceTemplate**](docs/V2025ConnectorsApi.md#Get-V2025ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | Get connector source template
+*V2025ConnectorsApi* | [**Get-V2025ConnectorTranslations**](docs/V2025ConnectorsApi.md#Get-V2025ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | Get connector translations
+*V2025ConnectorsApi* | [**Send-V2025ConnectorCorrelationConfig**](docs/V2025ConnectorsApi.md#Send-V2025ConnectorCorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | Update connector correlation configuration
+*V2025ConnectorsApi* | [**Send-V2025ConnectorSourceConfig**](docs/V2025ConnectorsApi.md#Send-V2025ConnectorSourceConfig) | **PUT** /connectors/{scriptName}/source-config | Update connector source configuration
+*V2025ConnectorsApi* | [**Send-V2025ConnectorSourceTemplate**](docs/V2025ConnectorsApi.md#Send-V2025ConnectorSourceTemplate) | **PUT** /connectors/{scriptName}/source-template | Update connector source template
+*V2025ConnectorsApi* | [**Send-V2025ConnectorTranslations**](docs/V2025ConnectorsApi.md#Send-V2025ConnectorTranslations) | **PUT** /connectors/{scriptName}/translations/{locale} | Update connector translations
+*V2025ConnectorsApi* | [**Update-V2025Connector**](docs/V2025ConnectorsApi.md#Update-V2025Connector) | **PATCH** /connectors/{scriptName} | Update connector by script name
 *V2025CustomFormsApi* | [**New-V2025FormDefinition**](docs/V2025CustomFormsApi.md#New-V2025FormDefinition) | **POST** /form-definitions | Creates a form definition.
-*V2025CustomFormsApi* | [**New-V2025FormDefinitionDynamicSchema**](docs/V2025CustomFormsApi.md#New-V2025FormDefinitionDynamicSchema) | **POST** /form-definitions/forms-action-dynamic-schema | Generate JSON Schema dynamically.
+*V2025CustomFormsApi* | [**New-V2025FormDefinitionDynamicSchema**](docs/V2025CustomFormsApi.md#New-V2025FormDefinitionDynamicSchema) | **POST** /form-definitions/forms-action-dynamic-schema | Generate json schema dynamically.
 *V2025CustomFormsApi* | [**New-V2025FormDefinitionFileRequest**](docs/V2025CustomFormsApi.md#New-V2025FormDefinitionFileRequest) | **POST** /form-definitions/{formDefinitionID}/upload | Upload new form definition file.
 *V2025CustomFormsApi* | [**New-V2025FormInstance**](docs/V2025CustomFormsApi.md#New-V2025FormInstance) | **POST** /form-instances | Creates a form instance.
 *V2025CustomFormsApi* | [**Remove-V2025FormDefinition**](docs/V2025CustomFormsApi.md#Remove-V2025FormDefinition) | **DELETE** /form-definitions/{formDefinitionID} | Deletes a form definition.
 *V2025CustomFormsApi* | [**Export-V2025FormDefinitionsByTenant**](docs/V2025CustomFormsApi.md#Export-V2025FormDefinitionsByTenant) | **GET** /form-definitions/export | List form definitions by tenant.
-*V2025CustomFormsApi* | [**Get-V2025FileFromS3**](docs/V2025CustomFormsApi.md#Get-V2025FileFromS3) | **GET** /form-definitions/{formDefinitionID}/file/{fileID} | Download definition file by fileId.
+*V2025CustomFormsApi* | [**Get-V2025FileFromS3**](docs/V2025CustomFormsApi.md#Get-V2025FileFromS3) | **GET** /form-definitions/{formDefinitionID}/file/{fileID} | Download definition file by fileid.
 *V2025CustomFormsApi* | [**Get-V2025FormDefinitionByKey**](docs/V2025CustomFormsApi.md#Get-V2025FormDefinitionByKey) | **GET** /form-definitions/{formDefinitionID} | Return a form definition.
 *V2025CustomFormsApi* | [**Get-V2025FormInstanceByKey**](docs/V2025CustomFormsApi.md#Get-V2025FormInstanceByKey) | **GET** /form-instances/{formInstanceID} | Returns a form instance.
-*V2025CustomFormsApi* | [**Get-V2025FormInstanceFile**](docs/V2025CustomFormsApi.md#Get-V2025FormInstanceFile) | **GET** /form-instances/{formInstanceID}/file/{fileID} | Download instance file by fileId.
+*V2025CustomFormsApi* | [**Get-V2025FormInstanceFile**](docs/V2025CustomFormsApi.md#Get-V2025FormInstanceFile) | **GET** /form-instances/{formInstanceID}/file/{fileID} | Download instance file by fileid.
 *V2025CustomFormsApi* | [**Import-V2025FormDefinitions**](docs/V2025CustomFormsApi.md#Import-V2025FormDefinitions) | **POST** /form-definitions/import | Import form definitions from export.
 *V2025CustomFormsApi* | [**Update-V2025FormDefinition**](docs/V2025CustomFormsApi.md#Update-V2025FormDefinition) | **PATCH** /form-definitions/{formDefinitionID} | Patch a form definition.
 *V2025CustomFormsApi* | [**Update-V2025FormInstance**](docs/V2025CustomFormsApi.md#Update-V2025FormInstance) | **PATCH** /form-instances/{formInstanceID} | Patch a form instance.
@@ -238,80 +238,80 @@ Class | Method | HTTP request | Description
 *V2025CustomFormsApi* | [**Search-V2025FormInstancesByTenant**](docs/V2025CustomFormsApi.md#Search-V2025FormInstancesByTenant) | **GET** /form-instances | List form instances by tenant.
 *V2025CustomFormsApi* | [**Search-V2025PreDefinedSelectOptions**](docs/V2025CustomFormsApi.md#Search-V2025PreDefinedSelectOptions) | **GET** /form-definitions/predefined-select-options | List predefined select options.
 *V2025CustomFormsApi* | [**Show-V2025PreviewDataSource**](docs/V2025CustomFormsApi.md#Show-V2025PreviewDataSource) | **POST** /form-definitions/{formDefinitionID}/data-source | Preview form definition data source.
-*V2025CustomPasswordInstructionsApi* | [**New-V2025CustomPasswordInstructions**](docs/V2025CustomPasswordInstructionsApi.md#New-V2025CustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
-*V2025CustomPasswordInstructionsApi* | [**Remove-V2025CustomPasswordInstructions**](docs/V2025CustomPasswordInstructionsApi.md#Remove-V2025CustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
-*V2025CustomPasswordInstructionsApi* | [**Get-V2025CustomPasswordInstructions**](docs/V2025CustomPasswordInstructionsApi.md#Get-V2025CustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
-*V2025DataSegmentationApi* | [**New-V2025DataSegment**](docs/V2025DataSegmentationApi.md#New-V2025DataSegment) | **POST** /data-segments | Create Segment
-*V2025DataSegmentationApi* | [**Remove-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Remove-V2025DataSegment) | **DELETE** /data-segments/{segmentId} | Delete Segment by ID
-*V2025DataSegmentationApi* | [**Get-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Get-V2025DataSegment) | **GET** /data-segments/{segmentId} | Get Segment by ID
-*V2025DataSegmentationApi* | [**Get-V2025DataSegmentIdentityMembership**](docs/V2025DataSegmentationApi.md#Get-V2025DataSegmentIdentityMembership) | **GET** /data-segments/membership/{identityId} | Get SegmentMembership by Identity ID
-*V2025DataSegmentationApi* | [**Get-V2025DataSegmentationEnabledForUser**](docs/V2025DataSegmentationApi.md#Get-V2025DataSegmentationEnabledForUser) | **GET** /data-segments/user-enabled/{identityId} | Is Segmentation enabled by Identity
-*V2025DataSegmentationApi* | [**Get-V2025DataSegments**](docs/V2025DataSegmentationApi.md#Get-V2025DataSegments) | **GET** /data-segments | Get Segments
-*V2025DataSegmentationApi* | [**Update-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Update-V2025DataSegment) | **PATCH** /data-segments/{segmentId} | Update Segment
-*V2025DataSegmentationApi* | [**Publish-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Publish-V2025DataSegment) | **POST** /data-segments/{segmentId} | Publish segment by ID
-*V2025DimensionsApi* | [**New-V2025Dimension**](docs/V2025DimensionsApi.md#New-V2025Dimension) | **POST** /roles/{roleId}/dimensions | Create a Dimension
-*V2025DimensionsApi* | [**Remove-V2025BulkDimensions**](docs/V2025DimensionsApi.md#Remove-V2025BulkDimensions) | **POST** /roles/{roleId}/dimensions/bulk-delete | Delete Dimension(s)
-*V2025DimensionsApi* | [**Remove-V2025Dimension**](docs/V2025DimensionsApi.md#Remove-V2025Dimension) | **DELETE** /roles/{roleId}/dimensions/{dimensionId} | Delete a Dimension
-*V2025DimensionsApi* | [**Get-V2025Dimension**](docs/V2025DimensionsApi.md#Get-V2025Dimension) | **GET** /roles/{roleId}/dimensions/{dimensionId} | Get a Dimension under Role.
-*V2025DimensionsApi* | [**Get-V2025DimensionEntitlements**](docs/V2025DimensionsApi.md#Get-V2025DimensionEntitlements) | **GET** /roles/{roleId}/dimensions/{dimensionId}/entitlements | List Dimension's Entitlements
-*V2025DimensionsApi* | [**Get-V2025DimensionAccessProfiles**](docs/V2025DimensionsApi.md#Get-V2025DimensionAccessProfiles) | **GET** /roles/{roleId}/dimensions/{dimensionId}/access-profiles | List Dimension's Access Profiles
-*V2025DimensionsApi* | [**Get-V2025Dimensions**](docs/V2025DimensionsApi.md#Get-V2025Dimensions) | **GET** /roles/{roleId}/dimensions | List Dimensions
-*V2025DimensionsApi* | [**Update-V2025Dimension**](docs/V2025DimensionsApi.md#Update-V2025Dimension) | **PATCH** /roles/{roleId}/dimensions/{dimensionId} | Patch a specified Dimension
+*V2025CustomPasswordInstructionsApi* | [**New-V2025CustomPasswordInstructions**](docs/V2025CustomPasswordInstructionsApi.md#New-V2025CustomPasswordInstructions) | **POST** /custom-password-instructions | Create custom password instructions
+*V2025CustomPasswordInstructionsApi* | [**Remove-V2025CustomPasswordInstructions**](docs/V2025CustomPasswordInstructionsApi.md#Remove-V2025CustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete custom password instructions by page id
+*V2025CustomPasswordInstructionsApi* | [**Get-V2025CustomPasswordInstructions**](docs/V2025CustomPasswordInstructionsApi.md#Get-V2025CustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get custom password instructions by page id
+*V2025DataSegmentationApi* | [**New-V2025DataSegment**](docs/V2025DataSegmentationApi.md#New-V2025DataSegment) | **POST** /data-segments | Create segment
+*V2025DataSegmentationApi* | [**Remove-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Remove-V2025DataSegment) | **DELETE** /data-segments/{segmentId} | Delete segment by id
+*V2025DataSegmentationApi* | [**Get-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Get-V2025DataSegment) | **GET** /data-segments/{segmentId} | Get segment by id
+*V2025DataSegmentationApi* | [**Get-V2025DataSegmentIdentityMembership**](docs/V2025DataSegmentationApi.md#Get-V2025DataSegmentIdentityMembership) | **GET** /data-segments/membership/{identityId} | Get segmentmembership by identity id
+*V2025DataSegmentationApi* | [**Get-V2025DataSegmentationEnabledForUser**](docs/V2025DataSegmentationApi.md#Get-V2025DataSegmentationEnabledForUser) | **GET** /data-segments/user-enabled/{identityId} | Is segmentation enabled by identity
+*V2025DataSegmentationApi* | [**Get-V2025DataSegments**](docs/V2025DataSegmentationApi.md#Get-V2025DataSegments) | **GET** /data-segments | Get segments
+*V2025DataSegmentationApi* | [**Update-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Update-V2025DataSegment) | **PATCH** /data-segments/{segmentId} | Update segment
+*V2025DataSegmentationApi* | [**Publish-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Publish-V2025DataSegment) | **POST** /data-segments/{segmentId} | Publish segment by id
+*V2025DimensionsApi* | [**New-V2025Dimension**](docs/V2025DimensionsApi.md#New-V2025Dimension) | **POST** /roles/{roleId}/dimensions | Create a dimension
+*V2025DimensionsApi* | [**Remove-V2025BulkDimensions**](docs/V2025DimensionsApi.md#Remove-V2025BulkDimensions) | **POST** /roles/{roleId}/dimensions/bulk-delete | Delete dimension(s)
+*V2025DimensionsApi* | [**Remove-V2025Dimension**](docs/V2025DimensionsApi.md#Remove-V2025Dimension) | **DELETE** /roles/{roleId}/dimensions/{dimensionId} | Delete a dimension
+*V2025DimensionsApi* | [**Get-V2025Dimension**](docs/V2025DimensionsApi.md#Get-V2025Dimension) | **GET** /roles/{roleId}/dimensions/{dimensionId} | Get a dimension under role.
+*V2025DimensionsApi* | [**Get-V2025DimensionEntitlements**](docs/V2025DimensionsApi.md#Get-V2025DimensionEntitlements) | **GET** /roles/{roleId}/dimensions/{dimensionId}/entitlements | List dimension's entitlements
+*V2025DimensionsApi* | [**Get-V2025DimensionAccessProfiles**](docs/V2025DimensionsApi.md#Get-V2025DimensionAccessProfiles) | **GET** /roles/{roleId}/dimensions/{dimensionId}/access-profiles | List dimension's access profiles
+*V2025DimensionsApi* | [**Get-V2025Dimensions**](docs/V2025DimensionsApi.md#Get-V2025Dimensions) | **GET** /roles/{roleId}/dimensions | List dimensions
+*V2025DimensionsApi* | [**Update-V2025Dimension**](docs/V2025DimensionsApi.md#Update-V2025Dimension) | **PATCH** /roles/{roleId}/dimensions/{dimensionId} | Patch a specified dimension
 *V2025EntitlementsApi* | [**New-V2025AccessModelMetadataForEntitlement**](docs/V2025EntitlementsApi.md#New-V2025AccessModelMetadataForEntitlement) | **POST** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add metadata to an entitlement.
 *V2025EntitlementsApi* | [**Remove-V2025AccessModelMetadataFromEntitlement**](docs/V2025EntitlementsApi.md#Remove-V2025AccessModelMetadataFromEntitlement) | **DELETE** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove metadata from an entitlement.
 *V2025EntitlementsApi* | [**Get-V2025Entitlement**](docs/V2025EntitlementsApi.md#Get-V2025Entitlement) | **GET** /entitlements/{id} | Get an entitlement
-*V2025EntitlementsApi* | [**Get-V2025EntitlementRequestConfig**](docs/V2025EntitlementsApi.md#Get-V2025EntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
-*V2025EntitlementsApi* | [**Import-V2025EntitlementsBySource**](docs/V2025EntitlementsApi.md#Import-V2025EntitlementsBySource) | **POST** /entitlements/aggregate/sources/{id} | Aggregate Entitlements
+*V2025EntitlementsApi* | [**Get-V2025EntitlementRequestConfig**](docs/V2025EntitlementsApi.md#Get-V2025EntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get entitlement request config
+*V2025EntitlementsApi* | [**Import-V2025EntitlementsBySource**](docs/V2025EntitlementsApi.md#Import-V2025EntitlementsBySource) | **POST** /entitlements/aggregate/sources/{id} | Aggregate entitlements
 *V2025EntitlementsApi* | [**Get-V2025EntitlementChildren**](docs/V2025EntitlementsApi.md#Get-V2025EntitlementChildren) | **GET** /entitlements/{id}/children | List of entitlements children
 *V2025EntitlementsApi* | [**Get-V2025EntitlementParents**](docs/V2025EntitlementsApi.md#Get-V2025EntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
 *V2025EntitlementsApi* | [**Get-V2025Entitlements**](docs/V2025EntitlementsApi.md#Get-V2025Entitlements) | **GET** /entitlements | Gets a list of entitlements.
 *V2025EntitlementsApi* | [**Update-V2025Entitlement**](docs/V2025EntitlementsApi.md#Update-V2025Entitlement) | **PATCH** /entitlements/{id} | Patch an entitlement
-*V2025EntitlementsApi* | [**Send-V2025EntitlementRequestConfig**](docs/V2025EntitlementsApi.md#Send-V2025EntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace Entitlement Request Config
-*V2025EntitlementsApi* | [**Reset-V2025SourceEntitlements**](docs/V2025EntitlementsApi.md#Reset-V2025SourceEntitlements) | **POST** /entitlements/reset/sources/{id} | Reset Source Entitlements
+*V2025EntitlementsApi* | [**Send-V2025EntitlementRequestConfig**](docs/V2025EntitlementsApi.md#Send-V2025EntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace entitlement request config
+*V2025EntitlementsApi* | [**Reset-V2025SourceEntitlements**](docs/V2025EntitlementsApi.md#Reset-V2025SourceEntitlements) | **POST** /entitlements/reset/sources/{id} | Reset source entitlements
 *V2025EntitlementsApi* | [**Update-V2025EntitlementsInBulk**](docs/V2025EntitlementsApi.md#Update-V2025EntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 *V2025GlobalTenantSecuritySettingsApi* | [**New-V2025AuthOrgNetworkConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#New-V2025AuthOrgNetworkConfig) | **POST** /auth-org/network-config | Create security network configuration.
-*V2025GlobalTenantSecuritySettingsApi* | [**Get-V2025AuthOrgLockoutConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Get-V2025AuthOrgLockoutConfig) | **GET** /auth-org/lockout-config | Get Auth Org Lockout Configuration.
+*V2025GlobalTenantSecuritySettingsApi* | [**Get-V2025AuthOrgLockoutConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Get-V2025AuthOrgLockoutConfig) | **GET** /auth-org/lockout-config | Get auth org lockout configuration.
 *V2025GlobalTenantSecuritySettingsApi* | [**Get-V2025AuthOrgNetworkConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Get-V2025AuthOrgNetworkConfig) | **GET** /auth-org/network-config | Get security network configuration.
-*V2025GlobalTenantSecuritySettingsApi* | [**Get-V2025AuthOrgServiceProviderConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Get-V2025AuthOrgServiceProviderConfig) | **GET** /auth-org/service-provider-config | Get Service Provider Configuration.
-*V2025GlobalTenantSecuritySettingsApi* | [**Get-V2025AuthOrgSessionConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Get-V2025AuthOrgSessionConfig) | **GET** /auth-org/session-config | Get Auth Org Session Configuration.
-*V2025GlobalTenantSecuritySettingsApi* | [**Update-V2025AuthOrgLockoutConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Update-V2025AuthOrgLockoutConfig) | **PATCH** /auth-org/lockout-config | Update Auth Org Lockout Configuration
+*V2025GlobalTenantSecuritySettingsApi* | [**Get-V2025AuthOrgServiceProviderConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Get-V2025AuthOrgServiceProviderConfig) | **GET** /auth-org/service-provider-config | Get service provider configuration.
+*V2025GlobalTenantSecuritySettingsApi* | [**Get-V2025AuthOrgSessionConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Get-V2025AuthOrgSessionConfig) | **GET** /auth-org/session-config | Get auth org session configuration.
+*V2025GlobalTenantSecuritySettingsApi* | [**Update-V2025AuthOrgLockoutConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Update-V2025AuthOrgLockoutConfig) | **PATCH** /auth-org/lockout-config | Update auth org lockout configuration
 *V2025GlobalTenantSecuritySettingsApi* | [**Update-V2025AuthOrgNetworkConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Update-V2025AuthOrgNetworkConfig) | **PATCH** /auth-org/network-config | Update security network configuration.
-*V2025GlobalTenantSecuritySettingsApi* | [**Update-V2025AuthOrgServiceProviderConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Update-V2025AuthOrgServiceProviderConfig) | **PATCH** /auth-org/service-provider-config | Update Service Provider Configuration
-*V2025GlobalTenantSecuritySettingsApi* | [**Update-V2025AuthOrgSessionConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Update-V2025AuthOrgSessionConfig) | **PATCH** /auth-org/session-config | Update Auth Org Session Configuration
-*V2025GovernanceGroupsApi* | [**New-V2025Workgroup**](docs/V2025GovernanceGroupsApi.md#New-V2025Workgroup) | **POST** /workgroups | Create a new Governance Group.
-*V2025GovernanceGroupsApi* | [**Remove-V2025Workgroup**](docs/V2025GovernanceGroupsApi.md#Remove-V2025Workgroup) | **DELETE** /workgroups/{id} | Delete a Governance Group
-*V2025GovernanceGroupsApi* | [**Remove-V2025WorkgroupMembers**](docs/V2025GovernanceGroupsApi.md#Remove-V2025WorkgroupMembers) | **POST** /workgroups/{workgroupId}/members/bulk-delete | Remove members from Governance Group
-*V2025GovernanceGroupsApi* | [**Remove-V2025WorkgroupsInBulk**](docs/V2025GovernanceGroupsApi.md#Remove-V2025WorkgroupsInBulk) | **POST** /workgroups/bulk-delete | Delete Governance Group(s)
-*V2025GovernanceGroupsApi* | [**Get-V2025Workgroup**](docs/V2025GovernanceGroupsApi.md#Get-V2025Workgroup) | **GET** /workgroups/{id} | Get Governance Group by Id
-*V2025GovernanceGroupsApi* | [**Get-V2025Connections**](docs/V2025GovernanceGroupsApi.md#Get-V2025Connections) | **GET** /workgroups/{workgroupId}/connections | List connections for Governance Group
-*V2025GovernanceGroupsApi* | [**Get-V2025WorkgroupMembers**](docs/V2025GovernanceGroupsApi.md#Get-V2025WorkgroupMembers) | **GET** /workgroups/{workgroupId}/members | List Governance Group Members
-*V2025GovernanceGroupsApi* | [**Get-V2025Workgroups**](docs/V2025GovernanceGroupsApi.md#Get-V2025Workgroups) | **GET** /workgroups | List Governance Groups
-*V2025GovernanceGroupsApi* | [**Update-V2025Workgroup**](docs/V2025GovernanceGroupsApi.md#Update-V2025Workgroup) | **PATCH** /workgroups/{id} | Patch a Governance Group
-*V2025GovernanceGroupsApi* | [**Update-V2025WorkgroupMembers**](docs/V2025GovernanceGroupsApi.md#Update-V2025WorkgroupMembers) | **POST** /workgroups/{workgroupId}/members/bulk-add | Add members to Governance Group
-*V2025IAIAccessRequestRecommendationsApi* | [**Add-V2025AccessRequestRecommendationsIgnoredItem**](docs/V2025IAIAccessRequestRecommendationsApi.md#Add-V2025AccessRequestRecommendationsIgnoredItem) | **POST** /ai-access-request-recommendations/ignored-items | Ignore Access Request Recommendation
-*V2025IAIAccessRequestRecommendationsApi* | [**Add-V2025AccessRequestRecommendationsRequestedItem**](docs/V2025IAIAccessRequestRecommendationsApi.md#Add-V2025AccessRequestRecommendationsRequestedItem) | **POST** /ai-access-request-recommendations/requested-items | Accept Access Request Recommendation
-*V2025IAIAccessRequestRecommendationsApi* | [**Add-V2025AccessRequestRecommendationsViewedItem**](docs/V2025IAIAccessRequestRecommendationsApi.md#Add-V2025AccessRequestRecommendationsViewedItem) | **POST** /ai-access-request-recommendations/viewed-items | Mark Viewed Access Request Recommendations
-*V2025IAIAccessRequestRecommendationsApi* | [**Add-V2025AccessRequestRecommendationsViewedItems**](docs/V2025IAIAccessRequestRecommendationsApi.md#Add-V2025AccessRequestRecommendationsViewedItems) | **POST** /ai-access-request-recommendations/viewed-items/bulk-create | Bulk Mark Viewed Access Request Recommendations
-*V2025IAIAccessRequestRecommendationsApi* | [**Get-V2025AccessRequestRecommendations**](docs/V2025IAIAccessRequestRecommendationsApi.md#Get-V2025AccessRequestRecommendations) | **GET** /ai-access-request-recommendations | Identity Access Request Recommendations
-*V2025IAIAccessRequestRecommendationsApi* | [**Get-V2025AccessRequestRecommendationsConfig**](docs/V2025IAIAccessRequestRecommendationsApi.md#Get-V2025AccessRequestRecommendationsConfig) | **GET** /ai-access-request-recommendations/config | Get Access Request Recommendations config
-*V2025IAIAccessRequestRecommendationsApi* | [**Get-V2025AccessRequestRecommendationsIgnoredItems**](docs/V2025IAIAccessRequestRecommendationsApi.md#Get-V2025AccessRequestRecommendationsIgnoredItems) | **GET** /ai-access-request-recommendations/ignored-items | List Ignored Access Request Recommendations
-*V2025IAIAccessRequestRecommendationsApi* | [**Get-V2025AccessRequestRecommendationsRequestedItems**](docs/V2025IAIAccessRequestRecommendationsApi.md#Get-V2025AccessRequestRecommendationsRequestedItems) | **GET** /ai-access-request-recommendations/requested-items | List Accepted Access Request Recommendations
-*V2025IAIAccessRequestRecommendationsApi* | [**Get-V2025AccessRequestRecommendationsViewedItems**](docs/V2025IAIAccessRequestRecommendationsApi.md#Get-V2025AccessRequestRecommendationsViewedItems) | **GET** /ai-access-request-recommendations/viewed-items | List Viewed Access Request Recommendations
-*V2025IAIAccessRequestRecommendationsApi* | [**Set-V2025AccessRequestRecommendationsConfig**](docs/V2025IAIAccessRequestRecommendationsApi.md#Set-V2025AccessRequestRecommendationsConfig) | **PUT** /ai-access-request-recommendations/config | Update Access Request Recommendations config
+*V2025GlobalTenantSecuritySettingsApi* | [**Update-V2025AuthOrgServiceProviderConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Update-V2025AuthOrgServiceProviderConfig) | **PATCH** /auth-org/service-provider-config | Update service provider configuration
+*V2025GlobalTenantSecuritySettingsApi* | [**Update-V2025AuthOrgSessionConfig**](docs/V2025GlobalTenantSecuritySettingsApi.md#Update-V2025AuthOrgSessionConfig) | **PATCH** /auth-org/session-config | Update auth org session configuration
+*V2025GovernanceGroupsApi* | [**New-V2025Workgroup**](docs/V2025GovernanceGroupsApi.md#New-V2025Workgroup) | **POST** /workgroups | Create a new governance group.
+*V2025GovernanceGroupsApi* | [**Remove-V2025Workgroup**](docs/V2025GovernanceGroupsApi.md#Remove-V2025Workgroup) | **DELETE** /workgroups/{id} | Delete a governance group
+*V2025GovernanceGroupsApi* | [**Remove-V2025WorkgroupMembers**](docs/V2025GovernanceGroupsApi.md#Remove-V2025WorkgroupMembers) | **POST** /workgroups/{workgroupId}/members/bulk-delete | Remove members from governance group
+*V2025GovernanceGroupsApi* | [**Remove-V2025WorkgroupsInBulk**](docs/V2025GovernanceGroupsApi.md#Remove-V2025WorkgroupsInBulk) | **POST** /workgroups/bulk-delete | Delete governance group(s)
+*V2025GovernanceGroupsApi* | [**Get-V2025Workgroup**](docs/V2025GovernanceGroupsApi.md#Get-V2025Workgroup) | **GET** /workgroups/{id} | Get governance group by id
+*V2025GovernanceGroupsApi* | [**Get-V2025Connections**](docs/V2025GovernanceGroupsApi.md#Get-V2025Connections) | **GET** /workgroups/{workgroupId}/connections | List connections for governance group
+*V2025GovernanceGroupsApi* | [**Get-V2025WorkgroupMembers**](docs/V2025GovernanceGroupsApi.md#Get-V2025WorkgroupMembers) | **GET** /workgroups/{workgroupId}/members | List governance group members
+*V2025GovernanceGroupsApi* | [**Get-V2025Workgroups**](docs/V2025GovernanceGroupsApi.md#Get-V2025Workgroups) | **GET** /workgroups | List governance groups
+*V2025GovernanceGroupsApi* | [**Update-V2025Workgroup**](docs/V2025GovernanceGroupsApi.md#Update-V2025Workgroup) | **PATCH** /workgroups/{id} | Patch a governance group
+*V2025GovernanceGroupsApi* | [**Update-V2025WorkgroupMembers**](docs/V2025GovernanceGroupsApi.md#Update-V2025WorkgroupMembers) | **POST** /workgroups/{workgroupId}/members/bulk-add | Add members to governance group
+*V2025IAIAccessRequestRecommendationsApi* | [**Add-V2025AccessRequestRecommendationsIgnoredItem**](docs/V2025IAIAccessRequestRecommendationsApi.md#Add-V2025AccessRequestRecommendationsIgnoredItem) | **POST** /ai-access-request-recommendations/ignored-items | Ignore access request recommendation
+*V2025IAIAccessRequestRecommendationsApi* | [**Add-V2025AccessRequestRecommendationsRequestedItem**](docs/V2025IAIAccessRequestRecommendationsApi.md#Add-V2025AccessRequestRecommendationsRequestedItem) | **POST** /ai-access-request-recommendations/requested-items | Accept access request recommendation
+*V2025IAIAccessRequestRecommendationsApi* | [**Add-V2025AccessRequestRecommendationsViewedItem**](docs/V2025IAIAccessRequestRecommendationsApi.md#Add-V2025AccessRequestRecommendationsViewedItem) | **POST** /ai-access-request-recommendations/viewed-items | Mark viewed access request recommendations
+*V2025IAIAccessRequestRecommendationsApi* | [**Add-V2025AccessRequestRecommendationsViewedItems**](docs/V2025IAIAccessRequestRecommendationsApi.md#Add-V2025AccessRequestRecommendationsViewedItems) | **POST** /ai-access-request-recommendations/viewed-items/bulk-create | Bulk mark viewed access request recommendations
+*V2025IAIAccessRequestRecommendationsApi* | [**Get-V2025AccessRequestRecommendations**](docs/V2025IAIAccessRequestRecommendationsApi.md#Get-V2025AccessRequestRecommendations) | **GET** /ai-access-request-recommendations | Identity access request recommendations
+*V2025IAIAccessRequestRecommendationsApi* | [**Get-V2025AccessRequestRecommendationsConfig**](docs/V2025IAIAccessRequestRecommendationsApi.md#Get-V2025AccessRequestRecommendationsConfig) | **GET** /ai-access-request-recommendations/config | Get access request recommendations config
+*V2025IAIAccessRequestRecommendationsApi* | [**Get-V2025AccessRequestRecommendationsIgnoredItems**](docs/V2025IAIAccessRequestRecommendationsApi.md#Get-V2025AccessRequestRecommendationsIgnoredItems) | **GET** /ai-access-request-recommendations/ignored-items | List ignored access request recommendations
+*V2025IAIAccessRequestRecommendationsApi* | [**Get-V2025AccessRequestRecommendationsRequestedItems**](docs/V2025IAIAccessRequestRecommendationsApi.md#Get-V2025AccessRequestRecommendationsRequestedItems) | **GET** /ai-access-request-recommendations/requested-items | List accepted access request recommendations
+*V2025IAIAccessRequestRecommendationsApi* | [**Get-V2025AccessRequestRecommendationsViewedItems**](docs/V2025IAIAccessRequestRecommendationsApi.md#Get-V2025AccessRequestRecommendationsViewedItems) | **GET** /ai-access-request-recommendations/viewed-items | List viewed access request recommendations
+*V2025IAIAccessRequestRecommendationsApi* | [**Set-V2025AccessRequestRecommendationsConfig**](docs/V2025IAIAccessRequestRecommendationsApi.md#Set-V2025AccessRequestRecommendationsConfig) | **PUT** /ai-access-request-recommendations/config | Update access request recommendations config
 *V2025IAICommonAccessApi* | [**New-V2025CommonAccess**](docs/V2025IAICommonAccessApi.md#New-V2025CommonAccess) | **POST** /common-access | Create common access items
 *V2025IAICommonAccessApi* | [**Get-V2025CommonAccess**](docs/V2025IAICommonAccessApi.md#Get-V2025CommonAccess) | **GET** /common-access | Get a paginated list of common access
 *V2025IAICommonAccessApi* | [**Update-V2025CommonAccessStatusInBulk**](docs/V2025IAICommonAccessApi.md#Update-V2025CommonAccessStatusInBulk) | **POST** /common-access/update-status | Bulk update common access status
-*V2025IAIOutliersApi* | [**Export-V2025OutliersZip**](docs/V2025IAIOutliersApi.md#Export-V2025OutliersZip) | **GET** /outliers/export | IAI Identity Outliers Export
-*V2025IAIOutliersApi* | [**Get-V2025IdentityOutlierSnapshots**](docs/V2025IAIOutliersApi.md#Get-V2025IdentityOutlierSnapshots) | **GET** /outlier-summaries | IAI Identity Outliers Summary
-*V2025IAIOutliersApi* | [**Get-V2025IdentityOutliers**](docs/V2025IAIOutliersApi.md#Get-V2025IdentityOutliers) | **GET** /outliers | IAI Get Identity Outliers
-*V2025IAIOutliersApi* | [**Get-V2025LatestIdentityOutlierSnapshots**](docs/V2025IAIOutliersApi.md#Get-V2025LatestIdentityOutlierSnapshots) | **GET** /outlier-summaries/latest | IAI Identity Outliers Latest Summary
+*V2025IAIOutliersApi* | [**Export-V2025OutliersZip**](docs/V2025IAIOutliersApi.md#Export-V2025OutliersZip) | **GET** /outliers/export | Iai identity outliers export
+*V2025IAIOutliersApi* | [**Get-V2025IdentityOutlierSnapshots**](docs/V2025IAIOutliersApi.md#Get-V2025IdentityOutlierSnapshots) | **GET** /outlier-summaries | Iai identity outliers summary
+*V2025IAIOutliersApi* | [**Get-V2025IdentityOutliers**](docs/V2025IAIOutliersApi.md#Get-V2025IdentityOutliers) | **GET** /outliers | Iai get identity outliers
+*V2025IAIOutliersApi* | [**Get-V2025LatestIdentityOutlierSnapshots**](docs/V2025IAIOutliersApi.md#Get-V2025LatestIdentityOutlierSnapshots) | **GET** /outlier-summaries/latest | Iai identity outliers latest summary
 *V2025IAIOutliersApi* | [**Get-V2025OutlierContributingFeatureSummary**](docs/V2025IAIOutliersApi.md#Get-V2025OutlierContributingFeatureSummary) | **GET** /outlier-feature-summaries/{outlierFeatureId} | Get identity outlier contibuting feature summary
 *V2025IAIOutliersApi* | [**Get-V2025PeerGroupOutliersContributingFeatures**](docs/V2025IAIOutliersApi.md#Get-V2025PeerGroupOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | Get identity outlier's contibuting features
-*V2025IAIOutliersApi* | [**Invoke-V2025IgnoreIdentityOutliers**](docs/V2025IAIOutliersApi.md#Invoke-V2025IgnoreIdentityOutliers) | **POST** /outliers/ignore | IAI Identity Outliers Ignore
+*V2025IAIOutliersApi* | [**Invoke-V2025IgnoreIdentityOutliers**](docs/V2025IAIOutliersApi.md#Invoke-V2025IgnoreIdentityOutliers) | **POST** /outliers/ignore | Iai identity outliers ignore
 *V2025IAIOutliersApi* | [**Get-V2025OutliersContributingFeatureAccessItems**](docs/V2025IAIOutliersApi.md#Get-V2025OutliersContributingFeatureAccessItems) | **GET** /outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items | Gets a list of access items associated with each identity outlier contributing feature
-*V2025IAIOutliersApi* | [**Invoke-V2025UnIgnoreIdentityOutliers**](docs/V2025IAIOutliersApi.md#Invoke-V2025UnIgnoreIdentityOutliers) | **POST** /outliers/unignore | IAI Identity Outliers Unignore
-*V2025IAIPeerGroupStrategiesApi* | [**Get-V2025PeerGroupOutliers**](docs/V2025IAIPeerGroupStrategiesApi.md#Get-V2025PeerGroupOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity Outliers List
-*V2025IAIRecommendationsApi* | [**Get-V2025Recommendations**](docs/V2025IAIRecommendationsApi.md#Get-V2025Recommendations) | **POST** /recommendations/request | Returns Recommendation Based on Object
+*V2025IAIOutliersApi* | [**Invoke-V2025UnIgnoreIdentityOutliers**](docs/V2025IAIOutliersApi.md#Invoke-V2025UnIgnoreIdentityOutliers) | **POST** /outliers/unignore | Iai identity outliers unignore
+*V2025IAIPeerGroupStrategiesApi* | [**Get-V2025PeerGroupOutliers**](docs/V2025IAIPeerGroupStrategiesApi.md#Get-V2025PeerGroupOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity outliers list
+*V2025IAIRecommendationsApi* | [**Get-V2025Recommendations**](docs/V2025IAIRecommendationsApi.md#Get-V2025Recommendations) | **POST** /recommendations/request | Returns recommendation based on object
 *V2025IAIRecommendationsApi* | [**Get-V2025RecommendationsConfig**](docs/V2025IAIRecommendationsApi.md#Get-V2025RecommendationsConfig) | **GET** /recommendations/config | Get certification recommendation config values
 *V2025IAIRecommendationsApi* | [**Update-V2025RecommendationsConfig**](docs/V2025IAIRecommendationsApi.md#Update-V2025RecommendationsConfig) | **PUT** /recommendations/config | Update certification recommendation config values
 *V2025IAIRoleMiningApi* | [**New-V2025PotentialRoleProvisionRequest**](docs/V2025IAIRoleMiningApi.md#New-V2025PotentialRoleProvisionRequest) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/provision | Create request to provision a potential role into an actual role.
@@ -342,183 +342,183 @@ Class | Method | HTTP request | Description
 *V2025IconsApi* | [**Remove-V2025Icon**](docs/V2025IconsApi.md#Remove-V2025Icon) | **DELETE** /icons/{objectType}/{objectId} | Delete an icon
 *V2025IconsApi* | [**Set-V2025Icon**](docs/V2025IconsApi.md#Set-V2025Icon) | **PUT** /icons/{objectType}/{objectId} | Update an icon
 *V2025IdentitiesApi* | [**Remove-V2025Identity**](docs/V2025IdentitiesApi.md#Remove-V2025Identity) | **DELETE** /identities/{id} | Delete identity
-*V2025IdentitiesApi* | [**Get-V2025Identity**](docs/V2025IdentitiesApi.md#Get-V2025Identity) | **GET** /identities/{id} | Identity Details
+*V2025IdentitiesApi* | [**Get-V2025Identity**](docs/V2025IdentitiesApi.md#Get-V2025Identity) | **GET** /identities/{id} | Identity details
 *V2025IdentitiesApi* | [**Get-V2025IdentityOwnershipDetails**](docs/V2025IdentitiesApi.md#Get-V2025IdentityOwnershipDetails) | **GET** /identities/{identityId}/ownership | Get ownership details
 *V2025IdentitiesApi* | [**Get-V2025RoleAssignment**](docs/V2025IdentitiesApi.md#Get-V2025RoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Role assignment details
 *V2025IdentitiesApi* | [**Get-V2025RoleAssignments**](docs/V2025IdentitiesApi.md#Get-V2025RoleAssignments) | **GET** /identities/{identityId}/role-assignments | List role assignments
-*V2025IdentitiesApi* | [**Get-V2025Identities**](docs/V2025IdentitiesApi.md#Get-V2025Identities) | **GET** /identities | List Identities
+*V2025IdentitiesApi* | [**Get-V2025Identities**](docs/V2025IdentitiesApi.md#Get-V2025Identities) | **GET** /identities | List identities
 *V2025IdentitiesApi* | [**Reset-V2025Identity**](docs/V2025IdentitiesApi.md#Reset-V2025Identity) | **POST** /identities/{id}/reset | Reset an identity
 *V2025IdentitiesApi* | [**Send-V2025IdentityVerificationAccountToken**](docs/V2025IdentitiesApi.md#Send-V2025IdentityVerificationAccountToken) | **POST** /identities/{id}/verification/account/send | Send password reset email
 *V2025IdentitiesApi* | [**Start-V2025IdentitiesInvite**](docs/V2025IdentitiesApi.md#Start-V2025IdentitiesInvite) | **POST** /identities/invite | Invite identities to register
-*V2025IdentitiesApi* | [**Start-V2025IdentityProcessing**](docs/V2025IdentitiesApi.md#Start-V2025IdentityProcessing) | **POST** /identities/process | Process a list of identityIds
+*V2025IdentitiesApi* | [**Start-V2025IdentityProcessing**](docs/V2025IdentitiesApi.md#Start-V2025IdentityProcessing) | **POST** /identities/process | Process a list of identityids
 *V2025IdentitiesApi* | [**Sync-V2025hronizeAttributesForIdentity**](docs/V2025IdentitiesApi.md#Sync-V2025hronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
-*V2025IdentityAttributesApi* | [**New-V2025IdentityAttribute**](docs/V2025IdentityAttributesApi.md#New-V2025IdentityAttribute) | **POST** /identity-attributes | Create Identity Attribute
-*V2025IdentityAttributesApi* | [**Remove-V2025IdentityAttribute**](docs/V2025IdentityAttributesApi.md#Remove-V2025IdentityAttribute) | **DELETE** /identity-attributes/{name} | Delete Identity Attribute
-*V2025IdentityAttributesApi* | [**Remove-V2025IdentityAttributesInBulk**](docs/V2025IdentityAttributesApi.md#Remove-V2025IdentityAttributesInBulk) | **DELETE** /identity-attributes/bulk-delete | Bulk delete Identity Attributes
-*V2025IdentityAttributesApi* | [**Get-V2025IdentityAttribute**](docs/V2025IdentityAttributesApi.md#Get-V2025IdentityAttribute) | **GET** /identity-attributes/{name} | Get Identity Attribute
-*V2025IdentityAttributesApi* | [**Get-V2025IdentityAttributes**](docs/V2025IdentityAttributesApi.md#Get-V2025IdentityAttributes) | **GET** /identity-attributes | List Identity Attributes
-*V2025IdentityAttributesApi* | [**Send-V2025IdentityAttribute**](docs/V2025IdentityAttributesApi.md#Send-V2025IdentityAttribute) | **PUT** /identity-attributes/{name} | Update Identity Attribute
+*V2025IdentityAttributesApi* | [**New-V2025IdentityAttribute**](docs/V2025IdentityAttributesApi.md#New-V2025IdentityAttribute) | **POST** /identity-attributes | Create identity attribute
+*V2025IdentityAttributesApi* | [**Remove-V2025IdentityAttribute**](docs/V2025IdentityAttributesApi.md#Remove-V2025IdentityAttribute) | **DELETE** /identity-attributes/{name} | Delete identity attribute
+*V2025IdentityAttributesApi* | [**Remove-V2025IdentityAttributesInBulk**](docs/V2025IdentityAttributesApi.md#Remove-V2025IdentityAttributesInBulk) | **DELETE** /identity-attributes/bulk-delete | Bulk delete identity attributes
+*V2025IdentityAttributesApi* | [**Get-V2025IdentityAttribute**](docs/V2025IdentityAttributesApi.md#Get-V2025IdentityAttribute) | **GET** /identity-attributes/{name} | Get identity attribute
+*V2025IdentityAttributesApi* | [**Get-V2025IdentityAttributes**](docs/V2025IdentityAttributesApi.md#Get-V2025IdentityAttributes) | **GET** /identity-attributes | List identity attributes
+*V2025IdentityAttributesApi* | [**Send-V2025IdentityAttribute**](docs/V2025IdentityAttributesApi.md#Send-V2025IdentityAttribute) | **PUT** /identity-attributes/{name} | Update identity attribute
 *V2025IdentityHistoryApi* | [**Compare-V2025IdentitySnapshots**](docs/V2025IdentityHistoryApi.md#Compare-V2025IdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots
-*V2025IdentityHistoryApi* | [**Compare-V2025IdentitySnapshotsAccessType**](docs/V2025IdentityHistoryApi.md#Compare-V2025IdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accessType for the given identity between 2 snapshots
+*V2025IdentityHistoryApi* | [**Compare-V2025IdentitySnapshotsAccessType**](docs/V2025IdentityHistoryApi.md#Compare-V2025IdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 *V2025IdentityHistoryApi* | [**Get-V2025HistoricalIdentity**](docs/V2025IdentityHistoryApi.md#Get-V2025HistoricalIdentity) | **GET** /historical-identities/{id} | Get latest snapshot of identity
 *V2025IdentityHistoryApi* | [**Get-V2025HistoricalIdentityEvents**](docs/V2025IdentityHistoryApi.md#Get-V2025HistoricalIdentityEvents) | **GET** /historical-identities/{id}/events | Lists all events for the given identity
 *V2025IdentityHistoryApi* | [**Get-V2025IdentitySnapshot**](docs/V2025IdentityHistoryApi.md#Get-V2025IdentitySnapshot) | **GET** /historical-identities/{id}/snapshots/{date} | Gets an identity snapshot at a given date
 *V2025IdentityHistoryApi* | [**Get-V2025IdentitySnapshotSummary**](docs/V2025IdentityHistoryApi.md#Get-V2025IdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
 *V2025IdentityHistoryApi* | [**Get-V2025IdentityStartDate**](docs/V2025IdentityHistoryApi.md#Get-V2025IdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
 *V2025IdentityHistoryApi* | [**Get-V2025HistoricalIdentities**](docs/V2025IdentityHistoryApi.md#Get-V2025HistoricalIdentities) | **GET** /historical-identities | Lists all the identities
-*V2025IdentityHistoryApi* | [**Get-V2025IdentityAccessItems**](docs/V2025IdentityHistoryApi.md#Get-V2025IdentityAccessItems) | **GET** /historical-identities/{id}/access-items | List Access Items by Identity
+*V2025IdentityHistoryApi* | [**Get-V2025IdentityAccessItems**](docs/V2025IdentityHistoryApi.md#Get-V2025IdentityAccessItems) | **GET** /historical-identities/{id}/access-items | List access items by identity
 *V2025IdentityHistoryApi* | [**Get-V2025IdentitySnapshotAccessItems**](docs/V2025IdentityHistoryApi.md#Get-V2025IdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Gets the list of identity access items at a given date filterd by item type
 *V2025IdentityHistoryApi* | [**Get-V2025IdentitySnapshots**](docs/V2025IdentityHistoryApi.md#Get-V2025IdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
-*V2025IdentityProfilesApi* | [**New-V2025IdentityProfile**](docs/V2025IdentityProfilesApi.md#New-V2025IdentityProfile) | **POST** /identity-profiles | Create Identity Profile
-*V2025IdentityProfilesApi* | [**Remove-V2025IdentityProfile**](docs/V2025IdentityProfilesApi.md#Remove-V2025IdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete Identity Profile
-*V2025IdentityProfilesApi* | [**Remove-V2025IdentityProfiles**](docs/V2025IdentityProfilesApi.md#Remove-V2025IdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
-*V2025IdentityProfilesApi* | [**Export-V2025IdentityProfiles**](docs/V2025IdentityProfilesApi.md#Export-V2025IdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
-*V2025IdentityProfilesApi* | [**New-V2025IdentityPreview**](docs/V2025IdentityProfilesApi.md#New-V2025IdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
-*V2025IdentityProfilesApi* | [**Get-V2025DefaultIdentityAttributeConfig**](docs/V2025IdentityProfilesApi.md#Get-V2025DefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Get default Identity Attribute Config
-*V2025IdentityProfilesApi* | [**Get-V2025IdentityProfile**](docs/V2025IdentityProfilesApi.md#Get-V2025IdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get Identity Profile
-*V2025IdentityProfilesApi* | [**Import-V2025IdentityProfiles**](docs/V2025IdentityProfilesApi.md#Import-V2025IdentityProfiles) | **POST** /identity-profiles/import | Import Identity Profiles
-*V2025IdentityProfilesApi* | [**Get-V2025IdentityProfiles**](docs/V2025IdentityProfilesApi.md#Get-V2025IdentityProfiles) | **GET** /identity-profiles | List Identity Profiles
+*V2025IdentityProfilesApi* | [**New-V2025IdentityProfile**](docs/V2025IdentityProfilesApi.md#New-V2025IdentityProfile) | **POST** /identity-profiles | Create identity profile
+*V2025IdentityProfilesApi* | [**Remove-V2025IdentityProfile**](docs/V2025IdentityProfilesApi.md#Remove-V2025IdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete identity profile
+*V2025IdentityProfilesApi* | [**Remove-V2025IdentityProfiles**](docs/V2025IdentityProfilesApi.md#Remove-V2025IdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete identity profiles
+*V2025IdentityProfilesApi* | [**Export-V2025IdentityProfiles**](docs/V2025IdentityProfilesApi.md#Export-V2025IdentityProfiles) | **GET** /identity-profiles/export | Export identity profiles
+*V2025IdentityProfilesApi* | [**New-V2025IdentityPreview**](docs/V2025IdentityProfilesApi.md#New-V2025IdentityPreview) | **POST** /identity-profiles/identity-preview | Generate identity profile preview
+*V2025IdentityProfilesApi* | [**Get-V2025DefaultIdentityAttributeConfig**](docs/V2025IdentityProfilesApi.md#Get-V2025DefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Get default identity attribute config
+*V2025IdentityProfilesApi* | [**Get-V2025IdentityProfile**](docs/V2025IdentityProfilesApi.md#Get-V2025IdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get identity profile
+*V2025IdentityProfilesApi* | [**Import-V2025IdentityProfiles**](docs/V2025IdentityProfilesApi.md#Import-V2025IdentityProfiles) | **POST** /identity-profiles/import | Import identity profiles
+*V2025IdentityProfilesApi* | [**Get-V2025IdentityProfiles**](docs/V2025IdentityProfilesApi.md#Get-V2025IdentityProfiles) | **GET** /identity-profiles | List identity profiles
 *V2025IdentityProfilesApi* | [**Sync-V2025IdentityProfile**](docs/V2025IdentityProfilesApi.md#Sync-V2025IdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
-*V2025IdentityProfilesApi* | [**Update-V2025IdentityProfile**](docs/V2025IdentityProfilesApi.md#Update-V2025IdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update Identity Profile
-*V2025LifecycleStatesApi* | [**New-V2025LifecycleState**](docs/V2025LifecycleStatesApi.md#New-V2025LifecycleState) | **POST** /identity-profiles/{identity-profile-id}/lifecycle-states | Create Lifecycle State
-*V2025LifecycleStatesApi* | [**Remove-V2025LifecycleState**](docs/V2025LifecycleStatesApi.md#Remove-V2025LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete Lifecycle State
-*V2025LifecycleStatesApi* | [**Get-V2025LifecycleState**](docs/V2025LifecycleStatesApi.md#Get-V2025LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get Lifecycle State
-*V2025LifecycleStatesApi* | [**Get-V2025LifecycleStates**](docs/V2025LifecycleStatesApi.md#Get-V2025LifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states | Lists LifecycleStates
-*V2025LifecycleStatesApi* | [**Set-V2025LifecycleState**](docs/V2025LifecycleStatesApi.md#Set-V2025LifecycleState) | **POST** /identities/{identity-id}/set-lifecycle-state | Set Lifecycle State
-*V2025LifecycleStatesApi* | [**Update-V2025LifecycleStates**](docs/V2025LifecycleStatesApi.md#Update-V2025LifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
-*V2025MFAConfigurationApi* | [**Get-V2025MFADuoConfig**](docs/V2025MFAConfigurationApi.md#Get-V2025MFADuoConfig) | **GET** /mfa/duo-web/config | Configuration of Duo MFA method
-*V2025MFAConfigurationApi* | [**Get-V2025MFAKbaConfig**](docs/V2025MFAConfigurationApi.md#Get-V2025MFAKbaConfig) | **GET** /mfa/kba/config | Configuration of KBA MFA method
-*V2025MFAConfigurationApi* | [**Get-V2025MFAOktaConfig**](docs/V2025MFAConfigurationApi.md#Get-V2025MFAOktaConfig) | **GET** /mfa/okta-verify/config | Configuration of Okta MFA method
-*V2025MFAConfigurationApi* | [**Set-V2025MFADuoConfig**](docs/V2025MFAConfigurationApi.md#Set-V2025MFADuoConfig) | **PUT** /mfa/duo-web/config | Set Duo MFA configuration
-*V2025MFAConfigurationApi* | [**Set-V2025MFAKBAConfig**](docs/V2025MFAConfigurationApi.md#Set-V2025MFAKBAConfig) | **POST** /mfa/kba/config/answers | Set MFA KBA configuration
-*V2025MFAConfigurationApi* | [**Set-V2025MFAOktaConfig**](docs/V2025MFAConfigurationApi.md#Set-V2025MFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
-*V2025MFAConfigurationApi* | [**Test-V2025MFAConfig**](docs/V2025MFAConfigurationApi.md#Test-V2025MFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
-*V2025MachineAccountsApi* | [**Get-V2025MachineAccount**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccount) | **GET** /machine-accounts/{id} | Machine Account Details
-*V2025MachineAccountsApi* | [**Get-V2025MachineAccounts**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccounts) | **GET** /machine-accounts | Machine Accounts List
-*V2025MachineAccountsApi* | [**Update-V2025MachineAccount**](docs/V2025MachineAccountsApi.md#Update-V2025MachineAccount) | **PATCH** /machine-accounts/{id} | Update a Machine Account
-*V2025MachineIdentitiesApi* | [**New-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#New-V2025MachineIdentity) | **POST** /machine-identities | Create Machine Identities
+*V2025IdentityProfilesApi* | [**Update-V2025IdentityProfile**](docs/V2025IdentityProfilesApi.md#Update-V2025IdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update identity profile
+*V2025LifecycleStatesApi* | [**New-V2025LifecycleState**](docs/V2025LifecycleStatesApi.md#New-V2025LifecycleState) | **POST** /identity-profiles/{identity-profile-id}/lifecycle-states | Create lifecycle state
+*V2025LifecycleStatesApi* | [**Remove-V2025LifecycleState**](docs/V2025LifecycleStatesApi.md#Remove-V2025LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete lifecycle state
+*V2025LifecycleStatesApi* | [**Get-V2025LifecycleState**](docs/V2025LifecycleStatesApi.md#Get-V2025LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get lifecycle state
+*V2025LifecycleStatesApi* | [**Get-V2025LifecycleStates**](docs/V2025LifecycleStatesApi.md#Get-V2025LifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states | Lists lifecyclestates
+*V2025LifecycleStatesApi* | [**Set-V2025LifecycleState**](docs/V2025LifecycleStatesApi.md#Set-V2025LifecycleState) | **POST** /identities/{identity-id}/set-lifecycle-state | Set lifecycle state
+*V2025LifecycleStatesApi* | [**Update-V2025LifecycleStates**](docs/V2025LifecycleStatesApi.md#Update-V2025LifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update lifecycle state
+*V2025MFAConfigurationApi* | [**Get-V2025MFADuoConfig**](docs/V2025MFAConfigurationApi.md#Get-V2025MFADuoConfig) | **GET** /mfa/duo-web/config | Configuration of duo mfa method
+*V2025MFAConfigurationApi* | [**Get-V2025MFAKbaConfig**](docs/V2025MFAConfigurationApi.md#Get-V2025MFAKbaConfig) | **GET** /mfa/kba/config | Configuration of kba mfa method
+*V2025MFAConfigurationApi* | [**Get-V2025MFAOktaConfig**](docs/V2025MFAConfigurationApi.md#Get-V2025MFAOktaConfig) | **GET** /mfa/okta-verify/config | Configuration of okta mfa method
+*V2025MFAConfigurationApi* | [**Set-V2025MFADuoConfig**](docs/V2025MFAConfigurationApi.md#Set-V2025MFADuoConfig) | **PUT** /mfa/duo-web/config | Set duo mfa configuration
+*V2025MFAConfigurationApi* | [**Set-V2025MFAKBAConfig**](docs/V2025MFAConfigurationApi.md#Set-V2025MFAKBAConfig) | **POST** /mfa/kba/config/answers | Set mfa kba configuration
+*V2025MFAConfigurationApi* | [**Set-V2025MFAOktaConfig**](docs/V2025MFAConfigurationApi.md#Set-V2025MFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set okta mfa configuration
+*V2025MFAConfigurationApi* | [**Test-V2025MFAConfig**](docs/V2025MFAConfigurationApi.md#Test-V2025MFAConfig) | **GET** /mfa/{method}/test | Mfa method's test configuration
+*V2025MachineAccountsApi* | [**Get-V2025MachineAccount**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccount) | **GET** /machine-accounts/{id} | Machine account details
+*V2025MachineAccountsApi* | [**Get-V2025MachineAccounts**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccounts) | **GET** /machine-accounts | Machine accounts list
+*V2025MachineAccountsApi* | [**Update-V2025MachineAccount**](docs/V2025MachineAccountsApi.md#Update-V2025MachineAccount) | **PATCH** /machine-accounts/{id} | Update a machine account
+*V2025MachineIdentitiesApi* | [**New-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#New-V2025MachineIdentity) | **POST** /machine-identities | Create machine identities
 *V2025MachineIdentitiesApi* | [**Remove-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#Remove-V2025MachineIdentity) | **DELETE** /machine-identities/{id} | Delete machine identity
-*V2025MachineIdentitiesApi* | [**Get-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#Get-V2025MachineIdentity) | **GET** /machine-identities/{id} | Machine Identity Details
-*V2025MachineIdentitiesApi* | [**Get-V2025MachineIdentities**](docs/V2025MachineIdentitiesApi.md#Get-V2025MachineIdentities) | **GET** /machine-identities | List Machine Identities
-*V2025MachineIdentitiesApi* | [**Update-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#Update-V2025MachineIdentity) | **PATCH** /machine-identities/{id} | Update a Machine Identity
-*V2025ManagedClientsApi* | [**New-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#New-V2025ManagedClient) | **POST** /managed-clients | Create Managed Client
-*V2025ManagedClientsApi* | [**Remove-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#Remove-V2025ManagedClient) | **DELETE** /managed-clients/{id} | Delete Managed Client
-*V2025ManagedClientsApi* | [**Get-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#Get-V2025ManagedClient) | **GET** /managed-clients/{id} | Get Managed Client
-*V2025ManagedClientsApi* | [**Get-V2025ManagedClientStatus**](docs/V2025ManagedClientsApi.md#Get-V2025ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status
-*V2025ManagedClientsApi* | [**Get-V2025ManagedClients**](docs/V2025ManagedClientsApi.md#Get-V2025ManagedClients) | **GET** /managed-clients | Get Managed Clients
-*V2025ManagedClientsApi* | [**Update-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#Update-V2025ManagedClient) | **PATCH** /managed-clients/{id} | Update Managed Client
-*V2025ManagedClusterTypesApi* | [**New-V2025ManagedClusterType**](docs/V2025ManagedClusterTypesApi.md#New-V2025ManagedClusterType) | **POST** /managed-cluster-types | Create new Managed Cluster Type
-*V2025ManagedClusterTypesApi* | [**Remove-V2025ManagedClusterType**](docs/V2025ManagedClusterTypesApi.md#Remove-V2025ManagedClusterType) | **DELETE** /managed-cluster-types/{id} | Delete a Managed Cluster Type
-*V2025ManagedClusterTypesApi* | [**Get-V2025ManagedClusterType**](docs/V2025ManagedClusterTypesApi.md#Get-V2025ManagedClusterType) | **GET** /managed-cluster-types/{id} | Get a Managed Cluster Type
-*V2025ManagedClusterTypesApi* | [**Get-V2025ManagedClusterTypes**](docs/V2025ManagedClusterTypesApi.md#Get-V2025ManagedClusterTypes) | **GET** /managed-cluster-types | List Managed Cluster Types
-*V2025ManagedClusterTypesApi* | [**Update-V2025ManagedClusterType**](docs/V2025ManagedClusterTypesApi.md#Update-V2025ManagedClusterType) | **PATCH** /managed-cluster-types/{id} | Update a Managed Cluster Type
-*V2025ManagedClustersApi* | [**New-V2025ManagedCluster**](docs/V2025ManagedClustersApi.md#New-V2025ManagedCluster) | **POST** /managed-clusters | Create Create Managed Cluster
-*V2025ManagedClustersApi* | [**Remove-V2025ManagedCluster**](docs/V2025ManagedClustersApi.md#Remove-V2025ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete Managed Cluster
-*V2025ManagedClustersApi* | [**Get-V2025ClientLogConfiguration**](docs/V2025ManagedClustersApi.md#Get-V2025ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster Log Configuration
-*V2025ManagedClustersApi* | [**Get-V2025ManagedCluster**](docs/V2025ManagedClustersApi.md#Get-V2025ManagedCluster) | **GET** /managed-clusters/{id} | Get Managed Cluster
-*V2025ManagedClustersApi* | [**Get-V2025ManagedClusters**](docs/V2025ManagedClustersApi.md#Get-V2025ManagedClusters) | **GET** /managed-clusters | Get Managed Clusters
-*V2025ManagedClustersApi* | [**Send-V2025ClientLogConfiguration**](docs/V2025ManagedClustersApi.md#Send-V2025ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster Log Configuration
-*V2025ManagedClustersApi* | [**Update-V2025**](docs/V2025ManagedClustersApi.md#Update-V2025) | **POST** /managed-clusters/{id}/manualUpgrade | Trigger Manual Upgrade for Managed Cluster
-*V2025ManagedClustersApi* | [**Update-V2025ManagedCluster**](docs/V2025ManagedClustersApi.md#Update-V2025ManagedCluster) | **PATCH** /managed-clusters/{id} | Update Managed Cluster
-*V2025MultiHostIntegrationApi* | [**New-V2025MultiHostIntegration**](docs/V2025MultiHostIntegrationApi.md#New-V2025MultiHostIntegration) | **POST** /multihosts | Create Multi-Host Integration
-*V2025MultiHostIntegrationApi* | [**New-V2025SourcesWithinMultiHost**](docs/V2025MultiHostIntegrationApi.md#New-V2025SourcesWithinMultiHost) | **POST** /multihosts/{multihostId} | Create Sources Within Multi-Host Integration
-*V2025MultiHostIntegrationApi* | [**Remove-V2025MultiHost**](docs/V2025MultiHostIntegrationApi.md#Remove-V2025MultiHost) | **DELETE** /multihosts/{multihostId} | Delete Multi-Host Integration
-*V2025MultiHostIntegrationApi* | [**Get-V2025AcctAggregationGroups**](docs/V2025MultiHostIntegrationApi.md#Get-V2025AcctAggregationGroups) | **GET** /multihosts/{multihostId}/acctAggregationGroups | List Account-Aggregation-Groups by Multi-Host ID
-*V2025MultiHostIntegrationApi* | [**Get-V2025EntitlementAggregationGroups**](docs/V2025MultiHostIntegrationApi.md#Get-V2025EntitlementAggregationGroups) | **GET** /multihosts/{multiHostId}/entitlementAggregationGroups | List Entitlement-Aggregation-Groups by Integration ID
-*V2025MultiHostIntegrationApi* | [**Get-V2025MultiHostIntegrations**](docs/V2025MultiHostIntegrationApi.md#Get-V2025MultiHostIntegrations) | **GET** /multihosts/{multihostId} | Get Multi-Host Integration By ID
-*V2025MultiHostIntegrationApi* | [**Get-V2025MultiHostIntegrationsList**](docs/V2025MultiHostIntegrationApi.md#Get-V2025MultiHostIntegrationsList) | **GET** /multihosts | List All Existing Multi-Host Integrations
-*V2025MultiHostIntegrationApi* | [**Get-V2025MultiHostSourceCreationErrors**](docs/V2025MultiHostIntegrationApi.md#Get-V2025MultiHostSourceCreationErrors) | **GET** /multihosts/{multiHostId}/sources/errors | List Multi-Host Source Creation Errors
-*V2025MultiHostIntegrationApi* | [**Get-V2025MultihostIntegrationTypes**](docs/V2025MultiHostIntegrationApi.md#Get-V2025MultihostIntegrationTypes) | **GET** /multihosts/types | List Multi-Host Integration Types
-*V2025MultiHostIntegrationApi* | [**Get-V2025SourcesWithinMultiHost**](docs/V2025MultiHostIntegrationApi.md#Get-V2025SourcesWithinMultiHost) | **GET** /multihosts/{multihostId}/sources | List Sources Within Multi-Host Integration
-*V2025MultiHostIntegrationApi* | [**Test-V2025ConnectionMultiHostSources**](docs/V2025MultiHostIntegrationApi.md#Test-V2025ConnectionMultiHostSources) | **POST** /multihosts/{multihostId}/sources/testConnection | Test Configuration For Multi-Host Integration
-*V2025MultiHostIntegrationApi* | [**Test-V2025SourceConnectionMultihost**](docs/V2025MultiHostIntegrationApi.md#Test-V2025SourceConnectionMultihost) | **GET** /multihosts/{multihostId}/sources/{sourceId}/testConnection | Test Configuration For Multi-Host Integration's Single Source
-*V2025MultiHostIntegrationApi* | [**Update-V2025MultiHostSources**](docs/V2025MultiHostIntegrationApi.md#Update-V2025MultiHostSources) | **PATCH** /multihosts/{multihostId} | Update Multi-Host Integration
-*V2025NonEmployeeLifecycleManagementApi* | [**Approve-V2025NonEmployeeRequest**](docs/V2025NonEmployeeLifecycleManagementApi.md#Approve-V2025NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
-*V2025NonEmployeeLifecycleManagementApi* | [**New-V2025NonEmployeeRecord**](docs/V2025NonEmployeeLifecycleManagementApi.md#New-V2025NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
-*V2025NonEmployeeLifecycleManagementApi* | [**New-V2025NonEmployeeRequest**](docs/V2025NonEmployeeLifecycleManagementApi.md#New-V2025NonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
-*V2025NonEmployeeLifecycleManagementApi* | [**New-V2025NonEmployeeSource**](docs/V2025NonEmployeeLifecycleManagementApi.md#New-V2025NonEmployeeSource) | **POST** /non-employee-sources | Create Non-Employee Source
-*V2025NonEmployeeLifecycleManagementApi* | [**New-V2025NonEmployeeSourceSchemaAttributes**](docs/V2025NonEmployeeLifecycleManagementApi.md#New-V2025NonEmployeeSourceSchemaAttributes) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create a new Schema Attribute for Non-Employee Source
-*V2025NonEmployeeLifecycleManagementApi* | [**Remove-V2025NonEmployeeRecord**](docs/V2025NonEmployeeLifecycleManagementApi.md#Remove-V2025NonEmployeeRecord) | **DELETE** /non-employee-records/{id} | Delete Non-Employee Record
-*V2025NonEmployeeLifecycleManagementApi* | [**Remove-V2025NonEmployeeRecordsInBulk**](docs/V2025NonEmployeeLifecycleManagementApi.md#Remove-V2025NonEmployeeRecordsInBulk) | **POST** /non-employee-records/bulk-delete | Delete Multiple Non-Employee Records
-*V2025NonEmployeeLifecycleManagementApi* | [**Remove-V2025NonEmployeeRequest**](docs/V2025NonEmployeeLifecycleManagementApi.md#Remove-V2025NonEmployeeRequest) | **DELETE** /non-employee-requests/{id} | Delete Non-Employee Request
-*V2025NonEmployeeLifecycleManagementApi* | [**Remove-V2025NonEmployeeSchemaAttribute**](docs/V2025NonEmployeeLifecycleManagementApi.md#Remove-V2025NonEmployeeSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a Schema Attribute for Non-Employee Source
-*V2025NonEmployeeLifecycleManagementApi* | [**Remove-V2025NonEmployeeSource**](docs/V2025NonEmployeeLifecycleManagementApi.md#Remove-V2025NonEmployeeSource) | **DELETE** /non-employee-sources/{sourceId} | Delete Non-Employee Source
-*V2025NonEmployeeLifecycleManagementApi* | [**Remove-V2025NonEmployeeSourceSchemaAttributes**](docs/V2025NonEmployeeLifecycleManagementApi.md#Remove-V2025NonEmployeeSourceSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for Non-Employee Source
-*V2025NonEmployeeLifecycleManagementApi* | [**Export-V2025NonEmployeeRecords**](docs/V2025NonEmployeeLifecycleManagementApi.md#Export-V2025NonEmployeeRecords) | **GET** /non-employee-sources/{id}/non-employees/download | Exports Non-Employee Records to CSV
-*V2025NonEmployeeLifecycleManagementApi* | [**Export-V2025NonEmployeeSourceSchemaTemplate**](docs/V2025NonEmployeeLifecycleManagementApi.md#Export-V2025NonEmployeeSourceSchemaTemplate) | **GET** /non-employee-sources/{id}/schema-attributes-template/download | Exports Source Schema Template
+*V2025MachineIdentitiesApi* | [**Get-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#Get-V2025MachineIdentity) | **GET** /machine-identities/{id} | Machine identity details
+*V2025MachineIdentitiesApi* | [**Get-V2025MachineIdentities**](docs/V2025MachineIdentitiesApi.md#Get-V2025MachineIdentities) | **GET** /machine-identities | List machine identities
+*V2025MachineIdentitiesApi* | [**Update-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#Update-V2025MachineIdentity) | **PATCH** /machine-identities/{id} | Update a machine identity
+*V2025ManagedClientsApi* | [**New-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#New-V2025ManagedClient) | **POST** /managed-clients | Create managed client
+*V2025ManagedClientsApi* | [**Remove-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#Remove-V2025ManagedClient) | **DELETE** /managed-clients/{id} | Delete managed client
+*V2025ManagedClientsApi* | [**Get-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#Get-V2025ManagedClient) | **GET** /managed-clients/{id} | Get managed client
+*V2025ManagedClientsApi* | [**Get-V2025ManagedClientStatus**](docs/V2025ManagedClientsApi.md#Get-V2025ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get managed client status
+*V2025ManagedClientsApi* | [**Get-V2025ManagedClients**](docs/V2025ManagedClientsApi.md#Get-V2025ManagedClients) | **GET** /managed-clients | Get managed clients
+*V2025ManagedClientsApi* | [**Update-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#Update-V2025ManagedClient) | **PATCH** /managed-clients/{id} | Update managed client
+*V2025ManagedClusterTypesApi* | [**New-V2025ManagedClusterType**](docs/V2025ManagedClusterTypesApi.md#New-V2025ManagedClusterType) | **POST** /managed-cluster-types | Create new managed cluster type
+*V2025ManagedClusterTypesApi* | [**Remove-V2025ManagedClusterType**](docs/V2025ManagedClusterTypesApi.md#Remove-V2025ManagedClusterType) | **DELETE** /managed-cluster-types/{id} | Delete a managed cluster type
+*V2025ManagedClusterTypesApi* | [**Get-V2025ManagedClusterType**](docs/V2025ManagedClusterTypesApi.md#Get-V2025ManagedClusterType) | **GET** /managed-cluster-types/{id} | Get a managed cluster type
+*V2025ManagedClusterTypesApi* | [**Get-V2025ManagedClusterTypes**](docs/V2025ManagedClusterTypesApi.md#Get-V2025ManagedClusterTypes) | **GET** /managed-cluster-types | List managed cluster types
+*V2025ManagedClusterTypesApi* | [**Update-V2025ManagedClusterType**](docs/V2025ManagedClusterTypesApi.md#Update-V2025ManagedClusterType) | **PATCH** /managed-cluster-types/{id} | Update a managed cluster type
+*V2025ManagedClustersApi* | [**New-V2025ManagedCluster**](docs/V2025ManagedClustersApi.md#New-V2025ManagedCluster) | **POST** /managed-clusters | Create create managed cluster
+*V2025ManagedClustersApi* | [**Remove-V2025ManagedCluster**](docs/V2025ManagedClustersApi.md#Remove-V2025ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete managed cluster
+*V2025ManagedClustersApi* | [**Get-V2025ClientLogConfiguration**](docs/V2025ManagedClustersApi.md#Get-V2025ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get managed cluster log configuration
+*V2025ManagedClustersApi* | [**Get-V2025ManagedCluster**](docs/V2025ManagedClustersApi.md#Get-V2025ManagedCluster) | **GET** /managed-clusters/{id} | Get managed cluster
+*V2025ManagedClustersApi* | [**Get-V2025ManagedClusters**](docs/V2025ManagedClustersApi.md#Get-V2025ManagedClusters) | **GET** /managed-clusters | Get managed clusters
+*V2025ManagedClustersApi* | [**Send-V2025ClientLogConfiguration**](docs/V2025ManagedClustersApi.md#Send-V2025ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster log configuration
+*V2025ManagedClustersApi* | [**Update-V2025**](docs/V2025ManagedClustersApi.md#Update-V2025) | **POST** /managed-clusters/{id}/manualUpgrade | Trigger manual upgrade for managed cluster
+*V2025ManagedClustersApi* | [**Update-V2025ManagedCluster**](docs/V2025ManagedClustersApi.md#Update-V2025ManagedCluster) | **PATCH** /managed-clusters/{id} | Update managed cluster
+*V2025MultiHostIntegrationApi* | [**New-V2025MultiHostIntegration**](docs/V2025MultiHostIntegrationApi.md#New-V2025MultiHostIntegration) | **POST** /multihosts | Create multi-host integration
+*V2025MultiHostIntegrationApi* | [**New-V2025SourcesWithinMultiHost**](docs/V2025MultiHostIntegrationApi.md#New-V2025SourcesWithinMultiHost) | **POST** /multihosts/{multihostId} | Create sources within multi-host integration
+*V2025MultiHostIntegrationApi* | [**Remove-V2025MultiHost**](docs/V2025MultiHostIntegrationApi.md#Remove-V2025MultiHost) | **DELETE** /multihosts/{multihostId} | Delete multi-host integration
+*V2025MultiHostIntegrationApi* | [**Get-V2025AcctAggregationGroups**](docs/V2025MultiHostIntegrationApi.md#Get-V2025AcctAggregationGroups) | **GET** /multihosts/{multihostId}/acctAggregationGroups | List account-aggregation-groups by multi-host id
+*V2025MultiHostIntegrationApi* | [**Get-V2025EntitlementAggregationGroups**](docs/V2025MultiHostIntegrationApi.md#Get-V2025EntitlementAggregationGroups) | **GET** /multihosts/{multiHostId}/entitlementAggregationGroups | List entitlement-aggregation-groups by integration id
+*V2025MultiHostIntegrationApi* | [**Get-V2025MultiHostIntegrations**](docs/V2025MultiHostIntegrationApi.md#Get-V2025MultiHostIntegrations) | **GET** /multihosts/{multihostId} | Get multi-host integration by id
+*V2025MultiHostIntegrationApi* | [**Get-V2025MultiHostIntegrationsList**](docs/V2025MultiHostIntegrationApi.md#Get-V2025MultiHostIntegrationsList) | **GET** /multihosts | List all existing multi-host integrations
+*V2025MultiHostIntegrationApi* | [**Get-V2025MultiHostSourceCreationErrors**](docs/V2025MultiHostIntegrationApi.md#Get-V2025MultiHostSourceCreationErrors) | **GET** /multihosts/{multiHostId}/sources/errors | List multi-host source creation errors
+*V2025MultiHostIntegrationApi* | [**Get-V2025MultihostIntegrationTypes**](docs/V2025MultiHostIntegrationApi.md#Get-V2025MultihostIntegrationTypes) | **GET** /multihosts/types | List multi-host integration types
+*V2025MultiHostIntegrationApi* | [**Get-V2025SourcesWithinMultiHost**](docs/V2025MultiHostIntegrationApi.md#Get-V2025SourcesWithinMultiHost) | **GET** /multihosts/{multihostId}/sources | List sources within multi-host integration
+*V2025MultiHostIntegrationApi* | [**Test-V2025ConnectionMultiHostSources**](docs/V2025MultiHostIntegrationApi.md#Test-V2025ConnectionMultiHostSources) | **POST** /multihosts/{multihostId}/sources/testConnection | Test configuration for multi-host integration
+*V2025MultiHostIntegrationApi* | [**Test-V2025SourceConnectionMultihost**](docs/V2025MultiHostIntegrationApi.md#Test-V2025SourceConnectionMultihost) | **GET** /multihosts/{multihostId}/sources/{sourceId}/testConnection | Test configuration for multi-host integration's single source
+*V2025MultiHostIntegrationApi* | [**Update-V2025MultiHostSources**](docs/V2025MultiHostIntegrationApi.md#Update-V2025MultiHostSources) | **PATCH** /multihosts/{multihostId} | Update multi-host integration
+*V2025NonEmployeeLifecycleManagementApi* | [**Approve-V2025NonEmployeeRequest**](docs/V2025NonEmployeeLifecycleManagementApi.md#Approve-V2025NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a non-employee request
+*V2025NonEmployeeLifecycleManagementApi* | [**New-V2025NonEmployeeRecord**](docs/V2025NonEmployeeLifecycleManagementApi.md#New-V2025NonEmployeeRecord) | **POST** /non-employee-records | Create non-employee record
+*V2025NonEmployeeLifecycleManagementApi* | [**New-V2025NonEmployeeRequest**](docs/V2025NonEmployeeLifecycleManagementApi.md#New-V2025NonEmployeeRequest) | **POST** /non-employee-requests | Create non-employee request
+*V2025NonEmployeeLifecycleManagementApi* | [**New-V2025NonEmployeeSource**](docs/V2025NonEmployeeLifecycleManagementApi.md#New-V2025NonEmployeeSource) | **POST** /non-employee-sources | Create non-employee source
+*V2025NonEmployeeLifecycleManagementApi* | [**New-V2025NonEmployeeSourceSchemaAttributes**](docs/V2025NonEmployeeLifecycleManagementApi.md#New-V2025NonEmployeeSourceSchemaAttributes) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create a new schema attribute for non-employee source
+*V2025NonEmployeeLifecycleManagementApi* | [**Remove-V2025NonEmployeeRecord**](docs/V2025NonEmployeeLifecycleManagementApi.md#Remove-V2025NonEmployeeRecord) | **DELETE** /non-employee-records/{id} | Delete non-employee record
+*V2025NonEmployeeLifecycleManagementApi* | [**Remove-V2025NonEmployeeRecordsInBulk**](docs/V2025NonEmployeeLifecycleManagementApi.md#Remove-V2025NonEmployeeRecordsInBulk) | **POST** /non-employee-records/bulk-delete | Delete multiple non-employee records
+*V2025NonEmployeeLifecycleManagementApi* | [**Remove-V2025NonEmployeeRequest**](docs/V2025NonEmployeeLifecycleManagementApi.md#Remove-V2025NonEmployeeRequest) | **DELETE** /non-employee-requests/{id} | Delete non-employee request
+*V2025NonEmployeeLifecycleManagementApi* | [**Remove-V2025NonEmployeeSchemaAttribute**](docs/V2025NonEmployeeLifecycleManagementApi.md#Remove-V2025NonEmployeeSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a schema attribute for non-employee source
+*V2025NonEmployeeLifecycleManagementApi* | [**Remove-V2025NonEmployeeSource**](docs/V2025NonEmployeeLifecycleManagementApi.md#Remove-V2025NonEmployeeSource) | **DELETE** /non-employee-sources/{sourceId} | Delete non-employee source
+*V2025NonEmployeeLifecycleManagementApi* | [**Remove-V2025NonEmployeeSourceSchemaAttributes**](docs/V2025NonEmployeeLifecycleManagementApi.md#Remove-V2025NonEmployeeSourceSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for non-employee source
+*V2025NonEmployeeLifecycleManagementApi* | [**Export-V2025NonEmployeeRecords**](docs/V2025NonEmployeeLifecycleManagementApi.md#Export-V2025NonEmployeeRecords) | **GET** /non-employee-sources/{id}/non-employees/download | Exports non-employee records to csv
+*V2025NonEmployeeLifecycleManagementApi* | [**Export-V2025NonEmployeeSourceSchemaTemplate**](docs/V2025NonEmployeeLifecycleManagementApi.md#Export-V2025NonEmployeeSourceSchemaTemplate) | **GET** /non-employee-sources/{id}/schema-attributes-template/download | Exports source schema template
 *V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeApproval**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeApproval) | **GET** /non-employee-approvals/{id} | Get a non-employee approval item detail
-*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeApprovalSummary**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeApprovalSummary) | **GET** /non-employee-approvals/summary/{requested-for} | Get Summary of Non-Employee Approval Requests
+*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeApprovalSummary**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeApprovalSummary) | **GET** /non-employee-approvals/summary/{requested-for} | Get summary of non-employee approval requests
 *V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeBulkUploadStatus**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeBulkUploadStatus) | **GET** /non-employee-sources/{id}/non-employee-bulk-upload/status | Obtain the status of bulk upload on the source
-*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeRecord**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeRecord) | **GET** /non-employee-records/{id} | Get a Non-Employee Record
-*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeRequest**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeRequest) | **GET** /non-employee-requests/{id} | Get a Non-Employee Request
-*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeRequestSummary**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeRequestSummary) | **GET** /non-employee-requests/summary/{requested-for} | Get Summary of Non-Employee Requests
-*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeSchemaAttribute**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeSchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get Schema Attribute Non-Employee Source
-*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeSource**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeSource) | **GET** /non-employee-sources/{sourceId} | Get a Non-Employee Source
-*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeSourceSchemaAttributes**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeSourceSchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List Schema Attributes Non-Employee Source
-*V2025NonEmployeeLifecycleManagementApi* | [**Import-V2025NonEmployeeRecordsInBulk**](docs/V2025NonEmployeeLifecycleManagementApi.md#Import-V2025NonEmployeeRecordsInBulk) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or Updates, Non-Employee Records
-*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeApprovals**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeApprovals) | **GET** /non-employee-approvals | Get List of Non-Employee Approval Requests
-*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeRecords**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeRecords) | **GET** /non-employee-records | List Non-Employee Records
-*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeRequests**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeRequests) | **GET** /non-employee-requests | List Non-Employee Requests
-*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeSources**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeSources) | **GET** /non-employee-sources | List Non-Employee Sources
-*V2025NonEmployeeLifecycleManagementApi* | [**Update-V2025NonEmployeeRecord**](docs/V2025NonEmployeeLifecycleManagementApi.md#Update-V2025NonEmployeeRecord) | **PATCH** /non-employee-records/{id} | Patch Non-Employee Record
-*V2025NonEmployeeLifecycleManagementApi* | [**Update-V2025NonEmployeeSchemaAttribute**](docs/V2025NonEmployeeLifecycleManagementApi.md#Update-V2025NonEmployeeSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a Schema Attribute for Non-Employee Source
-*V2025NonEmployeeLifecycleManagementApi* | [**Update-V2025NonEmployeeSource**](docs/V2025NonEmployeeLifecycleManagementApi.md#Update-V2025NonEmployeeSource) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
-*V2025NonEmployeeLifecycleManagementApi* | [**Deny-V2025NonEmployeeRequest**](docs/V2025NonEmployeeLifecycleManagementApi.md#Deny-V2025NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a Non-Employee Request
-*V2025NonEmployeeLifecycleManagementApi* | [**Update-V2025NonEmployeeRecord**](docs/V2025NonEmployeeLifecycleManagementApi.md#Update-V2025NonEmployeeRecord) | **PUT** /non-employee-records/{id} | Update Non-Employee Record
-*V2025NotificationsApi* | [**New-V2025DomainDkim**](docs/V2025NotificationsApi.md#New-V2025DomainDkim) | **POST** /verified-domains | Verify domain address via DKIM
-*V2025NotificationsApi* | [**New-V2025NotificationTemplate**](docs/V2025NotificationsApi.md#New-V2025NotificationTemplate) | **POST** /notification-templates | Create Notification Template
-*V2025NotificationsApi* | [**New-V2025VerifiedFromAddress**](docs/V2025NotificationsApi.md#New-V2025VerifiedFromAddress) | **POST** /verified-from-addresses | Create Verified From Address
-*V2025NotificationsApi* | [**Remove-V2025NotificationTemplatesInBulk**](docs/V2025NotificationsApi.md#Remove-V2025NotificationTemplatesInBulk) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
-*V2025NotificationsApi* | [**Remove-V2025VerifiedFromAddress**](docs/V2025NotificationsApi.md#Remove-V2025VerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
-*V2025NotificationsApi* | [**Get-V2025DkimAttributes**](docs/V2025NotificationsApi.md#Get-V2025DkimAttributes) | **GET** /verified-domains | Get DKIM Attributes
-*V2025NotificationsApi* | [**Get-V2025MailFromAttributes**](docs/V2025NotificationsApi.md#Get-V2025MailFromAttributes) | **GET** /mail-from-attributes/{identity} | Get MAIL FROM Attributes
-*V2025NotificationsApi* | [**Get-V2025NotificationTemplate**](docs/V2025NotificationsApi.md#Get-V2025NotificationTemplate) | **GET** /notification-templates/{id} | Get Notification Template By Id
-*V2025NotificationsApi* | [**Get-V2025NotificationsTemplateContext**](docs/V2025NotificationsApi.md#Get-V2025NotificationsTemplateContext) | **GET** /notification-template-context | Get Notification Template Context
-*V2025NotificationsApi* | [**Get-V2025FromAddresses**](docs/V2025NotificationsApi.md#Get-V2025FromAddresses) | **GET** /verified-from-addresses | List From Addresses
-*V2025NotificationsApi* | [**Get-V2025NotificationPreferences**](docs/V2025NotificationsApi.md#Get-V2025NotificationPreferences) | **GET** /notification-preferences/{key} | List Notification Preferences for tenant.
-*V2025NotificationsApi* | [**Get-V2025NotificationTemplateDefaults**](docs/V2025NotificationsApi.md#Get-V2025NotificationTemplateDefaults) | **GET** /notification-template-defaults | List Notification Template Defaults
-*V2025NotificationsApi* | [**Get-V2025NotificationTemplates**](docs/V2025NotificationsApi.md#Get-V2025NotificationTemplates) | **GET** /notification-templates | List Notification Templates
-*V2025NotificationsApi* | [**Send-V2025MailFromAttributes**](docs/V2025NotificationsApi.md#Send-V2025MailFromAttributes) | **PUT** /mail-from-attributes | Change MAIL FROM domain
-*V2025NotificationsApi* | [**Send-V2025TestNotification**](docs/V2025NotificationsApi.md#Send-V2025TestNotification) | **POST** /send-test-notification | Send Test Notification
-*V2025OAuthClientsApi* | [**New-V2025OauthClient**](docs/V2025OAuthClientsApi.md#New-V2025OauthClient) | **POST** /oauth-clients | Create OAuth Client
-*V2025OAuthClientsApi* | [**Remove-V2025OauthClient**](docs/V2025OAuthClientsApi.md#Remove-V2025OauthClient) | **DELETE** /oauth-clients/{id} | Delete OAuth Client
-*V2025OAuthClientsApi* | [**Get-V2025OauthClient**](docs/V2025OAuthClientsApi.md#Get-V2025OauthClient) | **GET** /oauth-clients/{id} | Get OAuth Client
-*V2025OAuthClientsApi* | [**Get-V2025OauthClients**](docs/V2025OAuthClientsApi.md#Get-V2025OauthClients) | **GET** /oauth-clients | List OAuth Clients
-*V2025OAuthClientsApi* | [**Update-V2025OauthClient**](docs/V2025OAuthClientsApi.md#Update-V2025OauthClient) | **PATCH** /oauth-clients/{id} | Patch OAuth Client
-*V2025OrgConfigApi* | [**Get-V2025OrgConfig**](docs/V2025OrgConfigApi.md#Get-V2025OrgConfig) | **GET** /org-config | Get Org Config Settings
-*V2025OrgConfigApi* | [**Get-V2025ValidTimeZones**](docs/V2025OrgConfigApi.md#Get-V2025ValidTimeZones) | **GET** /org-config/valid-time-zones | Get Valid Time Zones
-*V2025OrgConfigApi* | [**Update-V2025OrgConfig**](docs/V2025OrgConfigApi.md#Update-V2025OrgConfig) | **PATCH** /org-config | Patch Org Config
-*V2025PasswordConfigurationApi* | [**New-V2025PasswordOrgConfig**](docs/V2025PasswordConfigurationApi.md#New-V2025PasswordOrgConfig) | **POST** /password-org-config | Create Password Org Config
-*V2025PasswordConfigurationApi* | [**Get-V2025PasswordOrgConfig**](docs/V2025PasswordConfigurationApi.md#Get-V2025PasswordOrgConfig) | **GET** /password-org-config | Get Password Org Config
-*V2025PasswordConfigurationApi* | [**Send-V2025PasswordOrgConfig**](docs/V2025PasswordConfigurationApi.md#Send-V2025PasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
-*V2025PasswordDictionaryApi* | [**Get-V2025PasswordDictionary**](docs/V2025PasswordDictionaryApi.md#Get-V2025PasswordDictionary) | **GET** /password-dictionary | Get Password Dictionary
-*V2025PasswordDictionaryApi* | [**Send-V2025PasswordDictionary**](docs/V2025PasswordDictionaryApi.md#Send-V2025PasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
+*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeRecord**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeRecord) | **GET** /non-employee-records/{id} | Get a non-employee record
+*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeRequest**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeRequest) | **GET** /non-employee-requests/{id} | Get a non-employee request
+*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeRequestSummary**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeRequestSummary) | **GET** /non-employee-requests/summary/{requested-for} | Get summary of non-employee requests
+*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeSchemaAttribute**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeSchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get schema attribute non-employee source
+*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeSource**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeSource) | **GET** /non-employee-sources/{sourceId} | Get a non-employee source
+*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeSourceSchemaAttributes**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeSourceSchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List schema attributes non-employee source
+*V2025NonEmployeeLifecycleManagementApi* | [**Import-V2025NonEmployeeRecordsInBulk**](docs/V2025NonEmployeeLifecycleManagementApi.md#Import-V2025NonEmployeeRecordsInBulk) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or updates, non-employee records
+*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeApprovals**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeApprovals) | **GET** /non-employee-approvals | Get list of non-employee approval requests
+*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeRecords**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeRecords) | **GET** /non-employee-records | List non-employee records
+*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeRequests**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeRequests) | **GET** /non-employee-requests | List non-employee requests
+*V2025NonEmployeeLifecycleManagementApi* | [**Get-V2025NonEmployeeSources**](docs/V2025NonEmployeeLifecycleManagementApi.md#Get-V2025NonEmployeeSources) | **GET** /non-employee-sources | List non-employee sources
+*V2025NonEmployeeLifecycleManagementApi* | [**Update-V2025NonEmployeeRecord**](docs/V2025NonEmployeeLifecycleManagementApi.md#Update-V2025NonEmployeeRecord) | **PATCH** /non-employee-records/{id} | Patch non-employee record
+*V2025NonEmployeeLifecycleManagementApi* | [**Update-V2025NonEmployeeSchemaAttribute**](docs/V2025NonEmployeeLifecycleManagementApi.md#Update-V2025NonEmployeeSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a schema attribute for non-employee source
+*V2025NonEmployeeLifecycleManagementApi* | [**Update-V2025NonEmployeeSource**](docs/V2025NonEmployeeLifecycleManagementApi.md#Update-V2025NonEmployeeSource) | **PATCH** /non-employee-sources/{sourceId} | Patch a non-employee source
+*V2025NonEmployeeLifecycleManagementApi* | [**Deny-V2025NonEmployeeRequest**](docs/V2025NonEmployeeLifecycleManagementApi.md#Deny-V2025NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a non-employee request
+*V2025NonEmployeeLifecycleManagementApi* | [**Update-V2025NonEmployeeRecord**](docs/V2025NonEmployeeLifecycleManagementApi.md#Update-V2025NonEmployeeRecord) | **PUT** /non-employee-records/{id} | Update non-employee record
+*V2025NotificationsApi* | [**New-V2025DomainDkim**](docs/V2025NotificationsApi.md#New-V2025DomainDkim) | **POST** /verified-domains | Verify domain address via dkim
+*V2025NotificationsApi* | [**New-V2025NotificationTemplate**](docs/V2025NotificationsApi.md#New-V2025NotificationTemplate) | **POST** /notification-templates | Create notification template
+*V2025NotificationsApi* | [**New-V2025VerifiedFromAddress**](docs/V2025NotificationsApi.md#New-V2025VerifiedFromAddress) | **POST** /verified-from-addresses | Create verified from address
+*V2025NotificationsApi* | [**Remove-V2025NotificationTemplatesInBulk**](docs/V2025NotificationsApi.md#Remove-V2025NotificationTemplatesInBulk) | **POST** /notification-templates/bulk-delete | Bulk delete notification templates
+*V2025NotificationsApi* | [**Remove-V2025VerifiedFromAddress**](docs/V2025NotificationsApi.md#Remove-V2025VerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete verified from address
+*V2025NotificationsApi* | [**Get-V2025DkimAttributes**](docs/V2025NotificationsApi.md#Get-V2025DkimAttributes) | **GET** /verified-domains | Get dkim attributes
+*V2025NotificationsApi* | [**Get-V2025MailFromAttributes**](docs/V2025NotificationsApi.md#Get-V2025MailFromAttributes) | **GET** /mail-from-attributes/{identity} | Get mail from attributes
+*V2025NotificationsApi* | [**Get-V2025NotificationTemplate**](docs/V2025NotificationsApi.md#Get-V2025NotificationTemplate) | **GET** /notification-templates/{id} | Get notification template by id
+*V2025NotificationsApi* | [**Get-V2025NotificationsTemplateContext**](docs/V2025NotificationsApi.md#Get-V2025NotificationsTemplateContext) | **GET** /notification-template-context | Get notification template context
+*V2025NotificationsApi* | [**Get-V2025FromAddresses**](docs/V2025NotificationsApi.md#Get-V2025FromAddresses) | **GET** /verified-from-addresses | List from addresses
+*V2025NotificationsApi* | [**Get-V2025NotificationPreferences**](docs/V2025NotificationsApi.md#Get-V2025NotificationPreferences) | **GET** /notification-preferences/{key} | List notification preferences for tenant.
+*V2025NotificationsApi* | [**Get-V2025NotificationTemplateDefaults**](docs/V2025NotificationsApi.md#Get-V2025NotificationTemplateDefaults) | **GET** /notification-template-defaults | List notification template defaults
+*V2025NotificationsApi* | [**Get-V2025NotificationTemplates**](docs/V2025NotificationsApi.md#Get-V2025NotificationTemplates) | **GET** /notification-templates | List notification templates
+*V2025NotificationsApi* | [**Send-V2025MailFromAttributes**](docs/V2025NotificationsApi.md#Send-V2025MailFromAttributes) | **PUT** /mail-from-attributes | Change mail from domain
+*V2025NotificationsApi* | [**Send-V2025TestNotification**](docs/V2025NotificationsApi.md#Send-V2025TestNotification) | **POST** /send-test-notification | Send test notification
+*V2025OAuthClientsApi* | [**New-V2025OauthClient**](docs/V2025OAuthClientsApi.md#New-V2025OauthClient) | **POST** /oauth-clients | Create oauth client
+*V2025OAuthClientsApi* | [**Remove-V2025OauthClient**](docs/V2025OAuthClientsApi.md#Remove-V2025OauthClient) | **DELETE** /oauth-clients/{id} | Delete oauth client
+*V2025OAuthClientsApi* | [**Get-V2025OauthClient**](docs/V2025OAuthClientsApi.md#Get-V2025OauthClient) | **GET** /oauth-clients/{id} | Get oauth client
+*V2025OAuthClientsApi* | [**Get-V2025OauthClients**](docs/V2025OAuthClientsApi.md#Get-V2025OauthClients) | **GET** /oauth-clients | List oauth clients
+*V2025OAuthClientsApi* | [**Update-V2025OauthClient**](docs/V2025OAuthClientsApi.md#Update-V2025OauthClient) | **PATCH** /oauth-clients/{id} | Patch oauth client
+*V2025OrgConfigApi* | [**Get-V2025OrgConfig**](docs/V2025OrgConfigApi.md#Get-V2025OrgConfig) | **GET** /org-config | Get org config settings
+*V2025OrgConfigApi* | [**Get-V2025ValidTimeZones**](docs/V2025OrgConfigApi.md#Get-V2025ValidTimeZones) | **GET** /org-config/valid-time-zones | Get valid time zones
+*V2025OrgConfigApi* | [**Update-V2025OrgConfig**](docs/V2025OrgConfigApi.md#Update-V2025OrgConfig) | **PATCH** /org-config | Patch org config
+*V2025PasswordConfigurationApi* | [**New-V2025PasswordOrgConfig**](docs/V2025PasswordConfigurationApi.md#New-V2025PasswordOrgConfig) | **POST** /password-org-config | Create password org config
+*V2025PasswordConfigurationApi* | [**Get-V2025PasswordOrgConfig**](docs/V2025PasswordConfigurationApi.md#Get-V2025PasswordOrgConfig) | **GET** /password-org-config | Get password org config
+*V2025PasswordConfigurationApi* | [**Send-V2025PasswordOrgConfig**](docs/V2025PasswordConfigurationApi.md#Send-V2025PasswordOrgConfig) | **PUT** /password-org-config | Update password org config
+*V2025PasswordDictionaryApi* | [**Get-V2025PasswordDictionary**](docs/V2025PasswordDictionaryApi.md#Get-V2025PasswordDictionary) | **GET** /password-dictionary | Get password dictionary
+*V2025PasswordDictionaryApi* | [**Send-V2025PasswordDictionary**](docs/V2025PasswordDictionaryApi.md#Send-V2025PasswordDictionary) | **PUT** /password-dictionary | Update password dictionary
 *V2025PasswordManagementApi* | [**New-V2025DigitToken**](docs/V2025PasswordManagementApi.md#New-V2025DigitToken) | **POST** /generate-password-reset-token/digit | Generate a digit token
-*V2025PasswordManagementApi* | [**Get-V2025PasswordChangeStatus**](docs/V2025PasswordManagementApi.md#Get-V2025PasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
-*V2025PasswordManagementApi* | [**Search-V2025PasswordInfo**](docs/V2025PasswordManagementApi.md#Search-V2025PasswordInfo) | **POST** /query-password-info | Query Password Info
-*V2025PasswordManagementApi* | [**Set-V2025Password**](docs/V2025PasswordManagementApi.md#Set-V2025Password) | **POST** /set-password | Set Identity's Password
-*V2025PasswordPoliciesApi* | [**New-V2025PasswordPolicy**](docs/V2025PasswordPoliciesApi.md#New-V2025PasswordPolicy) | **POST** /password-policies | Create Password Policy
-*V2025PasswordPoliciesApi* | [**Remove-V2025PasswordPolicy**](docs/V2025PasswordPoliciesApi.md#Remove-V2025PasswordPolicy) | **DELETE** /password-policies/{id} | Delete Password Policy by ID
-*V2025PasswordPoliciesApi* | [**Get-V2025PasswordPolicyById**](docs/V2025PasswordPoliciesApi.md#Get-V2025PasswordPolicyById) | **GET** /password-policies/{id} | Get Password Policy by ID
-*V2025PasswordPoliciesApi* | [**Get-V2025PasswordPolicies**](docs/V2025PasswordPoliciesApi.md#Get-V2025PasswordPolicies) | **GET** /password-policies | List Password Policies
-*V2025PasswordPoliciesApi* | [**Set-V2025PasswordPolicy**](docs/V2025PasswordPoliciesApi.md#Set-V2025PasswordPolicy) | **PUT** /password-policies/{id} | Update Password Policy by ID
-*V2025PasswordSyncGroupsApi* | [**New-V2025PasswordSyncGroup**](docs/V2025PasswordSyncGroupsApi.md#New-V2025PasswordSyncGroup) | **POST** /password-sync-groups | Create Password Sync Group
-*V2025PasswordSyncGroupsApi* | [**Remove-V2025PasswordSyncGroup**](docs/V2025PasswordSyncGroupsApi.md#Remove-V2025PasswordSyncGroup) | **DELETE** /password-sync-groups/{id} | Delete Password Sync Group by ID
-*V2025PasswordSyncGroupsApi* | [**Get-V2025PasswordSyncGroup**](docs/V2025PasswordSyncGroupsApi.md#Get-V2025PasswordSyncGroup) | **GET** /password-sync-groups/{id} | Get Password Sync Group by ID
-*V2025PasswordSyncGroupsApi* | [**Get-V2025PasswordSyncGroups**](docs/V2025PasswordSyncGroupsApi.md#Get-V2025PasswordSyncGroups) | **GET** /password-sync-groups | Get Password Sync Group List
-*V2025PasswordSyncGroupsApi* | [**Update-V2025PasswordSyncGroup**](docs/V2025PasswordSyncGroupsApi.md#Update-V2025PasswordSyncGroup) | **PUT** /password-sync-groups/{id} | Update Password Sync Group by ID
-*V2025PersonalAccessTokensApi* | [**New-V2025PersonalAccessToken**](docs/V2025PersonalAccessTokensApi.md#New-V2025PersonalAccessToken) | **POST** /personal-access-tokens | Create Personal Access Token
-*V2025PersonalAccessTokensApi* | [**Remove-V2025PersonalAccessToken**](docs/V2025PersonalAccessTokensApi.md#Remove-V2025PersonalAccessToken) | **DELETE** /personal-access-tokens/{id} | Delete Personal Access Token
-*V2025PersonalAccessTokensApi* | [**Get-V2025PersonalAccessTokens**](docs/V2025PersonalAccessTokensApi.md#Get-V2025PersonalAccessTokens) | **GET** /personal-access-tokens | List Personal Access Tokens
-*V2025PersonalAccessTokensApi* | [**Update-V2025PersonalAccessToken**](docs/V2025PersonalAccessTokensApi.md#Update-V2025PersonalAccessToken) | **PATCH** /personal-access-tokens/{id} | Patch Personal Access Token
+*V2025PasswordManagementApi* | [**Get-V2025PasswordChangeStatus**](docs/V2025PasswordManagementApi.md#Get-V2025PasswordChangeStatus) | **GET** /password-change-status/{id} | Get password change request status
+*V2025PasswordManagementApi* | [**Search-V2025PasswordInfo**](docs/V2025PasswordManagementApi.md#Search-V2025PasswordInfo) | **POST** /query-password-info | Query password info
+*V2025PasswordManagementApi* | [**Set-V2025Password**](docs/V2025PasswordManagementApi.md#Set-V2025Password) | **POST** /set-password | Set identity's password
+*V2025PasswordPoliciesApi* | [**New-V2025PasswordPolicy**](docs/V2025PasswordPoliciesApi.md#New-V2025PasswordPolicy) | **POST** /password-policies | Create password policy
+*V2025PasswordPoliciesApi* | [**Remove-V2025PasswordPolicy**](docs/V2025PasswordPoliciesApi.md#Remove-V2025PasswordPolicy) | **DELETE** /password-policies/{id} | Delete password policy by id
+*V2025PasswordPoliciesApi* | [**Get-V2025PasswordPolicyById**](docs/V2025PasswordPoliciesApi.md#Get-V2025PasswordPolicyById) | **GET** /password-policies/{id} | Get password policy by id
+*V2025PasswordPoliciesApi* | [**Get-V2025PasswordPolicies**](docs/V2025PasswordPoliciesApi.md#Get-V2025PasswordPolicies) | **GET** /password-policies | List password policies
+*V2025PasswordPoliciesApi* | [**Set-V2025PasswordPolicy**](docs/V2025PasswordPoliciesApi.md#Set-V2025PasswordPolicy) | **PUT** /password-policies/{id} | Update password policy by id
+*V2025PasswordSyncGroupsApi* | [**New-V2025PasswordSyncGroup**](docs/V2025PasswordSyncGroupsApi.md#New-V2025PasswordSyncGroup) | **POST** /password-sync-groups | Create password sync group
+*V2025PasswordSyncGroupsApi* | [**Remove-V2025PasswordSyncGroup**](docs/V2025PasswordSyncGroupsApi.md#Remove-V2025PasswordSyncGroup) | **DELETE** /password-sync-groups/{id} | Delete password sync group by id
+*V2025PasswordSyncGroupsApi* | [**Get-V2025PasswordSyncGroup**](docs/V2025PasswordSyncGroupsApi.md#Get-V2025PasswordSyncGroup) | **GET** /password-sync-groups/{id} | Get password sync group by id
+*V2025PasswordSyncGroupsApi* | [**Get-V2025PasswordSyncGroups**](docs/V2025PasswordSyncGroupsApi.md#Get-V2025PasswordSyncGroups) | **GET** /password-sync-groups | Get password sync group list
+*V2025PasswordSyncGroupsApi* | [**Update-V2025PasswordSyncGroup**](docs/V2025PasswordSyncGroupsApi.md#Update-V2025PasswordSyncGroup) | **PUT** /password-sync-groups/{id} | Update password sync group by id
+*V2025PersonalAccessTokensApi* | [**New-V2025PersonalAccessToken**](docs/V2025PersonalAccessTokensApi.md#New-V2025PersonalAccessToken) | **POST** /personal-access-tokens | Create personal access token
+*V2025PersonalAccessTokensApi* | [**Remove-V2025PersonalAccessToken**](docs/V2025PersonalAccessTokensApi.md#Remove-V2025PersonalAccessToken) | **DELETE** /personal-access-tokens/{id} | Delete personal access token
+*V2025PersonalAccessTokensApi* | [**Get-V2025PersonalAccessTokens**](docs/V2025PersonalAccessTokensApi.md#Get-V2025PersonalAccessTokens) | **GET** /personal-access-tokens | List personal access tokens
+*V2025PersonalAccessTokensApi* | [**Update-V2025PersonalAccessToken**](docs/V2025PersonalAccessTokensApi.md#Update-V2025PersonalAccessToken) | **PATCH** /personal-access-tokens/{id} | Patch personal access token
 *V2025PublicIdentitiesApi* | [**Get-V2025PublicIdentities**](docs/V2025PublicIdentitiesApi.md#Get-V2025PublicIdentities) | **GET** /public-identities | Get list of public identities
-*V2025PublicIdentitiesConfigApi* | [**Get-V2025PublicIdentityConfig**](docs/V2025PublicIdentitiesConfigApi.md#Get-V2025PublicIdentityConfig) | **GET** /public-identities-config | Get the Public Identities Configuration
-*V2025PublicIdentitiesConfigApi* | [**Update-V2025PublicIdentityConfig**](docs/V2025PublicIdentitiesConfigApi.md#Update-V2025PublicIdentityConfig) | **PUT** /public-identities-config | Update the Public Identities Configuration
-*V2025ReportsDataExtractionApi* | [**Suspend-V2025Report**](docs/V2025ReportsDataExtractionApi.md#Suspend-V2025Report) | **POST** /reports/{id}/cancel | Cancel Report
-*V2025ReportsDataExtractionApi* | [**Get-V2025Report**](docs/V2025ReportsDataExtractionApi.md#Get-V2025Report) | **GET** /reports/{taskResultId} | Get Report File
-*V2025ReportsDataExtractionApi* | [**Get-V2025ReportResult**](docs/V2025ReportsDataExtractionApi.md#Get-V2025ReportResult) | **GET** /reports/{taskResultId}/result | Get Report Result
-*V2025ReportsDataExtractionApi* | [**Start-V2025Report**](docs/V2025ReportsDataExtractionApi.md#Start-V2025Report) | **POST** /reports/run | Run Report
-*V2025RequestableObjectsApi* | [**Get-V2025RequestableObjects**](docs/V2025RequestableObjectsApi.md#Get-V2025RequestableObjects) | **GET** /requestable-objects | Requestable Objects List
+*V2025PublicIdentitiesConfigApi* | [**Get-V2025PublicIdentityConfig**](docs/V2025PublicIdentitiesConfigApi.md#Get-V2025PublicIdentityConfig) | **GET** /public-identities-config | Get the public identities configuration
+*V2025PublicIdentitiesConfigApi* | [**Update-V2025PublicIdentityConfig**](docs/V2025PublicIdentitiesConfigApi.md#Update-V2025PublicIdentityConfig) | **PUT** /public-identities-config | Update the public identities configuration
+*V2025ReportsDataExtractionApi* | [**Suspend-V2025Report**](docs/V2025ReportsDataExtractionApi.md#Suspend-V2025Report) | **POST** /reports/{id}/cancel | Cancel report
+*V2025ReportsDataExtractionApi* | [**Get-V2025Report**](docs/V2025ReportsDataExtractionApi.md#Get-V2025Report) | **GET** /reports/{taskResultId} | Get report file
+*V2025ReportsDataExtractionApi* | [**Get-V2025ReportResult**](docs/V2025ReportsDataExtractionApi.md#Get-V2025ReportResult) | **GET** /reports/{taskResultId}/result | Get report result
+*V2025ReportsDataExtractionApi* | [**Start-V2025Report**](docs/V2025ReportsDataExtractionApi.md#Start-V2025Report) | **POST** /reports/run | Run report
+*V2025RequestableObjectsApi* | [**Get-V2025RequestableObjects**](docs/V2025RequestableObjectsApi.md#Get-V2025RequestableObjects) | **GET** /requestable-objects | Requestable objects list
 *V2025RoleInsightsApi* | [**New-V2025RoleInsightRequests**](docs/V2025RoleInsightsApi.md#New-V2025RoleInsightRequests) | **POST** /role-insights/requests | Generate insights for roles
 *V2025RoleInsightsApi* | [**Invoke-V2025DownloadRoleInsightsEntitlementsChanges**](docs/V2025RoleInsightsApi.md#Invoke-V2025DownloadRoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes/download | Download entitlement insights for a role
 *V2025RoleInsightsApi* | [**Get-V2025EntitlementChangesIdentities**](docs/V2025RoleInsightsApi.md#Get-V2025EntitlementChangesIdentities) | **GET** /role-insights/{insightId}/entitlement-changes/{entitlementId}/identities | Get identities for a suggested entitlement (for a role)
@@ -528,226 +528,226 @@ Class | Method | HTTP request | Description
 *V2025RoleInsightsApi* | [**Get-V2025RoleInsightsEntitlementsChanges**](docs/V2025RoleInsightsApi.md#Get-V2025RoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes | Get entitlement insights for a role
 *V2025RoleInsightsApi* | [**Get-V2025RoleInsightsRequests**](docs/V2025RoleInsightsApi.md#Get-V2025RoleInsightsRequests) | **GET** /role-insights/requests/{id} | Returns metadata from prior request.
 *V2025RoleInsightsApi* | [**Get-V2025RoleInsightsSummary**](docs/V2025RoleInsightsApi.md#Get-V2025RoleInsightsSummary) | **GET** /role-insights/summary | Get role insights summary information
-*V2025RolesApi* | [**New-V2025Role**](docs/V2025RolesApi.md#New-V2025Role) | **POST** /roles | Create a Role
-*V2025RolesApi* | [**Remove-V2025BulkRoles**](docs/V2025RolesApi.md#Remove-V2025BulkRoles) | **POST** /roles/bulk-delete | Delete Role(s)
-*V2025RolesApi* | [**Remove-V2025MetadataFromRoleByKeyAndValue**](docs/V2025RolesApi.md#Remove-V2025MetadataFromRoleByKeyAndValue) | **DELETE** /roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove a Metadata From Role.
-*V2025RolesApi* | [**Remove-V2025Role**](docs/V2025RolesApi.md#Remove-V2025Role) | **DELETE** /roles/{id} | Delete a Role
-*V2025RolesApi* | [**Get-V2025BulkUpdateStatus**](docs/V2025RolesApi.md#Get-V2025BulkUpdateStatus) | **GET** /roles/access-model-metadata/bulk-update | Get Bulk-Update Statuses
-*V2025RolesApi* | [**Get-V2025BulkUpdateStatusById**](docs/V2025RolesApi.md#Get-V2025BulkUpdateStatusById) | **GET** /roles/access-model-metadata/bulk-update/id | Get Bulk-Update Status by ID
-*V2025RolesApi* | [**Get-V2025Role**](docs/V2025RolesApi.md#Get-V2025Role) | **GET** /roles/{id} | Get a Role
-*V2025RolesApi* | [**Get-V2025RoleAssignedIdentities**](docs/V2025RolesApi.md#Get-V2025RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
-*V2025RolesApi* | [**Get-V2025RoleEntitlements**](docs/V2025RolesApi.md#Get-V2025RoleEntitlements) | **GET** /roles/{id}/entitlements | List Role's Entitlements
-*V2025RolesApi* | [**Get-V2025Roles**](docs/V2025RolesApi.md#Get-V2025Roles) | **GET** /roles | List Roles
-*V2025RolesApi* | [**Update-V2025Role**](docs/V2025RolesApi.md#Update-V2025Role) | **PATCH** /roles/{id} | Patch a specified Role
-*V2025RolesApi* | [**Search-V2025RolesByFilter**](docs/V2025RolesApi.md#Search-V2025RolesByFilter) | **POST** /roles/filter | Filter Roles by Metadata
-*V2025RolesApi* | [**Update-V2025AttributeKeyAndValueToRole**](docs/V2025RolesApi.md#Update-V2025AttributeKeyAndValueToRole) | **POST** /roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add a Metadata to Role.
-*V2025RolesApi* | [**Update-V2025RolesMetadataByFilter**](docs/V2025RolesApi.md#Update-V2025RolesMetadataByFilter) | **POST** /roles/access-model-metadata/bulk-update/filter | Bulk-Update Roles' Metadata by Filters
-*V2025RolesApi* | [**Update-V2025RolesMetadataByIds**](docs/V2025RolesApi.md#Update-V2025RolesMetadataByIds) | **POST** /roles/access-model-metadata/bulk-update/ids | Bulk-Update Roles' Metadata by ID
-*V2025RolesApi* | [**Update-V2025RolesMetadataByQuery**](docs/V2025RolesApi.md#Update-V2025RolesMetadataByQuery) | **POST** /roles/access-model-metadata/bulk-update/query | Bulk-Update Roles' Metadata by Query
-*V2025SIMIntegrationsApi* | [**New-V2025SIMIntegration**](docs/V2025SIMIntegrationsApi.md#New-V2025SIMIntegration) | **POST** /sim-integrations | Create new SIM integration
-*V2025SIMIntegrationsApi* | [**Remove-V2025SIMIntegration**](docs/V2025SIMIntegrationsApi.md#Remove-V2025SIMIntegration) | **DELETE** /sim-integrations/{id} | Delete a SIM integration
-*V2025SIMIntegrationsApi* | [**Get-V2025SIMIntegration**](docs/V2025SIMIntegrationsApi.md#Get-V2025SIMIntegration) | **GET** /sim-integrations/{id} | Get a SIM integration details.
-*V2025SIMIntegrationsApi* | [**Get-V2025SIMIntegrations**](docs/V2025SIMIntegrationsApi.md#Get-V2025SIMIntegrations) | **GET** /sim-integrations | List the existing SIM integrations.
-*V2025SIMIntegrationsApi* | [**Update-V2025BeforeProvisioningRule**](docs/V2025SIMIntegrationsApi.md#Update-V2025BeforeProvisioningRule) | **PATCH** /sim-integrations/{id}/beforeProvisioningRule | Patch a SIM beforeProvisioningRule attribute.
-*V2025SIMIntegrationsApi* | [**Update-V2025SIMAttributes**](docs/V2025SIMIntegrationsApi.md#Update-V2025SIMAttributes) | **PATCH** /sim-integrations/{id} | Patch a SIM attribute.
-*V2025SIMIntegrationsApi* | [**Send-V2025SIMIntegration**](docs/V2025SIMIntegrationsApi.md#Send-V2025SIMIntegration) | **PUT** /sim-integrations/{id} | Update an existing SIM integration
-*V2025SODPoliciesApi* | [**New-V2025SodPolicy**](docs/V2025SODPoliciesApi.md#New-V2025SodPolicy) | **POST** /sod-policies | Create SOD policy
-*V2025SODPoliciesApi* | [**Remove-V2025SodPolicy**](docs/V2025SODPoliciesApi.md#Remove-V2025SodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
-*V2025SODPoliciesApi* | [**Remove-V2025SodPolicySchedule**](docs/V2025SODPoliciesApi.md#Remove-V2025SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
+*V2025RolesApi* | [**New-V2025Role**](docs/V2025RolesApi.md#New-V2025Role) | **POST** /roles | Create a role
+*V2025RolesApi* | [**Remove-V2025BulkRoles**](docs/V2025RolesApi.md#Remove-V2025BulkRoles) | **POST** /roles/bulk-delete | Delete role(s)
+*V2025RolesApi* | [**Remove-V2025MetadataFromRoleByKeyAndValue**](docs/V2025RolesApi.md#Remove-V2025MetadataFromRoleByKeyAndValue) | **DELETE** /roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove a metadata from role.
+*V2025RolesApi* | [**Remove-V2025Role**](docs/V2025RolesApi.md#Remove-V2025Role) | **DELETE** /roles/{id} | Delete a role
+*V2025RolesApi* | [**Get-V2025BulkUpdateStatus**](docs/V2025RolesApi.md#Get-V2025BulkUpdateStatus) | **GET** /roles/access-model-metadata/bulk-update | Get bulk-update statuses
+*V2025RolesApi* | [**Get-V2025BulkUpdateStatusById**](docs/V2025RolesApi.md#Get-V2025BulkUpdateStatusById) | **GET** /roles/access-model-metadata/bulk-update/id | Get bulk-update status by id
+*V2025RolesApi* | [**Get-V2025Role**](docs/V2025RolesApi.md#Get-V2025Role) | **GET** /roles/{id} | Get a role
+*V2025RolesApi* | [**Get-V2025RoleAssignedIdentities**](docs/V2025RolesApi.md#Get-V2025RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List identities assigned a role
+*V2025RolesApi* | [**Get-V2025RoleEntitlements**](docs/V2025RolesApi.md#Get-V2025RoleEntitlements) | **GET** /roles/{id}/entitlements | List role's entitlements
+*V2025RolesApi* | [**Get-V2025Roles**](docs/V2025RolesApi.md#Get-V2025Roles) | **GET** /roles | List roles
+*V2025RolesApi* | [**Update-V2025Role**](docs/V2025RolesApi.md#Update-V2025Role) | **PATCH** /roles/{id} | Patch a specified role
+*V2025RolesApi* | [**Search-V2025RolesByFilter**](docs/V2025RolesApi.md#Search-V2025RolesByFilter) | **POST** /roles/filter | Filter roles by metadata
+*V2025RolesApi* | [**Update-V2025AttributeKeyAndValueToRole**](docs/V2025RolesApi.md#Update-V2025AttributeKeyAndValueToRole) | **POST** /roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add a metadata to role.
+*V2025RolesApi* | [**Update-V2025RolesMetadataByFilter**](docs/V2025RolesApi.md#Update-V2025RolesMetadataByFilter) | **POST** /roles/access-model-metadata/bulk-update/filter | Bulk-update roles' metadata by filters
+*V2025RolesApi* | [**Update-V2025RolesMetadataByIds**](docs/V2025RolesApi.md#Update-V2025RolesMetadataByIds) | **POST** /roles/access-model-metadata/bulk-update/ids | Bulk-update roles' metadata by id
+*V2025RolesApi* | [**Update-V2025RolesMetadataByQuery**](docs/V2025RolesApi.md#Update-V2025RolesMetadataByQuery) | **POST** /roles/access-model-metadata/bulk-update/query | Bulk-update roles' metadata by query
+*V2025SIMIntegrationsApi* | [**New-V2025SIMIntegration**](docs/V2025SIMIntegrationsApi.md#New-V2025SIMIntegration) | **POST** /sim-integrations | Create new sim integration
+*V2025SIMIntegrationsApi* | [**Remove-V2025SIMIntegration**](docs/V2025SIMIntegrationsApi.md#Remove-V2025SIMIntegration) | **DELETE** /sim-integrations/{id} | Delete a sim integration
+*V2025SIMIntegrationsApi* | [**Get-V2025SIMIntegration**](docs/V2025SIMIntegrationsApi.md#Get-V2025SIMIntegration) | **GET** /sim-integrations/{id} | Get a sim integration details.
+*V2025SIMIntegrationsApi* | [**Get-V2025SIMIntegrations**](docs/V2025SIMIntegrationsApi.md#Get-V2025SIMIntegrations) | **GET** /sim-integrations | List the existing sim integrations.
+*V2025SIMIntegrationsApi* | [**Update-V2025BeforeProvisioningRule**](docs/V2025SIMIntegrationsApi.md#Update-V2025BeforeProvisioningRule) | **PATCH** /sim-integrations/{id}/beforeProvisioningRule | Patch a sim beforeprovisioningrule attribute.
+*V2025SIMIntegrationsApi* | [**Update-V2025SIMAttributes**](docs/V2025SIMIntegrationsApi.md#Update-V2025SIMAttributes) | **PATCH** /sim-integrations/{id} | Patch a sim attribute.
+*V2025SIMIntegrationsApi* | [**Send-V2025SIMIntegration**](docs/V2025SIMIntegrationsApi.md#Send-V2025SIMIntegration) | **PUT** /sim-integrations/{id} | Update an existing sim integration
+*V2025SODPoliciesApi* | [**New-V2025SodPolicy**](docs/V2025SODPoliciesApi.md#New-V2025SodPolicy) | **POST** /sod-policies | Create sod policy
+*V2025SODPoliciesApi* | [**Remove-V2025SodPolicy**](docs/V2025SODPoliciesApi.md#Remove-V2025SodPolicy) | **DELETE** /sod-policies/{id} | Delete sod policy by id
+*V2025SODPoliciesApi* | [**Remove-V2025SodPolicySchedule**](docs/V2025SODPoliciesApi.md#Remove-V2025SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete sod policy schedule
 *V2025SODPoliciesApi* | [**Get-V2025CustomViolationReport**](docs/V2025SODPoliciesApi.md#Get-V2025CustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
 *V2025SODPoliciesApi* | [**Get-V2025DefaultViolationReport**](docs/V2025SODPoliciesApi.md#Get-V2025DefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
 *V2025SODPoliciesApi* | [**Get-V2025SodAllReportRunStatus**](docs/V2025SODPoliciesApi.md#Get-V2025SodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
-*V2025SODPoliciesApi* | [**Get-V2025SodPolicy**](docs/V2025SODPoliciesApi.md#Get-V2025SodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
-*V2025SODPoliciesApi* | [**Get-V2025SodPolicySchedule**](docs/V2025SODPoliciesApi.md#Get-V2025SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
+*V2025SODPoliciesApi* | [**Get-V2025SodPolicy**](docs/V2025SODPoliciesApi.md#Get-V2025SodPolicy) | **GET** /sod-policies/{id} | Get sod policy by id
+*V2025SODPoliciesApi* | [**Get-V2025SodPolicySchedule**](docs/V2025SODPoliciesApi.md#Get-V2025SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get sod policy schedule
 *V2025SODPoliciesApi* | [**Get-V2025SodViolationReportRunStatus**](docs/V2025SODPoliciesApi.md#Get-V2025SodViolationReportRunStatus) | **GET** /sod-policies/sod-violation-report-status/{reportResultId} | Get violation report run status
-*V2025SODPoliciesApi* | [**Get-V2025SodViolationReportStatus**](docs/V2025SODPoliciesApi.md#Get-V2025SodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
-*V2025SODPoliciesApi* | [**Get-V2025SodPolicies**](docs/V2025SODPoliciesApi.md#Get-V2025SodPolicies) | **GET** /sod-policies | List SOD policies
-*V2025SODPoliciesApi* | [**Update-V2025SodPolicy**](docs/V2025SODPoliciesApi.md#Update-V2025SodPolicy) | **PATCH** /sod-policies/{id} | Patch SOD policy by ID
-*V2025SODPoliciesApi* | [**Send-V2025PolicySchedule**](docs/V2025SODPoliciesApi.md#Send-V2025PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
-*V2025SODPoliciesApi* | [**Send-V2025SodPolicy**](docs/V2025SODPoliciesApi.md#Send-V2025SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
-*V2025SODPoliciesApi* | [**Start-V2025EvaluateSodPolicy**](docs/V2025SODPoliciesApi.md#Start-V2025EvaluateSodPolicy) | **POST** /sod-policies/{id}/evaluate | Evaluate one policy by ID
+*V2025SODPoliciesApi* | [**Get-V2025SodViolationReportStatus**](docs/V2025SODPoliciesApi.md#Get-V2025SodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get sod violation report status
+*V2025SODPoliciesApi* | [**Get-V2025SodPolicies**](docs/V2025SODPoliciesApi.md#Get-V2025SodPolicies) | **GET** /sod-policies | List sod policies
+*V2025SODPoliciesApi* | [**Update-V2025SodPolicy**](docs/V2025SODPoliciesApi.md#Update-V2025SodPolicy) | **PATCH** /sod-policies/{id} | Patch sod policy by id
+*V2025SODPoliciesApi* | [**Send-V2025PolicySchedule**](docs/V2025SODPoliciesApi.md#Send-V2025PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update sod policy schedule
+*V2025SODPoliciesApi* | [**Send-V2025SodPolicy**](docs/V2025SODPoliciesApi.md#Send-V2025SodPolicy) | **PUT** /sod-policies/{id} | Update sod policy by id
+*V2025SODPoliciesApi* | [**Start-V2025EvaluateSodPolicy**](docs/V2025SODPoliciesApi.md#Start-V2025EvaluateSodPolicy) | **POST** /sod-policies/{id}/evaluate | Evaluate one policy by id
 *V2025SODPoliciesApi* | [**Start-V2025SodAllPoliciesForOrg**](docs/V2025SODPoliciesApi.md#Start-V2025SodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for org
-*V2025SODPoliciesApi* | [**Start-V2025SodPolicy**](docs/V2025SODPoliciesApi.md#Start-V2025SodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
-*V2025SODViolationsApi* | [**Start-V2025PredictSodViolations**](docs/V2025SODViolationsApi.md#Start-V2025PredictSodViolations) | **POST** /sod-violations/predict | Predict SOD violations for identity.
-*V2025SODViolationsApi* | [**Start-V2025ViolationCheck**](docs/V2025SODViolationsApi.md#Start-V2025ViolationCheck) | **POST** /sod-violations/check | Check SOD violations
+*V2025SODPoliciesApi* | [**Start-V2025SodPolicy**](docs/V2025SODPoliciesApi.md#Start-V2025SodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs sod policy violation report
+*V2025SODViolationsApi* | [**Start-V2025PredictSodViolations**](docs/V2025SODViolationsApi.md#Start-V2025PredictSodViolations) | **POST** /sod-violations/predict | Predict sod violations for identity.
+*V2025SODViolationsApi* | [**Start-V2025ViolationCheck**](docs/V2025SODViolationsApi.md#Start-V2025ViolationCheck) | **POST** /sod-violations/check | Check sod violations
 *V2025SPConfigApi* | [**Export-V2025SpConfig**](docs/V2025SPConfigApi.md#Export-V2025SpConfig) | **POST** /sp-config/export | Initiates configuration objects export job
 *V2025SPConfigApi* | [**Get-V2025SpConfigExport**](docs/V2025SPConfigApi.md#Get-V2025SpConfigExport) | **GET** /sp-config/export/{id}/download | Download export job result.
 *V2025SPConfigApi* | [**Get-V2025SpConfigExportStatus**](docs/V2025SPConfigApi.md#Get-V2025SpConfigExportStatus) | **GET** /sp-config/export/{id} | Get export job status
 *V2025SPConfigApi* | [**Get-V2025SpConfigImport**](docs/V2025SPConfigApi.md#Get-V2025SpConfigImport) | **GET** /sp-config/import/{id}/download | Download import job result
 *V2025SPConfigApi* | [**Get-V2025SpConfigImportStatus**](docs/V2025SPConfigApi.md#Get-V2025SpConfigImportStatus) | **GET** /sp-config/import/{id} | Get import job status
 *V2025SPConfigApi* | [**Import-V2025SpConfig**](docs/V2025SPConfigApi.md#Import-V2025SpConfig) | **POST** /sp-config/import | Initiates configuration objects import job
-*V2025SPConfigApi* | [**Get-V2025SpConfigObjects**](docs/V2025SPConfigApi.md#Get-V2025SpConfigObjects) | **GET** /sp-config/config-objects | List Config Objects
+*V2025SPConfigApi* | [**Get-V2025SpConfigObjects**](docs/V2025SPConfigApi.md#Get-V2025SpConfigObjects) | **GET** /sp-config/config-objects | List config objects
 *V2025SavedSearchApi* | [**New-V2025SavedSearch**](docs/V2025SavedSearchApi.md#New-V2025SavedSearch) | **POST** /saved-searches | Create a saved search
-*V2025SavedSearchApi* | [**Remove-V2025SavedSearch**](docs/V2025SavedSearchApi.md#Remove-V2025SavedSearch) | **DELETE** /saved-searches/{id} | Delete document by ID
-*V2025SavedSearchApi* | [**Invoke-V2025ExecuteSavedSearch**](docs/V2025SavedSearchApi.md#Invoke-V2025ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID
-*V2025SavedSearchApi* | [**Get-V2025SavedSearch**](docs/V2025SavedSearchApi.md#Get-V2025SavedSearch) | **GET** /saved-searches/{id} | Return saved search by ID
-*V2025SavedSearchApi* | [**Get-V2025SavedSearches**](docs/V2025SavedSearchApi.md#Get-V2025SavedSearches) | **GET** /saved-searches | A list of Saved Searches
+*V2025SavedSearchApi* | [**Remove-V2025SavedSearch**](docs/V2025SavedSearchApi.md#Remove-V2025SavedSearch) | **DELETE** /saved-searches/{id} | Delete document by id
+*V2025SavedSearchApi* | [**Invoke-V2025ExecuteSavedSearch**](docs/V2025SavedSearchApi.md#Invoke-V2025ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by id
+*V2025SavedSearchApi* | [**Get-V2025SavedSearch**](docs/V2025SavedSearchApi.md#Get-V2025SavedSearch) | **GET** /saved-searches/{id} | Return saved search by id
+*V2025SavedSearchApi* | [**Get-V2025SavedSearches**](docs/V2025SavedSearchApi.md#Get-V2025SavedSearches) | **GET** /saved-searches | A list of saved searches
 *V2025SavedSearchApi* | [**Send-V2025SavedSearch**](docs/V2025SavedSearchApi.md#Send-V2025SavedSearch) | **PUT** /saved-searches/{id} | Updates an existing saved search 
 *V2025ScheduledSearchApi* | [**New-V2025ScheduledSearch**](docs/V2025ScheduledSearchApi.md#New-V2025ScheduledSearch) | **POST** /scheduled-searches | Create a new scheduled search
-*V2025ScheduledSearchApi* | [**Remove-V2025ScheduledSearch**](docs/V2025ScheduledSearchApi.md#Remove-V2025ScheduledSearch) | **DELETE** /scheduled-searches/{id} | Delete a Scheduled Search
-*V2025ScheduledSearchApi* | [**Get-V2025ScheduledSearch**](docs/V2025ScheduledSearchApi.md#Get-V2025ScheduledSearch) | **GET** /scheduled-searches/{id} | Get a Scheduled Search
+*V2025ScheduledSearchApi* | [**Remove-V2025ScheduledSearch**](docs/V2025ScheduledSearchApi.md#Remove-V2025ScheduledSearch) | **DELETE** /scheduled-searches/{id} | Delete a scheduled search
+*V2025ScheduledSearchApi* | [**Get-V2025ScheduledSearch**](docs/V2025ScheduledSearchApi.md#Get-V2025ScheduledSearch) | **GET** /scheduled-searches/{id} | Get a scheduled search
 *V2025ScheduledSearchApi* | [**Get-V2025ScheduledSearch**](docs/V2025ScheduledSearchApi.md#Get-V2025ScheduledSearch) | **GET** /scheduled-searches | List scheduled searches
-*V2025ScheduledSearchApi* | [**Invoke-V2025UnsubscribeScheduledSearch**](docs/V2025ScheduledSearchApi.md#Invoke-V2025UnsubscribeScheduledSearch) | **POST** /scheduled-searches/{id}/unsubscribe | Unsubscribe a recipient from Scheduled Search
-*V2025ScheduledSearchApi* | [**Update-V2025ScheduledSearch**](docs/V2025ScheduledSearchApi.md#Update-V2025ScheduledSearch) | **PUT** /scheduled-searches/{id} | Update an existing Scheduled Search
-*V2025SearchApi* | [**Search-V2025Aggregate**](docs/V2025SearchApi.md#Search-V2025Aggregate) | **POST** /search/aggregate | Perform a Search Query Aggregation
-*V2025SearchApi* | [**Search-V2025Count**](docs/V2025SearchApi.md#Search-V2025Count) | **POST** /search/count | Count Documents Satisfying a Query
-*V2025SearchApi* | [**Search-V2025Get**](docs/V2025SearchApi.md#Search-V2025Get) | **GET** /search/{index}/{id} | Get a Document by ID
-*V2025SearchApi* | [**Search-V2025Post**](docs/V2025SearchApi.md#Search-V2025Post) | **POST** /search | Perform Search
-*V2025SearchAttributeConfigurationApi* | [**New-V2025SearchAttributeConfig**](docs/V2025SearchAttributeConfigurationApi.md#New-V2025SearchAttributeConfig) | **POST** /accounts/search-attribute-config | Create Extended Search Attributes
-*V2025SearchAttributeConfigurationApi* | [**Remove-V2025SearchAttributeConfig**](docs/V2025SearchAttributeConfigurationApi.md#Remove-V2025SearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete Extended Search Attribute
-*V2025SearchAttributeConfigurationApi* | [**Get-V2025SearchAttributeConfig**](docs/V2025SearchAttributeConfigurationApi.md#Get-V2025SearchAttributeConfig) | **GET** /accounts/search-attribute-config | List Extended Search Attributes
-*V2025SearchAttributeConfigurationApi* | [**Get-V2025SingleSearchAttributeConfig**](docs/V2025SearchAttributeConfigurationApi.md#Get-V2025SingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get Extended Search Attribute
-*V2025SearchAttributeConfigurationApi* | [**Update-V2025SearchAttributeConfig**](docs/V2025SearchAttributeConfigurationApi.md#Update-V2025SearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update Extended Search Attribute
-*V2025SegmentsApi* | [**New-V2025Segment**](docs/V2025SegmentsApi.md#New-V2025Segment) | **POST** /segments | Create Segment
-*V2025SegmentsApi* | [**Remove-V2025Segment**](docs/V2025SegmentsApi.md#Remove-V2025Segment) | **DELETE** /segments/{id} | Delete Segment by ID
-*V2025SegmentsApi* | [**Get-V2025Segment**](docs/V2025SegmentsApi.md#Get-V2025Segment) | **GET** /segments/{id} | Get Segment by ID
-*V2025SegmentsApi* | [**Get-V2025Segments**](docs/V2025SegmentsApi.md#Get-V2025Segments) | **GET** /segments | List Segments
-*V2025SegmentsApi* | [**Update-V2025Segment**](docs/V2025SegmentsApi.md#Update-V2025Segment) | **PATCH** /segments/{id} | Update Segment
-*V2025ServiceDeskIntegrationApi* | [**New-V2025ServiceDeskIntegration**](docs/V2025ServiceDeskIntegrationApi.md#New-V2025ServiceDeskIntegration) | **POST** /service-desk-integrations | Create new Service Desk integration
-*V2025ServiceDeskIntegrationApi* | [**Remove-V2025ServiceDeskIntegration**](docs/V2025ServiceDeskIntegrationApi.md#Remove-V2025ServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration
-*V2025ServiceDeskIntegrationApi* | [**Get-V2025ServiceDeskIntegration**](docs/V2025ServiceDeskIntegrationApi.md#Get-V2025ServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration
-*V2025ServiceDeskIntegrationApi* | [**Get-V2025ServiceDeskIntegrationTemplate**](docs/V2025ServiceDeskIntegrationApi.md#Get-V2025ServiceDeskIntegrationTemplate) | **GET** /service-desk-integrations/templates/{scriptName} | Service Desk integration template by scriptName
-*V2025ServiceDeskIntegrationApi* | [**Get-V2025ServiceDeskIntegrationTypes**](docs/V2025ServiceDeskIntegrationApi.md#Get-V2025ServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | List Service Desk integration types
-*V2025ServiceDeskIntegrationApi* | [**Get-V2025ServiceDeskIntegrations**](docs/V2025ServiceDeskIntegrationApi.md#Get-V2025ServiceDeskIntegrations) | **GET** /service-desk-integrations | List existing Service Desk integrations
+*V2025ScheduledSearchApi* | [**Invoke-V2025UnsubscribeScheduledSearch**](docs/V2025ScheduledSearchApi.md#Invoke-V2025UnsubscribeScheduledSearch) | **POST** /scheduled-searches/{id}/unsubscribe | Unsubscribe a recipient from scheduled search
+*V2025ScheduledSearchApi* | [**Update-V2025ScheduledSearch**](docs/V2025ScheduledSearchApi.md#Update-V2025ScheduledSearch) | **PUT** /scheduled-searches/{id} | Update an existing scheduled search
+*V2025SearchApi* | [**Search-V2025Aggregate**](docs/V2025SearchApi.md#Search-V2025Aggregate) | **POST** /search/aggregate | Perform a search query aggregation
+*V2025SearchApi* | [**Search-V2025Count**](docs/V2025SearchApi.md#Search-V2025Count) | **POST** /search/count | Count documents satisfying a query
+*V2025SearchApi* | [**Search-V2025Get**](docs/V2025SearchApi.md#Search-V2025Get) | **GET** /search/{index}/{id} | Get a document by id
+*V2025SearchApi* | [**Search-V2025Post**](docs/V2025SearchApi.md#Search-V2025Post) | **POST** /search | Perform search
+*V2025SearchAttributeConfigurationApi* | [**New-V2025SearchAttributeConfig**](docs/V2025SearchAttributeConfigurationApi.md#New-V2025SearchAttributeConfig) | **POST** /accounts/search-attribute-config | Create extended search attributes
+*V2025SearchAttributeConfigurationApi* | [**Remove-V2025SearchAttributeConfig**](docs/V2025SearchAttributeConfigurationApi.md#Remove-V2025SearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete extended search attribute
+*V2025SearchAttributeConfigurationApi* | [**Get-V2025SearchAttributeConfig**](docs/V2025SearchAttributeConfigurationApi.md#Get-V2025SearchAttributeConfig) | **GET** /accounts/search-attribute-config | List extended search attributes
+*V2025SearchAttributeConfigurationApi* | [**Get-V2025SingleSearchAttributeConfig**](docs/V2025SearchAttributeConfigurationApi.md#Get-V2025SingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get extended search attribute
+*V2025SearchAttributeConfigurationApi* | [**Update-V2025SearchAttributeConfig**](docs/V2025SearchAttributeConfigurationApi.md#Update-V2025SearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update extended search attribute
+*V2025SegmentsApi* | [**New-V2025Segment**](docs/V2025SegmentsApi.md#New-V2025Segment) | **POST** /segments | Create segment
+*V2025SegmentsApi* | [**Remove-V2025Segment**](docs/V2025SegmentsApi.md#Remove-V2025Segment) | **DELETE** /segments/{id} | Delete segment by id
+*V2025SegmentsApi* | [**Get-V2025Segment**](docs/V2025SegmentsApi.md#Get-V2025Segment) | **GET** /segments/{id} | Get segment by id
+*V2025SegmentsApi* | [**Get-V2025Segments**](docs/V2025SegmentsApi.md#Get-V2025Segments) | **GET** /segments | List segments
+*V2025SegmentsApi* | [**Update-V2025Segment**](docs/V2025SegmentsApi.md#Update-V2025Segment) | **PATCH** /segments/{id} | Update segment
+*V2025ServiceDeskIntegrationApi* | [**New-V2025ServiceDeskIntegration**](docs/V2025ServiceDeskIntegrationApi.md#New-V2025ServiceDeskIntegration) | **POST** /service-desk-integrations | Create new service desk integration
+*V2025ServiceDeskIntegrationApi* | [**Remove-V2025ServiceDeskIntegration**](docs/V2025ServiceDeskIntegrationApi.md#Remove-V2025ServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a service desk integration
+*V2025ServiceDeskIntegrationApi* | [**Get-V2025ServiceDeskIntegration**](docs/V2025ServiceDeskIntegrationApi.md#Get-V2025ServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a service desk integration
+*V2025ServiceDeskIntegrationApi* | [**Get-V2025ServiceDeskIntegrationTemplate**](docs/V2025ServiceDeskIntegrationApi.md#Get-V2025ServiceDeskIntegrationTemplate) | **GET** /service-desk-integrations/templates/{scriptName} | Service desk integration template by scriptname
+*V2025ServiceDeskIntegrationApi* | [**Get-V2025ServiceDeskIntegrationTypes**](docs/V2025ServiceDeskIntegrationApi.md#Get-V2025ServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | List service desk integration types
+*V2025ServiceDeskIntegrationApi* | [**Get-V2025ServiceDeskIntegrations**](docs/V2025ServiceDeskIntegrationApi.md#Get-V2025ServiceDeskIntegrations) | **GET** /service-desk-integrations | List existing service desk integrations
 *V2025ServiceDeskIntegrationApi* | [**Get-V2025StatusCheckDetails**](docs/V2025ServiceDeskIntegrationApi.md#Get-V2025StatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration
-*V2025ServiceDeskIntegrationApi* | [**Update-V2025ServiceDeskIntegration**](docs/V2025ServiceDeskIntegrationApi.md#Update-V2025ServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Patch a Service Desk Integration
-*V2025ServiceDeskIntegrationApi* | [**Send-V2025ServiceDeskIntegration**](docs/V2025ServiceDeskIntegrationApi.md#Send-V2025ServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration
+*V2025ServiceDeskIntegrationApi* | [**Update-V2025ServiceDeskIntegration**](docs/V2025ServiceDeskIntegrationApi.md#Update-V2025ServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Patch a service desk integration
+*V2025ServiceDeskIntegrationApi* | [**Send-V2025ServiceDeskIntegration**](docs/V2025ServiceDeskIntegrationApi.md#Send-V2025ServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a service desk integration
 *V2025ServiceDeskIntegrationApi* | [**Update-V2025StatusCheckDetails**](docs/V2025ServiceDeskIntegrationApi.md#Update-V2025StatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration
 *V2025SourceUsagesApi* | [**Get-V2025StatusBySourceId**](docs/V2025SourceUsagesApi.md#Get-V2025StatusBySourceId) | **GET** /source-usages/{sourceId}/status | Finds status of source usage
 *V2025SourceUsagesApi* | [**Get-V2025UsagesBySourceId**](docs/V2025SourceUsagesApi.md#Get-V2025UsagesBySourceId) | **GET** /source-usages/{sourceId}/summaries | Returns source usage insights
-*V2025SourcesApi* | [**New-V2025ProvisioningPolicy**](docs/V2025SourcesApi.md#New-V2025ProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
-*V2025SourcesApi* | [**New-V2025Source**](docs/V2025SourcesApi.md#New-V2025Source) | **POST** /sources | Creates a source in IdentityNow.
-*V2025SourcesApi* | [**New-V2025SourceSchedule**](docs/V2025SourcesApi.md#New-V2025SourceSchedule) | **POST** /sources/{sourceId}/schedules | Create Schedule on Source
-*V2025SourcesApi* | [**New-V2025SourceSchema**](docs/V2025SourcesApi.md#New-V2025SourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on Source
-*V2025SourcesApi* | [**Remove-V2025AccountsAsync**](docs/V2025SourcesApi.md#Remove-V2025AccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove All Accounts in a Source
-*V2025SourcesApi* | [**Remove-V2025NativeChangeDetectionConfig**](docs/V2025SourcesApi.md#Remove-V2025NativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete Native Change Detection Configuration
-*V2025SourcesApi* | [**Remove-V2025ProvisioningPolicy**](docs/V2025SourcesApi.md#Remove-V2025ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
-*V2025SourcesApi* | [**Remove-V2025Source**](docs/V2025SourcesApi.md#Remove-V2025Source) | **DELETE** /sources/{id} | Delete Source by ID
-*V2025SourcesApi* | [**Remove-V2025SourceSchedule**](docs/V2025SourcesApi.md#Remove-V2025SourceSchedule) | **DELETE** /sources/{sourceId}/schedules/{scheduleType} | Delete Source Schedule by type.
-*V2025SourcesApi* | [**Remove-V2025SourceSchema**](docs/V2025SourcesApi.md#Remove-V2025SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
+*V2025SourcesApi* | [**New-V2025ProvisioningPolicy**](docs/V2025SourcesApi.md#New-V2025ProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create provisioning policy
+*V2025SourcesApi* | [**New-V2025Source**](docs/V2025SourcesApi.md#New-V2025Source) | **POST** /sources | Creates a source in identitynow.
+*V2025SourcesApi* | [**New-V2025SourceSchedule**](docs/V2025SourcesApi.md#New-V2025SourceSchedule) | **POST** /sources/{sourceId}/schedules | Create schedule on source
+*V2025SourcesApi* | [**New-V2025SourceSchema**](docs/V2025SourcesApi.md#New-V2025SourceSchema) | **POST** /sources/{sourceId}/schemas | Create schema on source
+*V2025SourcesApi* | [**Remove-V2025AccountsAsync**](docs/V2025SourcesApi.md#Remove-V2025AccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove all accounts in a source
+*V2025SourcesApi* | [**Remove-V2025NativeChangeDetectionConfig**](docs/V2025SourcesApi.md#Remove-V2025NativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete native change detection configuration
+*V2025SourcesApi* | [**Remove-V2025ProvisioningPolicy**](docs/V2025SourcesApi.md#Remove-V2025ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete provisioning policy by usagetype
+*V2025SourcesApi* | [**Remove-V2025Source**](docs/V2025SourcesApi.md#Remove-V2025Source) | **DELETE** /sources/{id} | Delete source by id
+*V2025SourcesApi* | [**Remove-V2025SourceSchedule**](docs/V2025SourcesApi.md#Remove-V2025SourceSchedule) | **DELETE** /sources/{sourceId}/schedules/{scheduleType} | Delete source schedule by type.
+*V2025SourcesApi* | [**Remove-V2025SourceSchema**](docs/V2025SourcesApi.md#Remove-V2025SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete source schema by id
 *V2025SourcesApi* | [**Get-V2025AccountsSchema**](docs/V2025SourcesApi.md#Get-V2025AccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
-*V2025SourcesApi* | [**Get-V2025CorrelationConfig**](docs/V2025SourcesApi.md#Get-V2025CorrelationConfig) | **GET** /sources/{id}/correlation-config | Get Source Correlation Configuration
+*V2025SourcesApi* | [**Get-V2025CorrelationConfig**](docs/V2025SourcesApi.md#Get-V2025CorrelationConfig) | **GET** /sources/{id}/correlation-config | Get source correlation configuration
 *V2025SourcesApi* | [**Get-V2025EntitlementsSchema**](docs/V2025SourcesApi.md#Get-V2025EntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
-*V2025SourcesApi* | [**Get-V2025NativeChangeDetectionConfig**](docs/V2025SourcesApi.md#Get-V2025NativeChangeDetectionConfig) | **GET** /sources/{sourceId}/native-change-detection-config | Native Change Detection Configuration
-*V2025SourcesApi* | [**Get-V2025ProvisioningPolicy**](docs/V2025SourcesApi.md#Get-V2025ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
-*V2025SourcesApi* | [**Get-V2025Source**](docs/V2025SourcesApi.md#Get-V2025Source) | **GET** /sources/{id} | Get Source by ID
-*V2025SourcesApi* | [**Get-V2025SourceAttrSyncConfig**](docs/V2025SourcesApi.md#Get-V2025SourceAttrSyncConfig) | **GET** /sources/{id}/attribute-sync-config | Attribute Sync Config
+*V2025SourcesApi* | [**Get-V2025NativeChangeDetectionConfig**](docs/V2025SourcesApi.md#Get-V2025NativeChangeDetectionConfig) | **GET** /sources/{sourceId}/native-change-detection-config | Native change detection configuration
+*V2025SourcesApi* | [**Get-V2025ProvisioningPolicy**](docs/V2025SourcesApi.md#Get-V2025ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get provisioning policy by usagetype
+*V2025SourcesApi* | [**Get-V2025Source**](docs/V2025SourcesApi.md#Get-V2025Source) | **GET** /sources/{id} | Get source by id
+*V2025SourcesApi* | [**Get-V2025SourceAttrSyncConfig**](docs/V2025SourcesApi.md#Get-V2025SourceAttrSyncConfig) | **GET** /sources/{id}/attribute-sync-config | Attribute sync config
 *V2025SourcesApi* | [**Get-V2025SourceConfig**](docs/V2025SourcesApi.md#Get-V2025SourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language-translations
-*V2025SourcesApi* | [**Get-V2025SourceConnections**](docs/V2025SourcesApi.md#Get-V2025SourceConnections) | **GET** /sources/{sourceId}/connections | Get Source Connections by ID
-*V2025SourcesApi* | [**Get-V2025SourceEntitlementRequestConfig**](docs/V2025SourcesApi.md#Get-V2025SourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get Source Entitlement Request Configuration
+*V2025SourcesApi* | [**Get-V2025SourceConnections**](docs/V2025SourcesApi.md#Get-V2025SourceConnections) | **GET** /sources/{sourceId}/connections | Get source connections by id
+*V2025SourcesApi* | [**Get-V2025SourceEntitlementRequestConfig**](docs/V2025SourcesApi.md#Get-V2025SourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get source entitlement request configuration
 *V2025SourcesApi* | [**Get-V2025SourceHealth**](docs/V2025SourcesApi.md#Get-V2025SourceHealth) | **GET** /sources/{sourceId}/source-health | Fetches source health by id
-*V2025SourcesApi* | [**Get-V2025SourceSchedule**](docs/V2025SourcesApi.md#Get-V2025SourceSchedule) | **GET** /sources/{sourceId}/schedules/{scheduleType} | Get Source Schedule by Type
-*V2025SourcesApi* | [**Get-V2025SourceSchedules**](docs/V2025SourcesApi.md#Get-V2025SourceSchedules) | **GET** /sources/{sourceId}/schedules | List Schedules on Source
-*V2025SourcesApi* | [**Get-V2025SourceSchema**](docs/V2025SourcesApi.md#Get-V2025SourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
-*V2025SourcesApi* | [**Get-V2025SourceSchemas**](docs/V2025SourcesApi.md#Get-V2025SourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on Source
-*V2025SourcesApi* | [**Import-V2025Accounts**](docs/V2025SourcesApi.md#Import-V2025Accounts) | **POST** /sources/{id}/load-accounts | Account Aggregation
+*V2025SourcesApi* | [**Get-V2025SourceSchedule**](docs/V2025SourcesApi.md#Get-V2025SourceSchedule) | **GET** /sources/{sourceId}/schedules/{scheduleType} | Get source schedule by type
+*V2025SourcesApi* | [**Get-V2025SourceSchedules**](docs/V2025SourcesApi.md#Get-V2025SourceSchedules) | **GET** /sources/{sourceId}/schedules | List schedules on source
+*V2025SourcesApi* | [**Get-V2025SourceSchema**](docs/V2025SourcesApi.md#Get-V2025SourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get source schema by id
+*V2025SourcesApi* | [**Get-V2025SourceSchemas**](docs/V2025SourcesApi.md#Get-V2025SourceSchemas) | **GET** /sources/{sourceId}/schemas | List schemas on source
+*V2025SourcesApi* | [**Import-V2025Accounts**](docs/V2025SourcesApi.md#Import-V2025Accounts) | **POST** /sources/{id}/load-accounts | Account aggregation
 *V2025SourcesApi* | [**Import-V2025AccountsSchema**](docs/V2025SourcesApi.md#Import-V2025AccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
 *V2025SourcesApi* | [**Import-V2025ConnectorFile**](docs/V2025SourcesApi.md#Import-V2025ConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 *V2025SourcesApi* | [**Import-V2025EntitlementsSchema**](docs/V2025SourcesApi.md#Import-V2025EntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
-*V2025SourcesApi* | [**Import-V2025UncorrelatedAccounts**](docs/V2025SourcesApi.md#Import-V2025UncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process Uncorrelated Accounts
-*V2025SourcesApi* | [**Get-V2025ProvisioningPolicies**](docs/V2025SourcesApi.md#Get-V2025ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
-*V2025SourcesApi* | [**Get-V2025Sources**](docs/V2025SourcesApi.md#Get-V2025Sources) | **GET** /sources | Lists all sources in IdentityNow.
+*V2025SourcesApi* | [**Import-V2025UncorrelatedAccounts**](docs/V2025SourcesApi.md#Import-V2025UncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process uncorrelated accounts
+*V2025SourcesApi* | [**Get-V2025ProvisioningPolicies**](docs/V2025SourcesApi.md#Get-V2025ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists provisioningpolicies
+*V2025SourcesApi* | [**Get-V2025Sources**](docs/V2025SourcesApi.md#Get-V2025Sources) | **GET** /sources | Lists all sources in identitynow.
 *V2025SourcesApi* | [**Ping-V2025Cluster**](docs/V2025SourcesApi.md#Ping-V2025Cluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
-*V2025SourcesApi* | [**Send-V2025CorrelationConfig**](docs/V2025SourcesApi.md#Send-V2025CorrelationConfig) | **PUT** /sources/{id}/correlation-config | Update Source Correlation Configuration
-*V2025SourcesApi* | [**Send-V2025NativeChangeDetectionConfig**](docs/V2025SourcesApi.md#Send-V2025NativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update Native Change Detection Configuration
-*V2025SourcesApi* | [**Send-V2025ProvisioningPolicy**](docs/V2025SourcesApi.md#Send-V2025ProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
-*V2025SourcesApi* | [**Send-V2025Source**](docs/V2025SourcesApi.md#Send-V2025Source) | **PUT** /sources/{id} | Update Source (Full)
-*V2025SourcesApi* | [**Send-V2025SourceAttrSyncConfig**](docs/V2025SourcesApi.md#Send-V2025SourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update Attribute Sync Config
-*V2025SourcesApi* | [**Send-V2025SourceSchema**](docs/V2025SourcesApi.md#Send-V2025SourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
+*V2025SourcesApi* | [**Send-V2025CorrelationConfig**](docs/V2025SourcesApi.md#Send-V2025CorrelationConfig) | **PUT** /sources/{id}/correlation-config | Update source correlation configuration
+*V2025SourcesApi* | [**Send-V2025NativeChangeDetectionConfig**](docs/V2025SourcesApi.md#Send-V2025NativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update native change detection configuration
+*V2025SourcesApi* | [**Send-V2025ProvisioningPolicy**](docs/V2025SourcesApi.md#Send-V2025ProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update provisioning policy by usagetype
+*V2025SourcesApi* | [**Send-V2025Source**](docs/V2025SourcesApi.md#Send-V2025Source) | **PUT** /sources/{id} | Update source (full)
+*V2025SourcesApi* | [**Send-V2025SourceAttrSyncConfig**](docs/V2025SourcesApi.md#Send-V2025SourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update attribute sync config
+*V2025SourcesApi* | [**Send-V2025SourceSchema**](docs/V2025SourcesApi.md#Send-V2025SourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update source schema (full)
 *V2025SourcesApi* | [**Search-V2025ResourceObjects**](docs/V2025SourcesApi.md#Search-V2025ResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
 *V2025SourcesApi* | [**Sync-V2025AttributesForSource**](docs/V2025SourcesApi.md#Sync-V2025AttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
 *V2025SourcesApi* | [**Test-V2025SourceConfiguration**](docs/V2025SourcesApi.md#Test-V2025SourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for source connector
 *V2025SourcesApi* | [**Test-V2025SourceConnection**](docs/V2025SourcesApi.md#Test-V2025SourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for source connector.
-*V2025SourcesApi* | [**Update-V2025PasswordPolicyHolders**](docs/V2025SourcesApi.md#Update-V2025PasswordPolicyHolders) | **PATCH** /sources/{sourceId}/password-policies | Update Password Policy
-*V2025SourcesApi* | [**Update-V2025ProvisioningPoliciesInBulk**](docs/V2025SourcesApi.md#Update-V2025ProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
-*V2025SourcesApi* | [**Update-V2025ProvisioningPolicy**](docs/V2025SourcesApi.md#Update-V2025ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
-*V2025SourcesApi* | [**Update-V2025Source**](docs/V2025SourcesApi.md#Update-V2025Source) | **PATCH** /sources/{id} | Update Source (Partial)
-*V2025SourcesApi* | [**Update-V2025SourceEntitlementRequestConfig**](docs/V2025SourcesApi.md#Update-V2025SourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update Source Entitlement Request Configuration
-*V2025SourcesApi* | [**Update-V2025SourceSchedule**](docs/V2025SourcesApi.md#Update-V2025SourceSchedule) | **PATCH** /sources/{sourceId}/schedules/{scheduleType} | Update Source Schedule (Partial)
-*V2025SourcesApi* | [**Update-V2025SourceSchema**](docs/V2025SourcesApi.md#Update-V2025SourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
-*V2025SuggestedEntitlementDescriptionApi* | [**Get-V2025SedBatchStats**](docs/V2025SuggestedEntitlementDescriptionApi.md#Get-V2025SedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit Sed Batch Stats Request
-*V2025SuggestedEntitlementDescriptionApi* | [**Get-V2025SedBatches**](docs/V2025SuggestedEntitlementDescriptionApi.md#Get-V2025SedBatches) | **GET** /suggested-entitlement-description-batches | List Sed Batch Request
-*V2025SuggestedEntitlementDescriptionApi* | [**Get-V2025Seds**](docs/V2025SuggestedEntitlementDescriptionApi.md#Get-V2025Seds) | **GET** /suggested-entitlement-descriptions | List Suggested Entitlement Descriptions
-*V2025SuggestedEntitlementDescriptionApi* | [**Update-V2025Sed**](docs/V2025SuggestedEntitlementDescriptionApi.md#Update-V2025Sed) | **PATCH** /suggested-entitlement-descriptions | Patch Suggested Entitlement Description
-*V2025SuggestedEntitlementDescriptionApi* | [**Submit-V2025SedApproval**](docs/V2025SuggestedEntitlementDescriptionApi.md#Submit-V2025SedApproval) | **POST** /suggested-entitlement-description-approvals | Submit Bulk Approval Request
-*V2025SuggestedEntitlementDescriptionApi* | [**Submit-V2025SedAssignment**](docs/V2025SuggestedEntitlementDescriptionApi.md#Submit-V2025SedAssignment) | **POST** /suggested-entitlement-description-assignments | Submit Sed Assignment Request
-*V2025SuggestedEntitlementDescriptionApi* | [**Submit-V2025SedBatchRequest**](docs/V2025SuggestedEntitlementDescriptionApi.md#Submit-V2025SedBatchRequest) | **POST** /suggested-entitlement-description-batches | Submit Sed Batch Request
-*V2025TaggedObjectsApi* | [**Remove-V2025TaggedObject**](docs/V2025TaggedObjectsApi.md#Remove-V2025TaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Object Tags
-*V2025TaggedObjectsApi* | [**Remove-V2025TagsToManyObject**](docs/V2025TaggedObjectsApi.md#Remove-V2025TagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
-*V2025TaggedObjectsApi* | [**Get-V2025TaggedObject**](docs/V2025TaggedObjectsApi.md#Get-V2025TaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
-*V2025TaggedObjectsApi* | [**Get-V2025TaggedObjects**](docs/V2025TaggedObjectsApi.md#Get-V2025TaggedObjects) | **GET** /tagged-objects | List Tagged Objects
-*V2025TaggedObjectsApi* | [**Get-V2025TaggedObjectsByType**](docs/V2025TaggedObjectsApi.md#Get-V2025TaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects by Type
-*V2025TaggedObjectsApi* | [**Send-V2025TaggedObject**](docs/V2025TaggedObjectsApi.md#Send-V2025TaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
-*V2025TaggedObjectsApi* | [**Set-V2025TagToObject**](docs/V2025TaggedObjectsApi.md#Set-V2025TagToObject) | **POST** /tagged-objects | Add Tag to Object
-*V2025TaggedObjectsApi* | [**Set-V2025TagsToManyObjects**](docs/V2025TaggedObjectsApi.md#Set-V2025TagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
-*V2025TaskManagementApi* | [**Get-V2025PendingTaskHeaders**](docs/V2025TaskManagementApi.md#Get-V2025PendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve Pending Task List Headers
-*V2025TaskManagementApi* | [**Get-V2025PendingTasks**](docs/V2025TaskManagementApi.md#Get-V2025PendingTasks) | **GET** /task-status/pending-tasks | Retrieve Pending Task Status List
-*V2025TaskManagementApi* | [**Get-V2025TaskStatus**](docs/V2025TaskManagementApi.md#Get-V2025TaskStatus) | **GET** /task-status/{id} | Get Task Status by ID
-*V2025TaskManagementApi* | [**Get-V2025TaskStatusList**](docs/V2025TaskManagementApi.md#Get-V2025TaskStatusList) | **GET** /task-status | Retrieve Task Status List
-*V2025TaskManagementApi* | [**Update-V2025TaskStatus**](docs/V2025TaskManagementApi.md#Update-V2025TaskStatus) | **PATCH** /task-status/{id} | Update Task Status by ID
-*V2025TenantApi* | [**Get-V2025Tenant**](docs/V2025TenantApi.md#Get-V2025Tenant) | **GET** /tenant | Get Tenant Information.
+*V2025SourcesApi* | [**Update-V2025PasswordPolicyHolders**](docs/V2025SourcesApi.md#Update-V2025PasswordPolicyHolders) | **PATCH** /sources/{sourceId}/password-policies | Update password policy
+*V2025SourcesApi* | [**Update-V2025ProvisioningPoliciesInBulk**](docs/V2025SourcesApi.md#Update-V2025ProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk update provisioning policies
+*V2025SourcesApi* | [**Update-V2025ProvisioningPolicy**](docs/V2025SourcesApi.md#Update-V2025ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of provisioning policy
+*V2025SourcesApi* | [**Update-V2025Source**](docs/V2025SourcesApi.md#Update-V2025Source) | **PATCH** /sources/{id} | Update source (partial)
+*V2025SourcesApi* | [**Update-V2025SourceEntitlementRequestConfig**](docs/V2025SourcesApi.md#Update-V2025SourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update source entitlement request configuration
+*V2025SourcesApi* | [**Update-V2025SourceSchedule**](docs/V2025SourcesApi.md#Update-V2025SourceSchedule) | **PATCH** /sources/{sourceId}/schedules/{scheduleType} | Update source schedule (partial)
+*V2025SourcesApi* | [**Update-V2025SourceSchema**](docs/V2025SourcesApi.md#Update-V2025SourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update source schema (partial)
+*V2025SuggestedEntitlementDescriptionApi* | [**Get-V2025SedBatchStats**](docs/V2025SuggestedEntitlementDescriptionApi.md#Get-V2025SedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit sed batch stats request
+*V2025SuggestedEntitlementDescriptionApi* | [**Get-V2025SedBatches**](docs/V2025SuggestedEntitlementDescriptionApi.md#Get-V2025SedBatches) | **GET** /suggested-entitlement-description-batches | List sed batch request
+*V2025SuggestedEntitlementDescriptionApi* | [**Get-V2025Seds**](docs/V2025SuggestedEntitlementDescriptionApi.md#Get-V2025Seds) | **GET** /suggested-entitlement-descriptions | List suggested entitlement descriptions
+*V2025SuggestedEntitlementDescriptionApi* | [**Update-V2025Sed**](docs/V2025SuggestedEntitlementDescriptionApi.md#Update-V2025Sed) | **PATCH** /suggested-entitlement-descriptions | Patch suggested entitlement description
+*V2025SuggestedEntitlementDescriptionApi* | [**Submit-V2025SedApproval**](docs/V2025SuggestedEntitlementDescriptionApi.md#Submit-V2025SedApproval) | **POST** /suggested-entitlement-description-approvals | Submit bulk approval request
+*V2025SuggestedEntitlementDescriptionApi* | [**Submit-V2025SedAssignment**](docs/V2025SuggestedEntitlementDescriptionApi.md#Submit-V2025SedAssignment) | **POST** /suggested-entitlement-description-assignments | Submit sed assignment request
+*V2025SuggestedEntitlementDescriptionApi* | [**Submit-V2025SedBatchRequest**](docs/V2025SuggestedEntitlementDescriptionApi.md#Submit-V2025SedBatchRequest) | **POST** /suggested-entitlement-description-batches | Submit sed batch request
+*V2025TaggedObjectsApi* | [**Remove-V2025TaggedObject**](docs/V2025TaggedObjectsApi.md#Remove-V2025TaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete object tags
+*V2025TaggedObjectsApi* | [**Remove-V2025TagsToManyObject**](docs/V2025TaggedObjectsApi.md#Remove-V2025TagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove tags from multiple objects
+*V2025TaggedObjectsApi* | [**Get-V2025TaggedObject**](docs/V2025TaggedObjectsApi.md#Get-V2025TaggedObject) | **GET** /tagged-objects/{type}/{id} | Get tagged object
+*V2025TaggedObjectsApi* | [**Get-V2025TaggedObjects**](docs/V2025TaggedObjectsApi.md#Get-V2025TaggedObjects) | **GET** /tagged-objects | List tagged objects
+*V2025TaggedObjectsApi* | [**Get-V2025TaggedObjectsByType**](docs/V2025TaggedObjectsApi.md#Get-V2025TaggedObjectsByType) | **GET** /tagged-objects/{type} | List tagged objects by type
+*V2025TaggedObjectsApi* | [**Send-V2025TaggedObject**](docs/V2025TaggedObjectsApi.md#Send-V2025TaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update tagged object
+*V2025TaggedObjectsApi* | [**Set-V2025TagToObject**](docs/V2025TaggedObjectsApi.md#Set-V2025TagToObject) | **POST** /tagged-objects | Add tag to object
+*V2025TaggedObjectsApi* | [**Set-V2025TagsToManyObjects**](docs/V2025TaggedObjectsApi.md#Set-V2025TagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag multiple objects
+*V2025TaskManagementApi* | [**Get-V2025PendingTaskHeaders**](docs/V2025TaskManagementApi.md#Get-V2025PendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve pending task list headers
+*V2025TaskManagementApi* | [**Get-V2025PendingTasks**](docs/V2025TaskManagementApi.md#Get-V2025PendingTasks) | **GET** /task-status/pending-tasks | Retrieve pending task status list
+*V2025TaskManagementApi* | [**Get-V2025TaskStatus**](docs/V2025TaskManagementApi.md#Get-V2025TaskStatus) | **GET** /task-status/{id} | Get task status by id
+*V2025TaskManagementApi* | [**Get-V2025TaskStatusList**](docs/V2025TaskManagementApi.md#Get-V2025TaskStatusList) | **GET** /task-status | Retrieve task status list
+*V2025TaskManagementApi* | [**Update-V2025TaskStatus**](docs/V2025TaskManagementApi.md#Update-V2025TaskStatus) | **PATCH** /task-status/{id} | Update task status by id
+*V2025TenantApi* | [**Get-V2025Tenant**](docs/V2025TenantApi.md#Get-V2025Tenant) | **GET** /tenant | Get tenant information.
 *V2025TenantContextApi* | [**Get-V2025TenantContext**](docs/V2025TenantContextApi.md#Get-V2025TenantContext) | **GET** /tenant-context | Retrieve tenant context
 *V2025TenantContextApi* | [**Update-V2025TenantContext**](docs/V2025TenantContextApi.md#Update-V2025TenantContext) | **PATCH** /tenant-context | Update tenant context
 *V2025TransformsApi* | [**New-V2025Transform**](docs/V2025TransformsApi.md#New-V2025Transform) | **POST** /transforms | Create transform
 *V2025TransformsApi* | [**Remove-V2025Transform**](docs/V2025TransformsApi.md#Remove-V2025Transform) | **DELETE** /transforms/{id} | Delete a transform
-*V2025TransformsApi* | [**Get-V2025Transform**](docs/V2025TransformsApi.md#Get-V2025Transform) | **GET** /transforms/{id} | Transform by ID
+*V2025TransformsApi* | [**Get-V2025Transform**](docs/V2025TransformsApi.md#Get-V2025Transform) | **GET** /transforms/{id} | Transform by id
 *V2025TransformsApi* | [**Get-V2025Transforms**](docs/V2025TransformsApi.md#Get-V2025Transforms) | **GET** /transforms | List transforms
 *V2025TransformsApi* | [**Update-V2025Transform**](docs/V2025TransformsApi.md#Update-V2025Transform) | **PUT** /transforms/{id} | Update a transform
-*V2025TriggersApi* | [**Complete-V2025TriggerInvocation**](docs/V2025TriggersApi.md#Complete-V2025TriggerInvocation) | **POST** /trigger-invocations/{id}/complete | Complete Trigger Invocation
-*V2025TriggersApi* | [**New-V2025Subscription**](docs/V2025TriggersApi.md#New-V2025Subscription) | **POST** /trigger-subscriptions | Create a Subscription
-*V2025TriggersApi* | [**Remove-V2025Subscription**](docs/V2025TriggersApi.md#Remove-V2025Subscription) | **DELETE** /trigger-subscriptions/{id} | Delete a Subscription
-*V2025TriggersApi* | [**Get-V2025Subscriptions**](docs/V2025TriggersApi.md#Get-V2025Subscriptions) | **GET** /trigger-subscriptions | List Subscriptions
-*V2025TriggersApi* | [**Get-V2025TriggerInvocationStatus**](docs/V2025TriggersApi.md#Get-V2025TriggerInvocationStatus) | **GET** /trigger-invocations/status | List Latest Invocation Statuses
-*V2025TriggersApi* | [**Get-V2025Triggers**](docs/V2025TriggersApi.md#Get-V2025Triggers) | **GET** /triggers | List Triggers
-*V2025TriggersApi* | [**Update-V2025Subscription**](docs/V2025TriggersApi.md#Update-V2025Subscription) | **PATCH** /trigger-subscriptions/{id} | Patch a Subscription
-*V2025TriggersApi* | [**Start-V2025TestTriggerInvocation**](docs/V2025TriggersApi.md#Start-V2025TestTriggerInvocation) | **POST** /trigger-invocations/test | Start a Test Invocation
-*V2025TriggersApi* | [**Test-V2025SubscriptionFilter**](docs/V2025TriggersApi.md#Test-V2025SubscriptionFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
-*V2025TriggersApi* | [**Update-V2025Subscription**](docs/V2025TriggersApi.md#Update-V2025Subscription) | **PUT** /trigger-subscriptions/{id} | Update a Subscription
-*V2025UIMetadataApi* | [**Get-V2025TenantUiMetadata**](docs/V2025UIMetadataApi.md#Get-V2025TenantUiMetadata) | **GET** /ui-metadata/tenant | Get a tenant UI metadata
-*V2025UIMetadataApi* | [**Set-V2025TenantUiMetadata**](docs/V2025UIMetadataApi.md#Set-V2025TenantUiMetadata) | **PUT** /ui-metadata/tenant | Update tenant UI metadata
-*V2025VendorConnectorMappingsApi* | [**New-V2025VendorConnectorMapping**](docs/V2025VendorConnectorMappingsApi.md#New-V2025VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create Vendor Connector Mapping
-*V2025VendorConnectorMappingsApi* | [**Remove-V2025VendorConnectorMapping**](docs/V2025VendorConnectorMappingsApi.md#Remove-V2025VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete Vendor Connector Mapping
-*V2025VendorConnectorMappingsApi* | [**Get-V2025VendorConnectorMappings**](docs/V2025VendorConnectorMappingsApi.md#Get-V2025VendorConnectorMappings) | **GET** /vendor-connector-mappings | List Vendor Connector Mappings
-*V2025WorkItemsApi* | [**Approve-V2025ApprovalItem**](docs/V2025WorkItemsApi.md#Approve-V2025ApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
-*V2025WorkItemsApi* | [**Approve-V2025ApprovalItemsInBulk**](docs/V2025WorkItemsApi.md#Approve-V2025ApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
-*V2025WorkItemsApi* | [**Complete-V2025WorkItem**](docs/V2025WorkItemsApi.md#Complete-V2025WorkItem) | **POST** /work-items/{id} | Complete a Work Item
-*V2025WorkItemsApi* | [**Invoke-V2025ForwardWorkItem**](docs/V2025WorkItemsApi.md#Invoke-V2025ForwardWorkItem) | **POST** /work-items/{id}/forward | Forward a Work Item
-*V2025WorkItemsApi* | [**Get-V2025CompletedWorkItems**](docs/V2025WorkItemsApi.md#Get-V2025CompletedWorkItems) | **GET** /work-items/completed | Completed Work Items
-*V2025WorkItemsApi* | [**Get-V2025CountCompletedWorkItems**](docs/V2025WorkItemsApi.md#Get-V2025CountCompletedWorkItems) | **GET** /work-items/completed/count | Count Completed Work Items
-*V2025WorkItemsApi* | [**Get-V2025CountWorkItems**](docs/V2025WorkItemsApi.md#Get-V2025CountWorkItems) | **GET** /work-items/count | Count Work Items
-*V2025WorkItemsApi* | [**Get-V2025WorkItem**](docs/V2025WorkItemsApi.md#Get-V2025WorkItem) | **GET** /work-items/{id} | Get a Work Item
-*V2025WorkItemsApi* | [**Get-V2025WorkItemsSummary**](docs/V2025WorkItemsApi.md#Get-V2025WorkItemsSummary) | **GET** /work-items/summary | Work Items Summary
-*V2025WorkItemsApi* | [**Get-V2025WorkItems**](docs/V2025WorkItemsApi.md#Get-V2025WorkItems) | **GET** /work-items | List Work Items
-*V2025WorkItemsApi* | [**Deny-V2025ApprovalItem**](docs/V2025WorkItemsApi.md#Deny-V2025ApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an Approval Item
-*V2025WorkItemsApi* | [**Deny-V2025ApprovalItemsInBulk**](docs/V2025WorkItemsApi.md#Deny-V2025ApprovalItemsInBulk) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
-*V2025WorkItemsApi* | [**Submit-V2025AccountSelection**](docs/V2025WorkItemsApi.md#Submit-V2025AccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
-*V2025WorkReassignmentApi* | [**New-V2025ReassignmentConfiguration**](docs/V2025WorkReassignmentApi.md#New-V2025ReassignmentConfiguration) | **POST** /reassignment-configurations | Create a Reassignment Configuration
-*V2025WorkReassignmentApi* | [**Remove-V2025ReassignmentConfiguration**](docs/V2025WorkReassignmentApi.md#Remove-V2025ReassignmentConfiguration) | **DELETE** /reassignment-configurations/{identityId}/{configType} | Delete Reassignment Configuration
-*V2025WorkReassignmentApi* | [**Get-V2025EvaluateReassignmentConfiguration**](docs/V2025WorkReassignmentApi.md#Get-V2025EvaluateReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId}/evaluate/{configType} | Evaluate Reassignment Configuration
-*V2025WorkReassignmentApi* | [**Get-V2025ReassignmentConfigTypes**](docs/V2025WorkReassignmentApi.md#Get-V2025ReassignmentConfigTypes) | **GET** /reassignment-configurations/types | List Reassignment Config Types
-*V2025WorkReassignmentApi* | [**Get-V2025ReassignmentConfiguration**](docs/V2025WorkReassignmentApi.md#Get-V2025ReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId} | Get Reassignment Configuration
-*V2025WorkReassignmentApi* | [**Get-V2025TenantConfigConfiguration**](docs/V2025WorkReassignmentApi.md#Get-V2025TenantConfigConfiguration) | **GET** /reassignment-configurations/tenant-config | Get Tenant-wide Reassignment Configuration settings
-*V2025WorkReassignmentApi* | [**Get-V2025ReassignmentConfigurations**](docs/V2025WorkReassignmentApi.md#Get-V2025ReassignmentConfigurations) | **GET** /reassignment-configurations | List Reassignment Configurations
-*V2025WorkReassignmentApi* | [**Send-V2025ReassignmentConfig**](docs/V2025WorkReassignmentApi.md#Send-V2025ReassignmentConfig) | **PUT** /reassignment-configurations/{identityId} | Update Reassignment Configuration
-*V2025WorkReassignmentApi* | [**Send-V2025TenantConfiguration**](docs/V2025WorkReassignmentApi.md#Send-V2025TenantConfiguration) | **PUT** /reassignment-configurations/tenant-config | Update Tenant-wide Reassignment Configuration settings
-*V2025WorkflowsApi* | [**Suspend-V2025WorkflowExecution**](docs/V2025WorkflowsApi.md#Suspend-V2025WorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel Workflow Execution by ID
-*V2025WorkflowsApi* | [**New-V2025ExternalExecuteWorkflow**](docs/V2025WorkflowsApi.md#New-V2025ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id} | Execute Workflow via External Trigger
-*V2025WorkflowsApi* | [**New-V2025Workflow**](docs/V2025WorkflowsApi.md#New-V2025Workflow) | **POST** /workflows | Create Workflow
-*V2025WorkflowsApi* | [**New-V2025WorkflowExternalTrigger**](docs/V2025WorkflowsApi.md#New-V2025WorkflowExternalTrigger) | **POST** /workflows/{id}/external/oauth-clients | Generate External Trigger OAuth Client
-*V2025WorkflowsApi* | [**Remove-V2025Workflow**](docs/V2025WorkflowsApi.md#Remove-V2025Workflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
-*V2025WorkflowsApi* | [**Get-V2025Workflow**](docs/V2025WorkflowsApi.md#Get-V2025Workflow) | **GET** /workflows/{id} | Get Workflow By Id
-*V2025WorkflowsApi* | [**Get-V2025WorkflowExecution**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowExecution) | **GET** /workflow-executions/{id} | Get Workflow Execution
-*V2025WorkflowsApi* | [**Get-V2025WorkflowExecutionHistory**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowExecutionHistory) | **GET** /workflow-executions/{id}/history | Get Workflow Execution History
-*V2025WorkflowsApi* | [**Get-V2025WorkflowExecutions**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowExecutions) | **GET** /workflows/{id}/executions | List Workflow Executions
-*V2025WorkflowsApi* | [**Get-V2025CompleteWorkflowLibrary**](docs/V2025WorkflowsApi.md#Get-V2025CompleteWorkflowLibrary) | **GET** /workflow-library | List Complete Workflow Library
-*V2025WorkflowsApi* | [**Get-V2025WorkflowLibraryActions**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowLibraryActions) | **GET** /workflow-library/actions | List Workflow Library Actions
-*V2025WorkflowsApi* | [**Get-V2025WorkflowLibraryOperators**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowLibraryOperators) | **GET** /workflow-library/operators | List Workflow Library Operators
-*V2025WorkflowsApi* | [**Get-V2025WorkflowLibraryTriggers**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowLibraryTriggers) | **GET** /workflow-library/triggers | List Workflow Library Triggers
-*V2025WorkflowsApi* | [**Get-V2025Workflows**](docs/V2025WorkflowsApi.md#Get-V2025Workflows) | **GET** /workflows | List Workflows
-*V2025WorkflowsApi* | [**Update-V2025Workflow**](docs/V2025WorkflowsApi.md#Update-V2025Workflow) | **PATCH** /workflows/{id} | Patch Workflow
-*V2025WorkflowsApi* | [**Send-V2025Workflow**](docs/V2025WorkflowsApi.md#Send-V2025Workflow) | **PUT** /workflows/{id} | Update Workflow
-*V2025WorkflowsApi* | [**Test-V2025ExternalExecuteWorkflow**](docs/V2025WorkflowsApi.md#Test-V2025ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id}/test | Test Workflow via External Trigger
-*V2025WorkflowsApi* | [**Test-V2025Workflow**](docs/V2025WorkflowsApi.md#Test-V2025Workflow) | **POST** /workflows/{id}/test | Test Workflow By Id
+*V2025TriggersApi* | [**Complete-V2025TriggerInvocation**](docs/V2025TriggersApi.md#Complete-V2025TriggerInvocation) | **POST** /trigger-invocations/{id}/complete | Complete trigger invocation
+*V2025TriggersApi* | [**New-V2025Subscription**](docs/V2025TriggersApi.md#New-V2025Subscription) | **POST** /trigger-subscriptions | Create a subscription
+*V2025TriggersApi* | [**Remove-V2025Subscription**](docs/V2025TriggersApi.md#Remove-V2025Subscription) | **DELETE** /trigger-subscriptions/{id} | Delete a subscription
+*V2025TriggersApi* | [**Get-V2025Subscriptions**](docs/V2025TriggersApi.md#Get-V2025Subscriptions) | **GET** /trigger-subscriptions | List subscriptions
+*V2025TriggersApi* | [**Get-V2025TriggerInvocationStatus**](docs/V2025TriggersApi.md#Get-V2025TriggerInvocationStatus) | **GET** /trigger-invocations/status | List latest invocation statuses
+*V2025TriggersApi* | [**Get-V2025Triggers**](docs/V2025TriggersApi.md#Get-V2025Triggers) | **GET** /triggers | List triggers
+*V2025TriggersApi* | [**Update-V2025Subscription**](docs/V2025TriggersApi.md#Update-V2025Subscription) | **PATCH** /trigger-subscriptions/{id} | Patch a subscription
+*V2025TriggersApi* | [**Start-V2025TestTriggerInvocation**](docs/V2025TriggersApi.md#Start-V2025TestTriggerInvocation) | **POST** /trigger-invocations/test | Start a test invocation
+*V2025TriggersApi* | [**Test-V2025SubscriptionFilter**](docs/V2025TriggersApi.md#Test-V2025SubscriptionFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a subscription filter
+*V2025TriggersApi* | [**Update-V2025Subscription**](docs/V2025TriggersApi.md#Update-V2025Subscription) | **PUT** /trigger-subscriptions/{id} | Update a subscription
+*V2025UIMetadataApi* | [**Get-V2025TenantUiMetadata**](docs/V2025UIMetadataApi.md#Get-V2025TenantUiMetadata) | **GET** /ui-metadata/tenant | Get a tenant ui metadata
+*V2025UIMetadataApi* | [**Set-V2025TenantUiMetadata**](docs/V2025UIMetadataApi.md#Set-V2025TenantUiMetadata) | **PUT** /ui-metadata/tenant | Update tenant ui metadata
+*V2025VendorConnectorMappingsApi* | [**New-V2025VendorConnectorMapping**](docs/V2025VendorConnectorMappingsApi.md#New-V2025VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create vendor connector mapping
+*V2025VendorConnectorMappingsApi* | [**Remove-V2025VendorConnectorMapping**](docs/V2025VendorConnectorMappingsApi.md#Remove-V2025VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete vendor connector mapping
+*V2025VendorConnectorMappingsApi* | [**Get-V2025VendorConnectorMappings**](docs/V2025VendorConnectorMappingsApi.md#Get-V2025VendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
+*V2025WorkItemsApi* | [**Approve-V2025ApprovalItem**](docs/V2025WorkItemsApi.md#Approve-V2025ApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an approval item
+*V2025WorkItemsApi* | [**Approve-V2025ApprovalItemsInBulk**](docs/V2025WorkItemsApi.md#Approve-V2025ApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve approval items
+*V2025WorkItemsApi* | [**Complete-V2025WorkItem**](docs/V2025WorkItemsApi.md#Complete-V2025WorkItem) | **POST** /work-items/{id} | Complete a work item
+*V2025WorkItemsApi* | [**Invoke-V2025ForwardWorkItem**](docs/V2025WorkItemsApi.md#Invoke-V2025ForwardWorkItem) | **POST** /work-items/{id}/forward | Forward a work item
+*V2025WorkItemsApi* | [**Get-V2025CompletedWorkItems**](docs/V2025WorkItemsApi.md#Get-V2025CompletedWorkItems) | **GET** /work-items/completed | Completed work items
+*V2025WorkItemsApi* | [**Get-V2025CountCompletedWorkItems**](docs/V2025WorkItemsApi.md#Get-V2025CountCompletedWorkItems) | **GET** /work-items/completed/count | Count completed work items
+*V2025WorkItemsApi* | [**Get-V2025CountWorkItems**](docs/V2025WorkItemsApi.md#Get-V2025CountWorkItems) | **GET** /work-items/count | Count work items
+*V2025WorkItemsApi* | [**Get-V2025WorkItem**](docs/V2025WorkItemsApi.md#Get-V2025WorkItem) | **GET** /work-items/{id} | Get a work item
+*V2025WorkItemsApi* | [**Get-V2025WorkItemsSummary**](docs/V2025WorkItemsApi.md#Get-V2025WorkItemsSummary) | **GET** /work-items/summary | Work items summary
+*V2025WorkItemsApi* | [**Get-V2025WorkItems**](docs/V2025WorkItemsApi.md#Get-V2025WorkItems) | **GET** /work-items | List work items
+*V2025WorkItemsApi* | [**Deny-V2025ApprovalItem**](docs/V2025WorkItemsApi.md#Deny-V2025ApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an approval item
+*V2025WorkItemsApi* | [**Deny-V2025ApprovalItemsInBulk**](docs/V2025WorkItemsApi.md#Deny-V2025ApprovalItemsInBulk) | **POST** /work-items/bulk-reject/{id} | Bulk reject approval items
+*V2025WorkItemsApi* | [**Submit-V2025AccountSelection**](docs/V2025WorkItemsApi.md#Submit-V2025AccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit account selections
+*V2025WorkReassignmentApi* | [**New-V2025ReassignmentConfiguration**](docs/V2025WorkReassignmentApi.md#New-V2025ReassignmentConfiguration) | **POST** /reassignment-configurations | Create a reassignment configuration
+*V2025WorkReassignmentApi* | [**Remove-V2025ReassignmentConfiguration**](docs/V2025WorkReassignmentApi.md#Remove-V2025ReassignmentConfiguration) | **DELETE** /reassignment-configurations/{identityId}/{configType} | Delete reassignment configuration
+*V2025WorkReassignmentApi* | [**Get-V2025EvaluateReassignmentConfiguration**](docs/V2025WorkReassignmentApi.md#Get-V2025EvaluateReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId}/evaluate/{configType} | Evaluate reassignment configuration
+*V2025WorkReassignmentApi* | [**Get-V2025ReassignmentConfigTypes**](docs/V2025WorkReassignmentApi.md#Get-V2025ReassignmentConfigTypes) | **GET** /reassignment-configurations/types | List reassignment config types
+*V2025WorkReassignmentApi* | [**Get-V2025ReassignmentConfiguration**](docs/V2025WorkReassignmentApi.md#Get-V2025ReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId} | Get reassignment configuration
+*V2025WorkReassignmentApi* | [**Get-V2025TenantConfigConfiguration**](docs/V2025WorkReassignmentApi.md#Get-V2025TenantConfigConfiguration) | **GET** /reassignment-configurations/tenant-config | Get tenant-wide reassignment configuration settings
+*V2025WorkReassignmentApi* | [**Get-V2025ReassignmentConfigurations**](docs/V2025WorkReassignmentApi.md#Get-V2025ReassignmentConfigurations) | **GET** /reassignment-configurations | List reassignment configurations
+*V2025WorkReassignmentApi* | [**Send-V2025ReassignmentConfig**](docs/V2025WorkReassignmentApi.md#Send-V2025ReassignmentConfig) | **PUT** /reassignment-configurations/{identityId} | Update reassignment configuration
+*V2025WorkReassignmentApi* | [**Send-V2025TenantConfiguration**](docs/V2025WorkReassignmentApi.md#Send-V2025TenantConfiguration) | **PUT** /reassignment-configurations/tenant-config | Update tenant-wide reassignment configuration settings
+*V2025WorkflowsApi* | [**Suspend-V2025WorkflowExecution**](docs/V2025WorkflowsApi.md#Suspend-V2025WorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel workflow execution by id
+*V2025WorkflowsApi* | [**New-V2025ExternalExecuteWorkflow**](docs/V2025WorkflowsApi.md#New-V2025ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id} | Execute workflow via external trigger
+*V2025WorkflowsApi* | [**New-V2025Workflow**](docs/V2025WorkflowsApi.md#New-V2025Workflow) | **POST** /workflows | Create workflow
+*V2025WorkflowsApi* | [**New-V2025WorkflowExternalTrigger**](docs/V2025WorkflowsApi.md#New-V2025WorkflowExternalTrigger) | **POST** /workflows/{id}/external/oauth-clients | Generate external trigger oauth client
+*V2025WorkflowsApi* | [**Remove-V2025Workflow**](docs/V2025WorkflowsApi.md#Remove-V2025Workflow) | **DELETE** /workflows/{id} | Delete workflow by id
+*V2025WorkflowsApi* | [**Get-V2025Workflow**](docs/V2025WorkflowsApi.md#Get-V2025Workflow) | **GET** /workflows/{id} | Get workflow by id
+*V2025WorkflowsApi* | [**Get-V2025WorkflowExecution**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowExecution) | **GET** /workflow-executions/{id} | Get workflow execution
+*V2025WorkflowsApi* | [**Get-V2025WorkflowExecutionHistory**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowExecutionHistory) | **GET** /workflow-executions/{id}/history | Get workflow execution history
+*V2025WorkflowsApi* | [**Get-V2025WorkflowExecutions**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowExecutions) | **GET** /workflows/{id}/executions | List workflow executions
+*V2025WorkflowsApi* | [**Get-V2025CompleteWorkflowLibrary**](docs/V2025WorkflowsApi.md#Get-V2025CompleteWorkflowLibrary) | **GET** /workflow-library | List complete workflow library
+*V2025WorkflowsApi* | [**Get-V2025WorkflowLibraryActions**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowLibraryActions) | **GET** /workflow-library/actions | List workflow library actions
+*V2025WorkflowsApi* | [**Get-V2025WorkflowLibraryOperators**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowLibraryOperators) | **GET** /workflow-library/operators | List workflow library operators
+*V2025WorkflowsApi* | [**Get-V2025WorkflowLibraryTriggers**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowLibraryTriggers) | **GET** /workflow-library/triggers | List workflow library triggers
+*V2025WorkflowsApi* | [**Get-V2025Workflows**](docs/V2025WorkflowsApi.md#Get-V2025Workflows) | **GET** /workflows | List workflows
+*V2025WorkflowsApi* | [**Update-V2025Workflow**](docs/V2025WorkflowsApi.md#Update-V2025Workflow) | **PATCH** /workflows/{id} | Patch workflow
+*V2025WorkflowsApi* | [**Send-V2025Workflow**](docs/V2025WorkflowsApi.md#Send-V2025Workflow) | **PUT** /workflows/{id} | Update workflow
+*V2025WorkflowsApi* | [**Test-V2025ExternalExecuteWorkflow**](docs/V2025WorkflowsApi.md#Test-V2025ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id}/test | Test workflow via external trigger
+*V2025WorkflowsApi* | [**Test-V2025Workflow**](docs/V2025WorkflowsApi.md#Test-V2025Workflow) | **POST** /workflows/{id}/test | Test workflow by id
 
 
 ## Documentation for Models

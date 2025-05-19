@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Cancel Workflow Execution by ID
+Cancel workflow execution by id
 
 .DESCRIPTION
 
@@ -82,7 +82,7 @@ function Suspend-BetaWorkflowExecution {
 <#
 .SYNOPSIS
 
-Create Workflow
+Create workflow
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function New-BetaWorkflow {
 <#
 .SYNOPSIS
 
-Delete Workflow By Id
+Delete workflow by id
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Remove-BetaWorkflow {
 <#
 .SYNOPSIS
 
-Get Workflow By Id
+Get workflow by id
 
 .DESCRIPTION
 
@@ -330,7 +330,7 @@ function Get-BetaWorkflow {
 <#
 .SYNOPSIS
 
-Get Workflow Execution
+Get workflow execution
 
 .DESCRIPTION
 
@@ -404,7 +404,7 @@ function Get-BetaWorkflowExecution {
 <#
 .SYNOPSIS
 
-Get Workflow Execution History
+Get workflow execution history
 
 .DESCRIPTION
 
@@ -478,7 +478,7 @@ function Get-BetaWorkflowExecutionHistory {
 <#
 .SYNOPSIS
 
-List Workflow Executions
+List workflow executions
 
 .DESCRIPTION
 
@@ -592,7 +592,7 @@ function Get-BetaWorkflowExecutions {
 <#
 .SYNOPSIS
 
-List Complete Workflow Library
+List complete workflow library
 
 .DESCRIPTION
 
@@ -676,7 +676,7 @@ function Get-BetaCompleteWorkflowLibrary {
 <#
 .SYNOPSIS
 
-List Workflow Library Actions
+List workflow library actions
 
 .DESCRIPTION
 
@@ -770,7 +770,7 @@ function Get-BetaWorkflowLibraryActions {
 <#
 .SYNOPSIS
 
-List Workflow Library Operators
+List workflow library operators
 
 .DESCRIPTION
 
@@ -834,7 +834,7 @@ function Get-BetaWorkflowLibraryOperators {
 <#
 .SYNOPSIS
 
-List Workflow Library Triggers
+List workflow library triggers
 
 .DESCRIPTION
 
@@ -928,7 +928,7 @@ function Get-BetaWorkflowLibraryTriggers {
 <#
 .SYNOPSIS
 
-List Workflows
+List workflows
 
 .DESCRIPTION
 
@@ -1032,7 +1032,7 @@ function Get-BetaWorkflows {
 <#
 .SYNOPSIS
 
-Patch Workflow
+Patch workflow
 
 .DESCRIPTION
 
@@ -1132,7 +1132,7 @@ function Update-BetaWorkflow {
 <#
 .SYNOPSIS
 
-Execute Workflow via External Trigger
+Execute workflow via external trigger
 
 .DESCRIPTION
 
@@ -1228,7 +1228,7 @@ function Submit-BetaExternalExecuteWorkflow {
 <#
 .SYNOPSIS
 
-Generate External Trigger OAuth Client
+Generate external trigger oauth client
 
 .DESCRIPTION
 
@@ -1302,7 +1302,7 @@ function Submit-BetaWorkflowExternalTrigger {
 <#
 .SYNOPSIS
 
-Update Workflow
+Update workflow
 
 .DESCRIPTION
 
@@ -1402,7 +1402,7 @@ function Send-BetaWorkflow {
 <#
 .SYNOPSIS
 
-Test Workflow via External Trigger
+Test workflow via external trigger
 
 .DESCRIPTION
 
@@ -1498,7 +1498,7 @@ function Test-BetaExternalExecuteWorkflow {
 <#
 .SYNOPSIS
 
-Test Workflow By Id
+Test workflow by id
 
 .DESCRIPTION
 

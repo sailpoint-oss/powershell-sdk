@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create a Deploy
+Create a deploy
 
 .DESCRIPTION
 
@@ -298,7 +298,7 @@ function New-V2025ObjectMappings {
 <#
 .SYNOPSIS
 
-Create Scheduled Action
+Create scheduled action
 
 .DESCRIPTION
 
@@ -388,7 +388,7 @@ function New-V2025ScheduledAction {
 <#
 .SYNOPSIS
 
-Upload a Configuration
+Upload a configuration
 
 .DESCRIPTION
 
@@ -477,7 +477,7 @@ function New-V2025UploadedConfiguration {
 <#
 .SYNOPSIS
 
-Delete a Backup
+Delete a backup
 
 .DESCRIPTION
 
@@ -709,7 +709,7 @@ function Remove-V2025ObjectMapping {
 <#
 .SYNOPSIS
 
-Delete Scheduled Action
+Delete scheduled action
 
 .DESCRIPTION
 
@@ -783,7 +783,7 @@ function Remove-V2025ScheduledAction {
 <#
 .SYNOPSIS
 
-Delete an Uploaded Configuration
+Delete an uploaded configuration
 
 .DESCRIPTION
 
@@ -857,7 +857,7 @@ function Remove-V2025UploadedConfiguration {
 <#
 .SYNOPSIS
 
-Get a Deploy
+Get a deploy
 
 .DESCRIPTION
 
@@ -1005,7 +1005,7 @@ function Get-V2025ObjectMappings {
 <#
 .SYNOPSIS
 
-Get an Uploaded Configuration
+Get an uploaded configuration
 
 .DESCRIPTION
 
@@ -1079,7 +1079,7 @@ function Get-V2025UploadedConfiguration {
 <#
 .SYNOPSIS
 
-List Backups
+List backups
 
 .DESCRIPTION
 
@@ -1153,7 +1153,7 @@ function Get-V2025Backups {
 <#
 .SYNOPSIS
 
-List Deploys
+List deploys
 
 .DESCRIPTION
 
@@ -1217,7 +1217,7 @@ function Get-V2025Deploys {
 <#
 .SYNOPSIS
 
-List Drafts
+List drafts
 
 .DESCRIPTION
 
@@ -1291,7 +1291,7 @@ function Get-V2025Drafts {
 <#
 .SYNOPSIS
 
-List Scheduled Actions
+List scheduled actions
 
 .DESCRIPTION
 
@@ -1355,7 +1355,7 @@ function Get-V2025ScheduledActions {
 <#
 .SYNOPSIS
 
-List Uploaded Configurations
+List uploaded configurations
 
 .DESCRIPTION
 
@@ -1529,7 +1529,7 @@ function Update-V2025ObjectMappings {
 <#
 .SYNOPSIS
 
-Update Scheduled Action
+Update scheduled action
 
 .DESCRIPTION
 

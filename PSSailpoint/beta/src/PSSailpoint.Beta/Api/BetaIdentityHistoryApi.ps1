@@ -142,7 +142,7 @@ function Compare-BetaIdentitySnapshots {
 <#
 .SYNOPSIS
 
-Gets a list of differences of specific accessType for the given identity between 2 snapshots
+Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 
 .DESCRIPTION
 
@@ -902,7 +902,7 @@ function Get-BetaHistoricalIdentities {
 <#
 .SYNOPSIS
 
-List Access Items by Identity
+List access items by identity
 
 .DESCRIPTION
 
@@ -1046,7 +1046,7 @@ function Get-BetaIdentityAccessItems {
 <#
 .SYNOPSIS
 
-Get Identity Access Items Snapshot
+Get identity access items snapshot
 
 .DESCRIPTION
 

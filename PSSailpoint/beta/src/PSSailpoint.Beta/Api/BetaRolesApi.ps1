@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create a Role
+Create a role
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaRole {
 <#
 .SYNOPSIS
 
-Delete Role(s)
+Delete role(s)
 
 .DESCRIPTION
 
@@ -188,7 +188,7 @@ function Remove-BetaBulkRoles {
 <#
 .SYNOPSIS
 
-Delete a Role
+Delete a role
 
 .DESCRIPTION
 
@@ -262,7 +262,7 @@ function Remove-BetaRole {
 <#
 .SYNOPSIS
 
-Get a Role
+Get a role
 
 .DESCRIPTION
 
@@ -336,7 +336,7 @@ function Get-BetaRole {
 <#
 .SYNOPSIS
 
-Identities assigned a Role
+Identities assigned a role
 
 .DESCRIPTION
 
@@ -460,7 +460,7 @@ function Get-BetaRoleAssignedIdentities {
 <#
 .SYNOPSIS
 
-List Role's Entitlements
+List role's entitlements
 
 .DESCRIPTION
 
@@ -585,7 +585,7 @@ function Get-BetaRoleEntitlements {
 <#
 .SYNOPSIS
 
-List Roles
+List roles
 
 .DESCRIPTION
 
@@ -729,7 +729,7 @@ function Get-BetaRoles {
 <#
 .SYNOPSIS
 
-Patch a specified Role
+Patch a specified role
 
 .DESCRIPTION
 

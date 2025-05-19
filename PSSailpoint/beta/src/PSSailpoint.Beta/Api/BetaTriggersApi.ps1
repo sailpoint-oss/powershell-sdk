@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Complete Trigger Invocation
+Complete trigger invocation
 
 .DESCRIPTION
 
@@ -108,7 +108,7 @@ function Complete-BetaTriggerInvocation {
 <#
 .SYNOPSIS
 
-Create a Subscription
+Create a subscription
 
 .DESCRIPTION
 
@@ -198,7 +198,7 @@ function New-BetaSubscription {
 <#
 .SYNOPSIS
 
-Delete a Subscription
+Delete a subscription
 
 .DESCRIPTION
 
@@ -272,7 +272,7 @@ function Remove-BetaSubscription {
 <#
 .SYNOPSIS
 
-List Subscriptions
+List subscriptions
 
 .DESCRIPTION
 
@@ -386,7 +386,7 @@ function Get-BetaSubscriptions {
 <#
 .SYNOPSIS
 
-List Latest Invocation Statuses
+List latest invocation statuses
 
 .DESCRIPTION
 
@@ -500,7 +500,7 @@ function Get-BetaTriggerInvocationStatus {
 <#
 .SYNOPSIS
 
-List Triggers
+List triggers
 
 .DESCRIPTION
 
@@ -614,7 +614,7 @@ function Get-BetaTriggers {
 <#
 .SYNOPSIS
 
-Patch a Subscription
+Patch a subscription
 
 .DESCRIPTION
 
@@ -714,7 +714,7 @@ function Update-BetaSubscription {
 <#
 .SYNOPSIS
 
-Start a Test Invocation
+Start a test invocation
 
 .DESCRIPTION
 
@@ -804,7 +804,7 @@ function Start-BetaTestTriggerInvocation {
 <#
 .SYNOPSIS
 
-Validate a Subscription Filter
+Validate a subscription filter
 
 .DESCRIPTION
 
@@ -894,7 +894,7 @@ function Test-BetaSubscriptionFilter {
 <#
 .SYNOPSIS
 
-Update a Subscription
+Update a subscription
 
 .DESCRIPTION
 

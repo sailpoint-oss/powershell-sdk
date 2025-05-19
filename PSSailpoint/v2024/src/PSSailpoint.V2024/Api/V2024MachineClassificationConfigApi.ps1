@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Delete Source's Classification Config
+Delete source's classification config
 
 .DESCRIPTION
 
@@ -82,7 +82,7 @@ function Remove-V2024MachineClassificationConfig {
 <#
 .SYNOPSIS
 
-Machine Classification Config for Source
+Machine classification config for source
 
 .DESCRIPTION
 
@@ -156,7 +156,7 @@ function Get-V2024MachineClassificationConfig {
 <#
 .SYNOPSIS
 
-Update Source's Classification Config
+Update source's classification config
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Extended Search Attributes
+Create extended search attributes
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaSearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Delete Extended Search Attribute
+Delete extended search attribute
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-BetaSearchAttributeConfig {
 <#
 .SYNOPSIS
 
-List Extended Search Attributes
+List extended search attributes
 
 .DESCRIPTION
 
@@ -256,7 +256,7 @@ function Get-BetaSearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Get Extended Search Attribute
+Get extended search attribute
 
 .DESCRIPTION
 
@@ -330,7 +330,7 @@ function Get-BetaSingleSearchAttributeConfig {
 <#
 .SYNOPSIS
 
-Update Extended Search Attribute
+Update extended search attribute
 
 .DESCRIPTION
 

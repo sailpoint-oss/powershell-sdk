@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Complete a Campaign
+Complete a campaign
 
 .DESCRIPTION
 
@@ -104,7 +104,7 @@ function Complete-BetaCampaign {
 <#
 .SYNOPSIS
 
-Create Campaign
+Create campaign
 
 .DESCRIPTION
 
@@ -194,7 +194,7 @@ function New-BetaCampaign {
 <#
 .SYNOPSIS
 
-Create a Campaign Template
+Create a campaign template
 
 .DESCRIPTION
 
@@ -284,7 +284,7 @@ function New-BetaCampaignTemplate {
 <#
 .SYNOPSIS
 
-Delete a Campaign Template
+Delete a campaign template
 
 .DESCRIPTION
 
@@ -358,7 +358,7 @@ function Remove-BetaCampaignTemplate {
 <#
 .SYNOPSIS
 
-Delete Campaign Template Schedule
+Delete campaign template schedule
 
 .DESCRIPTION
 
@@ -432,7 +432,7 @@ function Remove-BetaCampaignTemplateSchedule {
 <#
 .SYNOPSIS
 
-Delete Campaigns
+Delete campaigns
 
 .DESCRIPTION
 
@@ -522,7 +522,7 @@ function Remove-BetaCampaigns {
 <#
 .SYNOPSIS
 
-List Campaigns
+List campaigns
 
 .DESCRIPTION
 
@@ -647,7 +647,7 @@ function Get-BetaActiveCampaigns {
 <#
 .SYNOPSIS
 
-Get Campaign
+Get campaign
 
 .DESCRIPTION
 
@@ -721,7 +721,7 @@ function Get-BetaCampaign {
 <#
 .SYNOPSIS
 
-Get Campaign Reports
+Get campaign reports
 
 .DESCRIPTION
 
@@ -795,7 +795,7 @@ function Get-BetaCampaignReports {
 <#
 .SYNOPSIS
 
-Get Campaign Reports Configuration
+Get campaign reports configuration
 
 .DESCRIPTION
 
@@ -859,7 +859,7 @@ function Get-BetaCampaignReportsConfig {
 <#
 .SYNOPSIS
 
-Get a Campaign Template
+Get a campaign template
 
 .DESCRIPTION
 
@@ -933,7 +933,7 @@ function Get-BetaCampaignTemplate {
 <#
 .SYNOPSIS
 
-Get Campaign Template Schedule
+Get campaign template schedule
 
 .DESCRIPTION
 
@@ -1007,7 +1007,7 @@ function Get-BetaCampaignTemplateSchedule {
 <#
 .SYNOPSIS
 
-List Campaign Templates
+List campaign templates
 
 .DESCRIPTION
 
@@ -1121,7 +1121,7 @@ function Get-BetaCampaignTemplates {
 <#
 .SYNOPSIS
 
-Reassign Certifications
+Reassign certifications
 
 .DESCRIPTION
 
@@ -1221,7 +1221,7 @@ function Move-Beta {
 <#
 .SYNOPSIS
 
-Update a Campaign Template
+Update a campaign template
 
 .DESCRIPTION
 
@@ -1321,7 +1321,7 @@ function Update-BetaCampaignTemplate {
 <#
 .SYNOPSIS
 
-Set Campaign Reports Configuration
+Set campaign reports configuration
 
 .DESCRIPTION
 
@@ -1411,7 +1411,7 @@ function Set-BetaCampaignReportsConfig {
 <#
 .SYNOPSIS
 
-Set Campaign Template Schedule
+Set campaign template schedule
 
 .DESCRIPTION
 
@@ -1507,7 +1507,7 @@ function Set-BetaCampaignTemplateSchedule {
 <#
 .SYNOPSIS
 
-Activate a Campaign
+Activate a campaign
 
 .DESCRIPTION
 
@@ -1603,7 +1603,7 @@ function Start-BetaCampaign {
 <#
 .SYNOPSIS
 
-Run Campaign Remediation Scan
+Run campaign remediation scan
 
 .DESCRIPTION
 
@@ -1677,7 +1677,7 @@ function Start-BetaCampaignRemediationScan {
 <#
 .SYNOPSIS
 
-Run Campaign Report
+Run campaign report
 
 .DESCRIPTION
 
@@ -1761,7 +1761,7 @@ function Start-BetaCampaignReport {
 <#
 .SYNOPSIS
 
-Generate a Campaign from Template
+Generate a campaign from template
 
 .DESCRIPTION
 
@@ -1835,7 +1835,7 @@ function Start-BetaGenerateCampaignTemplate {
 <#
 .SYNOPSIS
 
-Update a Campaign
+Update a campaign
 
 .DESCRIPTION
 

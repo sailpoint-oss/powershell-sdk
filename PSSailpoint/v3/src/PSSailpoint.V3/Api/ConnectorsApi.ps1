@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Custom Connector
+Create custom connector
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-CustomConnector {
 <#
 .SYNOPSIS
 
-Delete Connector by Script Name
+Delete connector by script name
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-CustomConnector {
 <#
 .SYNOPSIS
 
-Get Connector by Script Name
+Get connector by script name
 
 .DESCRIPTION
 
@@ -257,7 +257,7 @@ function Get-Connector {
 <#
 .SYNOPSIS
 
-Get Connector List
+Get connector list
 
 .DESCRIPTION
 
@@ -372,7 +372,7 @@ function Get-ConnectorList {
 <#
 .SYNOPSIS
 
-Get Connector Source Configuration
+Get connector source configuration
 
 .DESCRIPTION
 
@@ -458,7 +458,7 @@ function Get-ConnectorSourceConfig {
 <#
 .SYNOPSIS
 
-Get Connector Source Template
+Get connector source template
 
 .DESCRIPTION
 
@@ -544,7 +544,7 @@ function Get-ConnectorSourceTemplate {
 <#
 .SYNOPSIS
 
-Get Connector Translations
+Get connector translations
 
 .DESCRIPTION
 
@@ -641,7 +641,7 @@ function Get-ConnectorTranslations {
 <#
 .SYNOPSIS
 
-Update Connector Source Configuration
+Update connector source configuration
 
 .DESCRIPTION
 
@@ -729,7 +729,7 @@ function Send-ConnectorSourceConfig {
 <#
 .SYNOPSIS
 
-Update Connector Source Template
+Update connector source template
 
 .DESCRIPTION
 
@@ -817,7 +817,7 @@ function Send-ConnectorSourceTemplate {
 <#
 .SYNOPSIS
 
-Update Connector Translations
+Update connector translations
 
 .DESCRIPTION
 
@@ -905,7 +905,7 @@ function Send-ConnectorTranslations {
 <#
 .SYNOPSIS
 
-Update Connector by Script Name
+Update connector by script name
 
 .DESCRIPTION
 

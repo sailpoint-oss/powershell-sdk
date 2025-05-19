@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Segment
+Create segment
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaSegment {
 <#
 .SYNOPSIS
 
-Delete Segment by ID
+Delete segment by id
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-BetaSegment {
 <#
 .SYNOPSIS
 
-Get Segment by ID
+Get segment by id
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Get-BetaSegment {
 <#
 .SYNOPSIS
 
-List Segments
+List segments
 
 .DESCRIPTION
 
@@ -340,7 +340,7 @@ function Get-BetaSegments {
 <#
 .SYNOPSIS
 
-Update Segment
+Update segment
 
 .DESCRIPTION
 

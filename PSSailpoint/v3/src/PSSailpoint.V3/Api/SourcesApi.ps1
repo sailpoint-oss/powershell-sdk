@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Provisioning Policy
+Create provisioning policy
 
 .DESCRIPTION
 
@@ -108,7 +108,7 @@ function New-ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Creates a source in IdentityNow.
+Creates a source in identitynow.
 
 .DESCRIPTION
 
@@ -208,7 +208,7 @@ function New-Source {
 <#
 .SYNOPSIS
 
-Create Schema on Source
+Create schema on source
 
 .DESCRIPTION
 
@@ -308,7 +308,7 @@ function New-SourceSchema {
 <#
 .SYNOPSIS
 
-Delete Provisioning Policy by UsageType
+Delete provisioning policy by usagetype
 
 .DESCRIPTION
 
@@ -393,7 +393,7 @@ function Remove-ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Delete Source by ID
+Delete source by id
 
 .DESCRIPTION
 
@@ -467,7 +467,7 @@ function Remove-Source {
 <#
 .SYNOPSIS
 
-Delete Source Schema by ID
+Delete source schema by id
 
 .DESCRIPTION
 
@@ -733,7 +733,7 @@ function Get-EntitlementsSchema {
 <#
 .SYNOPSIS
 
-Get Provisioning Policy by UsageType
+Get provisioning policy by usagetype
 
 .DESCRIPTION
 
@@ -818,7 +818,7 @@ function Get-ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Get Source by ID
+Get source by id
 
 .DESCRIPTION
 
@@ -892,7 +892,7 @@ function Get-Source {
 <#
 .SYNOPSIS
 
-Get Source Connections by ID
+Get source connections by id
 
 .DESCRIPTION
 
@@ -1040,7 +1040,7 @@ function Get-SourceHealth {
 <#
 .SYNOPSIS
 
-Get Source Schema by ID
+Get source schema by id
 
 .DESCRIPTION
 
@@ -1124,7 +1124,7 @@ function Get-SourceSchema {
 <#
 .SYNOPSIS
 
-List Schemas on Source
+List schemas on source
 
 .DESCRIPTION
 
@@ -1490,7 +1490,7 @@ function Import-EntitlementsSchema {
 <#
 .SYNOPSIS
 
-Lists ProvisioningPolicies
+Lists provisioningpolicies
 
 .DESCRIPTION
 
@@ -1565,7 +1565,7 @@ function Get-ProvisioningPolicies {
 <#
 .SYNOPSIS
 
-Lists all sources in IdentityNow.
+Lists all sources in identitynow.
 
 .DESCRIPTION
 
@@ -1700,7 +1700,7 @@ function Get-Sources {
 <#
 .SYNOPSIS
 
-Update Provisioning Policy by UsageType
+Update provisioning policy by usagetype
 
 .DESCRIPTION
 
@@ -1811,7 +1811,7 @@ function Send-ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Update Source (Full)
+Update source (full)
 
 .DESCRIPTION
 
@@ -1911,7 +1911,7 @@ function Send-Source {
 <#
 .SYNOPSIS
 
-Update Source Schema (Full)
+Update source schema (full)
 
 .DESCRIPTION
 
@@ -2021,7 +2021,7 @@ function Send-SourceSchema {
 <#
 .SYNOPSIS
 
-Bulk Update Provisioning Policies
+Bulk update provisioning policies
 
 .DESCRIPTION
 
@@ -2122,7 +2122,7 @@ function Update-ProvisioningPoliciesInBulk {
 <#
 .SYNOPSIS
 
-Partial update of Provisioning Policy
+Partial update of provisioning policy
 
 .DESCRIPTION
 
@@ -2233,7 +2233,7 @@ function Update-ProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Update Source (Partial)
+Update source (partial)
 
 .DESCRIPTION
 
@@ -2333,7 +2333,7 @@ function Update-Source {
 <#
 .SYNOPSIS
 
-Update Source Schema (Partial)
+Update source schema (partial)
 
 .DESCRIPTION
 

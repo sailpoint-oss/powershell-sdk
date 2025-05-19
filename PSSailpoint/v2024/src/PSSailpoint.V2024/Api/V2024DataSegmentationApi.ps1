@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Segment
+Create segment
 
 .DESCRIPTION
 
@@ -99,7 +99,7 @@ function New-V2024DataSegment {
 <#
 .SYNOPSIS
 
-Delete Segment by ID
+Delete segment by id
 
 .DESCRIPTION
 
@@ -195,7 +195,7 @@ function Remove-V2024DataSegment {
 <#
 .SYNOPSIS
 
-Get Segment by ID
+Get segment by id
 
 .DESCRIPTION
 
@@ -281,7 +281,7 @@ function Get-V2024DataSegment {
 <#
 .SYNOPSIS
 
-Get SegmentMembership by Identity ID
+Get segmentmembership by identity id
 
 .DESCRIPTION
 
@@ -367,7 +367,7 @@ function Get-V2024DataSegmentIdentityMembership {
 <#
 .SYNOPSIS
 
-Is Segmentation enabled by Identity
+Is segmentation enabled by identity
 
 .DESCRIPTION
 
@@ -453,7 +453,7 @@ function Get-V2024DataSegmentationEnabledForUser {
 <#
 .SYNOPSIS
 
-Get Segments
+Get segments
 
 .DESCRIPTION
 
@@ -599,7 +599,7 @@ function Get-V2024DataSegments {
 <#
 .SYNOPSIS
 
-Update Segment
+Update segment
 
 .DESCRIPTION
 
@@ -711,7 +711,7 @@ function Update-V2024DataSegment {
 <#
 .SYNOPSIS
 
-Publish segment by ID
+Publish segment by id
 
 .DESCRIPTION
 

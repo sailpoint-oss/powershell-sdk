@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create new Service Desk integration
+Create new service desk integration
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-Delete a Service Desk integration
+Delete a service desk integration
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-BetaServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-Get a Service Desk integration
+Get a service desk integration
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Get-BetaServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-List existing Service Desk integrations
+List existing service desk integrations
 
 .DESCRIPTION
 
@@ -360,7 +360,7 @@ function Get-BetaServiceDeskIntegrationList {
 <#
 .SYNOPSIS
 
-Service Desk integration template by scriptName
+Service desk integration template by scriptname
 
 .DESCRIPTION
 
@@ -434,7 +434,7 @@ function Get-BetaServiceDeskIntegrationTemplate {
 <#
 .SYNOPSIS
 
-List Service Desk integration types
+List service desk integration types
 
 .DESCRIPTION
 
@@ -562,7 +562,7 @@ function Get-BetaStatusCheckDetails {
 <#
 .SYNOPSIS
 
-Patch a Service Desk Integration
+Patch a service desk integration
 
 .DESCRIPTION
 
@@ -662,7 +662,7 @@ function Update-BetaServiceDeskIntegration {
 <#
 .SYNOPSIS
 
-Update a Service Desk integration
+Update a service desk integration
 
 .DESCRIPTION
 

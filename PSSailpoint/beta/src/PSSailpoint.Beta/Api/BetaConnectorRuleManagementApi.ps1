@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Connector Rule
+Create connector rule
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaConnectorRule {
 <#
 .SYNOPSIS
 
-Delete a Connector-Rule
+Delete a connector-rule
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-BetaConnectorRule {
 <#
 .SYNOPSIS
 
-Connector-Rule by ID
+Connector-rule by id
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Get-BetaConnectorRule {
 <#
 .SYNOPSIS
 
-List Connector Rules
+List connector rules
 
 .DESCRIPTION
 
@@ -310,7 +310,7 @@ function Get-BetaConnectorRuleList {
 <#
 .SYNOPSIS
 
-Update a Connector Rule
+Update a connector rule
 
 .DESCRIPTION
 
@@ -406,7 +406,7 @@ function Update-BetaConnectorRule {
 <#
 .SYNOPSIS
 
-Validate Connector Rule
+Validate connector rule
 
 .DESCRIPTION
 

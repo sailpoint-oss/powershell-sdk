@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Requestable Objects List
+Requestable objects list
 
 .DESCRIPTION
 

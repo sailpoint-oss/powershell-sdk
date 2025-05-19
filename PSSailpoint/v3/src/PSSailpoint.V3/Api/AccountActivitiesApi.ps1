@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get an Account Activity
+Get an account activity
 
 .DESCRIPTION
 
@@ -82,7 +82,7 @@ function Get-AccountActivity {
 <#
 .SYNOPSIS
 
-List Account Activities
+List account activities
 
 .DESCRIPTION
 

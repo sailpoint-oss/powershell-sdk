@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Get Org configuration settings
+Get org configuration settings
 
 .DESCRIPTION
 
@@ -136,7 +136,7 @@ function Get-BetaValidTimeZones {
 <#
 .SYNOPSIS
 
-Patch an Org configuration property
+Patch an org configuration property
 
 .DESCRIPTION
 

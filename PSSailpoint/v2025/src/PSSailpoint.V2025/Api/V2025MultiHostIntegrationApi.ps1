@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Multi-Host Integration
+Create multi-host integration
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-V2025MultiHostIntegration {
 <#
 .SYNOPSIS
 
-Create Sources Within Multi-Host Integration
+Create sources within multi-host integration
 
 .DESCRIPTION
 
@@ -198,7 +198,7 @@ function New-V2025SourcesWithinMultiHost {
 <#
 .SYNOPSIS
 
-Delete Multi-Host Integration
+Delete multi-host integration
 
 .DESCRIPTION
 
@@ -272,7 +272,7 @@ function Remove-V2025MultiHost {
 <#
 .SYNOPSIS
 
-List Account-Aggregation-Groups by Multi-Host ID
+List account-aggregation-groups by multi-host id
 
 .DESCRIPTION
 
@@ -366,7 +366,7 @@ function Get-V2025AcctAggregationGroups {
 <#
 .SYNOPSIS
 
-List Entitlement-Aggregation-Groups by Integration ID
+List entitlement-aggregation-groups by integration id
 
 .DESCRIPTION
 
@@ -460,7 +460,7 @@ function Get-V2025EntitlementAggregationGroups {
 <#
 .SYNOPSIS
 
-Get Multi-Host Integration By ID
+Get multi-host integration by id
 
 .DESCRIPTION
 
@@ -534,7 +534,7 @@ function Get-V2025MultiHostIntegrations {
 <#
 .SYNOPSIS
 
-List All Existing Multi-Host Integrations
+List all existing multi-host integrations
 
 .DESCRIPTION
 
@@ -658,7 +658,7 @@ function Get-V2025MultiHostIntegrationsList {
 <#
 .SYNOPSIS
 
-List Multi-Host Source Creation Errors
+List multi-host source creation errors
 
 .DESCRIPTION
 
@@ -732,7 +732,7 @@ function Get-V2025MultiHostSourceCreationErrors {
 <#
 .SYNOPSIS
 
-List Multi-Host Integration Types
+List multi-host integration types
 
 .DESCRIPTION
 
@@ -796,7 +796,7 @@ function Get-V2025MultihostIntegrationTypes {
 <#
 .SYNOPSIS
 
-List Sources Within Multi-Host Integration
+List sources within multi-host integration
 
 .DESCRIPTION
 
@@ -920,7 +920,7 @@ function Get-V2025SourcesWithinMultiHost {
 <#
 .SYNOPSIS
 
-Test Configuration For Multi-Host Integration
+Test configuration for multi-host integration
 
 .DESCRIPTION
 
@@ -994,7 +994,7 @@ function Test-V2025ConnectionMultiHostSources {
 <#
 .SYNOPSIS
 
-Test Configuration For Multi-Host Integration's Single Source
+Test configuration for multi-host integration's single source
 
 .DESCRIPTION
 
@@ -1078,7 +1078,7 @@ function Test-V2025SourceConnectionMultihost {
 <#
 .SYNOPSIS
 
-Update Multi-Host Integration
+Update multi-host integration
 
 .DESCRIPTION
 

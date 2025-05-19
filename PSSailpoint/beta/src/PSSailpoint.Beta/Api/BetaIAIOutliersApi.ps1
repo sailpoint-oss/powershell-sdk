@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-IAI Identity Outliers Export
+Iai identity outliers export
 
 .DESCRIPTION
 
@@ -96,7 +96,7 @@ function Export-BetaOutliersZip {
 <#
 .SYNOPSIS
 
-IAI Identity Outliers Summary
+Iai identity outliers summary
 
 .DESCRIPTION
 
@@ -212,7 +212,7 @@ function Get-BetaIdentityOutlierSnapshots {
 <#
 .SYNOPSIS
 
-IAI Get Identity Outliers
+Iai get identity outliers
 
 .DESCRIPTION
 
@@ -338,7 +338,7 @@ function Get-BetaIdentityOutliers {
 <#
 .SYNOPSIS
 
-IAI Identity Outliers Latest Summary
+Iai identity outliers latest summary
 
 .DESCRIPTION
 
@@ -614,7 +614,7 @@ function Get-BetaPeerGroupOutliersContributingFeatures {
 <#
 .SYNOPSIS
 
-IAI Identity Outliers Ignore
+Iai identity outliers ignore
 
 .DESCRIPTION
 
@@ -841,7 +841,7 @@ function Get-BetaOutliersContributingFeatureAccessItems {
 <#
 .SYNOPSIS
 
-IAI Identity Outliers Unignore
+Iai identity outliers unignore
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create new SIM integration
+Create new sim integration
 
 .DESCRIPTION
 
@@ -109,7 +109,7 @@ function New-V2024SIMIntegration {
 <#
 .SYNOPSIS
 
-Delete a SIM integration
+Delete a sim integration
 
 .DESCRIPTION
 
@@ -194,7 +194,7 @@ function Remove-V2024SIMIntegration {
 <#
 .SYNOPSIS
 
-Get a SIM integration details.
+Get a sim integration details.
 
 .DESCRIPTION
 
@@ -279,7 +279,7 @@ function Get-V2024SIMIntegration {
 <#
 .SYNOPSIS
 
-List the existing SIM integrations.
+List the existing sim integrations.
 
 .DESCRIPTION
 
@@ -354,7 +354,7 @@ function Get-V2024SIMIntegrations {
 <#
 .SYNOPSIS
 
-Patch a SIM beforeProvisioningRule attribute.
+Patch a sim beforeprovisioningrule attribute.
 
 .DESCRIPTION
 
@@ -465,7 +465,7 @@ function Update-V2024BeforeProvisioningRule {
 <#
 .SYNOPSIS
 
-Patch a SIM attribute.
+Patch a sim attribute.
 
 .DESCRIPTION
 
@@ -576,7 +576,7 @@ function Update-V2024SIMAttributes {
 <#
 .SYNOPSIS
 
-Update an existing SIM integration
+Update an existing sim integration
 
 .DESCRIPTION
 

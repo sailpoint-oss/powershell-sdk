@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Password Sync Group
+Create password sync group
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-PasswordSyncGroup {
 <#
 .SYNOPSIS
 
-Delete Password Sync Group by ID
+Delete password sync group by id
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-PasswordSyncGroup {
 <#
 .SYNOPSIS
 
-Get Password Sync Group by ID
+Get password sync group by id
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Get-PasswordSyncGroup {
 <#
 .SYNOPSIS
 
-Get Password Sync Group List
+Get password sync group list
 
 .DESCRIPTION
 
@@ -340,7 +340,7 @@ function Get-PasswordSyncGroups {
 <#
 .SYNOPSIS
 
-Update Password Sync Group by ID
+Update password sync group by id
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create a Dimension
+Create a dimension
 
 .DESCRIPTION
 
@@ -108,7 +108,7 @@ function New-V2024Dimension {
 <#
 .SYNOPSIS
 
-Delete Dimension(s)
+Delete dimension(s)
 
 .DESCRIPTION
 
@@ -208,7 +208,7 @@ function Remove-V2024BulkDimensions {
 <#
 .SYNOPSIS
 
-Delete a Dimension
+Delete a dimension
 
 .DESCRIPTION
 
@@ -292,7 +292,7 @@ function Remove-V2024Dimension {
 <#
 .SYNOPSIS
 
-Get a Dimension under Role.
+Get a dimension under role.
 
 .DESCRIPTION
 
@@ -376,7 +376,7 @@ function Get-V2024Dimension {
 <#
 .SYNOPSIS
 
-List Dimension's Entitlements
+List dimension's entitlements
 
 .DESCRIPTION
 
@@ -510,7 +510,7 @@ function Get-V2024DimensionEntitlements {
 <#
 .SYNOPSIS
 
-List Dimension's Access Profiles
+List dimension's access profiles
 
 .DESCRIPTION
 
@@ -644,7 +644,7 @@ function Get-V2024DimensionAccessProfiles {
 <#
 .SYNOPSIS
 
-List Dimensions
+List dimensions
 
 .DESCRIPTION
 
@@ -778,7 +778,7 @@ function Get-V2024Dimensions {
 <#
 .SYNOPSIS
 
-Patch a specified Dimension
+Patch a specified dimension
 
 .DESCRIPTION
 

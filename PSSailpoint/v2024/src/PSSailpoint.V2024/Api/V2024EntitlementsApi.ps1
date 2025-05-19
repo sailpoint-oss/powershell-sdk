@@ -303,7 +303,7 @@ function Get-V2024Entitlement {
 <#
 .SYNOPSIS
 
-Get Entitlement Request Config
+Get entitlement request config
 
 .DESCRIPTION
 
@@ -388,7 +388,7 @@ function Get-V2024EntitlementRequestConfig {
 <#
 .SYNOPSIS
 
-Aggregate Entitlements
+Aggregate entitlements
 
 .DESCRIPTION
 
@@ -1028,7 +1028,7 @@ function Update-V2024Entitlement {
 <#
 .SYNOPSIS
 
-Replace Entitlement Request Config
+Replace entitlement request config
 
 .DESCRIPTION
 
@@ -1139,7 +1139,7 @@ function Send-V2024EntitlementRequestConfig {
 <#
 .SYNOPSIS
 
-Reset Source Entitlements
+Reset source entitlements
 
 .DESCRIPTION
 

@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Lifecycle State
+Create lifecycle state
 
 .DESCRIPTION
 
@@ -109,7 +109,7 @@ function New-LifecycleState {
 <#
 .SYNOPSIS
 
-Delete Lifecycle State
+Delete lifecycle state
 
 .DESCRIPTION
 
@@ -194,7 +194,7 @@ function Remove-LifecycleState {
 <#
 .SYNOPSIS
 
-Get Lifecycle State
+Get lifecycle state
 
 .DESCRIPTION
 
@@ -278,7 +278,7 @@ function Get-LifecycleState {
 <#
 .SYNOPSIS
 
-Lists LifecycleStates
+Lists lifecyclestates
 
 .DESCRIPTION
 
@@ -393,7 +393,7 @@ function Get-LifecycleStates {
 <#
 .SYNOPSIS
 
-Set Lifecycle State
+Set lifecycle state
 
 .DESCRIPTION
 
@@ -493,7 +493,7 @@ function Set-LifecycleState {
 <#
 .SYNOPSIS
 
-Update Lifecycle State
+Update lifecycle state
 
 .DESCRIPTION
 

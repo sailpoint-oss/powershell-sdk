@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Password Org Config
+Create password org config
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaPasswordOrgConfig {
 <#
 .SYNOPSIS
 
-Get Password Org Config
+Get password org config
 
 .DESCRIPTION
 
@@ -162,7 +162,7 @@ function Get-BetaPasswordOrgConfig {
 <#
 .SYNOPSIS
 
-Update Password Org Config
+Update password org config
 
 .DESCRIPTION
 

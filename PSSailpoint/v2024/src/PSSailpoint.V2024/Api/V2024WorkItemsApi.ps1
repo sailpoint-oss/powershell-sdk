@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Approve an Approval Item
+Approve an approval item
 
 .DESCRIPTION
 
@@ -92,7 +92,7 @@ function Approve-V2024ApprovalItem {
 <#
 .SYNOPSIS
 
-Bulk approve Approval Items
+Bulk approve approval items
 
 .DESCRIPTION
 
@@ -166,7 +166,7 @@ function Approve-V2024ApprovalItemsInBulk {
 <#
 .SYNOPSIS
 
-Complete a Work Item
+Complete a work item
 
 .DESCRIPTION
 
@@ -262,7 +262,7 @@ function Complete-V2024WorkItem {
 <#
 .SYNOPSIS
 
-Forward a Work Item
+Forward a work item
 
 .DESCRIPTION
 
@@ -373,7 +373,7 @@ function Invoke-V2024ForwardWorkItem {
 <#
 .SYNOPSIS
 
-Completed Work Items
+Completed work items
 
 .DESCRIPTION
 
@@ -477,7 +477,7 @@ function Get-V2024CompletedWorkItems {
 <#
 .SYNOPSIS
 
-Count Completed Work Items
+Count completed work items
 
 .DESCRIPTION
 
@@ -562,7 +562,7 @@ function Get-V2024CountCompletedWorkItems {
 <#
 .SYNOPSIS
 
-Count Work Items
+Count work items
 
 .DESCRIPTION
 
@@ -636,7 +636,7 @@ function Get-V2024CountWorkItems {
 <#
 .SYNOPSIS
 
-Get a Work Item
+Get a work item
 
 .DESCRIPTION
 
@@ -710,7 +710,7 @@ function Get-V2024WorkItem {
 <#
 .SYNOPSIS
 
-Work Items Summary
+Work items summary
 
 .DESCRIPTION
 
@@ -784,7 +784,7 @@ function Get-V2024WorkItemsSummary {
 <#
 .SYNOPSIS
 
-List Work Items
+List work items
 
 .DESCRIPTION
 
@@ -888,7 +888,7 @@ function Get-V2024WorkItems {
 <#
 .SYNOPSIS
 
-Reject an Approval Item
+Reject an approval item
 
 .DESCRIPTION
 
@@ -972,7 +972,7 @@ function Deny-V2024ApprovalItem {
 <#
 .SYNOPSIS
 
-Bulk reject Approval Items
+Bulk reject approval items
 
 .DESCRIPTION
 
@@ -1046,7 +1046,7 @@ function Deny-V2024ApprovalItemsInBulk {
 <#
 .SYNOPSIS
 
-Submit Account Selections
+Submit account selections
 
 .DESCRIPTION
 

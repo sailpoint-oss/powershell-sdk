@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Vendor Connector Mapping
+Create vendor connector mapping
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaVendorConnectorMapping {
 <#
 .SYNOPSIS
 
-Delete Vendor Connector Mapping
+Delete vendor connector mapping
 
 .DESCRIPTION
 
@@ -188,7 +188,7 @@ function Remove-BetaVendorConnectorMapping {
 <#
 .SYNOPSIS
 
-List Vendor Connector Mappings
+List vendor connector mappings
 
 .DESCRIPTION
 

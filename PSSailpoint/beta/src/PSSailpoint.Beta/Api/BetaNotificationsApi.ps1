@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Verify domain address via DKIM
+Verify domain address via dkim
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-BetaDomainDkim {
 <#
 .SYNOPSIS
 
-Create Notification Template
+Create notification template
 
 .DESCRIPTION
 
@@ -188,7 +188,7 @@ function New-BetaNotificationTemplate {
 <#
 .SYNOPSIS
 
-Create Verified From Address
+Create verified from address
 
 .DESCRIPTION
 
@@ -278,7 +278,7 @@ function New-BetaVerifiedFromAddress {
 <#
 .SYNOPSIS
 
-Bulk Delete Notification Templates
+Bulk delete notification templates
 
 .DESCRIPTION
 
@@ -368,7 +368,7 @@ function Remove-BetaNotificationTemplatesInBulk {
 <#
 .SYNOPSIS
 
-Delete Verified From Address
+Delete verified from address
 
 .DESCRIPTION
 
@@ -442,7 +442,7 @@ function Remove-BetaVerifiedFromAddress {
 <#
 .SYNOPSIS
 
-Get DKIM Attributes
+Get dkim attributes
 
 .DESCRIPTION
 
@@ -506,7 +506,7 @@ function Get-BetaDkimAttributes {
 <#
 .SYNOPSIS
 
-Get MAIL FROM Attributes
+Get mail from attributes
 
 .DESCRIPTION
 
@@ -580,7 +580,7 @@ function Get-BetaMailFromAttributes {
 <#
 .SYNOPSIS
 
-Get Notification Template By Id
+Get notification template by id
 
 .DESCRIPTION
 
@@ -654,7 +654,7 @@ function Get-BetaNotificationTemplate {
 <#
 .SYNOPSIS
 
-Get Notification Template Context
+Get notification template context
 
 .DESCRIPTION
 
@@ -718,7 +718,7 @@ function Get-BetaNotificationsTemplateContext {
 <#
 .SYNOPSIS
 
-List From Addresses
+List from addresses
 
 .DESCRIPTION
 
@@ -832,7 +832,7 @@ function Get-BetaFromAddresses {
 <#
 .SYNOPSIS
 
-List Notification Preferences for tenant.
+List notification preferences for tenant.
 
 .DESCRIPTION
 
@@ -906,7 +906,7 @@ function Get-BetaNotificationPreferences {
 <#
 .SYNOPSIS
 
-List Notification Template Defaults
+List notification template defaults
 
 .DESCRIPTION
 
@@ -1000,7 +1000,7 @@ function Get-BetaNotificationTemplateDefaults {
 <#
 .SYNOPSIS
 
-List Notification Templates
+List notification templates
 
 .DESCRIPTION
 
@@ -1094,7 +1094,7 @@ function Get-BetaNotificationTemplates {
 <#
 .SYNOPSIS
 
-Change MAIL FROM domain
+Change mail from domain
 
 .DESCRIPTION
 
@@ -1184,7 +1184,7 @@ function Send-BetaMailFromAttributes {
 <#
 .SYNOPSIS
 
-Send Test Notification
+Send test notification
 
 .DESCRIPTION
 

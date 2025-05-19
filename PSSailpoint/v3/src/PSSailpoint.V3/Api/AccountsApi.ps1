@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Account
+Create account
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-Account {
 <#
 .SYNOPSIS
 
-Delete Account
+Delete account
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-Account {
 <#
 .SYNOPSIS
 
-Disable Account
+Disable account
 
 .DESCRIPTION
 
@@ -272,7 +272,7 @@ function Disable-Account {
 <#
 .SYNOPSIS
 
-Enable Account
+Enable account
 
 .DESCRIPTION
 
@@ -372,7 +372,7 @@ function Enable-Account {
 <#
 .SYNOPSIS
 
-Account Details
+Account details
 
 .DESCRIPTION
 
@@ -446,7 +446,7 @@ function Get-Account {
 <#
 .SYNOPSIS
 
-Account Entitlements
+Account entitlements
 
 .DESCRIPTION
 
@@ -550,7 +550,7 @@ function Get-AccountEntitlements {
 <#
 .SYNOPSIS
 
-Accounts List
+Accounts list
 
 .DESCRIPTION
 
@@ -675,7 +675,7 @@ function Get-Accounts {
 <#
 .SYNOPSIS
 
-Update Account
+Update account
 
 .DESCRIPTION
 
@@ -775,7 +775,7 @@ function Send-Account {
 <#
 .SYNOPSIS
 
-Reload Account
+Reload account
 
 .DESCRIPTION
 
@@ -849,7 +849,7 @@ function Submit-ReloadAccount {
 <#
 .SYNOPSIS
 
-Unlock Account
+Unlock account
 
 .DESCRIPTION
 
@@ -949,7 +949,7 @@ function Unlock-Account {
 <#
 .SYNOPSIS
 
-Update Account
+Update account
 
 .DESCRIPTION
 

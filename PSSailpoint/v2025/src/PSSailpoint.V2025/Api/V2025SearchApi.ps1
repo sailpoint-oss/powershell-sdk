@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Perform a Search Query Aggregation
+Perform a search query aggregation
 
 .DESCRIPTION
 
@@ -140,7 +140,7 @@ function Search-V2025Aggregate {
 <#
 .SYNOPSIS
 
-Count Documents Satisfying a Query
+Count documents satisfying a query
 
 .DESCRIPTION
 
@@ -230,7 +230,7 @@ function Search-V2025Count {
 <#
 .SYNOPSIS
 
-Get a Document by ID
+Get a document by id
 
 .DESCRIPTION
 
@@ -316,7 +316,7 @@ function Search-V2025Get {
 <#
 .SYNOPSIS
 
-Perform Search
+Perform search
 
 .DESCRIPTION
 

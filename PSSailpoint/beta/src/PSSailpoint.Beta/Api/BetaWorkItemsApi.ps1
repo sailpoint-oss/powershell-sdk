@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Approve an Approval Item
+Approve an approval item
 
 .DESCRIPTION
 
@@ -92,7 +92,7 @@ function Approve-BetaApprovalItem {
 <#
 .SYNOPSIS
 
-Bulk approve Approval Items
+Bulk approve approval items
 
 .DESCRIPTION
 
@@ -166,7 +166,7 @@ function Approve-BetaApprovalItemsInBulk {
 <#
 .SYNOPSIS
 
-Complete a Work Item
+Complete a work item
 
 .DESCRIPTION
 
@@ -262,7 +262,7 @@ function Complete-BetaWorkItem {
 <#
 .SYNOPSIS
 
-Completed Work Items
+Completed work items
 
 .DESCRIPTION
 
@@ -366,7 +366,7 @@ function Get-BetaCompletedWorkItems {
 <#
 .SYNOPSIS
 
-Count Completed Work Items
+Count completed work items
 
 .DESCRIPTION
 
@@ -460,7 +460,7 @@ function Get-BetaCountCompletedWorkItems {
 <#
 .SYNOPSIS
 
-Count Work Items
+Count work items
 
 .DESCRIPTION
 
@@ -534,7 +534,7 @@ function Get-BetaCountWorkItems {
 <#
 .SYNOPSIS
 
-Get a Work Item
+Get a work item
 
 .DESCRIPTION
 
@@ -618,7 +618,7 @@ function Get-BetaWorkItem {
 <#
 .SYNOPSIS
 
-Work Items Summary
+Work items summary
 
 .DESCRIPTION
 
@@ -692,7 +692,7 @@ function Get-BetaWorkItemsSummary {
 <#
 .SYNOPSIS
 
-List Work Items
+List work items
 
 .DESCRIPTION
 
@@ -796,7 +796,7 @@ function Get-BetaWorkItems {
 <#
 .SYNOPSIS
 
-Reject an Approval Item
+Reject an approval item
 
 .DESCRIPTION
 
@@ -880,7 +880,7 @@ function Deny-BetaApprovalItem {
 <#
 .SYNOPSIS
 
-Bulk reject Approval Items
+Bulk reject approval items
 
 .DESCRIPTION
 
@@ -954,7 +954,7 @@ function Deny-BetaApprovalItemsInBulk {
 <#
 .SYNOPSIS
 
-Submit Account Selections
+Submit account selections
 
 .DESCRIPTION
 
@@ -1054,7 +1054,7 @@ function Submit-BetaAccountSelection {
 <#
 .SYNOPSIS
 
-Forward a Work Item
+Forward a work item
 
 .DESCRIPTION
 

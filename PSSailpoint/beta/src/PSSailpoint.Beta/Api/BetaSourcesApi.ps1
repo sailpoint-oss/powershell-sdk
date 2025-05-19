@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Provisioning Policy
+Create provisioning policy
 
 .DESCRIPTION
 
@@ -108,7 +108,7 @@ function New-BetaProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Creates a source in IdentityNow.
+Creates a source in identitynow.
 
 .DESCRIPTION
 
@@ -208,7 +208,7 @@ function New-BetaSource {
 <#
 .SYNOPSIS
 
-Create Schema on Source
+Create schema on source
 
 .DESCRIPTION
 
@@ -308,7 +308,7 @@ function New-BetaSourceSchema {
 <#
 .SYNOPSIS
 
-Delete Source by ID
+Delete source by id
 
 .DESCRIPTION
 
@@ -382,7 +382,7 @@ function Remove-Beta {
 <#
 .SYNOPSIS
 
-Remove All Accounts in a Source
+Remove all accounts in a source
 
 .DESCRIPTION
 
@@ -456,7 +456,7 @@ function Remove-BetaAccountsAsync {
 <#
 .SYNOPSIS
 
-Delete Native Change Detection Configuration
+Delete native change detection configuration
 
 .DESCRIPTION
 
@@ -530,7 +530,7 @@ function Remove-BetaNativeChangeDetectionConfig {
 <#
 .SYNOPSIS
 
-Delete Provisioning Policy by UsageType
+Delete provisioning policy by usagetype
 
 .DESCRIPTION
 
@@ -615,7 +615,7 @@ function Remove-BetaProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Delete Source Schema by ID
+Delete source schema by id
 
 .DESCRIPTION
 
@@ -699,7 +699,7 @@ function Remove-BetaSourceSchema {
 <#
 .SYNOPSIS
 
-Get Source Correlation Configuration
+Get source correlation configuration
 
 .DESCRIPTION
 
@@ -773,7 +773,7 @@ function Get-BetaCorrelationConfig {
 <#
 .SYNOPSIS
 
-Native Change Detection Configuration
+Native change detection configuration
 
 .DESCRIPTION
 
@@ -847,7 +847,7 @@ function Get-BetaNativeChangeDetectionConfig {
 <#
 .SYNOPSIS
 
-Get Provisioning Policy by UsageType
+Get provisioning policy by usagetype
 
 .DESCRIPTION
 
@@ -932,7 +932,7 @@ function Get-BetaProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Get Source by ID
+Get source by id
 
 .DESCRIPTION
 
@@ -1092,7 +1092,7 @@ function Get-BetaSourceAccountsSchema {
 <#
 .SYNOPSIS
 
-Attribute Sync Config
+Attribute sync config
 
 .DESCRIPTION
 
@@ -1251,7 +1251,7 @@ function Get-BetaSourceConfig {
 <#
 .SYNOPSIS
 
-Get Source Entitlement Request Configuration
+Get source entitlement request configuration
 
 .DESCRIPTION
 
@@ -1421,7 +1421,7 @@ function Get-BetaSourceEntitlementsSchema {
 <#
 .SYNOPSIS
 
-Get Source Schema by ID
+Get source schema by id
 
 .DESCRIPTION
 
@@ -1505,7 +1505,7 @@ function Get-BetaSourceSchema {
 <#
 .SYNOPSIS
 
-List Schemas on Source
+List schemas on source
 
 .DESCRIPTION
 
@@ -1600,7 +1600,7 @@ function Get-BetaSourceSchemas {
 <#
 .SYNOPSIS
 
-Account Aggregation
+Account aggregation
 
 .DESCRIPTION
 
@@ -1698,7 +1698,7 @@ function Import-BetaAccounts {
 <#
 .SYNOPSIS
 
-Entitlement Aggregation
+Entitlement aggregation
 
 .DESCRIPTION
 
@@ -2056,7 +2056,7 @@ function Import-BetaSourceEntitlementsSchema {
 <#
 .SYNOPSIS
 
-Process Uncorrelated Accounts
+Process uncorrelated accounts
 
 .DESCRIPTION
 
@@ -2143,7 +2143,7 @@ function Import-BetaUncorrelatedAccounts {
 <#
 .SYNOPSIS
 
-Lists ProvisioningPolicies
+Lists provisioningpolicies
 
 .DESCRIPTION
 
@@ -2218,7 +2218,7 @@ function Get-BetaProvisioningPolicies {
 <#
 .SYNOPSIS
 
-Lists all sources in IdentityNow.
+Lists all sources in identitynow.
 
 .DESCRIPTION
 
@@ -2526,7 +2526,7 @@ function Ping-BetaCluster {
 <#
 .SYNOPSIS
 
-Update Source Correlation Configuration
+Update source correlation configuration
 
 .DESCRIPTION
 
@@ -2626,7 +2626,7 @@ function Send-BetaCorrelationConfig {
 <#
 .SYNOPSIS
 
-Update Native Change Detection Configuration
+Update native change detection configuration
 
 .DESCRIPTION
 
@@ -2726,7 +2726,7 @@ function Send-BetaNativeChangeDetectionConfig {
 <#
 .SYNOPSIS
 
-Update Provisioning Policy by UsageType
+Update provisioning policy by usagetype
 
 .DESCRIPTION
 
@@ -2837,7 +2837,7 @@ function Send-BetaProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Update Source (Full)
+Update source (full)
 
 .DESCRIPTION
 
@@ -2937,7 +2937,7 @@ function Send-BetaSource {
 <#
 .SYNOPSIS
 
-Update Attribute Sync Config
+Update attribute sync config
 
 .DESCRIPTION
 
@@ -3037,7 +3037,7 @@ function Send-BetaSourceAttrSyncConfig {
 <#
 .SYNOPSIS
 
-Update Source Schema (Full)
+Update source schema (full)
 
 .DESCRIPTION
 
@@ -3369,7 +3369,7 @@ function Test-BetaSourceConnection {
 <#
 .SYNOPSIS
 
-Bulk Update Provisioning Policies
+Bulk update provisioning policies
 
 .DESCRIPTION
 
@@ -3470,7 +3470,7 @@ function Update-BetaProvisioningPoliciesInBulk {
 <#
 .SYNOPSIS
 
-Partial update of Provisioning Policy
+Partial update of provisioning policy
 
 .DESCRIPTION
 
@@ -3581,7 +3581,7 @@ function Update-BetaProvisioningPolicy {
 <#
 .SYNOPSIS
 
-Update Source (Partial)
+Update source (partial)
 
 .DESCRIPTION
 
@@ -3681,7 +3681,7 @@ function Update-BetaSource {
 <#
 .SYNOPSIS
 
-Update Source Entitlement Request Configuration
+Update source entitlement request configuration
 
 .DESCRIPTION
 
@@ -3781,7 +3781,7 @@ function Update-BetaSourceEntitlementRequestConfig {
 <#
 .SYNOPSIS
 
-Update Source Schema (Partial)
+Update source schema (partial)
 
 .DESCRIPTION
 

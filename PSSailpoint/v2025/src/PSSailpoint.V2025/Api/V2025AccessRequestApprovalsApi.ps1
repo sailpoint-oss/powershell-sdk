@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Approve Access Request Approval
+Approve access request approval
 
 .DESCRIPTION
 
@@ -104,7 +104,7 @@ function Approve-V2025AccessRequest {
 <#
 .SYNOPSIS
 
-Forward Access Request Approval
+Forward access request approval
 
 .DESCRIPTION
 
@@ -204,7 +204,7 @@ function Invoke-V2025ForwardAccessRequest {
 <#
 .SYNOPSIS
 
-Get Access Requests Approvals Number
+Get access requests approvals number
 
 .DESCRIPTION
 
@@ -288,7 +288,7 @@ function Get-V2025AccessRequestApprovalSummary {
 <#
 .SYNOPSIS
 
-Access Request Approvers
+Access request approvers
 
 .DESCRIPTION
 
@@ -392,7 +392,7 @@ function Get-V2025AccessRequestApprovers {
 <#
 .SYNOPSIS
 
-Completed Access Request Approvals List
+Completed access request approvals list
 
 .DESCRIPTION
 
@@ -516,7 +516,7 @@ function Get-V2025CompletedApprovals {
 <#
 .SYNOPSIS
 
-Pending Access Request Approvals List
+Pending access request approvals list
 
 .DESCRIPTION
 
@@ -640,7 +640,7 @@ function Get-V2025PendingApprovals {
 <#
 .SYNOPSIS
 
-Reject Access Request Approval
+Reject access request approval
 
 .DESCRIPTION
 

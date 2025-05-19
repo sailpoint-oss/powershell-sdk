@@ -82,7 +82,7 @@ function Remove-BetaIdentity {
 <#
 .SYNOPSIS
 
-Identity Details
+Identity details
 
 .DESCRIPTION
 
@@ -408,7 +408,7 @@ function Get-BetaRoleAssignments {
 <#
 .SYNOPSIS
 
-List Identities
+List identities
 
 .DESCRIPTION
 
@@ -797,7 +797,7 @@ function Start-BetaIdentitiesInvite {
 <#
 .SYNOPSIS
 
-Process a list of identityIds
+Process a list of identityids
 
 .DESCRIPTION
 

@@ -53,65 +53,65 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*V2024AccessModelMetadataApi* | [**Get-V2024AccessModelMetadataAttribute**](docs/V2024AccessModelMetadataApi.md#Get-V2024AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes/{key} | Get Access Model Metadata Attribute
-*V2024AccessModelMetadataApi* | [**Get-V2024AccessModelMetadataAttributeValue**](docs/V2024AccessModelMetadataApi.md#Get-V2024AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values/{value} | Get Access Model Metadata Value
-*V2024AccessModelMetadataApi* | [**Get-V2024AccessModelMetadataAttribute**](docs/V2024AccessModelMetadataApi.md#Get-V2024AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes | List Access Model Metadata Attributes
-*V2024AccessModelMetadataApi* | [**Get-V2024AccessModelMetadataAttributeValue**](docs/V2024AccessModelMetadataApi.md#Get-V2024AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values | List Access Model Metadata Values
-*V2024AccessProfilesApi* | [**New-V2024AccessProfile**](docs/V2024AccessProfilesApi.md#New-V2024AccessProfile) | **POST** /access-profiles | Create Access Profile
-*V2024AccessProfilesApi* | [**Remove-V2024AccessProfile**](docs/V2024AccessProfilesApi.md#Remove-V2024AccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified Access Profile
-*V2024AccessProfilesApi* | [**Remove-V2024AccessProfilesInBulk**](docs/V2024AccessProfilesApi.md#Remove-V2024AccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete Access Profile(s)
-*V2024AccessProfilesApi* | [**Get-V2024AccessProfile**](docs/V2024AccessProfilesApi.md#Get-V2024AccessProfile) | **GET** /access-profiles/{id} | Get an Access Profile
-*V2024AccessProfilesApi* | [**Get-V2024AccessProfileEntitlements**](docs/V2024AccessProfilesApi.md#Get-V2024AccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List Access Profile's Entitlements
-*V2024AccessProfilesApi* | [**Get-V2024AccessProfiles**](docs/V2024AccessProfilesApi.md#Get-V2024AccessProfiles) | **GET** /access-profiles | List Access Profiles
-*V2024AccessProfilesApi* | [**Update-V2024AccessProfile**](docs/V2024AccessProfilesApi.md#Update-V2024AccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified Access Profile
-*V2024AccessProfilesApi* | [**Update-V2024AccessProfilesInBulk**](docs/V2024AccessProfilesApi.md#Update-V2024AccessProfilesInBulk) | **POST** /access-profiles/bulk-update-requestable | Update Access Profile(s) requestable field.
-*V2024AccessRequestApprovalsApi* | [**Approve-V2024AccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Approve-V2024AccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approve Access Request Approval
-*V2024AccessRequestApprovalsApi* | [**Invoke-V2024ForwardAccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Invoke-V2024ForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forward Access Request Approval
-*V2024AccessRequestApprovalsApi* | [**Get-V2024AccessRequestApprovalSummary**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024AccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get Access Requests Approvals Number
-*V2024AccessRequestApprovalsApi* | [**Get-V2024AccessRequestApprovers**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024AccessRequestApprovers) | **GET** /access-request-approvals/{accessRequestId}/approvers | Access Request Approvers
-*V2024AccessRequestApprovalsApi* | [**Get-V2024CompletedApprovals**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024CompletedApprovals) | **GET** /access-request-approvals/completed | Completed Access Request Approvals List
-*V2024AccessRequestApprovalsApi* | [**Get-V2024PendingApprovals**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024PendingApprovals) | **GET** /access-request-approvals/pending | Pending Access Request Approvals List
-*V2024AccessRequestApprovalsApi* | [**Deny-V2024AccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Deny-V2024AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Reject Access Request Approval
+*V2024AccessModelMetadataApi* | [**Get-V2024AccessModelMetadataAttribute**](docs/V2024AccessModelMetadataApi.md#Get-V2024AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes/{key} | Get access model metadata attribute
+*V2024AccessModelMetadataApi* | [**Get-V2024AccessModelMetadataAttributeValue**](docs/V2024AccessModelMetadataApi.md#Get-V2024AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values/{value} | Get access model metadata value
+*V2024AccessModelMetadataApi* | [**Get-V2024AccessModelMetadataAttribute**](docs/V2024AccessModelMetadataApi.md#Get-V2024AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes | List access model metadata attributes
+*V2024AccessModelMetadataApi* | [**Get-V2024AccessModelMetadataAttributeValue**](docs/V2024AccessModelMetadataApi.md#Get-V2024AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values | List access model metadata values
+*V2024AccessProfilesApi* | [**New-V2024AccessProfile**](docs/V2024AccessProfilesApi.md#New-V2024AccessProfile) | **POST** /access-profiles | Create access profile
+*V2024AccessProfilesApi* | [**Remove-V2024AccessProfile**](docs/V2024AccessProfilesApi.md#Remove-V2024AccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified access profile
+*V2024AccessProfilesApi* | [**Remove-V2024AccessProfilesInBulk**](docs/V2024AccessProfilesApi.md#Remove-V2024AccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete access profile(s)
+*V2024AccessProfilesApi* | [**Get-V2024AccessProfile**](docs/V2024AccessProfilesApi.md#Get-V2024AccessProfile) | **GET** /access-profiles/{id} | Get an access profile
+*V2024AccessProfilesApi* | [**Get-V2024AccessProfileEntitlements**](docs/V2024AccessProfilesApi.md#Get-V2024AccessProfileEntitlements) | **GET** /access-profiles/{id}/entitlements | List access profile's entitlements
+*V2024AccessProfilesApi* | [**Get-V2024AccessProfiles**](docs/V2024AccessProfilesApi.md#Get-V2024AccessProfiles) | **GET** /access-profiles | List access profiles
+*V2024AccessProfilesApi* | [**Update-V2024AccessProfile**](docs/V2024AccessProfilesApi.md#Update-V2024AccessProfile) | **PATCH** /access-profiles/{id} | Patch a specified access profile
+*V2024AccessProfilesApi* | [**Update-V2024AccessProfilesInBulk**](docs/V2024AccessProfilesApi.md#Update-V2024AccessProfilesInBulk) | **POST** /access-profiles/bulk-update-requestable | Update access profile(s) requestable field.
+*V2024AccessRequestApprovalsApi* | [**Approve-V2024AccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Approve-V2024AccessRequest) | **POST** /access-request-approvals/{approvalId}/approve | Approve access request approval
+*V2024AccessRequestApprovalsApi* | [**Invoke-V2024ForwardAccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Invoke-V2024ForwardAccessRequest) | **POST** /access-request-approvals/{approvalId}/forward | Forward access request approval
+*V2024AccessRequestApprovalsApi* | [**Get-V2024AccessRequestApprovalSummary**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024AccessRequestApprovalSummary) | **GET** /access-request-approvals/approval-summary | Get access requests approvals number
+*V2024AccessRequestApprovalsApi* | [**Get-V2024AccessRequestApprovers**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024AccessRequestApprovers) | **GET** /access-request-approvals/{accessRequestId}/approvers | Access request approvers
+*V2024AccessRequestApprovalsApi* | [**Get-V2024CompletedApprovals**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024CompletedApprovals) | **GET** /access-request-approvals/completed | Completed access request approvals list
+*V2024AccessRequestApprovalsApi* | [**Get-V2024PendingApprovals**](docs/V2024AccessRequestApprovalsApi.md#Get-V2024PendingApprovals) | **GET** /access-request-approvals/pending | Pending access request approvals list
+*V2024AccessRequestApprovalsApi* | [**Deny-V2024AccessRequest**](docs/V2024AccessRequestApprovalsApi.md#Deny-V2024AccessRequest) | **POST** /access-request-approvals/{approvalId}/reject | Reject access request approval
 *V2024AccessRequestIdentityMetricsApi* | [**Get-V2024AccessRequestIdentityMetrics**](docs/V2024AccessRequestIdentityMetricsApi.md#Get-V2024AccessRequestIdentityMetrics) | **GET** /access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type} | Return access request identity metrics
-*V2024AccessRequestsApi* | [**Approve-V2024BulkAccessRequest**](docs/V2024AccessRequestsApi.md#Approve-V2024BulkAccessRequest) | **POST** /access-request-approvals/bulk-approve | Bulk Approve Access Request
-*V2024AccessRequestsApi* | [**Suspend-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#Suspend-V2024AccessRequest) | **POST** /access-requests/cancel | Cancel Access Request
-*V2024AccessRequestsApi* | [**Suspend-V2024AccessRequestInBulk**](docs/V2024AccessRequestsApi.md#Suspend-V2024AccessRequestInBulk) | **POST** /access-requests/bulk-cancel | Bulk Cancel Access Request
-*V2024AccessRequestsApi* | [**Close-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#Close-V2024AccessRequest) | **POST** /access-requests/close | Close Access Request
-*V2024AccessRequestsApi* | [**New-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#New-V2024AccessRequest) | **POST** /access-requests | Submit Access Request
-*V2024AccessRequestsApi* | [**Get-V2024AccessRequestConfig**](docs/V2024AccessRequestsApi.md#Get-V2024AccessRequestConfig) | **GET** /access-request-config | Get Access Request Configuration
-*V2024AccessRequestsApi* | [**Get-V2024AccessRequestStatus**](docs/V2024AccessRequestsApi.md#Get-V2024AccessRequestStatus) | **GET** /access-request-status | Access Request Status
-*V2024AccessRequestsApi* | [**Get-V2024AdministratorsAccessRequestStatus**](docs/V2024AccessRequestsApi.md#Get-V2024AdministratorsAccessRequestStatus) | **GET** /access-request-administration | Access Request Status for Administrators
+*V2024AccessRequestsApi* | [**Approve-V2024BulkAccessRequest**](docs/V2024AccessRequestsApi.md#Approve-V2024BulkAccessRequest) | **POST** /access-request-approvals/bulk-approve | Bulk approve access request
+*V2024AccessRequestsApi* | [**Suspend-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#Suspend-V2024AccessRequest) | **POST** /access-requests/cancel | Cancel access request
+*V2024AccessRequestsApi* | [**Suspend-V2024AccessRequestInBulk**](docs/V2024AccessRequestsApi.md#Suspend-V2024AccessRequestInBulk) | **POST** /access-requests/bulk-cancel | Bulk cancel access request
+*V2024AccessRequestsApi* | [**Close-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#Close-V2024AccessRequest) | **POST** /access-requests/close | Close access request
+*V2024AccessRequestsApi* | [**New-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#New-V2024AccessRequest) | **POST** /access-requests | Submit access request
+*V2024AccessRequestsApi* | [**Get-V2024AccessRequestConfig**](docs/V2024AccessRequestsApi.md#Get-V2024AccessRequestConfig) | **GET** /access-request-config | Get access request configuration
+*V2024AccessRequestsApi* | [**Get-V2024AccessRequestStatus**](docs/V2024AccessRequestsApi.md#Get-V2024AccessRequestStatus) | **GET** /access-request-status | Access request status
+*V2024AccessRequestsApi* | [**Get-V2024AdministratorsAccessRequestStatus**](docs/V2024AccessRequestsApi.md#Get-V2024AdministratorsAccessRequestStatus) | **GET** /access-request-administration | Access request status for administrators
 *V2024AccessRequestsApi* | [**Invoke-V2024LoadAccountSelections**](docs/V2024AccessRequestsApi.md#Invoke-V2024LoadAccountSelections) | **POST** /access-requests/accounts-selection | Get accounts selections for identity
-*V2024AccessRequestsApi* | [**Set-V2024AccessRequestConfig**](docs/V2024AccessRequestsApi.md#Set-V2024AccessRequestConfig) | **PUT** /access-request-config | Update Access Request Configuration
-*V2024AccountActivitiesApi* | [**Get-V2024AccountActivity**](docs/V2024AccountActivitiesApi.md#Get-V2024AccountActivity) | **GET** /account-activities/{id} | Get an Account Activity
-*V2024AccountActivitiesApi* | [**Get-V2024AccountActivities**](docs/V2024AccountActivitiesApi.md#Get-V2024AccountActivities) | **GET** /account-activities | List Account Activities
-*V2024AccountAggregationsApi* | [**Get-V2024AccountAggregationStatus**](docs/V2024AccountAggregationsApi.md#Get-V2024AccountAggregationStatus) | **GET** /account-aggregations/{id}/status | In-progress Account Aggregation status
+*V2024AccessRequestsApi* | [**Set-V2024AccessRequestConfig**](docs/V2024AccessRequestsApi.md#Set-V2024AccessRequestConfig) | **PUT** /access-request-config | Update access request configuration
+*V2024AccountActivitiesApi* | [**Get-V2024AccountActivity**](docs/V2024AccountActivitiesApi.md#Get-V2024AccountActivity) | **GET** /account-activities/{id} | Get an account activity
+*V2024AccountActivitiesApi* | [**Get-V2024AccountActivities**](docs/V2024AccountActivitiesApi.md#Get-V2024AccountActivities) | **GET** /account-activities | List account activities
+*V2024AccountAggregationsApi* | [**Get-V2024AccountAggregationStatus**](docs/V2024AccountAggregationsApi.md#Get-V2024AccountAggregationStatus) | **GET** /account-aggregations/{id}/status | In-progress account aggregation status
 *V2024AccountUsagesApi* | [**Get-V2024UsagesByAccountId**](docs/V2024AccountUsagesApi.md#Get-V2024UsagesByAccountId) | **GET** /account-usages/{accountId}/summaries | Returns account usage insights
-*V2024AccountsApi* | [**New-V2024Account**](docs/V2024AccountsApi.md#New-V2024Account) | **POST** /accounts | Create Account
-*V2024AccountsApi* | [**Remove-V2024Account**](docs/V2024AccountsApi.md#Remove-V2024Account) | **DELETE** /accounts/{id} | Delete Account
-*V2024AccountsApi* | [**Remove-V2024AccountAsync**](docs/V2024AccountsApi.md#Remove-V2024AccountAsync) | **POST** /accounts/{id}/remove | Remove Account
-*V2024AccountsApi* | [**Disable-V2024Account**](docs/V2024AccountsApi.md#Disable-V2024Account) | **POST** /accounts/{id}/disable | Disable Account
-*V2024AccountsApi* | [**Disable-V2024AccountForIdentity**](docs/V2024AccountsApi.md#Disable-V2024AccountForIdentity) | **POST** /identities-accounts/{id}/disable | Disable IDN Account for Identity
-*V2024AccountsApi* | [**Disable-V2024AccountsForIdentities**](docs/V2024AccountsApi.md#Disable-V2024AccountsForIdentities) | **POST** /identities-accounts/disable | Disable IDN Accounts for Identities
-*V2024AccountsApi* | [**Enable-V2024Account**](docs/V2024AccountsApi.md#Enable-V2024Account) | **POST** /accounts/{id}/enable | Enable Account
-*V2024AccountsApi* | [**Enable-V2024AccountForIdentity**](docs/V2024AccountsApi.md#Enable-V2024AccountForIdentity) | **POST** /identities-accounts/{id}/enable | Enable IDN Account for Identity
-*V2024AccountsApi* | [**Enable-V2024AccountsForIdentities**](docs/V2024AccountsApi.md#Enable-V2024AccountsForIdentities) | **POST** /identities-accounts/enable | Enable IDN Accounts for Identities
-*V2024AccountsApi* | [**Get-V2024Account**](docs/V2024AccountsApi.md#Get-V2024Account) | **GET** /accounts/{id} | Account Details
-*V2024AccountsApi* | [**Get-V2024AccountEntitlements**](docs/V2024AccountsApi.md#Get-V2024AccountEntitlements) | **GET** /accounts/{id}/entitlements | Account Entitlements
-*V2024AccountsApi* | [**Get-V2024Accounts**](docs/V2024AccountsApi.md#Get-V2024Accounts) | **GET** /accounts | Accounts List
-*V2024AccountsApi* | [**Send-V2024Account**](docs/V2024AccountsApi.md#Send-V2024Account) | **PUT** /accounts/{id} | Update Account
-*V2024AccountsApi* | [**Submit-V2024ReloadAccount**](docs/V2024AccountsApi.md#Submit-V2024ReloadAccount) | **POST** /accounts/{id}/reload | Reload Account
-*V2024AccountsApi* | [**Unlock-V2024Account**](docs/V2024AccountsApi.md#Unlock-V2024Account) | **POST** /accounts/{id}/unlock | Unlock Account
-*V2024AccountsApi* | [**Update-V2024Account**](docs/V2024AccountsApi.md#Update-V2024Account) | **PATCH** /accounts/{id} | Update Account
-*V2024ApplicationDiscoveryApi* | [**Get-V2024DiscoveredApplications**](docs/V2024ApplicationDiscoveryApi.md#Get-V2024DiscoveredApplications) | **GET** /discovered-applications | Get Discovered Applications for Tenant
-*V2024ApplicationDiscoveryApi* | [**Get-V2024ManualDiscoverApplicationsCsvTemplate**](docs/V2024ApplicationDiscoveryApi.md#Get-V2024ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download CSV Template for Discovery
-*V2024ApplicationDiscoveryApi* | [**Send-V2024ManualDiscoverApplicationsCsvTemplate**](docs/V2024ApplicationDiscoveryApi.md#Send-V2024ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload CSV to Discover Applications
+*V2024AccountsApi* | [**New-V2024Account**](docs/V2024AccountsApi.md#New-V2024Account) | **POST** /accounts | Create account
+*V2024AccountsApi* | [**Remove-V2024Account**](docs/V2024AccountsApi.md#Remove-V2024Account) | **DELETE** /accounts/{id} | Delete account
+*V2024AccountsApi* | [**Remove-V2024AccountAsync**](docs/V2024AccountsApi.md#Remove-V2024AccountAsync) | **POST** /accounts/{id}/remove | Remove account
+*V2024AccountsApi* | [**Disable-V2024Account**](docs/V2024AccountsApi.md#Disable-V2024Account) | **POST** /accounts/{id}/disable | Disable account
+*V2024AccountsApi* | [**Disable-V2024AccountForIdentity**](docs/V2024AccountsApi.md#Disable-V2024AccountForIdentity) | **POST** /identities-accounts/{id}/disable | Disable idn account for identity
+*V2024AccountsApi* | [**Disable-V2024AccountsForIdentities**](docs/V2024AccountsApi.md#Disable-V2024AccountsForIdentities) | **POST** /identities-accounts/disable | Disable idn accounts for identities
+*V2024AccountsApi* | [**Enable-V2024Account**](docs/V2024AccountsApi.md#Enable-V2024Account) | **POST** /accounts/{id}/enable | Enable account
+*V2024AccountsApi* | [**Enable-V2024AccountForIdentity**](docs/V2024AccountsApi.md#Enable-V2024AccountForIdentity) | **POST** /identities-accounts/{id}/enable | Enable idn account for identity
+*V2024AccountsApi* | [**Enable-V2024AccountsForIdentities**](docs/V2024AccountsApi.md#Enable-V2024AccountsForIdentities) | **POST** /identities-accounts/enable | Enable idn accounts for identities
+*V2024AccountsApi* | [**Get-V2024Account**](docs/V2024AccountsApi.md#Get-V2024Account) | **GET** /accounts/{id} | Account details
+*V2024AccountsApi* | [**Get-V2024AccountEntitlements**](docs/V2024AccountsApi.md#Get-V2024AccountEntitlements) | **GET** /accounts/{id}/entitlements | Account entitlements
+*V2024AccountsApi* | [**Get-V2024Accounts**](docs/V2024AccountsApi.md#Get-V2024Accounts) | **GET** /accounts | Accounts list
+*V2024AccountsApi* | [**Send-V2024Account**](docs/V2024AccountsApi.md#Send-V2024Account) | **PUT** /accounts/{id} | Update account
+*V2024AccountsApi* | [**Submit-V2024ReloadAccount**](docs/V2024AccountsApi.md#Submit-V2024ReloadAccount) | **POST** /accounts/{id}/reload | Reload account
+*V2024AccountsApi* | [**Unlock-V2024Account**](docs/V2024AccountsApi.md#Unlock-V2024Account) | **POST** /accounts/{id}/unlock | Unlock account
+*V2024AccountsApi* | [**Update-V2024Account**](docs/V2024AccountsApi.md#Update-V2024Account) | **PATCH** /accounts/{id} | Update account
+*V2024ApplicationDiscoveryApi* | [**Get-V2024DiscoveredApplications**](docs/V2024ApplicationDiscoveryApi.md#Get-V2024DiscoveredApplications) | **GET** /discovered-applications | Get discovered applications for tenant
+*V2024ApplicationDiscoveryApi* | [**Get-V2024ManualDiscoverApplicationsCsvTemplate**](docs/V2024ApplicationDiscoveryApi.md#Get-V2024ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download csv template for discovery
+*V2024ApplicationDiscoveryApi* | [**Send-V2024ManualDiscoverApplicationsCsvTemplate**](docs/V2024ApplicationDiscoveryApi.md#Send-V2024ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload csv to discover applications
 *V2024ApprovalsApi* | [**Get-V2024Approval**](docs/V2024ApprovalsApi.md#Get-V2024Approval) | **GET** /generic-approvals/{id} | Get an approval
-*V2024ApprovalsApi* | [**Get-V2024Approvals**](docs/V2024ApprovalsApi.md#Get-V2024Approvals) | **GET** /generic-approvals | Get Approvals
+*V2024ApprovalsApi* | [**Get-V2024Approvals**](docs/V2024ApprovalsApi.md#Get-V2024Approvals) | **GET** /generic-approvals | Get approvals
 *V2024AppsApi* | [**New-V2024SourceApp**](docs/V2024AppsApi.md#New-V2024SourceApp) | **POST** /source-apps | Create source app
 *V2024AppsApi* | [**Remove-V2024AccessProfilesFromSourceAppByBulk**](docs/V2024AppsApi.md#Remove-V2024AccessProfilesFromSourceAppByBulk) | **POST** /source-apps/{id}/access-profiles/bulk-remove | Bulk remove access profiles from the specified source app
-*V2024AppsApi* | [**Remove-V2024SourceApp**](docs/V2024AppsApi.md#Remove-V2024SourceApp) | **DELETE** /source-apps/{id} | Delete source app by ID
-*V2024AppsApi* | [**Get-V2024SourceApp**](docs/V2024AppsApi.md#Get-V2024SourceApp) | **GET** /source-apps/{id} | Get source app by ID
+*V2024AppsApi* | [**Remove-V2024SourceApp**](docs/V2024AppsApi.md#Remove-V2024SourceApp) | **DELETE** /source-apps/{id} | Delete source app by id
+*V2024AppsApi* | [**Get-V2024SourceApp**](docs/V2024AppsApi.md#Get-V2024SourceApp) | **GET** /source-apps/{id} | Get source app by id
 *V2024AppsApi* | [**Get-V2024AccessProfilesForSourceApp**](docs/V2024AppsApi.md#Get-V2024AccessProfilesForSourceApp) | **GET** /source-apps/{id}/access-profiles | List access profiles for the specified source app
 *V2024AppsApi* | [**Get-V2024AllSourceApp**](docs/V2024AppsApi.md#Get-V2024AllSourceApp) | **GET** /source-apps/all | List all source apps
 *V2024AppsApi* | [**Get-V2024AllUserApps**](docs/V2024AppsApi.md#Get-V2024AllUserApps) | **GET** /user-apps/all | List all user apps
@@ -119,116 +119,116 @@ Class | Method | HTTP request | Description
 *V2024AppsApi* | [**Get-V2024AvailableAccountsForUserApp**](docs/V2024AppsApi.md#Get-V2024AvailableAccountsForUserApp) | **GET** /user-apps/{id}/available-accounts | List available accounts for user app
 *V2024AppsApi* | [**Get-V2024AvailableSourceApps**](docs/V2024AppsApi.md#Get-V2024AvailableSourceApps) | **GET** /source-apps | List available source apps
 *V2024AppsApi* | [**Get-V2024OwnedUserApps**](docs/V2024AppsApi.md#Get-V2024OwnedUserApps) | **GET** /user-apps | List owned user apps
-*V2024AppsApi* | [**Update-V2024SourceApp**](docs/V2024AppsApi.md#Update-V2024SourceApp) | **PATCH** /source-apps/{id} | Patch source app by ID
-*V2024AppsApi* | [**Update-V2024UserApp**](docs/V2024AppsApi.md#Update-V2024UserApp) | **PATCH** /user-apps/{id} | Patch user app by ID
+*V2024AppsApi* | [**Update-V2024SourceApp**](docs/V2024AppsApi.md#Update-V2024SourceApp) | **PATCH** /source-apps/{id} | Patch source app by id
+*V2024AppsApi* | [**Update-V2024UserApp**](docs/V2024AppsApi.md#Update-V2024UserApp) | **PATCH** /user-apps/{id} | Patch user app by id
 *V2024AppsApi* | [**Update-V2024SourceAppsInBulk**](docs/V2024AppsApi.md#Update-V2024SourceAppsInBulk) | **POST** /source-apps/bulk-update | Bulk update source apps
-*V2024AuthProfileApi* | [**Get-V2024ProfileConfig**](docs/V2024AuthProfileApi.md#Get-V2024ProfileConfig) | **GET** /auth-profiles/{id} | Get Auth Profile
-*V2024AuthProfileApi* | [**Get-V2024ProfileConfigList**](docs/V2024AuthProfileApi.md#Get-V2024ProfileConfigList) | **GET** /auth-profiles | Get list of Auth Profiles
-*V2024AuthProfileApi* | [**Update-V2024ProfileConfig**](docs/V2024AuthProfileApi.md#Update-V2024ProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified Auth Profile
-*V2024AuthUsersApi* | [**Get-V2024AuthUser**](docs/V2024AuthUsersApi.md#Get-V2024AuthUser) | **GET** /auth-users/{id} | Auth User Details
-*V2024AuthUsersApi* | [**Update-V2024AuthUser**](docs/V2024AuthUsersApi.md#Update-V2024AuthUser) | **PATCH** /auth-users/{id} | Auth User Update
+*V2024AuthProfileApi* | [**Get-V2024ProfileConfig**](docs/V2024AuthProfileApi.md#Get-V2024ProfileConfig) | **GET** /auth-profiles/{id} | Get auth profile
+*V2024AuthProfileApi* | [**Get-V2024ProfileConfigList**](docs/V2024AuthProfileApi.md#Get-V2024ProfileConfigList) | **GET** /auth-profiles | Get list of auth profiles
+*V2024AuthProfileApi* | [**Update-V2024ProfileConfig**](docs/V2024AuthProfileApi.md#Update-V2024ProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified auth profile
+*V2024AuthUsersApi* | [**Get-V2024AuthUser**](docs/V2024AuthUsersApi.md#Get-V2024AuthUser) | **GET** /auth-users/{id} | Auth user details
+*V2024AuthUsersApi* | [**Update-V2024AuthUser**](docs/V2024AuthUsersApi.md#Update-V2024AuthUser) | **PATCH** /auth-users/{id} | Auth user update
 *V2024BrandingApi* | [**New-V2024BrandingItem**](docs/V2024BrandingApi.md#New-V2024BrandingItem) | **POST** /brandings | Create a branding item
 *V2024BrandingApi* | [**Remove-V2024Branding**](docs/V2024BrandingApi.md#Remove-V2024Branding) | **DELETE** /brandings/{name} | Delete a branding item
 *V2024BrandingApi* | [**Get-V2024Branding**](docs/V2024BrandingApi.md#Get-V2024Branding) | **GET** /brandings/{name} | Get a branding item
 *V2024BrandingApi* | [**Get-V2024BrandingList**](docs/V2024BrandingApi.md#Get-V2024BrandingList) | **GET** /brandings | List of branding items
 *V2024BrandingApi* | [**Set-V2024BrandingItem**](docs/V2024BrandingApi.md#Set-V2024BrandingItem) | **PUT** /brandings/{name} | Update a branding item
-*V2024CertificationCampaignFiltersApi* | [**New-V2024CampaignFilter**](docs/V2024CertificationCampaignFiltersApi.md#New-V2024CampaignFilter) | **POST** /campaign-filters | Create Campaign Filter
-*V2024CertificationCampaignFiltersApi* | [**Remove-V2024CampaignFilters**](docs/V2024CertificationCampaignFiltersApi.md#Remove-V2024CampaignFilters) | **POST** /campaign-filters/delete | Deletes Campaign Filters
-*V2024CertificationCampaignFiltersApi* | [**Get-V2024CampaignFilterById**](docs/V2024CertificationCampaignFiltersApi.md#Get-V2024CampaignFilterById) | **GET** /campaign-filters/{id} | Get Campaign Filter by ID
-*V2024CertificationCampaignFiltersApi* | [**Get-V2024CampaignFilters**](docs/V2024CertificationCampaignFiltersApi.md#Get-V2024CampaignFilters) | **GET** /campaign-filters | List Campaign Filters
-*V2024CertificationCampaignFiltersApi* | [**Update-V2024CampaignFilter**](docs/V2024CertificationCampaignFiltersApi.md#Update-V2024CampaignFilter) | **POST** /campaign-filters/{id} | Updates a Campaign Filter
-*V2024CertificationCampaignsApi* | [**Complete-V2024Campaign**](docs/V2024CertificationCampaignsApi.md#Complete-V2024Campaign) | **POST** /campaigns/{id}/complete | Complete a Campaign
+*V2024CertificationCampaignFiltersApi* | [**New-V2024CampaignFilter**](docs/V2024CertificationCampaignFiltersApi.md#New-V2024CampaignFilter) | **POST** /campaign-filters | Create campaign filter
+*V2024CertificationCampaignFiltersApi* | [**Remove-V2024CampaignFilters**](docs/V2024CertificationCampaignFiltersApi.md#Remove-V2024CampaignFilters) | **POST** /campaign-filters/delete | Deletes campaign filters
+*V2024CertificationCampaignFiltersApi* | [**Get-V2024CampaignFilterById**](docs/V2024CertificationCampaignFiltersApi.md#Get-V2024CampaignFilterById) | **GET** /campaign-filters/{id} | Get campaign filter by id
+*V2024CertificationCampaignFiltersApi* | [**Get-V2024CampaignFilters**](docs/V2024CertificationCampaignFiltersApi.md#Get-V2024CampaignFilters) | **GET** /campaign-filters | List campaign filters
+*V2024CertificationCampaignFiltersApi* | [**Update-V2024CampaignFilter**](docs/V2024CertificationCampaignFiltersApi.md#Update-V2024CampaignFilter) | **POST** /campaign-filters/{id} | Updates a campaign filter
+*V2024CertificationCampaignsApi* | [**Complete-V2024Campaign**](docs/V2024CertificationCampaignsApi.md#Complete-V2024Campaign) | **POST** /campaigns/{id}/complete | Complete a campaign
 *V2024CertificationCampaignsApi* | [**New-V2024Campaign**](docs/V2024CertificationCampaignsApi.md#New-V2024Campaign) | **POST** /campaigns | Create a campaign
-*V2024CertificationCampaignsApi* | [**New-V2024CampaignTemplate**](docs/V2024CertificationCampaignsApi.md#New-V2024CampaignTemplate) | **POST** /campaign-templates | Create a Campaign Template
-*V2024CertificationCampaignsApi* | [**Remove-V2024CampaignTemplate**](docs/V2024CertificationCampaignsApi.md#Remove-V2024CampaignTemplate) | **DELETE** /campaign-templates/{id} | Delete a Campaign Template
-*V2024CertificationCampaignsApi* | [**Remove-V2024CampaignTemplateSchedule**](docs/V2024CertificationCampaignsApi.md#Remove-V2024CampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Delete Campaign Template Schedule
-*V2024CertificationCampaignsApi* | [**Remove-V2024Campaigns**](docs/V2024CertificationCampaignsApi.md#Remove-V2024Campaigns) | **POST** /campaigns/delete | Delete Campaigns
-*V2024CertificationCampaignsApi* | [**Get-V2024ActiveCampaigns**](docs/V2024CertificationCampaignsApi.md#Get-V2024ActiveCampaigns) | **GET** /campaigns | List Campaigns
-*V2024CertificationCampaignsApi* | [**Get-V2024Campaign**](docs/V2024CertificationCampaignsApi.md#Get-V2024Campaign) | **GET** /campaigns/{id} | Get Campaign
-*V2024CertificationCampaignsApi* | [**Get-V2024CampaignReports**](docs/V2024CertificationCampaignsApi.md#Get-V2024CampaignReports) | **GET** /campaigns/{id}/reports | Get Campaign Reports
-*V2024CertificationCampaignsApi* | [**Get-V2024CampaignReportsConfig**](docs/V2024CertificationCampaignsApi.md#Get-V2024CampaignReportsConfig) | **GET** /campaigns/reports-configuration | Get Campaign Reports Configuration
-*V2024CertificationCampaignsApi* | [**Get-V2024CampaignTemplate**](docs/V2024CertificationCampaignsApi.md#Get-V2024CampaignTemplate) | **GET** /campaign-templates/{id} | Get a Campaign Template
-*V2024CertificationCampaignsApi* | [**Get-V2024CampaignTemplateSchedule**](docs/V2024CertificationCampaignsApi.md#Get-V2024CampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Get Campaign Template Schedule
-*V2024CertificationCampaignsApi* | [**Get-V2024CampaignTemplates**](docs/V2024CertificationCampaignsApi.md#Get-V2024CampaignTemplates) | **GET** /campaign-templates | List Campaign Templates
-*V2024CertificationCampaignsApi* | [**Move-V2024**](docs/V2024CertificationCampaignsApi.md#Move-V2024) | **POST** /campaigns/{id}/reassign | Reassign Certifications
-*V2024CertificationCampaignsApi* | [**Update-V2024CampaignTemplate**](docs/V2024CertificationCampaignsApi.md#Update-V2024CampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a Campaign Template
-*V2024CertificationCampaignsApi* | [**Set-V2024CampaignReportsConfig**](docs/V2024CertificationCampaignsApi.md#Set-V2024CampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set Campaign Reports Configuration
-*V2024CertificationCampaignsApi* | [**Set-V2024CampaignTemplateSchedule**](docs/V2024CertificationCampaignsApi.md#Set-V2024CampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Set Campaign Template Schedule
-*V2024CertificationCampaignsApi* | [**Start-V2024Campaign**](docs/V2024CertificationCampaignsApi.md#Start-V2024Campaign) | **POST** /campaigns/{id}/activate | Activate a Campaign
-*V2024CertificationCampaignsApi* | [**Start-V2024CampaignRemediationScan**](docs/V2024CertificationCampaignsApi.md#Start-V2024CampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run Campaign Remediation Scan
-*V2024CertificationCampaignsApi* | [**Start-V2024CampaignReport**](docs/V2024CertificationCampaignsApi.md#Start-V2024CampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run Campaign Report
-*V2024CertificationCampaignsApi* | [**Start-V2024GenerateCampaignTemplate**](docs/V2024CertificationCampaignsApi.md#Start-V2024GenerateCampaignTemplate) | **POST** /campaign-templates/{id}/generate | Generate a Campaign from Template
-*V2024CertificationCampaignsApi* | [**Update-V2024Campaign**](docs/V2024CertificationCampaignsApi.md#Update-V2024Campaign) | **PATCH** /campaigns/{id} | Update a Campaign
-*V2024CertificationSummariesApi* | [**Get-V2024IdentityAccessSummaries**](docs/V2024CertificationSummariesApi.md#Get-V2024IdentityAccessSummaries) | **GET** /certifications/{id}/access-summaries/{type} | Access Summaries
-*V2024CertificationSummariesApi* | [**Get-V2024IdentityDecisionSummary**](docs/V2024CertificationSummariesApi.md#Get-V2024IdentityDecisionSummary) | **GET** /certifications/{id}/decision-summary | Summary of Certification Decisions
-*V2024CertificationSummariesApi* | [**Get-V2024IdentitySummaries**](docs/V2024CertificationSummariesApi.md#Get-V2024IdentitySummaries) | **GET** /certifications/{id}/identity-summaries | Identity Summaries for Campaign Certification
-*V2024CertificationSummariesApi* | [**Get-V2024IdentitySummary**](docs/V2024CertificationSummariesApi.md#Get-V2024IdentitySummary) | **GET** /certifications/{id}/identity-summaries/{identitySummaryId} | Summary for Identity
-*V2024CertificationsApi* | [**Get-V2024CertificationTask**](docs/V2024CertificationsApi.md#Get-V2024CertificationTask) | **GET** /certification-tasks/{id} | Certification Task by ID
-*V2024CertificationsApi* | [**Get-V2024IdentityCertification**](docs/V2024CertificationsApi.md#Get-V2024IdentityCertification) | **GET** /certifications/{id} | Identity Certification by ID
-*V2024CertificationsApi* | [**Get-V2024IdentityCertificationItemPermissions**](docs/V2024CertificationsApi.md#Get-V2024IdentityCertificationItemPermissions) | **GET** /certifications/{certificationId}/access-review-items/{itemId}/permissions | Permissions for Entitlement Certification Item
-*V2024CertificationsApi* | [**Get-V2024PendingCertificationTasks**](docs/V2024CertificationsApi.md#Get-V2024PendingCertificationTasks) | **GET** /certification-tasks | List of Pending Certification Tasks
-*V2024CertificationsApi* | [**Get-V2024CertificationReviewers**](docs/V2024CertificationsApi.md#Get-V2024CertificationReviewers) | **GET** /certifications/{id}/reviewers | List of Reviewers for certification
-*V2024CertificationsApi* | [**Get-V2024IdentityAccessReviewItems**](docs/V2024CertificationsApi.md#Get-V2024IdentityAccessReviewItems) | **GET** /certifications/{id}/access-review-items | List of Access Review Items
-*V2024CertificationsApi* | [**Get-V2024IdentityCertifications**](docs/V2024CertificationsApi.md#Get-V2024IdentityCertifications) | **GET** /certifications | List Identity Campaign Certifications
-*V2024CertificationsApi* | [**Select-V2024IdentityDecision**](docs/V2024CertificationsApi.md#Select-V2024IdentityDecision) | **POST** /certifications/{id}/decide | Decide on a Certification Item
-*V2024CertificationsApi* | [**Invoke-V2024ReassignIdentityCertifications**](docs/V2024CertificationsApi.md#Invoke-V2024ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign Identities or Items
-*V2024CertificationsApi* | [**Invoke-V2024SignOffIdentityCertification**](docs/V2024CertificationsApi.md#Invoke-V2024SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize Identity Certification Decisions
-*V2024CertificationsApi* | [**Submit-V2024ReassignCertsAsync**](docs/V2024CertificationsApi.md#Submit-V2024ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign Certifications Asynchronously
-*V2024ConfigurationHubApi* | [**New-V2024Deploy**](docs/V2024ConfigurationHubApi.md#New-V2024Deploy) | **POST** /configuration-hub/deploys | Create a Deploy
+*V2024CertificationCampaignsApi* | [**New-V2024CampaignTemplate**](docs/V2024CertificationCampaignsApi.md#New-V2024CampaignTemplate) | **POST** /campaign-templates | Create a campaign template
+*V2024CertificationCampaignsApi* | [**Remove-V2024CampaignTemplate**](docs/V2024CertificationCampaignsApi.md#Remove-V2024CampaignTemplate) | **DELETE** /campaign-templates/{id} | Delete a campaign template
+*V2024CertificationCampaignsApi* | [**Remove-V2024CampaignTemplateSchedule**](docs/V2024CertificationCampaignsApi.md#Remove-V2024CampaignTemplateSchedule) | **DELETE** /campaign-templates/{id}/schedule | Delete campaign template schedule
+*V2024CertificationCampaignsApi* | [**Remove-V2024Campaigns**](docs/V2024CertificationCampaignsApi.md#Remove-V2024Campaigns) | **POST** /campaigns/delete | Delete campaigns
+*V2024CertificationCampaignsApi* | [**Get-V2024ActiveCampaigns**](docs/V2024CertificationCampaignsApi.md#Get-V2024ActiveCampaigns) | **GET** /campaigns | List campaigns
+*V2024CertificationCampaignsApi* | [**Get-V2024Campaign**](docs/V2024CertificationCampaignsApi.md#Get-V2024Campaign) | **GET** /campaigns/{id} | Get campaign
+*V2024CertificationCampaignsApi* | [**Get-V2024CampaignReports**](docs/V2024CertificationCampaignsApi.md#Get-V2024CampaignReports) | **GET** /campaigns/{id}/reports | Get campaign reports
+*V2024CertificationCampaignsApi* | [**Get-V2024CampaignReportsConfig**](docs/V2024CertificationCampaignsApi.md#Get-V2024CampaignReportsConfig) | **GET** /campaigns/reports-configuration | Get campaign reports configuration
+*V2024CertificationCampaignsApi* | [**Get-V2024CampaignTemplate**](docs/V2024CertificationCampaignsApi.md#Get-V2024CampaignTemplate) | **GET** /campaign-templates/{id} | Get a campaign template
+*V2024CertificationCampaignsApi* | [**Get-V2024CampaignTemplateSchedule**](docs/V2024CertificationCampaignsApi.md#Get-V2024CampaignTemplateSchedule) | **GET** /campaign-templates/{id}/schedule | Get campaign template schedule
+*V2024CertificationCampaignsApi* | [**Get-V2024CampaignTemplates**](docs/V2024CertificationCampaignsApi.md#Get-V2024CampaignTemplates) | **GET** /campaign-templates | List campaign templates
+*V2024CertificationCampaignsApi* | [**Move-V2024**](docs/V2024CertificationCampaignsApi.md#Move-V2024) | **POST** /campaigns/{id}/reassign | Reassign certifications
+*V2024CertificationCampaignsApi* | [**Update-V2024CampaignTemplate**](docs/V2024CertificationCampaignsApi.md#Update-V2024CampaignTemplate) | **PATCH** /campaign-templates/{id} | Update a campaign template
+*V2024CertificationCampaignsApi* | [**Set-V2024CampaignReportsConfig**](docs/V2024CertificationCampaignsApi.md#Set-V2024CampaignReportsConfig) | **PUT** /campaigns/reports-configuration | Set campaign reports configuration
+*V2024CertificationCampaignsApi* | [**Set-V2024CampaignTemplateSchedule**](docs/V2024CertificationCampaignsApi.md#Set-V2024CampaignTemplateSchedule) | **PUT** /campaign-templates/{id}/schedule | Set campaign template schedule
+*V2024CertificationCampaignsApi* | [**Start-V2024Campaign**](docs/V2024CertificationCampaignsApi.md#Start-V2024Campaign) | **POST** /campaigns/{id}/activate | Activate a campaign
+*V2024CertificationCampaignsApi* | [**Start-V2024CampaignRemediationScan**](docs/V2024CertificationCampaignsApi.md#Start-V2024CampaignRemediationScan) | **POST** /campaigns/{id}/run-remediation-scan | Run campaign remediation scan
+*V2024CertificationCampaignsApi* | [**Start-V2024CampaignReport**](docs/V2024CertificationCampaignsApi.md#Start-V2024CampaignReport) | **POST** /campaigns/{id}/run-report/{type} | Run campaign report
+*V2024CertificationCampaignsApi* | [**Start-V2024GenerateCampaignTemplate**](docs/V2024CertificationCampaignsApi.md#Start-V2024GenerateCampaignTemplate) | **POST** /campaign-templates/{id}/generate | Generate a campaign from template
+*V2024CertificationCampaignsApi* | [**Update-V2024Campaign**](docs/V2024CertificationCampaignsApi.md#Update-V2024Campaign) | **PATCH** /campaigns/{id} | Update a campaign
+*V2024CertificationSummariesApi* | [**Get-V2024IdentityAccessSummaries**](docs/V2024CertificationSummariesApi.md#Get-V2024IdentityAccessSummaries) | **GET** /certifications/{id}/access-summaries/{type} | Access summaries
+*V2024CertificationSummariesApi* | [**Get-V2024IdentityDecisionSummary**](docs/V2024CertificationSummariesApi.md#Get-V2024IdentityDecisionSummary) | **GET** /certifications/{id}/decision-summary | Summary of certification decisions
+*V2024CertificationSummariesApi* | [**Get-V2024IdentitySummaries**](docs/V2024CertificationSummariesApi.md#Get-V2024IdentitySummaries) | **GET** /certifications/{id}/identity-summaries | Identity summaries for campaign certification
+*V2024CertificationSummariesApi* | [**Get-V2024IdentitySummary**](docs/V2024CertificationSummariesApi.md#Get-V2024IdentitySummary) | **GET** /certifications/{id}/identity-summaries/{identitySummaryId} | Summary for identity
+*V2024CertificationsApi* | [**Get-V2024CertificationTask**](docs/V2024CertificationsApi.md#Get-V2024CertificationTask) | **GET** /certification-tasks/{id} | Certification task by id
+*V2024CertificationsApi* | [**Get-V2024IdentityCertification**](docs/V2024CertificationsApi.md#Get-V2024IdentityCertification) | **GET** /certifications/{id} | Identity certification by id
+*V2024CertificationsApi* | [**Get-V2024IdentityCertificationItemPermissions**](docs/V2024CertificationsApi.md#Get-V2024IdentityCertificationItemPermissions) | **GET** /certifications/{certificationId}/access-review-items/{itemId}/permissions | Permissions for entitlement certification item
+*V2024CertificationsApi* | [**Get-V2024PendingCertificationTasks**](docs/V2024CertificationsApi.md#Get-V2024PendingCertificationTasks) | **GET** /certification-tasks | List of pending certification tasks
+*V2024CertificationsApi* | [**Get-V2024CertificationReviewers**](docs/V2024CertificationsApi.md#Get-V2024CertificationReviewers) | **GET** /certifications/{id}/reviewers | List of reviewers for certification
+*V2024CertificationsApi* | [**Get-V2024IdentityAccessReviewItems**](docs/V2024CertificationsApi.md#Get-V2024IdentityAccessReviewItems) | **GET** /certifications/{id}/access-review-items | List of access review items
+*V2024CertificationsApi* | [**Get-V2024IdentityCertifications**](docs/V2024CertificationsApi.md#Get-V2024IdentityCertifications) | **GET** /certifications | List identity campaign certifications
+*V2024CertificationsApi* | [**Select-V2024IdentityDecision**](docs/V2024CertificationsApi.md#Select-V2024IdentityDecision) | **POST** /certifications/{id}/decide | Decide on a certification item
+*V2024CertificationsApi* | [**Invoke-V2024ReassignIdentityCertifications**](docs/V2024CertificationsApi.md#Invoke-V2024ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign identities or items
+*V2024CertificationsApi* | [**Invoke-V2024SignOffIdentityCertification**](docs/V2024CertificationsApi.md#Invoke-V2024SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize identity certification decisions
+*V2024CertificationsApi* | [**Submit-V2024ReassignCertsAsync**](docs/V2024CertificationsApi.md#Submit-V2024ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign certifications asynchronously
+*V2024ConfigurationHubApi* | [**New-V2024Deploy**](docs/V2024ConfigurationHubApi.md#New-V2024Deploy) | **POST** /configuration-hub/deploys | Create a deploy
 *V2024ConfigurationHubApi* | [**New-V2024ObjectMapping**](docs/V2024ConfigurationHubApi.md#New-V2024ObjectMapping) | **POST** /configuration-hub/object-mappings/{sourceOrg} | Creates an object mapping
 *V2024ConfigurationHubApi* | [**New-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#New-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-create | Bulk creates object mappings
-*V2024ConfigurationHubApi* | [**New-V2024ScheduledAction**](docs/V2024ConfigurationHubApi.md#New-V2024ScheduledAction) | **POST** /configuration-hub/scheduled-actions | Create Scheduled Action
-*V2024ConfigurationHubApi* | [**New-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#New-V2024UploadedConfiguration) | **POST** /configuration-hub/backups/uploads | Upload a Configuration
-*V2024ConfigurationHubApi* | [**Remove-V2024Backup**](docs/V2024ConfigurationHubApi.md#Remove-V2024Backup) | **DELETE** /configuration-hub/backups/{id} | Delete a Backup
+*V2024ConfigurationHubApi* | [**New-V2024ScheduledAction**](docs/V2024ConfigurationHubApi.md#New-V2024ScheduledAction) | **POST** /configuration-hub/scheduled-actions | Create scheduled action
+*V2024ConfigurationHubApi* | [**New-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#New-V2024UploadedConfiguration) | **POST** /configuration-hub/backups/uploads | Upload a configuration
+*V2024ConfigurationHubApi* | [**Remove-V2024Backup**](docs/V2024ConfigurationHubApi.md#Remove-V2024Backup) | **DELETE** /configuration-hub/backups/{id} | Delete a backup
 *V2024ConfigurationHubApi* | [**Remove-V2024Draft**](docs/V2024ConfigurationHubApi.md#Remove-V2024Draft) | **DELETE** /configuration-hub/drafts/{id} | Delete a draft
 *V2024ConfigurationHubApi* | [**Remove-V2024ObjectMapping**](docs/V2024ConfigurationHubApi.md#Remove-V2024ObjectMapping) | **DELETE** /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId} | Deletes an object mapping
-*V2024ConfigurationHubApi* | [**Remove-V2024ScheduledAction**](docs/V2024ConfigurationHubApi.md#Remove-V2024ScheduledAction) | **DELETE** /configuration-hub/scheduled-actions/{id} | Delete Scheduled Action
-*V2024ConfigurationHubApi* | [**Remove-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#Remove-V2024UploadedConfiguration) | **DELETE** /configuration-hub/backups/uploads/{id} | Delete an Uploaded Configuration
-*V2024ConfigurationHubApi* | [**Get-V2024Deploy**](docs/V2024ConfigurationHubApi.md#Get-V2024Deploy) | **GET** /configuration-hub/deploys/{id} | Get a Deploy
+*V2024ConfigurationHubApi* | [**Remove-V2024ScheduledAction**](docs/V2024ConfigurationHubApi.md#Remove-V2024ScheduledAction) | **DELETE** /configuration-hub/scheduled-actions/{id} | Delete scheduled action
+*V2024ConfigurationHubApi* | [**Remove-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#Remove-V2024UploadedConfiguration) | **DELETE** /configuration-hub/backups/uploads/{id} | Delete an uploaded configuration
+*V2024ConfigurationHubApi* | [**Get-V2024Deploy**](docs/V2024ConfigurationHubApi.md#Get-V2024Deploy) | **GET** /configuration-hub/deploys/{id} | Get a deploy
 *V2024ConfigurationHubApi* | [**Get-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Get-V2024ObjectMappings) | **GET** /configuration-hub/object-mappings/{sourceOrg} | Gets list of object mappings
-*V2024ConfigurationHubApi* | [**Get-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedConfiguration) | **GET** /configuration-hub/backups/uploads/{id} | Get an Uploaded Configuration
-*V2024ConfigurationHubApi* | [**Get-V2024Backups**](docs/V2024ConfigurationHubApi.md#Get-V2024Backups) | **GET** /configuration-hub/backups | List Backups
-*V2024ConfigurationHubApi* | [**Get-V2024Deploys**](docs/V2024ConfigurationHubApi.md#Get-V2024Deploys) | **GET** /configuration-hub/deploys | List Deploys
-*V2024ConfigurationHubApi* | [**Get-V2024Drafts**](docs/V2024ConfigurationHubApi.md#Get-V2024Drafts) | **GET** /configuration-hub/drafts | List Drafts
-*V2024ConfigurationHubApi* | [**Get-V2024ScheduledActions**](docs/V2024ConfigurationHubApi.md#Get-V2024ScheduledActions) | **GET** /configuration-hub/scheduled-actions | List Scheduled Actions
-*V2024ConfigurationHubApi* | [**Get-V2024UploadedConfigurations**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List Uploaded Configurations
+*V2024ConfigurationHubApi* | [**Get-V2024UploadedConfiguration**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedConfiguration) | **GET** /configuration-hub/backups/uploads/{id} | Get an uploaded configuration
+*V2024ConfigurationHubApi* | [**Get-V2024Backups**](docs/V2024ConfigurationHubApi.md#Get-V2024Backups) | **GET** /configuration-hub/backups | List backups
+*V2024ConfigurationHubApi* | [**Get-V2024Deploys**](docs/V2024ConfigurationHubApi.md#Get-V2024Deploys) | **GET** /configuration-hub/deploys | List deploys
+*V2024ConfigurationHubApi* | [**Get-V2024Drafts**](docs/V2024ConfigurationHubApi.md#Get-V2024Drafts) | **GET** /configuration-hub/drafts | List drafts
+*V2024ConfigurationHubApi* | [**Get-V2024ScheduledActions**](docs/V2024ConfigurationHubApi.md#Get-V2024ScheduledActions) | **GET** /configuration-hub/scheduled-actions | List scheduled actions
+*V2024ConfigurationHubApi* | [**Get-V2024UploadedConfigurations**](docs/V2024ConfigurationHubApi.md#Get-V2024UploadedConfigurations) | **GET** /configuration-hub/backups/uploads | List uploaded configurations
 *V2024ConfigurationHubApi* | [**Update-V2024ObjectMappings**](docs/V2024ConfigurationHubApi.md#Update-V2024ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-patch | Bulk updates object mappings
-*V2024ConfigurationHubApi* | [**Update-V2024ScheduledAction**](docs/V2024ConfigurationHubApi.md#Update-V2024ScheduledAction) | **PATCH** /configuration-hub/scheduled-actions/{id} | Update Scheduled Action
-*V2024ConnectorCustomizersApi* | [**New-V2024ConnectorCustomizer**](docs/V2024ConnectorCustomizersApi.md#New-V2024ConnectorCustomizer) | **POST** /connector-customizers | Create Connector Customizer
+*V2024ConfigurationHubApi* | [**Update-V2024ScheduledAction**](docs/V2024ConfigurationHubApi.md#Update-V2024ScheduledAction) | **PATCH** /configuration-hub/scheduled-actions/{id} | Update scheduled action
+*V2024ConnectorCustomizersApi* | [**New-V2024ConnectorCustomizer**](docs/V2024ConnectorCustomizersApi.md#New-V2024ConnectorCustomizer) | **POST** /connector-customizers | Create connector customizer
 *V2024ConnectorCustomizersApi* | [**New-V2024ConnectorCustomizerVersion**](docs/V2024ConnectorCustomizersApi.md#New-V2024ConnectorCustomizerVersion) | **POST** /connector-customizers/{id}/versions | Creates a connector customizer version
-*V2024ConnectorCustomizersApi* | [**Remove-V2024ConnectorCustomizer**](docs/V2024ConnectorCustomizersApi.md#Remove-V2024ConnectorCustomizer) | **DELETE** /connector-customizers/{id} | Delete Connector Customizer
+*V2024ConnectorCustomizersApi* | [**Remove-V2024ConnectorCustomizer**](docs/V2024ConnectorCustomizersApi.md#Remove-V2024ConnectorCustomizer) | **DELETE** /connector-customizers/{id} | Delete connector customizer
 *V2024ConnectorCustomizersApi* | [**Get-V2024ConnectorCustomizer**](docs/V2024ConnectorCustomizersApi.md#Get-V2024ConnectorCustomizer) | **GET** /connector-customizers/{id} | Get connector customizer
-*V2024ConnectorCustomizersApi* | [**Get-V2024ConnectorCustomizers**](docs/V2024ConnectorCustomizersApi.md#Get-V2024ConnectorCustomizers) | **GET** /connector-customizers | List All Connector Customizers
-*V2024ConnectorCustomizersApi* | [**Send-V2024ConnectorCustomizer**](docs/V2024ConnectorCustomizersApi.md#Send-V2024ConnectorCustomizer) | **PUT** /connector-customizers/{id} | Update Connector Customizer
-*V2024ConnectorRuleManagementApi* | [**New-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#New-V2024ConnectorRule) | **POST** /connector-rules | Create Connector Rule
-*V2024ConnectorRuleManagementApi* | [**Remove-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Remove-V2024ConnectorRule) | **DELETE** /connector-rules/{id} | Delete Connector Rule
-*V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRule) | **GET** /connector-rules/{id} | Get Connector Rule
-*V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRuleList**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRuleList) | **GET** /connector-rules | List Connector Rules
-*V2024ConnectorRuleManagementApi* | [**Send-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Send-V2024ConnectorRule) | **PUT** /connector-rules/{id} | Update Connector Rule
-*V2024ConnectorRuleManagementApi* | [**Test-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Test-V2024ConnectorRule) | **POST** /connector-rules/validate | Validate Connector Rule
-*V2024ConnectorsApi* | [**New-V2024CustomConnector**](docs/V2024ConnectorsApi.md#New-V2024CustomConnector) | **POST** /connectors | Create Custom Connector
-*V2024ConnectorsApi* | [**Remove-V2024CustomConnector**](docs/V2024ConnectorsApi.md#Remove-V2024CustomConnector) | **DELETE** /connectors/{scriptName} | Delete Connector by Script Name
-*V2024ConnectorsApi* | [**Get-V2024Connector**](docs/V2024ConnectorsApi.md#Get-V2024Connector) | **GET** /connectors/{scriptName} | Get Connector by Script Name
-*V2024ConnectorsApi* | [**Get-V2024ConnectorCorrelationConfig**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | Get Connector Correlation Configuration
-*V2024ConnectorsApi* | [**Get-V2024ConnectorList**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorList) | **GET** /connectors | Get Connector List
-*V2024ConnectorsApi* | [**Get-V2024ConnectorSourceConfig**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | Get Connector Source Configuration
-*V2024ConnectorsApi* | [**Get-V2024ConnectorSourceTemplate**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | Get Connector Source Template
-*V2024ConnectorsApi* | [**Get-V2024ConnectorTranslations**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | Get Connector Translations
-*V2024ConnectorsApi* | [**Send-V2024ConnectorCorrelationConfig**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorCorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | Update Connector Correlation Configuration
-*V2024ConnectorsApi* | [**Send-V2024ConnectorSourceConfig**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorSourceConfig) | **PUT** /connectors/{scriptName}/source-config | Update Connector Source Configuration
-*V2024ConnectorsApi* | [**Send-V2024ConnectorSourceTemplate**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorSourceTemplate) | **PUT** /connectors/{scriptName}/source-template | Update Connector Source Template
-*V2024ConnectorsApi* | [**Send-V2024ConnectorTranslations**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorTranslations) | **PUT** /connectors/{scriptName}/translations/{locale} | Update Connector Translations
-*V2024ConnectorsApi* | [**Update-V2024Connector**](docs/V2024ConnectorsApi.md#Update-V2024Connector) | **PATCH** /connectors/{scriptName} | Update Connector by Script Name
+*V2024ConnectorCustomizersApi* | [**Get-V2024ConnectorCustomizers**](docs/V2024ConnectorCustomizersApi.md#Get-V2024ConnectorCustomizers) | **GET** /connector-customizers | List all connector customizers
+*V2024ConnectorCustomizersApi* | [**Send-V2024ConnectorCustomizer**](docs/V2024ConnectorCustomizersApi.md#Send-V2024ConnectorCustomizer) | **PUT** /connector-customizers/{id} | Update connector customizer
+*V2024ConnectorRuleManagementApi* | [**New-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#New-V2024ConnectorRule) | **POST** /connector-rules | Create connector rule
+*V2024ConnectorRuleManagementApi* | [**Remove-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Remove-V2024ConnectorRule) | **DELETE** /connector-rules/{id} | Delete connector rule
+*V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRule) | **GET** /connector-rules/{id} | Get connector rule
+*V2024ConnectorRuleManagementApi* | [**Get-V2024ConnectorRuleList**](docs/V2024ConnectorRuleManagementApi.md#Get-V2024ConnectorRuleList) | **GET** /connector-rules | List connector rules
+*V2024ConnectorRuleManagementApi* | [**Send-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Send-V2024ConnectorRule) | **PUT** /connector-rules/{id} | Update connector rule
+*V2024ConnectorRuleManagementApi* | [**Test-V2024ConnectorRule**](docs/V2024ConnectorRuleManagementApi.md#Test-V2024ConnectorRule) | **POST** /connector-rules/validate | Validate connector rule
+*V2024ConnectorsApi* | [**New-V2024CustomConnector**](docs/V2024ConnectorsApi.md#New-V2024CustomConnector) | **POST** /connectors | Create custom connector
+*V2024ConnectorsApi* | [**Remove-V2024CustomConnector**](docs/V2024ConnectorsApi.md#Remove-V2024CustomConnector) | **DELETE** /connectors/{scriptName} | Delete connector by script name
+*V2024ConnectorsApi* | [**Get-V2024Connector**](docs/V2024ConnectorsApi.md#Get-V2024Connector) | **GET** /connectors/{scriptName} | Get connector by script name
+*V2024ConnectorsApi* | [**Get-V2024ConnectorCorrelationConfig**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorCorrelationConfig) | **GET** /connectors/{scriptName}/correlation-config | Get connector correlation configuration
+*V2024ConnectorsApi* | [**Get-V2024ConnectorList**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorList) | **GET** /connectors | Get connector list
+*V2024ConnectorsApi* | [**Get-V2024ConnectorSourceConfig**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorSourceConfig) | **GET** /connectors/{scriptName}/source-config | Get connector source configuration
+*V2024ConnectorsApi* | [**Get-V2024ConnectorSourceTemplate**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorSourceTemplate) | **GET** /connectors/{scriptName}/source-template | Get connector source template
+*V2024ConnectorsApi* | [**Get-V2024ConnectorTranslations**](docs/V2024ConnectorsApi.md#Get-V2024ConnectorTranslations) | **GET** /connectors/{scriptName}/translations/{locale} | Get connector translations
+*V2024ConnectorsApi* | [**Send-V2024ConnectorCorrelationConfig**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorCorrelationConfig) | **PUT** /connectors/{scriptName}/correlation-config | Update connector correlation configuration
+*V2024ConnectorsApi* | [**Send-V2024ConnectorSourceConfig**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorSourceConfig) | **PUT** /connectors/{scriptName}/source-config | Update connector source configuration
+*V2024ConnectorsApi* | [**Send-V2024ConnectorSourceTemplate**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorSourceTemplate) | **PUT** /connectors/{scriptName}/source-template | Update connector source template
+*V2024ConnectorsApi* | [**Send-V2024ConnectorTranslations**](docs/V2024ConnectorsApi.md#Send-V2024ConnectorTranslations) | **PUT** /connectors/{scriptName}/translations/{locale} | Update connector translations
+*V2024ConnectorsApi* | [**Update-V2024Connector**](docs/V2024ConnectorsApi.md#Update-V2024Connector) | **PATCH** /connectors/{scriptName} | Update connector by script name
 *V2024CustomFormsApi* | [**New-V2024FormDefinition**](docs/V2024CustomFormsApi.md#New-V2024FormDefinition) | **POST** /form-definitions | Creates a form definition.
-*V2024CustomFormsApi* | [**New-V2024FormDefinitionDynamicSchema**](docs/V2024CustomFormsApi.md#New-V2024FormDefinitionDynamicSchema) | **POST** /form-definitions/forms-action-dynamic-schema | Generate JSON Schema dynamically.
+*V2024CustomFormsApi* | [**New-V2024FormDefinitionDynamicSchema**](docs/V2024CustomFormsApi.md#New-V2024FormDefinitionDynamicSchema) | **POST** /form-definitions/forms-action-dynamic-schema | Generate json schema dynamically.
 *V2024CustomFormsApi* | [**New-V2024FormDefinitionFileRequest**](docs/V2024CustomFormsApi.md#New-V2024FormDefinitionFileRequest) | **POST** /form-definitions/{formDefinitionID}/upload | Upload new form definition file.
 *V2024CustomFormsApi* | [**New-V2024FormInstance**](docs/V2024CustomFormsApi.md#New-V2024FormInstance) | **POST** /form-instances | Creates a form instance.
 *V2024CustomFormsApi* | [**Remove-V2024FormDefinition**](docs/V2024CustomFormsApi.md#Remove-V2024FormDefinition) | **DELETE** /form-definitions/{formDefinitionID} | Deletes a form definition.
 *V2024CustomFormsApi* | [**Export-V2024FormDefinitionsByTenant**](docs/V2024CustomFormsApi.md#Export-V2024FormDefinitionsByTenant) | **GET** /form-definitions/export | List form definitions by tenant.
-*V2024CustomFormsApi* | [**Get-V2024FileFromS3**](docs/V2024CustomFormsApi.md#Get-V2024FileFromS3) | **GET** /form-definitions/{formDefinitionID}/file/{fileID} | Download definition file by fileId.
+*V2024CustomFormsApi* | [**Get-V2024FileFromS3**](docs/V2024CustomFormsApi.md#Get-V2024FileFromS3) | **GET** /form-definitions/{formDefinitionID}/file/{fileID} | Download definition file by fileid.
 *V2024CustomFormsApi* | [**Get-V2024FormDefinitionByKey**](docs/V2024CustomFormsApi.md#Get-V2024FormDefinitionByKey) | **GET** /form-definitions/{formDefinitionID} | Return a form definition.
 *V2024CustomFormsApi* | [**Get-V2024FormInstanceByKey**](docs/V2024CustomFormsApi.md#Get-V2024FormInstanceByKey) | **GET** /form-instances/{formInstanceID} | Returns a form instance.
-*V2024CustomFormsApi* | [**Get-V2024FormInstanceFile**](docs/V2024CustomFormsApi.md#Get-V2024FormInstanceFile) | **GET** /form-instances/{formInstanceID}/file/{fileID} | Download instance file by fileId.
+*V2024CustomFormsApi* | [**Get-V2024FormInstanceFile**](docs/V2024CustomFormsApi.md#Get-V2024FormInstanceFile) | **GET** /form-instances/{formInstanceID}/file/{fileID} | Download instance file by fileid.
 *V2024CustomFormsApi* | [**Import-V2024FormDefinitions**](docs/V2024CustomFormsApi.md#Import-V2024FormDefinitions) | **POST** /form-definitions/import | Import form definitions from export.
 *V2024CustomFormsApi* | [**Update-V2024FormDefinition**](docs/V2024CustomFormsApi.md#Update-V2024FormDefinition) | **PATCH** /form-definitions/{formDefinitionID} | Patch a form definition.
 *V2024CustomFormsApi* | [**Update-V2024FormInstance**](docs/V2024CustomFormsApi.md#Update-V2024FormInstance) | **PATCH** /form-instances/{formInstanceID} | Patch a form instance.
@@ -237,80 +237,80 @@ Class | Method | HTTP request | Description
 *V2024CustomFormsApi* | [**Search-V2024FormInstancesByTenant**](docs/V2024CustomFormsApi.md#Search-V2024FormInstancesByTenant) | **GET** /form-instances | List form instances by tenant.
 *V2024CustomFormsApi* | [**Search-V2024PreDefinedSelectOptions**](docs/V2024CustomFormsApi.md#Search-V2024PreDefinedSelectOptions) | **GET** /form-definitions/predefined-select-options | List predefined select options.
 *V2024CustomFormsApi* | [**Show-V2024PreviewDataSource**](docs/V2024CustomFormsApi.md#Show-V2024PreviewDataSource) | **POST** /form-definitions/{formDefinitionID}/data-source | Preview form definition data source.
-*V2024CustomPasswordInstructionsApi* | [**New-V2024CustomPasswordInstructions**](docs/V2024CustomPasswordInstructionsApi.md#New-V2024CustomPasswordInstructions) | **POST** /custom-password-instructions | Create Custom Password Instructions
-*V2024CustomPasswordInstructionsApi* | [**Remove-V2024CustomPasswordInstructions**](docs/V2024CustomPasswordInstructionsApi.md#Remove-V2024CustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete Custom Password Instructions by page ID
-*V2024CustomPasswordInstructionsApi* | [**Get-V2024CustomPasswordInstructions**](docs/V2024CustomPasswordInstructionsApi.md#Get-V2024CustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get Custom Password Instructions by Page ID
-*V2024DataSegmentationApi* | [**New-V2024DataSegment**](docs/V2024DataSegmentationApi.md#New-V2024DataSegment) | **POST** /data-segments | Create Segment
-*V2024DataSegmentationApi* | [**Remove-V2024DataSegment**](docs/V2024DataSegmentationApi.md#Remove-V2024DataSegment) | **DELETE** /data-segments/{segmentId} | Delete Segment by ID
-*V2024DataSegmentationApi* | [**Get-V2024DataSegment**](docs/V2024DataSegmentationApi.md#Get-V2024DataSegment) | **GET** /data-segments/{segmentId} | Get Segment by ID
-*V2024DataSegmentationApi* | [**Get-V2024DataSegmentIdentityMembership**](docs/V2024DataSegmentationApi.md#Get-V2024DataSegmentIdentityMembership) | **GET** /data-segments/membership/{identityId} | Get SegmentMembership by Identity ID
-*V2024DataSegmentationApi* | [**Get-V2024DataSegmentationEnabledForUser**](docs/V2024DataSegmentationApi.md#Get-V2024DataSegmentationEnabledForUser) | **GET** /data-segments/user-enabled/{identityId} | Is Segmentation enabled by Identity
-*V2024DataSegmentationApi* | [**Get-V2024DataSegments**](docs/V2024DataSegmentationApi.md#Get-V2024DataSegments) | **GET** /data-segments | Get Segments
-*V2024DataSegmentationApi* | [**Update-V2024DataSegment**](docs/V2024DataSegmentationApi.md#Update-V2024DataSegment) | **PATCH** /data-segments/{segmentId} | Update Segment
-*V2024DataSegmentationApi* | [**Publish-V2024DataSegment**](docs/V2024DataSegmentationApi.md#Publish-V2024DataSegment) | **POST** /data-segments/{segmentId} | Publish segment by ID
-*V2024DimensionsApi* | [**New-V2024Dimension**](docs/V2024DimensionsApi.md#New-V2024Dimension) | **POST** /roles/{roleId}/dimensions | Create a Dimension
-*V2024DimensionsApi* | [**Remove-V2024BulkDimensions**](docs/V2024DimensionsApi.md#Remove-V2024BulkDimensions) | **POST** /roles/{roleId}/dimensions/bulk-delete | Delete Dimension(s)
-*V2024DimensionsApi* | [**Remove-V2024Dimension**](docs/V2024DimensionsApi.md#Remove-V2024Dimension) | **DELETE** /roles/{roleId}/dimensions/{dimensionId} | Delete a Dimension
-*V2024DimensionsApi* | [**Get-V2024Dimension**](docs/V2024DimensionsApi.md#Get-V2024Dimension) | **GET** /roles/{roleId}/dimensions/{dimensionId} | Get a Dimension under Role.
-*V2024DimensionsApi* | [**Get-V2024DimensionEntitlements**](docs/V2024DimensionsApi.md#Get-V2024DimensionEntitlements) | **GET** /roles/{roleId}/dimensions/{dimensionId}/entitlements | List Dimension's Entitlements
-*V2024DimensionsApi* | [**Get-V2024DimensionAccessProfiles**](docs/V2024DimensionsApi.md#Get-V2024DimensionAccessProfiles) | **GET** /roles/{roleId}/dimensions/{dimensionId}/access-profiles | List Dimension's Access Profiles
-*V2024DimensionsApi* | [**Get-V2024Dimensions**](docs/V2024DimensionsApi.md#Get-V2024Dimensions) | **GET** /roles/{roleId}/dimensions | List Dimensions
-*V2024DimensionsApi* | [**Update-V2024Dimension**](docs/V2024DimensionsApi.md#Update-V2024Dimension) | **PATCH** /roles/{roleId}/dimensions/{dimensionId} | Patch a specified Dimension
+*V2024CustomPasswordInstructionsApi* | [**New-V2024CustomPasswordInstructions**](docs/V2024CustomPasswordInstructionsApi.md#New-V2024CustomPasswordInstructions) | **POST** /custom-password-instructions | Create custom password instructions
+*V2024CustomPasswordInstructionsApi* | [**Remove-V2024CustomPasswordInstructions**](docs/V2024CustomPasswordInstructionsApi.md#Remove-V2024CustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete custom password instructions by page id
+*V2024CustomPasswordInstructionsApi* | [**Get-V2024CustomPasswordInstructions**](docs/V2024CustomPasswordInstructionsApi.md#Get-V2024CustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get custom password instructions by page id
+*V2024DataSegmentationApi* | [**New-V2024DataSegment**](docs/V2024DataSegmentationApi.md#New-V2024DataSegment) | **POST** /data-segments | Create segment
+*V2024DataSegmentationApi* | [**Remove-V2024DataSegment**](docs/V2024DataSegmentationApi.md#Remove-V2024DataSegment) | **DELETE** /data-segments/{segmentId} | Delete segment by id
+*V2024DataSegmentationApi* | [**Get-V2024DataSegment**](docs/V2024DataSegmentationApi.md#Get-V2024DataSegment) | **GET** /data-segments/{segmentId} | Get segment by id
+*V2024DataSegmentationApi* | [**Get-V2024DataSegmentIdentityMembership**](docs/V2024DataSegmentationApi.md#Get-V2024DataSegmentIdentityMembership) | **GET** /data-segments/membership/{identityId} | Get segmentmembership by identity id
+*V2024DataSegmentationApi* | [**Get-V2024DataSegmentationEnabledForUser**](docs/V2024DataSegmentationApi.md#Get-V2024DataSegmentationEnabledForUser) | **GET** /data-segments/user-enabled/{identityId} | Is segmentation enabled by identity
+*V2024DataSegmentationApi* | [**Get-V2024DataSegments**](docs/V2024DataSegmentationApi.md#Get-V2024DataSegments) | **GET** /data-segments | Get segments
+*V2024DataSegmentationApi* | [**Update-V2024DataSegment**](docs/V2024DataSegmentationApi.md#Update-V2024DataSegment) | **PATCH** /data-segments/{segmentId} | Update segment
+*V2024DataSegmentationApi* | [**Publish-V2024DataSegment**](docs/V2024DataSegmentationApi.md#Publish-V2024DataSegment) | **POST** /data-segments/{segmentId} | Publish segment by id
+*V2024DimensionsApi* | [**New-V2024Dimension**](docs/V2024DimensionsApi.md#New-V2024Dimension) | **POST** /roles/{roleId}/dimensions | Create a dimension
+*V2024DimensionsApi* | [**Remove-V2024BulkDimensions**](docs/V2024DimensionsApi.md#Remove-V2024BulkDimensions) | **POST** /roles/{roleId}/dimensions/bulk-delete | Delete dimension(s)
+*V2024DimensionsApi* | [**Remove-V2024Dimension**](docs/V2024DimensionsApi.md#Remove-V2024Dimension) | **DELETE** /roles/{roleId}/dimensions/{dimensionId} | Delete a dimension
+*V2024DimensionsApi* | [**Get-V2024Dimension**](docs/V2024DimensionsApi.md#Get-V2024Dimension) | **GET** /roles/{roleId}/dimensions/{dimensionId} | Get a dimension under role.
+*V2024DimensionsApi* | [**Get-V2024DimensionEntitlements**](docs/V2024DimensionsApi.md#Get-V2024DimensionEntitlements) | **GET** /roles/{roleId}/dimensions/{dimensionId}/entitlements | List dimension's entitlements
+*V2024DimensionsApi* | [**Get-V2024DimensionAccessProfiles**](docs/V2024DimensionsApi.md#Get-V2024DimensionAccessProfiles) | **GET** /roles/{roleId}/dimensions/{dimensionId}/access-profiles | List dimension's access profiles
+*V2024DimensionsApi* | [**Get-V2024Dimensions**](docs/V2024DimensionsApi.md#Get-V2024Dimensions) | **GET** /roles/{roleId}/dimensions | List dimensions
+*V2024DimensionsApi* | [**Update-V2024Dimension**](docs/V2024DimensionsApi.md#Update-V2024Dimension) | **PATCH** /roles/{roleId}/dimensions/{dimensionId} | Patch a specified dimension
 *V2024EntitlementsApi* | [**New-V2024AccessModelMetadataForEntitlement**](docs/V2024EntitlementsApi.md#New-V2024AccessModelMetadataForEntitlement) | **POST** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add metadata to an entitlement.
 *V2024EntitlementsApi* | [**Remove-V2024AccessModelMetadataFromEntitlement**](docs/V2024EntitlementsApi.md#Remove-V2024AccessModelMetadataFromEntitlement) | **DELETE** /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove metadata from an entitlement.
 *V2024EntitlementsApi* | [**Get-V2024Entitlement**](docs/V2024EntitlementsApi.md#Get-V2024Entitlement) | **GET** /entitlements/{id} | Get an entitlement
-*V2024EntitlementsApi* | [**Get-V2024EntitlementRequestConfig**](docs/V2024EntitlementsApi.md#Get-V2024EntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get Entitlement Request Config
-*V2024EntitlementsApi* | [**Import-V2024EntitlementsBySource**](docs/V2024EntitlementsApi.md#Import-V2024EntitlementsBySource) | **POST** /entitlements/aggregate/sources/{id} | Aggregate Entitlements
+*V2024EntitlementsApi* | [**Get-V2024EntitlementRequestConfig**](docs/V2024EntitlementsApi.md#Get-V2024EntitlementRequestConfig) | **GET** /entitlements/{id}/entitlement-request-config | Get entitlement request config
+*V2024EntitlementsApi* | [**Import-V2024EntitlementsBySource**](docs/V2024EntitlementsApi.md#Import-V2024EntitlementsBySource) | **POST** /entitlements/aggregate/sources/{id} | Aggregate entitlements
 *V2024EntitlementsApi* | [**Get-V2024EntitlementChildren**](docs/V2024EntitlementsApi.md#Get-V2024EntitlementChildren) | **GET** /entitlements/{id}/children | List of entitlements children
 *V2024EntitlementsApi* | [**Get-V2024EntitlementParents**](docs/V2024EntitlementsApi.md#Get-V2024EntitlementParents) | **GET** /entitlements/{id}/parents | List of entitlements parents
 *V2024EntitlementsApi* | [**Get-V2024Entitlements**](docs/V2024EntitlementsApi.md#Get-V2024Entitlements) | **GET** /entitlements | Gets a list of entitlements.
 *V2024EntitlementsApi* | [**Update-V2024Entitlement**](docs/V2024EntitlementsApi.md#Update-V2024Entitlement) | **PATCH** /entitlements/{id} | Patch an entitlement
-*V2024EntitlementsApi* | [**Send-V2024EntitlementRequestConfig**](docs/V2024EntitlementsApi.md#Send-V2024EntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace Entitlement Request Config
-*V2024EntitlementsApi* | [**Reset-V2024SourceEntitlements**](docs/V2024EntitlementsApi.md#Reset-V2024SourceEntitlements) | **POST** /entitlements/reset/sources/{id} | Reset Source Entitlements
+*V2024EntitlementsApi* | [**Send-V2024EntitlementRequestConfig**](docs/V2024EntitlementsApi.md#Send-V2024EntitlementRequestConfig) | **PUT** /entitlements/{id}/entitlement-request-config | Replace entitlement request config
+*V2024EntitlementsApi* | [**Reset-V2024SourceEntitlements**](docs/V2024EntitlementsApi.md#Reset-V2024SourceEntitlements) | **POST** /entitlements/reset/sources/{id} | Reset source entitlements
 *V2024EntitlementsApi* | [**Update-V2024EntitlementsInBulk**](docs/V2024EntitlementsApi.md#Update-V2024EntitlementsInBulk) | **POST** /entitlements/bulk-update | Bulk update an entitlement list
 *V2024GlobalTenantSecuritySettingsApi* | [**New-V2024AuthOrgNetworkConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#New-V2024AuthOrgNetworkConfig) | **POST** /auth-org/network-config | Create security network configuration.
-*V2024GlobalTenantSecuritySettingsApi* | [**Get-V2024AuthOrgLockoutConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Get-V2024AuthOrgLockoutConfig) | **GET** /auth-org/lockout-config | Get Auth Org Lockout Configuration.
+*V2024GlobalTenantSecuritySettingsApi* | [**Get-V2024AuthOrgLockoutConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Get-V2024AuthOrgLockoutConfig) | **GET** /auth-org/lockout-config | Get auth org lockout configuration.
 *V2024GlobalTenantSecuritySettingsApi* | [**Get-V2024AuthOrgNetworkConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Get-V2024AuthOrgNetworkConfig) | **GET** /auth-org/network-config | Get security network configuration.
-*V2024GlobalTenantSecuritySettingsApi* | [**Get-V2024AuthOrgServiceProviderConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Get-V2024AuthOrgServiceProviderConfig) | **GET** /auth-org/service-provider-config | Get Service Provider Configuration.
-*V2024GlobalTenantSecuritySettingsApi* | [**Get-V2024AuthOrgSessionConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Get-V2024AuthOrgSessionConfig) | **GET** /auth-org/session-config | Get Auth Org Session Configuration.
-*V2024GlobalTenantSecuritySettingsApi* | [**Update-V2024AuthOrgLockoutConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Update-V2024AuthOrgLockoutConfig) | **PATCH** /auth-org/lockout-config | Update Auth Org Lockout Configuration
+*V2024GlobalTenantSecuritySettingsApi* | [**Get-V2024AuthOrgServiceProviderConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Get-V2024AuthOrgServiceProviderConfig) | **GET** /auth-org/service-provider-config | Get service provider configuration.
+*V2024GlobalTenantSecuritySettingsApi* | [**Get-V2024AuthOrgSessionConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Get-V2024AuthOrgSessionConfig) | **GET** /auth-org/session-config | Get auth org session configuration.
+*V2024GlobalTenantSecuritySettingsApi* | [**Update-V2024AuthOrgLockoutConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Update-V2024AuthOrgLockoutConfig) | **PATCH** /auth-org/lockout-config | Update auth org lockout configuration
 *V2024GlobalTenantSecuritySettingsApi* | [**Update-V2024AuthOrgNetworkConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Update-V2024AuthOrgNetworkConfig) | **PATCH** /auth-org/network-config | Update security network configuration.
-*V2024GlobalTenantSecuritySettingsApi* | [**Update-V2024AuthOrgServiceProviderConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Update-V2024AuthOrgServiceProviderConfig) | **PATCH** /auth-org/service-provider-config | Update Service Provider Configuration
-*V2024GlobalTenantSecuritySettingsApi* | [**Update-V2024AuthOrgSessionConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Update-V2024AuthOrgSessionConfig) | **PATCH** /auth-org/session-config | Update Auth Org Session Configuration
-*V2024GovernanceGroupsApi* | [**New-V2024Workgroup**](docs/V2024GovernanceGroupsApi.md#New-V2024Workgroup) | **POST** /workgroups | Create a new Governance Group.
-*V2024GovernanceGroupsApi* | [**Remove-V2024Workgroup**](docs/V2024GovernanceGroupsApi.md#Remove-V2024Workgroup) | **DELETE** /workgroups/{id} | Delete a Governance Group
-*V2024GovernanceGroupsApi* | [**Remove-V2024WorkgroupMembers**](docs/V2024GovernanceGroupsApi.md#Remove-V2024WorkgroupMembers) | **POST** /workgroups/{workgroupId}/members/bulk-delete | Remove members from Governance Group
-*V2024GovernanceGroupsApi* | [**Remove-V2024WorkgroupsInBulk**](docs/V2024GovernanceGroupsApi.md#Remove-V2024WorkgroupsInBulk) | **POST** /workgroups/bulk-delete | Delete Governance Group(s)
-*V2024GovernanceGroupsApi* | [**Get-V2024Workgroup**](docs/V2024GovernanceGroupsApi.md#Get-V2024Workgroup) | **GET** /workgroups/{id} | Get Governance Group by Id
-*V2024GovernanceGroupsApi* | [**Get-V2024Connections**](docs/V2024GovernanceGroupsApi.md#Get-V2024Connections) | **GET** /workgroups/{workgroupId}/connections | List connections for Governance Group
-*V2024GovernanceGroupsApi* | [**Get-V2024WorkgroupMembers**](docs/V2024GovernanceGroupsApi.md#Get-V2024WorkgroupMembers) | **GET** /workgroups/{workgroupId}/members | List Governance Group Members
-*V2024GovernanceGroupsApi* | [**Get-V2024Workgroups**](docs/V2024GovernanceGroupsApi.md#Get-V2024Workgroups) | **GET** /workgroups | List Governance Groups
-*V2024GovernanceGroupsApi* | [**Update-V2024Workgroup**](docs/V2024GovernanceGroupsApi.md#Update-V2024Workgroup) | **PATCH** /workgroups/{id} | Patch a Governance Group
-*V2024GovernanceGroupsApi* | [**Update-V2024WorkgroupMembers**](docs/V2024GovernanceGroupsApi.md#Update-V2024WorkgroupMembers) | **POST** /workgroups/{workgroupId}/members/bulk-add | Add members to Governance Group
-*V2024IAIAccessRequestRecommendationsApi* | [**Add-V2024AccessRequestRecommendationsIgnoredItem**](docs/V2024IAIAccessRequestRecommendationsApi.md#Add-V2024AccessRequestRecommendationsIgnoredItem) | **POST** /ai-access-request-recommendations/ignored-items | Ignore Access Request Recommendation
-*V2024IAIAccessRequestRecommendationsApi* | [**Add-V2024AccessRequestRecommendationsRequestedItem**](docs/V2024IAIAccessRequestRecommendationsApi.md#Add-V2024AccessRequestRecommendationsRequestedItem) | **POST** /ai-access-request-recommendations/requested-items | Accept Access Request Recommendation
-*V2024IAIAccessRequestRecommendationsApi* | [**Add-V2024AccessRequestRecommendationsViewedItem**](docs/V2024IAIAccessRequestRecommendationsApi.md#Add-V2024AccessRequestRecommendationsViewedItem) | **POST** /ai-access-request-recommendations/viewed-items | Mark Viewed Access Request Recommendations
-*V2024IAIAccessRequestRecommendationsApi* | [**Add-V2024AccessRequestRecommendationsViewedItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Add-V2024AccessRequestRecommendationsViewedItems) | **POST** /ai-access-request-recommendations/viewed-items/bulk-create | Bulk Mark Viewed Access Request Recommendations
-*V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendations**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendations) | **GET** /ai-access-request-recommendations | Identity Access Request Recommendations
-*V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsConfig**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsConfig) | **GET** /ai-access-request-recommendations/config | Get Access Request Recommendations config
-*V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsIgnoredItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsIgnoredItems) | **GET** /ai-access-request-recommendations/ignored-items | List Ignored Access Request Recommendations
-*V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsRequestedItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsRequestedItems) | **GET** /ai-access-request-recommendations/requested-items | List Accepted Access Request Recommendations
-*V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsViewedItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsViewedItems) | **GET** /ai-access-request-recommendations/viewed-items | List Viewed Access Request Recommendations
-*V2024IAIAccessRequestRecommendationsApi* | [**Set-V2024AccessRequestRecommendationsConfig**](docs/V2024IAIAccessRequestRecommendationsApi.md#Set-V2024AccessRequestRecommendationsConfig) | **PUT** /ai-access-request-recommendations/config | Update Access Request Recommendations config
+*V2024GlobalTenantSecuritySettingsApi* | [**Update-V2024AuthOrgServiceProviderConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Update-V2024AuthOrgServiceProviderConfig) | **PATCH** /auth-org/service-provider-config | Update service provider configuration
+*V2024GlobalTenantSecuritySettingsApi* | [**Update-V2024AuthOrgSessionConfig**](docs/V2024GlobalTenantSecuritySettingsApi.md#Update-V2024AuthOrgSessionConfig) | **PATCH** /auth-org/session-config | Update auth org session configuration
+*V2024GovernanceGroupsApi* | [**New-V2024Workgroup**](docs/V2024GovernanceGroupsApi.md#New-V2024Workgroup) | **POST** /workgroups | Create a new governance group.
+*V2024GovernanceGroupsApi* | [**Remove-V2024Workgroup**](docs/V2024GovernanceGroupsApi.md#Remove-V2024Workgroup) | **DELETE** /workgroups/{id} | Delete a governance group
+*V2024GovernanceGroupsApi* | [**Remove-V2024WorkgroupMembers**](docs/V2024GovernanceGroupsApi.md#Remove-V2024WorkgroupMembers) | **POST** /workgroups/{workgroupId}/members/bulk-delete | Remove members from governance group
+*V2024GovernanceGroupsApi* | [**Remove-V2024WorkgroupsInBulk**](docs/V2024GovernanceGroupsApi.md#Remove-V2024WorkgroupsInBulk) | **POST** /workgroups/bulk-delete | Delete governance group(s)
+*V2024GovernanceGroupsApi* | [**Get-V2024Workgroup**](docs/V2024GovernanceGroupsApi.md#Get-V2024Workgroup) | **GET** /workgroups/{id} | Get governance group by id
+*V2024GovernanceGroupsApi* | [**Get-V2024Connections**](docs/V2024GovernanceGroupsApi.md#Get-V2024Connections) | **GET** /workgroups/{workgroupId}/connections | List connections for governance group
+*V2024GovernanceGroupsApi* | [**Get-V2024WorkgroupMembers**](docs/V2024GovernanceGroupsApi.md#Get-V2024WorkgroupMembers) | **GET** /workgroups/{workgroupId}/members | List governance group members
+*V2024GovernanceGroupsApi* | [**Get-V2024Workgroups**](docs/V2024GovernanceGroupsApi.md#Get-V2024Workgroups) | **GET** /workgroups | List governance groups
+*V2024GovernanceGroupsApi* | [**Update-V2024Workgroup**](docs/V2024GovernanceGroupsApi.md#Update-V2024Workgroup) | **PATCH** /workgroups/{id} | Patch a governance group
+*V2024GovernanceGroupsApi* | [**Update-V2024WorkgroupMembers**](docs/V2024GovernanceGroupsApi.md#Update-V2024WorkgroupMembers) | **POST** /workgroups/{workgroupId}/members/bulk-add | Add members to governance group
+*V2024IAIAccessRequestRecommendationsApi* | [**Add-V2024AccessRequestRecommendationsIgnoredItem**](docs/V2024IAIAccessRequestRecommendationsApi.md#Add-V2024AccessRequestRecommendationsIgnoredItem) | **POST** /ai-access-request-recommendations/ignored-items | Ignore access request recommendation
+*V2024IAIAccessRequestRecommendationsApi* | [**Add-V2024AccessRequestRecommendationsRequestedItem**](docs/V2024IAIAccessRequestRecommendationsApi.md#Add-V2024AccessRequestRecommendationsRequestedItem) | **POST** /ai-access-request-recommendations/requested-items | Accept access request recommendation
+*V2024IAIAccessRequestRecommendationsApi* | [**Add-V2024AccessRequestRecommendationsViewedItem**](docs/V2024IAIAccessRequestRecommendationsApi.md#Add-V2024AccessRequestRecommendationsViewedItem) | **POST** /ai-access-request-recommendations/viewed-items | Mark viewed access request recommendations
+*V2024IAIAccessRequestRecommendationsApi* | [**Add-V2024AccessRequestRecommendationsViewedItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Add-V2024AccessRequestRecommendationsViewedItems) | **POST** /ai-access-request-recommendations/viewed-items/bulk-create | Bulk mark viewed access request recommendations
+*V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendations**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendations) | **GET** /ai-access-request-recommendations | Identity access request recommendations
+*V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsConfig**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsConfig) | **GET** /ai-access-request-recommendations/config | Get access request recommendations config
+*V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsIgnoredItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsIgnoredItems) | **GET** /ai-access-request-recommendations/ignored-items | List ignored access request recommendations
+*V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsRequestedItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsRequestedItems) | **GET** /ai-access-request-recommendations/requested-items | List accepted access request recommendations
+*V2024IAIAccessRequestRecommendationsApi* | [**Get-V2024AccessRequestRecommendationsViewedItems**](docs/V2024IAIAccessRequestRecommendationsApi.md#Get-V2024AccessRequestRecommendationsViewedItems) | **GET** /ai-access-request-recommendations/viewed-items | List viewed access request recommendations
+*V2024IAIAccessRequestRecommendationsApi* | [**Set-V2024AccessRequestRecommendationsConfig**](docs/V2024IAIAccessRequestRecommendationsApi.md#Set-V2024AccessRequestRecommendationsConfig) | **PUT** /ai-access-request-recommendations/config | Update access request recommendations config
 *V2024IAICommonAccessApi* | [**New-V2024CommonAccess**](docs/V2024IAICommonAccessApi.md#New-V2024CommonAccess) | **POST** /common-access | Create common access items
 *V2024IAICommonAccessApi* | [**Get-V2024CommonAccess**](docs/V2024IAICommonAccessApi.md#Get-V2024CommonAccess) | **GET** /common-access | Get a paginated list of common access
 *V2024IAICommonAccessApi* | [**Update-V2024CommonAccessStatusInBulk**](docs/V2024IAICommonAccessApi.md#Update-V2024CommonAccessStatusInBulk) | **POST** /common-access/update-status | Bulk update common access status
-*V2024IAIOutliersApi* | [**Export-V2024OutliersZip**](docs/V2024IAIOutliersApi.md#Export-V2024OutliersZip) | **GET** /outliers/export | IAI Identity Outliers Export
-*V2024IAIOutliersApi* | [**Get-V2024IdentityOutlierSnapshots**](docs/V2024IAIOutliersApi.md#Get-V2024IdentityOutlierSnapshots) | **GET** /outlier-summaries | IAI Identity Outliers Summary
-*V2024IAIOutliersApi* | [**Get-V2024IdentityOutliers**](docs/V2024IAIOutliersApi.md#Get-V2024IdentityOutliers) | **GET** /outliers | IAI Get Identity Outliers
-*V2024IAIOutliersApi* | [**Get-V2024LatestIdentityOutlierSnapshots**](docs/V2024IAIOutliersApi.md#Get-V2024LatestIdentityOutlierSnapshots) | **GET** /outlier-summaries/latest | IAI Identity Outliers Latest Summary
+*V2024IAIOutliersApi* | [**Export-V2024OutliersZip**](docs/V2024IAIOutliersApi.md#Export-V2024OutliersZip) | **GET** /outliers/export | Iai identity outliers export
+*V2024IAIOutliersApi* | [**Get-V2024IdentityOutlierSnapshots**](docs/V2024IAIOutliersApi.md#Get-V2024IdentityOutlierSnapshots) | **GET** /outlier-summaries | Iai identity outliers summary
+*V2024IAIOutliersApi* | [**Get-V2024IdentityOutliers**](docs/V2024IAIOutliersApi.md#Get-V2024IdentityOutliers) | **GET** /outliers | Iai get identity outliers
+*V2024IAIOutliersApi* | [**Get-V2024LatestIdentityOutlierSnapshots**](docs/V2024IAIOutliersApi.md#Get-V2024LatestIdentityOutlierSnapshots) | **GET** /outlier-summaries/latest | Iai identity outliers latest summary
 *V2024IAIOutliersApi* | [**Get-V2024OutlierContributingFeatureSummary**](docs/V2024IAIOutliersApi.md#Get-V2024OutlierContributingFeatureSummary) | **GET** /outlier-feature-summaries/{outlierFeatureId} | Get identity outlier contibuting feature summary
 *V2024IAIOutliersApi* | [**Get-V2024PeerGroupOutliersContributingFeatures**](docs/V2024IAIOutliersApi.md#Get-V2024PeerGroupOutliersContributingFeatures) | **GET** /outliers/{outlierId}/contributing-features | Get identity outlier's contibuting features
-*V2024IAIOutliersApi* | [**Invoke-V2024IgnoreIdentityOutliers**](docs/V2024IAIOutliersApi.md#Invoke-V2024IgnoreIdentityOutliers) | **POST** /outliers/ignore | IAI Identity Outliers Ignore
+*V2024IAIOutliersApi* | [**Invoke-V2024IgnoreIdentityOutliers**](docs/V2024IAIOutliersApi.md#Invoke-V2024IgnoreIdentityOutliers) | **POST** /outliers/ignore | Iai identity outliers ignore
 *V2024IAIOutliersApi* | [**Get-V2024OutliersContributingFeatureAccessItems**](docs/V2024IAIOutliersApi.md#Get-V2024OutliersContributingFeatureAccessItems) | **GET** /outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items | Gets a list of access items associated with each identity outlier contributing feature
-*V2024IAIOutliersApi* | [**Invoke-V2024UnIgnoreIdentityOutliers**](docs/V2024IAIOutliersApi.md#Invoke-V2024UnIgnoreIdentityOutliers) | **POST** /outliers/unignore | IAI Identity Outliers Unignore
-*V2024IAIPeerGroupStrategiesApi* | [**Get-V2024PeerGroupOutliers**](docs/V2024IAIPeerGroupStrategiesApi.md#Get-V2024PeerGroupOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity Outliers List
-*V2024IAIRecommendationsApi* | [**Get-V2024Recommendations**](docs/V2024IAIRecommendationsApi.md#Get-V2024Recommendations) | **POST** /recommendations/request | Returns Recommendation Based on Object
+*V2024IAIOutliersApi* | [**Invoke-V2024UnIgnoreIdentityOutliers**](docs/V2024IAIOutliersApi.md#Invoke-V2024UnIgnoreIdentityOutliers) | **POST** /outliers/unignore | Iai identity outliers unignore
+*V2024IAIPeerGroupStrategiesApi* | [**Get-V2024PeerGroupOutliers**](docs/V2024IAIPeerGroupStrategiesApi.md#Get-V2024PeerGroupOutliers) | **GET** /peer-group-strategies/{strategy}/identity-outliers | Identity outliers list
+*V2024IAIRecommendationsApi* | [**Get-V2024Recommendations**](docs/V2024IAIRecommendationsApi.md#Get-V2024Recommendations) | **POST** /recommendations/request | Returns recommendation based on object
 *V2024IAIRecommendationsApi* | [**Get-V2024RecommendationsConfig**](docs/V2024IAIRecommendationsApi.md#Get-V2024RecommendationsConfig) | **GET** /recommendations/config | Get certification recommendation config values
 *V2024IAIRecommendationsApi* | [**Update-V2024RecommendationsConfig**](docs/V2024IAIRecommendationsApi.md#Update-V2024RecommendationsConfig) | **PUT** /recommendations/config | Update certification recommendation config values
 *V2024IAIRoleMiningApi* | [**New-V2024PotentialRoleProvisionRequest**](docs/V2024IAIRoleMiningApi.md#New-V2024PotentialRoleProvisionRequest) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/provision | Create request to provision a potential role into an actual role.
@@ -341,191 +341,191 @@ Class | Method | HTTP request | Description
 *V2024IconsApi* | [**Remove-V2024Icon**](docs/V2024IconsApi.md#Remove-V2024Icon) | **DELETE** /icons/{objectType}/{objectId} | Delete an icon
 *V2024IconsApi* | [**Set-V2024Icon**](docs/V2024IconsApi.md#Set-V2024Icon) | **PUT** /icons/{objectType}/{objectId} | Update an icon
 *V2024IdentitiesApi* | [**Remove-V2024Identity**](docs/V2024IdentitiesApi.md#Remove-V2024Identity) | **DELETE** /identities/{id} | Delete identity
-*V2024IdentitiesApi* | [**Get-V2024Identity**](docs/V2024IdentitiesApi.md#Get-V2024Identity) | **GET** /identities/{id} | Identity Details
+*V2024IdentitiesApi* | [**Get-V2024Identity**](docs/V2024IdentitiesApi.md#Get-V2024Identity) | **GET** /identities/{id} | Identity details
 *V2024IdentitiesApi* | [**Get-V2024IdentityOwnershipDetails**](docs/V2024IdentitiesApi.md#Get-V2024IdentityOwnershipDetails) | **GET** /identities/{identityId}/ownership | Get ownership details
 *V2024IdentitiesApi* | [**Get-V2024RoleAssignment**](docs/V2024IdentitiesApi.md#Get-V2024RoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Role assignment details
 *V2024IdentitiesApi* | [**Get-V2024RoleAssignments**](docs/V2024IdentitiesApi.md#Get-V2024RoleAssignments) | **GET** /identities/{identityId}/role-assignments | List role assignments
-*V2024IdentitiesApi* | [**Get-V2024Identities**](docs/V2024IdentitiesApi.md#Get-V2024Identities) | **GET** /identities | List Identities
+*V2024IdentitiesApi* | [**Get-V2024Identities**](docs/V2024IdentitiesApi.md#Get-V2024Identities) | **GET** /identities | List identities
 *V2024IdentitiesApi* | [**Reset-V2024Identity**](docs/V2024IdentitiesApi.md#Reset-V2024Identity) | **POST** /identities/{id}/reset | Reset an identity
 *V2024IdentitiesApi* | [**Send-V2024IdentityVerificationAccountToken**](docs/V2024IdentitiesApi.md#Send-V2024IdentityVerificationAccountToken) | **POST** /identities/{id}/verification/account/send | Send password reset email
 *V2024IdentitiesApi* | [**Start-V2024IdentitiesInvite**](docs/V2024IdentitiesApi.md#Start-V2024IdentitiesInvite) | **POST** /identities/invite | Invite identities to register
-*V2024IdentitiesApi* | [**Start-V2024IdentityProcessing**](docs/V2024IdentitiesApi.md#Start-V2024IdentityProcessing) | **POST** /identities/process | Process a list of identityIds
+*V2024IdentitiesApi* | [**Start-V2024IdentityProcessing**](docs/V2024IdentitiesApi.md#Start-V2024IdentityProcessing) | **POST** /identities/process | Process a list of identityids
 *V2024IdentitiesApi* | [**Sync-V2024hronizeAttributesForIdentity**](docs/V2024IdentitiesApi.md#Sync-V2024hronizeAttributesForIdentity) | **POST** /identities/{identityId}/synchronize-attributes | Attribute synchronization for single identity.
-*V2024IdentityAttributesApi* | [**New-V2024IdentityAttribute**](docs/V2024IdentityAttributesApi.md#New-V2024IdentityAttribute) | **POST** /identity-attributes | Create Identity Attribute
-*V2024IdentityAttributesApi* | [**Remove-V2024IdentityAttribute**](docs/V2024IdentityAttributesApi.md#Remove-V2024IdentityAttribute) | **DELETE** /identity-attributes/{name} | Delete Identity Attribute
-*V2024IdentityAttributesApi* | [**Remove-V2024IdentityAttributesInBulk**](docs/V2024IdentityAttributesApi.md#Remove-V2024IdentityAttributesInBulk) | **DELETE** /identity-attributes/bulk-delete | Bulk delete Identity Attributes
-*V2024IdentityAttributesApi* | [**Get-V2024IdentityAttribute**](docs/V2024IdentityAttributesApi.md#Get-V2024IdentityAttribute) | **GET** /identity-attributes/{name} | Get Identity Attribute
-*V2024IdentityAttributesApi* | [**Get-V2024IdentityAttributes**](docs/V2024IdentityAttributesApi.md#Get-V2024IdentityAttributes) | **GET** /identity-attributes | List Identity Attributes
-*V2024IdentityAttributesApi* | [**Send-V2024IdentityAttribute**](docs/V2024IdentityAttributesApi.md#Send-V2024IdentityAttribute) | **PUT** /identity-attributes/{name} | Update Identity Attribute
+*V2024IdentityAttributesApi* | [**New-V2024IdentityAttribute**](docs/V2024IdentityAttributesApi.md#New-V2024IdentityAttribute) | **POST** /identity-attributes | Create identity attribute
+*V2024IdentityAttributesApi* | [**Remove-V2024IdentityAttribute**](docs/V2024IdentityAttributesApi.md#Remove-V2024IdentityAttribute) | **DELETE** /identity-attributes/{name} | Delete identity attribute
+*V2024IdentityAttributesApi* | [**Remove-V2024IdentityAttributesInBulk**](docs/V2024IdentityAttributesApi.md#Remove-V2024IdentityAttributesInBulk) | **DELETE** /identity-attributes/bulk-delete | Bulk delete identity attributes
+*V2024IdentityAttributesApi* | [**Get-V2024IdentityAttribute**](docs/V2024IdentityAttributesApi.md#Get-V2024IdentityAttribute) | **GET** /identity-attributes/{name} | Get identity attribute
+*V2024IdentityAttributesApi* | [**Get-V2024IdentityAttributes**](docs/V2024IdentityAttributesApi.md#Get-V2024IdentityAttributes) | **GET** /identity-attributes | List identity attributes
+*V2024IdentityAttributesApi* | [**Send-V2024IdentityAttribute**](docs/V2024IdentityAttributesApi.md#Send-V2024IdentityAttribute) | **PUT** /identity-attributes/{name} | Update identity attribute
 *V2024IdentityHistoryApi* | [**Compare-V2024IdentitySnapshots**](docs/V2024IdentityHistoryApi.md#Compare-V2024IdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots
-*V2024IdentityHistoryApi* | [**Compare-V2024IdentitySnapshotsAccessType**](docs/V2024IdentityHistoryApi.md#Compare-V2024IdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accessType for the given identity between 2 snapshots
+*V2024IdentityHistoryApi* | [**Compare-V2024IdentitySnapshotsAccessType**](docs/V2024IdentityHistoryApi.md#Compare-V2024IdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 *V2024IdentityHistoryApi* | [**Get-V2024HistoricalIdentity**](docs/V2024IdentityHistoryApi.md#Get-V2024HistoricalIdentity) | **GET** /historical-identities/{id} | Get latest snapshot of identity
 *V2024IdentityHistoryApi* | [**Get-V2024HistoricalIdentityEvents**](docs/V2024IdentityHistoryApi.md#Get-V2024HistoricalIdentityEvents) | **GET** /historical-identities/{id}/events | Lists all events for the given identity
 *V2024IdentityHistoryApi* | [**Get-V2024IdentitySnapshot**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshot) | **GET** /historical-identities/{id}/snapshots/{date} | Gets an identity snapshot at a given date
 *V2024IdentityHistoryApi* | [**Get-V2024IdentitySnapshotSummary**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
 *V2024IdentityHistoryApi* | [**Get-V2024IdentityStartDate**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
 *V2024IdentityHistoryApi* | [**Get-V2024HistoricalIdentities**](docs/V2024IdentityHistoryApi.md#Get-V2024HistoricalIdentities) | **GET** /historical-identities | Lists all the identities
-*V2024IdentityHistoryApi* | [**Get-V2024IdentityAccessItems**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentityAccessItems) | **GET** /historical-identities/{id}/access-items | List Access Items by Identity
+*V2024IdentityHistoryApi* | [**Get-V2024IdentityAccessItems**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentityAccessItems) | **GET** /historical-identities/{id}/access-items | List access items by identity
 *V2024IdentityHistoryApi* | [**Get-V2024IdentitySnapshotAccessItems**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshotAccessItems) | **GET** /historical-identities/{id}/snapshots/{date}/access-items | Gets the list of identity access items at a given date filterd by item type
 *V2024IdentityHistoryApi* | [**Get-V2024IdentitySnapshots**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshots) | **GET** /historical-identities/{id}/snapshots | Lists all the snapshots for the identity
-*V2024IdentityProfilesApi* | [**New-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#New-V2024IdentityProfile) | **POST** /identity-profiles | Create Identity Profile
-*V2024IdentityProfilesApi* | [**Remove-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Remove-V2024IdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete Identity Profile
-*V2024IdentityProfilesApi* | [**Remove-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Remove-V2024IdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete Identity Profiles
-*V2024IdentityProfilesApi* | [**Export-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Export-V2024IdentityProfiles) | **GET** /identity-profiles/export | Export Identity Profiles
-*V2024IdentityProfilesApi* | [**New-V2024IdentityPreview**](docs/V2024IdentityProfilesApi.md#New-V2024IdentityPreview) | **POST** /identity-profiles/identity-preview | Generate Identity Profile Preview
-*V2024IdentityProfilesApi* | [**Get-V2024DefaultIdentityAttributeConfig**](docs/V2024IdentityProfilesApi.md#Get-V2024DefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Get default Identity Attribute Config
-*V2024IdentityProfilesApi* | [**Get-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Get-V2024IdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get Identity Profile
-*V2024IdentityProfilesApi* | [**Import-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Import-V2024IdentityProfiles) | **POST** /identity-profiles/import | Import Identity Profiles
-*V2024IdentityProfilesApi* | [**Get-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Get-V2024IdentityProfiles) | **GET** /identity-profiles | List Identity Profiles
+*V2024IdentityProfilesApi* | [**New-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#New-V2024IdentityProfile) | **POST** /identity-profiles | Create identity profile
+*V2024IdentityProfilesApi* | [**Remove-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Remove-V2024IdentityProfile) | **DELETE** /identity-profiles/{identity-profile-id} | Delete identity profile
+*V2024IdentityProfilesApi* | [**Remove-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Remove-V2024IdentityProfiles) | **POST** /identity-profiles/bulk-delete | Delete identity profiles
+*V2024IdentityProfilesApi* | [**Export-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Export-V2024IdentityProfiles) | **GET** /identity-profiles/export | Export identity profiles
+*V2024IdentityProfilesApi* | [**New-V2024IdentityPreview**](docs/V2024IdentityProfilesApi.md#New-V2024IdentityPreview) | **POST** /identity-profiles/identity-preview | Generate identity profile preview
+*V2024IdentityProfilesApi* | [**Get-V2024DefaultIdentityAttributeConfig**](docs/V2024IdentityProfilesApi.md#Get-V2024DefaultIdentityAttributeConfig) | **GET** /identity-profiles/{identity-profile-id}/default-identity-attribute-config | Get default identity attribute config
+*V2024IdentityProfilesApi* | [**Get-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Get-V2024IdentityProfile) | **GET** /identity-profiles/{identity-profile-id} | Get identity profile
+*V2024IdentityProfilesApi* | [**Import-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Import-V2024IdentityProfiles) | **POST** /identity-profiles/import | Import identity profiles
+*V2024IdentityProfilesApi* | [**Get-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Get-V2024IdentityProfiles) | **GET** /identity-profiles | List identity profiles
 *V2024IdentityProfilesApi* | [**Sync-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Sync-V2024IdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
-*V2024IdentityProfilesApi* | [**Update-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Update-V2024IdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update Identity Profile
-*V2024LifecycleStatesApi* | [**New-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#New-V2024LifecycleState) | **POST** /identity-profiles/{identity-profile-id}/lifecycle-states | Create Lifecycle State
-*V2024LifecycleStatesApi* | [**Remove-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#Remove-V2024LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete Lifecycle State
-*V2024LifecycleStatesApi* | [**Get-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#Get-V2024LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get Lifecycle State
-*V2024LifecycleStatesApi* | [**Get-V2024LifecycleStates**](docs/V2024LifecycleStatesApi.md#Get-V2024LifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states | Lists LifecycleStates
-*V2024LifecycleStatesApi* | [**Set-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#Set-V2024LifecycleState) | **POST** /identities/{identity-id}/set-lifecycle-state | Set Lifecycle State
-*V2024LifecycleStatesApi* | [**Update-V2024LifecycleStates**](docs/V2024LifecycleStatesApi.md#Update-V2024LifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update Lifecycle State
-*V2024MFAConfigurationApi* | [**Get-V2024MFADuoConfig**](docs/V2024MFAConfigurationApi.md#Get-V2024MFADuoConfig) | **GET** /mfa/duo-web/config | Configuration of Duo MFA method
-*V2024MFAConfigurationApi* | [**Get-V2024MFAKbaConfig**](docs/V2024MFAConfigurationApi.md#Get-V2024MFAKbaConfig) | **GET** /mfa/kba/config | Configuration of KBA MFA method
-*V2024MFAConfigurationApi* | [**Get-V2024MFAOktaConfig**](docs/V2024MFAConfigurationApi.md#Get-V2024MFAOktaConfig) | **GET** /mfa/okta-verify/config | Configuration of Okta MFA method
-*V2024MFAConfigurationApi* | [**Set-V2024MFADuoConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFADuoConfig) | **PUT** /mfa/duo-web/config | Set Duo MFA configuration
-*V2024MFAConfigurationApi* | [**Set-V2024MFAKBAConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAKBAConfig) | **POST** /mfa/kba/config/answers | Set MFA KBA configuration
-*V2024MFAConfigurationApi* | [**Set-V2024MFAOktaConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set Okta MFA configuration
-*V2024MFAConfigurationApi* | [**Test-V2024MFAConfig**](docs/V2024MFAConfigurationApi.md#Test-V2024MFAConfig) | **GET** /mfa/{method}/test | MFA method's test configuration
+*V2024IdentityProfilesApi* | [**Update-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Update-V2024IdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update identity profile
+*V2024LifecycleStatesApi* | [**New-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#New-V2024LifecycleState) | **POST** /identity-profiles/{identity-profile-id}/lifecycle-states | Create lifecycle state
+*V2024LifecycleStatesApi* | [**Remove-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#Remove-V2024LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete lifecycle state
+*V2024LifecycleStatesApi* | [**Get-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#Get-V2024LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get lifecycle state
+*V2024LifecycleStatesApi* | [**Get-V2024LifecycleStates**](docs/V2024LifecycleStatesApi.md#Get-V2024LifecycleStates) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states | Lists lifecyclestates
+*V2024LifecycleStatesApi* | [**Set-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#Set-V2024LifecycleState) | **POST** /identities/{identity-id}/set-lifecycle-state | Set lifecycle state
+*V2024LifecycleStatesApi* | [**Update-V2024LifecycleStates**](docs/V2024LifecycleStatesApi.md#Update-V2024LifecycleStates) | **PATCH** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Update lifecycle state
+*V2024MFAConfigurationApi* | [**Get-V2024MFADuoConfig**](docs/V2024MFAConfigurationApi.md#Get-V2024MFADuoConfig) | **GET** /mfa/duo-web/config | Configuration of duo mfa method
+*V2024MFAConfigurationApi* | [**Get-V2024MFAKbaConfig**](docs/V2024MFAConfigurationApi.md#Get-V2024MFAKbaConfig) | **GET** /mfa/kba/config | Configuration of kba mfa method
+*V2024MFAConfigurationApi* | [**Get-V2024MFAOktaConfig**](docs/V2024MFAConfigurationApi.md#Get-V2024MFAOktaConfig) | **GET** /mfa/okta-verify/config | Configuration of okta mfa method
+*V2024MFAConfigurationApi* | [**Set-V2024MFADuoConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFADuoConfig) | **PUT** /mfa/duo-web/config | Set duo mfa configuration
+*V2024MFAConfigurationApi* | [**Set-V2024MFAKBAConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAKBAConfig) | **POST** /mfa/kba/config/answers | Set mfa kba configuration
+*V2024MFAConfigurationApi* | [**Set-V2024MFAOktaConfig**](docs/V2024MFAConfigurationApi.md#Set-V2024MFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set okta mfa configuration
+*V2024MFAConfigurationApi* | [**Test-V2024MFAConfig**](docs/V2024MFAConfigurationApi.md#Test-V2024MFAConfig) | **GET** /mfa/{method}/test | Mfa method's test configuration
 *V2024MachineAccountClassifyApi* | [**Send-V2024ClassifyMachineAccount**](docs/V2024MachineAccountClassifyApi.md#Send-V2024ClassifyMachineAccount) | **POST** /accounts/{id}/classify | Classify a Single Machine Account
-*V2024MachineAccountMappingsApi* | [**New-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#New-V2024MachineAccountMappings) | **POST** /sources/{sourceId}/machine-account-mappings | Create Machine Account Mappings
-*V2024MachineAccountMappingsApi* | [**Remove-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Remove-V2024MachineAccountMappings) | **DELETE** /sources/{sourceId}/machine-account-mappings | Delete Source's Machine Account Mappings
-*V2024MachineAccountMappingsApi* | [**Get-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Get-V2024MachineAccountMappings) | **GET** /sources/{sourceId}/machine-account-mappings | Machine Account Mapping for Source
-*V2024MachineAccountMappingsApi* | [**Set-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Set-V2024MachineAccountMappings) | **PUT** /sources/{sourceId}/machine-mappings | Update Source's Machine Account Mappings
-*V2024MachineAccountsApi* | [**Get-V2024MachineAccount**](docs/V2024MachineAccountsApi.md#Get-V2024MachineAccount) | **GET** /machine-accounts/{id} | Machine Account Details
-*V2024MachineAccountsApi* | [**Get-V2024MachineAccounts**](docs/V2024MachineAccountsApi.md#Get-V2024MachineAccounts) | **GET** /machine-accounts | Machine Accounts List
-*V2024MachineAccountsApi* | [**Update-V2024MachineAccount**](docs/V2024MachineAccountsApi.md#Update-V2024MachineAccount) | **PATCH** /machine-accounts/{id} | Update a Machine Account
-*V2024MachineClassificationConfigApi* | [**Remove-V2024MachineClassificationConfig**](docs/V2024MachineClassificationConfigApi.md#Remove-V2024MachineClassificationConfig) | **DELETE** /sources/{sourceId}/machine-classification-config | Delete Source's Classification Config
-*V2024MachineClassificationConfigApi* | [**Get-V2024MachineClassificationConfig**](docs/V2024MachineClassificationConfigApi.md#Get-V2024MachineClassificationConfig) | **GET** /sources/{sourceId}/machine-classification-config | Machine Classification Config for Source
-*V2024MachineClassificationConfigApi* | [**Set-V2024MachineClassificationConfig**](docs/V2024MachineClassificationConfigApi.md#Set-V2024MachineClassificationConfig) | **PUT** /sources/{sourceId}/machine-classification-config | Update Source's Classification Config
-*V2024MachineIdentitiesApi* | [**New-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#New-V2024MachineIdentity) | **POST** /machine-identities | Create Machine Identities
+*V2024MachineAccountMappingsApi* | [**New-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#New-V2024MachineAccountMappings) | **POST** /sources/{sourceId}/machine-account-mappings | Create machine account mappings
+*V2024MachineAccountMappingsApi* | [**Remove-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Remove-V2024MachineAccountMappings) | **DELETE** /sources/{sourceId}/machine-account-mappings | Delete source's machine account mappings
+*V2024MachineAccountMappingsApi* | [**Get-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Get-V2024MachineAccountMappings) | **GET** /sources/{sourceId}/machine-account-mappings | Machine account mapping for source
+*V2024MachineAccountMappingsApi* | [**Set-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Set-V2024MachineAccountMappings) | **PUT** /sources/{sourceId}/machine-mappings | Update source's machine account mappings
+*V2024MachineAccountsApi* | [**Get-V2024MachineAccount**](docs/V2024MachineAccountsApi.md#Get-V2024MachineAccount) | **GET** /machine-accounts/{id} | Machine account details
+*V2024MachineAccountsApi* | [**Get-V2024MachineAccounts**](docs/V2024MachineAccountsApi.md#Get-V2024MachineAccounts) | **GET** /machine-accounts | Machine accounts list
+*V2024MachineAccountsApi* | [**Update-V2024MachineAccount**](docs/V2024MachineAccountsApi.md#Update-V2024MachineAccount) | **PATCH** /machine-accounts/{id} | Update a machine account
+*V2024MachineClassificationConfigApi* | [**Remove-V2024MachineClassificationConfig**](docs/V2024MachineClassificationConfigApi.md#Remove-V2024MachineClassificationConfig) | **DELETE** /sources/{sourceId}/machine-classification-config | Delete source's classification config
+*V2024MachineClassificationConfigApi* | [**Get-V2024MachineClassificationConfig**](docs/V2024MachineClassificationConfigApi.md#Get-V2024MachineClassificationConfig) | **GET** /sources/{sourceId}/machine-classification-config | Machine classification config for source
+*V2024MachineClassificationConfigApi* | [**Set-V2024MachineClassificationConfig**](docs/V2024MachineClassificationConfigApi.md#Set-V2024MachineClassificationConfig) | **PUT** /sources/{sourceId}/machine-classification-config | Update source's classification config
+*V2024MachineIdentitiesApi* | [**New-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#New-V2024MachineIdentity) | **POST** /machine-identities | Create machine identities
 *V2024MachineIdentitiesApi* | [**Remove-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Remove-V2024MachineIdentity) | **DELETE** /machine-identities/{id} | Delete machine identity
-*V2024MachineIdentitiesApi* | [**Get-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Get-V2024MachineIdentity) | **GET** /machine-identities/{id} | Machine Identity Details
-*V2024MachineIdentitiesApi* | [**Get-V2024MachineIdentities**](docs/V2024MachineIdentitiesApi.md#Get-V2024MachineIdentities) | **GET** /machine-identities | List Machine Identities
-*V2024MachineIdentitiesApi* | [**Update-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Update-V2024MachineIdentity) | **PATCH** /machine-identities/{id} | Update a Machine Identity
-*V2024ManagedClientsApi* | [**New-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#New-V2024ManagedClient) | **POST** /managed-clients | Create Managed Client
-*V2024ManagedClientsApi* | [**Remove-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Remove-V2024ManagedClient) | **DELETE** /managed-clients/{id} | Delete Managed Client
-*V2024ManagedClientsApi* | [**Get-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClient) | **GET** /managed-clients/{id} | Get Managed Client
-*V2024ManagedClientsApi* | [**Get-V2024ManagedClientStatus**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get Managed Client Status
-*V2024ManagedClientsApi* | [**Get-V2024ManagedClients**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClients) | **GET** /managed-clients | Get Managed Clients
-*V2024ManagedClientsApi* | [**Update-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Update-V2024ManagedClient) | **PATCH** /managed-clients/{id} | Update Managed Client
-*V2024ManagedClusterTypesApi* | [**New-V2024ManagedClusterType**](docs/V2024ManagedClusterTypesApi.md#New-V2024ManagedClusterType) | **POST** /managed-cluster-types | Create new Managed Cluster Type
-*V2024ManagedClusterTypesApi* | [**Remove-V2024ManagedClusterType**](docs/V2024ManagedClusterTypesApi.md#Remove-V2024ManagedClusterType) | **DELETE** /managed-cluster-types/{id} | Delete a Managed Cluster Type
-*V2024ManagedClusterTypesApi* | [**Get-V2024ManagedClusterType**](docs/V2024ManagedClusterTypesApi.md#Get-V2024ManagedClusterType) | **GET** /managed-cluster-types/{id} | Get a Managed Cluster Type
-*V2024ManagedClusterTypesApi* | [**Get-V2024ManagedClusterTypes**](docs/V2024ManagedClusterTypesApi.md#Get-V2024ManagedClusterTypes) | **GET** /managed-cluster-types | Get Managed Cluster Types
-*V2024ManagedClusterTypesApi* | [**Update-V2024ManagedClusterType**](docs/V2024ManagedClusterTypesApi.md#Update-V2024ManagedClusterType) | **PATCH** /managed-cluster-types/{id} | Update a Managed Cluster Type
-*V2024ManagedClustersApi* | [**New-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create Create Managed Cluster
-*V2024ManagedClustersApi* | [**Remove-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete Managed Cluster
-*V2024ManagedClustersApi* | [**Get-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get Managed Cluster Log Configuration
-*V2024ManagedClustersApi* | [**Get-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedCluster) | **GET** /managed-clusters/{id} | Get Managed Cluster
-*V2024ManagedClustersApi* | [**Get-V2024ManagedClusters**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedClusters) | **GET** /managed-clusters | Get Managed Clusters
-*V2024ManagedClustersApi* | [**Send-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update Managed Cluster Log Configuration
-*V2024ManagedClustersApi* | [**Update-V2024**](docs/V2024ManagedClustersApi.md#Update-V2024) | **POST** /managed-clusters/{id}/manualUpgrade | Trigger Manual Upgrade for Managed Cluster
-*V2024ManagedClustersApi* | [**Update-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update Managed Cluster
-*V2024MultiHostIntegrationApi* | [**New-V2024MultiHostIntegration**](docs/V2024MultiHostIntegrationApi.md#New-V2024MultiHostIntegration) | **POST** /multihosts | Create Multi-Host Integration
-*V2024MultiHostIntegrationApi* | [**New-V2024SourcesWithinMultiHost**](docs/V2024MultiHostIntegrationApi.md#New-V2024SourcesWithinMultiHost) | **POST** /multihosts/{multihostId} | Create Sources Within Multi-Host Integration
-*V2024MultiHostIntegrationApi* | [**Remove-V2024MultiHost**](docs/V2024MultiHostIntegrationApi.md#Remove-V2024MultiHost) | **DELETE** /multihosts/{multihostId} | Delete Multi-Host Integration
-*V2024MultiHostIntegrationApi* | [**Get-V2024AcctAggregationGroups**](docs/V2024MultiHostIntegrationApi.md#Get-V2024AcctAggregationGroups) | **GET** /multihosts/{multihostId}/acctAggregationGroups | List Account-Aggregation-Groups by Multi-Host ID
-*V2024MultiHostIntegrationApi* | [**Get-V2024EntitlementAggregationGroups**](docs/V2024MultiHostIntegrationApi.md#Get-V2024EntitlementAggregationGroups) | **GET** /multihosts/{multiHostId}/entitlementAggregationGroups | List Entitlement-Aggregation-Groups by Integration ID
-*V2024MultiHostIntegrationApi* | [**Get-V2024MultiHostIntegrations**](docs/V2024MultiHostIntegrationApi.md#Get-V2024MultiHostIntegrations) | **GET** /multihosts/{multihostId} | Get Multi-Host Integration By ID
-*V2024MultiHostIntegrationApi* | [**Get-V2024MultiHostIntegrationsList**](docs/V2024MultiHostIntegrationApi.md#Get-V2024MultiHostIntegrationsList) | **GET** /multihosts | List All Existing Multi-Host Integrations
-*V2024MultiHostIntegrationApi* | [**Get-V2024MultiHostSourceCreationErrors**](docs/V2024MultiHostIntegrationApi.md#Get-V2024MultiHostSourceCreationErrors) | **GET** /multihosts/{multiHostId}/sources/errors | List Multi-Host Source Creation Errors
-*V2024MultiHostIntegrationApi* | [**Get-V2024MultihostIntegrationTypes**](docs/V2024MultiHostIntegrationApi.md#Get-V2024MultihostIntegrationTypes) | **GET** /multihosts/types | List Multi-Host Integration Types
-*V2024MultiHostIntegrationApi* | [**Get-V2024SourcesWithinMultiHost**](docs/V2024MultiHostIntegrationApi.md#Get-V2024SourcesWithinMultiHost) | **GET** /multihosts/{multihostId}/sources | List Sources Within Multi-Host Integration
-*V2024MultiHostIntegrationApi* | [**Test-V2024ConnectionMultiHostSources**](docs/V2024MultiHostIntegrationApi.md#Test-V2024ConnectionMultiHostSources) | **POST** /multihosts/{multihostId}/sources/testConnection | Test Configuration For Multi-Host Integration
-*V2024MultiHostIntegrationApi* | [**Test-V2024SourceConnectionMultihost**](docs/V2024MultiHostIntegrationApi.md#Test-V2024SourceConnectionMultihost) | **GET** /multihosts/{multihostId}/sources/{sourceId}/testConnection | Test Configuration For Multi-Host Integration's Single Source
-*V2024MultiHostIntegrationApi* | [**Update-V2024MultiHostSources**](docs/V2024MultiHostIntegrationApi.md#Update-V2024MultiHostSources) | **PATCH** /multihosts/{multihostId} | Update Multi-Host Integration
-*V2024NonEmployeeLifecycleManagementApi* | [**Approve-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Approve-V2024NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a Non-Employee Request
-*V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeRecord) | **POST** /non-employee-records | Create Non-Employee Record
-*V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeRequest) | **POST** /non-employee-requests | Create Non-Employee Request
-*V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeSource**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeSource) | **POST** /non-employee-sources | Create Non-Employee Source
-*V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeSourceSchemaAttributes**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeSourceSchemaAttributes) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create a new Schema Attribute for Non-Employee Source
-*V2024NonEmployeeLifecycleManagementApi* | [**Remove-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#Remove-V2024NonEmployeeRecord) | **DELETE** /non-employee-records/{id} | Delete Non-Employee Record
-*V2024NonEmployeeLifecycleManagementApi* | [**Remove-V2024NonEmployeeRecordsInBulk**](docs/V2024NonEmployeeLifecycleManagementApi.md#Remove-V2024NonEmployeeRecordsInBulk) | **POST** /non-employee-records/bulk-delete | Delete Multiple Non-Employee Records
-*V2024NonEmployeeLifecycleManagementApi* | [**Remove-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Remove-V2024NonEmployeeRequest) | **DELETE** /non-employee-requests/{id} | Delete Non-Employee Request
-*V2024NonEmployeeLifecycleManagementApi* | [**Remove-V2024NonEmployeeSchemaAttribute**](docs/V2024NonEmployeeLifecycleManagementApi.md#Remove-V2024NonEmployeeSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a Schema Attribute for Non-Employee Source
-*V2024NonEmployeeLifecycleManagementApi* | [**Remove-V2024NonEmployeeSource**](docs/V2024NonEmployeeLifecycleManagementApi.md#Remove-V2024NonEmployeeSource) | **DELETE** /non-employee-sources/{sourceId} | Delete Non-Employee Source
-*V2024NonEmployeeLifecycleManagementApi* | [**Remove-V2024NonEmployeeSourceSchemaAttributes**](docs/V2024NonEmployeeLifecycleManagementApi.md#Remove-V2024NonEmployeeSourceSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for Non-Employee Source
-*V2024NonEmployeeLifecycleManagementApi* | [**Export-V2024NonEmployeeRecords**](docs/V2024NonEmployeeLifecycleManagementApi.md#Export-V2024NonEmployeeRecords) | **GET** /non-employee-sources/{id}/non-employees/download | Exports Non-Employee Records to CSV
-*V2024NonEmployeeLifecycleManagementApi* | [**Export-V2024NonEmployeeSourceSchemaTemplate**](docs/V2024NonEmployeeLifecycleManagementApi.md#Export-V2024NonEmployeeSourceSchemaTemplate) | **GET** /non-employee-sources/{id}/schema-attributes-template/download | Exports Source Schema Template
+*V2024MachineIdentitiesApi* | [**Get-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Get-V2024MachineIdentity) | **GET** /machine-identities/{id} | Machine identity details
+*V2024MachineIdentitiesApi* | [**Get-V2024MachineIdentities**](docs/V2024MachineIdentitiesApi.md#Get-V2024MachineIdentities) | **GET** /machine-identities | List machine identities
+*V2024MachineIdentitiesApi* | [**Update-V2024MachineIdentity**](docs/V2024MachineIdentitiesApi.md#Update-V2024MachineIdentity) | **PATCH** /machine-identities/{id} | Update a machine identity
+*V2024ManagedClientsApi* | [**New-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#New-V2024ManagedClient) | **POST** /managed-clients | Create managed client
+*V2024ManagedClientsApi* | [**Remove-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Remove-V2024ManagedClient) | **DELETE** /managed-clients/{id} | Delete managed client
+*V2024ManagedClientsApi* | [**Get-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClient) | **GET** /managed-clients/{id} | Get managed client
+*V2024ManagedClientsApi* | [**Get-V2024ManagedClientStatus**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get managed client status
+*V2024ManagedClientsApi* | [**Get-V2024ManagedClients**](docs/V2024ManagedClientsApi.md#Get-V2024ManagedClients) | **GET** /managed-clients | Get managed clients
+*V2024ManagedClientsApi* | [**Update-V2024ManagedClient**](docs/V2024ManagedClientsApi.md#Update-V2024ManagedClient) | **PATCH** /managed-clients/{id} | Update managed client
+*V2024ManagedClusterTypesApi* | [**New-V2024ManagedClusterType**](docs/V2024ManagedClusterTypesApi.md#New-V2024ManagedClusterType) | **POST** /managed-cluster-types | Create new managed cluster type
+*V2024ManagedClusterTypesApi* | [**Remove-V2024ManagedClusterType**](docs/V2024ManagedClusterTypesApi.md#Remove-V2024ManagedClusterType) | **DELETE** /managed-cluster-types/{id} | Delete a managed cluster type
+*V2024ManagedClusterTypesApi* | [**Get-V2024ManagedClusterType**](docs/V2024ManagedClusterTypesApi.md#Get-V2024ManagedClusterType) | **GET** /managed-cluster-types/{id} | Get a managed cluster type
+*V2024ManagedClusterTypesApi* | [**Get-V2024ManagedClusterTypes**](docs/V2024ManagedClusterTypesApi.md#Get-V2024ManagedClusterTypes) | **GET** /managed-cluster-types | Get managed cluster types
+*V2024ManagedClusterTypesApi* | [**Update-V2024ManagedClusterType**](docs/V2024ManagedClusterTypesApi.md#Update-V2024ManagedClusterType) | **PATCH** /managed-cluster-types/{id} | Update a managed cluster type
+*V2024ManagedClustersApi* | [**New-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#New-V2024ManagedCluster) | **POST** /managed-clusters | Create create managed cluster
+*V2024ManagedClustersApi* | [**Remove-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Remove-V2024ManagedCluster) | **DELETE** /managed-clusters/{id} | Delete managed cluster
+*V2024ManagedClustersApi* | [**Get-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Get-V2024ClientLogConfiguration) | **GET** /managed-clusters/{id}/log-config | Get managed cluster log configuration
+*V2024ManagedClustersApi* | [**Get-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedCluster) | **GET** /managed-clusters/{id} | Get managed cluster
+*V2024ManagedClustersApi* | [**Get-V2024ManagedClusters**](docs/V2024ManagedClustersApi.md#Get-V2024ManagedClusters) | **GET** /managed-clusters | Get managed clusters
+*V2024ManagedClustersApi* | [**Send-V2024ClientLogConfiguration**](docs/V2024ManagedClustersApi.md#Send-V2024ClientLogConfiguration) | **PUT** /managed-clusters/{id}/log-config | Update managed cluster log configuration
+*V2024ManagedClustersApi* | [**Update-V2024**](docs/V2024ManagedClustersApi.md#Update-V2024) | **POST** /managed-clusters/{id}/manualUpgrade | Trigger manual upgrade for managed cluster
+*V2024ManagedClustersApi* | [**Update-V2024ManagedCluster**](docs/V2024ManagedClustersApi.md#Update-V2024ManagedCluster) | **PATCH** /managed-clusters/{id} | Update managed cluster
+*V2024MultiHostIntegrationApi* | [**New-V2024MultiHostIntegration**](docs/V2024MultiHostIntegrationApi.md#New-V2024MultiHostIntegration) | **POST** /multihosts | Create multi-host integration
+*V2024MultiHostIntegrationApi* | [**New-V2024SourcesWithinMultiHost**](docs/V2024MultiHostIntegrationApi.md#New-V2024SourcesWithinMultiHost) | **POST** /multihosts/{multihostId} | Create sources within multi-host integration
+*V2024MultiHostIntegrationApi* | [**Remove-V2024MultiHost**](docs/V2024MultiHostIntegrationApi.md#Remove-V2024MultiHost) | **DELETE** /multihosts/{multihostId} | Delete multi-host integration
+*V2024MultiHostIntegrationApi* | [**Get-V2024AcctAggregationGroups**](docs/V2024MultiHostIntegrationApi.md#Get-V2024AcctAggregationGroups) | **GET** /multihosts/{multihostId}/acctAggregationGroups | List account-aggregation-groups by multi-host id
+*V2024MultiHostIntegrationApi* | [**Get-V2024EntitlementAggregationGroups**](docs/V2024MultiHostIntegrationApi.md#Get-V2024EntitlementAggregationGroups) | **GET** /multihosts/{multiHostId}/entitlementAggregationGroups | List entitlement-aggregation-groups by integration id
+*V2024MultiHostIntegrationApi* | [**Get-V2024MultiHostIntegrations**](docs/V2024MultiHostIntegrationApi.md#Get-V2024MultiHostIntegrations) | **GET** /multihosts/{multihostId} | Get multi-host integration by id
+*V2024MultiHostIntegrationApi* | [**Get-V2024MultiHostIntegrationsList**](docs/V2024MultiHostIntegrationApi.md#Get-V2024MultiHostIntegrationsList) | **GET** /multihosts | List all existing multi-host integrations
+*V2024MultiHostIntegrationApi* | [**Get-V2024MultiHostSourceCreationErrors**](docs/V2024MultiHostIntegrationApi.md#Get-V2024MultiHostSourceCreationErrors) | **GET** /multihosts/{multiHostId}/sources/errors | List multi-host source creation errors
+*V2024MultiHostIntegrationApi* | [**Get-V2024MultihostIntegrationTypes**](docs/V2024MultiHostIntegrationApi.md#Get-V2024MultihostIntegrationTypes) | **GET** /multihosts/types | List multi-host integration types
+*V2024MultiHostIntegrationApi* | [**Get-V2024SourcesWithinMultiHost**](docs/V2024MultiHostIntegrationApi.md#Get-V2024SourcesWithinMultiHost) | **GET** /multihosts/{multihostId}/sources | List sources within multi-host integration
+*V2024MultiHostIntegrationApi* | [**Test-V2024ConnectionMultiHostSources**](docs/V2024MultiHostIntegrationApi.md#Test-V2024ConnectionMultiHostSources) | **POST** /multihosts/{multihostId}/sources/testConnection | Test configuration for multi-host integration
+*V2024MultiHostIntegrationApi* | [**Test-V2024SourceConnectionMultihost**](docs/V2024MultiHostIntegrationApi.md#Test-V2024SourceConnectionMultihost) | **GET** /multihosts/{multihostId}/sources/{sourceId}/testConnection | Test configuration for multi-host integration's single source
+*V2024MultiHostIntegrationApi* | [**Update-V2024MultiHostSources**](docs/V2024MultiHostIntegrationApi.md#Update-V2024MultiHostSources) | **PATCH** /multihosts/{multihostId} | Update multi-host integration
+*V2024NonEmployeeLifecycleManagementApi* | [**Approve-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Approve-V2024NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/approve | Approve a non-employee request
+*V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeRecord) | **POST** /non-employee-records | Create non-employee record
+*V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeRequest) | **POST** /non-employee-requests | Create non-employee request
+*V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeSource**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeSource) | **POST** /non-employee-sources | Create non-employee source
+*V2024NonEmployeeLifecycleManagementApi* | [**New-V2024NonEmployeeSourceSchemaAttributes**](docs/V2024NonEmployeeLifecycleManagementApi.md#New-V2024NonEmployeeSourceSchemaAttributes) | **POST** /non-employee-sources/{sourceId}/schema-attributes | Create a new schema attribute for non-employee source
+*V2024NonEmployeeLifecycleManagementApi* | [**Remove-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#Remove-V2024NonEmployeeRecord) | **DELETE** /non-employee-records/{id} | Delete non-employee record
+*V2024NonEmployeeLifecycleManagementApi* | [**Remove-V2024NonEmployeeRecordsInBulk**](docs/V2024NonEmployeeLifecycleManagementApi.md#Remove-V2024NonEmployeeRecordsInBulk) | **POST** /non-employee-records/bulk-delete | Delete multiple non-employee records
+*V2024NonEmployeeLifecycleManagementApi* | [**Remove-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Remove-V2024NonEmployeeRequest) | **DELETE** /non-employee-requests/{id} | Delete non-employee request
+*V2024NonEmployeeLifecycleManagementApi* | [**Remove-V2024NonEmployeeSchemaAttribute**](docs/V2024NonEmployeeLifecycleManagementApi.md#Remove-V2024NonEmployeeSchemaAttribute) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Delete a schema attribute for non-employee source
+*V2024NonEmployeeLifecycleManagementApi* | [**Remove-V2024NonEmployeeSource**](docs/V2024NonEmployeeLifecycleManagementApi.md#Remove-V2024NonEmployeeSource) | **DELETE** /non-employee-sources/{sourceId} | Delete non-employee source
+*V2024NonEmployeeLifecycleManagementApi* | [**Remove-V2024NonEmployeeSourceSchemaAttributes**](docs/V2024NonEmployeeLifecycleManagementApi.md#Remove-V2024NonEmployeeSourceSchemaAttributes) | **DELETE** /non-employee-sources/{sourceId}/schema-attributes | Delete all custom schema attributes for non-employee source
+*V2024NonEmployeeLifecycleManagementApi* | [**Export-V2024NonEmployeeRecords**](docs/V2024NonEmployeeLifecycleManagementApi.md#Export-V2024NonEmployeeRecords) | **GET** /non-employee-sources/{id}/non-employees/download | Exports non-employee records to csv
+*V2024NonEmployeeLifecycleManagementApi* | [**Export-V2024NonEmployeeSourceSchemaTemplate**](docs/V2024NonEmployeeLifecycleManagementApi.md#Export-V2024NonEmployeeSourceSchemaTemplate) | **GET** /non-employee-sources/{id}/schema-attributes-template/download | Exports source schema template
 *V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeApproval**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeApproval) | **GET** /non-employee-approvals/{id} | Get a non-employee approval item detail
-*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeApprovalSummary**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeApprovalSummary) | **GET** /non-employee-approvals/summary/{requested-for} | Get Summary of Non-Employee Approval Requests
+*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeApprovalSummary**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeApprovalSummary) | **GET** /non-employee-approvals/summary/{requested-for} | Get summary of non-employee approval requests
 *V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeBulkUploadStatus**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeBulkUploadStatus) | **GET** /non-employee-sources/{id}/non-employee-bulk-upload/status | Obtain the status of bulk upload on the source
-*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeRecord) | **GET** /non-employee-records/{id} | Get a Non-Employee Record
-*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeRequest) | **GET** /non-employee-requests/{id} | Get a Non-Employee Request
-*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeRequestSummary**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeRequestSummary) | **GET** /non-employee-requests/summary/{requested-for} | Get Summary of Non-Employee Requests
-*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeSchemaAttribute**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeSchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get Schema Attribute Non-Employee Source
-*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeSource**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeSource) | **GET** /non-employee-sources/{sourceId} | Get a Non-Employee Source
-*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeSourceSchemaAttributes**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeSourceSchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List Schema Attributes Non-Employee Source
-*V2024NonEmployeeLifecycleManagementApi* | [**Import-V2024NonEmployeeRecordsInBulk**](docs/V2024NonEmployeeLifecycleManagementApi.md#Import-V2024NonEmployeeRecordsInBulk) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or Updates, Non-Employee Records
-*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeApprovals**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeApprovals) | **GET** /non-employee-approvals | Get List of Non-Employee Approval Requests
-*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeRecords**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeRecords) | **GET** /non-employee-records | List Non-Employee Records
-*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeRequests**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeRequests) | **GET** /non-employee-requests | List Non-Employee Requests
-*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeSources**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeSources) | **GET** /non-employee-sources | List Non-Employee Sources
-*V2024NonEmployeeLifecycleManagementApi* | [**Update-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#Update-V2024NonEmployeeRecord) | **PATCH** /non-employee-records/{id} | Patch Non-Employee Record
-*V2024NonEmployeeLifecycleManagementApi* | [**Update-V2024NonEmployeeSchemaAttribute**](docs/V2024NonEmployeeLifecycleManagementApi.md#Update-V2024NonEmployeeSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a Schema Attribute for Non-Employee Source
-*V2024NonEmployeeLifecycleManagementApi* | [**Update-V2024NonEmployeeSource**](docs/V2024NonEmployeeLifecycleManagementApi.md#Update-V2024NonEmployeeSource) | **PATCH** /non-employee-sources/{sourceId} | Patch a Non-Employee Source
-*V2024NonEmployeeLifecycleManagementApi* | [**Deny-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Deny-V2024NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a Non-Employee Request
-*V2024NonEmployeeLifecycleManagementApi* | [**Update-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#Update-V2024NonEmployeeRecord) | **PUT** /non-employee-records/{id} | Update Non-Employee Record
-*V2024NotificationsApi* | [**New-V2024DomainDkim**](docs/V2024NotificationsApi.md#New-V2024DomainDkim) | **POST** /verified-domains | Verify domain address via DKIM
-*V2024NotificationsApi* | [**New-V2024NotificationTemplate**](docs/V2024NotificationsApi.md#New-V2024NotificationTemplate) | **POST** /notification-templates | Create Notification Template
-*V2024NotificationsApi* | [**New-V2024VerifiedFromAddress**](docs/V2024NotificationsApi.md#New-V2024VerifiedFromAddress) | **POST** /verified-from-addresses | Create Verified From Address
-*V2024NotificationsApi* | [**Remove-V2024NotificationTemplatesInBulk**](docs/V2024NotificationsApi.md#Remove-V2024NotificationTemplatesInBulk) | **POST** /notification-templates/bulk-delete | Bulk Delete Notification Templates
-*V2024NotificationsApi* | [**Remove-V2024VerifiedFromAddress**](docs/V2024NotificationsApi.md#Remove-V2024VerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete Verified From Address
-*V2024NotificationsApi* | [**Get-V2024DkimAttributes**](docs/V2024NotificationsApi.md#Get-V2024DkimAttributes) | **GET** /verified-domains | Get DKIM Attributes
-*V2024NotificationsApi* | [**Get-V2024MailFromAttributes**](docs/V2024NotificationsApi.md#Get-V2024MailFromAttributes) | **GET** /mail-from-attributes/{identity} | Get MAIL FROM Attributes
-*V2024NotificationsApi* | [**Get-V2024NotificationTemplate**](docs/V2024NotificationsApi.md#Get-V2024NotificationTemplate) | **GET** /notification-templates/{id} | Get Notification Template By Id
-*V2024NotificationsApi* | [**Get-V2024NotificationsTemplateContext**](docs/V2024NotificationsApi.md#Get-V2024NotificationsTemplateContext) | **GET** /notification-template-context | Get Notification Template Context
-*V2024NotificationsApi* | [**Get-V2024FromAddresses**](docs/V2024NotificationsApi.md#Get-V2024FromAddresses) | **GET** /verified-from-addresses | List From Addresses
-*V2024NotificationsApi* | [**Get-V2024NotificationPreferences**](docs/V2024NotificationsApi.md#Get-V2024NotificationPreferences) | **GET** /notification-preferences/{key} | List Notification Preferences for tenant.
-*V2024NotificationsApi* | [**Get-V2024NotificationTemplateDefaults**](docs/V2024NotificationsApi.md#Get-V2024NotificationTemplateDefaults) | **GET** /notification-template-defaults | List Notification Template Defaults
-*V2024NotificationsApi* | [**Get-V2024NotificationTemplates**](docs/V2024NotificationsApi.md#Get-V2024NotificationTemplates) | **GET** /notification-templates | List Notification Templates
-*V2024NotificationsApi* | [**Send-V2024MailFromAttributes**](docs/V2024NotificationsApi.md#Send-V2024MailFromAttributes) | **PUT** /mail-from-attributes | Change MAIL FROM domain
-*V2024NotificationsApi* | [**Send-V2024TestNotification**](docs/V2024NotificationsApi.md#Send-V2024TestNotification) | **POST** /send-test-notification | Send Test Notification
-*V2024OAuthClientsApi* | [**New-V2024OauthClient**](docs/V2024OAuthClientsApi.md#New-V2024OauthClient) | **POST** /oauth-clients | Create OAuth Client
-*V2024OAuthClientsApi* | [**Remove-V2024OauthClient**](docs/V2024OAuthClientsApi.md#Remove-V2024OauthClient) | **DELETE** /oauth-clients/{id} | Delete OAuth Client
-*V2024OAuthClientsApi* | [**Get-V2024OauthClient**](docs/V2024OAuthClientsApi.md#Get-V2024OauthClient) | **GET** /oauth-clients/{id} | Get OAuth Client
-*V2024OAuthClientsApi* | [**Get-V2024OauthClients**](docs/V2024OAuthClientsApi.md#Get-V2024OauthClients) | **GET** /oauth-clients | List OAuth Clients
-*V2024OAuthClientsApi* | [**Update-V2024OauthClient**](docs/V2024OAuthClientsApi.md#Update-V2024OauthClient) | **PATCH** /oauth-clients/{id} | Patch OAuth Client
-*V2024OrgConfigApi* | [**Get-V2024OrgConfig**](docs/V2024OrgConfigApi.md#Get-V2024OrgConfig) | **GET** /org-config | Get Org Config Settings
-*V2024OrgConfigApi* | [**Get-V2024ValidTimeZones**](docs/V2024OrgConfigApi.md#Get-V2024ValidTimeZones) | **GET** /org-config/valid-time-zones | Get Valid Time Zones
-*V2024OrgConfigApi* | [**Update-V2024OrgConfig**](docs/V2024OrgConfigApi.md#Update-V2024OrgConfig) | **PATCH** /org-config | Patch Org Config
-*V2024PasswordConfigurationApi* | [**New-V2024PasswordOrgConfig**](docs/V2024PasswordConfigurationApi.md#New-V2024PasswordOrgConfig) | **POST** /password-org-config | Create Password Org Config
-*V2024PasswordConfigurationApi* | [**Get-V2024PasswordOrgConfig**](docs/V2024PasswordConfigurationApi.md#Get-V2024PasswordOrgConfig) | **GET** /password-org-config | Get Password Org Config
-*V2024PasswordConfigurationApi* | [**Send-V2024PasswordOrgConfig**](docs/V2024PasswordConfigurationApi.md#Send-V2024PasswordOrgConfig) | **PUT** /password-org-config | Update Password Org Config
-*V2024PasswordDictionaryApi* | [**Get-V2024PasswordDictionary**](docs/V2024PasswordDictionaryApi.md#Get-V2024PasswordDictionary) | **GET** /password-dictionary | Get Password Dictionary
-*V2024PasswordDictionaryApi* | [**Send-V2024PasswordDictionary**](docs/V2024PasswordDictionaryApi.md#Send-V2024PasswordDictionary) | **PUT** /password-dictionary | Update Password Dictionary
+*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeRecord) | **GET** /non-employee-records/{id} | Get a non-employee record
+*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeRequest) | **GET** /non-employee-requests/{id} | Get a non-employee request
+*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeRequestSummary**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeRequestSummary) | **GET** /non-employee-requests/summary/{requested-for} | Get summary of non-employee requests
+*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeSchemaAttribute**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeSchemaAttribute) | **GET** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Get schema attribute non-employee source
+*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeSource**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeSource) | **GET** /non-employee-sources/{sourceId} | Get a non-employee source
+*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeSourceSchemaAttributes**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeSourceSchemaAttributes) | **GET** /non-employee-sources/{sourceId}/schema-attributes | List schema attributes non-employee source
+*V2024NonEmployeeLifecycleManagementApi* | [**Import-V2024NonEmployeeRecordsInBulk**](docs/V2024NonEmployeeLifecycleManagementApi.md#Import-V2024NonEmployeeRecordsInBulk) | **POST** /non-employee-sources/{id}/non-employee-bulk-upload | Imports, or updates, non-employee records
+*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeApprovals**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeApprovals) | **GET** /non-employee-approvals | Get list of non-employee approval requests
+*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeRecords**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeRecords) | **GET** /non-employee-records | List non-employee records
+*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeRequests**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeRequests) | **GET** /non-employee-requests | List non-employee requests
+*V2024NonEmployeeLifecycleManagementApi* | [**Get-V2024NonEmployeeSources**](docs/V2024NonEmployeeLifecycleManagementApi.md#Get-V2024NonEmployeeSources) | **GET** /non-employee-sources | List non-employee sources
+*V2024NonEmployeeLifecycleManagementApi* | [**Update-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#Update-V2024NonEmployeeRecord) | **PATCH** /non-employee-records/{id} | Patch non-employee record
+*V2024NonEmployeeLifecycleManagementApi* | [**Update-V2024NonEmployeeSchemaAttribute**](docs/V2024NonEmployeeLifecycleManagementApi.md#Update-V2024NonEmployeeSchemaAttribute) | **PATCH** /non-employee-sources/{sourceId}/schema-attributes/{attributeId} | Patch a schema attribute for non-employee source
+*V2024NonEmployeeLifecycleManagementApi* | [**Update-V2024NonEmployeeSource**](docs/V2024NonEmployeeLifecycleManagementApi.md#Update-V2024NonEmployeeSource) | **PATCH** /non-employee-sources/{sourceId} | Patch a non-employee source
+*V2024NonEmployeeLifecycleManagementApi* | [**Deny-V2024NonEmployeeRequest**](docs/V2024NonEmployeeLifecycleManagementApi.md#Deny-V2024NonEmployeeRequest) | **POST** /non-employee-approvals/{id}/reject | Reject a non-employee request
+*V2024NonEmployeeLifecycleManagementApi* | [**Update-V2024NonEmployeeRecord**](docs/V2024NonEmployeeLifecycleManagementApi.md#Update-V2024NonEmployeeRecord) | **PUT** /non-employee-records/{id} | Update non-employee record
+*V2024NotificationsApi* | [**New-V2024DomainDkim**](docs/V2024NotificationsApi.md#New-V2024DomainDkim) | **POST** /verified-domains | Verify domain address via dkim
+*V2024NotificationsApi* | [**New-V2024NotificationTemplate**](docs/V2024NotificationsApi.md#New-V2024NotificationTemplate) | **POST** /notification-templates | Create notification template
+*V2024NotificationsApi* | [**New-V2024VerifiedFromAddress**](docs/V2024NotificationsApi.md#New-V2024VerifiedFromAddress) | **POST** /verified-from-addresses | Create verified from address
+*V2024NotificationsApi* | [**Remove-V2024NotificationTemplatesInBulk**](docs/V2024NotificationsApi.md#Remove-V2024NotificationTemplatesInBulk) | **POST** /notification-templates/bulk-delete | Bulk delete notification templates
+*V2024NotificationsApi* | [**Remove-V2024VerifiedFromAddress**](docs/V2024NotificationsApi.md#Remove-V2024VerifiedFromAddress) | **DELETE** /verified-from-addresses/{id} | Delete verified from address
+*V2024NotificationsApi* | [**Get-V2024DkimAttributes**](docs/V2024NotificationsApi.md#Get-V2024DkimAttributes) | **GET** /verified-domains | Get dkim attributes
+*V2024NotificationsApi* | [**Get-V2024MailFromAttributes**](docs/V2024NotificationsApi.md#Get-V2024MailFromAttributes) | **GET** /mail-from-attributes/{identity} | Get mail from attributes
+*V2024NotificationsApi* | [**Get-V2024NotificationTemplate**](docs/V2024NotificationsApi.md#Get-V2024NotificationTemplate) | **GET** /notification-templates/{id} | Get notification template by id
+*V2024NotificationsApi* | [**Get-V2024NotificationsTemplateContext**](docs/V2024NotificationsApi.md#Get-V2024NotificationsTemplateContext) | **GET** /notification-template-context | Get notification template context
+*V2024NotificationsApi* | [**Get-V2024FromAddresses**](docs/V2024NotificationsApi.md#Get-V2024FromAddresses) | **GET** /verified-from-addresses | List from addresses
+*V2024NotificationsApi* | [**Get-V2024NotificationPreferences**](docs/V2024NotificationsApi.md#Get-V2024NotificationPreferences) | **GET** /notification-preferences/{key} | List notification preferences for tenant.
+*V2024NotificationsApi* | [**Get-V2024NotificationTemplateDefaults**](docs/V2024NotificationsApi.md#Get-V2024NotificationTemplateDefaults) | **GET** /notification-template-defaults | List notification template defaults
+*V2024NotificationsApi* | [**Get-V2024NotificationTemplates**](docs/V2024NotificationsApi.md#Get-V2024NotificationTemplates) | **GET** /notification-templates | List notification templates
+*V2024NotificationsApi* | [**Send-V2024MailFromAttributes**](docs/V2024NotificationsApi.md#Send-V2024MailFromAttributes) | **PUT** /mail-from-attributes | Change mail from domain
+*V2024NotificationsApi* | [**Send-V2024TestNotification**](docs/V2024NotificationsApi.md#Send-V2024TestNotification) | **POST** /send-test-notification | Send test notification
+*V2024OAuthClientsApi* | [**New-V2024OauthClient**](docs/V2024OAuthClientsApi.md#New-V2024OauthClient) | **POST** /oauth-clients | Create oauth client
+*V2024OAuthClientsApi* | [**Remove-V2024OauthClient**](docs/V2024OAuthClientsApi.md#Remove-V2024OauthClient) | **DELETE** /oauth-clients/{id} | Delete oauth client
+*V2024OAuthClientsApi* | [**Get-V2024OauthClient**](docs/V2024OAuthClientsApi.md#Get-V2024OauthClient) | **GET** /oauth-clients/{id} | Get oauth client
+*V2024OAuthClientsApi* | [**Get-V2024OauthClients**](docs/V2024OAuthClientsApi.md#Get-V2024OauthClients) | **GET** /oauth-clients | List oauth clients
+*V2024OAuthClientsApi* | [**Update-V2024OauthClient**](docs/V2024OAuthClientsApi.md#Update-V2024OauthClient) | **PATCH** /oauth-clients/{id} | Patch oauth client
+*V2024OrgConfigApi* | [**Get-V2024OrgConfig**](docs/V2024OrgConfigApi.md#Get-V2024OrgConfig) | **GET** /org-config | Get org config settings
+*V2024OrgConfigApi* | [**Get-V2024ValidTimeZones**](docs/V2024OrgConfigApi.md#Get-V2024ValidTimeZones) | **GET** /org-config/valid-time-zones | Get valid time zones
+*V2024OrgConfigApi* | [**Update-V2024OrgConfig**](docs/V2024OrgConfigApi.md#Update-V2024OrgConfig) | **PATCH** /org-config | Patch org config
+*V2024PasswordConfigurationApi* | [**New-V2024PasswordOrgConfig**](docs/V2024PasswordConfigurationApi.md#New-V2024PasswordOrgConfig) | **POST** /password-org-config | Create password org config
+*V2024PasswordConfigurationApi* | [**Get-V2024PasswordOrgConfig**](docs/V2024PasswordConfigurationApi.md#Get-V2024PasswordOrgConfig) | **GET** /password-org-config | Get password org config
+*V2024PasswordConfigurationApi* | [**Send-V2024PasswordOrgConfig**](docs/V2024PasswordConfigurationApi.md#Send-V2024PasswordOrgConfig) | **PUT** /password-org-config | Update password org config
+*V2024PasswordDictionaryApi* | [**Get-V2024PasswordDictionary**](docs/V2024PasswordDictionaryApi.md#Get-V2024PasswordDictionary) | **GET** /password-dictionary | Get password dictionary
+*V2024PasswordDictionaryApi* | [**Send-V2024PasswordDictionary**](docs/V2024PasswordDictionaryApi.md#Send-V2024PasswordDictionary) | **PUT** /password-dictionary | Update password dictionary
 *V2024PasswordManagementApi* | [**New-V2024DigitToken**](docs/V2024PasswordManagementApi.md#New-V2024DigitToken) | **POST** /generate-password-reset-token/digit | Generate a digit token
-*V2024PasswordManagementApi* | [**Get-V2024PasswordChangeStatus**](docs/V2024PasswordManagementApi.md#Get-V2024PasswordChangeStatus) | **GET** /password-change-status/{id} | Get Password Change Request Status
-*V2024PasswordManagementApi* | [**Search-V2024PasswordInfo**](docs/V2024PasswordManagementApi.md#Search-V2024PasswordInfo) | **POST** /query-password-info | Query Password Info
-*V2024PasswordManagementApi* | [**Set-V2024Password**](docs/V2024PasswordManagementApi.md#Set-V2024Password) | **POST** /set-password | Set Identity's Password
-*V2024PasswordPoliciesApi* | [**New-V2024PasswordPolicy**](docs/V2024PasswordPoliciesApi.md#New-V2024PasswordPolicy) | **POST** /password-policies | Create Password Policy
-*V2024PasswordPoliciesApi* | [**Remove-V2024PasswordPolicy**](docs/V2024PasswordPoliciesApi.md#Remove-V2024PasswordPolicy) | **DELETE** /password-policies/{id} | Delete Password Policy by ID
-*V2024PasswordPoliciesApi* | [**Get-V2024PasswordPolicyById**](docs/V2024PasswordPoliciesApi.md#Get-V2024PasswordPolicyById) | **GET** /password-policies/{id} | Get Password Policy by ID
-*V2024PasswordPoliciesApi* | [**Get-V2024PasswordPolicies**](docs/V2024PasswordPoliciesApi.md#Get-V2024PasswordPolicies) | **GET** /password-policies | List Password Policies
-*V2024PasswordPoliciesApi* | [**Set-V2024PasswordPolicy**](docs/V2024PasswordPoliciesApi.md#Set-V2024PasswordPolicy) | **PUT** /password-policies/{id} | Update Password Policy by ID
-*V2024PasswordSyncGroupsApi* | [**New-V2024PasswordSyncGroup**](docs/V2024PasswordSyncGroupsApi.md#New-V2024PasswordSyncGroup) | **POST** /password-sync-groups | Create Password Sync Group
-*V2024PasswordSyncGroupsApi* | [**Remove-V2024PasswordSyncGroup**](docs/V2024PasswordSyncGroupsApi.md#Remove-V2024PasswordSyncGroup) | **DELETE** /password-sync-groups/{id} | Delete Password Sync Group by ID
-*V2024PasswordSyncGroupsApi* | [**Get-V2024PasswordSyncGroup**](docs/V2024PasswordSyncGroupsApi.md#Get-V2024PasswordSyncGroup) | **GET** /password-sync-groups/{id} | Get Password Sync Group by ID
-*V2024PasswordSyncGroupsApi* | [**Get-V2024PasswordSyncGroups**](docs/V2024PasswordSyncGroupsApi.md#Get-V2024PasswordSyncGroups) | **GET** /password-sync-groups | Get Password Sync Group List
-*V2024PasswordSyncGroupsApi* | [**Update-V2024PasswordSyncGroup**](docs/V2024PasswordSyncGroupsApi.md#Update-V2024PasswordSyncGroup) | **PUT** /password-sync-groups/{id} | Update Password Sync Group by ID
-*V2024PersonalAccessTokensApi* | [**New-V2024PersonalAccessToken**](docs/V2024PersonalAccessTokensApi.md#New-V2024PersonalAccessToken) | **POST** /personal-access-tokens | Create Personal Access Token
-*V2024PersonalAccessTokensApi* | [**Remove-V2024PersonalAccessToken**](docs/V2024PersonalAccessTokensApi.md#Remove-V2024PersonalAccessToken) | **DELETE** /personal-access-tokens/{id} | Delete Personal Access Token
-*V2024PersonalAccessTokensApi* | [**Get-V2024PersonalAccessTokens**](docs/V2024PersonalAccessTokensApi.md#Get-V2024PersonalAccessTokens) | **GET** /personal-access-tokens | List Personal Access Tokens
-*V2024PersonalAccessTokensApi* | [**Update-V2024PersonalAccessToken**](docs/V2024PersonalAccessTokensApi.md#Update-V2024PersonalAccessToken) | **PATCH** /personal-access-tokens/{id} | Patch Personal Access Token
+*V2024PasswordManagementApi* | [**Get-V2024PasswordChangeStatus**](docs/V2024PasswordManagementApi.md#Get-V2024PasswordChangeStatus) | **GET** /password-change-status/{id} | Get password change request status
+*V2024PasswordManagementApi* | [**Search-V2024PasswordInfo**](docs/V2024PasswordManagementApi.md#Search-V2024PasswordInfo) | **POST** /query-password-info | Query password info
+*V2024PasswordManagementApi* | [**Set-V2024Password**](docs/V2024PasswordManagementApi.md#Set-V2024Password) | **POST** /set-password | Set identity's password
+*V2024PasswordPoliciesApi* | [**New-V2024PasswordPolicy**](docs/V2024PasswordPoliciesApi.md#New-V2024PasswordPolicy) | **POST** /password-policies | Create password policy
+*V2024PasswordPoliciesApi* | [**Remove-V2024PasswordPolicy**](docs/V2024PasswordPoliciesApi.md#Remove-V2024PasswordPolicy) | **DELETE** /password-policies/{id} | Delete password policy by id
+*V2024PasswordPoliciesApi* | [**Get-V2024PasswordPolicyById**](docs/V2024PasswordPoliciesApi.md#Get-V2024PasswordPolicyById) | **GET** /password-policies/{id} | Get password policy by id
+*V2024PasswordPoliciesApi* | [**Get-V2024PasswordPolicies**](docs/V2024PasswordPoliciesApi.md#Get-V2024PasswordPolicies) | **GET** /password-policies | List password policies
+*V2024PasswordPoliciesApi* | [**Set-V2024PasswordPolicy**](docs/V2024PasswordPoliciesApi.md#Set-V2024PasswordPolicy) | **PUT** /password-policies/{id} | Update password policy by id
+*V2024PasswordSyncGroupsApi* | [**New-V2024PasswordSyncGroup**](docs/V2024PasswordSyncGroupsApi.md#New-V2024PasswordSyncGroup) | **POST** /password-sync-groups | Create password sync group
+*V2024PasswordSyncGroupsApi* | [**Remove-V2024PasswordSyncGroup**](docs/V2024PasswordSyncGroupsApi.md#Remove-V2024PasswordSyncGroup) | **DELETE** /password-sync-groups/{id} | Delete password sync group by id
+*V2024PasswordSyncGroupsApi* | [**Get-V2024PasswordSyncGroup**](docs/V2024PasswordSyncGroupsApi.md#Get-V2024PasswordSyncGroup) | **GET** /password-sync-groups/{id} | Get password sync group by id
+*V2024PasswordSyncGroupsApi* | [**Get-V2024PasswordSyncGroups**](docs/V2024PasswordSyncGroupsApi.md#Get-V2024PasswordSyncGroups) | **GET** /password-sync-groups | Get password sync group list
+*V2024PasswordSyncGroupsApi* | [**Update-V2024PasswordSyncGroup**](docs/V2024PasswordSyncGroupsApi.md#Update-V2024PasswordSyncGroup) | **PUT** /password-sync-groups/{id} | Update password sync group by id
+*V2024PersonalAccessTokensApi* | [**New-V2024PersonalAccessToken**](docs/V2024PersonalAccessTokensApi.md#New-V2024PersonalAccessToken) | **POST** /personal-access-tokens | Create personal access token
+*V2024PersonalAccessTokensApi* | [**Remove-V2024PersonalAccessToken**](docs/V2024PersonalAccessTokensApi.md#Remove-V2024PersonalAccessToken) | **DELETE** /personal-access-tokens/{id} | Delete personal access token
+*V2024PersonalAccessTokensApi* | [**Get-V2024PersonalAccessTokens**](docs/V2024PersonalAccessTokensApi.md#Get-V2024PersonalAccessTokens) | **GET** /personal-access-tokens | List personal access tokens
+*V2024PersonalAccessTokensApi* | [**Update-V2024PersonalAccessToken**](docs/V2024PersonalAccessTokensApi.md#Update-V2024PersonalAccessToken) | **PATCH** /personal-access-tokens/{id} | Patch personal access token
 *V2024PublicIdentitiesApi* | [**Get-V2024PublicIdentities**](docs/V2024PublicIdentitiesApi.md#Get-V2024PublicIdentities) | **GET** /public-identities | Get list of public identities
-*V2024PublicIdentitiesConfigApi* | [**Get-V2024PublicIdentityConfig**](docs/V2024PublicIdentitiesConfigApi.md#Get-V2024PublicIdentityConfig) | **GET** /public-identities-config | Get the Public Identities Configuration
-*V2024PublicIdentitiesConfigApi* | [**Update-V2024PublicIdentityConfig**](docs/V2024PublicIdentitiesConfigApi.md#Update-V2024PublicIdentityConfig) | **PUT** /public-identities-config | Update the Public Identities Configuration
-*V2024ReportsDataExtractionApi* | [**Suspend-V2024Report**](docs/V2024ReportsDataExtractionApi.md#Suspend-V2024Report) | **POST** /reports/{id}/cancel | Cancel Report
-*V2024ReportsDataExtractionApi* | [**Get-V2024Report**](docs/V2024ReportsDataExtractionApi.md#Get-V2024Report) | **GET** /reports/{taskResultId} | Get Report File
-*V2024ReportsDataExtractionApi* | [**Get-V2024ReportResult**](docs/V2024ReportsDataExtractionApi.md#Get-V2024ReportResult) | **GET** /reports/{taskResultId}/result | Get Report Result
-*V2024ReportsDataExtractionApi* | [**Start-V2024Report**](docs/V2024ReportsDataExtractionApi.md#Start-V2024Report) | **POST** /reports/run | Run Report
-*V2024RequestableObjectsApi* | [**Get-V2024RequestableObjects**](docs/V2024RequestableObjectsApi.md#Get-V2024RequestableObjects) | **GET** /requestable-objects | Requestable Objects List
+*V2024PublicIdentitiesConfigApi* | [**Get-V2024PublicIdentityConfig**](docs/V2024PublicIdentitiesConfigApi.md#Get-V2024PublicIdentityConfig) | **GET** /public-identities-config | Get the public identities configuration
+*V2024PublicIdentitiesConfigApi* | [**Update-V2024PublicIdentityConfig**](docs/V2024PublicIdentitiesConfigApi.md#Update-V2024PublicIdentityConfig) | **PUT** /public-identities-config | Update the public identities configuration
+*V2024ReportsDataExtractionApi* | [**Suspend-V2024Report**](docs/V2024ReportsDataExtractionApi.md#Suspend-V2024Report) | **POST** /reports/{id}/cancel | Cancel report
+*V2024ReportsDataExtractionApi* | [**Get-V2024Report**](docs/V2024ReportsDataExtractionApi.md#Get-V2024Report) | **GET** /reports/{taskResultId} | Get report file
+*V2024ReportsDataExtractionApi* | [**Get-V2024ReportResult**](docs/V2024ReportsDataExtractionApi.md#Get-V2024ReportResult) | **GET** /reports/{taskResultId}/result | Get report result
+*V2024ReportsDataExtractionApi* | [**Start-V2024Report**](docs/V2024ReportsDataExtractionApi.md#Start-V2024Report) | **POST** /reports/run | Run report
+*V2024RequestableObjectsApi* | [**Get-V2024RequestableObjects**](docs/V2024RequestableObjectsApi.md#Get-V2024RequestableObjects) | **GET** /requestable-objects | Requestable objects list
 *V2024RoleInsightsApi* | [**New-V2024RoleInsightRequests**](docs/V2024RoleInsightsApi.md#New-V2024RoleInsightRequests) | **POST** /role-insights/requests | Generate insights for roles
 *V2024RoleInsightsApi* | [**Invoke-V2024DownloadRoleInsightsEntitlementsChanges**](docs/V2024RoleInsightsApi.md#Invoke-V2024DownloadRoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes/download | Download entitlement insights for a role
 *V2024RoleInsightsApi* | [**Get-V2024EntitlementChangesIdentities**](docs/V2024RoleInsightsApi.md#Get-V2024EntitlementChangesIdentities) | **GET** /role-insights/{insightId}/entitlement-changes/{entitlementId}/identities | Get identities for a suggested entitlement (for a role)
@@ -535,226 +535,226 @@ Class | Method | HTTP request | Description
 *V2024RoleInsightsApi* | [**Get-V2024RoleInsightsEntitlementsChanges**](docs/V2024RoleInsightsApi.md#Get-V2024RoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes | Get entitlement insights for a role
 *V2024RoleInsightsApi* | [**Get-V2024RoleInsightsRequests**](docs/V2024RoleInsightsApi.md#Get-V2024RoleInsightsRequests) | **GET** /role-insights/requests/{id} | Returns metadata from prior request.
 *V2024RoleInsightsApi* | [**Get-V2024RoleInsightsSummary**](docs/V2024RoleInsightsApi.md#Get-V2024RoleInsightsSummary) | **GET** /role-insights/summary | Get role insights summary information
-*V2024RolesApi* | [**New-V2024Role**](docs/V2024RolesApi.md#New-V2024Role) | **POST** /roles | Create a Role
-*V2024RolesApi* | [**Remove-V2024BulkRoles**](docs/V2024RolesApi.md#Remove-V2024BulkRoles) | **POST** /roles/bulk-delete | Delete Role(s)
-*V2024RolesApi* | [**Remove-V2024MetadataFromRoleByKeyAndValue**](docs/V2024RolesApi.md#Remove-V2024MetadataFromRoleByKeyAndValue) | **DELETE** /roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove a Metadata From Role.
-*V2024RolesApi* | [**Remove-V2024Role**](docs/V2024RolesApi.md#Remove-V2024Role) | **DELETE** /roles/{id} | Delete a Role
-*V2024RolesApi* | [**Get-V2024BulkUpdateStatus**](docs/V2024RolesApi.md#Get-V2024BulkUpdateStatus) | **GET** /roles/access-model-metadata/bulk-update | Get Bulk-Update Statuses
-*V2024RolesApi* | [**Get-V2024BulkUpdateStatusById**](docs/V2024RolesApi.md#Get-V2024BulkUpdateStatusById) | **GET** /roles/access-model-metadata/bulk-update/id | Get Bulk-Update Status by ID
-*V2024RolesApi* | [**Get-V2024Role**](docs/V2024RolesApi.md#Get-V2024Role) | **GET** /roles/{id} | Get a Role
-*V2024RolesApi* | [**Get-V2024RoleAssignedIdentities**](docs/V2024RolesApi.md#Get-V2024RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List Identities assigned a Role
-*V2024RolesApi* | [**Get-V2024RoleEntitlements**](docs/V2024RolesApi.md#Get-V2024RoleEntitlements) | **GET** /roles/{id}/entitlements | List Role's Entitlements
-*V2024RolesApi* | [**Get-V2024Roles**](docs/V2024RolesApi.md#Get-V2024Roles) | **GET** /roles | List Roles
-*V2024RolesApi* | [**Update-V2024Role**](docs/V2024RolesApi.md#Update-V2024Role) | **PATCH** /roles/{id} | Patch a specified Role
-*V2024RolesApi* | [**Search-V2024RolesByFilter**](docs/V2024RolesApi.md#Search-V2024RolesByFilter) | **POST** /roles/filter | Filter Roles by Metadata
-*V2024RolesApi* | [**Update-V2024AttributeKeyAndValueToRole**](docs/V2024RolesApi.md#Update-V2024AttributeKeyAndValueToRole) | **POST** /roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add a Metadata to Role.
-*V2024RolesApi* | [**Update-V2024RolesMetadataByFilter**](docs/V2024RolesApi.md#Update-V2024RolesMetadataByFilter) | **POST** /roles/access-model-metadata/bulk-update/filter | Bulk-Update Roles' Metadata by Filters
-*V2024RolesApi* | [**Update-V2024RolesMetadataByIds**](docs/V2024RolesApi.md#Update-V2024RolesMetadataByIds) | **POST** /roles/access-model-metadata/bulk-update/ids | Bulk-Update Roles' Metadata by ID
-*V2024RolesApi* | [**Update-V2024RolesMetadataByQuery**](docs/V2024RolesApi.md#Update-V2024RolesMetadataByQuery) | **POST** /roles/access-model-metadata/bulk-update/query | Bulk-Update Roles' Metadata by Query
-*V2024SIMIntegrationsApi* | [**New-V2024SIMIntegration**](docs/V2024SIMIntegrationsApi.md#New-V2024SIMIntegration) | **POST** /sim-integrations | Create new SIM integration
-*V2024SIMIntegrationsApi* | [**Remove-V2024SIMIntegration**](docs/V2024SIMIntegrationsApi.md#Remove-V2024SIMIntegration) | **DELETE** /sim-integrations/{id} | Delete a SIM integration
-*V2024SIMIntegrationsApi* | [**Get-V2024SIMIntegration**](docs/V2024SIMIntegrationsApi.md#Get-V2024SIMIntegration) | **GET** /sim-integrations/{id} | Get a SIM integration details.
-*V2024SIMIntegrationsApi* | [**Get-V2024SIMIntegrations**](docs/V2024SIMIntegrationsApi.md#Get-V2024SIMIntegrations) | **GET** /sim-integrations | List the existing SIM integrations.
-*V2024SIMIntegrationsApi* | [**Update-V2024BeforeProvisioningRule**](docs/V2024SIMIntegrationsApi.md#Update-V2024BeforeProvisioningRule) | **PATCH** /sim-integrations/{id}/beforeProvisioningRule | Patch a SIM beforeProvisioningRule attribute.
-*V2024SIMIntegrationsApi* | [**Update-V2024SIMAttributes**](docs/V2024SIMIntegrationsApi.md#Update-V2024SIMAttributes) | **PATCH** /sim-integrations/{id} | Patch a SIM attribute.
-*V2024SIMIntegrationsApi* | [**Send-V2024SIMIntegration**](docs/V2024SIMIntegrationsApi.md#Send-V2024SIMIntegration) | **PUT** /sim-integrations/{id} | Update an existing SIM integration
-*V2024SODPoliciesApi* | [**New-V2024SodPolicy**](docs/V2024SODPoliciesApi.md#New-V2024SodPolicy) | **POST** /sod-policies | Create SOD policy
-*V2024SODPoliciesApi* | [**Remove-V2024SodPolicy**](docs/V2024SODPoliciesApi.md#Remove-V2024SodPolicy) | **DELETE** /sod-policies/{id} | Delete SOD policy by ID
-*V2024SODPoliciesApi* | [**Remove-V2024SodPolicySchedule**](docs/V2024SODPoliciesApi.md#Remove-V2024SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete SOD policy schedule
+*V2024RolesApi* | [**New-V2024Role**](docs/V2024RolesApi.md#New-V2024Role) | **POST** /roles | Create a role
+*V2024RolesApi* | [**Remove-V2024BulkRoles**](docs/V2024RolesApi.md#Remove-V2024BulkRoles) | **POST** /roles/bulk-delete | Delete role(s)
+*V2024RolesApi* | [**Remove-V2024MetadataFromRoleByKeyAndValue**](docs/V2024RolesApi.md#Remove-V2024MetadataFromRoleByKeyAndValue) | **DELETE** /roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove a metadata from role.
+*V2024RolesApi* | [**Remove-V2024Role**](docs/V2024RolesApi.md#Remove-V2024Role) | **DELETE** /roles/{id} | Delete a role
+*V2024RolesApi* | [**Get-V2024BulkUpdateStatus**](docs/V2024RolesApi.md#Get-V2024BulkUpdateStatus) | **GET** /roles/access-model-metadata/bulk-update | Get bulk-update statuses
+*V2024RolesApi* | [**Get-V2024BulkUpdateStatusById**](docs/V2024RolesApi.md#Get-V2024BulkUpdateStatusById) | **GET** /roles/access-model-metadata/bulk-update/id | Get bulk-update status by id
+*V2024RolesApi* | [**Get-V2024Role**](docs/V2024RolesApi.md#Get-V2024Role) | **GET** /roles/{id} | Get a role
+*V2024RolesApi* | [**Get-V2024RoleAssignedIdentities**](docs/V2024RolesApi.md#Get-V2024RoleAssignedIdentities) | **GET** /roles/{id}/assigned-identities | List identities assigned a role
+*V2024RolesApi* | [**Get-V2024RoleEntitlements**](docs/V2024RolesApi.md#Get-V2024RoleEntitlements) | **GET** /roles/{id}/entitlements | List role's entitlements
+*V2024RolesApi* | [**Get-V2024Roles**](docs/V2024RolesApi.md#Get-V2024Roles) | **GET** /roles | List roles
+*V2024RolesApi* | [**Update-V2024Role**](docs/V2024RolesApi.md#Update-V2024Role) | **PATCH** /roles/{id} | Patch a specified role
+*V2024RolesApi* | [**Search-V2024RolesByFilter**](docs/V2024RolesApi.md#Search-V2024RolesByFilter) | **POST** /roles/filter | Filter roles by metadata
+*V2024RolesApi* | [**Update-V2024AttributeKeyAndValueToRole**](docs/V2024RolesApi.md#Update-V2024AttributeKeyAndValueToRole) | **POST** /roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Add a metadata to role.
+*V2024RolesApi* | [**Update-V2024RolesMetadataByFilter**](docs/V2024RolesApi.md#Update-V2024RolesMetadataByFilter) | **POST** /roles/access-model-metadata/bulk-update/filter | Bulk-update roles' metadata by filters
+*V2024RolesApi* | [**Update-V2024RolesMetadataByIds**](docs/V2024RolesApi.md#Update-V2024RolesMetadataByIds) | **POST** /roles/access-model-metadata/bulk-update/ids | Bulk-update roles' metadata by id
+*V2024RolesApi* | [**Update-V2024RolesMetadataByQuery**](docs/V2024RolesApi.md#Update-V2024RolesMetadataByQuery) | **POST** /roles/access-model-metadata/bulk-update/query | Bulk-update roles' metadata by query
+*V2024SIMIntegrationsApi* | [**New-V2024SIMIntegration**](docs/V2024SIMIntegrationsApi.md#New-V2024SIMIntegration) | **POST** /sim-integrations | Create new sim integration
+*V2024SIMIntegrationsApi* | [**Remove-V2024SIMIntegration**](docs/V2024SIMIntegrationsApi.md#Remove-V2024SIMIntegration) | **DELETE** /sim-integrations/{id} | Delete a sim integration
+*V2024SIMIntegrationsApi* | [**Get-V2024SIMIntegration**](docs/V2024SIMIntegrationsApi.md#Get-V2024SIMIntegration) | **GET** /sim-integrations/{id} | Get a sim integration details.
+*V2024SIMIntegrationsApi* | [**Get-V2024SIMIntegrations**](docs/V2024SIMIntegrationsApi.md#Get-V2024SIMIntegrations) | **GET** /sim-integrations | List the existing sim integrations.
+*V2024SIMIntegrationsApi* | [**Update-V2024BeforeProvisioningRule**](docs/V2024SIMIntegrationsApi.md#Update-V2024BeforeProvisioningRule) | **PATCH** /sim-integrations/{id}/beforeProvisioningRule | Patch a sim beforeprovisioningrule attribute.
+*V2024SIMIntegrationsApi* | [**Update-V2024SIMAttributes**](docs/V2024SIMIntegrationsApi.md#Update-V2024SIMAttributes) | **PATCH** /sim-integrations/{id} | Patch a sim attribute.
+*V2024SIMIntegrationsApi* | [**Send-V2024SIMIntegration**](docs/V2024SIMIntegrationsApi.md#Send-V2024SIMIntegration) | **PUT** /sim-integrations/{id} | Update an existing sim integration
+*V2024SODPoliciesApi* | [**New-V2024SodPolicy**](docs/V2024SODPoliciesApi.md#New-V2024SodPolicy) | **POST** /sod-policies | Create sod policy
+*V2024SODPoliciesApi* | [**Remove-V2024SodPolicy**](docs/V2024SODPoliciesApi.md#Remove-V2024SodPolicy) | **DELETE** /sod-policies/{id} | Delete sod policy by id
+*V2024SODPoliciesApi* | [**Remove-V2024SodPolicySchedule**](docs/V2024SODPoliciesApi.md#Remove-V2024SodPolicySchedule) | **DELETE** /sod-policies/{id}/schedule | Delete sod policy schedule
 *V2024SODPoliciesApi* | [**Get-V2024CustomViolationReport**](docs/V2024SODPoliciesApi.md#Get-V2024CustomViolationReport) | **GET** /sod-violation-report/{reportResultId}/download/{fileName} | Download custom violation report
 *V2024SODPoliciesApi* | [**Get-V2024DefaultViolationReport**](docs/V2024SODPoliciesApi.md#Get-V2024DefaultViolationReport) | **GET** /sod-violation-report/{reportResultId}/download | Download violation report
 *V2024SODPoliciesApi* | [**Get-V2024SodAllReportRunStatus**](docs/V2024SODPoliciesApi.md#Get-V2024SodAllReportRunStatus) | **GET** /sod-violation-report | Get multi-report run task status
-*V2024SODPoliciesApi* | [**Get-V2024SodPolicy**](docs/V2024SODPoliciesApi.md#Get-V2024SodPolicy) | **GET** /sod-policies/{id} | Get SOD policy by ID
-*V2024SODPoliciesApi* | [**Get-V2024SodPolicySchedule**](docs/V2024SODPoliciesApi.md#Get-V2024SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get SOD policy schedule
+*V2024SODPoliciesApi* | [**Get-V2024SodPolicy**](docs/V2024SODPoliciesApi.md#Get-V2024SodPolicy) | **GET** /sod-policies/{id} | Get sod policy by id
+*V2024SODPoliciesApi* | [**Get-V2024SodPolicySchedule**](docs/V2024SODPoliciesApi.md#Get-V2024SodPolicySchedule) | **GET** /sod-policies/{id}/schedule | Get sod policy schedule
 *V2024SODPoliciesApi* | [**Get-V2024SodViolationReportRunStatus**](docs/V2024SODPoliciesApi.md#Get-V2024SodViolationReportRunStatus) | **GET** /sod-policies/sod-violation-report-status/{reportResultId} | Get violation report run status
-*V2024SODPoliciesApi* | [**Get-V2024SodViolationReportStatus**](docs/V2024SODPoliciesApi.md#Get-V2024SodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get SOD violation report status
-*V2024SODPoliciesApi* | [**Get-V2024SodPolicies**](docs/V2024SODPoliciesApi.md#Get-V2024SodPolicies) | **GET** /sod-policies | List SOD policies
-*V2024SODPoliciesApi* | [**Update-V2024SodPolicy**](docs/V2024SODPoliciesApi.md#Update-V2024SodPolicy) | **PATCH** /sod-policies/{id} | Patch SOD policy by ID
-*V2024SODPoliciesApi* | [**Send-V2024PolicySchedule**](docs/V2024SODPoliciesApi.md#Send-V2024PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update SOD Policy schedule
-*V2024SODPoliciesApi* | [**Send-V2024SodPolicy**](docs/V2024SODPoliciesApi.md#Send-V2024SodPolicy) | **PUT** /sod-policies/{id} | Update SOD policy by ID
-*V2024SODPoliciesApi* | [**Start-V2024EvaluateSodPolicy**](docs/V2024SODPoliciesApi.md#Start-V2024EvaluateSodPolicy) | **POST** /sod-policies/{id}/evaluate | Evaluate one policy by ID
+*V2024SODPoliciesApi* | [**Get-V2024SodViolationReportStatus**](docs/V2024SODPoliciesApi.md#Get-V2024SodViolationReportStatus) | **GET** /sod-policies/{id}/violation-report | Get sod violation report status
+*V2024SODPoliciesApi* | [**Get-V2024SodPolicies**](docs/V2024SODPoliciesApi.md#Get-V2024SodPolicies) | **GET** /sod-policies | List sod policies
+*V2024SODPoliciesApi* | [**Update-V2024SodPolicy**](docs/V2024SODPoliciesApi.md#Update-V2024SodPolicy) | **PATCH** /sod-policies/{id} | Patch sod policy by id
+*V2024SODPoliciesApi* | [**Send-V2024PolicySchedule**](docs/V2024SODPoliciesApi.md#Send-V2024PolicySchedule) | **PUT** /sod-policies/{id}/schedule | Update sod policy schedule
+*V2024SODPoliciesApi* | [**Send-V2024SodPolicy**](docs/V2024SODPoliciesApi.md#Send-V2024SodPolicy) | **PUT** /sod-policies/{id} | Update sod policy by id
+*V2024SODPoliciesApi* | [**Start-V2024EvaluateSodPolicy**](docs/V2024SODPoliciesApi.md#Start-V2024EvaluateSodPolicy) | **POST** /sod-policies/{id}/evaluate | Evaluate one policy by id
 *V2024SODPoliciesApi* | [**Start-V2024SodAllPoliciesForOrg**](docs/V2024SODPoliciesApi.md#Start-V2024SodAllPoliciesForOrg) | **POST** /sod-violation-report/run | Runs all policies for org
-*V2024SODPoliciesApi* | [**Start-V2024SodPolicy**](docs/V2024SODPoliciesApi.md#Start-V2024SodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs SOD policy violation report
-*V2024SODViolationsApi* | [**Start-V2024PredictSodViolations**](docs/V2024SODViolationsApi.md#Start-V2024PredictSodViolations) | **POST** /sod-violations/predict | Predict SOD violations for identity.
-*V2024SODViolationsApi* | [**Start-V2024ViolationCheck**](docs/V2024SODViolationsApi.md#Start-V2024ViolationCheck) | **POST** /sod-violations/check | Check SOD violations
+*V2024SODPoliciesApi* | [**Start-V2024SodPolicy**](docs/V2024SODPoliciesApi.md#Start-V2024SodPolicy) | **POST** /sod-policies/{id}/violation-report/run | Runs sod policy violation report
+*V2024SODViolationsApi* | [**Start-V2024PredictSodViolations**](docs/V2024SODViolationsApi.md#Start-V2024PredictSodViolations) | **POST** /sod-violations/predict | Predict sod violations for identity.
+*V2024SODViolationsApi* | [**Start-V2024ViolationCheck**](docs/V2024SODViolationsApi.md#Start-V2024ViolationCheck) | **POST** /sod-violations/check | Check sod violations
 *V2024SPConfigApi* | [**Export-V2024SpConfig**](docs/V2024SPConfigApi.md#Export-V2024SpConfig) | **POST** /sp-config/export | Initiates configuration objects export job
 *V2024SPConfigApi* | [**Get-V2024SpConfigExport**](docs/V2024SPConfigApi.md#Get-V2024SpConfigExport) | **GET** /sp-config/export/{id}/download | Download export job result.
 *V2024SPConfigApi* | [**Get-V2024SpConfigExportStatus**](docs/V2024SPConfigApi.md#Get-V2024SpConfigExportStatus) | **GET** /sp-config/export/{id} | Get export job status
 *V2024SPConfigApi* | [**Get-V2024SpConfigImport**](docs/V2024SPConfigApi.md#Get-V2024SpConfigImport) | **GET** /sp-config/import/{id}/download | Download import job result
 *V2024SPConfigApi* | [**Get-V2024SpConfigImportStatus**](docs/V2024SPConfigApi.md#Get-V2024SpConfigImportStatus) | **GET** /sp-config/import/{id} | Get import job status
 *V2024SPConfigApi* | [**Import-V2024SpConfig**](docs/V2024SPConfigApi.md#Import-V2024SpConfig) | **POST** /sp-config/import | Initiates configuration objects import job
-*V2024SPConfigApi* | [**Get-V2024SpConfigObjects**](docs/V2024SPConfigApi.md#Get-V2024SpConfigObjects) | **GET** /sp-config/config-objects | List Config Objects
+*V2024SPConfigApi* | [**Get-V2024SpConfigObjects**](docs/V2024SPConfigApi.md#Get-V2024SpConfigObjects) | **GET** /sp-config/config-objects | List config objects
 *V2024SavedSearchApi* | [**New-V2024SavedSearch**](docs/V2024SavedSearchApi.md#New-V2024SavedSearch) | **POST** /saved-searches | Create a saved search
-*V2024SavedSearchApi* | [**Remove-V2024SavedSearch**](docs/V2024SavedSearchApi.md#Remove-V2024SavedSearch) | **DELETE** /saved-searches/{id} | Delete document by ID
-*V2024SavedSearchApi* | [**Invoke-V2024ExecuteSavedSearch**](docs/V2024SavedSearchApi.md#Invoke-V2024ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by ID
-*V2024SavedSearchApi* | [**Get-V2024SavedSearch**](docs/V2024SavedSearchApi.md#Get-V2024SavedSearch) | **GET** /saved-searches/{id} | Return saved search by ID
-*V2024SavedSearchApi* | [**Get-V2024SavedSearches**](docs/V2024SavedSearchApi.md#Get-V2024SavedSearches) | **GET** /saved-searches | A list of Saved Searches
+*V2024SavedSearchApi* | [**Remove-V2024SavedSearch**](docs/V2024SavedSearchApi.md#Remove-V2024SavedSearch) | **DELETE** /saved-searches/{id} | Delete document by id
+*V2024SavedSearchApi* | [**Invoke-V2024ExecuteSavedSearch**](docs/V2024SavedSearchApi.md#Invoke-V2024ExecuteSavedSearch) | **POST** /saved-searches/{id}/execute | Execute a saved search by id
+*V2024SavedSearchApi* | [**Get-V2024SavedSearch**](docs/V2024SavedSearchApi.md#Get-V2024SavedSearch) | **GET** /saved-searches/{id} | Return saved search by id
+*V2024SavedSearchApi* | [**Get-V2024SavedSearches**](docs/V2024SavedSearchApi.md#Get-V2024SavedSearches) | **GET** /saved-searches | A list of saved searches
 *V2024SavedSearchApi* | [**Send-V2024SavedSearch**](docs/V2024SavedSearchApi.md#Send-V2024SavedSearch) | **PUT** /saved-searches/{id} | Updates an existing saved search 
 *V2024ScheduledSearchApi* | [**New-V2024ScheduledSearch**](docs/V2024ScheduledSearchApi.md#New-V2024ScheduledSearch) | **POST** /scheduled-searches | Create a new scheduled search
-*V2024ScheduledSearchApi* | [**Remove-V2024ScheduledSearch**](docs/V2024ScheduledSearchApi.md#Remove-V2024ScheduledSearch) | **DELETE** /scheduled-searches/{id} | Delete a Scheduled Search
-*V2024ScheduledSearchApi* | [**Get-V2024ScheduledSearch**](docs/V2024ScheduledSearchApi.md#Get-V2024ScheduledSearch) | **GET** /scheduled-searches/{id} | Get a Scheduled Search
+*V2024ScheduledSearchApi* | [**Remove-V2024ScheduledSearch**](docs/V2024ScheduledSearchApi.md#Remove-V2024ScheduledSearch) | **DELETE** /scheduled-searches/{id} | Delete a scheduled search
+*V2024ScheduledSearchApi* | [**Get-V2024ScheduledSearch**](docs/V2024ScheduledSearchApi.md#Get-V2024ScheduledSearch) | **GET** /scheduled-searches/{id} | Get a scheduled search
 *V2024ScheduledSearchApi* | [**Get-V2024ScheduledSearch**](docs/V2024ScheduledSearchApi.md#Get-V2024ScheduledSearch) | **GET** /scheduled-searches | List scheduled searches
-*V2024ScheduledSearchApi* | [**Invoke-V2024UnsubscribeScheduledSearch**](docs/V2024ScheduledSearchApi.md#Invoke-V2024UnsubscribeScheduledSearch) | **POST** /scheduled-searches/{id}/unsubscribe | Unsubscribe a recipient from Scheduled Search
-*V2024ScheduledSearchApi* | [**Update-V2024ScheduledSearch**](docs/V2024ScheduledSearchApi.md#Update-V2024ScheduledSearch) | **PUT** /scheduled-searches/{id} | Update an existing Scheduled Search
-*V2024SearchApi* | [**Search-V2024Aggregate**](docs/V2024SearchApi.md#Search-V2024Aggregate) | **POST** /search/aggregate | Perform a Search Query Aggregation
-*V2024SearchApi* | [**Search-V2024Count**](docs/V2024SearchApi.md#Search-V2024Count) | **POST** /search/count | Count Documents Satisfying a Query
-*V2024SearchApi* | [**Search-V2024Get**](docs/V2024SearchApi.md#Search-V2024Get) | **GET** /search/{index}/{id} | Get a Document by ID
-*V2024SearchApi* | [**Search-V2024Post**](docs/V2024SearchApi.md#Search-V2024Post) | **POST** /search | Perform Search
-*V2024SearchAttributeConfigurationApi* | [**New-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#New-V2024SearchAttributeConfig) | **POST** /accounts/search-attribute-config | Create Extended Search Attributes
-*V2024SearchAttributeConfigurationApi* | [**Remove-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Remove-V2024SearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete Extended Search Attribute
-*V2024SearchAttributeConfigurationApi* | [**Get-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Get-V2024SearchAttributeConfig) | **GET** /accounts/search-attribute-config | List Extended Search Attributes
-*V2024SearchAttributeConfigurationApi* | [**Get-V2024SingleSearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Get-V2024SingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get Extended Search Attribute
-*V2024SearchAttributeConfigurationApi* | [**Update-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Update-V2024SearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update Extended Search Attribute
-*V2024SegmentsApi* | [**New-V2024Segment**](docs/V2024SegmentsApi.md#New-V2024Segment) | **POST** /segments | Create Segment
-*V2024SegmentsApi* | [**Remove-V2024Segment**](docs/V2024SegmentsApi.md#Remove-V2024Segment) | **DELETE** /segments/{id} | Delete Segment by ID
-*V2024SegmentsApi* | [**Get-V2024Segment**](docs/V2024SegmentsApi.md#Get-V2024Segment) | **GET** /segments/{id} | Get Segment by ID
-*V2024SegmentsApi* | [**Get-V2024Segments**](docs/V2024SegmentsApi.md#Get-V2024Segments) | **GET** /segments | List Segments
-*V2024SegmentsApi* | [**Update-V2024Segment**](docs/V2024SegmentsApi.md#Update-V2024Segment) | **PATCH** /segments/{id} | Update Segment
-*V2024ServiceDeskIntegrationApi* | [**New-V2024ServiceDeskIntegration**](docs/V2024ServiceDeskIntegrationApi.md#New-V2024ServiceDeskIntegration) | **POST** /service-desk-integrations | Create new Service Desk integration
-*V2024ServiceDeskIntegrationApi* | [**Remove-V2024ServiceDeskIntegration**](docs/V2024ServiceDeskIntegrationApi.md#Remove-V2024ServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a Service Desk integration
-*V2024ServiceDeskIntegrationApi* | [**Get-V2024ServiceDeskIntegration**](docs/V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a Service Desk integration
-*V2024ServiceDeskIntegrationApi* | [**Get-V2024ServiceDeskIntegrationTemplate**](docs/V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegrationTemplate) | **GET** /service-desk-integrations/templates/{scriptName} | Service Desk integration template by scriptName
-*V2024ServiceDeskIntegrationApi* | [**Get-V2024ServiceDeskIntegrationTypes**](docs/V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | List Service Desk integration types
-*V2024ServiceDeskIntegrationApi* | [**Get-V2024ServiceDeskIntegrations**](docs/V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegrations) | **GET** /service-desk-integrations | List existing Service Desk integrations
+*V2024ScheduledSearchApi* | [**Invoke-V2024UnsubscribeScheduledSearch**](docs/V2024ScheduledSearchApi.md#Invoke-V2024UnsubscribeScheduledSearch) | **POST** /scheduled-searches/{id}/unsubscribe | Unsubscribe a recipient from scheduled search
+*V2024ScheduledSearchApi* | [**Update-V2024ScheduledSearch**](docs/V2024ScheduledSearchApi.md#Update-V2024ScheduledSearch) | **PUT** /scheduled-searches/{id} | Update an existing scheduled search
+*V2024SearchApi* | [**Search-V2024Aggregate**](docs/V2024SearchApi.md#Search-V2024Aggregate) | **POST** /search/aggregate | Perform a search query aggregation
+*V2024SearchApi* | [**Search-V2024Count**](docs/V2024SearchApi.md#Search-V2024Count) | **POST** /search/count | Count documents satisfying a query
+*V2024SearchApi* | [**Search-V2024Get**](docs/V2024SearchApi.md#Search-V2024Get) | **GET** /search/{index}/{id} | Get a document by id
+*V2024SearchApi* | [**Search-V2024Post**](docs/V2024SearchApi.md#Search-V2024Post) | **POST** /search | Perform search
+*V2024SearchAttributeConfigurationApi* | [**New-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#New-V2024SearchAttributeConfig) | **POST** /accounts/search-attribute-config | Create extended search attributes
+*V2024SearchAttributeConfigurationApi* | [**Remove-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Remove-V2024SearchAttributeConfig) | **DELETE** /accounts/search-attribute-config/{name} | Delete extended search attribute
+*V2024SearchAttributeConfigurationApi* | [**Get-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Get-V2024SearchAttributeConfig) | **GET** /accounts/search-attribute-config | List extended search attributes
+*V2024SearchAttributeConfigurationApi* | [**Get-V2024SingleSearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Get-V2024SingleSearchAttributeConfig) | **GET** /accounts/search-attribute-config/{name} | Get extended search attribute
+*V2024SearchAttributeConfigurationApi* | [**Update-V2024SearchAttributeConfig**](docs/V2024SearchAttributeConfigurationApi.md#Update-V2024SearchAttributeConfig) | **PATCH** /accounts/search-attribute-config/{name} | Update extended search attribute
+*V2024SegmentsApi* | [**New-V2024Segment**](docs/V2024SegmentsApi.md#New-V2024Segment) | **POST** /segments | Create segment
+*V2024SegmentsApi* | [**Remove-V2024Segment**](docs/V2024SegmentsApi.md#Remove-V2024Segment) | **DELETE** /segments/{id} | Delete segment by id
+*V2024SegmentsApi* | [**Get-V2024Segment**](docs/V2024SegmentsApi.md#Get-V2024Segment) | **GET** /segments/{id} | Get segment by id
+*V2024SegmentsApi* | [**Get-V2024Segments**](docs/V2024SegmentsApi.md#Get-V2024Segments) | **GET** /segments | List segments
+*V2024SegmentsApi* | [**Update-V2024Segment**](docs/V2024SegmentsApi.md#Update-V2024Segment) | **PATCH** /segments/{id} | Update segment
+*V2024ServiceDeskIntegrationApi* | [**New-V2024ServiceDeskIntegration**](docs/V2024ServiceDeskIntegrationApi.md#New-V2024ServiceDeskIntegration) | **POST** /service-desk-integrations | Create new service desk integration
+*V2024ServiceDeskIntegrationApi* | [**Remove-V2024ServiceDeskIntegration**](docs/V2024ServiceDeskIntegrationApi.md#Remove-V2024ServiceDeskIntegration) | **DELETE** /service-desk-integrations/{id} | Delete a service desk integration
+*V2024ServiceDeskIntegrationApi* | [**Get-V2024ServiceDeskIntegration**](docs/V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegration) | **GET** /service-desk-integrations/{id} | Get a service desk integration
+*V2024ServiceDeskIntegrationApi* | [**Get-V2024ServiceDeskIntegrationTemplate**](docs/V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegrationTemplate) | **GET** /service-desk-integrations/templates/{scriptName} | Service desk integration template by scriptname
+*V2024ServiceDeskIntegrationApi* | [**Get-V2024ServiceDeskIntegrationTypes**](docs/V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegrationTypes) | **GET** /service-desk-integrations/types | List service desk integration types
+*V2024ServiceDeskIntegrationApi* | [**Get-V2024ServiceDeskIntegrations**](docs/V2024ServiceDeskIntegrationApi.md#Get-V2024ServiceDeskIntegrations) | **GET** /service-desk-integrations | List existing service desk integrations
 *V2024ServiceDeskIntegrationApi* | [**Get-V2024StatusCheckDetails**](docs/V2024ServiceDeskIntegrationApi.md#Get-V2024StatusCheckDetails) | **GET** /service-desk-integrations/status-check-configuration | Get the time check configuration
-*V2024ServiceDeskIntegrationApi* | [**Update-V2024ServiceDeskIntegration**](docs/V2024ServiceDeskIntegrationApi.md#Update-V2024ServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Patch a Service Desk Integration
-*V2024ServiceDeskIntegrationApi* | [**Send-V2024ServiceDeskIntegration**](docs/V2024ServiceDeskIntegrationApi.md#Send-V2024ServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a Service Desk integration
+*V2024ServiceDeskIntegrationApi* | [**Update-V2024ServiceDeskIntegration**](docs/V2024ServiceDeskIntegrationApi.md#Update-V2024ServiceDeskIntegration) | **PATCH** /service-desk-integrations/{id} | Patch a service desk integration
+*V2024ServiceDeskIntegrationApi* | [**Send-V2024ServiceDeskIntegration**](docs/V2024ServiceDeskIntegrationApi.md#Send-V2024ServiceDeskIntegration) | **PUT** /service-desk-integrations/{id} | Update a service desk integration
 *V2024ServiceDeskIntegrationApi* | [**Update-V2024StatusCheckDetails**](docs/V2024ServiceDeskIntegrationApi.md#Update-V2024StatusCheckDetails) | **PUT** /service-desk-integrations/status-check-configuration | Update the time check configuration
 *V2024SourceUsagesApi* | [**Get-V2024StatusBySourceId**](docs/V2024SourceUsagesApi.md#Get-V2024StatusBySourceId) | **GET** /source-usages/{sourceId}/status | Finds status of source usage
 *V2024SourceUsagesApi* | [**Get-V2024UsagesBySourceId**](docs/V2024SourceUsagesApi.md#Get-V2024UsagesBySourceId) | **GET** /source-usages/{sourceId}/summaries | Returns source usage insights
-*V2024SourcesApi* | [**New-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#New-V2024ProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create Provisioning Policy
-*V2024SourcesApi* | [**New-V2024Source**](docs/V2024SourcesApi.md#New-V2024Source) | **POST** /sources | Creates a source in IdentityNow.
-*V2024SourcesApi* | [**New-V2024SourceSchedule**](docs/V2024SourcesApi.md#New-V2024SourceSchedule) | **POST** /sources/{sourceId}/schedules | Create Schedule on Source
-*V2024SourcesApi* | [**New-V2024SourceSchema**](docs/V2024SourcesApi.md#New-V2024SourceSchema) | **POST** /sources/{sourceId}/schemas | Create Schema on Source
-*V2024SourcesApi* | [**Remove-V2024AccountsAsync**](docs/V2024SourcesApi.md#Remove-V2024AccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove All Accounts in a Source
-*V2024SourcesApi* | [**Remove-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Remove-V2024NativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete Native Change Detection Configuration
-*V2024SourcesApi* | [**Remove-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Remove-V2024ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete Provisioning Policy by UsageType
-*V2024SourcesApi* | [**Remove-V2024Source**](docs/V2024SourcesApi.md#Remove-V2024Source) | **DELETE** /sources/{id} | Delete Source by ID
-*V2024SourcesApi* | [**Remove-V2024SourceSchedule**](docs/V2024SourcesApi.md#Remove-V2024SourceSchedule) | **DELETE** /sources/{sourceId}/schedules/{scheduleType} | Delete Source Schedule by type.
-*V2024SourcesApi* | [**Remove-V2024SourceSchema**](docs/V2024SourcesApi.md#Remove-V2024SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete Source Schema by ID
+*V2024SourcesApi* | [**New-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#New-V2024ProvisioningPolicy) | **POST** /sources/{sourceId}/provisioning-policies | Create provisioning policy
+*V2024SourcesApi* | [**New-V2024Source**](docs/V2024SourcesApi.md#New-V2024Source) | **POST** /sources | Creates a source in identitynow.
+*V2024SourcesApi* | [**New-V2024SourceSchedule**](docs/V2024SourcesApi.md#New-V2024SourceSchedule) | **POST** /sources/{sourceId}/schedules | Create schedule on source
+*V2024SourcesApi* | [**New-V2024SourceSchema**](docs/V2024SourcesApi.md#New-V2024SourceSchema) | **POST** /sources/{sourceId}/schemas | Create schema on source
+*V2024SourcesApi* | [**Remove-V2024AccountsAsync**](docs/V2024SourcesApi.md#Remove-V2024AccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove all accounts in a source
+*V2024SourcesApi* | [**Remove-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Remove-V2024NativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete native change detection configuration
+*V2024SourcesApi* | [**Remove-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Remove-V2024ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete provisioning policy by usagetype
+*V2024SourcesApi* | [**Remove-V2024Source**](docs/V2024SourcesApi.md#Remove-V2024Source) | **DELETE** /sources/{id} | Delete source by id
+*V2024SourcesApi* | [**Remove-V2024SourceSchedule**](docs/V2024SourcesApi.md#Remove-V2024SourceSchedule) | **DELETE** /sources/{sourceId}/schedules/{scheduleType} | Delete source schedule by type.
+*V2024SourcesApi* | [**Remove-V2024SourceSchema**](docs/V2024SourcesApi.md#Remove-V2024SourceSchema) | **DELETE** /sources/{sourceId}/schemas/{schemaId} | Delete source schema by id
 *V2024SourcesApi* | [**Get-V2024AccountsSchema**](docs/V2024SourcesApi.md#Get-V2024AccountsSchema) | **GET** /sources/{id}/schemas/accounts | Downloads source accounts schema template
-*V2024SourcesApi* | [**Get-V2024CorrelationConfig**](docs/V2024SourcesApi.md#Get-V2024CorrelationConfig) | **GET** /sources/{id}/correlation-config | Get Source Correlation Configuration
+*V2024SourcesApi* | [**Get-V2024CorrelationConfig**](docs/V2024SourcesApi.md#Get-V2024CorrelationConfig) | **GET** /sources/{id}/correlation-config | Get source correlation configuration
 *V2024SourcesApi* | [**Get-V2024EntitlementsSchema**](docs/V2024SourcesApi.md#Get-V2024EntitlementsSchema) | **GET** /sources/{id}/schemas/entitlements | Downloads source entitlements schema template
-*V2024SourcesApi* | [**Get-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Get-V2024NativeChangeDetectionConfig) | **GET** /sources/{sourceId}/native-change-detection-config | Native Change Detection Configuration
-*V2024SourcesApi* | [**Get-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Get-V2024ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get Provisioning Policy by UsageType
-*V2024SourcesApi* | [**Get-V2024Source**](docs/V2024SourcesApi.md#Get-V2024Source) | **GET** /sources/{id} | Get Source by ID
-*V2024SourcesApi* | [**Get-V2024SourceAttrSyncConfig**](docs/V2024SourcesApi.md#Get-V2024SourceAttrSyncConfig) | **GET** /sources/{id}/attribute-sync-config | Attribute Sync Config
+*V2024SourcesApi* | [**Get-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Get-V2024NativeChangeDetectionConfig) | **GET** /sources/{sourceId}/native-change-detection-config | Native change detection configuration
+*V2024SourcesApi* | [**Get-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Get-V2024ProvisioningPolicy) | **GET** /sources/{sourceId}/provisioning-policies/{usageType} | Get provisioning policy by usagetype
+*V2024SourcesApi* | [**Get-V2024Source**](docs/V2024SourcesApi.md#Get-V2024Source) | **GET** /sources/{id} | Get source by id
+*V2024SourcesApi* | [**Get-V2024SourceAttrSyncConfig**](docs/V2024SourcesApi.md#Get-V2024SourceAttrSyncConfig) | **GET** /sources/{id}/attribute-sync-config | Attribute sync config
 *V2024SourcesApi* | [**Get-V2024SourceConfig**](docs/V2024SourcesApi.md#Get-V2024SourceConfig) | **GET** /sources/{id}/connectors/source-config | Gets source config with language-translations
-*V2024SourcesApi* | [**Get-V2024SourceConnections**](docs/V2024SourcesApi.md#Get-V2024SourceConnections) | **GET** /sources/{sourceId}/connections | Get Source Connections by ID
-*V2024SourcesApi* | [**Get-V2024SourceEntitlementRequestConfig**](docs/V2024SourcesApi.md#Get-V2024SourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get Source Entitlement Request Configuration
+*V2024SourcesApi* | [**Get-V2024SourceConnections**](docs/V2024SourcesApi.md#Get-V2024SourceConnections) | **GET** /sources/{sourceId}/connections | Get source connections by id
+*V2024SourcesApi* | [**Get-V2024SourceEntitlementRequestConfig**](docs/V2024SourcesApi.md#Get-V2024SourceEntitlementRequestConfig) | **GET** /sources/{id}/entitlement-request-config | Get source entitlement request configuration
 *V2024SourcesApi* | [**Get-V2024SourceHealth**](docs/V2024SourcesApi.md#Get-V2024SourceHealth) | **GET** /sources/{sourceId}/source-health | Fetches source health by id
-*V2024SourcesApi* | [**Get-V2024SourceSchedule**](docs/V2024SourcesApi.md#Get-V2024SourceSchedule) | **GET** /sources/{sourceId}/schedules/{scheduleType} | Get Source Schedule by Type
-*V2024SourcesApi* | [**Get-V2024SourceSchedules**](docs/V2024SourcesApi.md#Get-V2024SourceSchedules) | **GET** /sources/{sourceId}/schedules | List Schedules on Source
-*V2024SourcesApi* | [**Get-V2024SourceSchema**](docs/V2024SourcesApi.md#Get-V2024SourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get Source Schema by ID
-*V2024SourcesApi* | [**Get-V2024SourceSchemas**](docs/V2024SourcesApi.md#Get-V2024SourceSchemas) | **GET** /sources/{sourceId}/schemas | List Schemas on Source
-*V2024SourcesApi* | [**Import-V2024Accounts**](docs/V2024SourcesApi.md#Import-V2024Accounts) | **POST** /sources/{id}/load-accounts | Account Aggregation
+*V2024SourcesApi* | [**Get-V2024SourceSchedule**](docs/V2024SourcesApi.md#Get-V2024SourceSchedule) | **GET** /sources/{sourceId}/schedules/{scheduleType} | Get source schedule by type
+*V2024SourcesApi* | [**Get-V2024SourceSchedules**](docs/V2024SourcesApi.md#Get-V2024SourceSchedules) | **GET** /sources/{sourceId}/schedules | List schedules on source
+*V2024SourcesApi* | [**Get-V2024SourceSchema**](docs/V2024SourcesApi.md#Get-V2024SourceSchema) | **GET** /sources/{sourceId}/schemas/{schemaId} | Get source schema by id
+*V2024SourcesApi* | [**Get-V2024SourceSchemas**](docs/V2024SourcesApi.md#Get-V2024SourceSchemas) | **GET** /sources/{sourceId}/schemas | List schemas on source
+*V2024SourcesApi* | [**Import-V2024Accounts**](docs/V2024SourcesApi.md#Import-V2024Accounts) | **POST** /sources/{id}/load-accounts | Account aggregation
 *V2024SourcesApi* | [**Import-V2024AccountsSchema**](docs/V2024SourcesApi.md#Import-V2024AccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
 *V2024SourcesApi* | [**Import-V2024ConnectorFile**](docs/V2024SourcesApi.md#Import-V2024ConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
 *V2024SourcesApi* | [**Import-V2024EntitlementsSchema**](docs/V2024SourcesApi.md#Import-V2024EntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
-*V2024SourcesApi* | [**Import-V2024UncorrelatedAccounts**](docs/V2024SourcesApi.md#Import-V2024UncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process Uncorrelated Accounts
-*V2024SourcesApi* | [**Get-V2024ProvisioningPolicies**](docs/V2024SourcesApi.md#Get-V2024ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists ProvisioningPolicies
-*V2024SourcesApi* | [**Get-V2024Sources**](docs/V2024SourcesApi.md#Get-V2024Sources) | **GET** /sources | Lists all sources in IdentityNow.
+*V2024SourcesApi* | [**Import-V2024UncorrelatedAccounts**](docs/V2024SourcesApi.md#Import-V2024UncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process uncorrelated accounts
+*V2024SourcesApi* | [**Get-V2024ProvisioningPolicies**](docs/V2024SourcesApi.md#Get-V2024ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists provisioningpolicies
+*V2024SourcesApi* | [**Get-V2024Sources**](docs/V2024SourcesApi.md#Get-V2024Sources) | **GET** /sources | Lists all sources in identitynow.
 *V2024SourcesApi* | [**Ping-V2024Cluster**](docs/V2024SourcesApi.md#Ping-V2024Cluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
-*V2024SourcesApi* | [**Send-V2024CorrelationConfig**](docs/V2024SourcesApi.md#Send-V2024CorrelationConfig) | **PUT** /sources/{id}/correlation-config | Update Source Correlation Configuration
-*V2024SourcesApi* | [**Send-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Send-V2024NativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update Native Change Detection Configuration
-*V2024SourcesApi* | [**Send-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Send-V2024ProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update Provisioning Policy by UsageType
-*V2024SourcesApi* | [**Send-V2024Source**](docs/V2024SourcesApi.md#Send-V2024Source) | **PUT** /sources/{id} | Update Source (Full)
-*V2024SourcesApi* | [**Send-V2024SourceAttrSyncConfig**](docs/V2024SourcesApi.md#Send-V2024SourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update Attribute Sync Config
-*V2024SourcesApi* | [**Send-V2024SourceSchema**](docs/V2024SourcesApi.md#Send-V2024SourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Full)
+*V2024SourcesApi* | [**Send-V2024CorrelationConfig**](docs/V2024SourcesApi.md#Send-V2024CorrelationConfig) | **PUT** /sources/{id}/correlation-config | Update source correlation configuration
+*V2024SourcesApi* | [**Send-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Send-V2024NativeChangeDetectionConfig) | **PUT** /sources/{sourceId}/native-change-detection-config | Update native change detection configuration
+*V2024SourcesApi* | [**Send-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Send-V2024ProvisioningPolicy) | **PUT** /sources/{sourceId}/provisioning-policies/{usageType} | Update provisioning policy by usagetype
+*V2024SourcesApi* | [**Send-V2024Source**](docs/V2024SourcesApi.md#Send-V2024Source) | **PUT** /sources/{id} | Update source (full)
+*V2024SourcesApi* | [**Send-V2024SourceAttrSyncConfig**](docs/V2024SourcesApi.md#Send-V2024SourceAttrSyncConfig) | **PUT** /sources/{id}/attribute-sync-config | Update attribute sync config
+*V2024SourcesApi* | [**Send-V2024SourceSchema**](docs/V2024SourcesApi.md#Send-V2024SourceSchema) | **PUT** /sources/{sourceId}/schemas/{schemaId} | Update source schema (full)
 *V2024SourcesApi* | [**Search-V2024ResourceObjects**](docs/V2024SourcesApi.md#Search-V2024ResourceObjects) | **POST** /sources/{sourceId}/connector/peek-resource-objects | Peek source connector's resource objects
 *V2024SourcesApi* | [**Sync-V2024AttributesForSource**](docs/V2024SourcesApi.md#Sync-V2024AttributesForSource) | **POST** /sources/{id}/synchronize-attributes | Synchronize single source attributes.
 *V2024SourcesApi* | [**Test-V2024SourceConfiguration**](docs/V2024SourcesApi.md#Test-V2024SourceConfiguration) | **POST** /sources/{sourceId}/connector/test-configuration | Test configuration for source connector
 *V2024SourcesApi* | [**Test-V2024SourceConnection**](docs/V2024SourcesApi.md#Test-V2024SourceConnection) | **POST** /sources/{sourceId}/connector/check-connection | Check connection for source connector.
-*V2024SourcesApi* | [**Update-V2024PasswordPolicyHolders**](docs/V2024SourcesApi.md#Update-V2024PasswordPolicyHolders) | **PATCH** /sources/{sourceId}/password-policies | Update Password Policy
-*V2024SourcesApi* | [**Update-V2024ProvisioningPoliciesInBulk**](docs/V2024SourcesApi.md#Update-V2024ProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk Update Provisioning Policies
-*V2024SourcesApi* | [**Update-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Update-V2024ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of Provisioning Policy
-*V2024SourcesApi* | [**Update-V2024Source**](docs/V2024SourcesApi.md#Update-V2024Source) | **PATCH** /sources/{id} | Update Source (Partial)
-*V2024SourcesApi* | [**Update-V2024SourceEntitlementRequestConfig**](docs/V2024SourcesApi.md#Update-V2024SourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update Source Entitlement Request Configuration
-*V2024SourcesApi* | [**Update-V2024SourceSchedule**](docs/V2024SourcesApi.md#Update-V2024SourceSchedule) | **PATCH** /sources/{sourceId}/schedules/{scheduleType} | Update Source Schedule (Partial)
-*V2024SourcesApi* | [**Update-V2024SourceSchema**](docs/V2024SourcesApi.md#Update-V2024SourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update Source Schema (Partial)
-*V2024SuggestedEntitlementDescriptionApi* | [**Get-V2024SedBatchStats**](docs/V2024SuggestedEntitlementDescriptionApi.md#Get-V2024SedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit Sed Batch Stats Request
-*V2024SuggestedEntitlementDescriptionApi* | [**Get-V2024SedBatches**](docs/V2024SuggestedEntitlementDescriptionApi.md#Get-V2024SedBatches) | **GET** /suggested-entitlement-description-batches | List Sed Batch Request
-*V2024SuggestedEntitlementDescriptionApi* | [**Get-V2024Seds**](docs/V2024SuggestedEntitlementDescriptionApi.md#Get-V2024Seds) | **GET** /suggested-entitlement-descriptions | List Suggested Entitlement Descriptions
-*V2024SuggestedEntitlementDescriptionApi* | [**Update-V2024Sed**](docs/V2024SuggestedEntitlementDescriptionApi.md#Update-V2024Sed) | **PATCH** /suggested-entitlement-descriptions | Patch Suggested Entitlement Description
-*V2024SuggestedEntitlementDescriptionApi* | [**Submit-V2024SedApproval**](docs/V2024SuggestedEntitlementDescriptionApi.md#Submit-V2024SedApproval) | **POST** /suggested-entitlement-description-approvals | Submit Bulk Approval Request
-*V2024SuggestedEntitlementDescriptionApi* | [**Submit-V2024SedAssignment**](docs/V2024SuggestedEntitlementDescriptionApi.md#Submit-V2024SedAssignment) | **POST** /suggested-entitlement-description-assignments | Submit Sed Assignment Request
-*V2024SuggestedEntitlementDescriptionApi* | [**Submit-V2024SedBatchRequest**](docs/V2024SuggestedEntitlementDescriptionApi.md#Submit-V2024SedBatchRequest) | **POST** /suggested-entitlement-description-batches | Submit Sed Batch Request
-*V2024TaggedObjectsApi* | [**Remove-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Remove-V2024TaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete Object Tags
-*V2024TaggedObjectsApi* | [**Remove-V2024TagsToManyObject**](docs/V2024TaggedObjectsApi.md#Remove-V2024TagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove Tags from Multiple Objects
-*V2024TaggedObjectsApi* | [**Get-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Get-V2024TaggedObject) | **GET** /tagged-objects/{type}/{id} | Get Tagged Object
-*V2024TaggedObjectsApi* | [**Get-V2024TaggedObjects**](docs/V2024TaggedObjectsApi.md#Get-V2024TaggedObjects) | **GET** /tagged-objects | List Tagged Objects
-*V2024TaggedObjectsApi* | [**Get-V2024TaggedObjectsByType**](docs/V2024TaggedObjectsApi.md#Get-V2024TaggedObjectsByType) | **GET** /tagged-objects/{type} | List Tagged Objects by Type
-*V2024TaggedObjectsApi* | [**Send-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Send-V2024TaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update Tagged Object
-*V2024TaggedObjectsApi* | [**Set-V2024TagToObject**](docs/V2024TaggedObjectsApi.md#Set-V2024TagToObject) | **POST** /tagged-objects | Add Tag to Object
-*V2024TaggedObjectsApi* | [**Set-V2024TagsToManyObjects**](docs/V2024TaggedObjectsApi.md#Set-V2024TagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag Multiple Objects
-*V2024TaskManagementApi* | [**Get-V2024PendingTaskHeaders**](docs/V2024TaskManagementApi.md#Get-V2024PendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve Pending Task List Headers
-*V2024TaskManagementApi* | [**Get-V2024PendingTasks**](docs/V2024TaskManagementApi.md#Get-V2024PendingTasks) | **GET** /task-status/pending-tasks | Retrieve Pending Task Status List
-*V2024TaskManagementApi* | [**Get-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatus) | **GET** /task-status/{id} | Get Task Status by ID
-*V2024TaskManagementApi* | [**Get-V2024TaskStatusList**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatusList) | **GET** /task-status | Retrieve Task Status List
-*V2024TaskManagementApi* | [**Update-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Update-V2024TaskStatus) | **PATCH** /task-status/{id} | Update Task Status by ID
-*V2024TenantApi* | [**Get-V2024Tenant**](docs/V2024TenantApi.md#Get-V2024Tenant) | **GET** /tenant | Get Tenant Information.
+*V2024SourcesApi* | [**Update-V2024PasswordPolicyHolders**](docs/V2024SourcesApi.md#Update-V2024PasswordPolicyHolders) | **PATCH** /sources/{sourceId}/password-policies | Update password policy
+*V2024SourcesApi* | [**Update-V2024ProvisioningPoliciesInBulk**](docs/V2024SourcesApi.md#Update-V2024ProvisioningPoliciesInBulk) | **POST** /sources/{sourceId}/provisioning-policies/bulk-update | Bulk update provisioning policies
+*V2024SourcesApi* | [**Update-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Update-V2024ProvisioningPolicy) | **PATCH** /sources/{sourceId}/provisioning-policies/{usageType} | Partial update of provisioning policy
+*V2024SourcesApi* | [**Update-V2024Source**](docs/V2024SourcesApi.md#Update-V2024Source) | **PATCH** /sources/{id} | Update source (partial)
+*V2024SourcesApi* | [**Update-V2024SourceEntitlementRequestConfig**](docs/V2024SourcesApi.md#Update-V2024SourceEntitlementRequestConfig) | **PUT** /sources/{id}/entitlement-request-config | Update source entitlement request configuration
+*V2024SourcesApi* | [**Update-V2024SourceSchedule**](docs/V2024SourcesApi.md#Update-V2024SourceSchedule) | **PATCH** /sources/{sourceId}/schedules/{scheduleType} | Update source schedule (partial)
+*V2024SourcesApi* | [**Update-V2024SourceSchema**](docs/V2024SourcesApi.md#Update-V2024SourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update source schema (partial)
+*V2024SuggestedEntitlementDescriptionApi* | [**Get-V2024SedBatchStats**](docs/V2024SuggestedEntitlementDescriptionApi.md#Get-V2024SedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit sed batch stats request
+*V2024SuggestedEntitlementDescriptionApi* | [**Get-V2024SedBatches**](docs/V2024SuggestedEntitlementDescriptionApi.md#Get-V2024SedBatches) | **GET** /suggested-entitlement-description-batches | List sed batch request
+*V2024SuggestedEntitlementDescriptionApi* | [**Get-V2024Seds**](docs/V2024SuggestedEntitlementDescriptionApi.md#Get-V2024Seds) | **GET** /suggested-entitlement-descriptions | List suggested entitlement descriptions
+*V2024SuggestedEntitlementDescriptionApi* | [**Update-V2024Sed**](docs/V2024SuggestedEntitlementDescriptionApi.md#Update-V2024Sed) | **PATCH** /suggested-entitlement-descriptions | Patch suggested entitlement description
+*V2024SuggestedEntitlementDescriptionApi* | [**Submit-V2024SedApproval**](docs/V2024SuggestedEntitlementDescriptionApi.md#Submit-V2024SedApproval) | **POST** /suggested-entitlement-description-approvals | Submit bulk approval request
+*V2024SuggestedEntitlementDescriptionApi* | [**Submit-V2024SedAssignment**](docs/V2024SuggestedEntitlementDescriptionApi.md#Submit-V2024SedAssignment) | **POST** /suggested-entitlement-description-assignments | Submit sed assignment request
+*V2024SuggestedEntitlementDescriptionApi* | [**Submit-V2024SedBatchRequest**](docs/V2024SuggestedEntitlementDescriptionApi.md#Submit-V2024SedBatchRequest) | **POST** /suggested-entitlement-description-batches | Submit sed batch request
+*V2024TaggedObjectsApi* | [**Remove-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Remove-V2024TaggedObject) | **DELETE** /tagged-objects/{type}/{id} | Delete object tags
+*V2024TaggedObjectsApi* | [**Remove-V2024TagsToManyObject**](docs/V2024TaggedObjectsApi.md#Remove-V2024TagsToManyObject) | **POST** /tagged-objects/bulk-remove | Remove tags from multiple objects
+*V2024TaggedObjectsApi* | [**Get-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Get-V2024TaggedObject) | **GET** /tagged-objects/{type}/{id} | Get tagged object
+*V2024TaggedObjectsApi* | [**Get-V2024TaggedObjects**](docs/V2024TaggedObjectsApi.md#Get-V2024TaggedObjects) | **GET** /tagged-objects | List tagged objects
+*V2024TaggedObjectsApi* | [**Get-V2024TaggedObjectsByType**](docs/V2024TaggedObjectsApi.md#Get-V2024TaggedObjectsByType) | **GET** /tagged-objects/{type} | List tagged objects by type
+*V2024TaggedObjectsApi* | [**Send-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Send-V2024TaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update tagged object
+*V2024TaggedObjectsApi* | [**Set-V2024TagToObject**](docs/V2024TaggedObjectsApi.md#Set-V2024TagToObject) | **POST** /tagged-objects | Add tag to object
+*V2024TaggedObjectsApi* | [**Set-V2024TagsToManyObjects**](docs/V2024TaggedObjectsApi.md#Set-V2024TagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag multiple objects
+*V2024TaskManagementApi* | [**Get-V2024PendingTaskHeaders**](docs/V2024TaskManagementApi.md#Get-V2024PendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve pending task list headers
+*V2024TaskManagementApi* | [**Get-V2024PendingTasks**](docs/V2024TaskManagementApi.md#Get-V2024PendingTasks) | **GET** /task-status/pending-tasks | Retrieve pending task status list
+*V2024TaskManagementApi* | [**Get-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatus) | **GET** /task-status/{id} | Get task status by id
+*V2024TaskManagementApi* | [**Get-V2024TaskStatusList**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatusList) | **GET** /task-status | Retrieve task status list
+*V2024TaskManagementApi* | [**Update-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Update-V2024TaskStatus) | **PATCH** /task-status/{id} | Update task status by id
+*V2024TenantApi* | [**Get-V2024Tenant**](docs/V2024TenantApi.md#Get-V2024Tenant) | **GET** /tenant | Get tenant information.
 *V2024TenantContextApi* | [**Get-V2024TenantContext**](docs/V2024TenantContextApi.md#Get-V2024TenantContext) | **GET** /tenant-context | Retrieve tenant context
 *V2024TenantContextApi* | [**Update-V2024TenantContext**](docs/V2024TenantContextApi.md#Update-V2024TenantContext) | **PATCH** /tenant-context | Update tenant context
 *V2024TransformsApi* | [**New-V2024Transform**](docs/V2024TransformsApi.md#New-V2024Transform) | **POST** /transforms | Create transform
 *V2024TransformsApi* | [**Remove-V2024Transform**](docs/V2024TransformsApi.md#Remove-V2024Transform) | **DELETE** /transforms/{id} | Delete a transform
-*V2024TransformsApi* | [**Get-V2024Transform**](docs/V2024TransformsApi.md#Get-V2024Transform) | **GET** /transforms/{id} | Transform by ID
+*V2024TransformsApi* | [**Get-V2024Transform**](docs/V2024TransformsApi.md#Get-V2024Transform) | **GET** /transforms/{id} | Transform by id
 *V2024TransformsApi* | [**Get-V2024Transforms**](docs/V2024TransformsApi.md#Get-V2024Transforms) | **GET** /transforms | List transforms
 *V2024TransformsApi* | [**Update-V2024Transform**](docs/V2024TransformsApi.md#Update-V2024Transform) | **PUT** /transforms/{id} | Update a transform
-*V2024TriggersApi* | [**Complete-V2024TriggerInvocation**](docs/V2024TriggersApi.md#Complete-V2024TriggerInvocation) | **POST** /trigger-invocations/{id}/complete | Complete Trigger Invocation
-*V2024TriggersApi* | [**New-V2024Subscription**](docs/V2024TriggersApi.md#New-V2024Subscription) | **POST** /trigger-subscriptions | Create a Subscription
-*V2024TriggersApi* | [**Remove-V2024Subscription**](docs/V2024TriggersApi.md#Remove-V2024Subscription) | **DELETE** /trigger-subscriptions/{id} | Delete a Subscription
-*V2024TriggersApi* | [**Get-V2024Subscriptions**](docs/V2024TriggersApi.md#Get-V2024Subscriptions) | **GET** /trigger-subscriptions | List Subscriptions
-*V2024TriggersApi* | [**Get-V2024TriggerInvocationStatus**](docs/V2024TriggersApi.md#Get-V2024TriggerInvocationStatus) | **GET** /trigger-invocations/status | List Latest Invocation Statuses
-*V2024TriggersApi* | [**Get-V2024Triggers**](docs/V2024TriggersApi.md#Get-V2024Triggers) | **GET** /triggers | List Triggers
-*V2024TriggersApi* | [**Update-V2024Subscription**](docs/V2024TriggersApi.md#Update-V2024Subscription) | **PATCH** /trigger-subscriptions/{id} | Patch a Subscription
-*V2024TriggersApi* | [**Start-V2024TestTriggerInvocation**](docs/V2024TriggersApi.md#Start-V2024TestTriggerInvocation) | **POST** /trigger-invocations/test | Start a Test Invocation
-*V2024TriggersApi* | [**Test-V2024SubscriptionFilter**](docs/V2024TriggersApi.md#Test-V2024SubscriptionFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a Subscription Filter
-*V2024TriggersApi* | [**Update-V2024Subscription**](docs/V2024TriggersApi.md#Update-V2024Subscription) | **PUT** /trigger-subscriptions/{id} | Update a Subscription
-*V2024UIMetadataApi* | [**Get-V2024TenantUiMetadata**](docs/V2024UIMetadataApi.md#Get-V2024TenantUiMetadata) | **GET** /ui-metadata/tenant | Get a tenant UI metadata
-*V2024UIMetadataApi* | [**Set-V2024TenantUiMetadata**](docs/V2024UIMetadataApi.md#Set-V2024TenantUiMetadata) | **PUT** /ui-metadata/tenant | Update tenant UI metadata
-*V2024VendorConnectorMappingsApi* | [**New-V2024VendorConnectorMapping**](docs/V2024VendorConnectorMappingsApi.md#New-V2024VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create Vendor Connector Mapping
-*V2024VendorConnectorMappingsApi* | [**Remove-V2024VendorConnectorMapping**](docs/V2024VendorConnectorMappingsApi.md#Remove-V2024VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete Vendor Connector Mapping
-*V2024VendorConnectorMappingsApi* | [**Get-V2024VendorConnectorMappings**](docs/V2024VendorConnectorMappingsApi.md#Get-V2024VendorConnectorMappings) | **GET** /vendor-connector-mappings | List Vendor Connector Mappings
-*V2024WorkItemsApi* | [**Approve-V2024ApprovalItem**](docs/V2024WorkItemsApi.md#Approve-V2024ApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an Approval Item
-*V2024WorkItemsApi* | [**Approve-V2024ApprovalItemsInBulk**](docs/V2024WorkItemsApi.md#Approve-V2024ApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve Approval Items
-*V2024WorkItemsApi* | [**Complete-V2024WorkItem**](docs/V2024WorkItemsApi.md#Complete-V2024WorkItem) | **POST** /work-items/{id} | Complete a Work Item
-*V2024WorkItemsApi* | [**Invoke-V2024ForwardWorkItem**](docs/V2024WorkItemsApi.md#Invoke-V2024ForwardWorkItem) | **POST** /work-items/{id}/forward | Forward a Work Item
-*V2024WorkItemsApi* | [**Get-V2024CompletedWorkItems**](docs/V2024WorkItemsApi.md#Get-V2024CompletedWorkItems) | **GET** /work-items/completed | Completed Work Items
-*V2024WorkItemsApi* | [**Get-V2024CountCompletedWorkItems**](docs/V2024WorkItemsApi.md#Get-V2024CountCompletedWorkItems) | **GET** /work-items/completed/count | Count Completed Work Items
-*V2024WorkItemsApi* | [**Get-V2024CountWorkItems**](docs/V2024WorkItemsApi.md#Get-V2024CountWorkItems) | **GET** /work-items/count | Count Work Items
-*V2024WorkItemsApi* | [**Get-V2024WorkItem**](docs/V2024WorkItemsApi.md#Get-V2024WorkItem) | **GET** /work-items/{id} | Get a Work Item
-*V2024WorkItemsApi* | [**Get-V2024WorkItemsSummary**](docs/V2024WorkItemsApi.md#Get-V2024WorkItemsSummary) | **GET** /work-items/summary | Work Items Summary
-*V2024WorkItemsApi* | [**Get-V2024WorkItems**](docs/V2024WorkItemsApi.md#Get-V2024WorkItems) | **GET** /work-items | List Work Items
-*V2024WorkItemsApi* | [**Deny-V2024ApprovalItem**](docs/V2024WorkItemsApi.md#Deny-V2024ApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an Approval Item
-*V2024WorkItemsApi* | [**Deny-V2024ApprovalItemsInBulk**](docs/V2024WorkItemsApi.md#Deny-V2024ApprovalItemsInBulk) | **POST** /work-items/bulk-reject/{id} | Bulk reject Approval Items
-*V2024WorkItemsApi* | [**Submit-V2024AccountSelection**](docs/V2024WorkItemsApi.md#Submit-V2024AccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit Account Selections
-*V2024WorkReassignmentApi* | [**New-V2024ReassignmentConfiguration**](docs/V2024WorkReassignmentApi.md#New-V2024ReassignmentConfiguration) | **POST** /reassignment-configurations | Create a Reassignment Configuration
-*V2024WorkReassignmentApi* | [**Remove-V2024ReassignmentConfiguration**](docs/V2024WorkReassignmentApi.md#Remove-V2024ReassignmentConfiguration) | **DELETE** /reassignment-configurations/{identityId}/{configType} | Delete Reassignment Configuration
-*V2024WorkReassignmentApi* | [**Get-V2024EvaluateReassignmentConfiguration**](docs/V2024WorkReassignmentApi.md#Get-V2024EvaluateReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId}/evaluate/{configType} | Evaluate Reassignment Configuration
-*V2024WorkReassignmentApi* | [**Get-V2024ReassignmentConfigTypes**](docs/V2024WorkReassignmentApi.md#Get-V2024ReassignmentConfigTypes) | **GET** /reassignment-configurations/types | List Reassignment Config Types
-*V2024WorkReassignmentApi* | [**Get-V2024ReassignmentConfiguration**](docs/V2024WorkReassignmentApi.md#Get-V2024ReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId} | Get Reassignment Configuration
-*V2024WorkReassignmentApi* | [**Get-V2024TenantConfigConfiguration**](docs/V2024WorkReassignmentApi.md#Get-V2024TenantConfigConfiguration) | **GET** /reassignment-configurations/tenant-config | Get Tenant-wide Reassignment Configuration settings
-*V2024WorkReassignmentApi* | [**Get-V2024ReassignmentConfigurations**](docs/V2024WorkReassignmentApi.md#Get-V2024ReassignmentConfigurations) | **GET** /reassignment-configurations | List Reassignment Configurations
-*V2024WorkReassignmentApi* | [**Send-V2024ReassignmentConfig**](docs/V2024WorkReassignmentApi.md#Send-V2024ReassignmentConfig) | **PUT** /reassignment-configurations/{identityId} | Update Reassignment Configuration
-*V2024WorkReassignmentApi* | [**Send-V2024TenantConfiguration**](docs/V2024WorkReassignmentApi.md#Send-V2024TenantConfiguration) | **PUT** /reassignment-configurations/tenant-config | Update Tenant-wide Reassignment Configuration settings
-*V2024WorkflowsApi* | [**Suspend-V2024WorkflowExecution**](docs/V2024WorkflowsApi.md#Suspend-V2024WorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel Workflow Execution by ID
-*V2024WorkflowsApi* | [**New-V2024ExternalExecuteWorkflow**](docs/V2024WorkflowsApi.md#New-V2024ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id} | Execute Workflow via External Trigger
-*V2024WorkflowsApi* | [**New-V2024Workflow**](docs/V2024WorkflowsApi.md#New-V2024Workflow) | **POST** /workflows | Create Workflow
-*V2024WorkflowsApi* | [**New-V2024WorkflowExternalTrigger**](docs/V2024WorkflowsApi.md#New-V2024WorkflowExternalTrigger) | **POST** /workflows/{id}/external/oauth-clients | Generate External Trigger OAuth Client
-*V2024WorkflowsApi* | [**Remove-V2024Workflow**](docs/V2024WorkflowsApi.md#Remove-V2024Workflow) | **DELETE** /workflows/{id} | Delete Workflow By Id
-*V2024WorkflowsApi* | [**Get-V2024Workflow**](docs/V2024WorkflowsApi.md#Get-V2024Workflow) | **GET** /workflows/{id} | Get Workflow By Id
-*V2024WorkflowsApi* | [**Get-V2024WorkflowExecution**](docs/V2024WorkflowsApi.md#Get-V2024WorkflowExecution) | **GET** /workflow-executions/{id} | Get Workflow Execution
-*V2024WorkflowsApi* | [**Get-V2024WorkflowExecutionHistory**](docs/V2024WorkflowsApi.md#Get-V2024WorkflowExecutionHistory) | **GET** /workflow-executions/{id}/history | Get Workflow Execution History
-*V2024WorkflowsApi* | [**Get-V2024WorkflowExecutions**](docs/V2024WorkflowsApi.md#Get-V2024WorkflowExecutions) | **GET** /workflows/{id}/executions | List Workflow Executions
-*V2024WorkflowsApi* | [**Get-V2024CompleteWorkflowLibrary**](docs/V2024WorkflowsApi.md#Get-V2024CompleteWorkflowLibrary) | **GET** /workflow-library | List Complete Workflow Library
-*V2024WorkflowsApi* | [**Get-V2024WorkflowLibraryActions**](docs/V2024WorkflowsApi.md#Get-V2024WorkflowLibraryActions) | **GET** /workflow-library/actions | List Workflow Library Actions
-*V2024WorkflowsApi* | [**Get-V2024WorkflowLibraryOperators**](docs/V2024WorkflowsApi.md#Get-V2024WorkflowLibraryOperators) | **GET** /workflow-library/operators | List Workflow Library Operators
-*V2024WorkflowsApi* | [**Get-V2024WorkflowLibraryTriggers**](docs/V2024WorkflowsApi.md#Get-V2024WorkflowLibraryTriggers) | **GET** /workflow-library/triggers | List Workflow Library Triggers
-*V2024WorkflowsApi* | [**Get-V2024Workflows**](docs/V2024WorkflowsApi.md#Get-V2024Workflows) | **GET** /workflows | List Workflows
-*V2024WorkflowsApi* | [**Update-V2024Workflow**](docs/V2024WorkflowsApi.md#Update-V2024Workflow) | **PATCH** /workflows/{id} | Patch Workflow
-*V2024WorkflowsApi* | [**Send-V2024Workflow**](docs/V2024WorkflowsApi.md#Send-V2024Workflow) | **PUT** /workflows/{id} | Update Workflow
-*V2024WorkflowsApi* | [**Test-V2024ExternalExecuteWorkflow**](docs/V2024WorkflowsApi.md#Test-V2024ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id}/test | Test Workflow via External Trigger
-*V2024WorkflowsApi* | [**Test-V2024Workflow**](docs/V2024WorkflowsApi.md#Test-V2024Workflow) | **POST** /workflows/{id}/test | Test Workflow By Id
+*V2024TriggersApi* | [**Complete-V2024TriggerInvocation**](docs/V2024TriggersApi.md#Complete-V2024TriggerInvocation) | **POST** /trigger-invocations/{id}/complete | Complete trigger invocation
+*V2024TriggersApi* | [**New-V2024Subscription**](docs/V2024TriggersApi.md#New-V2024Subscription) | **POST** /trigger-subscriptions | Create a subscription
+*V2024TriggersApi* | [**Remove-V2024Subscription**](docs/V2024TriggersApi.md#Remove-V2024Subscription) | **DELETE** /trigger-subscriptions/{id} | Delete a subscription
+*V2024TriggersApi* | [**Get-V2024Subscriptions**](docs/V2024TriggersApi.md#Get-V2024Subscriptions) | **GET** /trigger-subscriptions | List subscriptions
+*V2024TriggersApi* | [**Get-V2024TriggerInvocationStatus**](docs/V2024TriggersApi.md#Get-V2024TriggerInvocationStatus) | **GET** /trigger-invocations/status | List latest invocation statuses
+*V2024TriggersApi* | [**Get-V2024Triggers**](docs/V2024TriggersApi.md#Get-V2024Triggers) | **GET** /triggers | List triggers
+*V2024TriggersApi* | [**Update-V2024Subscription**](docs/V2024TriggersApi.md#Update-V2024Subscription) | **PATCH** /trigger-subscriptions/{id} | Patch a subscription
+*V2024TriggersApi* | [**Start-V2024TestTriggerInvocation**](docs/V2024TriggersApi.md#Start-V2024TestTriggerInvocation) | **POST** /trigger-invocations/test | Start a test invocation
+*V2024TriggersApi* | [**Test-V2024SubscriptionFilter**](docs/V2024TriggersApi.md#Test-V2024SubscriptionFilter) | **POST** /trigger-subscriptions/validate-filter | Validate a subscription filter
+*V2024TriggersApi* | [**Update-V2024Subscription**](docs/V2024TriggersApi.md#Update-V2024Subscription) | **PUT** /trigger-subscriptions/{id} | Update a subscription
+*V2024UIMetadataApi* | [**Get-V2024TenantUiMetadata**](docs/V2024UIMetadataApi.md#Get-V2024TenantUiMetadata) | **GET** /ui-metadata/tenant | Get a tenant ui metadata
+*V2024UIMetadataApi* | [**Set-V2024TenantUiMetadata**](docs/V2024UIMetadataApi.md#Set-V2024TenantUiMetadata) | **PUT** /ui-metadata/tenant | Update tenant ui metadata
+*V2024VendorConnectorMappingsApi* | [**New-V2024VendorConnectorMapping**](docs/V2024VendorConnectorMappingsApi.md#New-V2024VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create vendor connector mapping
+*V2024VendorConnectorMappingsApi* | [**Remove-V2024VendorConnectorMapping**](docs/V2024VendorConnectorMappingsApi.md#Remove-V2024VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete vendor connector mapping
+*V2024VendorConnectorMappingsApi* | [**Get-V2024VendorConnectorMappings**](docs/V2024VendorConnectorMappingsApi.md#Get-V2024VendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
+*V2024WorkItemsApi* | [**Approve-V2024ApprovalItem**](docs/V2024WorkItemsApi.md#Approve-V2024ApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an approval item
+*V2024WorkItemsApi* | [**Approve-V2024ApprovalItemsInBulk**](docs/V2024WorkItemsApi.md#Approve-V2024ApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve approval items
+*V2024WorkItemsApi* | [**Complete-V2024WorkItem**](docs/V2024WorkItemsApi.md#Complete-V2024WorkItem) | **POST** /work-items/{id} | Complete a work item
+*V2024WorkItemsApi* | [**Invoke-V2024ForwardWorkItem**](docs/V2024WorkItemsApi.md#Invoke-V2024ForwardWorkItem) | **POST** /work-items/{id}/forward | Forward a work item
+*V2024WorkItemsApi* | [**Get-V2024CompletedWorkItems**](docs/V2024WorkItemsApi.md#Get-V2024CompletedWorkItems) | **GET** /work-items/completed | Completed work items
+*V2024WorkItemsApi* | [**Get-V2024CountCompletedWorkItems**](docs/V2024WorkItemsApi.md#Get-V2024CountCompletedWorkItems) | **GET** /work-items/completed/count | Count completed work items
+*V2024WorkItemsApi* | [**Get-V2024CountWorkItems**](docs/V2024WorkItemsApi.md#Get-V2024CountWorkItems) | **GET** /work-items/count | Count work items
+*V2024WorkItemsApi* | [**Get-V2024WorkItem**](docs/V2024WorkItemsApi.md#Get-V2024WorkItem) | **GET** /work-items/{id} | Get a work item
+*V2024WorkItemsApi* | [**Get-V2024WorkItemsSummary**](docs/V2024WorkItemsApi.md#Get-V2024WorkItemsSummary) | **GET** /work-items/summary | Work items summary
+*V2024WorkItemsApi* | [**Get-V2024WorkItems**](docs/V2024WorkItemsApi.md#Get-V2024WorkItems) | **GET** /work-items | List work items
+*V2024WorkItemsApi* | [**Deny-V2024ApprovalItem**](docs/V2024WorkItemsApi.md#Deny-V2024ApprovalItem) | **POST** /work-items/{id}/reject/{approvalItemId} | Reject an approval item
+*V2024WorkItemsApi* | [**Deny-V2024ApprovalItemsInBulk**](docs/V2024WorkItemsApi.md#Deny-V2024ApprovalItemsInBulk) | **POST** /work-items/bulk-reject/{id} | Bulk reject approval items
+*V2024WorkItemsApi* | [**Submit-V2024AccountSelection**](docs/V2024WorkItemsApi.md#Submit-V2024AccountSelection) | **POST** /work-items/{id}/submit-account-selection | Submit account selections
+*V2024WorkReassignmentApi* | [**New-V2024ReassignmentConfiguration**](docs/V2024WorkReassignmentApi.md#New-V2024ReassignmentConfiguration) | **POST** /reassignment-configurations | Create a reassignment configuration
+*V2024WorkReassignmentApi* | [**Remove-V2024ReassignmentConfiguration**](docs/V2024WorkReassignmentApi.md#Remove-V2024ReassignmentConfiguration) | **DELETE** /reassignment-configurations/{identityId}/{configType} | Delete reassignment configuration
+*V2024WorkReassignmentApi* | [**Get-V2024EvaluateReassignmentConfiguration**](docs/V2024WorkReassignmentApi.md#Get-V2024EvaluateReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId}/evaluate/{configType} | Evaluate reassignment configuration
+*V2024WorkReassignmentApi* | [**Get-V2024ReassignmentConfigTypes**](docs/V2024WorkReassignmentApi.md#Get-V2024ReassignmentConfigTypes) | **GET** /reassignment-configurations/types | List reassignment config types
+*V2024WorkReassignmentApi* | [**Get-V2024ReassignmentConfiguration**](docs/V2024WorkReassignmentApi.md#Get-V2024ReassignmentConfiguration) | **GET** /reassignment-configurations/{identityId} | Get reassignment configuration
+*V2024WorkReassignmentApi* | [**Get-V2024TenantConfigConfiguration**](docs/V2024WorkReassignmentApi.md#Get-V2024TenantConfigConfiguration) | **GET** /reassignment-configurations/tenant-config | Get tenant-wide reassignment configuration settings
+*V2024WorkReassignmentApi* | [**Get-V2024ReassignmentConfigurations**](docs/V2024WorkReassignmentApi.md#Get-V2024ReassignmentConfigurations) | **GET** /reassignment-configurations | List reassignment configurations
+*V2024WorkReassignmentApi* | [**Send-V2024ReassignmentConfig**](docs/V2024WorkReassignmentApi.md#Send-V2024ReassignmentConfig) | **PUT** /reassignment-configurations/{identityId} | Update reassignment configuration
+*V2024WorkReassignmentApi* | [**Send-V2024TenantConfiguration**](docs/V2024WorkReassignmentApi.md#Send-V2024TenantConfiguration) | **PUT** /reassignment-configurations/tenant-config | Update tenant-wide reassignment configuration settings
+*V2024WorkflowsApi* | [**Suspend-V2024WorkflowExecution**](docs/V2024WorkflowsApi.md#Suspend-V2024WorkflowExecution) | **POST** /workflow-executions/{id}/cancel | Cancel workflow execution by id
+*V2024WorkflowsApi* | [**New-V2024ExternalExecuteWorkflow**](docs/V2024WorkflowsApi.md#New-V2024ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id} | Execute workflow via external trigger
+*V2024WorkflowsApi* | [**New-V2024Workflow**](docs/V2024WorkflowsApi.md#New-V2024Workflow) | **POST** /workflows | Create workflow
+*V2024WorkflowsApi* | [**New-V2024WorkflowExternalTrigger**](docs/V2024WorkflowsApi.md#New-V2024WorkflowExternalTrigger) | **POST** /workflows/{id}/external/oauth-clients | Generate external trigger oauth client
+*V2024WorkflowsApi* | [**Remove-V2024Workflow**](docs/V2024WorkflowsApi.md#Remove-V2024Workflow) | **DELETE** /workflows/{id} | Delete workflow by id
+*V2024WorkflowsApi* | [**Get-V2024Workflow**](docs/V2024WorkflowsApi.md#Get-V2024Workflow) | **GET** /workflows/{id} | Get workflow by id
+*V2024WorkflowsApi* | [**Get-V2024WorkflowExecution**](docs/V2024WorkflowsApi.md#Get-V2024WorkflowExecution) | **GET** /workflow-executions/{id} | Get workflow execution
+*V2024WorkflowsApi* | [**Get-V2024WorkflowExecutionHistory**](docs/V2024WorkflowsApi.md#Get-V2024WorkflowExecutionHistory) | **GET** /workflow-executions/{id}/history | Get workflow execution history
+*V2024WorkflowsApi* | [**Get-V2024WorkflowExecutions**](docs/V2024WorkflowsApi.md#Get-V2024WorkflowExecutions) | **GET** /workflows/{id}/executions | List workflow executions
+*V2024WorkflowsApi* | [**Get-V2024CompleteWorkflowLibrary**](docs/V2024WorkflowsApi.md#Get-V2024CompleteWorkflowLibrary) | **GET** /workflow-library | List complete workflow library
+*V2024WorkflowsApi* | [**Get-V2024WorkflowLibraryActions**](docs/V2024WorkflowsApi.md#Get-V2024WorkflowLibraryActions) | **GET** /workflow-library/actions | List workflow library actions
+*V2024WorkflowsApi* | [**Get-V2024WorkflowLibraryOperators**](docs/V2024WorkflowsApi.md#Get-V2024WorkflowLibraryOperators) | **GET** /workflow-library/operators | List workflow library operators
+*V2024WorkflowsApi* | [**Get-V2024WorkflowLibraryTriggers**](docs/V2024WorkflowsApi.md#Get-V2024WorkflowLibraryTriggers) | **GET** /workflow-library/triggers | List workflow library triggers
+*V2024WorkflowsApi* | [**Get-V2024Workflows**](docs/V2024WorkflowsApi.md#Get-V2024Workflows) | **GET** /workflows | List workflows
+*V2024WorkflowsApi* | [**Update-V2024Workflow**](docs/V2024WorkflowsApi.md#Update-V2024Workflow) | **PATCH** /workflows/{id} | Patch workflow
+*V2024WorkflowsApi* | [**Send-V2024Workflow**](docs/V2024WorkflowsApi.md#Send-V2024Workflow) | **PUT** /workflows/{id} | Update workflow
+*V2024WorkflowsApi* | [**Test-V2024ExternalExecuteWorkflow**](docs/V2024WorkflowsApi.md#Test-V2024ExternalExecuteWorkflow) | **POST** /workflows/execute/external/{id}/test | Test workflow via external trigger
+*V2024WorkflowsApi* | [**Test-V2024Workflow**](docs/V2024WorkflowsApi.md#Test-V2024Workflow) | **POST** /workflows/{id}/test | Test workflow by id
 
 
 ## Documentation for Models

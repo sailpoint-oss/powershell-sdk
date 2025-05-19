@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create new Managed Cluster Type
+Create new managed cluster type
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-V2025ManagedClusterType {
 <#
 .SYNOPSIS
 
-Delete a Managed Cluster Type
+Delete a managed cluster type
 
 .DESCRIPTION
 
@@ -172,7 +172,7 @@ function Remove-V2025ManagedClusterType {
 <#
 .SYNOPSIS
 
-Get a Managed Cluster Type
+Get a managed cluster type
 
 .DESCRIPTION
 
@@ -246,7 +246,7 @@ function Get-V2025ManagedClusterType {
 <#
 .SYNOPSIS
 
-List Managed Cluster Types
+List managed cluster types
 
 .DESCRIPTION
 
@@ -360,7 +360,7 @@ function Get-V2025ManagedClusterTypes {
 <#
 .SYNOPSIS
 
-Update a Managed Cluster Type
+Update a managed cluster type
 
 .DESCRIPTION
 

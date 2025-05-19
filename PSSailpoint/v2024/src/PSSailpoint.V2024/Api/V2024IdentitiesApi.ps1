@@ -93,7 +93,7 @@ function Remove-V2024Identity {
 <#
 .SYNOPSIS
 
-Identity Details
+Identity details
 
 .DESCRIPTION
 
@@ -463,7 +463,7 @@ function Get-V2024RoleAssignments {
 <#
 .SYNOPSIS
 
-List Identities
+List identities
 
 .DESCRIPTION
 
@@ -896,7 +896,7 @@ function Start-V2024IdentitiesInvite {
 <#
 .SYNOPSIS
 
-Process a list of identityIds
+Process a list of identityids
 
 .DESCRIPTION
 

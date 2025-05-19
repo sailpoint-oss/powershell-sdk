@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Vendor Connector Mapping
+Create vendor connector mapping
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-V2024VendorConnectorMapping {
 <#
 .SYNOPSIS
 
-Delete Vendor Connector Mapping
+Delete vendor connector mapping
 
 .DESCRIPTION
 
@@ -188,7 +188,7 @@ function Remove-V2024VendorConnectorMapping {
 <#
 .SYNOPSIS
 
-List Vendor Connector Mappings
+List vendor connector mappings
 
 .DESCRIPTION
 

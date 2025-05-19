@@ -98,7 +98,7 @@ function New-BetaSendToken {
 <#
 .SYNOPSIS
 
-Polling MFA method by VerificationPollRequest
+Polling mfa method by verificationpollrequest
 
 .DESCRIPTION
 
@@ -199,7 +199,7 @@ function Ping-BetaVerificationStatus {
 <#
 .SYNOPSIS
 
-Verifying authentication via Duo method
+Verifying authentication via duo method
 
 .DESCRIPTION
 
@@ -289,7 +289,7 @@ function Send-BetaDuoVerifyRequest {
 <#
 .SYNOPSIS
 
-Authenticate KBA provided MFA method
+Authenticate kba provided mfa method
 
 .DESCRIPTION
 
@@ -379,7 +379,7 @@ function Send-BetaKbaAnswers {
 <#
 .SYNOPSIS
 
-Verifying authentication via Okta method
+Verifying authentication via okta method
 
 .DESCRIPTION
 
@@ -469,7 +469,7 @@ function Send-BetaOktaVerifyRequest {
 <#
 .SYNOPSIS
 
-Authenticate Token provided MFA method
+Authenticate token provided mfa method
 
 .DESCRIPTION
 

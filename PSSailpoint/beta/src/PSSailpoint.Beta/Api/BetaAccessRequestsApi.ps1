@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Cancel Access Request
+Cancel access request
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function Suspend-BetaAccessRequest {
 <#
 .SYNOPSIS
 
-Close Access Request
+Close access request
 
 .DESCRIPTION
 
@@ -188,7 +188,7 @@ function Close-BetaAccessRequest {
 <#
 .SYNOPSIS
 
-Submit Access Request
+Submit access request
 
 .DESCRIPTION
 
@@ -278,7 +278,7 @@ function New-BetaAccessRequest {
 <#
 .SYNOPSIS
 
-Get Access Request Configuration
+Get access request configuration
 
 .DESCRIPTION
 
@@ -342,7 +342,7 @@ function Get-BetaAccessRequestConfig {
 <#
 .SYNOPSIS
 
-Access Request Status
+Access request status
 
 .DESCRIPTION
 
@@ -506,7 +506,7 @@ function Get-BetaAccessRequestStatus {
 <#
 .SYNOPSIS
 
-Update Access Request Configuration
+Update access request configuration
 
 .DESCRIPTION
 

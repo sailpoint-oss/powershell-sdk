@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create Campaign Filter
+Create campaign filter
 
 .DESCRIPTION
 
@@ -98,7 +98,7 @@ function New-CampaignFilter {
 <#
 .SYNOPSIS
 
-Deletes Campaign Filters
+Deletes campaign filters
 
 .DESCRIPTION
 
@@ -188,7 +188,7 @@ function Remove-CampaignFilters {
 <#
 .SYNOPSIS
 
-Get Campaign Filter by ID
+Get campaign filter by id
 
 .DESCRIPTION
 
@@ -262,7 +262,7 @@ function Get-CampaignFilterById {
 <#
 .SYNOPSIS
 
-List Campaign Filters
+List campaign filters
 
 .DESCRIPTION
 
@@ -356,7 +356,7 @@ function Get-CampaignFilters {
 <#
 .SYNOPSIS
 
-Updates a Campaign Filter
+Updates a campaign filter
 
 .DESCRIPTION
 

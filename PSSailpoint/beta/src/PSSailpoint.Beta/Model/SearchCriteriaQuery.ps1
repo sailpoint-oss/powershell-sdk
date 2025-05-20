@@ -12,30 +12,30 @@ No summary available.
 
 .DESCRIPTION
 
-Sed Batch Status
+No description available.
 
-.PARAMETER Status
-status of batch
+.PARAMETER Query
+A structured query for advanced search.
 .OUTPUTS
 
-SedBatchStatus<PSCustomObject>
+SearchCriteriaQuery<PSCustomObject>
 #>
 
-function Initialize-BetaSedBatchStatus {
+function Initialize-BetaSearchCriteriaQuery {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Status}
+        ${Query}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Beta => BetaSedBatchStatus' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Beta => BetaSearchCriteriaQuery' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "status" = ${Status}
+            "query" = ${Query}
         }
 
         return $PSO
@@ -45,11 +45,11 @@ function Initialize-BetaSedBatchStatus {
 <#
 .SYNOPSIS
 
-Convert from JSON to SedBatchStatus<PSCustomObject>
+Convert from JSON to SearchCriteriaQuery<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SedBatchStatus<PSCustomObject>
+Convert from JSON to SearchCriteriaQuery<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,36 +57,36 @@ Json object
 
 .OUTPUTS
 
-SedBatchStatus<PSCustomObject>
+SearchCriteriaQuery<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSedBatchStatus {
+function ConvertFrom-BetaJsonToSearchCriteriaQuery {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaSedBatchStatus' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaSearchCriteriaQuery' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSedBatchStatus
-        $AllProperties = ("status")
+        # check if Json contains properties not defined in BetaSearchCriteriaQuery
+        $AllProperties = ("query")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) { #optional property not found
-            $Status = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "query"))) { #optional property not found
+            $Query = $null
         } else {
-            $Status = $JsonParameters.PSobject.Properties["status"].value
+            $Query = $JsonParameters.PSobject.Properties["query"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "status" = ${Status}
+            "query" = ${Query}
         }
 
         return $PSO

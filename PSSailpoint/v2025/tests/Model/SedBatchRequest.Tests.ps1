@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025SedBatchRequest' {
     Context 'V2025SedBatchRequest' {
         It 'Initialize-V2025SedBatchRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025SedBatchRequest -Entitlements "TEST_VALUE" -Seds "TEST_VALUE"
+            #$NewObject = Initialize-V2025SedBatchRequest -Entitlements "TEST_VALUE" -Seds "TEST_VALUE" -SearchCriteria "TEST_VALUE"
             #$NewObject | Should -BeOfType SedBatchRequest
             #$NewObject.property | Should -Be 0
         }

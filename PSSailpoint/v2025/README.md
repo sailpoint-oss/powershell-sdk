@@ -666,7 +666,7 @@ Class | Method | HTTP request | Description
 *V2025SourcesApi* | [**Update-V2025SourceSchedule**](docs/V2025SourcesApi.md#Update-V2025SourceSchedule) | **PATCH** /sources/{sourceId}/schedules/{scheduleType} | Update source schedule (partial)
 *V2025SourcesApi* | [**Update-V2025SourceSchema**](docs/V2025SourcesApi.md#Update-V2025SourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update source schema (partial)
 *V2025SuggestedEntitlementDescriptionApi* | [**Get-V2025SedBatchStats**](docs/V2025SuggestedEntitlementDescriptionApi.md#Get-V2025SedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit sed batch stats request
-*V2025SuggestedEntitlementDescriptionApi* | [**Get-V2025SedBatches**](docs/V2025SuggestedEntitlementDescriptionApi.md#Get-V2025SedBatches) | **GET** /suggested-entitlement-description-batches | List sed batch request
+*V2025SuggestedEntitlementDescriptionApi* | [**Get-V2025SedBatches**](docs/V2025SuggestedEntitlementDescriptionApi.md#Get-V2025SedBatches) | **GET** /suggested-entitlement-description-batches | List Sed Batch Record
 *V2025SuggestedEntitlementDescriptionApi* | [**Get-V2025Seds**](docs/V2025SuggestedEntitlementDescriptionApi.md#Get-V2025Seds) | **GET** /suggested-entitlement-descriptions | List suggested entitlement descriptions
 *V2025SuggestedEntitlementDescriptionApi* | [**Update-V2025Sed**](docs/V2025SuggestedEntitlementDescriptionApi.md#Update-V2025Sed) | **PATCH** /suggested-entitlement-descriptions | Patch suggested entitlement description
 *V2025SuggestedEntitlementDescriptionApi* | [**Submit-V2025SedApproval**](docs/V2025SuggestedEntitlementDescriptionApi.md#Submit-V2025SedApproval) | **POST** /suggested-entitlement-description-approvals | Submit bulk approval request
@@ -1677,6 +1677,13 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.SearchAggregationSpecification](docs/SearchAggregationSpecification.md)
  - [PSSailpoint.V2025\Model.SearchArguments](docs/SearchArguments.md)
  - [PSSailpoint.V2025\Model.SearchAttributeConfig](docs/SearchAttributeConfig.md)
+ - [PSSailpoint.V2025\Model.SearchCriteria](docs/SearchCriteria.md)
+ - [PSSailpoint.V2025\Model.SearchCriteriaFiltersValue](docs/SearchCriteriaFiltersValue.md)
+ - [PSSailpoint.V2025\Model.SearchCriteriaFiltersValueRange](docs/SearchCriteriaFiltersValueRange.md)
+ - [PSSailpoint.V2025\Model.SearchCriteriaFiltersValueRangeLower](docs/SearchCriteriaFiltersValueRangeLower.md)
+ - [PSSailpoint.V2025\Model.SearchCriteriaFiltersValueRangeUpper](docs/SearchCriteriaFiltersValueRangeUpper.md)
+ - [PSSailpoint.V2025\Model.SearchCriteriaQuery](docs/SearchCriteriaQuery.md)
+ - [PSSailpoint.V2025\Model.SearchCriteriaTextQuery](docs/SearchCriteriaTextQuery.md)
  - [PSSailpoint.V2025\Model.SearchExportReportArguments](docs/SearchExportReportArguments.md)
  - [PSSailpoint.V2025\Model.SearchFilterType](docs/SearchFilterType.md)
  - [PSSailpoint.V2025\Model.SearchFormDefinitionsByTenant400Response](docs/SearchFormDefinitionsByTenant400Response.md)
@@ -1689,10 +1696,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.SedAssignee](docs/SedAssignee.md)
  - [PSSailpoint.V2025\Model.SedAssignment](docs/SedAssignment.md)
  - [PSSailpoint.V2025\Model.SedAssignmentResponse](docs/SedAssignmentResponse.md)
+ - [PSSailpoint.V2025\Model.SedBatchRecord](docs/SedBatchRecord.md)
  - [PSSailpoint.V2025\Model.SedBatchRequest](docs/SedBatchRequest.md)
  - [PSSailpoint.V2025\Model.SedBatchResponse](docs/SedBatchResponse.md)
  - [PSSailpoint.V2025\Model.SedBatchStats](docs/SedBatchStats.md)
- - [PSSailpoint.V2025\Model.SedBatchStatus](docs/SedBatchStatus.md)
  - [PSSailpoint.V2025\Model.SedPatch](docs/SedPatch.md)
  - [PSSailpoint.V2025\Model.Segment](docs/Segment.md)
  - [PSSailpoint.V2025\Model.SegmentVisibilityCriteria](docs/SegmentVisibilityCriteria.md)

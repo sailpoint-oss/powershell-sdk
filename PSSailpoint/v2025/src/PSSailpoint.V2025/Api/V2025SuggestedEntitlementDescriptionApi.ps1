@@ -82,11 +82,26 @@ function Get-V2025SedBatchStats {
 <#
 .SYNOPSIS
 
-List sed batch request
+List Sed Batch Record
 
 .DESCRIPTION
 
-List Sed Batches. API responses with Sed Batch Status
+List Sed Batches. API responses with Sed Batch Records
+
+.PARAMETER Offset
+Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+
+.PARAMETER Limit
+Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+
+.PARAMETER Count
+If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used.
+
+.PARAMETER CountOnly
+If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array.
+
+.PARAMETER Status
+Batch Status
 
 .PARAMETER WithHttpInfo
 
@@ -94,11 +109,26 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-SedBatchStatus
+SedBatchRecord[]
 #>
 function Get-V2025SedBatches {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int64]]
+        ${Offset},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int64]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${CountOnly},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Status},
         [Switch]
         $WithHttpInfo
     )
@@ -121,6 +151,26 @@ function Get-V2025SedBatches {
 
         $LocalVarUri = '/suggested-entitlement-description-batches'
 
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+        if ($CountOnly) {
+            $LocalVarQueryParameters['count-only'] = $CountOnly
+        }
+
+        if ($Status) {
+            $LocalVarQueryParameters['status'] = $Status
+        }
+
 
 
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
@@ -132,7 +182,7 @@ function Get-V2025SedBatches {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "SedBatchStatus" `
+                                -ReturnType "SedBatchRecord[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

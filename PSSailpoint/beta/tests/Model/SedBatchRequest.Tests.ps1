@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaSedBatchRequest' {
     Context 'BetaSedBatchRequest' {
         It 'Initialize-BetaSedBatchRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaSedBatchRequest -Entitlements "TEST_VALUE" -Seds "TEST_VALUE"
+            #$NewObject = Initialize-BetaSedBatchRequest -Entitlements "TEST_VALUE" -Seds "TEST_VALUE" -SearchCriteria "TEST_VALUE"
             #$NewObject | Should -BeOfType SedBatchRequest
             #$NewObject.property | Should -Be 0
         }

@@ -874,6 +874,13 @@ docs/ScheduleType.md
 docs/ScheduledAttributes.md
 docs/Schema.md
 docs/SearchAttributeConfig.md
+docs/SearchCriteria.md
+docs/SearchCriteriaFiltersValue.md
+docs/SearchCriteriaFiltersValueRange.md
+docs/SearchCriteriaFiltersValueRangeLower.md
+docs/SearchCriteriaFiltersValueRangeUpper.md
+docs/SearchCriteriaQuery.md
+docs/SearchCriteriaTextQuery.md
 docs/SearchFormDefinitionsByTenant400Response.md
 docs/Section.md
 docs/SectionDetails.md
@@ -886,7 +893,6 @@ docs/SedAssignmentResponse.md
 docs/SedBatchRequest.md
 docs/SedBatchResponse.md
 docs/SedBatchStats.md
-docs/SedBatchStatus.md
 docs/SedPatch.md
 docs/Segment.md
 docs/Selector.md
@@ -1881,6 +1887,13 @@ src/PSSailpoint.Beta/Model/ScheduleType.ps1
 src/PSSailpoint.Beta/Model/ScheduledAttributes.ps1
 src/PSSailpoint.Beta/Model/Schema.ps1
 src/PSSailpoint.Beta/Model/SearchAttributeConfig.ps1
+src/PSSailpoint.Beta/Model/SearchCriteria.ps1
+src/PSSailpoint.Beta/Model/SearchCriteriaFiltersValue.ps1
+src/PSSailpoint.Beta/Model/SearchCriteriaFiltersValueRange.ps1
+src/PSSailpoint.Beta/Model/SearchCriteriaFiltersValueRangeLower.ps1
+src/PSSailpoint.Beta/Model/SearchCriteriaFiltersValueRangeUpper.ps1
+src/PSSailpoint.Beta/Model/SearchCriteriaQuery.ps1
+src/PSSailpoint.Beta/Model/SearchCriteriaTextQuery.ps1
 src/PSSailpoint.Beta/Model/SearchFormDefinitionsByTenant400Response.ps1
 src/PSSailpoint.Beta/Model/Section.ps1
 src/PSSailpoint.Beta/Model/SectionDetails.ps1
@@ -1893,7 +1906,6 @@ src/PSSailpoint.Beta/Model/SedAssignmentResponse.ps1
 src/PSSailpoint.Beta/Model/SedBatchRequest.ps1
 src/PSSailpoint.Beta/Model/SedBatchResponse.ps1
 src/PSSailpoint.Beta/Model/SedBatchStats.ps1
-src/PSSailpoint.Beta/Model/SedBatchStatus.ps1
 src/PSSailpoint.Beta/Model/SedPatch.ps1
 src/PSSailpoint.Beta/Model/Segment.ps1
 src/PSSailpoint.Beta/Model/Selector.ps1
@@ -2894,6 +2906,13 @@ tests/Model/ScheduleType.Tests.ps1
 tests/Model/ScheduledAttributes.Tests.ps1
 tests/Model/Schema.Tests.ps1
 tests/Model/SearchAttributeConfig.Tests.ps1
+tests/Model/SearchCriteria.Tests.ps1
+tests/Model/SearchCriteriaFiltersValue.Tests.ps1
+tests/Model/SearchCriteriaFiltersValueRange.Tests.ps1
+tests/Model/SearchCriteriaFiltersValueRangeLower.Tests.ps1
+tests/Model/SearchCriteriaFiltersValueRangeUpper.Tests.ps1
+tests/Model/SearchCriteriaQuery.Tests.ps1
+tests/Model/SearchCriteriaTextQuery.Tests.ps1
 tests/Model/SearchFormDefinitionsByTenant400Response.Tests.ps1
 tests/Model/Section.Tests.ps1
 tests/Model/SectionDetails.Tests.ps1
@@ -2906,7 +2925,6 @@ tests/Model/SedAssignmentResponse.Tests.ps1
 tests/Model/SedBatchRequest.Tests.ps1
 tests/Model/SedBatchResponse.Tests.ps1
 tests/Model/SedBatchStats.Tests.ps1
-tests/Model/SedBatchStatus.Tests.ps1
 tests/Model/SedPatch.Tests.ps1
 tests/Model/Segment.Tests.ps1
 tests/Model/Selector.Tests.ps1

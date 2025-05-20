@@ -18,6 +18,8 @@ Sed Batch Request
 list of entitlement ids
 .PARAMETER Seds
 list of sed ids
+.PARAMETER SearchCriteria
+Search criteria for the batch request.
 .OUTPUTS
 
 SedBatchRequest<PSCustomObject>
@@ -31,7 +33,10 @@ function Initialize-V2024SedBatchRequest {
         ${Entitlements},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${Seds}
+        ${Seds},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Collections.Hashtable]
+        ${SearchCriteria}
     )
 
     Process {
@@ -50,6 +55,7 @@ function Initialize-V2024SedBatchRequest {
         $PSO = [PSCustomObject]@{
             "entitlements" = ${Entitlements}
             "seds" = ${Seds}
+            "searchCriteria" = ${SearchCriteria}
         }
 
         return $PSO
@@ -86,7 +92,7 @@ function ConvertFrom-V2024JsonToSedBatchRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024SedBatchRequest
-        $AllProperties = ("entitlements", "seds")
+        $AllProperties = ("entitlements", "seds", "searchCriteria")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -105,9 +111,16 @@ function ConvertFrom-V2024JsonToSedBatchRequest {
             $Seds = $JsonParameters.PSobject.Properties["seds"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "searchCriteria"))) { #optional property not found
+            $SearchCriteria = $null
+        } else {
+            $SearchCriteria = $JsonParameters.PSobject.Properties["searchCriteria"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "entitlements" = ${Entitlements}
             "seds" = ${Seds}
+            "searchCriteria" = ${SearchCriteria}
         }
 
         return $PSO

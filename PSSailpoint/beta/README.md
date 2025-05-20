@@ -528,7 +528,7 @@ Class | Method | HTTP request | Description
 *BetaSourcesApi* | [**Update-BetaSourceEntitlementRequestConfig**](docs/BetaSourcesApi.md#Update-BetaSourceEntitlementRequestConfig) | **PUT** /sources/{sourceId}/entitlement-request-config | Update source entitlement request configuration
 *BetaSourcesApi* | [**Update-BetaSourceSchema**](docs/BetaSourcesApi.md#Update-BetaSourceSchema) | **PATCH** /sources/{sourceId}/schemas/{schemaId} | Update source schema (partial)
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatchStats**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatchStats) | **GET** /suggested-entitlement-description-batches/{batchId}/stats | Submit sed batch stats request
-*BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatches**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatches) | **GET** /suggested-entitlement-description-batches | List sed batch request
+*BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSedBatches**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSedBatches) | **GET** /suggested-entitlement-description-batches | List Sed Batch Record
 *BetaSuggestedEntitlementDescriptionApi* | [**Get-BetaSeds**](docs/BetaSuggestedEntitlementDescriptionApi.md#Get-BetaSeds) | **GET** /suggested-entitlement-descriptions | List suggested entitlement descriptions
 *BetaSuggestedEntitlementDescriptionApi* | [**Update-BetaSed**](docs/BetaSuggestedEntitlementDescriptionApi.md#Update-BetaSed) | **PATCH** /suggested-entitlement-descriptions | Patch suggested entitlement description
 *BetaSuggestedEntitlementDescriptionApi* | [**Submit-BetaSedApproval**](docs/BetaSuggestedEntitlementDescriptionApi.md#Submit-BetaSedApproval) | **POST** /suggested-entitlement-description-approvals | Submit bulk approval request
@@ -1336,6 +1336,13 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.ScheduledAttributes](docs/ScheduledAttributes.md)
  - [PSSailpoint.Beta\Model.Schema](docs/Schema.md)
  - [PSSailpoint.Beta\Model.SearchAttributeConfig](docs/SearchAttributeConfig.md)
+ - [PSSailpoint.Beta\Model.SearchCriteria](docs/SearchCriteria.md)
+ - [PSSailpoint.Beta\Model.SearchCriteriaFiltersValue](docs/SearchCriteriaFiltersValue.md)
+ - [PSSailpoint.Beta\Model.SearchCriteriaFiltersValueRange](docs/SearchCriteriaFiltersValueRange.md)
+ - [PSSailpoint.Beta\Model.SearchCriteriaFiltersValueRangeLower](docs/SearchCriteriaFiltersValueRangeLower.md)
+ - [PSSailpoint.Beta\Model.SearchCriteriaFiltersValueRangeUpper](docs/SearchCriteriaFiltersValueRangeUpper.md)
+ - [PSSailpoint.Beta\Model.SearchCriteriaQuery](docs/SearchCriteriaQuery.md)
+ - [PSSailpoint.Beta\Model.SearchCriteriaTextQuery](docs/SearchCriteriaTextQuery.md)
  - [PSSailpoint.Beta\Model.SearchFormDefinitionsByTenant400Response](docs/SearchFormDefinitionsByTenant400Response.md)
  - [PSSailpoint.Beta\Model.Section](docs/Section.md)
  - [PSSailpoint.Beta\Model.SectionDetails](docs/SectionDetails.md)
@@ -1348,7 +1355,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.SedBatchRequest](docs/SedBatchRequest.md)
  - [PSSailpoint.Beta\Model.SedBatchResponse](docs/SedBatchResponse.md)
  - [PSSailpoint.Beta\Model.SedBatchStats](docs/SedBatchStats.md)
- - [PSSailpoint.Beta\Model.SedBatchStatus](docs/SedBatchStatus.md)
  - [PSSailpoint.Beta\Model.SedPatch](docs/SedPatch.md)
  - [PSSailpoint.Beta\Model.Segment](docs/Segment.md)
  - [PSSailpoint.Beta\Model.Selector](docs/Selector.md)

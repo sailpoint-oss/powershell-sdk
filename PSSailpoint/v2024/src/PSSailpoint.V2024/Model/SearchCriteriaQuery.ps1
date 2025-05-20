@@ -12,30 +12,30 @@ No summary available.
 
 .DESCRIPTION
 
-Sed Batch Status
+No description available.
 
-.PARAMETER Status
-status of batch
+.PARAMETER Query
+A structured query for advanced search.
 .OUTPUTS
 
-SedBatchStatus<PSCustomObject>
+SearchCriteriaQuery<PSCustomObject>
 #>
 
-function Initialize-V2024SedBatchStatus {
+function Initialize-V2024SearchCriteriaQuery {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Status}
+        ${Query}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2024 => V2024SedBatchStatus' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2024 => V2024SearchCriteriaQuery' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "status" = ${Status}
+            "query" = ${Query}
         }
 
         return $PSO
@@ -45,11 +45,11 @@ function Initialize-V2024SedBatchStatus {
 <#
 .SYNOPSIS
 
-Convert from JSON to SedBatchStatus<PSCustomObject>
+Convert from JSON to SearchCriteriaQuery<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SedBatchStatus<PSCustomObject>
+Convert from JSON to SearchCriteriaQuery<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,36 +57,36 @@ Json object
 
 .OUTPUTS
 
-SedBatchStatus<PSCustomObject>
+SearchCriteriaQuery<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToSedBatchStatus {
+function ConvertFrom-V2024JsonToSearchCriteriaQuery {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024SedBatchStatus' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024SearchCriteriaQuery' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2024SedBatchStatus
-        $AllProperties = ("status")
+        # check if Json contains properties not defined in V2024SearchCriteriaQuery
+        $AllProperties = ("query")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) { #optional property not found
-            $Status = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "query"))) { #optional property not found
+            $Query = $null
         } else {
-            $Status = $JsonParameters.PSobject.Properties["status"].value
+            $Query = $JsonParameters.PSobject.Properties["query"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "status" = ${Status}
+            "query" = ${Query}
         }
 
         return $PSO

@@ -539,6 +539,7 @@ docs/IdentityWithNewAccessAccessRefsInner.md
 docs/IdpDetails.md
 docs/ImportAccountsRequest.md
 docs/ImportEntitlementsBySourceRequest.md
+docs/ImportEntitlementsRequest.md
 docs/ImportFormDefinitions202Response.md
 docs/ImportFormDefinitions202ResponseErrorsInner.md
 docs/ImportFormDefinitionsRequestInner.md
@@ -1981,6 +1982,7 @@ src/PSSailpoint.V2024/Model/IdentityWithNewAccessAccessRefsInner.ps1
 src/PSSailpoint.V2024/Model/IdpDetails.ps1
 src/PSSailpoint.V2024/Model/ImportAccountsRequest.ps1
 src/PSSailpoint.V2024/Model/ImportEntitlementsBySourceRequest.ps1
+src/PSSailpoint.V2024/Model/ImportEntitlementsRequest.ps1
 src/PSSailpoint.V2024/Model/ImportFormDefinitions202Response.ps1
 src/PSSailpoint.V2024/Model/ImportFormDefinitions202ResponseErrorsInner.ps1
 src/PSSailpoint.V2024/Model/ImportFormDefinitionsRequestInner.ps1
@@ -3247,6 +3249,7 @@ tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
 tests/Model/IdpDetails.Tests.ps1
 tests/Model/ImportAccountsRequest.Tests.ps1
 tests/Model/ImportEntitlementsBySourceRequest.Tests.ps1
+tests/Model/ImportEntitlementsRequest.Tests.ps1
 tests/Model/ImportFormDefinitions202Response.Tests.ps1
 tests/Model/ImportFormDefinitions202ResponseErrorsInner.Tests.ps1
 tests/Model/ImportFormDefinitionsRequestInner.Tests.ps1

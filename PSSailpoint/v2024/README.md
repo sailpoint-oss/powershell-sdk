@@ -650,6 +650,7 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**Import-V2024Accounts**](docs/V2024SourcesApi.md#Import-V2024Accounts) | **POST** /sources/{id}/load-accounts | Account aggregation
 *V2024SourcesApi* | [**Import-V2024AccountsSchema**](docs/V2024SourcesApi.md#Import-V2024AccountsSchema) | **POST** /sources/{id}/schemas/accounts | Uploads source accounts schema template
 *V2024SourcesApi* | [**Import-V2024ConnectorFile**](docs/V2024SourcesApi.md#Import-V2024ConnectorFile) | **POST** /sources/{sourceId}/upload-connector-file | Upload connector file to source
+*V2024SourcesApi* | [**Import-V2024Entitlements**](docs/V2024SourcesApi.md#Import-V2024Entitlements) | **POST** /sources/{sourceId}/load-entitlements | Entitlement aggregation
 *V2024SourcesApi* | [**Import-V2024EntitlementsSchema**](docs/V2024SourcesApi.md#Import-V2024EntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
 *V2024SourcesApi* | [**Import-V2024UncorrelatedAccounts**](docs/V2024SourcesApi.md#Import-V2024UncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process uncorrelated accounts
 *V2024SourcesApi* | [**Get-V2024ProvisioningPolicies**](docs/V2024SourcesApi.md#Get-V2024ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists provisioningpolicies
@@ -1292,6 +1293,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.IdpDetails](docs/IdpDetails.md)
  - [PSSailpoint.V2024\Model.ImportAccountsRequest](docs/ImportAccountsRequest.md)
  - [PSSailpoint.V2024\Model.ImportEntitlementsBySourceRequest](docs/ImportEntitlementsBySourceRequest.md)
+ - [PSSailpoint.V2024\Model.ImportEntitlementsRequest](docs/ImportEntitlementsRequest.md)
  - [PSSailpoint.V2024\Model.ImportFormDefinitions202Response](docs/ImportFormDefinitions202Response.md)
  - [PSSailpoint.V2024\Model.ImportFormDefinitions202ResponseErrorsInner](docs/ImportFormDefinitions202ResponseErrorsInner.md)
  - [PSSailpoint.V2024\Model.ImportFormDefinitionsRequestInner](docs/ImportFormDefinitionsRequestInner.md)

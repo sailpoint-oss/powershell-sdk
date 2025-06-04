@@ -2420,6 +2420,104 @@ function Import-V2024ConnectorFile {
 <#
 .SYNOPSIS
 
+Entitlement aggregation
+
+.DESCRIPTION
+
+Starts an entitlement aggregation on the specified source.  If the target source is a delimited file source, then the CSV file needs to be included in the request body.  You will also need to set the Content-Type header to `multipart/form-data`. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+.PARAMETER SourceId
+Source Id
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER File
+The CSV file containing the source entitlements to aggregate.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+LoadEntitlementTask
+#>
+function Import-V2024Entitlements {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.IO.FileInfo]
+        ${File},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Import-V2024Entitlements' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('multipart/form-data')
+
+        $LocalVarUri = '/sources/{sourceId}/load-entitlements'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling importEntitlements."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling importEntitlements."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if ($File) {
+            $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
+        }
+
+
+
+        $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "LoadEntitlementTask" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Uploads source entitlements schema template
 
 .DESCRIPTION

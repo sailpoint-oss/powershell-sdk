@@ -16070,6 +16070,27 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024ConnectorFile"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/{sourceId}/load-entitlements
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sources#import-entitlements
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
+        
+        # Entitlement aggregation
+        
+        try {
+            Import-V2024Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Import-V2024Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -File $File   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024Entitlements"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/{id}/schemas/entitlements
   method: POST
   xCodeSample:

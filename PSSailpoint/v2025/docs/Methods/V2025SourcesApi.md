@@ -102,6 +102,7 @@ Method | HTTP request | Description
 [**Import-V2025Accounts**](#import-accounts) | **POST** `/sources/{id}/load-accounts` | Account aggregation
 [**Import-V2025AccountsSchema**](#import-accounts-schema) | **POST** `/sources/{id}/schemas/accounts` | Uploads source accounts schema template
 [**Import-V2025ConnectorFile**](#import-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
+[**Import-V2025Entitlements**](#import-entitlements) | **POST** `/sources/{sourceId}/load-entitlements` | Entitlement aggregation
 [**Import-V2025EntitlementsSchema**](#import-entitlements-schema) | **POST** `/sources/{id}/schemas/entitlements` | Uploads source entitlements schema template
 [**Import-V2025UncorrelatedAccounts**](#import-uncorrelated-accounts) | **POST** `/sources/{id}/load-uncorrelated-accounts` | Process uncorrelated accounts
 [**Get-V2025ProvisioningPolicies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists provisioningpolicies
@@ -1654,6 +1655,61 @@ try {
     # Import-V2025ConnectorFile -SourceId $SourceId -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2025ConnectorFile"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## import-entitlements
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Starts an entitlement aggregation on the specified source. 
+If the target source is a delimited file source, then the CSV file needs to be included in the request body. 
+You will also need to set the Content-Type header to `multipart/form-data`.
+A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-entitlements)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source Id
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+   | File | **System.IO.FileInfo** |   (optional) | The CSV file containing the source entitlements to aggregate.
+
+### Return type
+[**LoadEntitlementTask**](../models/load-entitlement-task)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Aggregate Entitlements Task | LoadEntitlementTask
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
+
+# Entitlement aggregation
+
+try {
+    Import-V2025Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Import-V2025Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -File $File  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2025Entitlements"
     Write-Host $_.ErrorDetails
 }
 ```

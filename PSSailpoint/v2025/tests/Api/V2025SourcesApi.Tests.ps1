@@ -230,6 +230,14 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025SourcesApi' {
         }
     }
 
+    Context 'Import-V2025Entitlements' {
+        It 'Test Import-V2025Entitlements' {
+            #$TestResult = Import-V2025Entitlements -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Import-V2025EntitlementsSchema' {
         It 'Test Import-V2025EntitlementsSchema' {
             #$TestResult = Import-V2025EntitlementsSchema -Id "TEST_VALUE" -SchemaName "TEST_VALUE" -File "TEST_VALUE"

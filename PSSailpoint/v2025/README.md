@@ -175,6 +175,9 @@ Class | Method | HTTP request | Description
 *V2025CertificationsApi* | [**Invoke-V2025ReassignIdentityCertifications**](docs/V2025CertificationsApi.md#Invoke-V2025ReassignIdentityCertifications) | **POST** /certifications/{id}/reassign | Reassign identities or items
 *V2025CertificationsApi* | [**Invoke-V2025SignOffIdentityCertification**](docs/V2025CertificationsApi.md#Invoke-V2025SignOffIdentityCertification) | **POST** /certifications/{id}/sign-off | Finalize identity certification decisions
 *V2025CertificationsApi* | [**Submit-V2025ReassignCertsAsync**](docs/V2025CertificationsApi.md#Submit-V2025ReassignCertsAsync) | **POST** /certifications/{id}/reassign-async | Reassign certifications asynchronously
+*V2025ClassifySourceApi* | [**Remove-V2025ClassifyMachineAccountFromSource**](docs/V2025ClassifySourceApi.md#Remove-V2025ClassifyMachineAccountFromSource) | **DELETE** /sources/{sourceId}/classify | Cancel classify source's accounts process
+*V2025ClassifySourceApi* | [**Get-V2025ClassifyMachineAccountFromSourceStatus**](docs/V2025ClassifySourceApi.md#Get-V2025ClassifyMachineAccountFromSourceStatus) | **GET** /sources/{sourceId}/classify | Source accounts classification status
+*V2025ClassifySourceApi* | [**Send-V2025ClassifyMachineAccountFromSource**](docs/V2025ClassifySourceApi.md#Send-V2025ClassifyMachineAccountFromSource) | **POST** /sources/{sourceId}/classify | Classify source's all accounts
 *V2025ConfigurationHubApi* | [**New-V2025Deploy**](docs/V2025ConfigurationHubApi.md#New-V2025Deploy) | **POST** /configuration-hub/deploys | Create a deploy
 *V2025ConfigurationHubApi* | [**New-V2025ObjectMapping**](docs/V2025ConfigurationHubApi.md#New-V2025ObjectMapping) | **POST** /configuration-hub/object-mappings/{sourceOrg} | Creates an object mapping
 *V2025ConfigurationHubApi* | [**New-V2025ObjectMappings**](docs/V2025ConfigurationHubApi.md#New-V2025ObjectMappings) | **POST** /configuration-hub/object-mappings/{sourceOrg}/bulk-create | Bulk creates object mappings
@@ -393,9 +396,17 @@ Class | Method | HTTP request | Description
 *V2025MFAConfigurationApi* | [**Set-V2025MFAKBAConfig**](docs/V2025MFAConfigurationApi.md#Set-V2025MFAKBAConfig) | **POST** /mfa/kba/config/answers | Set mfa kba configuration
 *V2025MFAConfigurationApi* | [**Set-V2025MFAOktaConfig**](docs/V2025MFAConfigurationApi.md#Set-V2025MFAOktaConfig) | **PUT** /mfa/okta-verify/config | Set okta mfa configuration
 *V2025MFAConfigurationApi* | [**Test-V2025MFAConfig**](docs/V2025MFAConfigurationApi.md#Test-V2025MFAConfig) | **GET** /mfa/{method}/test | Mfa method's test configuration
+*V2025MachineAccountClassifyApi* | [**Send-V2025ClassifyMachineAccount**](docs/V2025MachineAccountClassifyApi.md#Send-V2025ClassifyMachineAccount) | **POST** /accounts/{id}/classify | Classify a Single Machine Account
+*V2025MachineAccountMappingsApi* | [**New-V2025MachineAccountMappings**](docs/V2025MachineAccountMappingsApi.md#New-V2025MachineAccountMappings) | **POST** /sources/{sourceId}/machine-account-mappings | Create machine account mappings
+*V2025MachineAccountMappingsApi* | [**Remove-V2025MachineAccountMappings**](docs/V2025MachineAccountMappingsApi.md#Remove-V2025MachineAccountMappings) | **DELETE** /sources/{sourceId}/machine-account-mappings | Delete source's machine account mappings
+*V2025MachineAccountMappingsApi* | [**Get-V2025MachineAccountMappings**](docs/V2025MachineAccountMappingsApi.md#Get-V2025MachineAccountMappings) | **GET** /sources/{sourceId}/machine-account-mappings | Machine account mapping for source
+*V2025MachineAccountMappingsApi* | [**Set-V2025MachineAccountMappings**](docs/V2025MachineAccountMappingsApi.md#Set-V2025MachineAccountMappings) | **PUT** /sources/{sourceId}/machine-mappings | Update Source's Machine Account Mappings
 *V2025MachineAccountsApi* | [**Get-V2025MachineAccount**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccount) | **GET** /machine-accounts/{id} | Machine account details
 *V2025MachineAccountsApi* | [**Get-V2025MachineAccounts**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccounts) | **GET** /machine-accounts | Machine accounts list
 *V2025MachineAccountsApi* | [**Update-V2025MachineAccount**](docs/V2025MachineAccountsApi.md#Update-V2025MachineAccount) | **PATCH** /machine-accounts/{id} | Update a machine account
+*V2025MachineClassificationConfigApi* | [**Remove-V2025MachineClassificationConfig**](docs/V2025MachineClassificationConfigApi.md#Remove-V2025MachineClassificationConfig) | **DELETE** /sources/{sourceId}/machine-classification-config | Delete source's classification config
+*V2025MachineClassificationConfigApi* | [**Get-V2025MachineClassificationConfig**](docs/V2025MachineClassificationConfigApi.md#Get-V2025MachineClassificationConfig) | **GET** /sources/{sourceId}/machine-classification-config | Machine classification config for source
+*V2025MachineClassificationConfigApi* | [**Set-V2025MachineClassificationConfig**](docs/V2025MachineClassificationConfigApi.md#Set-V2025MachineClassificationConfig) | **PUT** /sources/{sourceId}/machine-classification-config | Update source's classification config
 *V2025MachineIdentitiesApi* | [**New-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#New-V2025MachineIdentity) | **POST** /machine-identities | Create machine identities
 *V2025MachineIdentitiesApi* | [**Remove-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#Remove-V2025MachineIdentity) | **DELETE** /machine-identities/{id} | Delete machine identity
 *V2025MachineIdentitiesApi* | [**Get-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#Get-V2025MachineIdentity) | **GET** /machine-identities/{id} | Machine identity details
@@ -931,6 +942,12 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.AttributeDefinition](docs/AttributeDefinition.md)
  - [PSSailpoint.V2025\Model.AttributeDefinitionSchema](docs/AttributeDefinitionSchema.md)
  - [PSSailpoint.V2025\Model.AttributeDefinitionType](docs/AttributeDefinitionType.md)
+ - [PSSailpoint.V2025\Model.AttributeMappings](docs/AttributeMappings.md)
+ - [PSSailpoint.V2025\Model.AttributeMappingsAllOfTarget](docs/AttributeMappingsAllOfTarget.md)
+ - [PSSailpoint.V2025\Model.AttributeMappingsAllOfTransformDefinition](docs/AttributeMappingsAllOfTransformDefinition.md)
+ - [PSSailpoint.V2025\Model.AttributeMappingsAllOfTransformDefinitionAttributes](docs/AttributeMappingsAllOfTransformDefinitionAttributes.md)
+ - [PSSailpoint.V2025\Model.AttributeMappingsAllOfTransformDefinitionAttributesInput](docs/AttributeMappingsAllOfTransformDefinitionAttributesInput.md)
+ - [PSSailpoint.V2025\Model.AttributeMappingsAllOfTransformDefinitionAttributesInputAttributes](docs/AttributeMappingsAllOfTransformDefinitionAttributesInputAttributes.md)
  - [PSSailpoint.V2025\Model.AttributeRequest](docs/AttributeRequest.md)
  - [PSSailpoint.V2025\Model.AttributeRequestValue](docs/AttributeRequestValue.md)
  - [PSSailpoint.V2025\Model.AttributeValueDTO](docs/AttributeValueDTO.md)
@@ -1343,6 +1360,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.LookupStep](docs/LookupStep.md)
  - [PSSailpoint.V2025\Model.Lower](docs/Lower.md)
  - [PSSailpoint.V2025\Model.MachineAccount](docs/MachineAccount.md)
+ - [PSSailpoint.V2025\Model.MachineClassificationConfig](docs/MachineClassificationConfig.md)
  - [PSSailpoint.V2025\Model.MachineIdentity](docs/MachineIdentity.md)
  - [PSSailpoint.V2025\Model.MailFromAttributes](docs/MailFromAttributes.md)
  - [PSSailpoint.V2025\Model.MailFromAttributesDto](docs/MailFromAttributesDto.md)
@@ -1710,6 +1728,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.SelectorAccountMatchConfigMatchExpression](docs/SelectorAccountMatchConfigMatchExpression.md)
  - [PSSailpoint.V2025\Model.SelfImportExportDto](docs/SelfImportExportDto.md)
  - [PSSailpoint.V2025\Model.SendAccountVerificationRequest](docs/SendAccountVerificationRequest.md)
+ - [PSSailpoint.V2025\Model.SendClassifyMachineAccount200Response](docs/SendClassifyMachineAccount200Response.md)
+ - [PSSailpoint.V2025\Model.SendClassifyMachineAccountFromSource200Response](docs/SendClassifyMachineAccountFromSource200Response.md)
  - [PSSailpoint.V2025\Model.SendTestNotificationRequestDto](docs/SendTestNotificationRequestDto.md)
  - [PSSailpoint.V2025\Model.ServiceDeskIntegrationDto](docs/ServiceDeskIntegrationDto.md)
  - [PSSailpoint.V2025\Model.ServiceDeskIntegrationTemplateDto](docs/ServiceDeskIntegrationTemplateDto.md)
@@ -1755,6 +1775,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.SourceAppCreateDtoAccountSource](docs/SourceAppCreateDtoAccountSource.md)
  - [PSSailpoint.V2025\Model.SourceAppPatchDto](docs/SourceAppPatchDto.md)
  - [PSSailpoint.V2025\Model.SourceBeforeProvisioningRule](docs/SourceBeforeProvisioningRule.md)
+ - [PSSailpoint.V2025\Model.SourceClassificationStatus](docs/SourceClassificationStatus.md)
+ - [PSSailpoint.V2025\Model.SourceClassificationStatusAllOfCounts](docs/SourceClassificationStatusAllOfCounts.md)
  - [PSSailpoint.V2025\Model.SourceCluster](docs/SourceCluster.md)
  - [PSSailpoint.V2025\Model.SourceClusterDto](docs/SourceClusterDto.md)
  - [PSSailpoint.V2025\Model.SourceCode](docs/SourceCode.md)

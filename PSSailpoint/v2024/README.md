@@ -396,7 +396,7 @@ Class | Method | HTTP request | Description
 *V2024MachineAccountMappingsApi* | [**New-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#New-V2024MachineAccountMappings) | **POST** /sources/{sourceId}/machine-account-mappings | Create machine account mappings
 *V2024MachineAccountMappingsApi* | [**Remove-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Remove-V2024MachineAccountMappings) | **DELETE** /sources/{sourceId}/machine-account-mappings | Delete source's machine account mappings
 *V2024MachineAccountMappingsApi* | [**Get-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Get-V2024MachineAccountMappings) | **GET** /sources/{sourceId}/machine-account-mappings | Machine account mapping for source
-*V2024MachineAccountMappingsApi* | [**Set-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Set-V2024MachineAccountMappings) | **PUT** /sources/{sourceId}/machine-mappings | Update source's machine account mappings
+*V2024MachineAccountMappingsApi* | [**Set-V2024MachineAccountMappings**](docs/V2024MachineAccountMappingsApi.md#Set-V2024MachineAccountMappings) | **PUT** /sources/{sourceId}/machine-mappings | Update Source's Machine Account Mappings
 *V2024MachineAccountsApi* | [**Get-V2024MachineAccount**](docs/V2024MachineAccountsApi.md#Get-V2024MachineAccount) | **GET** /machine-accounts/{id} | Machine account details
 *V2024MachineAccountsApi* | [**Get-V2024MachineAccounts**](docs/V2024MachineAccountsApi.md#Get-V2024MachineAccounts) | **GET** /machine-accounts | Machine accounts list
 *V2024MachineAccountsApi* | [**Update-V2024MachineAccount**](docs/V2024MachineAccountsApi.md#Update-V2024MachineAccount) | **PATCH** /machine-accounts/{id} | Update a machine account

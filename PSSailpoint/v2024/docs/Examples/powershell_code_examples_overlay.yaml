@@ -9148,7 +9148,7 @@
         }
         "@
         
-        # Update source's machine account mappings
+        # Update Source's Machine Account Mappings
         
         try {
             $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings

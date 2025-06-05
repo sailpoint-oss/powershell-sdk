@@ -181,6 +181,12 @@ docs/AttributeDTOList.md
 docs/AttributeDefinition.md
 docs/AttributeDefinitionSchema.md
 docs/AttributeDefinitionType.md
+docs/AttributeMappings.md
+docs/AttributeMappingsAllOfTarget.md
+docs/AttributeMappingsAllOfTransformDefinition.md
+docs/AttributeMappingsAllOfTransformDefinitionAttributes.md
+docs/AttributeMappingsAllOfTransformDefinitionAttributesInput.md
+docs/AttributeMappingsAllOfTransformDefinitionAttributesInputAttributes.md
 docs/AttributeRequest.md
 docs/AttributeRequestValue.md
 docs/AttributeValueDTO.md
@@ -596,6 +602,7 @@ docs/Lookup.md
 docs/LookupStep.md
 docs/Lower.md
 docs/MachineAccount.md
+docs/MachineClassificationConfig.md
 docs/MachineIdentity.md
 docs/MailFromAttributes.md
 docs/MailFromAttributesDto.md
@@ -961,6 +968,8 @@ docs/SelectorAccountMatchConfig.md
 docs/SelectorAccountMatchConfigMatchExpression.md
 docs/SelfImportExportDto.md
 docs/SendAccountVerificationRequest.md
+docs/SendClassifyMachineAccount200Response.md
+docs/SendClassifyMachineAccountFromSource200Response.md
 docs/SendTestNotificationRequestDto.md
 docs/ServiceDeskIntegrationDto.md
 docs/ServiceDeskIntegrationTemplateDto.md
@@ -1006,6 +1015,8 @@ docs/SourceAppCreateDto.md
 docs/SourceAppCreateDtoAccountSource.md
 docs/SourceAppPatchDto.md
 docs/SourceBeforeProvisioningRule.md
+docs/SourceClassificationStatus.md
+docs/SourceClassificationStatusAllOfCounts.md
 docs/SourceCluster.md
 docs/SourceClusterDto.md
 docs/SourceCode.md
@@ -1156,6 +1167,8 @@ docs/V2025CertificationSummariesApi.md
 docs/V2025CertificationSummariesApideveloperSite_code_examples.yaml
 docs/V2025CertificationsApi.md
 docs/V2025CertificationsApideveloperSite_code_examples.yaml
+docs/V2025ClassifySourceApi.md
+docs/V2025ClassifySourceApideveloperSite_code_examples.yaml
 docs/V2025ConfigurationHubApi.md
 docs/V2025ConfigurationHubApideveloperSite_code_examples.yaml
 docs/V2025ConnectorCustomizersApi.md
@@ -1204,8 +1217,14 @@ docs/V2025LifecycleStatesApi.md
 docs/V2025LifecycleStatesApideveloperSite_code_examples.yaml
 docs/V2025MFAConfigurationApi.md
 docs/V2025MFAConfigurationApideveloperSite_code_examples.yaml
+docs/V2025MachineAccountClassifyApi.md
+docs/V2025MachineAccountClassifyApideveloperSite_code_examples.yaml
+docs/V2025MachineAccountMappingsApi.md
+docs/V2025MachineAccountMappingsApideveloperSite_code_examples.yaml
 docs/V2025MachineAccountsApi.md
 docs/V2025MachineAccountsApideveloperSite_code_examples.yaml
+docs/V2025MachineClassificationConfigApi.md
+docs/V2025MachineClassificationConfigApideveloperSite_code_examples.yaml
 docs/V2025MachineIdentitiesApi.md
 docs/V2025MachineIdentitiesApideveloperSite_code_examples.yaml
 docs/V2025ManagedClientsApi.md
@@ -1367,6 +1386,7 @@ src/PSSailpoint.V2025/Api/V2025CertificationCampaignFiltersApi.ps1
 src/PSSailpoint.V2025/Api/V2025CertificationCampaignsApi.ps1
 src/PSSailpoint.V2025/Api/V2025CertificationSummariesApi.ps1
 src/PSSailpoint.V2025/Api/V2025CertificationsApi.ps1
+src/PSSailpoint.V2025/Api/V2025ClassifySourceApi.ps1
 src/PSSailpoint.V2025/Api/V2025ConfigurationHubApi.ps1
 src/PSSailpoint.V2025/Api/V2025ConnectorCustomizersApi.ps1
 src/PSSailpoint.V2025/Api/V2025ConnectorRuleManagementApi.ps1
@@ -1391,7 +1411,10 @@ src/PSSailpoint.V2025/Api/V2025IdentityHistoryApi.ps1
 src/PSSailpoint.V2025/Api/V2025IdentityProfilesApi.ps1
 src/PSSailpoint.V2025/Api/V2025LifecycleStatesApi.ps1
 src/PSSailpoint.V2025/Api/V2025MFAConfigurationApi.ps1
+src/PSSailpoint.V2025/Api/V2025MachineAccountClassifyApi.ps1
+src/PSSailpoint.V2025/Api/V2025MachineAccountMappingsApi.ps1
 src/PSSailpoint.V2025/Api/V2025MachineAccountsApi.ps1
+src/PSSailpoint.V2025/Api/V2025MachineClassificationConfigApi.ps1
 src/PSSailpoint.V2025/Api/V2025MachineIdentitiesApi.ps1
 src/PSSailpoint.V2025/Api/V2025ManagedClientsApi.ps1
 src/PSSailpoint.V2025/Api/V2025ManagedClusterTypesApi.ps1
@@ -1616,6 +1639,12 @@ src/PSSailpoint.V2025/Model/AttributeDTOList.ps1
 src/PSSailpoint.V2025/Model/AttributeDefinition.ps1
 src/PSSailpoint.V2025/Model/AttributeDefinitionSchema.ps1
 src/PSSailpoint.V2025/Model/AttributeDefinitionType.ps1
+src/PSSailpoint.V2025/Model/AttributeMappings.ps1
+src/PSSailpoint.V2025/Model/AttributeMappingsAllOfTarget.ps1
+src/PSSailpoint.V2025/Model/AttributeMappingsAllOfTransformDefinition.ps1
+src/PSSailpoint.V2025/Model/AttributeMappingsAllOfTransformDefinitionAttributes.ps1
+src/PSSailpoint.V2025/Model/AttributeMappingsAllOfTransformDefinitionAttributesInput.ps1
+src/PSSailpoint.V2025/Model/AttributeMappingsAllOfTransformDefinitionAttributesInputAttributes.ps1
 src/PSSailpoint.V2025/Model/AttributeRequest.ps1
 src/PSSailpoint.V2025/Model/AttributeRequestValue.ps1
 src/PSSailpoint.V2025/Model/AttributeValueDTO.ps1
@@ -2028,6 +2057,7 @@ src/PSSailpoint.V2025/Model/Lookup.ps1
 src/PSSailpoint.V2025/Model/LookupStep.ps1
 src/PSSailpoint.V2025/Model/Lower.ps1
 src/PSSailpoint.V2025/Model/MachineAccount.ps1
+src/PSSailpoint.V2025/Model/MachineClassificationConfig.ps1
 src/PSSailpoint.V2025/Model/MachineIdentity.ps1
 src/PSSailpoint.V2025/Model/MailFromAttributes.ps1
 src/PSSailpoint.V2025/Model/MailFromAttributesDto.ps1
@@ -2395,6 +2425,8 @@ src/PSSailpoint.V2025/Model/SelectorAccountMatchConfig.ps1
 src/PSSailpoint.V2025/Model/SelectorAccountMatchConfigMatchExpression.ps1
 src/PSSailpoint.V2025/Model/SelfImportExportDto.ps1
 src/PSSailpoint.V2025/Model/SendAccountVerificationRequest.ps1
+src/PSSailpoint.V2025/Model/SendClassifyMachineAccount200Response.ps1
+src/PSSailpoint.V2025/Model/SendClassifyMachineAccountFromSource200Response.ps1
 src/PSSailpoint.V2025/Model/SendTestNotificationRequestDto.ps1
 src/PSSailpoint.V2025/Model/ServiceDeskIntegrationDto.ps1
 src/PSSailpoint.V2025/Model/ServiceDeskIntegrationTemplateDto.ps1
@@ -2440,6 +2472,8 @@ src/PSSailpoint.V2025/Model/SourceAppCreateDto.ps1
 src/PSSailpoint.V2025/Model/SourceAppCreateDtoAccountSource.ps1
 src/PSSailpoint.V2025/Model/SourceAppPatchDto.ps1
 src/PSSailpoint.V2025/Model/SourceBeforeProvisioningRule.ps1
+src/PSSailpoint.V2025/Model/SourceClassificationStatus.ps1
+src/PSSailpoint.V2025/Model/SourceClassificationStatusAllOfCounts.ps1
 src/PSSailpoint.V2025/Model/SourceCluster.ps1
 src/PSSailpoint.V2025/Model/SourceClusterDto.ps1
 src/PSSailpoint.V2025/Model/SourceCode.ps1
@@ -2630,6 +2664,7 @@ tests/Api/V2025CertificationCampaignFiltersApi.Tests.ps1
 tests/Api/V2025CertificationCampaignsApi.Tests.ps1
 tests/Api/V2025CertificationSummariesApi.Tests.ps1
 tests/Api/V2025CertificationsApi.Tests.ps1
+tests/Api/V2025ClassifySourceApi.Tests.ps1
 tests/Api/V2025ConfigurationHubApi.Tests.ps1
 tests/Api/V2025ConnectorCustomizersApi.Tests.ps1
 tests/Api/V2025ConnectorRuleManagementApi.Tests.ps1
@@ -2654,7 +2689,10 @@ tests/Api/V2025IdentityHistoryApi.Tests.ps1
 tests/Api/V2025IdentityProfilesApi.Tests.ps1
 tests/Api/V2025LifecycleStatesApi.Tests.ps1
 tests/Api/V2025MFAConfigurationApi.Tests.ps1
+tests/Api/V2025MachineAccountClassifyApi.Tests.ps1
+tests/Api/V2025MachineAccountMappingsApi.Tests.ps1
 tests/Api/V2025MachineAccountsApi.Tests.ps1
+tests/Api/V2025MachineClassificationConfigApi.Tests.ps1
 tests/Api/V2025MachineIdentitiesApi.Tests.ps1
 tests/Api/V2025ManagedClientsApi.Tests.ps1
 tests/Api/V2025ManagedClusterTypesApi.Tests.ps1
@@ -2878,6 +2916,12 @@ tests/Model/AttributeDTOList.Tests.ps1
 tests/Model/AttributeDefinition.Tests.ps1
 tests/Model/AttributeDefinitionSchema.Tests.ps1
 tests/Model/AttributeDefinitionType.Tests.ps1
+tests/Model/AttributeMappings.Tests.ps1
+tests/Model/AttributeMappingsAllOfTarget.Tests.ps1
+tests/Model/AttributeMappingsAllOfTransformDefinition.Tests.ps1
+tests/Model/AttributeMappingsAllOfTransformDefinitionAttributes.Tests.ps1
+tests/Model/AttributeMappingsAllOfTransformDefinitionAttributesInput.Tests.ps1
+tests/Model/AttributeMappingsAllOfTransformDefinitionAttributesInputAttributes.Tests.ps1
 tests/Model/AttributeRequest.Tests.ps1
 tests/Model/AttributeRequestValue.Tests.ps1
 tests/Model/AttributeValueDTO.Tests.ps1
@@ -3290,6 +3334,7 @@ tests/Model/Lookup.Tests.ps1
 tests/Model/LookupStep.Tests.ps1
 tests/Model/Lower.Tests.ps1
 tests/Model/MachineAccount.Tests.ps1
+tests/Model/MachineClassificationConfig.Tests.ps1
 tests/Model/MachineIdentity.Tests.ps1
 tests/Model/MailFromAttributes.Tests.ps1
 tests/Model/MailFromAttributesDto.Tests.ps1
@@ -3657,6 +3702,8 @@ tests/Model/SelectorAccountMatchConfig.Tests.ps1
 tests/Model/SelectorAccountMatchConfigMatchExpression.Tests.ps1
 tests/Model/SelfImportExportDto.Tests.ps1
 tests/Model/SendAccountVerificationRequest.Tests.ps1
+tests/Model/SendClassifyMachineAccount200Response.Tests.ps1
+tests/Model/SendClassifyMachineAccountFromSource200Response.Tests.ps1
 tests/Model/SendTestNotificationRequestDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationDto.Tests.ps1
 tests/Model/ServiceDeskIntegrationTemplateDto.Tests.ps1
@@ -3702,6 +3749,8 @@ tests/Model/SourceAppCreateDto.Tests.ps1
 tests/Model/SourceAppCreateDtoAccountSource.Tests.ps1
 tests/Model/SourceAppPatchDto.Tests.ps1
 tests/Model/SourceBeforeProvisioningRule.Tests.ps1
+tests/Model/SourceClassificationStatus.Tests.ps1
+tests/Model/SourceClassificationStatusAllOfCounts.Tests.ps1
 tests/Model/SourceCluster.Tests.ps1
 tests/Model/SourceClusterDto.Tests.ps1
 tests/Model/SourceCode.Tests.ps1

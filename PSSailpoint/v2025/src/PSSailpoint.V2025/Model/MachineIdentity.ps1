@@ -24,6 +24,10 @@ Description of machine identity
 Indicates if the machine identity has been manually edited
 .PARAMETER Attributes
 A map of custom machine identity attributes
+.PARAMETER Subtype
+The subtype value associated to the machine identity
+.PARAMETER Owners
+No description available.
 .OUTPUTS
 
 MachineIdentity<PSCustomObject>
@@ -46,7 +50,13 @@ function Initialize-V2025MachineIdentity {
         ${ManuallyEdited} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Attributes}
+        ${Attributes},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Subtype},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Owners}
     )
 
     Process {
@@ -57,6 +67,10 @@ function Initialize-V2025MachineIdentity {
             throw "invalid value for 'BusinessApplication', 'BusinessApplication' cannot be null."
         }
 
+        if (!$Subtype) {
+            throw "invalid value for 'Subtype', 'Subtype' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
@@ -64,6 +78,8 @@ function Initialize-V2025MachineIdentity {
             "description" = ${Description}
             "manuallyEdited" = ${ManuallyEdited}
             "attributes" = ${Attributes}
+            "subtype" = ${Subtype}
+            "owners" = ${Owners}
         }
 
         return $PSO
@@ -100,7 +116,7 @@ function ConvertFrom-V2025JsonToMachineIdentity {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025MachineIdentity
-        $AllProperties = ("id", "name", "created", "modified", "businessApplication", "description", "manuallyEdited", "attributes")
+        $AllProperties = ("id", "name", "created", "modified", "businessApplication", "description", "manuallyEdited", "attributes", "subtype", "owners")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -121,6 +137,12 @@ function ConvertFrom-V2025JsonToMachineIdentity {
             throw "Error! JSON cannot be serialized due to the required property 'businessApplication' missing."
         } else {
             $BusinessApplication = $JsonParameters.PSobject.Properties["businessApplication"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "subtype"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'subtype' missing."
+        } else {
+            $Subtype = $JsonParameters.PSobject.Properties["subtype"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -159,6 +181,12 @@ function ConvertFrom-V2025JsonToMachineIdentity {
             $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "owners"))) { #optional property not found
+            $Owners = $null
+        } else {
+            $Owners = $JsonParameters.PSobject.Properties["owners"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -168,6 +196,8 @@ function ConvertFrom-V2025JsonToMachineIdentity {
             "description" = ${Description}
             "manuallyEdited" = ${ManuallyEdited}
             "attributes" = ${Attributes}
+            "subtype" = ${Subtype}
+            "owners" = ${Owners}
         }
 
         return $PSO

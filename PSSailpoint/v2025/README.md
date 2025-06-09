@@ -1362,6 +1362,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.MachineAccount](docs/MachineAccount.md)
  - [PSSailpoint.V2025\Model.MachineClassificationConfig](docs/MachineClassificationConfig.md)
  - [PSSailpoint.V2025\Model.MachineIdentity](docs/MachineIdentity.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityDtoOwners](docs/MachineIdentityDtoOwners.md)
  - [PSSailpoint.V2025\Model.MailFromAttributes](docs/MailFromAttributes.md)
  - [PSSailpoint.V2025\Model.MailFromAttributesDto](docs/MailFromAttributesDto.md)
  - [PSSailpoint.V2025\Model.ManagedClient](docs/ManagedClient.md)

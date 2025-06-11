@@ -76,10 +76,6 @@ function Initialize-V2025Dimension {
             throw "invalid value for 'Name', the character length must be smaller than or equal to 128."
         }
 
-        if (!$Owner) {
-            throw "invalid value for 'Owner', 'Owner' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}

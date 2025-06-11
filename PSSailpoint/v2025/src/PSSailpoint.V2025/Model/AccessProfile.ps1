@@ -87,10 +87,6 @@ function Initialize-V2025AccessProfile {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if (!$Owner) {
-            throw "invalid value for 'Owner', 'Owner' cannot be null."
-        }
-
         if (!$Source) {
             throw "invalid value for 'Source', 'Source' cannot be null."
         }

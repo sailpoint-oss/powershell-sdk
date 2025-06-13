@@ -56,7 +56,8 @@ function Get-V2025RequestableObjects {
         [String]
         ${IdentityId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject[]]
+        [ValidateSet("ACCESS_PROFILE", "ROLE")]
+        [String[]]
         ${Types},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]

@@ -535,9 +535,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-native-change-detection-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Deletes the native change detection configuration for the source specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-native-change-detection-config)
@@ -546,7 +543,6 @@ Deletes the native change detection configuration for the source specified by th
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The source id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -569,15 +565,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete native change detection configuration
 
 try {
-    Remove-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024NativeChangeDetectionConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024NativeChangeDetectionConfig -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024NativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -920,9 +915,6 @@ try {
 [[Back to top]](#) 
 
 ## get-native-change-detection-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API returns the existing native change detection configuration for a source specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-native-change-detection-config)
@@ -931,7 +923,6 @@ This API returns the existing native change detection configuration for a source
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The source id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**NativeChangeDetectionConfig**](../models/native-change-detection-config)
@@ -954,15 +945,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Native change detection configuration
 
 try {
-    Get-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024NativeChangeDetectionConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024NativeChangeDetectionConfig -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -2047,9 +2037,6 @@ try {
 [[Back to top]](#) 
 
 ## put-native-change-detection-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-native-change-detection-config)
@@ -2058,7 +2045,6 @@ Replaces the native change detection configuration for the source specified by t
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The source id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | NativeChangeDetectionConfig | [**NativeChangeDetectionConfig**](../models/native-change-detection-config) | True  | 
 
 ### Return type
@@ -2082,7 +2068,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $NativeChangeDetectionConfig = @"{
   "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
   "operations" : [ "ACCOUNT_UPDATED", "ACCOUNT_DELETED" ],
@@ -2096,10 +2081,10 @@ $NativeChangeDetectionConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-    Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -NativeChangeDetectionConfig $Result 
+    Send-V2024NativeChangeDetectionConfig -Id $Id -NativeChangeDetectionConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -NativeChangeDetectionConfig $Result  
+    # Send-V2024NativeChangeDetectionConfig -Id $Id -NativeChangeDetectionConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024NativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails

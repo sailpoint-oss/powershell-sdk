@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentityAttributesApi' {
     Context 'New-V2025IdentityAttribute' {
         It 'Test New-V2025IdentityAttribute' {
-            #$TestResult = New-V2025IdentityAttribute -XSailPointExperimental "TEST_VALUE" -IdentityAttribute "TEST_VALUE"
+            #$TestResult = New-V2025IdentityAttribute -IdentityAttribute "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentityAttributesApi' {
 
     Context 'Remove-V2025IdentityAttribute' {
         It 'Test Remove-V2025IdentityAttribute' {
-            #$TestResult = Remove-V2025IdentityAttribute -Name "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Remove-V2025IdentityAttribute -Name "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentityAttributesApi' {
 
     Context 'Remove-V2025IdentityAttributesInBulk' {
         It 'Test Remove-V2025IdentityAttributesInBulk' {
-            #$TestResult = Remove-V2025IdentityAttributesInBulk -XSailPointExperimental "TEST_VALUE" -IdentityAttributeNames "TEST_VALUE"
+            #$TestResult = Remove-V2025IdentityAttributesInBulk -IdentityAttributeNames "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentityAttributesApi' {
 
     Context 'Get-V2025IdentityAttribute' {
         It 'Test Get-V2025IdentityAttribute' {
-            #$TestResult = Get-V2025IdentityAttribute -Name "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2025IdentityAttribute -Name "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentityAttributesApi' {
 
     Context 'Get-V2025IdentityAttributes' {
         It 'Test Get-V2025IdentityAttributes' {
-            #$TestResult = Get-V2025IdentityAttributes -XSailPointExperimental "TEST_VALUE" -IncludeSystem "TEST_VALUE" -IncludeSilent "TEST_VALUE" -SearchableOnly "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-V2025IdentityAttributes -IncludeSystem "TEST_VALUE" -IncludeSilent "TEST_VALUE" -SearchableOnly "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentityAttributesApi' {
 
     Context 'Send-V2025IdentityAttribute' {
         It 'Test Send-V2025IdentityAttribute' {
-            #$TestResult = Send-V2025IdentityAttribute -Name "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -IdentityAttribute "TEST_VALUE"
+            #$TestResult = Send-V2025IdentityAttribute -Name "TEST_VALUE" -IdentityAttribute "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentitiesApi' {
 
     Context 'Get-V2025Identity' {
         It 'Test Get-V2025Identity' {
-            #$TestResult = Get-V2025Identity -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2025Identity -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentitiesApi' {
 
     Context 'Get-V2025IdentityOwnershipDetails' {
         It 'Test Get-V2025IdentityOwnershipDetails' {
-            #$TestResult = Get-V2025IdentityOwnershipDetails -IdentityId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2025IdentityOwnershipDetails -IdentityId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentitiesApi' {
 
     Context 'Get-V2025RoleAssignment' {
         It 'Test Get-V2025RoleAssignment' {
-            #$TestResult = Get-V2025RoleAssignment -IdentityId "TEST_VALUE" -AssignmentId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2025RoleAssignment -IdentityId "TEST_VALUE" -AssignmentId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentitiesApi' {
 
     Context 'Get-V2025RoleAssignments' {
         It 'Test Get-V2025RoleAssignments' {
-            #$TestResult = Get-V2025RoleAssignments -IdentityId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -RoleId "TEST_VALUE" -RoleName "TEST_VALUE"
+            #$TestResult = Get-V2025RoleAssignments -IdentityId "TEST_VALUE" -RoleId "TEST_VALUE" -RoleName "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentitiesApi' {
 
     Context 'Get-V2025Identities' {
         It 'Test Get-V2025Identities' {
-            #$TestResult = Get-V2025Identities -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -DefaultFilter "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult = Get-V2025Identities -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -DefaultFilter "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentitiesApi' {
 
     Context 'Reset-V2025Identity' {
         It 'Test Reset-V2025Identity' {
-            #$TestResult = Reset-V2025Identity -IdentityId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Reset-V2025Identity -IdentityId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentitiesApi' {
 
     Context 'Start-V2025IdentitiesInvite' {
         It 'Test Start-V2025IdentitiesInvite' {
-            #$TestResult = Start-V2025IdentitiesInvite -XSailPointExperimental "TEST_VALUE" -InviteIdentitiesRequest "TEST_VALUE"
+            #$TestResult = Start-V2025IdentitiesInvite -InviteIdentitiesRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

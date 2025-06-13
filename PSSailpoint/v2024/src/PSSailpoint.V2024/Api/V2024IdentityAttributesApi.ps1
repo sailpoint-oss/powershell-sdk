@@ -14,9 +14,6 @@ Create identity attribute
 
 Use this API to create a new identity attribute.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER IdentityAttribute
 No description available.
 
@@ -32,9 +29,6 @@ function New-V2024IdentityAttribute {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${IdentityAttribute},
         [Switch]
@@ -61,11 +55,6 @@ function New-V2024IdentityAttribute {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/identity-attributes'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling createIdentityAttribute."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$IdentityAttribute) {
             throw "Error! The required parameter `IdentityAttribute` missing when calling createIdentityAttribute."
@@ -118,9 +107,6 @@ This deletes an identity attribute with the given name.  The `system` and `stand
 .PARAMETER Name
 The attribute's technical name.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -135,9 +121,6 @@ function Remove-V2024IdentityAttribute {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -163,11 +146,6 @@ function Remove-V2024IdentityAttribute {
             throw "Error! The required parameter `Name` missing when calling deleteIdentityAttribute."
         }
         $LocalVarUri = $LocalVarUri.replace('{name}', [System.Web.HTTPUtility]::UrlEncode($Name))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteIdentityAttribute."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -200,9 +178,6 @@ Bulk delete identity attributes
 
 Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER IdentityAttributeNames
 No description available.
 
@@ -218,9 +193,6 @@ function Remove-V2024IdentityAttributesInBulk {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${IdentityAttributeNames},
         [Switch]
@@ -247,11 +219,6 @@ function Remove-V2024IdentityAttributesInBulk {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/identity-attributes/bulk-delete'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteIdentityAttributesInBulk."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$IdentityAttributeNames) {
             throw "Error! The required parameter `IdentityAttributeNames` missing when calling deleteIdentityAttributesInBulk."
@@ -304,9 +271,6 @@ This gets an identity attribute for a given technical name.
 .PARAMETER Name
 The attribute's technical name.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -321,9 +285,6 @@ function Get-V2024IdentityAttribute {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Name},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -349,11 +310,6 @@ function Get-V2024IdentityAttribute {
             throw "Error! The required parameter `Name` missing when calling getIdentityAttribute."
         }
         $LocalVarUri = $LocalVarUri.replace('{name}', [System.Web.HTTPUtility]::UrlEncode($Name))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getIdentityAttribute."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -386,9 +342,6 @@ List identity attributes
 
 Use this API to get a collection of identity attributes.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER IncludeSystem
 Include 'system' attributes in the response.
 
@@ -413,18 +366,15 @@ function Get-V2024IdentityAttributes {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${IncludeSystem},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${IncludeSilent},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${SearchableOnly},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
         [Switch]
@@ -448,11 +398,6 @@ function Get-V2024IdentityAttributes {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/identity-attributes'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling listIdentityAttributes."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($IncludeSystem) {
             $LocalVarQueryParameters['includeSystem'] = $IncludeSystem
@@ -504,9 +449,6 @@ This updates an existing identity attribute.  Making an attribute searchable req
 .PARAMETER Name
 The attribute's technical name.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER IdentityAttribute
 No description available.
 
@@ -525,9 +467,6 @@ function Send-V2024IdentityAttribute {
         [String]
         ${Name},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${IdentityAttribute},
         [Switch]
@@ -558,11 +497,6 @@ function Send-V2024IdentityAttribute {
             throw "Error! The required parameter `Name` missing when calling putIdentityAttribute."
         }
         $LocalVarUri = $LocalVarUri.replace('{name}', [System.Web.HTTPUtility]::UrlEncode($Name))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling putIdentityAttribute."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$IdentityAttribute) {
             throw "Error! The required parameter `IdentityAttribute` missing when calling putIdentityAttribute."

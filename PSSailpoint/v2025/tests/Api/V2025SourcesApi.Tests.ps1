@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025SourcesApi' {
 
     Context 'Remove-V2025NativeChangeDetectionConfig' {
         It 'Test Remove-V2025NativeChangeDetectionConfig' {
-            #$TestResult = Remove-V2025NativeChangeDetectionConfig -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Remove-V2025NativeChangeDetectionConfig -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -112,7 +112,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025SourcesApi' {
 
     Context 'Get-V2025NativeChangeDetectionConfig' {
         It 'Test Get-V2025NativeChangeDetectionConfig' {
-            #$TestResult = Get-V2025NativeChangeDetectionConfig -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2025NativeChangeDetectionConfig -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -288,7 +288,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025SourcesApi' {
 
     Context 'Send-V2025NativeChangeDetectionConfig' {
         It 'Test Send-V2025NativeChangeDetectionConfig' {
-            #$TestResult = Send-V2025NativeChangeDetectionConfig -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -NativeChangeDetectionConfig "TEST_VALUE"
+            #$TestResult = Send-V2025NativeChangeDetectionConfig -Id "TEST_VALUE" -NativeChangeDetectionConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

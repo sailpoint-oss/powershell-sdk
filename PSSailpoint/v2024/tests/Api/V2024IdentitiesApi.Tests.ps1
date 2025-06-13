@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentitiesApi' {
     Context 'Remove-V2024Identity' {
         It 'Test Remove-V2024Identity' {
-            #$TestResult = Remove-V2024Identity -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Remove-V2024Identity -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentitiesApi' {
 
     Context 'Get-V2024Identity' {
         It 'Test Get-V2024Identity' {
-            #$TestResult = Get-V2024Identity -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024Identity -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentitiesApi' {
 
     Context 'Get-V2024IdentityOwnershipDetails' {
         It 'Test Get-V2024IdentityOwnershipDetails' {
-            #$TestResult = Get-V2024IdentityOwnershipDetails -IdentityId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024IdentityOwnershipDetails -IdentityId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentitiesApi' {
 
     Context 'Get-V2024RoleAssignment' {
         It 'Test Get-V2024RoleAssignment' {
-            #$TestResult = Get-V2024RoleAssignment -IdentityId "TEST_VALUE" -AssignmentId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024RoleAssignment -IdentityId "TEST_VALUE" -AssignmentId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentitiesApi' {
 
     Context 'Get-V2024RoleAssignments' {
         It 'Test Get-V2024RoleAssignments' {
-            #$TestResult = Get-V2024RoleAssignments -IdentityId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -RoleId "TEST_VALUE" -RoleName "TEST_VALUE"
+            #$TestResult = Get-V2024RoleAssignments -IdentityId "TEST_VALUE" -RoleId "TEST_VALUE" -RoleName "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentitiesApi' {
 
     Context 'Get-V2024Identities' {
         It 'Test Get-V2024Identities' {
-            #$TestResult = Get-V2024Identities -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -DefaultFilter "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult = Get-V2024Identities -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -DefaultFilter "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentitiesApi' {
 
     Context 'Reset-V2024Identity' {
         It 'Test Reset-V2024Identity' {
-            #$TestResult = Reset-V2024Identity -IdentityId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Reset-V2024Identity -IdentityId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentitiesApi' {
 
     Context 'Start-V2024IdentitiesInvite' {
         It 'Test Start-V2024IdentitiesInvite' {
-            #$TestResult = Start-V2024IdentitiesInvite -XSailPointExperimental "TEST_VALUE" -InviteIdentitiesRequest "TEST_VALUE"
+            #$TestResult = Start-V2024IdentitiesInvite -InviteIdentitiesRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

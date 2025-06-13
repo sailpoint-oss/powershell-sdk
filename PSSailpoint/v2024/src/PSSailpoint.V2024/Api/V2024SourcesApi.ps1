@@ -502,9 +502,6 @@ Deletes the native change detection configuration for the source specified by th
 .PARAMETER Id
 The source id
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -519,9 +516,6 @@ function Remove-V2024NativeChangeDetectionConfig {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -547,11 +541,6 @@ function Remove-V2024NativeChangeDetectionConfig {
             throw "Error! The required parameter `Id` missing when calling deleteNativeChangeDetectionConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteNativeChangeDetectionConfig."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -1172,9 +1161,6 @@ This API returns the existing native change detection configuration for a source
 .PARAMETER Id
 The source id
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1189,9 +1175,6 @@ function Get-V2024NativeChangeDetectionConfig {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -1217,11 +1200,6 @@ function Get-V2024NativeChangeDetectionConfig {
             throw "Error! The required parameter `Id` missing when calling getNativeChangeDetectionConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getNativeChangeDetectionConfig."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -3106,9 +3084,6 @@ Replaces the native change detection configuration for the source specified by t
 .PARAMETER Id
 The source id
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER NativeChangeDetectionConfig
 No description available.
 
@@ -3127,9 +3102,6 @@ function Send-V2024NativeChangeDetectionConfig {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${NativeChangeDetectionConfig},
         [Switch]
@@ -3160,11 +3132,6 @@ function Send-V2024NativeChangeDetectionConfig {
             throw "Error! The required parameter `Id` missing when calling putNativeChangeDetectionConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling putNativeChangeDetectionConfig."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$NativeChangeDetectionConfig) {
             throw "Error! The required parameter `NativeChangeDetectionConfig` missing when calling putNativeChangeDetectionConfig."

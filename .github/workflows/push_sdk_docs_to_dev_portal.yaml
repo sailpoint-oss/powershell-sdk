@@ -70,6 +70,8 @@ jobs:
           git config --local user.name "developer-relations-sp"
           git add .
           git commit -m "Update PowerShell SDK docs: ${{ github.run_id }}"
+          git remote set-url origin https://${{ secrets.DEVREL_SERVICE_TOKEN }}@github.com/sailpoint-oss/developer.sailpoint.com.git
+          
           git push origin main
 
   publish-failure:

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'SodPolicy' {
     Context 'SodPolicy' {
         It 'Initialize-SodPolicy' {
             # a simple test to create an object
-            #$NewObject = Initialize-SodPolicy -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Description "TEST_VALUE" -OwnerRef "TEST_VALUE" -ExternalPolicyReference "TEST_VALUE" -PolicyQuery "TEST_VALUE" -CompensatingControls "TEST_VALUE" -CorrectionAdvice "TEST_VALUE" -State "TEST_VALUE" -Tags "TEST_VALUE" -CreatorId "TEST_VALUE" -ModifierId "TEST_VALUE" -ViolationOwnerAssignmentConfig "TEST_VALUE" -Scheduled "TEST_VALUE" -Type "TEST_VALUE" -ConflictingAccessCriteria "TEST_VALUE"
+            #$NewObject = Initialize-SodPolicy -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Description "TEST_VALUE" -OwnerRef "TEST_VALUE" -ExternalPolicyReference "TEST_VALUE" -PolicyQuery "TEST_VALUE" -CompensatingControls "TEST_VALUE" -CorrectionAdvice "TEST_VALUE" -State "TEST_VALUE" -Tags "TEST_VALUE" -CreatorId "TEST_VALUE" -ModifierId "TEST_VALUE" -ViolationOwnerAssignmentConfig "TEST_VALUE" -Scheduled "TEST_VALUE" -Type "TEST_VALUE"
             #$NewObject | Should -BeOfType SodPolicy
             #$NewObject.property | Should -Be 0
         }

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V3' -name 'SODPoliciesApi' {
     Context 'New-SodPolicy' {
         It 'Test New-SodPolicy' {
-            #$TestResult = New-SodPolicy -SodPolicy "TEST_VALUE"
+            #$TestResult = New-SodPolicy -SodPolicyRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -112,7 +112,7 @@ Describe -tag 'PSSailpoint.V3' -name 'SODPoliciesApi' {
 
     Context 'Send-SodPolicy' {
         It 'Test Send-SodPolicy' {
-            #$TestResult = Send-SodPolicy -Id "TEST_VALUE" -SodPolicy "TEST_VALUE"
+            #$TestResult = Send-SodPolicy -Id "TEST_VALUE" -SodPolicyRead "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

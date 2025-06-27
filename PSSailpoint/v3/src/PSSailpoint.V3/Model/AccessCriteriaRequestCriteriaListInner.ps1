@@ -18,14 +18,12 @@ No description available.
 Type of the property to which this reference applies to
 .PARAMETER Id
 ID of the object to which this reference applies to
-.PARAMETER Name
-Human-readable display name of the object to which this reference applies to
 .OUTPUTS
 
-AccessCriteriaCriteriaListInner<PSCustomObject>
+AccessCriteriaRequestCriteriaListInner<PSCustomObject>
 #>
 
-function Initialize-AccessCriteriaCriteriaListInner {
+function Initialize-AccessCriteriaRequestCriteriaListInner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -34,21 +32,17 @@ function Initialize-AccessCriteriaCriteriaListInner {
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name}
+        ${Id}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V3 => AccessCriteriaCriteriaListInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V3 => AccessCriteriaRequestCriteriaListInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
-            "name" = ${Name}
         }
 
         return $PSO
@@ -58,11 +52,11 @@ function Initialize-AccessCriteriaCriteriaListInner {
 <#
 .SYNOPSIS
 
-Convert from JSON to AccessCriteriaCriteriaListInner<PSCustomObject>
+Convert from JSON to AccessCriteriaRequestCriteriaListInner<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to AccessCriteriaCriteriaListInner<PSCustomObject>
+Convert from JSON to AccessCriteriaRequestCriteriaListInner<PSCustomObject>
 
 .PARAMETER Json
 
@@ -70,22 +64,22 @@ Json object
 
 .OUTPUTS
 
-AccessCriteriaCriteriaListInner<PSCustomObject>
+AccessCriteriaRequestCriteriaListInner<PSCustomObject>
 #>
-function ConvertFrom-JsonToAccessCriteriaCriteriaListInner {
+function ConvertFrom-JsonToAccessCriteriaRequestCriteriaListInner {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V3 => AccessCriteriaCriteriaListInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V3 => AccessCriteriaRequestCriteriaListInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in AccessCriteriaCriteriaListInner
-        $AllProperties = ("type", "id", "name")
+        # check if Json contains properties not defined in AccessCriteriaRequestCriteriaListInner
+        $AllProperties = ("type", "id")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -104,16 +98,9 @@ function ConvertFrom-JsonToAccessCriteriaCriteriaListInner {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
-        } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
-            "name" = ${Name}
         }
 
         return $PSO

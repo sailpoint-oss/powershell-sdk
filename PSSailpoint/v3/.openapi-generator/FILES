@@ -9,6 +9,8 @@ docs/AccessAppsOwner.md
 docs/AccessConstraint.md
 docs/AccessCriteria.md
 docs/AccessCriteriaCriteriaListInner.md
+docs/AccessCriteriaRequest.md
+docs/AccessCriteriaRequestCriteriaListInner.md
 docs/AccessItemRequestedFor.md
 docs/AccessItemRequester.md
 docs/AccessItemReviewedBy.md
@@ -192,6 +194,7 @@ docs/Conditional.md
 docs/ConfigurationHubApi.md
 docs/ConfigurationHubApideveloperSite_code_examples.yaml
 docs/ConflictingAccessCriteria.md
+docs/ConflictingAccessCriteriaRequest.md
 docs/ConnectorDetail.md
 docs/ConnectorsApi.md
 docs/ConnectorsApideveloperSite_code_examples.yaml
@@ -618,9 +621,12 @@ docs/SlimCampaign.md
 docs/SlimDiscoveredApplications.md
 docs/SodExemptCriteria.md
 docs/SodPolicy.md
-docs/SodPolicyConflictingAccessCriteria.md
 docs/SodPolicyDto.md
 docs/SodPolicyOwnerRef.md
+docs/SodPolicyRead.md
+docs/SodPolicyReadAllOfConflictingAccessCriteria.md
+docs/SodPolicyRequest.md
+docs/SodPolicyRequestAllOfConflictingAccessCriteria.md
 docs/SodPolicySchedule.md
 docs/SodRecipient.md
 docs/SodReportResultDto.md
@@ -792,6 +798,8 @@ src/PSSailpoint.V3/Model/AccessAppsOwner.ps1
 src/PSSailpoint.V3/Model/AccessConstraint.ps1
 src/PSSailpoint.V3/Model/AccessCriteria.ps1
 src/PSSailpoint.V3/Model/AccessCriteriaCriteriaListInner.ps1
+src/PSSailpoint.V3/Model/AccessCriteriaRequest.ps1
+src/PSSailpoint.V3/Model/AccessCriteriaRequestCriteriaListInner.ps1
 src/PSSailpoint.V3/Model/AccessItemRequestedFor.ps1
 src/PSSailpoint.V3/Model/AccessItemRequester.ps1
 src/PSSailpoint.V3/Model/AccessItemReviewedBy.ps1
@@ -947,6 +955,7 @@ src/PSSailpoint.V3/Model/CompletionStatus.ps1
 src/PSSailpoint.V3/Model/Concatenation.ps1
 src/PSSailpoint.V3/Model/Conditional.ps1
 src/PSSailpoint.V3/Model/ConflictingAccessCriteria.ps1
+src/PSSailpoint.V3/Model/ConflictingAccessCriteriaRequest.ps1
 src/PSSailpoint.V3/Model/ConnectorDetail.ps1
 src/PSSailpoint.V3/Model/CreateExternalExecuteWorkflow200Response.ps1
 src/PSSailpoint.V3/Model/CreateExternalExecuteWorkflowRequest.ps1
@@ -1314,9 +1323,12 @@ src/PSSailpoint.V3/Model/SlimCampaign.ps1
 src/PSSailpoint.V3/Model/SlimDiscoveredApplications.ps1
 src/PSSailpoint.V3/Model/SodExemptCriteria.ps1
 src/PSSailpoint.V3/Model/SodPolicy.ps1
-src/PSSailpoint.V3/Model/SodPolicyConflictingAccessCriteria.ps1
 src/PSSailpoint.V3/Model/SodPolicyDto.ps1
 src/PSSailpoint.V3/Model/SodPolicyOwnerRef.ps1
+src/PSSailpoint.V3/Model/SodPolicyRead.ps1
+src/PSSailpoint.V3/Model/SodPolicyReadAllOfConflictingAccessCriteria.ps1
+src/PSSailpoint.V3/Model/SodPolicyRequest.ps1
+src/PSSailpoint.V3/Model/SodPolicyRequestAllOfConflictingAccessCriteria.ps1
 src/PSSailpoint.V3/Model/SodPolicySchedule.ps1
 src/PSSailpoint.V3/Model/SodRecipient.ps1
 src/PSSailpoint.V3/Model/SodReportResultDto.ps1
@@ -1480,6 +1492,8 @@ tests/Model/AccessAppsOwner.Tests.ps1
 tests/Model/AccessConstraint.Tests.ps1
 tests/Model/AccessCriteria.Tests.ps1
 tests/Model/AccessCriteriaCriteriaListInner.Tests.ps1
+tests/Model/AccessCriteriaRequest.Tests.ps1
+tests/Model/AccessCriteriaRequestCriteriaListInner.Tests.ps1
 tests/Model/AccessItemRequestedFor.Tests.ps1
 tests/Model/AccessItemRequester.Tests.ps1
 tests/Model/AccessItemReviewedBy.Tests.ps1
@@ -1635,6 +1649,7 @@ tests/Model/CompletionStatus.Tests.ps1
 tests/Model/Concatenation.Tests.ps1
 tests/Model/Conditional.Tests.ps1
 tests/Model/ConflictingAccessCriteria.Tests.ps1
+tests/Model/ConflictingAccessCriteriaRequest.Tests.ps1
 tests/Model/ConnectorDetail.Tests.ps1
 tests/Model/CreateExternalExecuteWorkflow200Response.Tests.ps1
 tests/Model/CreateExternalExecuteWorkflowRequest.Tests.ps1
@@ -2002,9 +2017,12 @@ tests/Model/SlimCampaign.Tests.ps1
 tests/Model/SlimDiscoveredApplications.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
-tests/Model/SodPolicyConflictingAccessCriteria.Tests.ps1
 tests/Model/SodPolicyDto.Tests.ps1
 tests/Model/SodPolicyOwnerRef.Tests.ps1
+tests/Model/SodPolicyRead.Tests.ps1
+tests/Model/SodPolicyReadAllOfConflictingAccessCriteria.Tests.ps1
+tests/Model/SodPolicyRequest.Tests.ps1
+tests/Model/SodPolicyRequestAllOfConflictingAccessCriteria.Tests.ps1
 tests/Model/SodPolicySchedule.Tests.ps1
 tests/Model/SodRecipient.Tests.ps1
 tests/Model/SodReportResultDto.Tests.ps1

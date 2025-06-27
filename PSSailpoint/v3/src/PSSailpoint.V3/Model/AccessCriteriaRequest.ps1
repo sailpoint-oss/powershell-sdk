@@ -14,41 +14,42 @@ No summary available.
 
 No description available.
 
-.PARAMETER Type
-Type of the property to which this reference applies to
-.PARAMETER Id
-ID of the object to which this reference applies to
 .PARAMETER Name
-Human-readable display name of the object to which this reference applies to
+Business name for the access construct list
+.PARAMETER CriteriaList
+List of criteria. There is a min of 1 and max of 50 items in the list.
 .OUTPUTS
 
-AccessCriteriaCriteriaListInner<PSCustomObject>
+AccessCriteriaRequest<PSCustomObject>
 #>
 
-function Initialize-AccessCriteriaCriteriaListInner {
+function Initialize-AccessCriteriaRequest {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ENTITLEMENT")]
         [String]
-        ${Type},
+        ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name}
+        [PSCustomObject[]]
+        ${CriteriaList}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V3 => AccessCriteriaCriteriaListInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V3 => AccessCriteriaRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$CriteriaList -and $CriteriaList.length -gt 50) {
+            throw "invalid value for 'CriteriaList', number of items must be less than or equal to 50."
+        }
+
+        if (!$CriteriaList -and $CriteriaList.length -lt 1) {
+            throw "invalid value for 'CriteriaList', number of items must be greater than or equal to 1."
+        }
 
 
         $PSO = [PSCustomObject]@{
-            "type" = ${Type}
-            "id" = ${Id}
             "name" = ${Name}
+            "criteriaList" = ${CriteriaList}
         }
 
         return $PSO
@@ -58,11 +59,11 @@ function Initialize-AccessCriteriaCriteriaListInner {
 <#
 .SYNOPSIS
 
-Convert from JSON to AccessCriteriaCriteriaListInner<PSCustomObject>
+Convert from JSON to AccessCriteriaRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to AccessCriteriaCriteriaListInner<PSCustomObject>
+Convert from JSON to AccessCriteriaRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -70,38 +71,26 @@ Json object
 
 .OUTPUTS
 
-AccessCriteriaCriteriaListInner<PSCustomObject>
+AccessCriteriaRequest<PSCustomObject>
 #>
-function ConvertFrom-JsonToAccessCriteriaCriteriaListInner {
+function ConvertFrom-JsonToAccessCriteriaRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V3 => AccessCriteriaCriteriaListInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V3 => AccessCriteriaRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in AccessCriteriaCriteriaListInner
-        $AllProperties = ("type", "id", "name")
+        # check if Json contains properties not defined in AccessCriteriaRequest
+        $AllProperties = ("name", "criteriaList")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
-            $Type = $null
-        } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -110,10 +99,15 @@ function ConvertFrom-JsonToAccessCriteriaCriteriaListInner {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "criteriaList"))) { #optional property not found
+            $CriteriaList = $null
+        } else {
+            $CriteriaList = $JsonParameters.PSobject.Properties["criteriaList"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "type" = ${Type}
-            "id" = ${Id}
             "name" = ${Name}
+            "criteriaList" = ${CriteriaList}
         }
 
         return $PSO

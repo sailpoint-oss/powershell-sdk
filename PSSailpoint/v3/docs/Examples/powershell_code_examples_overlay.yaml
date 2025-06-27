@@ -6265,7 +6265,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v3/methods/sod-policies#create-sod-policy
       source: |
-        $SodPolicy = @"
+        $SodPolicyRequest = @"
         {
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
@@ -6327,11 +6327,11 @@
         # Create sod policy
         
         try {
-            $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-            New-SodPolicy -SodPolicy $Result 
+            $Result = ConvertFrom-JsonToSodPolicyRequest -Json $SodPolicyRequest
+            New-SodPolicy -SodPolicyRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-SodPolicy -SodPolicy $Result   
+            # New-SodPolicy -SodPolicyRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SodPolicy"
             Write-Host $_.ErrorDetails
@@ -6624,7 +6624,7 @@
       label: SDK_tools/sdk/powershell/v3/methods/sod-policies#put-sod-policy
       source: |
         $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update.
-        $SodPolicy = @"
+        $SodPolicyRead = @"
         {
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
@@ -6686,11 +6686,11 @@
         # Update sod policy by id
         
         try {
-            $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-            Send-SodPolicy -Id $Id -SodPolicy $Result 
+            $Result = ConvertFrom-JsonToSodPolicyRead -Json $SodPolicyRead
+            Send-SodPolicy -Id $Id -SodPolicyRead $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-SodPolicy -Id $Id -SodPolicy $Result   
+            # Send-SodPolicy -Id $Id -SodPolicyRead $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SodPolicy"
             Write-Host $_.ErrorDetails

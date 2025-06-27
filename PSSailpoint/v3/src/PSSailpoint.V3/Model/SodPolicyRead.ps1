@@ -38,12 +38,14 @@ No description available.
 defines whether a policy has been scheduled or not
 .PARAMETER Type
 whether a policy is query based or conflicting access based
+.PARAMETER ConflictingAccessCriteria
+No description available.
 .OUTPUTS
 
-SodPolicy<PSCustomObject>
+SodPolicyRead<PSCustomObject>
 #>
 
-function Initialize-SodPolicy {
+function Initialize-SodPolicyRead {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -83,11 +85,14 @@ function Initialize-SodPolicy {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("GENERAL", "CONFLICTING_ACCESS_BASED")]
         [String]
-        ${Type} = "GENERAL"
+        ${Type} = "GENERAL",
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${ConflictingAccessCriteria}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V3 => SodPolicy' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V3 => SodPolicyRead' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -104,6 +109,7 @@ function Initialize-SodPolicy {
             "violationOwnerAssignmentConfig" = ${ViolationOwnerAssignmentConfig}
             "scheduled" = ${Scheduled}
             "type" = ${Type}
+            "conflictingAccessCriteria" = ${ConflictingAccessCriteria}
         }
 
         return $PSO
@@ -113,11 +119,11 @@ function Initialize-SodPolicy {
 <#
 .SYNOPSIS
 
-Convert from JSON to SodPolicy<PSCustomObject>
+Convert from JSON to SodPolicyRead<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SodPolicy<PSCustomObject>
+Convert from JSON to SodPolicyRead<PSCustomObject>
 
 .PARAMETER Json
 
@@ -125,22 +131,22 @@ Json object
 
 .OUTPUTS
 
-SodPolicy<PSCustomObject>
+SodPolicyRead<PSCustomObject>
 #>
-function ConvertFrom-JsonToSodPolicy {
+function ConvertFrom-JsonToSodPolicyRead {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V3 => SodPolicy' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V3 => SodPolicyRead' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in SodPolicy
-        $AllProperties = ("id", "name", "created", "modified", "description", "ownerRef", "externalPolicyReference", "policyQuery", "compensatingControls", "correctionAdvice", "state", "tags", "creatorId", "modifierId", "violationOwnerAssignmentConfig", "scheduled", "type")
+        # check if Json contains properties not defined in SodPolicyRead
+        $AllProperties = ("id", "name", "created", "modified", "description", "ownerRef", "externalPolicyReference", "policyQuery", "compensatingControls", "correctionAdvice", "state", "tags", "creatorId", "modifierId", "violationOwnerAssignmentConfig", "scheduled", "type", "conflictingAccessCriteria")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -249,6 +255,12 @@ function ConvertFrom-JsonToSodPolicy {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "conflictingAccessCriteria"))) { #optional property not found
+            $ConflictingAccessCriteria = $null
+        } else {
+            $ConflictingAccessCriteria = $JsonParameters.PSobject.Properties["conflictingAccessCriteria"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -267,6 +279,7 @@ function ConvertFrom-JsonToSodPolicy {
             "violationOwnerAssignmentConfig" = ${ViolationOwnerAssignmentConfig}
             "scheduled" = ${Scheduled}
             "type" = ${Type}
+            "conflictingAccessCriteria" = ${ConflictingAccessCriteria}
         }
 
         return $PSO

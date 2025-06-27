@@ -20,10 +20,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-SodPolicyConflictingAccessCriteria<PSCustomObject>
+SodPolicyRequestAllOfConflictingAccessCriteria<PSCustomObject>
 #>
 
-function Initialize-SodPolicyConflictingAccessCriteria {
+function Initialize-SodPolicyRequestAllOfConflictingAccessCriteria {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -35,7 +35,7 @@ function Initialize-SodPolicyConflictingAccessCriteria {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V3 => SodPolicyConflictingAccessCriteria' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V3 => SodPolicyRequestAllOfConflictingAccessCriteria' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -51,11 +51,11 @@ function Initialize-SodPolicyConflictingAccessCriteria {
 <#
 .SYNOPSIS
 
-Convert from JSON to SodPolicyConflictingAccessCriteria<PSCustomObject>
+Convert from JSON to SodPolicyRequestAllOfConflictingAccessCriteria<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SodPolicyConflictingAccessCriteria<PSCustomObject>
+Convert from JSON to SodPolicyRequestAllOfConflictingAccessCriteria<PSCustomObject>
 
 .PARAMETER Json
 
@@ -63,21 +63,21 @@ Json object
 
 .OUTPUTS
 
-SodPolicyConflictingAccessCriteria<PSCustomObject>
+SodPolicyRequestAllOfConflictingAccessCriteria<PSCustomObject>
 #>
-function ConvertFrom-JsonToSodPolicyConflictingAccessCriteria {
+function ConvertFrom-JsonToSodPolicyRequestAllOfConflictingAccessCriteria {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V3 => SodPolicyConflictingAccessCriteria' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V3 => SodPolicyRequestAllOfConflictingAccessCriteria' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in SodPolicyConflictingAccessCriteria
+        # check if Json contains properties not defined in SodPolicyRequestAllOfConflictingAccessCriteria
         $AllProperties = ("leftCriteria", "rightCriteria")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

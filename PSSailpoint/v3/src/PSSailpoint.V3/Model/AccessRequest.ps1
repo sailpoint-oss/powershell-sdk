@@ -62,10 +62,6 @@ function Initialize-AccessRequest {
             throw "invalid value for 'RequestedItems', 'RequestedItems' cannot be null."
         }
 
-        if ($RequestedItems.length -gt 25) {
-            throw "invalid value for 'RequestedItems', number of items must be less than or equal to 25."
-        }
-
         if ($RequestedItems.length -lt 1) {
             throw "invalid value for 'RequestedItems', number of items must be greater than or equal to 1."
         }

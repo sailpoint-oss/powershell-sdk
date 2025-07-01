@@ -32,7 +32,7 @@ function Initialize-CampaignAllOfFilter {
         [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("CAMPAIGN_FILTER", "RULE")]
+        [ValidateSet("CAMPAIGN_FILTER")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

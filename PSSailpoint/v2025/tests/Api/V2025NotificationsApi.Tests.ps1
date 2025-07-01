@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025NotificationsApi' {
 
     Context 'Get-V2025NotificationTemplates' {
         It 'Test Get-V2025NotificationTemplates' {
-            #$TestResult = Get-V2025NotificationTemplates -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2025NotificationTemplates -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

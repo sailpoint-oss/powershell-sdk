@@ -113,7 +113,7 @@ Create notification template
 
 .DESCRIPTION
 
-This creates a template for your site.   You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
+This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -1141,6 +1141,9 @@ Offset into the full result set. Usually specified with *limit* to paginate thro
 .PARAMETER Filters
 Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
 
+.PARAMETER Sorters
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, medium**
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -1164,6 +1167,9 @@ function Get-V2025NotificationTemplates {
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
         [Switch]
         $WithHttpInfo
     )
@@ -1201,6 +1207,10 @@ function Get-V2025NotificationTemplates {
 
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
         }
 
 

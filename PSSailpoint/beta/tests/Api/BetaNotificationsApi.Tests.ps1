@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaNotificationsApi' {
 
     Context 'Get-BetaNotificationTemplates' {
         It 'Test Get-BetaNotificationTemplates' {
-            #$TestResult = Get-BetaNotificationTemplates -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-BetaNotificationTemplates -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

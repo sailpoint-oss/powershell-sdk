@@ -102,7 +102,7 @@ Create notification template
 
 .DESCRIPTION
 
-This creates a template for your site.   You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
+This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
 
 .PARAMETER TemplateDto
 No description available.
@@ -1013,7 +1013,10 @@ Max number of results to return. See [V3 API Standard Collection Parameters](htt
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in*  **medium**: *eq*  **locale**: *eq*  **name**: *eq, sw*  **description**: *eq, sw*  **id**: *eq, sw*
+
+.PARAMETER Sorters
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, medium**
 
 .PARAMETER WithHttpInfo
 
@@ -1035,6 +1038,9 @@ function Get-BetaNotificationTemplates {
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
         [Switch]
         $WithHttpInfo
     )
@@ -1067,6 +1073,10 @@ function Get-BetaNotificationTemplates {
 
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
         }
 
 

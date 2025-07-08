@@ -4,6 +4,7 @@ Index.md
 README.md
 appveyor.yml
 docs/Access.md
+docs/AccessActionConfiguration.md
 docs/AccessApps.md
 docs/AccessAppsOwner.md
 docs/AccessConstraint.md
@@ -1463,6 +1464,7 @@ src/PSSailpoint.V2025/Api/V2025WorkReassignmentApi.ps1
 src/PSSailpoint.V2025/Api/V2025WorkflowsApi.ps1
 src/PSSailpoint.V2025/Client/V2025Configuration.ps1
 src/PSSailpoint.V2025/Model/Access.ps1
+src/PSSailpoint.V2025/Model/AccessActionConfiguration.ps1
 src/PSSailpoint.V2025/Model/AccessApps.ps1
 src/PSSailpoint.V2025/Model/AccessAppsOwner.ps1
 src/PSSailpoint.V2025/Model/AccessConstraint.ps1
@@ -2741,6 +2743,7 @@ tests/Api/V2025WorkItemsApi.Tests.ps1
 tests/Api/V2025WorkReassignmentApi.Tests.ps1
 tests/Api/V2025WorkflowsApi.Tests.ps1
 tests/Model/Access.Tests.ps1
+tests/Model/AccessActionConfiguration.Tests.ps1
 tests/Model/AccessApps.Tests.ps1
 tests/Model/AccessAppsOwner.Tests.ps1
 tests/Model/AccessConstraint.Tests.ps1

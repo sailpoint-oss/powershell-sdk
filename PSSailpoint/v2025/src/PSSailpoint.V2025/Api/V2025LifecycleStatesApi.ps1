@@ -113,7 +113,7 @@ Delete lifecycle state
 
 .DESCRIPTION
 
-Use this endpoint to delete the lifecycle state by its ID. 
+Use this endpoint to delete the lifecycle state by its ID.
 
 .PARAMETER IdentityProfileId
 Identity profile ID.
@@ -198,7 +198,7 @@ Get lifecycle state
 
 .DESCRIPTION
 
-Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
+Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.
 
 .PARAMETER IdentityProfileId
 Identity profile ID.
@@ -506,7 +506,7 @@ Identity profile ID.
 Lifecycle state ID.
 
 .PARAMETER JsonPatchOperation
-A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
 
 .PARAMETER WithHttpInfo
 

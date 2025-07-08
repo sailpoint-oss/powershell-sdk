@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025LifecycleState' {
     Context 'V2025LifecycleState' {
         It 'Initialize-V2025LifecycleState' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025LifecycleState -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Enabled "TEST_VALUE" -TechnicalName "TEST_VALUE" -Description "TEST_VALUE" -IdentityCount "TEST_VALUE" -EmailNotificationOption "TEST_VALUE" -AccountActions "TEST_VALUE" -AccessProfileIds "TEST_VALUE" -IdentityState "TEST_VALUE"
+            #$NewObject = Initialize-V2025LifecycleState -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Enabled "TEST_VALUE" -TechnicalName "TEST_VALUE" -Description "TEST_VALUE" -IdentityCount "TEST_VALUE" -EmailNotificationOption "TEST_VALUE" -AccountActions "TEST_VALUE" -AccessProfileIds "TEST_VALUE" -IdentityState "TEST_VALUE" -AccessActionConfiguration "TEST_VALUE" -Priority "TEST_VALUE"
             #$NewObject | Should -BeOfType LifecycleState
             #$NewObject.property | Should -Be 0
         }

@@ -30,6 +30,10 @@ No description available.
 List of unique access-profile IDs that are associated with the lifecycle state.
 .PARAMETER IdentityState
 The lifecycle state's associated identity state. This field is generally 'null'.
+.PARAMETER AccessActionConfiguration
+No description available.
+.PARAMETER Priority
+Priority level used to determine which profile to assign when a user exists in multiple profiles. Lower numeric values have higher priority.  By default, new profiles are assigned the lowest priority. The assigned profile also controls access granted or removed during provisioning based on lifecycle state changes.
 .OUTPUTS
 
 LifecycleState<PSCustomObject>
@@ -60,8 +64,15 @@ function Initialize-V2025LifecycleState {
         [String[]]
         ${AccessProfileIds},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ACTIVE", "INACTIVE_SHORT_TERM", "INACTIVE_LONG_TERM")]
         [String]
-        ${IdentityState}
+        ${IdentityState},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${AccessActionConfiguration},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${Priority}
     )
 
     Process {
@@ -82,6 +93,8 @@ function Initialize-V2025LifecycleState {
             "accountActions" = ${AccountActions}
             "accessProfileIds" = ${AccessProfileIds}
             "identityState" = ${IdentityState}
+            "accessActionConfiguration" = ${AccessActionConfiguration}
+            "priority" = ${Priority}
         }
 
         return $PSO
@@ -118,7 +131,7 @@ function ConvertFrom-V2025JsonToLifecycleState {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025LifecycleState
-        $AllProperties = ("id", "name", "created", "modified", "enabled", "technicalName", "description", "identityCount", "emailNotificationOption", "accountActions", "accessProfileIds", "identityState")
+        $AllProperties = ("id", "name", "created", "modified", "enabled", "technicalName", "description", "identityCount", "emailNotificationOption", "accountActions", "accessProfileIds", "identityState", "accessActionConfiguration", "priority")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -201,6 +214,18 @@ function ConvertFrom-V2025JsonToLifecycleState {
             $IdentityState = $JsonParameters.PSobject.Properties["identityState"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessActionConfiguration"))) { #optional property not found
+            $AccessActionConfiguration = $null
+        } else {
+            $AccessActionConfiguration = $JsonParameters.PSobject.Properties["accessActionConfiguration"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "priority"))) { #optional property not found
+            $Priority = $null
+        } else {
+            $Priority = $JsonParameters.PSobject.Properties["priority"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -214,6 +239,8 @@ function ConvertFrom-V2025JsonToLifecycleState {
             "accountActions" = ${AccountActions}
             "accessProfileIds" = ${AccessProfileIds}
             "identityState" = ${IdentityState}
+            "accessActionConfiguration" = ${AccessActionConfiguration}
+            "priority" = ${Priority}
         }
 
         return $PSO

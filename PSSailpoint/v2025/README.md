@@ -765,6 +765,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [PSSailpoint.V2025\Model.Access](docs/Access.md)
+ - [PSSailpoint.V2025\Model.AccessActionConfiguration](docs/AccessActionConfiguration.md)
  - [PSSailpoint.V2025\Model.AccessApps](docs/AccessApps.md)
  - [PSSailpoint.V2025\Model.AccessAppsOwner](docs/AccessAppsOwner.md)
  - [PSSailpoint.V2025\Model.AccessConstraint](docs/AccessConstraint.md)

@@ -29,7 +29,7 @@ No description available.
 .PARAMETER Requester
 No description available.
 .PARAMETER AccountRequests
-A list of provisioning instructions to perform on an account-by-account basis.
+A list of provisioning instructions to be executed on a per-account basis. The order in which operations are executed may not always be predictable.
 .OUTPUTS
 
 ProvisioningCompleted<PSCustomObject>

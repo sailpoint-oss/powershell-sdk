@@ -588,7 +588,7 @@ function Get-V2025EntitlementDetailsForIdentity {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/access-requests/revocable-objects'
+        $LocalVarUri = '/revocable-objects'
         if (!$IdentityId) {
             throw "Error! The required parameter `IdentityId` missing when calling getEntitlementDetailsForIdentity."
         }

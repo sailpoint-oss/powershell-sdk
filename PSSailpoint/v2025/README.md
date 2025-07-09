@@ -79,7 +79,7 @@ Class | Method | HTTP request | Description
 *V2025AccessRequestsApi* | [**Close-V2025AccessRequest**](docs/V2025AccessRequestsApi.md#Close-V2025AccessRequest) | **POST** /access-requests/close | Close access request
 *V2025AccessRequestsApi* | [**New-V2025AccessRequest**](docs/V2025AccessRequestsApi.md#New-V2025AccessRequest) | **POST** /access-requests | Submit access request
 *V2025AccessRequestsApi* | [**Get-V2025AccessRequestConfig**](docs/V2025AccessRequestsApi.md#Get-V2025AccessRequestConfig) | **GET** /access-request-config | Get access request configuration
-*V2025AccessRequestsApi* | [**Get-V2025EntitlementDetailsForIdentity**](docs/V2025AccessRequestsApi.md#Get-V2025EntitlementDetailsForIdentity) | **GET** /access-requests/revocable-objects | Identity entitlement details
+*V2025AccessRequestsApi* | [**Get-V2025EntitlementDetailsForIdentity**](docs/V2025AccessRequestsApi.md#Get-V2025EntitlementDetailsForIdentity) | **GET** /revocable-objects | Identity entitlement details
 *V2025AccessRequestsApi* | [**Get-V2025AccessRequestStatus**](docs/V2025AccessRequestsApi.md#Get-V2025AccessRequestStatus) | **GET** /access-request-status | Access request status
 *V2025AccessRequestsApi* | [**Get-V2025AdministratorsAccessRequestStatus**](docs/V2025AccessRequestsApi.md#Get-V2025AdministratorsAccessRequestStatus) | **GET** /access-request-administration | Access request status for administrators
 *V2025AccessRequestsApi* | [**Invoke-V2025LoadAccountSelections**](docs/V2025AccessRequestsApi.md#Invoke-V2025LoadAccountSelections) | **POST** /access-requests/accounts-selection | Get accounts selections for identity

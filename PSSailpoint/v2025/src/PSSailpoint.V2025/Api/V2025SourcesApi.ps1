@@ -408,7 +408,7 @@ function New-V2025SourceSchema {
 <#
 .SYNOPSIS
 
-Remove all accounts in a source
+Remove all accounts in source
 
 .DESCRIPTION
 
@@ -416,9 +416,6 @@ Use this endpoint to remove all accounts from the system without provisioning ch
 
 .PARAMETER Id
 The source id
-
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
 
 .PARAMETER WithHttpInfo
 
@@ -434,9 +431,6 @@ function Remove-V2025AccountsAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -462,11 +456,6 @@ function Remove-V2025AccountsAsync {
             throw "Error! The required parameter `Id` missing when calling deleteAccountsAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteAccountsAsync."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -2591,9 +2580,6 @@ File is required for upload. You will also need to set the Content-Type header t
 .PARAMETER Id
 Source Id
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER File
 No description available.
 
@@ -2612,9 +2598,6 @@ function Import-V2025UncorrelatedAccounts {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.IO.FileInfo]
         ${File},
         [Switch]
@@ -2645,11 +2628,6 @@ function Import-V2025UncorrelatedAccounts {
             throw "Error! The required parameter `Id` missing when calling importUncorrelatedAccounts."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling importUncorrelatedAccounts."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($File) {
             $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }

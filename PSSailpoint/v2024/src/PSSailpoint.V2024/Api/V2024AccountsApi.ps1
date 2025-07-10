@@ -181,9 +181,6 @@ Use this endpoint to remove accounts from the system without provisioning change
 .PARAMETER Id
 The account id
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -198,9 +195,6 @@ function Remove-V2024AccountAsync {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -226,11 +220,6 @@ function Remove-V2024AccountAsync {
             throw "Error! The required parameter `Id` missing when calling deleteAccountAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteAccountAsync."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -366,9 +355,6 @@ This API submits a task to disable IDN account for a single identity.
 .PARAMETER Id
 The identity id.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -383,9 +369,6 @@ function Disable-V2024AccountForIdentity {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -411,11 +394,6 @@ function Disable-V2024AccountForIdentity {
             throw "Error! The required parameter `Id` missing when calling disableAccountForIdentity."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling disableAccountForIdentity."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -448,9 +426,6 @@ Disable idn accounts for identities
 
 This API submits tasks to disable IDN account for each identity provided in the request body.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER IdentitiesAccountsBulkRequest
 No description available.
 
@@ -466,9 +441,6 @@ function Disable-V2024AccountsForIdentities {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${IdentitiesAccountsBulkRequest},
         [Switch]
@@ -495,11 +467,6 @@ function Disable-V2024AccountsForIdentities {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/identities-accounts/disable'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling disableAccountsForIdentities."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$IdentitiesAccountsBulkRequest) {
             throw "Error! The required parameter `IdentitiesAccountsBulkRequest` missing when calling disableAccountsForIdentities."
@@ -652,9 +619,6 @@ This API submits a task to enable IDN account for a single identity.
 .PARAMETER Id
 The identity id.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -669,9 +633,6 @@ function Enable-V2024AccountForIdentity {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -697,11 +658,6 @@ function Enable-V2024AccountForIdentity {
             throw "Error! The required parameter `Id` missing when calling enableAccountForIdentity."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling enableAccountForIdentity."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -734,9 +690,6 @@ Enable idn accounts for identities
 
 This API submits tasks to enable IDN account for each identity provided in the request body.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER IdentitiesAccountsBulkRequest
 No description available.
 
@@ -752,9 +705,6 @@ function Enable-V2024AccountsForIdentities {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${IdentitiesAccountsBulkRequest},
         [Switch]
@@ -781,11 +731,6 @@ function Enable-V2024AccountsForIdentities {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/identities-accounts/enable'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling enableAccountsForIdentities."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$IdentitiesAccountsBulkRequest) {
             throw "Error! The required parameter `IdentitiesAccountsBulkRequest` missing when calling enableAccountsForIdentities."

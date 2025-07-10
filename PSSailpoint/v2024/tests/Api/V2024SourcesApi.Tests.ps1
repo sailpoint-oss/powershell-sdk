@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
 
     Context 'Remove-V2024AccountsAsync' {
         It 'Test Remove-V2024AccountsAsync' {
-            #$TestResult = Remove-V2024AccountsAsync -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Remove-V2024AccountsAsync -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -208,7 +208,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
 
     Context 'Import-V2024Accounts' {
         It 'Test Import-V2024Accounts' {
-            #$TestResult = Import-V2024Accounts -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -File "TEST_VALUE" -DisableOptimization "TEST_VALUE"
+            #$TestResult = Import-V2024Accounts -Id "TEST_VALUE" -File "TEST_VALUE" -DisableOptimization "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -248,7 +248,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
 
     Context 'Import-V2024UncorrelatedAccounts' {
         It 'Test Import-V2024UncorrelatedAccounts' {
-            #$TestResult = Import-V2024UncorrelatedAccounts -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult = Import-V2024UncorrelatedAccounts -Id "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

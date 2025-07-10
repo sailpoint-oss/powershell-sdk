@@ -22,6 +22,14 @@ STARTED - Aggregation started, but source account iteration has not completed.  
 The total number of *NEW, CHANGED and DELETED* accounts that need to be processed for this aggregation. This does not include accounts that were unchanged since the previous aggregation. This can be zero if there were no new, changed or deleted accounts since the previous aggregation. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
 .PARAMETER ProcessedAccounts
 The number of *NEW, CHANGED and DELETED* accounts that have been processed so far. This reflects the number of accounts that have been processed at the time of the API call, and may increase on subsequent API calls while the status is ACCOUNTS_COLLECTED. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
+.PARAMETER TotalAccountsMarkedForDeletion
+The total number of accounts that have been marked for deletion during the aggregation. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
+.PARAMETER DeletedAccounts
+The number of accounts that have been deleted during the aggregation. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
+.PARAMETER TotalIdentities
+The total number of unique identities that have been marked for refresh. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
+.PARAMETER ProcessedIdentities
+The number of unique identities that have been refreshed at the time of the API call, and may increase on subsequent API calls while the status is ACCOUNTS_COLLECTED. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
 .OUTPUTS
 
 AccountAggregationStatus<PSCustomObject>
@@ -42,7 +50,19 @@ function Initialize-V2024AccountAggregationStatus {
         ${TotalAccounts},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${ProcessedAccounts}
+        ${ProcessedAccounts},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${TotalAccountsMarkedForDeletion},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${DeletedAccounts},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${TotalIdentities},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${ProcessedIdentities}
     )
 
     Process {
@@ -55,6 +75,10 @@ function Initialize-V2024AccountAggregationStatus {
             "status" = ${Status}
             "totalAccounts" = ${TotalAccounts}
             "processedAccounts" = ${ProcessedAccounts}
+            "totalAccountsMarkedForDeletion" = ${TotalAccountsMarkedForDeletion}
+            "deletedAccounts" = ${DeletedAccounts}
+            "totalIdentities" = ${TotalIdentities}
+            "processedIdentities" = ${ProcessedIdentities}
         }
 
         return $PSO
@@ -91,7 +115,7 @@ function ConvertFrom-V2024JsonToAccountAggregationStatus {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024AccountAggregationStatus
-        $AllProperties = ("start", "status", "totalAccounts", "processedAccounts")
+        $AllProperties = ("start", "status", "totalAccounts", "processedAccounts", "totalAccountsMarkedForDeletion", "deletedAccounts", "totalIdentities", "processedIdentities")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -122,11 +146,39 @@ function ConvertFrom-V2024JsonToAccountAggregationStatus {
             $ProcessedAccounts = $JsonParameters.PSobject.Properties["processedAccounts"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalAccountsMarkedForDeletion"))) { #optional property not found
+            $TotalAccountsMarkedForDeletion = $null
+        } else {
+            $TotalAccountsMarkedForDeletion = $JsonParameters.PSobject.Properties["totalAccountsMarkedForDeletion"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "deletedAccounts"))) { #optional property not found
+            $DeletedAccounts = $null
+        } else {
+            $DeletedAccounts = $JsonParameters.PSobject.Properties["deletedAccounts"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalIdentities"))) { #optional property not found
+            $TotalIdentities = $null
+        } else {
+            $TotalIdentities = $JsonParameters.PSobject.Properties["totalIdentities"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "processedIdentities"))) { #optional property not found
+            $ProcessedIdentities = $null
+        } else {
+            $ProcessedIdentities = $JsonParameters.PSobject.Properties["processedIdentities"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "start" = ${Start}
             "status" = ${Status}
             "totalAccounts" = ${TotalAccounts}
             "processedAccounts" = ${ProcessedAccounts}
+            "totalAccountsMarkedForDeletion" = ${TotalAccountsMarkedForDeletion}
+            "deletedAccounts" = ${DeletedAccounts}
+            "totalIdentities" = ${TotalIdentities}
+            "processedIdentities" = ${ProcessedIdentities}
         }
 
         return $PSO

@@ -626,7 +626,7 @@ Class | Method | HTTP request | Description
 *V2024SourcesApi* | [**New-V2024Source**](docs/V2024SourcesApi.md#New-V2024Source) | **POST** /sources | Creates a source in identitynow.
 *V2024SourcesApi* | [**New-V2024SourceSchedule**](docs/V2024SourcesApi.md#New-V2024SourceSchedule) | **POST** /sources/{sourceId}/schedules | Create schedule on source
 *V2024SourcesApi* | [**New-V2024SourceSchema**](docs/V2024SourcesApi.md#New-V2024SourceSchema) | **POST** /sources/{sourceId}/schemas | Create schema on source
-*V2024SourcesApi* | [**Remove-V2024AccountsAsync**](docs/V2024SourcesApi.md#Remove-V2024AccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove all accounts in a source
+*V2024SourcesApi* | [**Remove-V2024AccountsAsync**](docs/V2024SourcesApi.md#Remove-V2024AccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove all accounts in source
 *V2024SourcesApi* | [**Remove-V2024NativeChangeDetectionConfig**](docs/V2024SourcesApi.md#Remove-V2024NativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete native change detection configuration
 *V2024SourcesApi* | [**Remove-V2024ProvisioningPolicy**](docs/V2024SourcesApi.md#Remove-V2024ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete provisioning policy by usagetype
 *V2024SourcesApi* | [**Remove-V2024Source**](docs/V2024SourcesApi.md#Remove-V2024Source) | **DELETE** /sources/{id} | Delete source by id

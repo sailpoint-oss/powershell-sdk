@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccessRequestsApi' {
 
     Context 'Close-V2024AccessRequest' {
         It 'Test Close-V2024AccessRequest' {
-            #$TestResult = Close-V2024AccessRequest -XSailPointExperimental "TEST_VALUE" -CloseAccessRequest "TEST_VALUE"
+            #$TestResult = Close-V2024AccessRequest -CloseAccessRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

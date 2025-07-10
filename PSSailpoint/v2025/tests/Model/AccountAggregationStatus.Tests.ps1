@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025AccountAggregationStatus' {
     Context 'V2025AccountAggregationStatus' {
         It 'Initialize-V2025AccountAggregationStatus' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025AccountAggregationStatus -Start "TEST_VALUE" -Status "TEST_VALUE" -TotalAccounts "TEST_VALUE" -ProcessedAccounts "TEST_VALUE"
+            #$NewObject = Initialize-V2025AccountAggregationStatus -Start "TEST_VALUE" -Status "TEST_VALUE" -TotalAccounts "TEST_VALUE" -ProcessedAccounts "TEST_VALUE" -TotalAccountsMarkedForDeletion "TEST_VALUE" -DeletedAccounts "TEST_VALUE" -TotalIdentities "TEST_VALUE" -ProcessedIdentities "TEST_VALUE"
             #$NewObject | Should -BeOfType AccountAggregationStatus
             #$NewObject.property | Should -Be 0
         }

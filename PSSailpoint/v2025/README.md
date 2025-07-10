@@ -630,7 +630,7 @@ Class | Method | HTTP request | Description
 *V2025SourcesApi* | [**New-V2025Source**](docs/V2025SourcesApi.md#New-V2025Source) | **POST** /sources | Creates a source in identitynow.
 *V2025SourcesApi* | [**New-V2025SourceSchedule**](docs/V2025SourcesApi.md#New-V2025SourceSchedule) | **POST** /sources/{sourceId}/schedules | Create schedule on source
 *V2025SourcesApi* | [**New-V2025SourceSchema**](docs/V2025SourcesApi.md#New-V2025SourceSchema) | **POST** /sources/{sourceId}/schemas | Create schema on source
-*V2025SourcesApi* | [**Remove-V2025AccountsAsync**](docs/V2025SourcesApi.md#Remove-V2025AccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove all accounts in a source
+*V2025SourcesApi* | [**Remove-V2025AccountsAsync**](docs/V2025SourcesApi.md#Remove-V2025AccountsAsync) | **POST** /sources/{id}/remove-accounts | Remove all accounts in source
 *V2025SourcesApi* | [**Remove-V2025NativeChangeDetectionConfig**](docs/V2025SourcesApi.md#Remove-V2025NativeChangeDetectionConfig) | **DELETE** /sources/{sourceId}/native-change-detection-config | Delete native change detection configuration
 *V2025SourcesApi* | [**Remove-V2025ProvisioningPolicy**](docs/V2025SourcesApi.md#Remove-V2025ProvisioningPolicy) | **DELETE** /sources/{sourceId}/provisioning-policies/{usageType} | Delete provisioning policy by usagetype
 *V2025SourcesApi* | [**Remove-V2025Source**](docs/V2025SourcesApi.md#Remove-V2025Source) | **DELETE** /sources/{id} | Delete source by id

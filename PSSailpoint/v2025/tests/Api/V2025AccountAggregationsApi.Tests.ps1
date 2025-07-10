@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025AccountAggregationsApi' {
     Context 'Get-V2025AccountAggregationStatus' {
         It 'Test Get-V2025AccountAggregationStatus' {
-            #$TestResult = Get-V2025AccountAggregationStatus -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2025AccountAggregationStatus -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

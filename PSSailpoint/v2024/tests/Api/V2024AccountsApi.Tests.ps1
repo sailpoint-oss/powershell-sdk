@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccountsApi' {
 
     Context 'Remove-V2024AccountAsync' {
         It 'Test Remove-V2024AccountAsync' {
-            #$TestResult = Remove-V2024AccountAsync -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Remove-V2024AccountAsync -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccountsApi' {
 
     Context 'Disable-V2024AccountForIdentity' {
         It 'Test Disable-V2024AccountForIdentity' {
-            #$TestResult = Disable-V2024AccountForIdentity -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Disable-V2024AccountForIdentity -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccountsApi' {
 
     Context 'Disable-V2024AccountsForIdentities' {
         It 'Test Disable-V2024AccountsForIdentities' {
-            #$TestResult = Disable-V2024AccountsForIdentities -XSailPointExperimental "TEST_VALUE" -IdentitiesAccountsBulkRequest "TEST_VALUE"
+            #$TestResult = Disable-V2024AccountsForIdentities -IdentitiesAccountsBulkRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccountsApi' {
 
     Context 'Enable-V2024AccountForIdentity' {
         It 'Test Enable-V2024AccountForIdentity' {
-            #$TestResult = Enable-V2024AccountForIdentity -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Enable-V2024AccountForIdentity -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccountsApi' {
 
     Context 'Enable-V2024AccountsForIdentities' {
         It 'Test Enable-V2024AccountsForIdentities' {
-            #$TestResult = Enable-V2024AccountsForIdentities -XSailPointExperimental "TEST_VALUE" -IdentitiesAccountsBulkRequest "TEST_VALUE"
+            #$TestResult = Enable-V2024AccountsForIdentities -IdentitiesAccountsBulkRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

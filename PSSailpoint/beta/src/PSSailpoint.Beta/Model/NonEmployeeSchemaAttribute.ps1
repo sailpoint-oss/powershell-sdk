@@ -55,7 +55,7 @@ function Initialize-BetaNonEmployeeSchemaAttribute {
         [System.Nullable[System.DateTime]]
         ${Created},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("TEXT", "DATE", "IDENTITY")]
+        [ValidateSet("TEXT", "DATE", "IDENTITY", "PHONE", "EMAIL")]
         [PSCustomObject]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

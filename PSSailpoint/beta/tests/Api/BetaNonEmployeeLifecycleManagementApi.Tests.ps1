@@ -94,22 +94,6 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaNonEmployeeLifecycleManagementAp
         }
     }
 
-    Context 'Export-BetaNonEmployeeRecords' {
-        It 'Test Export-BetaNonEmployeeRecords' {
-            #$TestResult = Export-BetaNonEmployeeRecords -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Export-BetaNonEmployeeSourceSchemaTemplate' {
-        It 'Test Export-BetaNonEmployeeSourceSchemaTemplate' {
-            #$TestResult = Export-BetaNonEmployeeSourceSchemaTemplate -Id "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-BetaNonEmployeeApproval' {
         It 'Test Get-BetaNonEmployeeApproval' {
             #$TestResult = Get-BetaNonEmployeeApproval -Id "TEST_VALUE" -IncludeDetail "TEST_VALUE"
@@ -129,6 +113,22 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaNonEmployeeLifecycleManagementAp
     Context 'Get-BetaNonEmployeeBulkUploadStatus' {
         It 'Test Get-BetaNonEmployeeBulkUploadStatus' {
             #$TestResult = Get-BetaNonEmployeeBulkUploadStatus -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaNonEmployeeExportRecords' {
+        It 'Test Get-BetaNonEmployeeExportRecords' {
+            #$TestResult = Get-BetaNonEmployeeExportRecords -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-BetaNonEmployeeExportSourceSchemaTemplate' {
+        It 'Test Get-BetaNonEmployeeExportSourceSchemaTemplate' {
+            #$TestResult = Get-BetaNonEmployeeExportSourceSchemaTemplate -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -176,7 +176,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaNonEmployeeLifecycleManagementAp
 
     Context 'Get-BetaNonEmployeeSourceSchemaAttributes' {
         It 'Test Get-BetaNonEmployeeSourceSchemaAttributes' {
-            #$TestResult = Get-BetaNonEmployeeSourceSchemaAttributes -SourceId "TEST_VALUE"
+            #$TestResult = Get-BetaNonEmployeeSourceSchemaAttributes -SourceId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -246,17 +246,17 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaNonEmployeeLifecycleManagementAp
         }
     }
 
-    Context 'Deny-BetaNonEmployeeRequest' {
-        It 'Test Deny-BetaNonEmployeeRequest' {
-            #$TestResult = Deny-BetaNonEmployeeRequest -Id "TEST_VALUE" -NonEmployeeRejectApprovalDecision "TEST_VALUE"
+    Context 'Send-BetaNonEmployeeRecord' {
+        It 'Test Send-BetaNonEmployeeRecord' {
+            #$TestResult = Send-BetaNonEmployeeRecord -Id "TEST_VALUE" -NonEmployeeRequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Update-BetaNonEmployeeRecord' {
-        It 'Test Update-BetaNonEmployeeRecord' {
-            #$TestResult = Update-BetaNonEmployeeRecord -Id "TEST_VALUE" -NonEmployeeRequestBody "TEST_VALUE"
+    Context 'Deny-BetaNonEmployeeRequest' {
+        It 'Test Deny-BetaNonEmployeeRequest' {
+            #$TestResult = Deny-BetaNonEmployeeRequest -Id "TEST_VALUE" -NonEmployeeRejectApprovalDecision "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

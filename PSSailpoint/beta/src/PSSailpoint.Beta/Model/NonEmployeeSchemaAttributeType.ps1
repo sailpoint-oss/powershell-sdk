@@ -22,5 +22,9 @@ enum NonEmployeeSchemaAttributeType {
     DATE
     # enum value: "IDENTITY"
     IDENTITY
+    # enum value: "PHONE"
+    PHONE
+    # enum value: "EMAIL"
+    EMAIL
 }
 

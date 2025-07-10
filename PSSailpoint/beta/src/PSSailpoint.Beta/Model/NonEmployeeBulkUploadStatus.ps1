@@ -25,7 +25,7 @@ function Initialize-BetaNonEmployeeBulkUploadStatus {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("PENDING", "IN_PROGRESS", "COMPLETED", "ERROR")]
+        [ValidateSet("PENDING", "IN_PROGRESS", "COMPLETED", "ERROR", "")]
         [String]
         ${Status}
     )

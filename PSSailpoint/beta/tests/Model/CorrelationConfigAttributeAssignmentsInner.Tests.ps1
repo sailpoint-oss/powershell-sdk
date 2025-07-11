@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaCorrelationConfigAttributeAssignment
     Context 'BetaCorrelationConfigAttributeAssignmentsInner' {
         It 'Initialize-BetaCorrelationConfigAttributeAssignmentsInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaCorrelationConfigAttributeAssignmentsInner -Property "TEST_VALUE" -Value "TEST_VALUE" -Operation "TEST_VALUE" -Complex "TEST_VALUE" -IgnoreCase "TEST_VALUE" -MatchMode "TEST_VALUE" -FilterString "TEST_VALUE"
+            #$NewObject = Initialize-BetaCorrelationConfigAttributeAssignmentsInner -Sequence "TEST_VALUE" -Property "TEST_VALUE" -Value "TEST_VALUE" -Operation "TEST_VALUE" -Complex "TEST_VALUE" -IgnoreCase "TEST_VALUE" -MatchMode "TEST_VALUE" -FilterString "TEST_VALUE"
             #$NewObject | Should -BeOfType CorrelationConfigAttributeAssignmentsInner
             #$NewObject.property | Should -Be 0
         }

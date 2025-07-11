@@ -14,6 +14,8 @@ No summary available.
 
 The attribute assignment of the correlation configuration.
 
+.PARAMETER Sequence
+The sequence of the attribute assignment.
 .PARAMETER Property
 The property of the attribute assignment.
 .PARAMETER Value
@@ -36,6 +38,9 @@ CorrelationConfigAttributeAssignmentsInner<PSCustomObject>
 function Initialize-BetaCorrelationConfigAttributeAssignmentsInner {
     [CmdletBinding()]
     Param (
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${Sequence},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Property},
@@ -67,6 +72,7 @@ function Initialize-BetaCorrelationConfigAttributeAssignmentsInner {
 
 
         $PSO = [PSCustomObject]@{
+            "sequence" = ${Sequence}
             "property" = ${Property}
             "value" = ${Value}
             "operation" = ${Operation}
@@ -110,11 +116,17 @@ function ConvertFrom-BetaJsonToCorrelationConfigAttributeAssignmentsInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaCorrelationConfigAttributeAssignmentsInner
-        $AllProperties = ("property", "value", "operation", "complex", "ignoreCase", "matchMode", "filterString")
+        $AllProperties = ("sequence", "property", "value", "operation", "complex", "ignoreCase", "matchMode", "filterString")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sequence"))) { #optional property not found
+            $Sequence = $null
+        } else {
+            $Sequence = $JsonParameters.PSobject.Properties["sequence"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "property"))) { #optional property not found
@@ -160,6 +172,7 @@ function ConvertFrom-BetaJsonToCorrelationConfigAttributeAssignmentsInner {
         }
 
         $PSO = [PSCustomObject]@{
+            "sequence" = ${Sequence}
             "property" = ${Property}
             "value" = ${Value}
             "operation" = ${Operation}

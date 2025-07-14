@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025OrgConfigApi' {
 
     Context 'Update-V2025OrgConfig' {
         It 'Test Update-V2025OrgConfig' {
-            #$TestResult = Update-V2025OrgConfig -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-V2025OrgConfig -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

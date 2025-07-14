@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025OrgConfigApi' {
     Context 'Get-V2025OrgConfig' {
         It 'Test Get-V2025OrgConfig' {
-            #$TestResult = Get-V2025OrgConfig -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2025OrgConfig
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

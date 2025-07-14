@@ -14,9 +14,6 @@ Get org config settings
 
 Get the current organization's configuration settings, only external accessible properties.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -28,9 +25,6 @@ OrgConfig
 function Get-V2025OrgConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -52,11 +46,6 @@ function Get-V2025OrgConfig {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/org-config'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getOrgConfig."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 

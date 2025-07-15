@@ -476,6 +476,7 @@ docs/GetReferenceIdentityAttribute.md
 docs/GetRoleAssignments200ResponseInner.md
 docs/GetTenantContext200ResponseInner.md
 docs/GrantType.md
+docs/HierarchicalRightSet.md
 docs/HttpAuthenticationType.md
 docs/HttpConfig.md
 docs/HttpDispatchMode.md
@@ -654,6 +655,7 @@ docs/NameNormalizer.md
 docs/NamedConstructs.md
 docs/NativeChangeDetectionConfig.md
 docs/NestedAggregation.md
+docs/NestedConfig.md
 docs/NetworkConfiguration.md
 docs/NonEmployeeApprovalDecision.md
 docs/NonEmployeeApprovalItem.md
@@ -830,6 +832,7 @@ docs/Reviewer.md
 docs/Revocability.md
 docs/RevocabilityForRole.md
 docs/RightPad.md
+docs/RightSetDTO.md
 docs/Role.md
 docs/RoleAssignmentDto.md
 docs/RoleAssignmentDtoAssigner.md
@@ -1131,6 +1134,9 @@ docs/UserAppAccount.md
 docs/UserAppOwner.md
 docs/UserAppSource.md
 docs/UserAppSourceApp.md
+docs/UserLevelPublishSummary.md
+docs/UserLevelRequest.md
+docs/UserLevelSummaryDTO.md
 docs/V2025AccessModelMetadataApi.md
 docs/V2025AccessModelMetadataApideveloperSite_code_examples.yaml
 docs/V2025AccessProfilesApi.md
@@ -1183,6 +1189,8 @@ docs/V2025CustomFormsApi.md
 docs/V2025CustomFormsApideveloperSite_code_examples.yaml
 docs/V2025CustomPasswordInstructionsApi.md
 docs/V2025CustomPasswordInstructionsApideveloperSite_code_examples.yaml
+docs/V2025CustomUserLevelsApi.md
+docs/V2025CustomUserLevelsApideveloperSite_code_examples.yaml
 docs/V2025DataSegmentationApi.md
 docs/V2025DataSegmentationApideveloperSite_code_examples.yaml
 docs/V2025DimensionsApi.md
@@ -1395,6 +1403,7 @@ src/PSSailpoint.V2025/Api/V2025ConnectorRuleManagementApi.ps1
 src/PSSailpoint.V2025/Api/V2025ConnectorsApi.ps1
 src/PSSailpoint.V2025/Api/V2025CustomFormsApi.ps1
 src/PSSailpoint.V2025/Api/V2025CustomPasswordInstructionsApi.ps1
+src/PSSailpoint.V2025/Api/V2025CustomUserLevelsApi.ps1
 src/PSSailpoint.V2025/Api/V2025DataSegmentationApi.ps1
 src/PSSailpoint.V2025/Api/V2025DimensionsApi.ps1
 src/PSSailpoint.V2025/Api/V2025EntitlementsApi.ps1
@@ -1933,6 +1942,7 @@ src/PSSailpoint.V2025/Model/GetReferenceIdentityAttribute.ps1
 src/PSSailpoint.V2025/Model/GetRoleAssignments200ResponseInner.ps1
 src/PSSailpoint.V2025/Model/GetTenantContext200ResponseInner.ps1
 src/PSSailpoint.V2025/Model/GrantType.ps1
+src/PSSailpoint.V2025/Model/HierarchicalRightSet.ps1
 src/PSSailpoint.V2025/Model/HttpAuthenticationType.ps1
 src/PSSailpoint.V2025/Model/HttpConfig.ps1
 src/PSSailpoint.V2025/Model/HttpDispatchMode.ps1
@@ -2113,6 +2123,7 @@ src/PSSailpoint.V2025/Model/NameNormalizer.ps1
 src/PSSailpoint.V2025/Model/NamedConstructs.ps1
 src/PSSailpoint.V2025/Model/NativeChangeDetectionConfig.ps1
 src/PSSailpoint.V2025/Model/NestedAggregation.ps1
+src/PSSailpoint.V2025/Model/NestedConfig.ps1
 src/PSSailpoint.V2025/Model/NetworkConfiguration.ps1
 src/PSSailpoint.V2025/Model/NonEmployeeApprovalDecision.ps1
 src/PSSailpoint.V2025/Model/NonEmployeeApprovalItem.ps1
@@ -2289,6 +2300,7 @@ src/PSSailpoint.V2025/Model/Reviewer.ps1
 src/PSSailpoint.V2025/Model/Revocability.ps1
 src/PSSailpoint.V2025/Model/RevocabilityForRole.ps1
 src/PSSailpoint.V2025/Model/RightPad.ps1
+src/PSSailpoint.V2025/Model/RightSetDTO.ps1
 src/PSSailpoint.V2025/Model/Role.ps1
 src/PSSailpoint.V2025/Model/RoleAssignmentDto.ps1
 src/PSSailpoint.V2025/Model/RoleAssignmentDtoAssigner.ps1
@@ -2590,6 +2602,9 @@ src/PSSailpoint.V2025/Model/UserAppAccount.ps1
 src/PSSailpoint.V2025/Model/UserAppOwner.ps1
 src/PSSailpoint.V2025/Model/UserAppSource.ps1
 src/PSSailpoint.V2025/Model/UserAppSourceApp.ps1
+src/PSSailpoint.V2025/Model/UserLevelPublishSummary.ps1
+src/PSSailpoint.V2025/Model/UserLevelRequest.ps1
+src/PSSailpoint.V2025/Model/UserLevelSummaryDTO.ps1
 src/PSSailpoint.V2025/Model/V3ConnectorDto.ps1
 src/PSSailpoint.V2025/Model/V3CreateConnectorDto.ps1
 src/PSSailpoint.V2025/Model/VAClusterStatusChangeEvent.ps1
@@ -2675,6 +2690,7 @@ tests/Api/V2025ConnectorRuleManagementApi.Tests.ps1
 tests/Api/V2025ConnectorsApi.Tests.ps1
 tests/Api/V2025CustomFormsApi.Tests.ps1
 tests/Api/V2025CustomPasswordInstructionsApi.Tests.ps1
+tests/Api/V2025CustomUserLevelsApi.Tests.ps1
 tests/Api/V2025DataSegmentationApi.Tests.ps1
 tests/Api/V2025DimensionsApi.Tests.ps1
 tests/Api/V2025EntitlementsApi.Tests.ps1
@@ -3212,6 +3228,7 @@ tests/Model/GetReferenceIdentityAttribute.Tests.ps1
 tests/Model/GetRoleAssignments200ResponseInner.Tests.ps1
 tests/Model/GetTenantContext200ResponseInner.Tests.ps1
 tests/Model/GrantType.Tests.ps1
+tests/Model/HierarchicalRightSet.Tests.ps1
 tests/Model/HttpAuthenticationType.Tests.ps1
 tests/Model/HttpConfig.Tests.ps1
 tests/Model/HttpDispatchMode.Tests.ps1
@@ -3392,6 +3409,7 @@ tests/Model/NameNormalizer.Tests.ps1
 tests/Model/NamedConstructs.Tests.ps1
 tests/Model/NativeChangeDetectionConfig.Tests.ps1
 tests/Model/NestedAggregation.Tests.ps1
+tests/Model/NestedConfig.Tests.ps1
 tests/Model/NetworkConfiguration.Tests.ps1
 tests/Model/NonEmployeeApprovalDecision.Tests.ps1
 tests/Model/NonEmployeeApprovalItem.Tests.ps1
@@ -3568,6 +3586,7 @@ tests/Model/Reviewer.Tests.ps1
 tests/Model/Revocability.Tests.ps1
 tests/Model/RevocabilityForRole.Tests.ps1
 tests/Model/RightPad.Tests.ps1
+tests/Model/RightSetDTO.Tests.ps1
 tests/Model/Role.Tests.ps1
 tests/Model/RoleAssignmentDto.Tests.ps1
 tests/Model/RoleAssignmentDtoAssigner.Tests.ps1
@@ -3869,6 +3888,9 @@ tests/Model/UserAppAccount.Tests.ps1
 tests/Model/UserAppOwner.Tests.ps1
 tests/Model/UserAppSource.Tests.ps1
 tests/Model/UserAppSourceApp.Tests.ps1
+tests/Model/UserLevelPublishSummary.Tests.ps1
+tests/Model/UserLevelRequest.Tests.ps1
+tests/Model/UserLevelSummaryDTO.Tests.ps1
 tests/Model/V3ConnectorDto.Tests.ps1
 tests/Model/V3CreateConnectorDto.Tests.ps1
 tests/Model/VAClusterStatusChangeEvent.Tests.ps1

@@ -244,6 +244,13 @@ Class | Method | HTTP request | Description
 *V2025CustomPasswordInstructionsApi* | [**New-V2025CustomPasswordInstructions**](docs/V2025CustomPasswordInstructionsApi.md#New-V2025CustomPasswordInstructions) | **POST** /custom-password-instructions | Create custom password instructions
 *V2025CustomPasswordInstructionsApi* | [**Remove-V2025CustomPasswordInstructions**](docs/V2025CustomPasswordInstructionsApi.md#Remove-V2025CustomPasswordInstructions) | **DELETE** /custom-password-instructions/{pageId} | Delete custom password instructions by page id
 *V2025CustomPasswordInstructionsApi* | [**Get-V2025CustomPasswordInstructions**](docs/V2025CustomPasswordInstructionsApi.md#Get-V2025CustomPasswordInstructions) | **GET** /custom-password-instructions/{pageId} | Get custom password instructions by page id
+*V2025CustomUserLevelsApi* | [**New-V2025CustomUserLevel**](docs/V2025CustomUserLevelsApi.md#New-V2025CustomUserLevel) | **POST** /authorization/custom-user-levels | Create a custom user level
+*V2025CustomUserLevelsApi* | [**Remove-V2025UserLevel**](docs/V2025CustomUserLevelsApi.md#Remove-V2025UserLevel) | **DELETE** /authorization/custom-user-levels/{id} | Delete a user level
+*V2025CustomUserLevelsApi* | [**Get-V2025UserLevel**](docs/V2025CustomUserLevelsApi.md#Get-V2025UserLevel) | **GET** /authorization/custom-user-levels/{id} | Retrieve a user level
+*V2025CustomUserLevelsApi* | [**Get-V2025AllAuthorizationRightSets**](docs/V2025CustomUserLevelsApi.md#Get-V2025AllAuthorizationRightSets) | **GET** /authorization/authorization-assignable-right-sets | List all uiAssignable right sets
+*V2025CustomUserLevelsApi* | [**Get-V2025UserLevels**](docs/V2025CustomUserLevelsApi.md#Get-V2025UserLevels) | **GET** /authorization/custom-user-levels | List user levels
+*V2025CustomUserLevelsApi* | [**Publish-V2025CustomUserLevel**](docs/V2025CustomUserLevelsApi.md#Publish-V2025CustomUserLevel) | **POST** /authorization/custom-user-levels/{id}/publish | Publish a custom user level
+*V2025CustomUserLevelsApi* | [**Update-V2025UserLevel**](docs/V2025CustomUserLevelsApi.md#Update-V2025UserLevel) | **PATCH** /authorization/custom-user-levels/{id} | Update a user level
 *V2025DataSegmentationApi* | [**New-V2025DataSegment**](docs/V2025DataSegmentationApi.md#New-V2025DataSegment) | **POST** /data-segments | Create segment
 *V2025DataSegmentationApi* | [**Remove-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Remove-V2025DataSegment) | **DELETE** /data-segments/{segmentId} | Delete segment by id
 *V2025DataSegmentationApi* | [**Get-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Get-V2025DataSegment) | **GET** /data-segments/{segmentId} | Get segment by id
@@ -1234,6 +1241,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.GetRoleAssignments200ResponseInner](docs/GetRoleAssignments200ResponseInner.md)
  - [PSSailpoint.V2025\Model.GetTenantContext200ResponseInner](docs/GetTenantContext200ResponseInner.md)
  - [PSSailpoint.V2025\Model.GrantType](docs/GrantType.md)
+ - [PSSailpoint.V2025\Model.HierarchicalRightSet](docs/HierarchicalRightSet.md)
  - [PSSailpoint.V2025\Model.HttpAuthenticationType](docs/HttpAuthenticationType.md)
  - [PSSailpoint.V2025\Model.HttpConfig](docs/HttpConfig.md)
  - [PSSailpoint.V2025\Model.HttpDispatchMode](docs/HttpDispatchMode.md)
@@ -1414,6 +1422,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.NamedConstructs](docs/NamedConstructs.md)
  - [PSSailpoint.V2025\Model.NativeChangeDetectionConfig](docs/NativeChangeDetectionConfig.md)
  - [PSSailpoint.V2025\Model.NestedAggregation](docs/NestedAggregation.md)
+ - [PSSailpoint.V2025\Model.NestedConfig](docs/NestedConfig.md)
  - [PSSailpoint.V2025\Model.NetworkConfiguration](docs/NetworkConfiguration.md)
  - [PSSailpoint.V2025\Model.NonEmployeeApprovalDecision](docs/NonEmployeeApprovalDecision.md)
  - [PSSailpoint.V2025\Model.NonEmployeeApprovalItem](docs/NonEmployeeApprovalItem.md)
@@ -1590,6 +1599,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.Revocability](docs/Revocability.md)
  - [PSSailpoint.V2025\Model.RevocabilityForRole](docs/RevocabilityForRole.md)
  - [PSSailpoint.V2025\Model.RightPad](docs/RightPad.md)
+ - [PSSailpoint.V2025\Model.RightSetDTO](docs/RightSetDTO.md)
  - [PSSailpoint.V2025\Model.Role](docs/Role.md)
  - [PSSailpoint.V2025\Model.RoleAssignmentDto](docs/RoleAssignmentDto.md)
  - [PSSailpoint.V2025\Model.RoleAssignmentDtoAssigner](docs/RoleAssignmentDtoAssigner.md)
@@ -1891,6 +1901,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.UserAppOwner](docs/UserAppOwner.md)
  - [PSSailpoint.V2025\Model.UserAppSource](docs/UserAppSource.md)
  - [PSSailpoint.V2025\Model.UserAppSourceApp](docs/UserAppSourceApp.md)
+ - [PSSailpoint.V2025\Model.UserLevelPublishSummary](docs/UserLevelPublishSummary.md)
+ - [PSSailpoint.V2025\Model.UserLevelRequest](docs/UserLevelRequest.md)
+ - [PSSailpoint.V2025\Model.UserLevelSummaryDTO](docs/UserLevelSummaryDTO.md)
  - [PSSailpoint.V2025\Model.V3ConnectorDto](docs/V3ConnectorDto.md)
  - [PSSailpoint.V2025\Model.V3CreateConnectorDto](docs/V3CreateConnectorDto.md)
  - [PSSailpoint.V2025\Model.VAClusterStatusChangeEvent](docs/VAClusterStatusChangeEvent.md)

@@ -28,6 +28,10 @@ The date and time, down to the millisecond, when this personal access token was 
 The date and time, down to the millisecond, when this personal access token was last used to generate an access token. This timestamp does not get updated on every PAT usage, but only once a day. This property can be useful for identifying which PATs are no longer actively used and can be removed.
 .PARAMETER Managed
 If true, this token is managed by the SailPoint platform, and is not visible in the user interface. For example, Workflows will create managed personal access tokens for users who create workflows.
+.PARAMETER AccessTokenValiditySeconds
+Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
+.PARAMETER ExpirationDate
+Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date.
 .OUTPUTS
 
 GetPersonalAccessTokenResponse<PSCustomObject>
@@ -56,7 +60,13 @@ function Initialize-GetPersonalAccessTokenResponse {
         ${LastUsed},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Managed} = $false
+        ${Managed} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${AccessTokenValiditySeconds} = 43200,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${ExpirationDate}
     )
 
     Process {
@@ -88,6 +98,8 @@ function Initialize-GetPersonalAccessTokenResponse {
             "created" = ${Created}
             "lastUsed" = ${LastUsed}
             "managed" = ${Managed}
+            "accessTokenValiditySeconds" = ${AccessTokenValiditySeconds}
+            "expirationDate" = ${ExpirationDate}
         }
 
         return $PSO
@@ -124,7 +136,7 @@ function ConvertFrom-JsonToGetPersonalAccessTokenResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in GetPersonalAccessTokenResponse
-        $AllProperties = ("id", "name", "scope", "owner", "created", "lastUsed", "managed")
+        $AllProperties = ("id", "name", "scope", "owner", "created", "lastUsed", "managed", "accessTokenValiditySeconds", "expirationDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -177,6 +189,18 @@ function ConvertFrom-JsonToGetPersonalAccessTokenResponse {
             $Managed = $JsonParameters.PSobject.Properties["managed"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessTokenValiditySeconds"))) { #optional property not found
+            $AccessTokenValiditySeconds = $null
+        } else {
+            $AccessTokenValiditySeconds = $JsonParameters.PSobject.Properties["accessTokenValiditySeconds"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "expirationDate"))) { #optional property not found
+            $ExpirationDate = $null
+        } else {
+            $ExpirationDate = $JsonParameters.PSobject.Properties["expirationDate"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -185,6 +209,8 @@ function ConvertFrom-JsonToGetPersonalAccessTokenResponse {
             "created" = ${Created}
             "lastUsed" = ${LastUsed}
             "managed" = ${Managed}
+            "accessTokenValiditySeconds" = ${AccessTokenValiditySeconds}
+            "expirationDate" = ${ExpirationDate}
         }
 
         return $PSO

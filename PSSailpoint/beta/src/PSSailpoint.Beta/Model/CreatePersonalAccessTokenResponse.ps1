@@ -28,6 +28,8 @@ No description available.
 The date and time, down to the millisecond, when this personal access token was created.
 .PARAMETER AccessTokenValiditySeconds
 Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
+.PARAMETER ExpirationDate
+Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date.
 .OUTPUTS
 
 CreatePersonalAccessTokenResponse<PSCustomObject>
@@ -56,7 +58,10 @@ function Initialize-BetaCreatePersonalAccessTokenResponse {
         ${Created},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Int32]
-        ${AccessTokenValiditySeconds}
+        ${AccessTokenValiditySeconds},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.DateTime]
+        ${ExpirationDate}
     )
 
     Process {
@@ -87,6 +92,10 @@ function Initialize-BetaCreatePersonalAccessTokenResponse {
             throw "invalid value for 'AccessTokenValiditySeconds', 'AccessTokenValiditySeconds' cannot be null."
         }
 
+        if (!$ExpirationDate) {
+            throw "invalid value for 'ExpirationDate', 'ExpirationDate' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
@@ -96,6 +105,7 @@ function Initialize-BetaCreatePersonalAccessTokenResponse {
             "owner" = ${Owner}
             "created" = ${Created}
             "accessTokenValiditySeconds" = ${AccessTokenValiditySeconds}
+            "expirationDate" = ${ExpirationDate}
         }
 
         return $PSO
@@ -132,7 +142,7 @@ function ConvertFrom-BetaJsonToCreatePersonalAccessTokenResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaCreatePersonalAccessTokenResponse
-        $AllProperties = ("id", "secret", "scope", "name", "owner", "created", "accessTokenValiditySeconds")
+        $AllProperties = ("id", "secret", "scope", "name", "owner", "created", "accessTokenValiditySeconds", "expirationDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -185,6 +195,12 @@ function ConvertFrom-BetaJsonToCreatePersonalAccessTokenResponse {
             $AccessTokenValiditySeconds = $JsonParameters.PSobject.Properties["accessTokenValiditySeconds"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "expirationDate"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'expirationDate' missing."
+        } else {
+            $ExpirationDate = $JsonParameters.PSobject.Properties["expirationDate"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "secret" = ${Secret}
@@ -193,6 +209,7 @@ function ConvertFrom-BetaJsonToCreatePersonalAccessTokenResponse {
             "owner" = ${Owner}
             "created" = ${Created}
             "accessTokenValiditySeconds" = ${AccessTokenValiditySeconds}
+            "expirationDate" = ${ExpirationDate}
         }
 
         return $PSO

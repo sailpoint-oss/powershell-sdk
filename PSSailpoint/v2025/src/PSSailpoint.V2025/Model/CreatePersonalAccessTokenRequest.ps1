@@ -20,6 +20,8 @@ The name of the personal access token (PAT) to be created. Cannot be the same as
 Scopes of the personal  access token. If no scope is specified, the token will be created with the default scope ""sp:scopes:all"". This means the personal access token will have all the rights of the owner who created it.
 .PARAMETER AccessTokenValiditySeconds
 Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
+.PARAMETER ExpirationDate
+Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date.
 .OUTPUTS
 
 CreatePersonalAccessTokenRequest<PSCustomObject>
@@ -36,7 +38,10 @@ function Initialize-V2025CreatePersonalAccessTokenRequest {
         ${Scope},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
-        ${AccessTokenValiditySeconds}
+        ${AccessTokenValiditySeconds},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${ExpirationDate}
     )
 
     Process {
@@ -60,6 +65,7 @@ function Initialize-V2025CreatePersonalAccessTokenRequest {
             "name" = ${Name}
             "scope" = ${Scope}
             "accessTokenValiditySeconds" = ${AccessTokenValiditySeconds}
+            "expirationDate" = ${ExpirationDate}
         }
 
         return $PSO
@@ -96,7 +102,7 @@ function ConvertFrom-V2025JsonToCreatePersonalAccessTokenRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025CreatePersonalAccessTokenRequest
-        $AllProperties = ("name", "scope", "accessTokenValiditySeconds")
+        $AllProperties = ("name", "scope", "accessTokenValiditySeconds", "expirationDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -125,10 +131,17 @@ function ConvertFrom-V2025JsonToCreatePersonalAccessTokenRequest {
             $AccessTokenValiditySeconds = $JsonParameters.PSobject.Properties["accessTokenValiditySeconds"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "expirationDate"))) { #optional property not found
+            $ExpirationDate = $null
+        } else {
+            $ExpirationDate = $JsonParameters.PSobject.Properties["expirationDate"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
             "scope" = ${Scope}
             "accessTokenValiditySeconds" = ${AccessTokenValiditySeconds}
+            "expirationDate" = ${ExpirationDate}
         }
 
         return $PSO

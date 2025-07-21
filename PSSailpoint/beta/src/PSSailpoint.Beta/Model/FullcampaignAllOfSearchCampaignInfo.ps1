@@ -63,10 +63,6 @@ function Initialize-BetaFullcampaignAllOfSearchCampaignInfo {
             throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
-        if (!$IdentityIds -and $IdentityIds.length -gt 1000) {
-            throw "invalid value for 'IdentityIds', number of items must be less than or equal to 1000."
-        }
-
         if (!$AccessConstraints -and $AccessConstraints.length -gt 1000) {
             throw "invalid value for 'AccessConstraints', number of items must be less than or equal to 1000."
         }

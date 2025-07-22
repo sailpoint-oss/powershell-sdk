@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025TaskManagementApi' {
     Context 'Get-V2025PendingTaskHeaders' {
         It 'Test Get-V2025PendingTaskHeaders' {
-            #$TestResult = Get-V2025PendingTaskHeaders -XSailPointExperimental "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-V2025PendingTaskHeaders -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025TaskManagementApi' {
 
     Context 'Get-V2025PendingTasks' {
         It 'Test Get-V2025PendingTasks' {
-            #$TestResult = Get-V2025PendingTasks -XSailPointExperimental "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-V2025PendingTasks -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025TaskManagementApi' {
 
     Context 'Get-V2025TaskStatus' {
         It 'Test Get-V2025TaskStatus' {
-            #$TestResult = Get-V2025TaskStatus -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2025TaskStatus -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025TaskManagementApi' {
 
     Context 'Get-V2025TaskStatusList' {
         It 'Test Get-V2025TaskStatusList' {
-            #$TestResult = Get-V2025TaskStatusList -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-V2025TaskStatusList -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025TaskManagementApi' {
 
     Context 'Update-V2025TaskStatus' {
         It 'Test Update-V2025TaskStatus' {
-            #$TestResult = Update-V2025TaskStatus -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-V2025TaskStatus -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

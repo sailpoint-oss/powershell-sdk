@@ -12,12 +12,12 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Object for specifying the bulk update request
 
 .PARAMETER EntitlementIds
 List of entitlement ids to update
 .PARAMETER JsonPatch
-No description available.
+List of entitlement ids to update
 .OUTPUTS
 
 EntitlementBulkUpdateRequest<PSCustomObject>

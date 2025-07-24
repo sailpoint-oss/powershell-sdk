@@ -18,7 +18,7 @@ No description available.
 the event type
 .PARAMETER IdentityId
 the identity id
-.PARAMETER Dt
+.PARAMETER DateTime
 the date of event
 .PARAMETER Account
 No description available.
@@ -40,7 +40,7 @@ function Initialize-V2025AccountStatusChanged {
         ${IdentityId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Dt},
+        ${DateTime},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Account},
@@ -53,11 +53,19 @@ function Initialize-V2025AccountStatusChanged {
         'Creating PSCustomObject: PSSailpoint.V2025 => V2025AccountStatusChanged' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$Account) {
+            throw "invalid value for 'Account', 'Account' cannot be null."
+        }
+
+        if (!$StatusChange) {
+            throw "invalid value for 'StatusChange', 'StatusChange' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "eventType" = ${EventType}
             "identityId" = ${IdentityId}
-            "dt" = ${Dt}
+            "dateTime" = ${DateTime}
             "account" = ${Account}
             "statusChange" = ${StatusChange}
         }
@@ -96,11 +104,27 @@ function ConvertFrom-V2025JsonToAccountStatusChanged {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025AccountStatusChanged
-        $AllProperties = ("eventType", "identityId", "dt", "account", "statusChange")
+        $AllProperties = ("eventType", "identityId", "dateTime", "account", "statusChange")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'account' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "account"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'account' missing."
+        } else {
+            $Account = $JsonParameters.PSobject.Properties["account"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "statusChange"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'statusChange' missing."
+        } else {
+            $StatusChange = $JsonParameters.PSobject.Properties["statusChange"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "eventType"))) { #optional property not found
@@ -115,28 +139,16 @@ function ConvertFrom-V2025JsonToAccountStatusChanged {
             $IdentityId = $JsonParameters.PSobject.Properties["identityId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dt"))) { #optional property not found
-            $Dt = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dateTime"))) { #optional property not found
+            $DateTime = $null
         } else {
-            $Dt = $JsonParameters.PSobject.Properties["dt"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "account"))) { #optional property not found
-            $Account = $null
-        } else {
-            $Account = $JsonParameters.PSobject.Properties["account"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "statusChange"))) { #optional property not found
-            $StatusChange = $null
-        } else {
-            $StatusChange = $JsonParameters.PSobject.Properties["statusChange"].value
+            $DateTime = $JsonParameters.PSobject.Properties["dateTime"].value
         }
 
         $PSO = [PSCustomObject]@{
             "eventType" = ${EventType}
             "identityId" = ${IdentityId}
-            "dt" = ${Dt}
+            "dateTime" = ${DateTime}
             "account" = ${Account}
             "statusChange" = ${StatusChange}
         }

@@ -20,7 +20,7 @@ No description available.
 the identity id
 .PARAMETER EventType
 the event type
-.PARAMETER Dt
+.PARAMETER DateTime
 the date of event
 .OUTPUTS
 
@@ -41,19 +41,23 @@ function Initialize-V2025AccessRequested {
         ${EventType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Dt}
+        ${DateTime}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.V2025 => V2025AccessRequested' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$AccessRequest) {
+            throw "invalid value for 'AccessRequest', 'AccessRequest' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "accessRequest" = ${AccessRequest}
             "identityId" = ${IdentityId}
             "eventType" = ${EventType}
-            "dt" = ${Dt}
+            "dateTime" = ${DateTime}
         }
 
         return $PSO
@@ -90,15 +94,19 @@ function ConvertFrom-V2025JsonToAccessRequested {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025AccessRequested
-        $AllProperties = ("accessRequest", "identityId", "eventType", "dt")
+        $AllProperties = ("accessRequest", "identityId", "eventType", "dateTime")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessRequest"))) { #optional property not found
-            $AccessRequest = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'accessRequest' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessRequest"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'accessRequest' missing."
         } else {
             $AccessRequest = $JsonParameters.PSobject.Properties["accessRequest"].value
         }
@@ -115,17 +123,17 @@ function ConvertFrom-V2025JsonToAccessRequested {
             $EventType = $JsonParameters.PSobject.Properties["eventType"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dt"))) { #optional property not found
-            $Dt = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dateTime"))) { #optional property not found
+            $DateTime = $null
         } else {
-            $Dt = $JsonParameters.PSobject.Properties["dt"].value
+            $DateTime = $JsonParameters.PSobject.Properties["dateTime"].value
         }
 
         $PSO = [PSCustomObject]@{
             "accessRequest" = ${AccessRequest}
             "identityId" = ${IdentityId}
             "eventType" = ${EventType}
-            "dt" = ${Dt}
+            "dateTime" = ${DateTime}
         }
 
         return $PSO

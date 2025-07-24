@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025CorrelatedGovernanceEvent' {
     Context 'V2025CorrelatedGovernanceEvent' {
         It 'Initialize-V2025CorrelatedGovernanceEvent' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025CorrelatedGovernanceEvent -Name "TEST_VALUE" -Dt "TEST_VALUE" -Type "TEST_VALUE" -GovernanceId "TEST_VALUE" -Owners "TEST_VALUE" -Reviewers "TEST_VALUE" -DecisionMaker "TEST_VALUE"
+            #$NewObject = Initialize-V2025CorrelatedGovernanceEvent -Name "TEST_VALUE" -DateTime "TEST_VALUE" -Type "TEST_VALUE" -GovernanceId "TEST_VALUE" -Owners "TEST_VALUE" -Reviewers "TEST_VALUE" -DecisionMaker "TEST_VALUE"
             #$NewObject | Should -BeOfType CorrelatedGovernanceEvent
             #$NewObject.property | Should -Be 0
         }

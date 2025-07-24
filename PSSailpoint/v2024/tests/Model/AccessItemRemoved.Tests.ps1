@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024AccessItemRemoved' {
     Context 'V2024AccessItemRemoved' {
         It 'Initialize-V2024AccessItemRemoved' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024AccessItemRemoved -AccessItem "TEST_VALUE" -IdentityId "TEST_VALUE" -EventType "TEST_VALUE" -Dt "TEST_VALUE" -GovernanceEvent "TEST_VALUE"
+            #$NewObject = Initialize-V2024AccessItemRemoved -AccessItem "TEST_VALUE" -IdentityId "TEST_VALUE" -EventType "TEST_VALUE" -DateTime "TEST_VALUE" -AccessItemType "TEST_VALUE" -GovernanceEvent "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessItemRemoved
             #$NewObject.property | Should -Be 0
         }

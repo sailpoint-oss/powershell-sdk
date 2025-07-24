@@ -30,10 +30,10 @@ the number of entitlements on this account
 this value is always ""account""
 .OUTPUTS
 
-AccountStatusChangedAccount<PSCustomObject>
+AccessRequestedAccount<PSCustomObject>
 #>
 
-function Initialize-V2024AccountStatusChangedAccount {
+function Initialize-V2024AccessRequestedAccount {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -60,7 +60,7 @@ function Initialize-V2024AccountStatusChangedAccount {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2024 => V2024AccountStatusChangedAccount' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2024 => V2024AccessRequestedAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -81,11 +81,11 @@ function Initialize-V2024AccountStatusChangedAccount {
 <#
 .SYNOPSIS
 
-Convert from JSON to AccountStatusChangedAccount<PSCustomObject>
+Convert from JSON to AccessRequestedAccount<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to AccountStatusChangedAccount<PSCustomObject>
+Convert from JSON to AccessRequestedAccount<PSCustomObject>
 
 .PARAMETER Json
 
@@ -93,21 +93,21 @@ Json object
 
 .OUTPUTS
 
-AccountStatusChangedAccount<PSCustomObject>
+AccessRequestedAccount<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToAccountStatusChangedAccount {
+function ConvertFrom-V2024JsonToAccessRequestedAccount {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024AccountStatusChangedAccount' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024AccessRequestedAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2024AccountStatusChangedAccount
+        # check if Json contains properties not defined in V2024AccessRequestedAccount
         $AllProperties = ("id", "nativeIdentity", "displayName", "sourceId", "sourceName", "entitlementCount", "accessType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

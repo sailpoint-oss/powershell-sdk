@@ -14,30 +14,28 @@ No summary available.
 
 No description available.
 
-.PARAMETER AccessType
-the access item type. accessProfile in this case
 .PARAMETER Id
 the access item id
-.PARAMETER Name
-the access profile name
-.PARAMETER SourceName
-the name of the source
-.PARAMETER SourceId
-the id of the source
-.PARAMETER Description
-the description for the access profile
+.PARAMETER AccessType
+the access item type. accessProfile in this case
 .PARAMETER DisplayName
 the display name of the identity
+.PARAMETER SourceName
+the name of the source
 .PARAMETER EntitlementCount
 the number of entitlements the access profile will create
-.PARAMETER AppDisplayName
-the name of
+.PARAMETER Description
+the description for the access profile
+.PARAMETER SourceId
+the id of the source
+.PARAMETER AppRefs
+the list of app ids associated with the access profile
 .PARAMETER RemoveDate
 the date the access profile is no longer assigned to the specified identity
 .PARAMETER Standalone
 indicates whether the access profile is standalone
 .PARAMETER Revocable
-indicates whether the access profile is
+indicates whether the access profile is revocable
 .OUTPUTS
 
 AccessItemAccessProfileResponse<PSCustomObject>
@@ -48,39 +46,36 @@ function Initialize-BetaAccessItemAccessProfileResponse {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AccessType},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${SourceName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${SourceId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Description},
+        ${AccessType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${SourceName},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Int32]
         ${EntitlementCount},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AppDisplayName},
+        ${Description},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SourceId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${AppRefs},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${RemoveDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Boolean]
+        [System.Nullable[Boolean]]
         ${Standalone},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Boolean]
+        [System.Nullable[Boolean]]
         ${Revocable}
     )
 
@@ -88,25 +83,24 @@ function Initialize-BetaAccessItemAccessProfileResponse {
         'Creating PSCustomObject: PSSailpoint.Beta => BetaAccessItemAccessProfileResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Standalone) {
-            throw "invalid value for 'Standalone', 'Standalone' cannot be null."
+        if (!$EntitlementCount) {
+            throw "invalid value for 'EntitlementCount', 'EntitlementCount' cannot be null."
         }
 
-        if (!$Revocable) {
-            throw "invalid value for 'Revocable', 'Revocable' cannot be null."
+        if (!$AppRefs) {
+            throw "invalid value for 'AppRefs', 'AppRefs' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "accessType" = ${AccessType}
             "id" = ${Id}
-            "name" = ${Name}
-            "sourceName" = ${SourceName}
-            "sourceId" = ${SourceId}
-            "description" = ${Description}
+            "accessType" = ${AccessType}
             "displayName" = ${DisplayName}
+            "sourceName" = ${SourceName}
             "entitlementCount" = ${EntitlementCount}
-            "appDisplayName" = ${AppDisplayName}
+            "description" = ${Description}
+            "sourceId" = ${SourceId}
+            "appRefs" = ${AppRefs}
             "removeDate" = ${RemoveDate}
             "standalone" = ${Standalone}
             "revocable" = ${Revocable}
@@ -146,7 +140,7 @@ function ConvertFrom-BetaJsonToAccessItemAccessProfileResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccessItemAccessProfileResponse
-        $AllProperties = ("accessType", "id", "name", "sourceName", "sourceId", "description", "displayName", "entitlementCount", "appDisplayName", "removeDate", "standalone", "revocable")
+        $AllProperties = ("id", "accessType", "displayName", "sourceName", "entitlementCount", "description", "sourceId", "appRefs", "removeDate", "standalone", "revocable")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -154,7 +148,19 @@ function ConvertFrom-BetaJsonToAccessItemAccessProfileResponse {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'standalone' missing."
+            throw "Error! Empty JSON cannot be serialized due to the required property 'entitlementCount' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entitlementCount"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'entitlementCount' missing."
+        } else {
+            $EntitlementCount = $JsonParameters.PSobject.Properties["entitlementCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "appRefs"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'appRefs' missing."
+        } else {
+            $AppRefs = $JsonParameters.PSobject.Properties["appRefs"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "standalone"))) {
@@ -169,40 +175,16 @@ function ConvertFrom-BetaJsonToAccessItemAccessProfileResponse {
             $Revocable = $JsonParameters.PSobject.Properties["revocable"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessType"))) { #optional property not found
-            $AccessType = $null
-        } else {
-            $AccessType = $JsonParameters.PSobject.Properties["accessType"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
             $Id = $null
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessType"))) { #optional property not found
+            $AccessType = $null
         } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceName"))) { #optional property not found
-            $SourceName = $null
-        } else {
-            $SourceName = $JsonParameters.PSobject.Properties["sourceName"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceId"))) { #optional property not found
-            $SourceId = $null
-        } else {
-            $SourceId = $JsonParameters.PSobject.Properties["sourceId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
-            $Description = $null
-        } else {
-            $Description = $JsonParameters.PSobject.Properties["description"].value
+            $AccessType = $JsonParameters.PSobject.Properties["accessType"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
@@ -211,16 +193,22 @@ function ConvertFrom-BetaJsonToAccessItemAccessProfileResponse {
             $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entitlementCount"))) { #optional property not found
-            $EntitlementCount = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceName"))) { #optional property not found
+            $SourceName = $null
         } else {
-            $EntitlementCount = $JsonParameters.PSobject.Properties["entitlementCount"].value
+            $SourceName = $JsonParameters.PSobject.Properties["sourceName"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "appDisplayName"))) { #optional property not found
-            $AppDisplayName = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
         } else {
-            $AppDisplayName = $JsonParameters.PSobject.Properties["appDisplayName"].value
+            $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceId"))) { #optional property not found
+            $SourceId = $null
+        } else {
+            $SourceId = $JsonParameters.PSobject.Properties["sourceId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "removeDate"))) { #optional property not found
@@ -230,15 +218,14 @@ function ConvertFrom-BetaJsonToAccessItemAccessProfileResponse {
         }
 
         $PSO = [PSCustomObject]@{
-            "accessType" = ${AccessType}
             "id" = ${Id}
-            "name" = ${Name}
-            "sourceName" = ${SourceName}
-            "sourceId" = ${SourceId}
-            "description" = ${Description}
+            "accessType" = ${AccessType}
             "displayName" = ${DisplayName}
+            "sourceName" = ${SourceName}
             "entitlementCount" = ${EntitlementCount}
-            "appDisplayName" = ${AppDisplayName}
+            "description" = ${Description}
+            "sourceId" = ${SourceId}
+            "appRefs" = ${AppRefs}
             "removeDate" = ${RemoveDate}
             "standalone" = ${Standalone}
             "revocable" = ${Revocable}

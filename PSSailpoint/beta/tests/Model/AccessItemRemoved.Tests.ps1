@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaAccessItemRemoved' {
     Context 'BetaAccessItemRemoved' {
         It 'Initialize-BetaAccessItemRemoved' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaAccessItemRemoved -AccessItem "TEST_VALUE" -IdentityId "TEST_VALUE" -EventType "TEST_VALUE" -Dt "TEST_VALUE" -GovernanceEvent "TEST_VALUE"
+            #$NewObject = Initialize-BetaAccessItemRemoved -AccessItem "TEST_VALUE" -IdentityId "TEST_VALUE" -EventType "TEST_VALUE" -DateTime "TEST_VALUE" -AccessItemType "TEST_VALUE" -GovernanceEvent "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessItemRemoved
             #$NewObject.property | Should -Be 0
         }

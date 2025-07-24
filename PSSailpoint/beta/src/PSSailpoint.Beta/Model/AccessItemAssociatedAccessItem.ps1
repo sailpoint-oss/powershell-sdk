@@ -34,96 +34,104 @@ function ConvertFrom-BetaJsonToAccessItemAssociatedAccessItem {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match AccessItemAccessProfileResponse defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-BetaJsonToAccessItemAccessProfileResponse $Json
+        if ($match -ne 0) { # no match yet
+            # try to match AccessItemAccessProfileResponse defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-BetaJsonToAccessItemAccessProfileResponse $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "AccessItemAccessProfileResponse"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "AccessItemAccessProfileResponse"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'AccessItemAccessProfileResponse' defined in anyOf (BetaAccessItemAssociatedAccessItem). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'AccessItemAccessProfileResponse' defined in oneOf (BetaAccessItemAssociatedAccessItem). Proceeding to the next one if any."
         }
 
-        # try to match AccessItemAccountResponse defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-BetaJsonToAccessItemAccountResponse $Json
+        if ($match -ne 0) { # no match yet
+            # try to match AccessItemAccountResponse defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-BetaJsonToAccessItemAccountResponse $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "AccessItemAccountResponse"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "AccessItemAccountResponse"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'AccessItemAccountResponse' defined in anyOf (BetaAccessItemAssociatedAccessItem). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'AccessItemAccountResponse' defined in oneOf (BetaAccessItemAssociatedAccessItem). Proceeding to the next one if any."
         }
 
-        # try to match AccessItemAppResponse defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-BetaJsonToAccessItemAppResponse $Json
+        if ($match -ne 0) { # no match yet
+            # try to match AccessItemAppResponse defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-BetaJsonToAccessItemAppResponse $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "AccessItemAppResponse"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "AccessItemAppResponse"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'AccessItemAppResponse' defined in anyOf (BetaAccessItemAssociatedAccessItem). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'AccessItemAppResponse' defined in oneOf (BetaAccessItemAssociatedAccessItem). Proceeding to the next one if any."
         }
 
-        # try to match AccessItemEntitlementResponse defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-BetaJsonToAccessItemEntitlementResponse $Json
+        if ($match -ne 0) { # no match yet
+            # try to match AccessItemEntitlementResponse defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-BetaJsonToAccessItemEntitlementResponse $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "AccessItemEntitlementResponse"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "AccessItemEntitlementResponse"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'AccessItemEntitlementResponse' defined in anyOf (BetaAccessItemAssociatedAccessItem). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'AccessItemEntitlementResponse' defined in oneOf (BetaAccessItemAssociatedAccessItem). Proceeding to the next one if any."
         }
 
-        # try to match AccessItemRoleResponse defined in the oneOf schemas
-        try {
-            $matchInstance = ConvertFrom-BetaJsonToAccessItemRoleResponse $Json
+        if ($match -ne 0) { # no match yet
+            # try to match AccessItemRoleResponse defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-BetaJsonToAccessItemRoleResponse $Json
 
-            foreach($property in $matchInstance.PsObject.Properties) {
-                if ($null -ne $property.Value) {
-                    $matchType = "AccessItemRoleResponse"
-                    $match++
-                    break
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "AccessItemRoleResponse"
+                        $match++
+                        break
+                    }
                 }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'AccessItemRoleResponse' defined in anyOf (BetaAccessItemAssociatedAccessItem). Proceeding to the next one if any."
             }
-        } catch {
-            # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'AccessItemRoleResponse' defined in oneOf (BetaAccessItemAssociatedAccessItem). Proceeding to the next one if any."
         }
 
-        if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccessItemAccessProfileResponse, AccessItemAccountResponse, AccessItemAppResponse, AccessItemEntitlementResponse, AccessItemRoleResponse]). JSON Payload: $($Json)"
-        } elseif ($match -eq 1) {
+        if ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("AccessItemAccessProfileResponse", "AccessItemAccountResponse", "AccessItemAppResponse", "AccessItemEntitlementResponse", "AccessItemRoleResponse")
+                "anyOfSchemas" = @("AccessItemAccessProfileResponse", "AccessItemAccountResponse", "AccessItemAppResponse", "AccessItemEntitlementResponse", "AccessItemRoleResponse")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccessItemAccessProfileResponse, AccessItemAccountResponse, AccessItemAppResponse, AccessItemEntitlementResponse, AccessItemRoleResponse]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([AccessItemAccessProfileResponse, AccessItemAccountResponse, AccessItemAppResponse, AccessItemEntitlementResponse, AccessItemRoleResponse]). JSON Payload: $($Json)"
         }
     }
 }

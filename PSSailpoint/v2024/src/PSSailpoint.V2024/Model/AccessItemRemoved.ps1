@@ -20,8 +20,10 @@ No description available.
 the identity id
 .PARAMETER EventType
 the event type
-.PARAMETER Dt
+.PARAMETER DateTime
 the date of event
+.PARAMETER AccessItemType
+the access item type
 .PARAMETER GovernanceEvent
 No description available.
 .OUTPUTS
@@ -43,7 +45,11 @@ function Initialize-V2024AccessItemRemoved {
         ${EventType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Dt},
+        ${DateTime},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("account", "app", "entitlement", "role", "accessProfile")]
+        [String]
+        ${AccessItemType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${GovernanceEvent}
@@ -53,12 +59,17 @@ function Initialize-V2024AccessItemRemoved {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024AccessItemRemoved' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$AccessItem) {
+            throw "invalid value for 'AccessItem', 'AccessItem' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "accessItem" = ${AccessItem}
             "identityId" = ${IdentityId}
             "eventType" = ${EventType}
-            "dt" = ${Dt}
+            "dateTime" = ${DateTime}
+            "accessItemType" = ${AccessItemType}
             "governanceEvent" = ${GovernanceEvent}
         }
 
@@ -96,15 +107,19 @@ function ConvertFrom-V2024JsonToAccessItemRemoved {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024AccessItemRemoved
-        $AllProperties = ("accessItem", "identityId", "eventType", "dt", "governanceEvent")
+        $AllProperties = ("accessItem", "identityId", "eventType", "dateTime", "accessItemType", "governanceEvent")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessItem"))) { #optional property not found
-            $AccessItem = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'accessItem' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessItem"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'accessItem' missing."
         } else {
             $AccessItem = $JsonParameters.PSobject.Properties["accessItem"].value
         }
@@ -121,10 +136,16 @@ function ConvertFrom-V2024JsonToAccessItemRemoved {
             $EventType = $JsonParameters.PSobject.Properties["eventType"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dt"))) { #optional property not found
-            $Dt = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dateTime"))) { #optional property not found
+            $DateTime = $null
         } else {
-            $Dt = $JsonParameters.PSobject.Properties["dt"].value
+            $DateTime = $JsonParameters.PSobject.Properties["dateTime"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessItemType"))) { #optional property not found
+            $AccessItemType = $null
+        } else {
+            $AccessItemType = $JsonParameters.PSobject.Properties["accessItemType"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "governanceEvent"))) { #optional property not found
@@ -137,7 +158,8 @@ function ConvertFrom-V2024JsonToAccessItemRemoved {
             "accessItem" = ${AccessItem}
             "identityId" = ${IdentityId}
             "eventType" = ${EventType}
-            "dt" = ${Dt}
+            "dateTime" = ${DateTime}
+            "accessItemType" = ${AccessItemType}
             "governanceEvent" = ${GovernanceEvent}
         }
 

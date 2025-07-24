@@ -16,7 +16,7 @@ No description available.
 
 .PARAMETER Name
 The name of the governance event, such as the certification name or access request ID.
-.PARAMETER Dt
+.PARAMETER DateTime
 The date that the certification or access request was completed.
 .PARAMETER Type
 The type of governance event.
@@ -41,7 +41,7 @@ function Initialize-V2025CorrelatedGovernanceEvent {
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Dt},
+        ${DateTime},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("certification", "accessRequest")]
         [String]
@@ -67,7 +67,7 @@ function Initialize-V2025CorrelatedGovernanceEvent {
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
-            "dt" = ${Dt}
+            "dateTime" = ${DateTime}
             "type" = ${Type}
             "governanceId" = ${GovernanceId}
             "owners" = ${Owners}
@@ -109,7 +109,7 @@ function ConvertFrom-V2025JsonToCorrelatedGovernanceEvent {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025CorrelatedGovernanceEvent
-        $AllProperties = ("name", "dt", "type", "governanceId", "owners", "reviewers", "decisionMaker")
+        $AllProperties = ("name", "dateTime", "type", "governanceId", "owners", "reviewers", "decisionMaker")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -122,10 +122,10 @@ function ConvertFrom-V2025JsonToCorrelatedGovernanceEvent {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dt"))) { #optional property not found
-            $Dt = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dateTime"))) { #optional property not found
+            $DateTime = $null
         } else {
-            $Dt = $JsonParameters.PSobject.Properties["dt"].value
+            $DateTime = $JsonParameters.PSobject.Properties["dateTime"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
@@ -160,7 +160,7 @@ function ConvertFrom-V2025JsonToCorrelatedGovernanceEvent {
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
-            "dt" = ${Dt}
+            "dateTime" = ${DateTime}
             "type" = ${Type}
             "governanceId" = ${GovernanceId}
             "owners" = ${Owners}

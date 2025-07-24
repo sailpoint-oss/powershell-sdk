@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024GetHistoricalIdentityEvents200Resp
     Context 'V2024GetHistoricalIdentityEvents200ResponseInner' {
         It 'Initialize-V2024GetHistoricalIdentityEvents200ResponseInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024GetHistoricalIdentityEvents200ResponseInner -AccessItem "TEST_VALUE" -IdentityId "TEST_VALUE" -EventType "TEST_VALUE" -Dt "TEST_VALUE" -GovernanceEvent "TEST_VALUE" -Changes "TEST_VALUE" -AccessRequest "TEST_VALUE" -CertificationId "TEST_VALUE" -CertificationName "TEST_VALUE" -SignedDate "TEST_VALUE" -Certifiers "TEST_VALUE" -Reviewers "TEST_VALUE" -Signer "TEST_VALUE" -Account "TEST_VALUE" -StatusChange "TEST_VALUE"
+            #$NewObject = Initialize-V2024GetHistoricalIdentityEvents200ResponseInner -CertificationId "TEST_VALUE" -CertificationName "TEST_VALUE" -SignedDate "TEST_VALUE" -Certifiers "TEST_VALUE" -Reviewers "TEST_VALUE" -Signer "TEST_VALUE" -EventType "TEST_VALUE" -DateTime "TEST_VALUE" -IdentityId "TEST_VALUE" -AccessItem "TEST_VALUE" -GovernanceEvent "TEST_VALUE" -AccessItemType "TEST_VALUE" -AttributeChanges "TEST_VALUE" -Account "TEST_VALUE" -StatusChange "TEST_VALUE"
             #$NewObject | Should -BeOfType GetHistoricalIdentityEvents200ResponseInner
             #$NewObject.property | Should -Be 0
         }

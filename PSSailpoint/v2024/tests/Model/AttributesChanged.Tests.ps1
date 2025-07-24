@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024AttributesChanged' {
     Context 'V2024AttributesChanged' {
         It 'Initialize-V2024AttributesChanged' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024AttributesChanged -Changes "TEST_VALUE" -EventType "TEST_VALUE" -IdentityId "TEST_VALUE" -Dt "TEST_VALUE"
+            #$NewObject = Initialize-V2024AttributesChanged -AttributeChanges "TEST_VALUE" -EventType "TEST_VALUE" -IdentityId "TEST_VALUE" -DateTime "TEST_VALUE"
             #$NewObject | Should -BeOfType AttributesChanged
             #$NewObject.property | Should -Be 0
         }

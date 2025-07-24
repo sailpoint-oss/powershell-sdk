@@ -273,7 +273,7 @@ Class | Method | HTTP request | Description
 *BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshots**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots
 *BetaIdentityHistoryApi* | [**Compare-BetaIdentitySnapshotsAccessType**](docs/BetaIdentityHistoryApi.md#Compare-BetaIdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{accessType} | Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 *BetaIdentityHistoryApi* | [**Get-BetaHistoricalIdentity**](docs/BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentity) | **GET** /historical-identities/{id} | Get latest snapshot of identity
-*BetaIdentityHistoryApi* | [**Get-BetaHistoricalIdentityEvents**](docs/BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentityEvents) | **GET** /historical-identities/{id}/events | Lists all events for the given identity
+*BetaIdentityHistoryApi* | [**Get-BetaHistoricalIdentityEvents**](docs/BetaIdentityHistoryApi.md#Get-BetaHistoricalIdentityEvents) | **GET** /historical-identities/{id}/events | List identity event history
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshot**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshot) | **GET** /historical-identities/{id}/snapshots/{date} | Gets an identity snapshot at a given date
 *BetaIdentityHistoryApi* | [**Get-BetaIdentitySnapshotSummary**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
 *BetaIdentityHistoryApi* | [**Get-BetaIdentityStartDate**](docs/BetaIdentityHistoryApi.md#Get-BetaIdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
@@ -620,6 +620,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.AccessCriteria](docs/AccessCriteria.md)
  - [PSSailpoint.Beta\Model.AccessCriteriaCriteriaListInner](docs/AccessCriteriaCriteriaListInner.md)
  - [PSSailpoint.Beta\Model.AccessItemAccessProfileResponse](docs/AccessItemAccessProfileResponse.md)
+ - [PSSailpoint.Beta\Model.AccessItemAccessProfileResponseAppRefsInner](docs/AccessItemAccessProfileResponseAppRefsInner.md)
  - [PSSailpoint.Beta\Model.AccessItemAccountResponse](docs/AccessItemAccountResponse.md)
  - [PSSailpoint.Beta\Model.AccessItemAppResponse](docs/AccessItemAppResponse.md)
  - [PSSailpoint.Beta\Model.AccessItemApproverDto](docs/AccessItemApproverDto.md)
@@ -1062,6 +1063,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.ListFormDefinitionsByTenantResponse](docs/ListFormDefinitionsByTenantResponse.md)
  - [PSSailpoint.Beta\Model.ListFormElementDataByElementIDResponse](docs/ListFormElementDataByElementIDResponse.md)
  - [PSSailpoint.Beta\Model.ListIdentityAccessItems200ResponseInner](docs/ListIdentityAccessItems200ResponseInner.md)
+ - [PSSailpoint.Beta\Model.ListIdentitySnapshotAccessItems200ResponseInner](docs/ListIdentitySnapshotAccessItems200ResponseInner.md)
  - [PSSailpoint.Beta\Model.ListPredefinedSelectOptionsResponse](docs/ListPredefinedSelectOptionsResponse.md)
  - [PSSailpoint.Beta\Model.ListWorkgroupMembers200ResponseInner](docs/ListWorkgroupMembers200ResponseInner.md)
  - [PSSailpoint.Beta\Model.LoadAccountsTask](docs/LoadAccountsTask.md)

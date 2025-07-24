@@ -361,7 +361,7 @@ function Get-BetaHistoricalIdentity {
 <#
 .SYNOPSIS
 
-Lists all events for the given identity
+List identity event history
 
 .DESCRIPTION
 
@@ -947,6 +947,7 @@ function Get-BetaIdentityAccessItems {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("account", "entitlement", "app", "accessProfile", "role")]
         [String]
         ${Type},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1067,7 +1068,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ListIdentityAccessItems200ResponseInner[]
+ListIdentitySnapshotAccessItems200ResponseInner[]
 #>
 function Get-BetaIdentitySnapshotAccessItems {
     [CmdletBinding()]
@@ -1127,7 +1128,7 @@ function Get-BetaIdentitySnapshotAccessItems {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ListIdentityAccessItems200ResponseInner[]" `
+                                -ReturnType "ListIdentitySnapshotAccessItems200ResponseInner[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

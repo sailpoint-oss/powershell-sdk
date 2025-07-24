@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024AccessRequested' {
     Context 'V2024AccessRequested' {
         It 'Initialize-V2024AccessRequested' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024AccessRequested -AccessRequest "TEST_VALUE" -IdentityId "TEST_VALUE" -EventType "TEST_VALUE" -Dt "TEST_VALUE"
+            #$NewObject = Initialize-V2024AccessRequested -EventType "TEST_VALUE" -IdentityId "TEST_VALUE" -DateTime "TEST_VALUE" -Account "TEST_VALUE" -StatusChange "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessRequested
             #$NewObject.property | Should -Be 0
         }

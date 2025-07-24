@@ -360,7 +360,7 @@ Class | Method | HTTP request | Description
 *V2024IdentityHistoryApi* | [**Compare-V2024IdentitySnapshots**](docs/V2024IdentityHistoryApi.md#Compare-V2024IdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots
 *V2024IdentityHistoryApi* | [**Compare-V2024IdentitySnapshotsAccessType**](docs/V2024IdentityHistoryApi.md#Compare-V2024IdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 *V2024IdentityHistoryApi* | [**Get-V2024HistoricalIdentity**](docs/V2024IdentityHistoryApi.md#Get-V2024HistoricalIdentity) | **GET** /historical-identities/{id} | Get latest snapshot of identity
-*V2024IdentityHistoryApi* | [**Get-V2024HistoricalIdentityEvents**](docs/V2024IdentityHistoryApi.md#Get-V2024HistoricalIdentityEvents) | **GET** /historical-identities/{id}/events | Lists all events for the given identity
+*V2024IdentityHistoryApi* | [**Get-V2024HistoricalIdentityEvents**](docs/V2024IdentityHistoryApi.md#Get-V2024HistoricalIdentityEvents) | **GET** /historical-identities/{id}/events | List identity event history
 *V2024IdentityHistoryApi* | [**Get-V2024IdentitySnapshot**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshot) | **GET** /historical-identities/{id}/snapshots/{date} | Gets an identity snapshot at a given date
 *V2024IdentityHistoryApi* | [**Get-V2024IdentitySnapshotSummary**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
 *V2024IdentityHistoryApi* | [**Get-V2024IdentityStartDate**](docs/V2024IdentityHistoryApi.md#Get-V2024IdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
@@ -767,6 +767,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccessCriteria](docs/AccessCriteria.md)
  - [PSSailpoint.V2024\Model.AccessCriteriaCriteriaListInner](docs/AccessCriteriaCriteriaListInner.md)
  - [PSSailpoint.V2024\Model.AccessItemAccessProfileResponse](docs/AccessItemAccessProfileResponse.md)
+ - [PSSailpoint.V2024\Model.AccessItemAccessProfileResponseAppRefsInner](docs/AccessItemAccessProfileResponseAppRefsInner.md)
  - [PSSailpoint.V2024\Model.AccessItemAccountResponse](docs/AccessItemAccountResponse.md)
  - [PSSailpoint.V2024\Model.AccessItemAppResponse](docs/AccessItemAppResponse.md)
  - [PSSailpoint.V2024\Model.AccessItemApproverDto](docs/AccessItemApproverDto.md)
@@ -811,7 +812,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccessRequestDynamicApprover1](docs/AccessRequestDynamicApprover1.md)
  - [PSSailpoint.V2024\Model.AccessRequestDynamicApproverRequestedItemsInner](docs/AccessRequestDynamicApproverRequestedItemsInner.md)
  - [PSSailpoint.V2024\Model.AccessRequestItem](docs/AccessRequestItem.md)
- - [PSSailpoint.V2024\Model.AccessRequestItemResponse](docs/AccessRequestItemResponse.md)
  - [PSSailpoint.V2024\Model.AccessRequestPhases](docs/AccessRequestPhases.md)
  - [PSSailpoint.V2024\Model.AccessRequestPostApproval](docs/AccessRequestPostApproval.md)
  - [PSSailpoint.V2024\Model.AccessRequestPostApprovalRequestedItemsStatusInner](docs/AccessRequestPostApprovalRequestedItemsStatusInner.md)
@@ -828,10 +828,11 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationItemDetailAccess](docs/AccessRequestRecommendationItemDetailAccess.md)
  - [PSSailpoint.V2024\Model.AccessRequestRecommendationItemType](docs/AccessRequestRecommendationItemType.md)
  - [PSSailpoint.V2024\Model.AccessRequestResponse](docs/AccessRequestResponse.md)
- - [PSSailpoint.V2024\Model.AccessRequestResponse1](docs/AccessRequestResponse1.md)
  - [PSSailpoint.V2024\Model.AccessRequestTracking](docs/AccessRequestTracking.md)
  - [PSSailpoint.V2024\Model.AccessRequestType](docs/AccessRequestType.md)
  - [PSSailpoint.V2024\Model.AccessRequested](docs/AccessRequested.md)
+ - [PSSailpoint.V2024\Model.AccessRequestedAccount](docs/AccessRequestedAccount.md)
+ - [PSSailpoint.V2024\Model.AccessRequestedStatusChange](docs/AccessRequestedStatusChange.md)
  - [PSSailpoint.V2024\Model.AccessReviewItem](docs/AccessReviewItem.md)
  - [PSSailpoint.V2024\Model.AccessReviewReassignment](docs/AccessReviewReassignment.md)
  - [PSSailpoint.V2024\Model.AccessSummary](docs/AccessSummary.md)
@@ -876,8 +877,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccountRequestResult](docs/AccountRequestResult.md)
  - [PSSailpoint.V2024\Model.AccountSource](docs/AccountSource.md)
  - [PSSailpoint.V2024\Model.AccountStatusChanged](docs/AccountStatusChanged.md)
- - [PSSailpoint.V2024\Model.AccountStatusChangedAccount](docs/AccountStatusChangedAccount.md)
- - [PSSailpoint.V2024\Model.AccountStatusChangedStatusChange](docs/AccountStatusChangedStatusChange.md)
  - [PSSailpoint.V2024\Model.AccountToggleRequest](docs/AccountToggleRequest.md)
  - [PSSailpoint.V2024\Model.AccountUncorrelated](docs/AccountUncorrelated.md)
  - [PSSailpoint.V2024\Model.AccountUncorrelatedAccount](docs/AccountUncorrelatedAccount.md)
@@ -913,7 +912,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ApprovalDescription](docs/ApprovalDescription.md)
  - [PSSailpoint.V2024\Model.ApprovalForwardHistory](docs/ApprovalForwardHistory.md)
  - [PSSailpoint.V2024\Model.ApprovalIdentity](docs/ApprovalIdentity.md)
- - [PSSailpoint.V2024\Model.ApprovalInfoResponse](docs/ApprovalInfoResponse.md)
  - [PSSailpoint.V2024\Model.ApprovalItemDetails](docs/ApprovalItemDetails.md)
  - [PSSailpoint.V2024\Model.ApprovalItems](docs/ApprovalItems.md)
  - [PSSailpoint.V2024\Model.ApprovalName](docs/ApprovalName.md)
@@ -1329,6 +1327,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.ListFormElementDataByElementIDResponse](docs/ListFormElementDataByElementIDResponse.md)
  - [PSSailpoint.V2024\Model.ListFormInstancesByTenantResponse](docs/ListFormInstancesByTenantResponse.md)
  - [PSSailpoint.V2024\Model.ListIdentityAccessItems200ResponseInner](docs/ListIdentityAccessItems200ResponseInner.md)
+ - [PSSailpoint.V2024\Model.ListIdentitySnapshotAccessItems200ResponseInner](docs/ListIdentitySnapshotAccessItems200ResponseInner.md)
  - [PSSailpoint.V2024\Model.ListPredefinedSelectOptionsResponse](docs/ListPredefinedSelectOptionsResponse.md)
  - [PSSailpoint.V2024\Model.ListWorkgroupMembers200ResponseInner](docs/ListWorkgroupMembers200ResponseInner.md)
  - [PSSailpoint.V2024\Model.LoadAccountsTask](docs/LoadAccountsTask.md)

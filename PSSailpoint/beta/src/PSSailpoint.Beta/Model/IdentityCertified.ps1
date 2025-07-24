@@ -28,7 +28,7 @@ The list of identities who review this certification
 No description available.
 .PARAMETER EventType
 the event type
-.PARAMETER Dt
+.PARAMETER DateTime
 the date of event
 .OUTPUTS
 
@@ -61,12 +61,20 @@ function Initialize-BetaIdentityCertified {
         ${EventType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Dt}
+        ${DateTime}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.Beta => BetaIdentityCertified' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        if (!$CertificationId) {
+            throw "invalid value for 'CertificationId', 'CertificationId' cannot be null."
+        }
+
+        if (!$CertificationName) {
+            throw "invalid value for 'CertificationName', 'CertificationName' cannot be null."
+        }
 
 
         $PSO = [PSCustomObject]@{
@@ -77,7 +85,7 @@ function Initialize-BetaIdentityCertified {
             "reviewers" = ${Reviewers}
             "signer" = ${Signer}
             "eventType" = ${EventType}
-            "dt" = ${Dt}
+            "dateTime" = ${DateTime}
         }
 
         return $PSO
@@ -114,21 +122,25 @@ function ConvertFrom-BetaJsonToIdentityCertified {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaIdentityCertified
-        $AllProperties = ("certificationId", "certificationName", "signedDate", "certifiers", "reviewers", "signer", "eventType", "dt")
+        $AllProperties = ("certificationId", "certificationName", "signedDate", "certifiers", "reviewers", "signer", "eventType", "dateTime")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "certificationId"))) { #optional property not found
-            $CertificationId = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'certificationId' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "certificationId"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'certificationId' missing."
         } else {
             $CertificationId = $JsonParameters.PSobject.Properties["certificationId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "certificationName"))) { #optional property not found
-            $CertificationName = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "certificationName"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'certificationName' missing."
         } else {
             $CertificationName = $JsonParameters.PSobject.Properties["certificationName"].value
         }
@@ -163,10 +175,10 @@ function ConvertFrom-BetaJsonToIdentityCertified {
             $EventType = $JsonParameters.PSobject.Properties["eventType"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dt"))) { #optional property not found
-            $Dt = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dateTime"))) { #optional property not found
+            $DateTime = $null
         } else {
-            $Dt = $JsonParameters.PSobject.Properties["dt"].value
+            $DateTime = $JsonParameters.PSobject.Properties["dateTime"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -177,7 +189,7 @@ function ConvertFrom-BetaJsonToIdentityCertified {
             "reviewers" = ${Reviewers}
             "signer" = ${Signer}
             "eventType" = ${EventType}
-            "dt" = ${Dt}
+            "dateTime" = ${DateTime}
         }
 
         return $PSO

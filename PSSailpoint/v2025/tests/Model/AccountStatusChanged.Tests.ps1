@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025AccountStatusChanged' {
     Context 'V2025AccountStatusChanged' {
         It 'Initialize-V2025AccountStatusChanged' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025AccountStatusChanged -EventType "TEST_VALUE" -IdentityId "TEST_VALUE" -Dt "TEST_VALUE" -Account "TEST_VALUE" -StatusChange "TEST_VALUE"
+            #$NewObject = Initialize-V2025AccountStatusChanged -EventType "TEST_VALUE" -IdentityId "TEST_VALUE" -DateTime "TEST_VALUE" -Account "TEST_VALUE" -StatusChange "TEST_VALUE"
             #$NewObject | Should -BeOfType AccountStatusChanged
             #$NewObject.property | Should -Be 0
         }

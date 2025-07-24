@@ -14,14 +14,16 @@ No summary available.
 
 No description available.
 
-.PARAMETER AccessRequest
-No description available.
-.PARAMETER IdentityId
-the identity id
 .PARAMETER EventType
 the event type
-.PARAMETER Dt
+.PARAMETER IdentityId
+the identity id
+.PARAMETER DateTime
 the date of event
+.PARAMETER Account
+No description available.
+.PARAMETER StatusChange
+No description available.
 .OUTPUTS
 
 AccessRequested<PSCustomObject>
@@ -31,29 +33,41 @@ function Initialize-V2024AccessRequested {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${AccessRequest},
+        [String]
+        ${EventType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EventType},
+        ${DateTime},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Dt}
+        [PSCustomObject]
+        ${Account},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${StatusChange}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024AccessRequested' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$Account) {
+            throw "invalid value for 'Account', 'Account' cannot be null."
+        }
+
+        if (!$StatusChange) {
+            throw "invalid value for 'StatusChange', 'StatusChange' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
-            "accessRequest" = ${AccessRequest}
-            "identityId" = ${IdentityId}
             "eventType" = ${EventType}
-            "dt" = ${Dt}
+            "identityId" = ${IdentityId}
+            "dateTime" = ${DateTime}
+            "account" = ${Account}
+            "statusChange" = ${StatusChange}
         }
 
         return $PSO
@@ -90,23 +104,27 @@ function ConvertFrom-V2024JsonToAccessRequested {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024AccessRequested
-        $AllProperties = ("accessRequest", "identityId", "eventType", "dt")
+        $AllProperties = ("eventType", "identityId", "dateTime", "account", "statusChange")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessRequest"))) { #optional property not found
-            $AccessRequest = $null
-        } else {
-            $AccessRequest = $JsonParameters.PSobject.Properties["accessRequest"].value
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'account' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityId"))) { #optional property not found
-            $IdentityId = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "account"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'account' missing."
         } else {
-            $IdentityId = $JsonParameters.PSobject.Properties["identityId"].value
+            $Account = $JsonParameters.PSobject.Properties["account"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "statusChange"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'statusChange' missing."
+        } else {
+            $StatusChange = $JsonParameters.PSobject.Properties["statusChange"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "eventType"))) { #optional property not found
@@ -115,17 +133,24 @@ function ConvertFrom-V2024JsonToAccessRequested {
             $EventType = $JsonParameters.PSobject.Properties["eventType"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dt"))) { #optional property not found
-            $Dt = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityId"))) { #optional property not found
+            $IdentityId = $null
         } else {
-            $Dt = $JsonParameters.PSobject.Properties["dt"].value
+            $IdentityId = $JsonParameters.PSobject.Properties["identityId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dateTime"))) { #optional property not found
+            $DateTime = $null
+        } else {
+            $DateTime = $JsonParameters.PSobject.Properties["dateTime"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "accessRequest" = ${AccessRequest}
-            "identityId" = ${IdentityId}
             "eventType" = ${EventType}
-            "dt" = ${Dt}
+            "identityId" = ${IdentityId}
+            "dateTime" = ${DateTime}
+            "account" = ${Account}
+            "statusChange" = ${StatusChange}
         }
 
         return $PSO

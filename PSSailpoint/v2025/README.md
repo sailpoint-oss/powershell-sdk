@@ -371,7 +371,7 @@ Class | Method | HTTP request | Description
 *V2025IdentityHistoryApi* | [**Compare-V2025IdentitySnapshots**](docs/V2025IdentityHistoryApi.md#Compare-V2025IdentitySnapshots) | **GET** /historical-identities/{id}/compare | Gets a difference of count for each access item types for the given identity between 2 snapshots
 *V2025IdentityHistoryApi* | [**Compare-V2025IdentitySnapshotsAccessType**](docs/V2025IdentityHistoryApi.md#Compare-V2025IdentitySnapshotsAccessType) | **GET** /historical-identities/{id}/compare/{access-type} | Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 *V2025IdentityHistoryApi* | [**Get-V2025HistoricalIdentity**](docs/V2025IdentityHistoryApi.md#Get-V2025HistoricalIdentity) | **GET** /historical-identities/{id} | Get latest snapshot of identity
-*V2025IdentityHistoryApi* | [**Get-V2025HistoricalIdentityEvents**](docs/V2025IdentityHistoryApi.md#Get-V2025HistoricalIdentityEvents) | **GET** /historical-identities/{id}/events | Lists all events for the given identity
+*V2025IdentityHistoryApi* | [**Get-V2025HistoricalIdentityEvents**](docs/V2025IdentityHistoryApi.md#Get-V2025HistoricalIdentityEvents) | **GET** /historical-identities/{id}/events | List identity event history
 *V2025IdentityHistoryApi* | [**Get-V2025IdentitySnapshot**](docs/V2025IdentityHistoryApi.md#Get-V2025IdentitySnapshot) | **GET** /historical-identities/{id}/snapshots/{date} | Gets an identity snapshot at a given date
 *V2025IdentityHistoryApi* | [**Get-V2025IdentitySnapshotSummary**](docs/V2025IdentityHistoryApi.md#Get-V2025IdentitySnapshotSummary) | **GET** /historical-identities/{id}/snapshot-summary | Gets the summary for the event count for a specific identity
 *V2025IdentityHistoryApi* | [**Get-V2025IdentityStartDate**](docs/V2025IdentityHistoryApi.md#Get-V2025IdentityStartDate) | **GET** /historical-identities/{id}/start-date | Gets the start date of the identity
@@ -779,6 +779,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.AccessCriteria](docs/AccessCriteria.md)
  - [PSSailpoint.V2025\Model.AccessCriteriaCriteriaListInner](docs/AccessCriteriaCriteriaListInner.md)
  - [PSSailpoint.V2025\Model.AccessItemAccessProfileResponse](docs/AccessItemAccessProfileResponse.md)
+ - [PSSailpoint.V2025\Model.AccessItemAccessProfileResponseAppRefsInner](docs/AccessItemAccessProfileResponseAppRefsInner.md)
  - [PSSailpoint.V2025\Model.AccessItemAccountResponse](docs/AccessItemAccountResponse.md)
  - [PSSailpoint.V2025\Model.AccessItemAppResponse](docs/AccessItemAppResponse.md)
  - [PSSailpoint.V2025\Model.AccessItemApproverDto](docs/AccessItemApproverDto.md)
@@ -1349,6 +1350,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.ListFormElementDataByElementIDResponse](docs/ListFormElementDataByElementIDResponse.md)
  - [PSSailpoint.V2025\Model.ListFormInstancesByTenantResponse](docs/ListFormInstancesByTenantResponse.md)
  - [PSSailpoint.V2025\Model.ListIdentityAccessItems200ResponseInner](docs/ListIdentityAccessItems200ResponseInner.md)
+ - [PSSailpoint.V2025\Model.ListIdentitySnapshotAccessItems200ResponseInner](docs/ListIdentitySnapshotAccessItems200ResponseInner.md)
  - [PSSailpoint.V2025\Model.ListPredefinedSelectOptionsResponse](docs/ListPredefinedSelectOptionsResponse.md)
  - [PSSailpoint.V2025\Model.ListWorkgroupMembers200ResponseInner](docs/ListWorkgroupMembers200ResponseInner.md)
  - [PSSailpoint.V2025\Model.LoadAccountsTask](docs/LoadAccountsTask.md)

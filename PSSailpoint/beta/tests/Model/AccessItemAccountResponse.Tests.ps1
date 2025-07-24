@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaAccessItemAccountResponse' {
     Context 'BetaAccessItemAccountResponse' {
         It 'Initialize-BetaAccessItemAccountResponse' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaAccessItemAccountResponse -AccessType "TEST_VALUE" -Id "TEST_VALUE" -NativeIdentity "TEST_VALUE" -SourceName "TEST_VALUE" -SourceId "TEST_VALUE" -EntitlementCount "TEST_VALUE" -DisplayName "TEST_VALUE"
+            #$NewObject = Initialize-BetaAccessItemAccountResponse -Id "TEST_VALUE" -AccessType "TEST_VALUE" -DisplayName "TEST_VALUE" -SourceName "TEST_VALUE" -NativeIdentity "TEST_VALUE" -SourceId "TEST_VALUE" -EntitlementCount "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessItemAccountResponse
             #$NewObject.property | Should -Be 0
         }

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaIdentityCertified' {
     Context 'BetaIdentityCertified' {
         It 'Initialize-BetaIdentityCertified' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaIdentityCertified -CertificationId "TEST_VALUE" -CertificationName "TEST_VALUE" -SignedDate "TEST_VALUE" -Certifiers "TEST_VALUE" -Reviewers "TEST_VALUE" -Signer "TEST_VALUE" -EventType "TEST_VALUE" -Dt "TEST_VALUE"
+            #$NewObject = Initialize-BetaIdentityCertified -CertificationId "TEST_VALUE" -CertificationName "TEST_VALUE" -SignedDate "TEST_VALUE" -Certifiers "TEST_VALUE" -Reviewers "TEST_VALUE" -Signer "TEST_VALUE" -EventType "TEST_VALUE" -DateTime "TEST_VALUE"
             #$NewObject | Should -BeOfType IdentityCertified
             #$NewObject.property | Should -Be 0
         }

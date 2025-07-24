@@ -10,6 +10,7 @@ docs/AccessConstraint.md
 docs/AccessCriteria.md
 docs/AccessCriteriaCriteriaListInner.md
 docs/AccessItemAccessProfileResponse.md
+docs/AccessItemAccessProfileResponseAppRefsInner.md
 docs/AccessItemAccountResponse.md
 docs/AccessItemAppResponse.md
 docs/AccessItemApproverDto.md
@@ -54,7 +55,6 @@ docs/AccessRequestDynamicApprover.md
 docs/AccessRequestDynamicApprover1.md
 docs/AccessRequestDynamicApproverRequestedItemsInner.md
 docs/AccessRequestItem.md
-docs/AccessRequestItemResponse.md
 docs/AccessRequestPhases.md
 docs/AccessRequestPostApproval.md
 docs/AccessRequestPostApprovalRequestedItemsStatusInner.md
@@ -71,10 +71,11 @@ docs/AccessRequestRecommendationItemDetail.md
 docs/AccessRequestRecommendationItemDetailAccess.md
 docs/AccessRequestRecommendationItemType.md
 docs/AccessRequestResponse.md
-docs/AccessRequestResponse1.md
 docs/AccessRequestTracking.md
 docs/AccessRequestType.md
 docs/AccessRequested.md
+docs/AccessRequestedAccount.md
+docs/AccessRequestedStatusChange.md
 docs/AccessReviewItem.md
 docs/AccessReviewReassignment.md
 docs/AccessSummary.md
@@ -119,8 +120,6 @@ docs/AccountRequestInfo.md
 docs/AccountRequestResult.md
 docs/AccountSource.md
 docs/AccountStatusChanged.md
-docs/AccountStatusChangedAccount.md
-docs/AccountStatusChangedStatusChange.md
 docs/AccountToggleRequest.md
 docs/AccountUncorrelated.md
 docs/AccountUncorrelatedAccount.md
@@ -156,7 +155,6 @@ docs/ApprovalComment2.md
 docs/ApprovalDescription.md
 docs/ApprovalForwardHistory.md
 docs/ApprovalIdentity.md
-docs/ApprovalInfoResponse.md
 docs/ApprovalItemDetails.md
 docs/ApprovalItems.md
 docs/ApprovalName.md
@@ -575,6 +573,7 @@ docs/ListFormDefinitionsByTenantResponse.md
 docs/ListFormElementDataByElementIDResponse.md
 docs/ListFormInstancesByTenantResponse.md
 docs/ListIdentityAccessItems200ResponseInner.md
+docs/ListIdentitySnapshotAccessItems200ResponseInner.md
 docs/ListPredefinedSelectOptionsResponse.md
 docs/ListWorkgroupMembers200ResponseInner.md
 docs/LoadAccountsTask.md
@@ -1456,6 +1455,7 @@ src/PSSailpoint.V2024/Model/AccessConstraint.ps1
 src/PSSailpoint.V2024/Model/AccessCriteria.ps1
 src/PSSailpoint.V2024/Model/AccessCriteriaCriteriaListInner.ps1
 src/PSSailpoint.V2024/Model/AccessItemAccessProfileResponse.ps1
+src/PSSailpoint.V2024/Model/AccessItemAccessProfileResponseAppRefsInner.ps1
 src/PSSailpoint.V2024/Model/AccessItemAccountResponse.ps1
 src/PSSailpoint.V2024/Model/AccessItemAppResponse.ps1
 src/PSSailpoint.V2024/Model/AccessItemApproverDto.ps1
@@ -1500,7 +1500,6 @@ src/PSSailpoint.V2024/Model/AccessRequestDynamicApprover.ps1
 src/PSSailpoint.V2024/Model/AccessRequestDynamicApprover1.ps1
 src/PSSailpoint.V2024/Model/AccessRequestDynamicApproverRequestedItemsInner.ps1
 src/PSSailpoint.V2024/Model/AccessRequestItem.ps1
-src/PSSailpoint.V2024/Model/AccessRequestItemResponse.ps1
 src/PSSailpoint.V2024/Model/AccessRequestPhases.ps1
 src/PSSailpoint.V2024/Model/AccessRequestPostApproval.ps1
 src/PSSailpoint.V2024/Model/AccessRequestPostApprovalRequestedItemsStatusInner.ps1
@@ -1517,10 +1516,11 @@ src/PSSailpoint.V2024/Model/AccessRequestRecommendationItemDetail.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationItemDetailAccess.ps1
 src/PSSailpoint.V2024/Model/AccessRequestRecommendationItemType.ps1
 src/PSSailpoint.V2024/Model/AccessRequestResponse.ps1
-src/PSSailpoint.V2024/Model/AccessRequestResponse1.ps1
 src/PSSailpoint.V2024/Model/AccessRequestTracking.ps1
 src/PSSailpoint.V2024/Model/AccessRequestType.ps1
 src/PSSailpoint.V2024/Model/AccessRequested.ps1
+src/PSSailpoint.V2024/Model/AccessRequestedAccount.ps1
+src/PSSailpoint.V2024/Model/AccessRequestedStatusChange.ps1
 src/PSSailpoint.V2024/Model/AccessReviewItem.ps1
 src/PSSailpoint.V2024/Model/AccessReviewReassignment.ps1
 src/PSSailpoint.V2024/Model/AccessSummary.ps1
@@ -1565,8 +1565,6 @@ src/PSSailpoint.V2024/Model/AccountRequestInfo.ps1
 src/PSSailpoint.V2024/Model/AccountRequestResult.ps1
 src/PSSailpoint.V2024/Model/AccountSource.ps1
 src/PSSailpoint.V2024/Model/AccountStatusChanged.ps1
-src/PSSailpoint.V2024/Model/AccountStatusChangedAccount.ps1
-src/PSSailpoint.V2024/Model/AccountStatusChangedStatusChange.ps1
 src/PSSailpoint.V2024/Model/AccountToggleRequest.ps1
 src/PSSailpoint.V2024/Model/AccountUncorrelated.ps1
 src/PSSailpoint.V2024/Model/AccountUncorrelatedAccount.ps1
@@ -1602,7 +1600,6 @@ src/PSSailpoint.V2024/Model/ApprovalComment2.ps1
 src/PSSailpoint.V2024/Model/ApprovalDescription.ps1
 src/PSSailpoint.V2024/Model/ApprovalForwardHistory.ps1
 src/PSSailpoint.V2024/Model/ApprovalIdentity.ps1
-src/PSSailpoint.V2024/Model/ApprovalInfoResponse.ps1
 src/PSSailpoint.V2024/Model/ApprovalItemDetails.ps1
 src/PSSailpoint.V2024/Model/ApprovalItems.ps1
 src/PSSailpoint.V2024/Model/ApprovalName.ps1
@@ -2018,6 +2015,7 @@ src/PSSailpoint.V2024/Model/ListFormDefinitionsByTenantResponse.ps1
 src/PSSailpoint.V2024/Model/ListFormElementDataByElementIDResponse.ps1
 src/PSSailpoint.V2024/Model/ListFormInstancesByTenantResponse.ps1
 src/PSSailpoint.V2024/Model/ListIdentityAccessItems200ResponseInner.ps1
+src/PSSailpoint.V2024/Model/ListIdentitySnapshotAccessItems200ResponseInner.ps1
 src/PSSailpoint.V2024/Model/ListPredefinedSelectOptionsResponse.ps1
 src/PSSailpoint.V2024/Model/ListWorkgroupMembers200ResponseInner.ps1
 src/PSSailpoint.V2024/Model/LoadAccountsTask.ps1
@@ -2723,6 +2721,7 @@ tests/Model/AccessConstraint.Tests.ps1
 tests/Model/AccessCriteria.Tests.ps1
 tests/Model/AccessCriteriaCriteriaListInner.Tests.ps1
 tests/Model/AccessItemAccessProfileResponse.Tests.ps1
+tests/Model/AccessItemAccessProfileResponseAppRefsInner.Tests.ps1
 tests/Model/AccessItemAccountResponse.Tests.ps1
 tests/Model/AccessItemAppResponse.Tests.ps1
 tests/Model/AccessItemApproverDto.Tests.ps1
@@ -2767,7 +2766,6 @@ tests/Model/AccessRequestDynamicApprover.Tests.ps1
 tests/Model/AccessRequestDynamicApprover1.Tests.ps1
 tests/Model/AccessRequestDynamicApproverRequestedItemsInner.Tests.ps1
 tests/Model/AccessRequestItem.Tests.ps1
-tests/Model/AccessRequestItemResponse.Tests.ps1
 tests/Model/AccessRequestPhases.Tests.ps1
 tests/Model/AccessRequestPostApproval.Tests.ps1
 tests/Model/AccessRequestPostApprovalRequestedItemsStatusInner.Tests.ps1
@@ -2784,10 +2782,11 @@ tests/Model/AccessRequestRecommendationItemDetail.Tests.ps1
 tests/Model/AccessRequestRecommendationItemDetailAccess.Tests.ps1
 tests/Model/AccessRequestRecommendationItemType.Tests.ps1
 tests/Model/AccessRequestResponse.Tests.ps1
-tests/Model/AccessRequestResponse1.Tests.ps1
 tests/Model/AccessRequestTracking.Tests.ps1
 tests/Model/AccessRequestType.Tests.ps1
 tests/Model/AccessRequested.Tests.ps1
+tests/Model/AccessRequestedAccount.Tests.ps1
+tests/Model/AccessRequestedStatusChange.Tests.ps1
 tests/Model/AccessReviewItem.Tests.ps1
 tests/Model/AccessReviewReassignment.Tests.ps1
 tests/Model/AccessSummary.Tests.ps1
@@ -2832,8 +2831,6 @@ tests/Model/AccountRequestInfo.Tests.ps1
 tests/Model/AccountRequestResult.Tests.ps1
 tests/Model/AccountSource.Tests.ps1
 tests/Model/AccountStatusChanged.Tests.ps1
-tests/Model/AccountStatusChangedAccount.Tests.ps1
-tests/Model/AccountStatusChangedStatusChange.Tests.ps1
 tests/Model/AccountToggleRequest.Tests.ps1
 tests/Model/AccountUncorrelated.Tests.ps1
 tests/Model/AccountUncorrelatedAccount.Tests.ps1
@@ -2869,7 +2866,6 @@ tests/Model/ApprovalComment2.Tests.ps1
 tests/Model/ApprovalDescription.Tests.ps1
 tests/Model/ApprovalForwardHistory.Tests.ps1
 tests/Model/ApprovalIdentity.Tests.ps1
-tests/Model/ApprovalInfoResponse.Tests.ps1
 tests/Model/ApprovalItemDetails.Tests.ps1
 tests/Model/ApprovalItems.Tests.ps1
 tests/Model/ApprovalName.Tests.ps1
@@ -3285,6 +3281,7 @@ tests/Model/ListFormDefinitionsByTenantResponse.Tests.ps1
 tests/Model/ListFormElementDataByElementIDResponse.Tests.ps1
 tests/Model/ListFormInstancesByTenantResponse.Tests.ps1
 tests/Model/ListIdentityAccessItems200ResponseInner.Tests.ps1
+tests/Model/ListIdentitySnapshotAccessItems200ResponseInner.Tests.ps1
 tests/Model/ListPredefinedSelectOptionsResponse.Tests.ps1
 tests/Model/ListWorkgroupMembers200ResponseInner.Tests.ps1
 tests/Model/LoadAccountsTask.Tests.ps1

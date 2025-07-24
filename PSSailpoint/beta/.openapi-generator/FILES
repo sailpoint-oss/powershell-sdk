@@ -7,6 +7,7 @@ docs/AccessConstraint.md
 docs/AccessCriteria.md
 docs/AccessCriteriaCriteriaListInner.md
 docs/AccessItemAccessProfileResponse.md
+docs/AccessItemAccessProfileResponseAppRefsInner.md
 docs/AccessItemAccountResponse.md
 docs/AccessItemAppResponse.md
 docs/AccessItemApproverDto.md
@@ -600,6 +601,7 @@ docs/ListCompleteWorkflowLibrary200ResponseInner.md
 docs/ListFormDefinitionsByTenantResponse.md
 docs/ListFormElementDataByElementIDResponse.md
 docs/ListIdentityAccessItems200ResponseInner.md
+docs/ListIdentitySnapshotAccessItems200ResponseInner.md
 docs/ListPredefinedSelectOptionsResponse.md
 docs/ListWorkgroupMembers200ResponseInner.md
 docs/LoadAccountsTask.md
@@ -1171,6 +1173,7 @@ src/PSSailpoint.Beta/Model/AccessConstraint.ps1
 src/PSSailpoint.Beta/Model/AccessCriteria.ps1
 src/PSSailpoint.Beta/Model/AccessCriteriaCriteriaListInner.ps1
 src/PSSailpoint.Beta/Model/AccessItemAccessProfileResponse.ps1
+src/PSSailpoint.Beta/Model/AccessItemAccessProfileResponseAppRefsInner.ps1
 src/PSSailpoint.Beta/Model/AccessItemAccountResponse.ps1
 src/PSSailpoint.Beta/Model/AccessItemAppResponse.ps1
 src/PSSailpoint.Beta/Model/AccessItemApproverDto.ps1
@@ -1613,6 +1616,7 @@ src/PSSailpoint.Beta/Model/ListCompleteWorkflowLibrary200ResponseInner.ps1
 src/PSSailpoint.Beta/Model/ListFormDefinitionsByTenantResponse.ps1
 src/PSSailpoint.Beta/Model/ListFormElementDataByElementIDResponse.ps1
 src/PSSailpoint.Beta/Model/ListIdentityAccessItems200ResponseInner.ps1
+src/PSSailpoint.Beta/Model/ListIdentitySnapshotAccessItems200ResponseInner.ps1
 src/PSSailpoint.Beta/Model/ListPredefinedSelectOptionsResponse.ps1
 src/PSSailpoint.Beta/Model/ListWorkgroupMembers200ResponseInner.ps1
 src/PSSailpoint.Beta/Model/LoadAccountsTask.ps1
@@ -2190,6 +2194,7 @@ tests/Model/AccessConstraint.Tests.ps1
 tests/Model/AccessCriteria.Tests.ps1
 tests/Model/AccessCriteriaCriteriaListInner.Tests.ps1
 tests/Model/AccessItemAccessProfileResponse.Tests.ps1
+tests/Model/AccessItemAccessProfileResponseAppRefsInner.Tests.ps1
 tests/Model/AccessItemAccountResponse.Tests.ps1
 tests/Model/AccessItemAppResponse.Tests.ps1
 tests/Model/AccessItemApproverDto.Tests.ps1
@@ -2632,6 +2637,7 @@ tests/Model/ListCompleteWorkflowLibrary200ResponseInner.Tests.ps1
 tests/Model/ListFormDefinitionsByTenantResponse.Tests.ps1
 tests/Model/ListFormElementDataByElementIDResponse.Tests.ps1
 tests/Model/ListIdentityAccessItems200ResponseInner.Tests.ps1
+tests/Model/ListIdentitySnapshotAccessItems200ResponseInner.Tests.ps1
 tests/Model/ListPredefinedSelectOptionsResponse.Tests.ps1
 tests/Model/ListWorkgroupMembers200ResponseInner.Tests.ps1
 tests/Model/LoadAccountsTask.Tests.ps1

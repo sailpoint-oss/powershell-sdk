@@ -14,24 +14,24 @@ No summary available.
 
 No description available.
 
-.PARAMETER AccessType
-the access item type. entitlement in this case
 .PARAMETER Id
 the access item id
+.PARAMETER AccessType
+the access item type. entitlement in this case
+.PARAMETER DisplayName
+the display name of the identity
+.PARAMETER SourceName
+the name of the source
 .PARAMETER Attribute
 the entitlement attribute
 .PARAMETER Value
 the associated value
-.PARAMETER EntitlementType
+.PARAMETER Type
 the type of entitlement
-.PARAMETER SourceName
-the name of the source
-.PARAMETER SourceId
-the id of the source
 .PARAMETER Description
 the description for the entitlment
-.PARAMETER DisplayName
-the display name of the identity
+.PARAMETER SourceId
+the id of the source
 .PARAMETER Standalone
 indicates whether the entitlement is standalone
 .PARAMETER Privileged
@@ -48,10 +48,16 @@ function Initialize-V2025AccessItemEntitlementResponse {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${AccessType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
+        ${DisplayName},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${SourceName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Attribute},
@@ -60,27 +66,21 @@ function Initialize-V2025AccessItemEntitlementResponse {
         ${Value},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${EntitlementType},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${SourceName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${SourceId},
+        ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${DisplayName},
+        ${SourceId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Boolean]
+        [System.Nullable[Boolean]]
         ${Standalone},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Boolean]
+        [System.Nullable[Boolean]]
         ${Privileged},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Boolean]
+        [System.Nullable[Boolean]]
         ${CloudGoverned}
     )
 
@@ -88,29 +88,29 @@ function Initialize-V2025AccessItemEntitlementResponse {
         'Creating PSCustomObject: PSSailpoint.V2025 => V2025AccessItemEntitlementResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Standalone) {
-            throw "invalid value for 'Standalone', 'Standalone' cannot be null."
+        if (!$Attribute) {
+            throw "invalid value for 'Attribute', 'Attribute' cannot be null."
         }
 
-        if (!$Privileged) {
-            throw "invalid value for 'Privileged', 'Privileged' cannot be null."
+        if (!$Value) {
+            throw "invalid value for 'Value', 'Value' cannot be null."
         }
 
-        if (!$CloudGoverned) {
-            throw "invalid value for 'CloudGoverned', 'CloudGoverned' cannot be null."
+        if (!$Type) {
+            throw "invalid value for 'Type', 'Type' cannot be null."
         }
 
 
         $PSO = [PSCustomObject]@{
-            "accessType" = ${AccessType}
             "id" = ${Id}
+            "accessType" = ${AccessType}
+            "displayName" = ${DisplayName}
+            "sourceName" = ${SourceName}
             "attribute" = ${Attribute}
             "value" = ${Value}
-            "entitlementType" = ${EntitlementType}
-            "sourceName" = ${SourceName}
-            "sourceId" = ${SourceId}
+            "type" = ${Type}
             "description" = ${Description}
-            "displayName" = ${DisplayName}
+            "sourceId" = ${SourceId}
             "standalone" = ${Standalone}
             "privileged" = ${Privileged}
             "cloudGoverned" = ${CloudGoverned}
@@ -150,7 +150,7 @@ function ConvertFrom-V2025JsonToAccessItemEntitlementResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025AccessItemEntitlementResponse
-        $AllProperties = ("accessType", "id", "attribute", "value", "entitlementType", "sourceName", "sourceId", "description", "displayName", "standalone", "privileged", "cloudGoverned")
+        $AllProperties = ("id", "accessType", "displayName", "sourceName", "attribute", "value", "type", "description", "sourceId", "standalone", "privileged", "cloudGoverned")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -158,7 +158,25 @@ function ConvertFrom-V2025JsonToAccessItemEntitlementResponse {
         }
 
         If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'standalone' missing."
+            throw "Error! Empty JSON cannot be serialized due to the required property 'attribute' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attribute"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'attribute' missing."
+        } else {
+            $Attribute = $JsonParameters.PSobject.Properties["attribute"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "value"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'value' missing."
+        } else {
+            $Value = $JsonParameters.PSobject.Properties["value"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'type' missing."
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "standalone"))) {
@@ -179,52 +197,16 @@ function ConvertFrom-V2025JsonToAccessItemEntitlementResponse {
             $CloudGoverned = $JsonParameters.PSobject.Properties["cloudGoverned"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessType"))) { #optional property not found
-            $AccessType = $null
-        } else {
-            $AccessType = $JsonParameters.PSobject.Properties["accessType"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
             $Id = $null
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attribute"))) { #optional property not found
-            $Attribute = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessType"))) { #optional property not found
+            $AccessType = $null
         } else {
-            $Attribute = $JsonParameters.PSobject.Properties["attribute"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "value"))) { #optional property not found
-            $Value = $null
-        } else {
-            $Value = $JsonParameters.PSobject.Properties["value"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "entitlementType"))) { #optional property not found
-            $EntitlementType = $null
-        } else {
-            $EntitlementType = $JsonParameters.PSobject.Properties["entitlementType"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceName"))) { #optional property not found
-            $SourceName = $null
-        } else {
-            $SourceName = $JsonParameters.PSobject.Properties["sourceName"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceId"))) { #optional property not found
-            $SourceId = $null
-        } else {
-            $SourceId = $JsonParameters.PSobject.Properties["sourceId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
-            $Description = $null
-        } else {
-            $Description = $JsonParameters.PSobject.Properties["description"].value
+            $AccessType = $JsonParameters.PSobject.Properties["accessType"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
@@ -233,16 +215,34 @@ function ConvertFrom-V2025JsonToAccessItemEntitlementResponse {
             $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceName"))) { #optional property not found
+            $SourceName = $null
+        } else {
+            $SourceName = $JsonParameters.PSobject.Properties["sourceName"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
+            $Description = $null
+        } else {
+            $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceId"))) { #optional property not found
+            $SourceId = $null
+        } else {
+            $SourceId = $JsonParameters.PSobject.Properties["sourceId"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "accessType" = ${AccessType}
             "id" = ${Id}
+            "accessType" = ${AccessType}
+            "displayName" = ${DisplayName}
+            "sourceName" = ${SourceName}
             "attribute" = ${Attribute}
             "value" = ${Value}
-            "entitlementType" = ${EntitlementType}
-            "sourceName" = ${SourceName}
-            "sourceId" = ${SourceId}
+            "type" = ${Type}
             "description" = ${Description}
-            "displayName" = ${DisplayName}
+            "sourceId" = ${SourceId}
             "standalone" = ${Standalone}
             "privileged" = ${Privileged}
             "cloudGoverned" = ${CloudGoverned}

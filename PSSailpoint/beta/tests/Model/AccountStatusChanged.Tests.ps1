@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaAccountStatusChanged' {
     Context 'BetaAccountStatusChanged' {
         It 'Initialize-BetaAccountStatusChanged' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaAccountStatusChanged -EventType "TEST_VALUE" -IdentityId "TEST_VALUE" -Dt "TEST_VALUE" -Account "TEST_VALUE" -StatusChange "TEST_VALUE"
+            #$NewObject = Initialize-BetaAccountStatusChanged -EventType "TEST_VALUE" -IdentityId "TEST_VALUE" -DateTime "TEST_VALUE" -Account "TEST_VALUE" -StatusChange "TEST_VALUE"
             #$NewObject | Should -BeOfType AccountStatusChanged
             #$NewObject.property | Should -Be 0
         }

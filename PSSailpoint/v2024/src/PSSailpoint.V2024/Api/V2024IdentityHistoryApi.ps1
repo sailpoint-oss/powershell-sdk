@@ -394,7 +394,7 @@ function Get-V2024HistoricalIdentity {
 <#
 .SYNOPSIS
 
-Lists all events for the given identity
+List identity event history
 
 .DESCRIPTION
 
@@ -1032,6 +1032,7 @@ function Get-V2024IdentityAccessItems {
         [String]
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("account", "entitlement", "app", "accessProfile", "role")]
         [String]
         ${Type},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1139,7 +1140,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-ListIdentityAccessItems200ResponseInner[]
+ListIdentitySnapshotAccessItems200ResponseInner[]
 #>
 function Get-V2024IdentitySnapshotAccessItems {
     [CmdletBinding()]
@@ -1206,7 +1207,7 @@ function Get-V2024IdentitySnapshotAccessItems {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "ListIdentityAccessItems200ResponseInner[]" `
+                                -ReturnType "ListIdentitySnapshotAccessItems200ResponseInner[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

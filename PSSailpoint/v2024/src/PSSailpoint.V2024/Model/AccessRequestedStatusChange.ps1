@@ -20,10 +20,10 @@ the previous status of the account
 the new status of the account
 .OUTPUTS
 
-AccountStatusChangedStatusChange<PSCustomObject>
+AccessRequestedStatusChange<PSCustomObject>
 #>
 
-function Initialize-V2024AccountStatusChangedStatusChange {
+function Initialize-V2024AccessRequestedStatusChange {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -37,7 +37,7 @@ function Initialize-V2024AccountStatusChangedStatusChange {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2024 => V2024AccountStatusChangedStatusChange' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2024 => V2024AccessRequestedStatusChange' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -53,11 +53,11 @@ function Initialize-V2024AccountStatusChangedStatusChange {
 <#
 .SYNOPSIS
 
-Convert from JSON to AccountStatusChangedStatusChange<PSCustomObject>
+Convert from JSON to AccessRequestedStatusChange<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to AccountStatusChangedStatusChange<PSCustomObject>
+Convert from JSON to AccessRequestedStatusChange<PSCustomObject>
 
 .PARAMETER Json
 
@@ -65,21 +65,21 @@ Json object
 
 .OUTPUTS
 
-AccountStatusChangedStatusChange<PSCustomObject>
+AccessRequestedStatusChange<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToAccountStatusChangedStatusChange {
+function ConvertFrom-V2024JsonToAccessRequestedStatusChange {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024AccountStatusChangedStatusChange' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2024 => V2024AccessRequestedStatusChange' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2024AccountStatusChangedStatusChange
+        # check if Json contains properties not defined in V2024AccessRequestedStatusChange
         $AllProperties = ("previousStatus", "newStatus")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

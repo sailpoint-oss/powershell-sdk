@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaAccessItemAssociated' {
     Context 'BetaAccessItemAssociated' {
         It 'Initialize-BetaAccessItemAssociated' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaAccessItemAssociated -AccessItem "TEST_VALUE" -IdentityId "TEST_VALUE" -EventType "TEST_VALUE" -Dt "TEST_VALUE" -GovernanceEvent "TEST_VALUE"
+            #$NewObject = Initialize-BetaAccessItemAssociated -EventType "TEST_VALUE" -DateTime "TEST_VALUE" -IdentityId "TEST_VALUE" -AccessItem "TEST_VALUE" -GovernanceEvent "TEST_VALUE" -AccessItemType "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessItemAssociated
             #$NewObject.property | Should -Be 0
         }

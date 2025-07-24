@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025AccessItemAppResponse' {
     Context 'V2025AccessItemAppResponse' {
         It 'Initialize-V2025AccessItemAppResponse' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025AccessItemAppResponse -AccessType "TEST_VALUE" -Id "TEST_VALUE" -DisplayName "TEST_VALUE" -SourceName "TEST_VALUE" -AppRoleId "TEST_VALUE"
+            #$NewObject = Initialize-V2025AccessItemAppResponse -Id "TEST_VALUE" -AccessType "TEST_VALUE" -DisplayName "TEST_VALUE" -SourceName "TEST_VALUE" -AppRoleId "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessItemAppResponse
             #$NewObject.property | Should -Be 0
         }

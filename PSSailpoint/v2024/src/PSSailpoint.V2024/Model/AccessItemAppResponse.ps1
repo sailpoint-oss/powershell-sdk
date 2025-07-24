@@ -14,10 +14,10 @@ No summary available.
 
 No description available.
 
-.PARAMETER AccessType
-the access item type. entitlement in this case
 .PARAMETER Id
 the access item id
+.PARAMETER AccessType
+the access item type. entitlement in this case
 .PARAMETER DisplayName
 the access item display name
 .PARAMETER SourceName
@@ -34,10 +34,10 @@ function Initialize-V2024AccessItemAppResponse {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AccessType},
+        ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
+        ${AccessType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${DisplayName},
@@ -55,8 +55,8 @@ function Initialize-V2024AccessItemAppResponse {
 
 
         $PSO = [PSCustomObject]@{
-            "accessType" = ${AccessType}
             "id" = ${Id}
+            "accessType" = ${AccessType}
             "displayName" = ${DisplayName}
             "sourceName" = ${SourceName}
             "appRoleId" = ${AppRoleId}
@@ -96,23 +96,33 @@ function ConvertFrom-V2024JsonToAccessItemAppResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024AccessItemAppResponse
-        $AllProperties = ("accessType", "id", "displayName", "sourceName", "appRoleId")
+        $AllProperties = ("id", "accessType", "displayName", "sourceName", "appRoleId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessType"))) { #optional property not found
-            $AccessType = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'appRoleId' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "appRoleId"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'appRoleId' missing."
         } else {
-            $AccessType = $JsonParameters.PSobject.Properties["accessType"].value
+            $AppRoleId = $JsonParameters.PSobject.Properties["appRoleId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
             $Id = $null
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessType"))) { #optional property not found
+            $AccessType = $null
+        } else {
+            $AccessType = $JsonParameters.PSobject.Properties["accessType"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
@@ -127,15 +137,9 @@ function ConvertFrom-V2024JsonToAccessItemAppResponse {
             $SourceName = $JsonParameters.PSobject.Properties["sourceName"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "appRoleId"))) { #optional property not found
-            $AppRoleId = $null
-        } else {
-            $AppRoleId = $JsonParameters.PSobject.Properties["appRoleId"].value
-        }
-
         $PSO = [PSCustomObject]@{
-            "accessType" = ${AccessType}
             "id" = ${Id}
+            "accessType" = ${AccessType}
             "displayName" = ${DisplayName}
             "sourceName" = ${SourceName}
             "appRoleId" = ${AppRoleId}

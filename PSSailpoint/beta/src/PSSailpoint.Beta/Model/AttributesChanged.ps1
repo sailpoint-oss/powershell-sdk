@@ -14,13 +14,13 @@ No summary available.
 
 No description available.
 
-.PARAMETER Changes
+.PARAMETER AttributeChanges
 No description available.
 .PARAMETER EventType
 the event type
 .PARAMETER IdentityId
 the identity id
-.PARAMETER Dt
+.PARAMETER DateTime
 the date of event
 .OUTPUTS
 
@@ -32,7 +32,7 @@ function Initialize-BetaAttributesChanged {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${Changes},
+        ${AttributeChanges},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${EventType},
@@ -41,19 +41,23 @@ function Initialize-BetaAttributesChanged {
         ${IdentityId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Dt}
+        ${DateTime}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.Beta => BetaAttributesChanged' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$AttributeChanges) {
+            throw "invalid value for 'AttributeChanges', 'AttributeChanges' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
-            "changes" = ${Changes}
+            "attributeChanges" = ${AttributeChanges}
             "eventType" = ${EventType}
             "identityId" = ${IdentityId}
-            "dt" = ${Dt}
+            "dateTime" = ${DateTime}
         }
 
         return $PSO
@@ -90,17 +94,21 @@ function ConvertFrom-BetaJsonToAttributesChanged {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAttributesChanged
-        $AllProperties = ("changes", "eventType", "identityId", "dt")
+        $AllProperties = ("attributeChanges", "eventType", "identityId", "dateTime")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "changes"))) { #optional property not found
-            $Changes = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'attributeChanges' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributeChanges"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'attributeChanges' missing."
         } else {
-            $Changes = $JsonParameters.PSobject.Properties["changes"].value
+            $AttributeChanges = $JsonParameters.PSobject.Properties["attributeChanges"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "eventType"))) { #optional property not found
@@ -115,17 +123,17 @@ function ConvertFrom-BetaJsonToAttributesChanged {
             $IdentityId = $JsonParameters.PSobject.Properties["identityId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dt"))) { #optional property not found
-            $Dt = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dateTime"))) { #optional property not found
+            $DateTime = $null
         } else {
-            $Dt = $JsonParameters.PSobject.Properties["dt"].value
+            $DateTime = $JsonParameters.PSobject.Properties["dateTime"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "changes" = ${Changes}
+            "attributeChanges" = ${AttributeChanges}
             "eventType" = ${EventType}
             "identityId" = ${IdentityId}
-            "dt" = ${Dt}
+            "dateTime" = ${DateTime}
         }
 
         return $PSO

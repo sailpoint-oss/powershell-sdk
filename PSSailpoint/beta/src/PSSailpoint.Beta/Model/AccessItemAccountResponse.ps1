@@ -14,20 +14,20 @@ No summary available.
 
 No description available.
 
-.PARAMETER AccessType
-the access item type. account in this case
 .PARAMETER Id
 the access item id
-.PARAMETER NativeIdentity
-the native identifier used to uniquely identify an acccount
+.PARAMETER AccessType
+the access item type. account in this case
+.PARAMETER DisplayName
+the display name of the identity
 .PARAMETER SourceName
 the name of the source
+.PARAMETER NativeIdentity
+the native identifier used to uniquely identify an acccount
 .PARAMETER SourceId
 the id of the source
 .PARAMETER EntitlementCount
 the number of entitlements the account will create
-.PARAMETER DisplayName
-the display name of the identity
 .OUTPUTS
 
 AccessItemAccountResponse<PSCustomObject>
@@ -38,40 +38,44 @@ function Initialize-BetaAccessItemAccountResponse {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${AccessType},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${NativeIdentity},
+        ${AccessType},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${DisplayName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${SourceName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${NativeIdentity},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${SourceId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${EntitlementCount},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${DisplayName}
+        [System.Nullable[Int32]]
+        ${EntitlementCount}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.Beta => BetaAccessItemAccountResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$NativeIdentity) {
+            throw "invalid value for 'NativeIdentity', 'NativeIdentity' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
-            "accessType" = ${AccessType}
             "id" = ${Id}
-            "nativeIdentity" = ${NativeIdentity}
+            "accessType" = ${AccessType}
+            "displayName" = ${DisplayName}
             "sourceName" = ${SourceName}
+            "nativeIdentity" = ${NativeIdentity}
             "sourceId" = ${SourceId}
             "entitlementCount" = ${EntitlementCount}
-            "displayName" = ${DisplayName}
         }
 
         return $PSO
@@ -108,17 +112,21 @@ function ConvertFrom-BetaJsonToAccessItemAccountResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccessItemAccountResponse
-        $AllProperties = ("accessType", "id", "nativeIdentity", "sourceName", "sourceId", "entitlementCount", "displayName")
+        $AllProperties = ("id", "accessType", "displayName", "sourceName", "nativeIdentity", "sourceId", "entitlementCount")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessType"))) { #optional property not found
-            $AccessType = $null
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'nativeIdentity' missing."
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "nativeIdentity"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'nativeIdentity' missing."
         } else {
-            $AccessType = $JsonParameters.PSobject.Properties["accessType"].value
+            $NativeIdentity = $JsonParameters.PSobject.Properties["nativeIdentity"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -127,10 +135,16 @@ function ConvertFrom-BetaJsonToAccessItemAccountResponse {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "nativeIdentity"))) { #optional property not found
-            $NativeIdentity = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessType"))) { #optional property not found
+            $AccessType = $null
         } else {
-            $NativeIdentity = $JsonParameters.PSobject.Properties["nativeIdentity"].value
+            $AccessType = $JsonParameters.PSobject.Properties["accessType"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
+            $DisplayName = $null
+        } else {
+            $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceName"))) { #optional property not found
@@ -151,20 +165,14 @@ function ConvertFrom-BetaJsonToAccessItemAccountResponse {
             $EntitlementCount = $JsonParameters.PSobject.Properties["entitlementCount"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
-            $DisplayName = $null
-        } else {
-            $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
-        }
-
         $PSO = [PSCustomObject]@{
-            "accessType" = ${AccessType}
             "id" = ${Id}
-            "nativeIdentity" = ${NativeIdentity}
+            "accessType" = ${AccessType}
+            "displayName" = ${DisplayName}
             "sourceName" = ${SourceName}
+            "nativeIdentity" = ${NativeIdentity}
             "sourceId" = ${SourceId}
             "entitlementCount" = ${EntitlementCount}
-            "displayName" = ${DisplayName}
         }
 
         return $PSO

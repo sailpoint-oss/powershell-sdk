@@ -46,6 +46,14 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentitiesApi' {
         }
     }
 
+    Context 'Get-V2025EntitlementsByIdentity' {
+        It 'Test Get-V2025EntitlementsByIdentity' {
+            #$TestResult = Get-V2025EntitlementsByIdentity -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2025Identities' {
         It 'Test Get-V2025Identities' {
             #$TestResult = Get-V2025Identities -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -DefaultFilter "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"

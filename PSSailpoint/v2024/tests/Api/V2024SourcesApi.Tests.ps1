@@ -232,7 +232,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024SourcesApi' {
 
     Context 'Import-V2024Entitlements' {
         It 'Test Import-V2024Entitlements' {
-            #$TestResult = Import-V2024Entitlements -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -File "TEST_VALUE"
+            #$TestResult = Import-V2024Entitlements -SourceId "TEST_VALUE" -File "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

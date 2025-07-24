@@ -520,6 +520,7 @@ docs/IdentityEntitiesIdentityEntity.md
 docs/IdentityEntitlementDetails.md
 docs/IdentityEntitlementDetailsAccountTarget.md
 docs/IdentityEntitlementDetailsEntitlementDto.md
+docs/IdentityEntitlements.md
 docs/IdentityExceptionReportReference.md
 docs/IdentityHistoryResponse.md
 docs/IdentityLifecycleState.md
@@ -1988,6 +1989,7 @@ src/PSSailpoint.V2025/Model/IdentityEntitiesIdentityEntity.ps1
 src/PSSailpoint.V2025/Model/IdentityEntitlementDetails.ps1
 src/PSSailpoint.V2025/Model/IdentityEntitlementDetailsAccountTarget.ps1
 src/PSSailpoint.V2025/Model/IdentityEntitlementDetailsEntitlementDto.ps1
+src/PSSailpoint.V2025/Model/IdentityEntitlements.ps1
 src/PSSailpoint.V2025/Model/IdentityExceptionReportReference.ps1
 src/PSSailpoint.V2025/Model/IdentityHistoryResponse.ps1
 src/PSSailpoint.V2025/Model/IdentityLifecycleState.ps1
@@ -3276,6 +3278,7 @@ tests/Model/IdentityEntitiesIdentityEntity.Tests.ps1
 tests/Model/IdentityEntitlementDetails.Tests.ps1
 tests/Model/IdentityEntitlementDetailsAccountTarget.Tests.ps1
 tests/Model/IdentityEntitlementDetailsEntitlementDto.Tests.ps1
+tests/Model/IdentityEntitlements.Tests.ps1
 tests/Model/IdentityExceptionReportReference.Tests.ps1
 tests/Model/IdentityHistoryResponse.Tests.ps1
 tests/Model/IdentityLifecycleState.Tests.ps1

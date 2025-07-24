@@ -356,6 +356,7 @@ Class | Method | HTTP request | Description
 *V2025IdentitiesApi* | [**Get-V2025IdentityOwnershipDetails**](docs/V2025IdentitiesApi.md#Get-V2025IdentityOwnershipDetails) | **GET** /identities/{identityId}/ownership | Get ownership details
 *V2025IdentitiesApi* | [**Get-V2025RoleAssignment**](docs/V2025IdentitiesApi.md#Get-V2025RoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Role assignment details
 *V2025IdentitiesApi* | [**Get-V2025RoleAssignments**](docs/V2025IdentitiesApi.md#Get-V2025RoleAssignments) | **GET** /identities/{identityId}/role-assignments | List role assignments
+*V2025IdentitiesApi* | [**Get-V2025EntitlementsByIdentity**](docs/V2025IdentitiesApi.md#Get-V2025EntitlementsByIdentity) | **GET** /entitlements/identities/{id}/entitlements | List of entitlements by identity.
 *V2025IdentitiesApi* | [**Get-V2025Identities**](docs/V2025IdentitiesApi.md#Get-V2025Identities) | **GET** /identities | List identities
 *V2025IdentitiesApi* | [**Reset-V2025Identity**](docs/V2025IdentitiesApi.md#Reset-V2025Identity) | **POST** /identities/{id}/reset | Reset an identity
 *V2025IdentitiesApi* | [**Send-V2025IdentityVerificationAccountToken**](docs/V2025IdentitiesApi.md#Send-V2025IdentityVerificationAccountToken) | **POST** /identities/{id}/verification/account/send | Send password reset email
@@ -1285,6 +1286,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.IdentityEntitlementDetails](docs/IdentityEntitlementDetails.md)
  - [PSSailpoint.V2025\Model.IdentityEntitlementDetailsAccountTarget](docs/IdentityEntitlementDetailsAccountTarget.md)
  - [PSSailpoint.V2025\Model.IdentityEntitlementDetailsEntitlementDto](docs/IdentityEntitlementDetailsEntitlementDto.md)
+ - [PSSailpoint.V2025\Model.IdentityEntitlements](docs/IdentityEntitlements.md)
  - [PSSailpoint.V2025\Model.IdentityExceptionReportReference](docs/IdentityExceptionReportReference.md)
  - [PSSailpoint.V2025\Model.IdentityHistoryResponse](docs/IdentityHistoryResponse.md)
  - [PSSailpoint.V2025\Model.IdentityLifecycleState](docs/IdentityLifecycleState.md)

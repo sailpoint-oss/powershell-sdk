@@ -2385,9 +2385,6 @@ Starts an entitlement aggregation on the specified source.  If the target source
 .PARAMETER SourceId
 Source Id
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER File
 The CSV file containing the source entitlements to aggregate.
 
@@ -2406,9 +2403,6 @@ function Import-V2024Entitlements {
         [String]
         ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.IO.FileInfo]
         ${File},
         [Switch]
@@ -2439,11 +2433,6 @@ function Import-V2024Entitlements {
             throw "Error! The required parameter `SourceId` missing when calling importEntitlements."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling importEntitlements."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($File) {
             $LocalVarFormParameters['file'] = $File | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }

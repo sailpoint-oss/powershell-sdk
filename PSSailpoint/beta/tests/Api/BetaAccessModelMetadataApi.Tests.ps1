@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAccessModelMetadataApi' {
 
     Context 'Get-BetaAccessModelMetadataAttribute' {
         It 'Test Get-BetaAccessModelMetadataAttribute' {
-            #$TestResult = Get-BetaAccessModelMetadataAttribute -Filters "TEST_VALUE"
+            #$TestResult = Get-BetaAccessModelMetadataAttribute -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAccessModelMetadataApi' {
 
     Context 'Get-BetaAccessModelMetadataAttributeValue' {
         It 'Test Get-BetaAccessModelMetadataAttributeValue' {
-            #$TestResult = Get-BetaAccessModelMetadataAttributeValue -Key "TEST_VALUE"
+            #$TestResult = Get-BetaAccessModelMetadataAttributeValue -Key "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

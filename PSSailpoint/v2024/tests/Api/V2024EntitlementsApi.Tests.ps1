@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024EntitlementsApi' {
     Context 'New-V2024AccessModelMetadataForEntitlement' {
         It 'Test New-V2024AccessModelMetadataForEntitlement' {
-            #$TestResult = New-V2024AccessModelMetadataForEntitlement -Id "TEST_VALUE" -AttributeKey "TEST_VALUE" -AttributeValue "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = New-V2024AccessModelMetadataForEntitlement -Id "TEST_VALUE" -AttributeKey "TEST_VALUE" -AttributeValue "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024EntitlementsApi' {
 
     Context 'Remove-V2024AccessModelMetadataFromEntitlement' {
         It 'Test Remove-V2024AccessModelMetadataFromEntitlement' {
-            #$TestResult = Remove-V2024AccessModelMetadataFromEntitlement -Id "TEST_VALUE" -AttributeKey "TEST_VALUE" -AttributeValue "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Remove-V2024AccessModelMetadataFromEntitlement -Id "TEST_VALUE" -AttributeKey "TEST_VALUE" -AttributeValue "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024EntitlementsApi' {
 
     Context 'Get-V2024Entitlement' {
         It 'Test Get-V2024Entitlement' {
-            #$TestResult = Get-V2024Entitlement -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024Entitlement -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024EntitlementsApi' {
 
     Context 'Get-V2024EntitlementRequestConfig' {
         It 'Test Get-V2024EntitlementRequestConfig' {
-            #$TestResult = Get-V2024EntitlementRequestConfig -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024EntitlementRequestConfig -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024EntitlementsApi' {
 
     Context 'Import-V2024EntitlementsBySource' {
         It 'Test Import-V2024EntitlementsBySource' {
-            #$TestResult = Import-V2024EntitlementsBySource -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -CsvFile "TEST_VALUE"
+            #$TestResult = Import-V2024EntitlementsBySource -Id "TEST_VALUE" -CsvFile "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024EntitlementsApi' {
 
     Context 'Get-V2024EntitlementChildren' {
         It 'Test Get-V2024EntitlementChildren' {
-            #$TestResult = Get-V2024EntitlementChildren -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2024EntitlementChildren -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024EntitlementsApi' {
 
     Context 'Get-V2024EntitlementParents' {
         It 'Test Get-V2024EntitlementParents' {
-            #$TestResult = Get-V2024EntitlementParents -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2024EntitlementParents -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024EntitlementsApi' {
 
     Context 'Get-V2024Entitlements' {
         It 'Test Get-V2024Entitlements' {
-            #$TestResult = Get-V2024Entitlements -XSailPointExperimental "TEST_VALUE" -AccountId "TEST_VALUE" -SegmentedForIdentity "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2024Entitlements -AccountId "TEST_VALUE" -SegmentedForIdentity "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024EntitlementsApi' {
 
     Context 'Update-V2024Entitlement' {
         It 'Test Update-V2024Entitlement' {
-            #$TestResult = Update-V2024Entitlement -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-V2024Entitlement -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024EntitlementsApi' {
 
     Context 'Send-V2024EntitlementRequestConfig' {
         It 'Test Send-V2024EntitlementRequestConfig' {
-            #$TestResult = Send-V2024EntitlementRequestConfig -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -EntitlementRequestConfig "TEST_VALUE"
+            #$TestResult = Send-V2024EntitlementRequestConfig -Id "TEST_VALUE" -EntitlementRequestConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024EntitlementsApi' {
 
     Context 'Reset-V2024SourceEntitlements' {
         It 'Test Reset-V2024SourceEntitlements' {
-            #$TestResult = Reset-V2024SourceEntitlements -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Reset-V2024SourceEntitlements -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -96,7 +96,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024EntitlementsApi' {
 
     Context 'Update-V2024EntitlementsInBulk' {
         It 'Test Update-V2024EntitlementsInBulk' {
-            #$TestResult = Update-V2024EntitlementsInBulk -XSailPointExperimental "TEST_VALUE" -EntitlementBulkUpdateRequest "TEST_VALUE"
+            #$TestResult = Update-V2024EntitlementsInBulk -EntitlementBulkUpdateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

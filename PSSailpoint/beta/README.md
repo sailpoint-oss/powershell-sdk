@@ -1382,6 +1382,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.SodPolicy](docs/SodPolicy.md)
  - [PSSailpoint.Beta\Model.SodPolicyConflictingAccessCriteria](docs/SodPolicyConflictingAccessCriteria.md)
  - [PSSailpoint.Beta\Model.SodPolicyDto](docs/SodPolicyDto.md)
+ - [PSSailpoint.Beta\Model.SodPolicyDto1](docs/SodPolicyDto1.md)
  - [PSSailpoint.Beta\Model.SodPolicyOwnerRef](docs/SodPolicyOwnerRef.md)
  - [PSSailpoint.Beta\Model.SodPolicySchedule](docs/SodPolicySchedule.md)
  - [PSSailpoint.Beta\Model.SodRecipient](docs/SodRecipient.md)

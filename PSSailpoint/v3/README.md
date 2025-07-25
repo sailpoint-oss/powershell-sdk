@@ -950,6 +950,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.SodExemptCriteria](docs/SodExemptCriteria.md)
  - [PSSailpoint.V3\Model.SodPolicy](docs/SodPolicy.md)
  - [PSSailpoint.V3\Model.SodPolicyDto](docs/SodPolicyDto.md)
+ - [PSSailpoint.V3\Model.SodPolicyDto1](docs/SodPolicyDto1.md)
  - [PSSailpoint.V3\Model.SodPolicyOwnerRef](docs/SodPolicyOwnerRef.md)
  - [PSSailpoint.V3\Model.SodPolicyRead](docs/SodPolicyRead.md)
  - [PSSailpoint.V3\Model.SodPolicyReadAllOfConflictingAccessCriteria](docs/SodPolicyReadAllOfConflictingAccessCriteria.md)

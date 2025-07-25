@@ -622,6 +622,7 @@ docs/SlimDiscoveredApplications.md
 docs/SodExemptCriteria.md
 docs/SodPolicy.md
 docs/SodPolicyDto.md
+docs/SodPolicyDto1.md
 docs/SodPolicyOwnerRef.md
 docs/SodPolicyRead.md
 docs/SodPolicyReadAllOfConflictingAccessCriteria.md
@@ -1324,6 +1325,7 @@ src/PSSailpoint.V3/Model/SlimDiscoveredApplications.ps1
 src/PSSailpoint.V3/Model/SodExemptCriteria.ps1
 src/PSSailpoint.V3/Model/SodPolicy.ps1
 src/PSSailpoint.V3/Model/SodPolicyDto.ps1
+src/PSSailpoint.V3/Model/SodPolicyDto1.ps1
 src/PSSailpoint.V3/Model/SodPolicyOwnerRef.ps1
 src/PSSailpoint.V3/Model/SodPolicyRead.ps1
 src/PSSailpoint.V3/Model/SodPolicyReadAllOfConflictingAccessCriteria.ps1
@@ -2018,6 +2020,7 @@ tests/Model/SlimDiscoveredApplications.Tests.ps1
 tests/Model/SodExemptCriteria.Tests.ps1
 tests/Model/SodPolicy.Tests.ps1
 tests/Model/SodPolicyDto.Tests.ps1
+tests/Model/SodPolicyDto1.Tests.ps1
 tests/Model/SodPolicyOwnerRef.Tests.ps1
 tests/Model/SodPolicyRead.Tests.ps1
 tests/Model/SodPolicyReadAllOfConflictingAccessCriteria.Tests.ps1

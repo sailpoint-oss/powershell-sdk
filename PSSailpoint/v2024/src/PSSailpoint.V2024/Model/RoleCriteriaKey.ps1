@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-Refers to a specific Identity attribute, Account attibute, or Entitlement used in Role membership criteria
+Refers to a specific Identity attribute, Account attribute, or Entitlement used in Role membership criteria
 
 .PARAMETER Type
 No description available.

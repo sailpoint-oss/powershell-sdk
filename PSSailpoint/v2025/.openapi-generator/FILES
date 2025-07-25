@@ -28,6 +28,7 @@ docs/AccessItemRequesterDto.md
 docs/AccessItemReviewedBy.md
 docs/AccessItemRoleResponse.md
 docs/AccessModelMetadata.md
+docs/AccessModelMetadataBulkUpdateResponse.md
 docs/AccessModelMetadataValuesInner.md
 docs/AccessProfile.md
 docs/AccessProfileApprovalScheme.md
@@ -394,6 +395,9 @@ docs/Entitlement.md
 docs/EntitlementAccessModelMetadata.md
 docs/EntitlementAccessRequestConfig.md
 docs/EntitlementApprovalScheme.md
+docs/EntitlementAttributeBulkUpdateFilterRequest.md
+docs/EntitlementAttributeBulkUpdateIdsRequest.md
+docs/EntitlementAttributeBulkUpdateQueryRequest.md
 docs/EntitlementBulkUpdateRequest.md
 docs/EntitlementDocument.md
 docs/EntitlementDocumentAllOfManuallyUpdatedFields.md
@@ -608,6 +612,10 @@ docs/LookupStep.md
 docs/Lower.md
 docs/MachineAccount.md
 docs/MachineClassificationConfig.md
+docs/MachineClassificationCriteriaLevel1.md
+docs/MachineClassificationCriteriaLevel2.md
+docs/MachineClassificationCriteriaLevel3.md
+docs/MachineClassificationCriteriaOperation.md
 docs/MachineIdentity.md
 docs/MachineIdentityDtoOwners.md
 docs/MailFromAttributes.md
@@ -1500,6 +1508,7 @@ src/PSSailpoint.V2025/Model/AccessItemRequesterDto.ps1
 src/PSSailpoint.V2025/Model/AccessItemReviewedBy.ps1
 src/PSSailpoint.V2025/Model/AccessItemRoleResponse.ps1
 src/PSSailpoint.V2025/Model/AccessModelMetadata.ps1
+src/PSSailpoint.V2025/Model/AccessModelMetadataBulkUpdateResponse.ps1
 src/PSSailpoint.V2025/Model/AccessModelMetadataValuesInner.ps1
 src/PSSailpoint.V2025/Model/AccessProfile.ps1
 src/PSSailpoint.V2025/Model/AccessProfileApprovalScheme.ps1
@@ -1866,6 +1875,9 @@ src/PSSailpoint.V2025/Model/Entitlement.ps1
 src/PSSailpoint.V2025/Model/EntitlementAccessModelMetadata.ps1
 src/PSSailpoint.V2025/Model/EntitlementAccessRequestConfig.ps1
 src/PSSailpoint.V2025/Model/EntitlementApprovalScheme.ps1
+src/PSSailpoint.V2025/Model/EntitlementAttributeBulkUpdateFilterRequest.ps1
+src/PSSailpoint.V2025/Model/EntitlementAttributeBulkUpdateIdsRequest.ps1
+src/PSSailpoint.V2025/Model/EntitlementAttributeBulkUpdateQueryRequest.ps1
 src/PSSailpoint.V2025/Model/EntitlementBulkUpdateRequest.ps1
 src/PSSailpoint.V2025/Model/EntitlementDocument.ps1
 src/PSSailpoint.V2025/Model/EntitlementDocumentAllOfManuallyUpdatedFields.ps1
@@ -2077,6 +2089,10 @@ src/PSSailpoint.V2025/Model/LookupStep.ps1
 src/PSSailpoint.V2025/Model/Lower.ps1
 src/PSSailpoint.V2025/Model/MachineAccount.ps1
 src/PSSailpoint.V2025/Model/MachineClassificationConfig.ps1
+src/PSSailpoint.V2025/Model/MachineClassificationCriteriaLevel1.ps1
+src/PSSailpoint.V2025/Model/MachineClassificationCriteriaLevel2.ps1
+src/PSSailpoint.V2025/Model/MachineClassificationCriteriaLevel3.ps1
+src/PSSailpoint.V2025/Model/MachineClassificationCriteriaOperation.ps1
 src/PSSailpoint.V2025/Model/MachineIdentity.ps1
 src/PSSailpoint.V2025/Model/MachineIdentityDtoOwners.ps1
 src/PSSailpoint.V2025/Model/MailFromAttributes.ps1
@@ -2789,6 +2805,7 @@ tests/Model/AccessItemRequesterDto.Tests.ps1
 tests/Model/AccessItemReviewedBy.Tests.ps1
 tests/Model/AccessItemRoleResponse.Tests.ps1
 tests/Model/AccessModelMetadata.Tests.ps1
+tests/Model/AccessModelMetadataBulkUpdateResponse.Tests.ps1
 tests/Model/AccessModelMetadataValuesInner.Tests.ps1
 tests/Model/AccessProfile.Tests.ps1
 tests/Model/AccessProfileApprovalScheme.Tests.ps1
@@ -3155,6 +3172,9 @@ tests/Model/Entitlement.Tests.ps1
 tests/Model/EntitlementAccessModelMetadata.Tests.ps1
 tests/Model/EntitlementAccessRequestConfig.Tests.ps1
 tests/Model/EntitlementApprovalScheme.Tests.ps1
+tests/Model/EntitlementAttributeBulkUpdateFilterRequest.Tests.ps1
+tests/Model/EntitlementAttributeBulkUpdateIdsRequest.Tests.ps1
+tests/Model/EntitlementAttributeBulkUpdateQueryRequest.Tests.ps1
 tests/Model/EntitlementBulkUpdateRequest.Tests.ps1
 tests/Model/EntitlementDocument.Tests.ps1
 tests/Model/EntitlementDocumentAllOfManuallyUpdatedFields.Tests.ps1
@@ -3366,6 +3386,10 @@ tests/Model/LookupStep.Tests.ps1
 tests/Model/Lower.Tests.ps1
 tests/Model/MachineAccount.Tests.ps1
 tests/Model/MachineClassificationConfig.Tests.ps1
+tests/Model/MachineClassificationCriteriaLevel1.Tests.ps1
+tests/Model/MachineClassificationCriteriaLevel2.Tests.ps1
+tests/Model/MachineClassificationCriteriaLevel3.Tests.ps1
+tests/Model/MachineClassificationCriteriaOperation.Tests.ps1
 tests/Model/MachineIdentity.Tests.ps1
 tests/Model/MachineIdentityDtoOwners.Tests.ps1
 tests/Model/MailFromAttributes.Tests.ps1

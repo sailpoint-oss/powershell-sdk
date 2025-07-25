@@ -57,6 +57,9 @@ Class | Method | HTTP request | Description
 *V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttributeValue**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values/{value} | Get access model metadata value
 *V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttribute**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes | List access model metadata attributes
 *V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttributeValue**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values | List access model metadata values
+*V2025AccessModelMetadataApi* | [**Update-V2025AccessModelMetadataByFilter**](docs/V2025AccessModelMetadataApi.md#Update-V2025AccessModelMetadataByFilter) | **POST** /access-model-metadata/bulk-update/filter | Metadata Attribute update by filter
+*V2025AccessModelMetadataApi* | [**Update-V2025AccessModelMetadataByIds**](docs/V2025AccessModelMetadataApi.md#Update-V2025AccessModelMetadataByIds) | **POST** /access-model-metadata/bulk-update/ids | Metadata Attribute update by ids
+*V2025AccessModelMetadataApi* | [**Update-V2025AccessModelMetadataByQuery**](docs/V2025AccessModelMetadataApi.md#Update-V2025AccessModelMetadataByQuery) | **POST** /access-model-metadata/bulk-update/query | Metadata Attribute update by query
 *V2025AccessProfilesApi* | [**New-V2025AccessProfile**](docs/V2025AccessProfilesApi.md#New-V2025AccessProfile) | **POST** /access-profiles | Create access profile
 *V2025AccessProfilesApi* | [**Remove-V2025AccessProfile**](docs/V2025AccessProfilesApi.md#Remove-V2025AccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified access profile
 *V2025AccessProfilesApi* | [**Remove-V2025AccessProfilesInBulk**](docs/V2025AccessProfilesApi.md#Remove-V2025AccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete access profile(s)
@@ -797,6 +800,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.AccessItemReviewedBy](docs/AccessItemReviewedBy.md)
  - [PSSailpoint.V2025\Model.AccessItemRoleResponse](docs/AccessItemRoleResponse.md)
  - [PSSailpoint.V2025\Model.AccessModelMetadata](docs/AccessModelMetadata.md)
+ - [PSSailpoint.V2025\Model.AccessModelMetadataBulkUpdateResponse](docs/AccessModelMetadataBulkUpdateResponse.md)
  - [PSSailpoint.V2025\Model.AccessModelMetadataValuesInner](docs/AccessModelMetadataValuesInner.md)
  - [PSSailpoint.V2025\Model.AccessProfile](docs/AccessProfile.md)
  - [PSSailpoint.V2025\Model.AccessProfileApprovalScheme](docs/AccessProfileApprovalScheme.md)
@@ -1163,6 +1167,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.EntitlementAccessModelMetadata](docs/EntitlementAccessModelMetadata.md)
  - [PSSailpoint.V2025\Model.EntitlementAccessRequestConfig](docs/EntitlementAccessRequestConfig.md)
  - [PSSailpoint.V2025\Model.EntitlementApprovalScheme](docs/EntitlementApprovalScheme.md)
+ - [PSSailpoint.V2025\Model.EntitlementAttributeBulkUpdateFilterRequest](docs/EntitlementAttributeBulkUpdateFilterRequest.md)
+ - [PSSailpoint.V2025\Model.EntitlementAttributeBulkUpdateIdsRequest](docs/EntitlementAttributeBulkUpdateIdsRequest.md)
+ - [PSSailpoint.V2025\Model.EntitlementAttributeBulkUpdateQueryRequest](docs/EntitlementAttributeBulkUpdateQueryRequest.md)
  - [PSSailpoint.V2025\Model.EntitlementBulkUpdateRequest](docs/EntitlementBulkUpdateRequest.md)
  - [PSSailpoint.V2025\Model.EntitlementDocument](docs/EntitlementDocument.md)
  - [PSSailpoint.V2025\Model.EntitlementDocumentAllOfManuallyUpdatedFields](docs/EntitlementDocumentAllOfManuallyUpdatedFields.md)
@@ -1374,6 +1381,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.Lower](docs/Lower.md)
  - [PSSailpoint.V2025\Model.MachineAccount](docs/MachineAccount.md)
  - [PSSailpoint.V2025\Model.MachineClassificationConfig](docs/MachineClassificationConfig.md)
+ - [PSSailpoint.V2025\Model.MachineClassificationCriteriaLevel1](docs/MachineClassificationCriteriaLevel1.md)
+ - [PSSailpoint.V2025\Model.MachineClassificationCriteriaLevel2](docs/MachineClassificationCriteriaLevel2.md)
+ - [PSSailpoint.V2025\Model.MachineClassificationCriteriaLevel3](docs/MachineClassificationCriteriaLevel3.md)
+ - [PSSailpoint.V2025\Model.MachineClassificationCriteriaOperation](docs/MachineClassificationCriteriaOperation.md)
  - [PSSailpoint.V2025\Model.MachineIdentity](docs/MachineIdentity.md)
  - [PSSailpoint.V2025\Model.MachineIdentityDtoOwners](docs/MachineIdentityDtoOwners.md)
  - [PSSailpoint.V2025\Model.MailFromAttributes](docs/MailFromAttributes.md)

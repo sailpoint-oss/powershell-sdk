@@ -15,15 +15,15 @@ No summary available.
 No description available.
 
 .PARAMETER Enabled
-Indicates if the Classification is enabled for a Source
+Indicates whether Classification is enabled for a Source
 .PARAMETER ClassificationMethod
 Classification Method
 .PARAMETER Criteria
-A classification criteria object
+No description available.
 .PARAMETER Created
-Time when the config was created
+Date the config was created
 .PARAMETER Modified
-Time when the config was last updated
+Date the config was last updated
 .OUTPUTS
 
 MachineClassificationConfig<PSCustomObject>
@@ -36,11 +36,11 @@ function Initialize-V2024MachineClassificationConfig {
         [System.Nullable[Boolean]]
         ${Enabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SOURCE")]
+        [ValidateSet("SOURCE", "CRITERIA")]
         [String]
         ${ClassificationMethod},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject]
         ${Criteria},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]

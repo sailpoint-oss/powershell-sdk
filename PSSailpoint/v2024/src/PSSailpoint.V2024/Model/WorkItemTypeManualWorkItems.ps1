@@ -30,8 +30,8 @@ enum WorkItemTypeManualWorkItems {
     ViolationReview
     # enum value: "Form"
     Form
-    # enum value: "PolicyVioloation"
-    PolicyVioloation
+    # enum value: "PolicyViolation"
+    PolicyViolation
     # enum value: "Challenge"
     Challenge
     # enum value: "ImpactAnalysis"

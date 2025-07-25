@@ -38,4 +38,28 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025AccessModelMetadataApi' {
         }
     }
 
+    Context 'Update-V2025AccessModelMetadataByFilter' {
+        It 'Test Update-V2025AccessModelMetadataByFilter' {
+            #$TestResult = Update-V2025AccessModelMetadataByFilter -EntitlementAttributeBulkUpdateFilterRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2025AccessModelMetadataByIds' {
+        It 'Test Update-V2025AccessModelMetadataByIds' {
+            #$TestResult = Update-V2025AccessModelMetadataByIds -EntitlementAttributeBulkUpdateIdsRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2025AccessModelMetadataByQuery' {
+        It 'Test Update-V2025AccessModelMetadataByQuery' {
+            #$TestResult = Update-V2025AccessModelMetadataByQuery -EntitlementAttributeBulkUpdateQueryRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

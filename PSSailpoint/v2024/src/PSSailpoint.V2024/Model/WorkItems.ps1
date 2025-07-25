@@ -85,7 +85,7 @@ function Initialize-V2024WorkItems {
         [PSCustomObject]
         ${State},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("Generic", "Certification", "Remediation", "Delegation", "Approval", "ViolationReview", "Form", "PolicyVioloation", "Challenge", "ImpactAnalysis", "Signoff", "Event", "ManualAction", "Test")]
+        [ValidateSet("Generic", "Certification", "Remediation", "Delegation", "Approval", "ViolationReview", "Form", "PolicyViolation", "Challenge", "ImpactAnalysis", "Signoff", "Event", "ManualAction", "Test")]
         [PSCustomObject]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

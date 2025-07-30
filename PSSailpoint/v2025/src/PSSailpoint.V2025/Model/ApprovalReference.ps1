@@ -18,6 +18,12 @@ Reference objects related to the approval
 Id of the reference object
 .PARAMETER Type
 What reference object does this ID correspond to
+.PARAMETER Name
+Name of the reference object
+.PARAMETER Email
+Email associated with the reference object
+.PARAMETER SerialOrder
+The serial step of the identity in the approval. For example serialOrder 1 is the first identity to action in an approval request chain. Parallel approvals are set to 0.
 .OUTPUTS
 
 ApprovalReference<PSCustomObject>
@@ -31,7 +37,16 @@ function Initialize-V2025ApprovalReference {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Type}
+        ${Type},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Name},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Email},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int64]]
+        ${SerialOrder}
     )
 
     Process {
@@ -42,6 +57,9 @@ function Initialize-V2025ApprovalReference {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "type" = ${Type}
+            "name" = ${Name}
+            "email" = ${Email}
+            "serialOrder" = ${SerialOrder}
         }
 
         return $PSO
@@ -78,7 +96,7 @@ function ConvertFrom-V2025JsonToApprovalReference {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025ApprovalReference
-        $AllProperties = ("id", "type")
+        $AllProperties = ("id", "type", "name", "email", "serialOrder")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -97,9 +115,30 @@ function ConvertFrom-V2025JsonToApprovalReference {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
+        } else {
+            $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "email"))) { #optional property not found
+            $Email = $null
+        } else {
+            $Email = $JsonParameters.PSobject.Properties["email"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "serialOrder"))) { #optional property not found
+            $SerialOrder = $null
+        } else {
+            $SerialOrder = $JsonParameters.PSobject.Properties["serialOrder"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "type" = ${Type}
+            "name" = ${Name}
+            "email" = ${Email}
+            "serialOrder" = ${SerialOrder}
         }
 
         return $PSO

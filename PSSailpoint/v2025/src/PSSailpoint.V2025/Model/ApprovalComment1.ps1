@@ -20,6 +20,8 @@ No description available.
 Comment to be left on an approval
 .PARAMETER CreatedDate
 Date the comment was created
+.PARAMETER CommentId
+ID of the comment
 .OUTPUTS
 
 ApprovalComment1<PSCustomObject>
@@ -36,7 +38,10 @@ function Initialize-V2025ApprovalComment1 {
         ${Comment},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${CreatedDate}
+        ${CreatedDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${CommentId}
     )
 
     Process {
@@ -48,6 +53,7 @@ function Initialize-V2025ApprovalComment1 {
             "author" = ${Author}
             "comment" = ${Comment}
             "createdDate" = ${CreatedDate}
+            "commentId" = ${CommentId}
         }
 
         return $PSO
@@ -84,7 +90,7 @@ function ConvertFrom-V2025JsonToApprovalComment1 {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025ApprovalComment1
-        $AllProperties = ("author", "comment", "createdDate")
+        $AllProperties = ("author", "comment", "createdDate", "commentId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,10 +115,17 @@ function ConvertFrom-V2025JsonToApprovalComment1 {
             $CreatedDate = $JsonParameters.PSobject.Properties["createdDate"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "commentId"))) { #optional property not found
+            $CommentId = $null
+        } else {
+            $CommentId = $JsonParameters.PSobject.Properties["commentId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "author" = ${Author}
             "comment" = ${Comment}
             "createdDate" = ${CreatedDate}
+            "commentId" = ${CommentId}
         }
 
         return $PSO

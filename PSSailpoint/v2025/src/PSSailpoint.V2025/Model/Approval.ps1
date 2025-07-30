@@ -14,40 +14,64 @@ No summary available.
 
 Approval Object
 
-.PARAMETER ApprovalId
+.PARAMETER Id
 The Approval ID
+.PARAMETER TenantId
+The Tenant ID of the Approval
+.PARAMETER Type
+The type of the approval, such as ENTITLEMENT_DESCRIPTIONS, CUSTOM_ACCESS_REQUEST_APPROVAL, GENERIC_APPROVAL
 .PARAMETER Approvers
 Object representation of an approver of an approval
 .PARAMETER CreatedDate
 Date the approval was created
-.PARAMETER Type
-Type of approval
+.PARAMETER DueDate
+Date the approval is due
+.PARAMETER EscalationStep
+Step in the escalation process. If set to 0, the approval is not escalated. If set to 1, the approval is escalated to the first approver in the escalation chain.
+.PARAMETER SerialStep
+The serial step of the approval in the approval chain. For example, serialStep 1 is the first approval to action in an approval request chain. Parallel approvals are set to 0.
+.PARAMETER IsEscalated
+Whether or not the approval has been escalated. Will reset to false when the approval is actioned on.
 .PARAMETER Name
 The name of the approval for a given locale
 .PARAMETER BatchRequest
 The name of the approval for a given locale
+.PARAMETER ApprovalConfig
+The configuration of the approval, such as the approval criteria and whether it is a parallel or serial approval
 .PARAMETER Description
 The description of the approval for a given locale
+.PARAMETER Medium
+Signifies what medium to use when sending notifications (currently only email is utilized)
 .PARAMETER Priority
 The priority of the approval
 .PARAMETER Requester
 Object representation of the requester of the approval
+.PARAMETER Requestee
+Object representation of the requestee of the approval
 .PARAMETER Comments
 Object representation of a comment on the approval
 .PARAMETER ApprovedBy
 Array of approvers who have approved the approval
 .PARAMETER RejectedBy
 Array of approvers who have rejected the approval
+.PARAMETER AssignedTo
+Array of identities that the approval request is currently assigned to/waiting on. For parallel approvals, this is set to all approvers left to approve.
 .PARAMETER CompletedDate
 Date the approval was completed
 .PARAMETER ApprovalCriteria
-Criteria that needs to be met for an approval to be marked as approved
-.PARAMETER Status
-The current status of the approval
+No description available.
 .PARAMETER AdditionalAttributes
 Json string representing additional attributes known about the object to be approved.
 .PARAMETER ReferenceData
 Reference data related to the approval
+.PARAMETER ReassignmentHistory
+History of whom the approval request was assigned to
+.PARAMETER StaticAttributes
+Field that can include any static additional info that may be needed by the service that the approval request originated from
+.PARAMETER ModifiedDate
+Date/time that the approval request was last updated
+.PARAMETER RequestedTarget
+RequestedTarget used to specify the actual object or target the approval request is for
 .OUTPUTS
 
 Approval<PSCustomObject>
@@ -58,7 +82,13 @@ function Initialize-V2025Approval {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${ApprovalId},
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${TenantId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Approvers},
@@ -67,7 +97,16 @@ function Initialize-V2025Approval {
         ${CreatedDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Type},
+        ${DueDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${EscalationStep},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int64]]
+        ${SerialStep},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsEscalated} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Name},
@@ -75,8 +114,15 @@ function Initialize-V2025Approval {
         [PSCustomObject]
         ${BatchRequest},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${ApprovalConfig},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Description},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("EMAIL", "SLACK", "TEAMS")]
+        [String]
+        ${Medium},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("HIGH", "MEDIUM", "LOW")]
         [String]
@@ -84,6 +130,9 @@ function Initialize-V2025Approval {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Requester},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Requestee},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${Comments},
@@ -94,22 +143,32 @@ function Initialize-V2025Approval {
         [PSCustomObject[]]
         ${RejectedBy},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${AssignedTo},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${CompletedDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SINGLE", "DOUBLE", "TRIPLE", "QUARTER", "HALF", "ALL")]
-        [String]
+        [PSCustomObject]
         ${ApprovalCriteria},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("PENDING", "APPROVED", "REJECTED")]
-        [String]
-        ${Status},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AdditionalAttributes},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${ReferenceData}
+        ${ReferenceData},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${ReassignmentHistory},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Collections.Hashtable]
+        ${StaticAttributes},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${ModifiedDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${RequestedTarget}
     )
 
     Process {
@@ -118,23 +177,35 @@ function Initialize-V2025Approval {
 
 
         $PSO = [PSCustomObject]@{
-            "approvalId" = ${ApprovalId}
+            "id" = ${Id}
+            "tenantId" = ${TenantId}
+            "type" = ${Type}
             "approvers" = ${Approvers}
             "createdDate" = ${CreatedDate}
-            "type" = ${Type}
+            "dueDate" = ${DueDate}
+            "escalationStep" = ${EscalationStep}
+            "serialStep" = ${SerialStep}
+            "isEscalated" = ${IsEscalated}
             "name" = ${Name}
             "batchRequest" = ${BatchRequest}
+            "approvalConfig" = ${ApprovalConfig}
             "description" = ${Description}
+            "medium" = ${Medium}
             "priority" = ${Priority}
             "requester" = ${Requester}
+            "requestee" = ${Requestee}
             "comments" = ${Comments}
             "approvedBy" = ${ApprovedBy}
             "rejectedBy" = ${RejectedBy}
+            "assignedTo" = ${AssignedTo}
             "completedDate" = ${CompletedDate}
             "approvalCriteria" = ${ApprovalCriteria}
-            "status" = ${Status}
             "additionalAttributes" = ${AdditionalAttributes}
             "referenceData" = ${ReferenceData}
+            "reassignmentHistory" = ${ReassignmentHistory}
+            "staticAttributes" = ${StaticAttributes}
+            "modifiedDate" = ${ModifiedDate}
+            "requestedTarget" = ${RequestedTarget}
         }
 
         return $PSO
@@ -171,17 +242,29 @@ function ConvertFrom-V2025JsonToApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025Approval
-        $AllProperties = ("approvalId", "approvers", "createdDate", "type", "name", "batchRequest", "description", "priority", "requester", "comments", "approvedBy", "rejectedBy", "completedDate", "approvalCriteria", "status", "additionalAttributes", "referenceData")
+        $AllProperties = ("id", "tenantId", "type", "approvers", "createdDate", "dueDate", "escalationStep", "serialStep", "isEscalated", "name", "batchRequest", "approvalConfig", "description", "medium", "priority", "requester", "requestee", "comments", "approvedBy", "rejectedBy", "assignedTo", "completedDate", "approvalCriteria", "additionalAttributes", "referenceData", "reassignmentHistory", "staticAttributes", "modifiedDate", "requestedTarget")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvalId"))) { #optional property not found
-            $ApprovalId = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
         } else {
-            $ApprovalId = $JsonParameters.PSobject.Properties["approvalId"].value
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
+            $TenantId = $null
+        } else {
+            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvers"))) { #optional property not found
@@ -196,10 +279,28 @@ function ConvertFrom-V2025JsonToApproval {
             $CreatedDate = $JsonParameters.PSobject.Properties["createdDate"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
-            $Type = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dueDate"))) { #optional property not found
+            $DueDate = $null
         } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
+            $DueDate = $JsonParameters.PSobject.Properties["dueDate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "escalationStep"))) { #optional property not found
+            $EscalationStep = $null
+        } else {
+            $EscalationStep = $JsonParameters.PSobject.Properties["escalationStep"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "serialStep"))) { #optional property not found
+            $SerialStep = $null
+        } else {
+            $SerialStep = $JsonParameters.PSobject.Properties["serialStep"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isEscalated"))) { #optional property not found
+            $IsEscalated = $null
+        } else {
+            $IsEscalated = $JsonParameters.PSobject.Properties["isEscalated"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -214,10 +315,22 @@ function ConvertFrom-V2025JsonToApproval {
             $BatchRequest = $JsonParameters.PSobject.Properties["batchRequest"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvalConfig"))) { #optional property not found
+            $ApprovalConfig = $null
+        } else {
+            $ApprovalConfig = $JsonParameters.PSobject.Properties["approvalConfig"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
             $Description = $null
         } else {
             $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "medium"))) { #optional property not found
+            $Medium = $null
+        } else {
+            $Medium = $JsonParameters.PSobject.Properties["medium"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "priority"))) { #optional property not found
@@ -230,6 +343,12 @@ function ConvertFrom-V2025JsonToApproval {
             $Requester = $null
         } else {
             $Requester = $JsonParameters.PSobject.Properties["requester"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestee"))) { #optional property not found
+            $Requestee = $null
+        } else {
+            $Requestee = $JsonParameters.PSobject.Properties["requestee"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "comments"))) { #optional property not found
@@ -250,6 +369,12 @@ function ConvertFrom-V2025JsonToApproval {
             $RejectedBy = $JsonParameters.PSobject.Properties["rejectedBy"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "assignedTo"))) { #optional property not found
+            $AssignedTo = $null
+        } else {
+            $AssignedTo = $JsonParameters.PSobject.Properties["assignedTo"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "completedDate"))) { #optional property not found
             $CompletedDate = $null
         } else {
@@ -260,12 +385,6 @@ function ConvertFrom-V2025JsonToApproval {
             $ApprovalCriteria = $null
         } else {
             $ApprovalCriteria = $JsonParameters.PSobject.Properties["approvalCriteria"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) { #optional property not found
-            $Status = $null
-        } else {
-            $Status = $JsonParameters.PSobject.Properties["status"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "additionalAttributes"))) { #optional property not found
@@ -280,24 +399,60 @@ function ConvertFrom-V2025JsonToApproval {
             $ReferenceData = $JsonParameters.PSobject.Properties["referenceData"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reassignmentHistory"))) { #optional property not found
+            $ReassignmentHistory = $null
+        } else {
+            $ReassignmentHistory = $JsonParameters.PSobject.Properties["reassignmentHistory"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "staticAttributes"))) { #optional property not found
+            $StaticAttributes = $null
+        } else {
+            $StaticAttributes = $JsonParameters.PSobject.Properties["staticAttributes"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "modifiedDate"))) { #optional property not found
+            $ModifiedDate = $null
+        } else {
+            $ModifiedDate = $JsonParameters.PSobject.Properties["modifiedDate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requestedTarget"))) { #optional property not found
+            $RequestedTarget = $null
+        } else {
+            $RequestedTarget = $JsonParameters.PSobject.Properties["requestedTarget"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "approvalId" = ${ApprovalId}
+            "id" = ${Id}
+            "tenantId" = ${TenantId}
+            "type" = ${Type}
             "approvers" = ${Approvers}
             "createdDate" = ${CreatedDate}
-            "type" = ${Type}
+            "dueDate" = ${DueDate}
+            "escalationStep" = ${EscalationStep}
+            "serialStep" = ${SerialStep}
+            "isEscalated" = ${IsEscalated}
             "name" = ${Name}
             "batchRequest" = ${BatchRequest}
+            "approvalConfig" = ${ApprovalConfig}
             "description" = ${Description}
+            "medium" = ${Medium}
             "priority" = ${Priority}
             "requester" = ${Requester}
+            "requestee" = ${Requestee}
             "comments" = ${Comments}
             "approvedBy" = ${ApprovedBy}
             "rejectedBy" = ${RejectedBy}
+            "assignedTo" = ${AssignedTo}
             "completedDate" = ${CompletedDate}
             "approvalCriteria" = ${ApprovalCriteria}
-            "status" = ${Status}
             "additionalAttributes" = ${AdditionalAttributes}
             "referenceData" = ${ReferenceData}
+            "reassignmentHistory" = ${ReassignmentHistory}
+            "staticAttributes" = ${StaticAttributes}
+            "modifiedDate" = ${ModifiedDate}
+            "requestedTarget" = ${RequestedTarget}
         }
 
         return $PSO

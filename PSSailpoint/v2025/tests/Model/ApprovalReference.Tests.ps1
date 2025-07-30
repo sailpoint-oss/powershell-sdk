@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025ApprovalReference' {
     Context 'V2025ApprovalReference' {
         It 'Initialize-V2025ApprovalReference' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025ApprovalReference -Id "TEST_VALUE" -Type "TEST_VALUE"
+            #$NewObject = Initialize-V2025ApprovalReference -Id "TEST_VALUE" -Type "TEST_VALUE" -Name "TEST_VALUE" -Email "TEST_VALUE" -SerialOrder "TEST_VALUE"
             #$NewObject | Should -BeOfType ApprovalReference
             #$NewObject.property | Should -Be 0
         }

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025Approval' {
     Context 'V2025Approval' {
         It 'Initialize-V2025Approval' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025Approval -ApprovalId "TEST_VALUE" -Approvers "TEST_VALUE" -CreatedDate "TEST_VALUE" -Type "TEST_VALUE" -Name "TEST_VALUE" -BatchRequest "TEST_VALUE" -Description "TEST_VALUE" -Priority "TEST_VALUE" -Requester "TEST_VALUE" -Comments "TEST_VALUE" -ApprovedBy "TEST_VALUE" -RejectedBy "TEST_VALUE" -CompletedDate "TEST_VALUE" -ApprovalCriteria "TEST_VALUE" -Status "TEST_VALUE" -AdditionalAttributes "TEST_VALUE" -ReferenceData "TEST_VALUE"
+            #$NewObject = Initialize-V2025Approval -Id "TEST_VALUE" -TenantId "TEST_VALUE" -Type "TEST_VALUE" -Approvers "TEST_VALUE" -CreatedDate "TEST_VALUE" -DueDate "TEST_VALUE" -EscalationStep "TEST_VALUE" -SerialStep "TEST_VALUE" -IsEscalated "TEST_VALUE" -Name "TEST_VALUE" -BatchRequest "TEST_VALUE" -ApprovalConfig "TEST_VALUE" -Description "TEST_VALUE" -Medium "TEST_VALUE" -Priority "TEST_VALUE" -Requester "TEST_VALUE" -Requestee "TEST_VALUE" -Comments "TEST_VALUE" -ApprovedBy "TEST_VALUE" -RejectedBy "TEST_VALUE" -AssignedTo "TEST_VALUE" -CompletedDate "TEST_VALUE" -ApprovalCriteria "TEST_VALUE" -AdditionalAttributes "TEST_VALUE" -ReferenceData "TEST_VALUE" -ReassignmentHistory "TEST_VALUE" -StaticAttributes "TEST_VALUE" -ModifiedDate "TEST_VALUE" -RequestedTarget "TEST_VALUE"
             #$NewObject | Should -BeOfType Approval
             #$NewObject.property | Should -Be 0
         }

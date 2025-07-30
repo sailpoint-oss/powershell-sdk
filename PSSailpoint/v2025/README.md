@@ -110,8 +110,13 @@ Class | Method | HTTP request | Description
 *V2025ApplicationDiscoveryApi* | [**Get-V2025DiscoveredApplications**](docs/V2025ApplicationDiscoveryApi.md#Get-V2025DiscoveredApplications) | **GET** /discovered-applications | Get discovered applications for tenant
 *V2025ApplicationDiscoveryApi* | [**Get-V2025ManualDiscoverApplicationsCsvTemplate**](docs/V2025ApplicationDiscoveryApi.md#Get-V2025ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download csv template for discovery
 *V2025ApplicationDiscoveryApi* | [**Send-V2025ManualDiscoverApplicationsCsvTemplate**](docs/V2025ApplicationDiscoveryApi.md#Send-V2025ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload csv to discover applications
+*V2025ApprovalsApi* | [**Approve-V2025Approval**](docs/V2025ApprovalsApi.md#Approve-V2025Approval) | **POST** /generic-approvals/{id}/approve | Post Approvals Approve
 *V2025ApprovalsApi* | [**Get-V2025Approval**](docs/V2025ApprovalsApi.md#Get-V2025Approval) | **GET** /generic-approvals/{id} | Get an approval
 *V2025ApprovalsApi* | [**Get-V2025Approvals**](docs/V2025ApprovalsApi.md#Get-V2025Approvals) | **GET** /generic-approvals | Get approvals
+*V2025ApprovalsApi* | [**Deny-V2025Approval**](docs/V2025ApprovalsApi.md#Deny-V2025Approval) | **POST** /generic-approvals/{id}/reject | Post Approvals Reject
+*V2025ApprovalsApi* | [**Update-V2025ApprovalsAttributes**](docs/V2025ApprovalsApi.md#Update-V2025ApprovalsAttributes) | **POST** /generic-approvals/{id}/attributes | Post Approvals Attributes
+*V2025ApprovalsApi* | [**Update-V2025ApprovalsComments**](docs/V2025ApprovalsApi.md#Update-V2025ApprovalsComments) | **POST** /generic-approvals/{id}/comments | Post Approvals Comments
+*V2025ApprovalsApi* | [**Update-V2025ApprovalsReassign**](docs/V2025ApprovalsApi.md#Update-V2025ApprovalsReassign) | **POST** /generic-approvals/{id}/reassign | Post Approvals Reassign
 *V2025AppsApi* | [**New-V2025SourceApp**](docs/V2025AppsApi.md#New-V2025SourceApp) | **POST** /source-apps | Create source app
 *V2025AppsApi* | [**Remove-V2025AccessProfilesFromSourceAppByBulk**](docs/V2025AppsApi.md#Remove-V2025AccessProfilesFromSourceAppByBulk) | **POST** /source-apps/{id}/access-profiles/bulk-remove | Bulk remove access profiles from the specified source app
 *V2025AppsApi* | [**Remove-V2025SourceApp**](docs/V2025AppsApi.md#Remove-V2025SourceApp) | **DELETE** /source-apps/{id} | Delete source app by id
@@ -930,19 +935,39 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.AppAllOfAccount](docs/AppAllOfAccount.md)
  - [PSSailpoint.V2025\Model.Approval](docs/Approval.md)
  - [PSSailpoint.V2025\Model.Approval1](docs/Approval1.md)
+ - [PSSailpoint.V2025\Model.ApprovalApprovalCriteria](docs/ApprovalApprovalCriteria.md)
+ - [PSSailpoint.V2025\Model.ApprovalApprovalCriteriaApproval](docs/ApprovalApprovalCriteriaApproval.md)
+ - [PSSailpoint.V2025\Model.ApprovalApprovalCriteriaRejection](docs/ApprovalApprovalCriteriaRejection.md)
+ - [PSSailpoint.V2025\Model.ApprovalApproveRequest](docs/ApprovalApproveRequest.md)
+ - [PSSailpoint.V2025\Model.ApprovalAttributesRequest](docs/ApprovalAttributesRequest.md)
  - [PSSailpoint.V2025\Model.ApprovalBatch](docs/ApprovalBatch.md)
  - [PSSailpoint.V2025\Model.ApprovalComment](docs/ApprovalComment.md)
  - [PSSailpoint.V2025\Model.ApprovalComment1](docs/ApprovalComment1.md)
  - [PSSailpoint.V2025\Model.ApprovalComment2](docs/ApprovalComment2.md)
+ - [PSSailpoint.V2025\Model.ApprovalCommentsRequest](docs/ApprovalCommentsRequest.md)
+ - [PSSailpoint.V2025\Model.ApprovalConfig](docs/ApprovalConfig.md)
+ - [PSSailpoint.V2025\Model.ApprovalConfigCronTimezone](docs/ApprovalConfigCronTimezone.md)
+ - [PSSailpoint.V2025\Model.ApprovalConfigEscalationConfig](docs/ApprovalConfigEscalationConfig.md)
+ - [PSSailpoint.V2025\Model.ApprovalConfigEscalationConfigEscalationChainInner](docs/ApprovalConfigEscalationConfigEscalationChainInner.md)
+ - [PSSailpoint.V2025\Model.ApprovalConfigReminderConfig](docs/ApprovalConfigReminderConfig.md)
+ - [PSSailpoint.V2025\Model.ApprovalConfigSerialChainInner](docs/ApprovalConfigSerialChainInner.md)
+ - [PSSailpoint.V2025\Model.ApprovalConfigTimeoutConfig](docs/ApprovalConfigTimeoutConfig.md)
  - [PSSailpoint.V2025\Model.ApprovalDescription](docs/ApprovalDescription.md)
  - [PSSailpoint.V2025\Model.ApprovalForwardHistory](docs/ApprovalForwardHistory.md)
  - [PSSailpoint.V2025\Model.ApprovalIdentity](docs/ApprovalIdentity.md)
+ - [PSSailpoint.V2025\Model.ApprovalIdentityMembersInner](docs/ApprovalIdentityMembersInner.md)
+ - [PSSailpoint.V2025\Model.ApprovalIdentityOwnerOfInner](docs/ApprovalIdentityOwnerOfInner.md)
+ - [PSSailpoint.V2025\Model.ApprovalIdentityRecord](docs/ApprovalIdentityRecord.md)
  - [PSSailpoint.V2025\Model.ApprovalInfoResponse](docs/ApprovalInfoResponse.md)
  - [PSSailpoint.V2025\Model.ApprovalItemDetails](docs/ApprovalItemDetails.md)
  - [PSSailpoint.V2025\Model.ApprovalItems](docs/ApprovalItems.md)
  - [PSSailpoint.V2025\Model.ApprovalName](docs/ApprovalName.md)
+ - [PSSailpoint.V2025\Model.ApprovalReassignRequest](docs/ApprovalReassignRequest.md)
+ - [PSSailpoint.V2025\Model.ApprovalReassignmentHistory](docs/ApprovalReassignmentHistory.md)
  - [PSSailpoint.V2025\Model.ApprovalReference](docs/ApprovalReference.md)
+ - [PSSailpoint.V2025\Model.ApprovalRejectRequest](docs/ApprovalRejectRequest.md)
  - [PSSailpoint.V2025\Model.ApprovalReminderAndEscalationConfig](docs/ApprovalReminderAndEscalationConfig.md)
+ - [PSSailpoint.V2025\Model.ApprovalRequestedTarget](docs/ApprovalRequestedTarget.md)
  - [PSSailpoint.V2025\Model.ApprovalScheme](docs/ApprovalScheme.md)
  - [PSSailpoint.V2025\Model.ApprovalSchemeForRole](docs/ApprovalSchemeForRole.md)
  - [PSSailpoint.V2025\Model.ApprovalStatus](docs/ApprovalStatus.md)

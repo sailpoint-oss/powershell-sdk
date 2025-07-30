@@ -103,8 +103,6 @@ Class | Method | HTTP request | Description
 *BetaApplicationDiscoveryApi* | [**Get-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaApplicationDiscoveryApi.md#Get-BetaManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download csv template for discovery
 *BetaApplicationDiscoveryApi* | [**Update-BetaDiscoveredApplicationByID**](docs/BetaApplicationDiscoveryApi.md#Update-BetaDiscoveredApplicationByID) | **PATCH** /discovered-applications/{id} | Patch discovered application by id
 *BetaApplicationDiscoveryApi* | [**Send-BetaManualDiscoverApplicationsCsvTemplate**](docs/BetaApplicationDiscoveryApi.md#Send-BetaManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload csv to discover applications
-*BetaApprovalsApi* | [**Get-BetaApproval**](docs/BetaApprovalsApi.md#Get-BetaApproval) | **GET** /generic-approvals/{id} | Get approval
-*BetaApprovalsApi* | [**Get-BetaApprovals**](docs/BetaApprovalsApi.md#Get-BetaApprovals) | **GET** /generic-approvals | Get approvals
 *BetaAppsApi* | [**New-BetaSourceApp**](docs/BetaAppsApi.md#New-BetaSourceApp) | **POST** /source-apps | Create source app
 *BetaAppsApi* | [**Remove-BetaAccessProfilesFromSourceAppByBulk**](docs/BetaAppsApi.md#Remove-BetaAccessProfilesFromSourceAppByBulk) | **POST** /source-apps/{id}/access-profiles/bulk-remove | Bulk remove access profiles from the specified source app
 *BetaAppsApi* | [**Remove-BetaSourceApp**](docs/BetaAppsApi.md#Remove-BetaSourceApp) | **DELETE** /source-apps/{id} | Delete source app by id
@@ -725,17 +723,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.AdminReviewReassignReassignTo](docs/AdminReviewReassignReassignTo.md)
  - [PSSailpoint.Beta\Model.AppAccountDetails](docs/AppAccountDetails.md)
  - [PSSailpoint.Beta\Model.AppAccountDetailsSourceAccount](docs/AppAccountDetailsSourceAccount.md)
- - [PSSailpoint.Beta\Model.Approval](docs/Approval.md)
- - [PSSailpoint.Beta\Model.ApprovalBatch](docs/ApprovalBatch.md)
- - [PSSailpoint.Beta\Model.ApprovalComment](docs/ApprovalComment.md)
- - [PSSailpoint.Beta\Model.ApprovalDescription](docs/ApprovalDescription.md)
  - [PSSailpoint.Beta\Model.ApprovalForwardHistory](docs/ApprovalForwardHistory.md)
- - [PSSailpoint.Beta\Model.ApprovalIdentity](docs/ApprovalIdentity.md)
  - [PSSailpoint.Beta\Model.ApprovalInfoResponse](docs/ApprovalInfoResponse.md)
  - [PSSailpoint.Beta\Model.ApprovalItemDetails](docs/ApprovalItemDetails.md)
  - [PSSailpoint.Beta\Model.ApprovalItems](docs/ApprovalItems.md)
- - [PSSailpoint.Beta\Model.ApprovalName](docs/ApprovalName.md)
- - [PSSailpoint.Beta\Model.ApprovalReference](docs/ApprovalReference.md)
  - [PSSailpoint.Beta\Model.ApprovalReminderAndEscalationConfig](docs/ApprovalReminderAndEscalationConfig.md)
  - [PSSailpoint.Beta\Model.ApprovalScheme](docs/ApprovalScheme.md)
  - [PSSailpoint.Beta\Model.ApprovalSchemeForRole](docs/ApprovalSchemeForRole.md)

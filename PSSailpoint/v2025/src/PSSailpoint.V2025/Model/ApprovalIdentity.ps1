@@ -12,14 +12,22 @@ No summary available.
 
 .DESCRIPTION
 
-Identity Object
+Approval Identity Object
 
-.PARAMETER Id
-The identity ID
-.PARAMETER Type
-Indication of what group the identity belongs to. Ie, IDENTITY, GOVERNANCE_GROUP, etc
+.PARAMETER Email
+Email address.
+.PARAMETER IdentityID
+Identity ID.
+.PARAMETER Members
+List of members of a governance group. Will be omitted if the identity is not a governance group.
 .PARAMETER Name
-Name of the identity
+Name of the identity.
+.PARAMETER OwnerOf
+List of owned items. For example, will show the items in which a ROLE_OWNER owns. Omitted if not an owner of anything.
+.PARAMETER SerialOrder
+The serial step of the identity in the approval. For example serialOrder 1 is the first identity to action in an approval request chain. Parallel approvals are set to 0.
+.PARAMETER Type
+Type of identity.
 .OUTPUTS
 
 ApprovalIdentity<PSCustomObject>
@@ -30,14 +38,26 @@ function Initialize-V2025ApprovalIdentity {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("IDENTITY")]
-        [String]
-        ${Type},
+        ${Email},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name}
+        ${IdentityID},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Members},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Name},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${OwnerOf},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int64]]
+        ${SerialOrder},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("IDENTITY", "MANAGER_OF", "GOVERNANCE_GROUP", "SOURCE_OWNER", "ROLE_OWNER", "ACCESS_PROFILE_OWNER", "ENTITLEMENT_OWNER", "APPLICATION_OWNER")]
+        [String]
+        ${Type}
     )
 
     Process {
@@ -46,9 +66,13 @@ function Initialize-V2025ApprovalIdentity {
 
 
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "type" = ${Type}
+            "email" = ${Email}
+            "identityID" = ${IdentityID}
+            "members" = ${Members}
             "name" = ${Name}
+            "ownerOf" = ${OwnerOf}
+            "serialOrder" = ${SerialOrder}
+            "type" = ${Type}
         }
 
         return $PSO
@@ -85,23 +109,29 @@ function ConvertFrom-V2025JsonToApprovalIdentity {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025ApprovalIdentity
-        $AllProperties = ("id", "type", "name")
+        $AllProperties = ("email", "identityID", "members", "name", "ownerOf", "serialOrder", "type")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "email"))) { #optional property not found
+            $Email = $null
         } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
+            $Email = $JsonParameters.PSobject.Properties["email"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
-            $Type = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityID"))) { #optional property not found
+            $IdentityID = $null
         } else {
-            $Type = $JsonParameters.PSobject.Properties["type"].value
+            $IdentityID = $JsonParameters.PSobject.Properties["identityID"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "members"))) { #optional property not found
+            $Members = $null
+        } else {
+            $Members = $JsonParameters.PSobject.Properties["members"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
@@ -110,10 +140,32 @@ function ConvertFrom-V2025JsonToApprovalIdentity {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ownerOf"))) { #optional property not found
+            $OwnerOf = $null
+        } else {
+            $OwnerOf = $JsonParameters.PSobject.Properties["ownerOf"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "serialOrder"))) { #optional property not found
+            $SerialOrder = $null
+        } else {
+            $SerialOrder = $JsonParameters.PSobject.Properties["serialOrder"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
+        }
+
         $PSO = [PSCustomObject]@{
-            "id" = ${Id}
-            "type" = ${Type}
+            "email" = ${Email}
+            "identityID" = ${IdentityID}
+            "members" = ${Members}
             "name" = ${Name}
+            "ownerOf" = ${OwnerOf}
+            "serialOrder" = ${SerialOrder}
+            "type" = ${Type}
         }
 
         return $PSO

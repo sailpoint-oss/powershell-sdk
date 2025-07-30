@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
+    Context 'Approve-V2025Approval' {
+        It 'Test Approve-V2025Approval' {
+            #$TestResult = Approve-V2025Approval -Id "TEST_VALUE" -ApprovalApproveRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2025Approval' {
         It 'Test Get-V2025Approval' {
             #$TestResult = Get-V2025Approval -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
@@ -16,7 +24,39 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
 
     Context 'Get-V2025Approvals' {
         It 'Test Get-V2025Approvals' {
-            #$TestResult = Get-V2025Approvals -XSailPointExperimental "TEST_VALUE" -Mine "TEST_VALUE" -RequesterId "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2025Approvals -Mine "TEST_VALUE" -RequesterId "TEST_VALUE" -RequesteeId "TEST_VALUE" -ApproverId "TEST_VALUE" -Count "TEST_VALUE" -CountOnly "TEST_VALUE" -IncludeComments "TEST_VALUE" -IncludeApprovers "TEST_VALUE" -IncludeBatchInfo "TEST_VALUE" -IncludeBatchInfo2 "TEST_VALUE" -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Deny-V2025Approval' {
+        It 'Test Deny-V2025Approval' {
+            #$TestResult = Deny-V2025Approval -Id "TEST_VALUE" -ApprovalRejectRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2025ApprovalsAttributes' {
+        It 'Test Update-V2025ApprovalsAttributes' {
+            #$TestResult = Update-V2025ApprovalsAttributes -Id "TEST_VALUE" -ApprovalAttributesRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2025ApprovalsComments' {
+        It 'Test Update-V2025ApprovalsComments' {
+            #$TestResult = Update-V2025ApprovalsComments -Id "TEST_VALUE" -ApprovalCommentsRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2025ApprovalsReassign' {
+        It 'Test Update-V2025ApprovalsReassign' {
+            #$TestResult = Update-V2025ApprovalsReassign -Id "TEST_VALUE" -ApprovalReassignRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

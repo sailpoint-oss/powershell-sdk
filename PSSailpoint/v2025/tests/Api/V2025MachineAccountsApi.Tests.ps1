@@ -6,6 +6,22 @@
 #
 
 Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025MachineAccountsApi' {
+    Context 'New-V2025MachineAccountSubtype' {
+        It 'Test New-V2025MachineAccountSubtype' {
+            #$TestResult = New-V2025MachineAccountSubtype -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SourceSubtype "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-V2025MachineAccountSubtype' {
+        It 'Test Remove-V2025MachineAccountSubtype' {
+            #$TestResult = Remove-V2025MachineAccountSubtype -SubtypeId "TEST_VALUE" -TechnicalName "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2025MachineAccount' {
         It 'Test Get-V2025MachineAccount' {
             #$TestResult = Get-V2025MachineAccount -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
@@ -14,9 +30,41 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025MachineAccountsApi' {
         }
     }
 
+    Context 'Get-V2025MachineAccountSubtypeById' {
+        It 'Test Get-V2025MachineAccountSubtypeById' {
+            #$TestResult = Get-V2025MachineAccountSubtypeById -SubtypeId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2025MachineAccountSubtypeByTechnicalName' {
+        It 'Test Get-V2025MachineAccountSubtypeByTechnicalName' {
+            #$TestResult = Get-V2025MachineAccountSubtypeByTechnicalName -SourceId "TEST_VALUE" -TechnicalName "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2025MachineAccountSubtypes' {
+        It 'Test Get-V2025MachineAccountSubtypes' {
+            #$TestResult = Get-V2025MachineAccountSubtypes -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2025MachineAccounts' {
         It 'Test Get-V2025MachineAccounts' {
             #$TestResult = Get-V2025MachineAccounts -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2025MachineAccountSubtype' {
+        It 'Test Update-V2025MachineAccountSubtype' {
+            #$TestResult = Update-V2025MachineAccountSubtype -SubtypeId "TEST_VALUE" -TechnicalName "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SourceSubtype "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -412,8 +412,14 @@ Class | Method | HTTP request | Description
 *V2025MachineAccountMappingsApi* | [**Remove-V2025MachineAccountMappings**](docs/V2025MachineAccountMappingsApi.md#Remove-V2025MachineAccountMappings) | **DELETE** /sources/{sourceId}/machine-account-mappings | Delete source's machine account mappings
 *V2025MachineAccountMappingsApi* | [**Get-V2025MachineAccountMappings**](docs/V2025MachineAccountMappingsApi.md#Get-V2025MachineAccountMappings) | **GET** /sources/{sourceId}/machine-account-mappings | Machine account mapping for source
 *V2025MachineAccountMappingsApi* | [**Set-V2025MachineAccountMappings**](docs/V2025MachineAccountMappingsApi.md#Set-V2025MachineAccountMappings) | **PUT** /sources/{sourceId}/machine-mappings | Update Source's Machine Account Mappings
+*V2025MachineAccountsApi* | [**New-V2025MachineAccountSubtype**](docs/V2025MachineAccountsApi.md#New-V2025MachineAccountSubtype) | **POST** /sources/{sourceId}/subtypes | Create subtype
+*V2025MachineAccountsApi* | [**Remove-V2025MachineAccountSubtype**](docs/V2025MachineAccountsApi.md#Remove-V2025MachineAccountSubtype) | **DELETE** /sources/{sourceId}/subtypes/{technicalName} | Delete subtype
 *V2025MachineAccountsApi* | [**Get-V2025MachineAccount**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccount) | **GET** /machine-accounts/{id} | Machine account details
+*V2025MachineAccountsApi* | [**Get-V2025MachineAccountSubtypeById**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccountSubtypeById) | **GET** /sources/subtype/{subtypeId} | Retrieve subtype by subtype id
+*V2025MachineAccountsApi* | [**Get-V2025MachineAccountSubtypeByTechnicalName**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccountSubtypeByTechnicalName) | **GET** /sources/{sourceId}/subtypes/{technicalName} | Retrieve subtype by source and technicalName
+*V2025MachineAccountsApi* | [**Get-V2025MachineAccountSubtypes**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccountSubtypes) | **GET** /sources/{sourceId}/subtypes | Retrieve all subtypes by source
 *V2025MachineAccountsApi* | [**Get-V2025MachineAccounts**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccounts) | **GET** /machine-accounts | Machine accounts list
+*V2025MachineAccountsApi* | [**Update-V2025MachineAccountSubtype**](docs/V2025MachineAccountsApi.md#Update-V2025MachineAccountSubtype) | **PATCH** /sources/{sourceId}/subtypes/{technicalName} | Patch subtype
 *V2025MachineAccountsApi* | [**Update-V2025MachineAccount**](docs/V2025MachineAccountsApi.md#Update-V2025MachineAccount) | **PATCH** /machine-accounts/{id} | Update a machine account
 *V2025MachineClassificationConfigApi* | [**Remove-V2025MachineClassificationConfig**](docs/V2025MachineClassificationConfigApi.md#Remove-V2025MachineClassificationConfig) | **DELETE** /sources/{sourceId}/machine-classification-config | Delete source's classification config
 *V2025MachineClassificationConfigApi* | [**Get-V2025MachineClassificationConfig**](docs/V2025MachineClassificationConfigApi.md#Get-V2025MachineClassificationConfig) | **GET** /sources/{sourceId}/machine-classification-config | Machine classification config for source
@@ -1824,6 +1830,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.SourcePasswordPoliciesInner](docs/SourcePasswordPoliciesInner.md)
  - [PSSailpoint.V2025\Model.SourceSchedule](docs/SourceSchedule.md)
  - [PSSailpoint.V2025\Model.SourceSchemasInner](docs/SourceSchemasInner.md)
+ - [PSSailpoint.V2025\Model.SourceSubtype](docs/SourceSubtype.md)
  - [PSSailpoint.V2025\Model.SourceSyncJob](docs/SourceSyncJob.md)
  - [PSSailpoint.V2025\Model.SourceSyncPayload](docs/SourceSyncPayload.md)
  - [PSSailpoint.V2025\Model.SourceUpdated](docs/SourceUpdated.md)

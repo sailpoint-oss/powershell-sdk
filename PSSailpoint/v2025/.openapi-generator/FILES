@@ -1053,6 +1053,7 @@ docs/SourceOwner.md
 docs/SourcePasswordPoliciesInner.md
 docs/SourceSchedule.md
 docs/SourceSchemasInner.md
+docs/SourceSubtype.md
 docs/SourceSyncJob.md
 docs/SourceSyncPayload.md
 docs/SourceUpdated.md
@@ -2533,6 +2534,7 @@ src/PSSailpoint.V2025/Model/SourceOwner.ps1
 src/PSSailpoint.V2025/Model/SourcePasswordPoliciesInner.ps1
 src/PSSailpoint.V2025/Model/SourceSchedule.ps1
 src/PSSailpoint.V2025/Model/SourceSchemasInner.ps1
+src/PSSailpoint.V2025/Model/SourceSubtype.ps1
 src/PSSailpoint.V2025/Model/SourceSyncJob.ps1
 src/PSSailpoint.V2025/Model/SourceSyncPayload.ps1
 src/PSSailpoint.V2025/Model/SourceUpdated.ps1
@@ -3831,6 +3833,7 @@ tests/Model/SourceOwner.Tests.ps1
 tests/Model/SourcePasswordPoliciesInner.Tests.ps1
 tests/Model/SourceSchedule.Tests.ps1
 tests/Model/SourceSchemasInner.Tests.ps1
+tests/Model/SourceSubtype.Tests.ps1
 tests/Model/SourceSyncJob.Tests.ps1
 tests/Model/SourceSyncPayload.Tests.ps1
 tests/Model/SourceUpdated.Tests.ps1

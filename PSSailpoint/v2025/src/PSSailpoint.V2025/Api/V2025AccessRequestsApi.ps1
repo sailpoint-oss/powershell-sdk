@@ -817,6 +817,9 @@ Sort results using the standard syntax described in [V3 API Standard Collection 
 .PARAMETER RequestState
 Filter the results by the state of the request. The only valid value is *EXECUTING*.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -858,6 +861,9 @@ function Get-V2025AdministratorsAccessRequestStatus {
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${RequestState},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -920,7 +926,10 @@ function Get-V2025AdministratorsAccessRequestStatus {
             $LocalVarQueryParameters['request-state'] = $RequestState
         }
 
-
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getEntitlementDetailsForIdentity."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `

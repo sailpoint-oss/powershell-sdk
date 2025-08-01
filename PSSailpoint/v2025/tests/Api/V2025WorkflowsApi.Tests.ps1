@@ -70,6 +70,14 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025WorkflowsApi' {
         }
     }
 
+    Context 'Get-V2025WorkflowExecutionHistoryV2' {
+        It 'Test Get-V2025WorkflowExecutionHistoryV2' {
+            #$TestResult = Get-V2025WorkflowExecutionHistoryV2 -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2025WorkflowExecutions' {
         It 'Test Get-V2025WorkflowExecutions' {
             #$TestResult = Get-V2025WorkflowExecutions -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"

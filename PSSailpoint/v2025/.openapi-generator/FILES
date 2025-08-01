@@ -1393,6 +1393,7 @@ docs/WorkflowBodyOwner.md
 docs/WorkflowDefinition.md
 docs/WorkflowExecution.md
 docs/WorkflowExecutionEvent.md
+docs/WorkflowExecutionHistory.md
 docs/WorkflowLibraryAction.md
 docs/WorkflowLibraryActionExampleOutput.md
 docs/WorkflowLibraryFormFields.md
@@ -2706,6 +2707,7 @@ src/PSSailpoint.V2025/Model/WorkflowBodyOwner.ps1
 src/PSSailpoint.V2025/Model/WorkflowDefinition.ps1
 src/PSSailpoint.V2025/Model/WorkflowExecution.ps1
 src/PSSailpoint.V2025/Model/WorkflowExecutionEvent.ps1
+src/PSSailpoint.V2025/Model/WorkflowExecutionHistory.ps1
 src/PSSailpoint.V2025/Model/WorkflowLibraryAction.ps1
 src/PSSailpoint.V2025/Model/WorkflowLibraryActionExampleOutput.ps1
 src/PSSailpoint.V2025/Model/WorkflowLibraryFormFields.ps1
@@ -4025,6 +4027,7 @@ tests/Model/WorkflowBodyOwner.Tests.ps1
 tests/Model/WorkflowDefinition.Tests.ps1
 tests/Model/WorkflowExecution.Tests.ps1
 tests/Model/WorkflowExecutionEvent.Tests.ps1
+tests/Model/WorkflowExecutionHistory.Tests.ps1
 tests/Model/WorkflowLibraryAction.Tests.ps1
 tests/Model/WorkflowLibraryActionExampleOutput.Tests.ps1
 tests/Model/WorkflowLibraryFormFields.Tests.ps1

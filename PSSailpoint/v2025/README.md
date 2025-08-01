@@ -772,6 +772,7 @@ Class | Method | HTTP request | Description
 *V2025WorkflowsApi* | [**Get-V2025Workflow**](docs/V2025WorkflowsApi.md#Get-V2025Workflow) | **GET** /workflows/{id} | Get workflow by id
 *V2025WorkflowsApi* | [**Get-V2025WorkflowExecution**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowExecution) | **GET** /workflow-executions/{id} | Get workflow execution
 *V2025WorkflowsApi* | [**Get-V2025WorkflowExecutionHistory**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowExecutionHistory) | **GET** /workflow-executions/{id}/history | Get workflow execution history
+*V2025WorkflowsApi* | [**Get-V2025WorkflowExecutionHistoryV2**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowExecutionHistoryV2) | **GET** /workflow-executions/{id}/history-v2 | Get updated workflow execution history
 *V2025WorkflowsApi* | [**Get-V2025WorkflowExecutions**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowExecutions) | **GET** /workflows/{id}/executions | List workflow executions
 *V2025WorkflowsApi* | [**Get-V2025CompleteWorkflowLibrary**](docs/V2025WorkflowsApi.md#Get-V2025CompleteWorkflowLibrary) | **GET** /workflow-library | List complete workflow library
 *V2025WorkflowsApi* | [**Get-V2025WorkflowLibraryActions**](docs/V2025WorkflowsApi.md#Get-V2025WorkflowLibraryActions) | **GET** /workflow-library/actions | List workflow library actions
@@ -1987,6 +1988,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.WorkflowDefinition](docs/WorkflowDefinition.md)
  - [PSSailpoint.V2025\Model.WorkflowExecution](docs/WorkflowExecution.md)
  - [PSSailpoint.V2025\Model.WorkflowExecutionEvent](docs/WorkflowExecutionEvent.md)
+ - [PSSailpoint.V2025\Model.WorkflowExecutionHistory](docs/WorkflowExecutionHistory.md)
  - [PSSailpoint.V2025\Model.WorkflowLibraryAction](docs/WorkflowLibraryAction.md)
  - [PSSailpoint.V2025\Model.WorkflowLibraryActionExampleOutput](docs/WorkflowLibraryActionExampleOutput.md)
  - [PSSailpoint.V2025\Model.WorkflowLibraryFormFields](docs/WorkflowLibraryFormFields.md)

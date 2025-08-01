@@ -17,7 +17,7 @@ The trigger that starts the workflow
 .PARAMETER Type
 The trigger type
 .PARAMETER DisplayName
-No description available.
+The trigger display name
 .PARAMETER Attributes
 No description available.
 .OUTPUTS

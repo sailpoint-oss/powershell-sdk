@@ -75,7 +75,8 @@ RequiredModules = @(@{ModuleName = 'PSSailpoint.Beta'; RequiredVersion = '1.6.6'
 FunctionsToExport = 'Get-FunctionsToExport', 'Get-DefaultConfiguration', 
                'Set-DefaultConfiguration', 'Get-IDNAccessToken', 'Get-EnvConfig', 
                'Get-LocalConfig', 'Get-Config', 'Invoke-Paginate', 
-               'Invoke-PaginateSearch'
+               'Invoke-PaginateSearch', 'Set-ClientCredentialOverride', 
+               'Get-ClientCredentialOverride', 'Clear-ClientCredentialOverride'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

@@ -30,6 +30,14 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ManagedClientsApi' {
         }
     }
 
+    Context 'Get-V2025ManagedClientHealthIndicators' {
+        It 'Test Get-V2025ManagedClientHealthIndicators' {
+            #$TestResult = Get-V2025ManagedClientHealthIndicators -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2025ManagedClientStatus' {
         It 'Test Get-V2025ManagedClientStatus' {
             #$TestResult = Get-V2025ManagedClientStatus -Id "TEST_VALUE" -Type "TEST_VALUE"

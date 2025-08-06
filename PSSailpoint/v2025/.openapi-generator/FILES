@@ -501,6 +501,8 @@ docs/GetReferenceIdentityAttribute.md
 docs/GetRoleAssignments200ResponseInner.md
 docs/GetTenantContext200ResponseInner.md
 docs/GrantType.md
+docs/HealthEvent.md
+docs/HealthIndicatorCategory.md
 docs/HierarchicalRightSet.md
 docs/HttpAuthenticationType.md
 docs/HttpConfig.md
@@ -641,6 +643,9 @@ docs/MachineIdentityDtoOwners.md
 docs/MailFromAttributes.md
 docs/MailFromAttributesDto.md
 docs/ManagedClient.md
+docs/ManagedClientHealthIndicators.md
+docs/ManagedClientHealthIndicatorsBody.md
+docs/ManagedClientHealthIndicatorsBodyHealthIndicators.md
 docs/ManagedClientRequest.md
 docs/ManagedClientStatus.md
 docs/ManagedClientStatusCode.md
@@ -2001,6 +2006,8 @@ src/PSSailpoint.V2025/Model/GetReferenceIdentityAttribute.ps1
 src/PSSailpoint.V2025/Model/GetRoleAssignments200ResponseInner.ps1
 src/PSSailpoint.V2025/Model/GetTenantContext200ResponseInner.ps1
 src/PSSailpoint.V2025/Model/GrantType.ps1
+src/PSSailpoint.V2025/Model/HealthEvent.ps1
+src/PSSailpoint.V2025/Model/HealthIndicatorCategory.ps1
 src/PSSailpoint.V2025/Model/HierarchicalRightSet.ps1
 src/PSSailpoint.V2025/Model/HttpAuthenticationType.ps1
 src/PSSailpoint.V2025/Model/HttpConfig.ps1
@@ -2141,6 +2148,9 @@ src/PSSailpoint.V2025/Model/MachineIdentityDtoOwners.ps1
 src/PSSailpoint.V2025/Model/MailFromAttributes.ps1
 src/PSSailpoint.V2025/Model/MailFromAttributesDto.ps1
 src/PSSailpoint.V2025/Model/ManagedClient.ps1
+src/PSSailpoint.V2025/Model/ManagedClientHealthIndicators.ps1
+src/PSSailpoint.V2025/Model/ManagedClientHealthIndicatorsBody.ps1
+src/PSSailpoint.V2025/Model/ManagedClientHealthIndicatorsBodyHealthIndicators.ps1
 src/PSSailpoint.V2025/Model/ManagedClientRequest.ps1
 src/PSSailpoint.V2025/Model/ManagedClientStatus.ps1
 src/PSSailpoint.V2025/Model/ManagedClientStatusCode.ps1
@@ -3321,6 +3331,8 @@ tests/Model/GetReferenceIdentityAttribute.Tests.ps1
 tests/Model/GetRoleAssignments200ResponseInner.Tests.ps1
 tests/Model/GetTenantContext200ResponseInner.Tests.ps1
 tests/Model/GrantType.Tests.ps1
+tests/Model/HealthEvent.Tests.ps1
+tests/Model/HealthIndicatorCategory.Tests.ps1
 tests/Model/HierarchicalRightSet.Tests.ps1
 tests/Model/HttpAuthenticationType.Tests.ps1
 tests/Model/HttpConfig.Tests.ps1
@@ -3461,6 +3473,9 @@ tests/Model/MachineIdentityDtoOwners.Tests.ps1
 tests/Model/MailFromAttributes.Tests.ps1
 tests/Model/MailFromAttributesDto.Tests.ps1
 tests/Model/ManagedClient.Tests.ps1
+tests/Model/ManagedClientHealthIndicators.Tests.ps1
+tests/Model/ManagedClientHealthIndicatorsBody.Tests.ps1
+tests/Model/ManagedClientHealthIndicatorsBodyHealthIndicators.Tests.ps1
 tests/Model/ManagedClientRequest.Tests.ps1
 tests/Model/ManagedClientStatus.Tests.ps1
 tests/Model/ManagedClientStatusCode.Tests.ps1

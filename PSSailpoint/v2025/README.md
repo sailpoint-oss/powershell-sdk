@@ -437,6 +437,7 @@ Class | Method | HTTP request | Description
 *V2025ManagedClientsApi* | [**New-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#New-V2025ManagedClient) | **POST** /managed-clients | Create managed client
 *V2025ManagedClientsApi* | [**Remove-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#Remove-V2025ManagedClient) | **DELETE** /managed-clients/{id} | Delete managed client
 *V2025ManagedClientsApi* | [**Get-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#Get-V2025ManagedClient) | **GET** /managed-clients/{id} | Get managed client
+*V2025ManagedClientsApi* | [**Get-V2025ManagedClientHealthIndicators**](docs/V2025ManagedClientsApi.md#Get-V2025ManagedClientHealthIndicators) | **GET** /managed-clients/{id}/health-indicators | Get managed client health indicators
 *V2025ManagedClientsApi* | [**Get-V2025ManagedClientStatus**](docs/V2025ManagedClientsApi.md#Get-V2025ManagedClientStatus) | **GET** /managed-clients/{id}/status | Get managed client status
 *V2025ManagedClientsApi* | [**Get-V2025ManagedClients**](docs/V2025ManagedClientsApi.md#Get-V2025ManagedClients) | **GET** /managed-clients | Get managed clients
 *V2025ManagedClientsApi* | [**Update-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#Update-V2025ManagedClient) | **PATCH** /managed-clients/{id} | Update managed client
@@ -1282,6 +1283,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.GetRoleAssignments200ResponseInner](docs/GetRoleAssignments200ResponseInner.md)
  - [PSSailpoint.V2025\Model.GetTenantContext200ResponseInner](docs/GetTenantContext200ResponseInner.md)
  - [PSSailpoint.V2025\Model.GrantType](docs/GrantType.md)
+ - [PSSailpoint.V2025\Model.HealthEvent](docs/HealthEvent.md)
+ - [PSSailpoint.V2025\Model.HealthIndicatorCategory](docs/HealthIndicatorCategory.md)
  - [PSSailpoint.V2025\Model.HierarchicalRightSet](docs/HierarchicalRightSet.md)
  - [PSSailpoint.V2025\Model.HttpAuthenticationType](docs/HttpAuthenticationType.md)
  - [PSSailpoint.V2025\Model.HttpConfig](docs/HttpConfig.md)
@@ -1422,6 +1425,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.MailFromAttributes](docs/MailFromAttributes.md)
  - [PSSailpoint.V2025\Model.MailFromAttributesDto](docs/MailFromAttributesDto.md)
  - [PSSailpoint.V2025\Model.ManagedClient](docs/ManagedClient.md)
+ - [PSSailpoint.V2025\Model.ManagedClientHealthIndicators](docs/ManagedClientHealthIndicators.md)
+ - [PSSailpoint.V2025\Model.ManagedClientHealthIndicatorsBody](docs/ManagedClientHealthIndicatorsBody.md)
+ - [PSSailpoint.V2025\Model.ManagedClientHealthIndicatorsBodyHealthIndicators](docs/ManagedClientHealthIndicatorsBodyHealthIndicators.md)
  - [PSSailpoint.V2025\Model.ManagedClientRequest](docs/ManagedClientRequest.md)
  - [PSSailpoint.V2025\Model.ManagedClientStatus](docs/ManagedClientStatus.md)
  - [PSSailpoint.V2025\Model.ManagedClientStatusCode](docs/ManagedClientStatusCode.md)

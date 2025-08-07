@@ -92,6 +92,11 @@ function Invoke-BetaApiClient {
         }
     }
 
+    # if no content type is specified, use application/json as default
+    if (-not $ContentType -and -not $HasFormData) {
+        $HeaderParameters['Content-Type'] = 'application/json'
+    }
+
     # add default headers if any
     foreach ($header in $DefaultHeaders.GetEnumerator()) {
         $HeaderParameters[$header.Name] = $header.Value

@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025AccessRequestsApi' {
 
     Context 'Get-V2025AdministratorsAccessRequestStatus' {
         It 'Test Get-V2025AdministratorsAccessRequestStatus' {
-            #$TestResult = Get-V2025AdministratorsAccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -AssignedTo "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -RequestState "TEST_VALUE"
+            #$TestResult = Get-V2025AdministratorsAccessRequestStatus -XSailPointExperimental "TEST_VALUE" -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -AssignedTo "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -RequestState "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

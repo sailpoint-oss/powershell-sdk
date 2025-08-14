@@ -839,6 +839,9 @@ Invite identities to register
 
 This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status). 
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER InviteIdentitiesRequest
 No description available.
 
@@ -854,6 +857,9 @@ function Start-V2025IdentitiesInvite {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${InviteIdentitiesRequest},
         [Switch]
@@ -880,6 +886,11 @@ function Start-V2025IdentitiesInvite {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/identities/invite'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling startIdentitiesInvite."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$InviteIdentitiesRequest) {
             throw "Error! The required parameter `InviteIdentitiesRequest` missing when calling startIdentitiesInvite."

@@ -382,9 +382,6 @@ Generate identity profile preview
 
 This generates a non-persisted IdentityDetails object that will represent as the preview of the identities attribute when the given policy''s attribute config is applied.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER IdentityPreviewRequest
 Identity Preview request body.
 
@@ -400,9 +397,6 @@ function New-V2024IdentityPreview {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${IdentityPreviewRequest},
         [Switch]
@@ -429,11 +423,6 @@ function New-V2024IdentityPreview {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/identity-profiles/identity-preview'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling generateIdentityPreview."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$IdentityPreviewRequest) {
             throw "Error! The required parameter `IdentityPreviewRequest` missing when calling generateIdentityPreview."

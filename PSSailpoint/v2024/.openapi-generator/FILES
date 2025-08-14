@@ -463,6 +463,7 @@ docs/GetActiveCampaigns200ResponseInner.md
 docs/GetCampaign200Response.md
 docs/GetDiscoveredApplications200ResponseInner.md
 docs/GetHistoricalIdentityEvents200ResponseInner.md
+docs/GetLaunchers200Response.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
 docs/GetReferenceIdentityAttribute.md
@@ -508,6 +509,10 @@ docs/IdentityDocumentAllOfManager.md
 docs/IdentityDocumentAllOfSource.md
 docs/IdentityEntities.md
 docs/IdentityEntitiesIdentityEntity.md
+docs/IdentityEntitlementDetails.md
+docs/IdentityEntitlementDetailsAccountTarget.md
+docs/IdentityEntitlementDetailsEntitlementDto.md
+docs/IdentityEntitlements.md
 docs/IdentityExceptionReportReference.md
 docs/IdentityHistoryResponse.md
 docs/IdentityLifecycleState.md
@@ -559,6 +564,11 @@ docs/KbaAnswerRequestItem.md
 docs/KbaAnswerResponseItem.md
 docs/KbaQuestion.md
 docs/LatestOutlierSummary.md
+docs/Launcher.md
+docs/LauncherOwner.md
+docs/LauncherReference.md
+docs/LauncherRequest.md
+docs/LauncherRequestReference.md
 docs/LeftPad.md
 docs/License.md
 docs/LifecycleState.md
@@ -1053,6 +1063,7 @@ docs/SpDetails.md
 docs/Split.md
 docs/StandardLevel.md
 docs/StartInvocationInput.md
+docs/StartLauncher200Response.md
 docs/Static.md
 docs/StatusResponse.md
 docs/SubSearchAggregationSpecification.md
@@ -1064,6 +1075,8 @@ docs/SubscriptionPostRequest.md
 docs/SubscriptionPutRequest.md
 docs/SubscriptionType.md
 docs/Substring.md
+docs/Tag.md
+docs/TagTagCategoryRefsInner.md
 docs/TaggedObject.md
 docs/TaggedObjectDto.md
 docs/Target.md
@@ -1206,6 +1219,8 @@ docs/V2024IdentityHistoryApi.md
 docs/V2024IdentityHistoryApideveloperSite_code_examples.yaml
 docs/V2024IdentityProfilesApi.md
 docs/V2024IdentityProfilesApideveloperSite_code_examples.yaml
+docs/V2024LaunchersApi.md
+docs/V2024LaunchersApideveloperSite_code_examples.yaml
 docs/V2024LifecycleStatesApi.md
 docs/V2024LifecycleStatesApideveloperSite_code_examples.yaml
 docs/V2024MFAConfigurationApi.md
@@ -1288,6 +1303,8 @@ docs/V2024SuggestedEntitlementDescriptionApi.md
 docs/V2024SuggestedEntitlementDescriptionApideveloperSite_code_examples.yaml
 docs/V2024TaggedObjectsApi.md
 docs/V2024TaggedObjectsApideveloperSite_code_examples.yaml
+docs/V2024TagsApi.md
+docs/V2024TagsApideveloperSite_code_examples.yaml
 docs/V2024TaskManagementApi.md
 docs/V2024TaskManagementApideveloperSite_code_examples.yaml
 docs/V2024TenantApi.md
@@ -1401,6 +1418,7 @@ src/PSSailpoint.V2024/Api/V2024IdentitiesApi.ps1
 src/PSSailpoint.V2024/Api/V2024IdentityAttributesApi.ps1
 src/PSSailpoint.V2024/Api/V2024IdentityHistoryApi.ps1
 src/PSSailpoint.V2024/Api/V2024IdentityProfilesApi.ps1
+src/PSSailpoint.V2024/Api/V2024LaunchersApi.ps1
 src/PSSailpoint.V2024/Api/V2024LifecycleStatesApi.ps1
 src/PSSailpoint.V2024/Api/V2024MFAConfigurationApi.ps1
 src/PSSailpoint.V2024/Api/V2024MachineAccountClassifyApi.ps1
@@ -1442,6 +1460,7 @@ src/PSSailpoint.V2024/Api/V2024SourceUsagesApi.ps1
 src/PSSailpoint.V2024/Api/V2024SourcesApi.ps1
 src/PSSailpoint.V2024/Api/V2024SuggestedEntitlementDescriptionApi.ps1
 src/PSSailpoint.V2024/Api/V2024TaggedObjectsApi.ps1
+src/PSSailpoint.V2024/Api/V2024TagsApi.ps1
 src/PSSailpoint.V2024/Api/V2024TaskManagementApi.ps1
 src/PSSailpoint.V2024/Api/V2024TenantApi.ps1
 src/PSSailpoint.V2024/Api/V2024TenantContextApi.ps1
@@ -1910,6 +1929,7 @@ src/PSSailpoint.V2024/Model/GetActiveCampaigns200ResponseInner.ps1
 src/PSSailpoint.V2024/Model/GetCampaign200Response.ps1
 src/PSSailpoint.V2024/Model/GetDiscoveredApplications200ResponseInner.ps1
 src/PSSailpoint.V2024/Model/GetHistoricalIdentityEvents200ResponseInner.ps1
+src/PSSailpoint.V2024/Model/GetLaunchers200Response.ps1
 src/PSSailpoint.V2024/Model/GetOAuthClientResponse.ps1
 src/PSSailpoint.V2024/Model/GetPersonalAccessTokenResponse.ps1
 src/PSSailpoint.V2024/Model/GetReferenceIdentityAttribute.ps1
@@ -1955,6 +1975,10 @@ src/PSSailpoint.V2024/Model/IdentityDocumentAllOfManager.ps1
 src/PSSailpoint.V2024/Model/IdentityDocumentAllOfSource.ps1
 src/PSSailpoint.V2024/Model/IdentityEntities.ps1
 src/PSSailpoint.V2024/Model/IdentityEntitiesIdentityEntity.ps1
+src/PSSailpoint.V2024/Model/IdentityEntitlementDetails.ps1
+src/PSSailpoint.V2024/Model/IdentityEntitlementDetailsAccountTarget.ps1
+src/PSSailpoint.V2024/Model/IdentityEntitlementDetailsEntitlementDto.ps1
+src/PSSailpoint.V2024/Model/IdentityEntitlements.ps1
 src/PSSailpoint.V2024/Model/IdentityExceptionReportReference.ps1
 src/PSSailpoint.V2024/Model/IdentityHistoryResponse.ps1
 src/PSSailpoint.V2024/Model/IdentityLifecycleState.ps1
@@ -2006,6 +2030,11 @@ src/PSSailpoint.V2024/Model/KbaAnswerRequestItem.ps1
 src/PSSailpoint.V2024/Model/KbaAnswerResponseItem.ps1
 src/PSSailpoint.V2024/Model/KbaQuestion.ps1
 src/PSSailpoint.V2024/Model/LatestOutlierSummary.ps1
+src/PSSailpoint.V2024/Model/Launcher.ps1
+src/PSSailpoint.V2024/Model/LauncherOwner.ps1
+src/PSSailpoint.V2024/Model/LauncherReference.ps1
+src/PSSailpoint.V2024/Model/LauncherRequest.ps1
+src/PSSailpoint.V2024/Model/LauncherRequestReference.ps1
 src/PSSailpoint.V2024/Model/LeftPad.ps1
 src/PSSailpoint.V2024/Model/License.ps1
 src/PSSailpoint.V2024/Model/LifecycleState.ps1
@@ -2502,6 +2531,7 @@ src/PSSailpoint.V2024/Model/SpDetails.ps1
 src/PSSailpoint.V2024/Model/Split.ps1
 src/PSSailpoint.V2024/Model/StandardLevel.ps1
 src/PSSailpoint.V2024/Model/StartInvocationInput.ps1
+src/PSSailpoint.V2024/Model/StartLauncher200Response.ps1
 src/PSSailpoint.V2024/Model/Static.ps1
 src/PSSailpoint.V2024/Model/StatusResponse.ps1
 src/PSSailpoint.V2024/Model/SubSearchAggregationSpecification.ps1
@@ -2513,6 +2543,8 @@ src/PSSailpoint.V2024/Model/SubscriptionPostRequest.ps1
 src/PSSailpoint.V2024/Model/SubscriptionPutRequest.ps1
 src/PSSailpoint.V2024/Model/SubscriptionType.ps1
 src/PSSailpoint.V2024/Model/Substring.ps1
+src/PSSailpoint.V2024/Model/Tag.ps1
+src/PSSailpoint.V2024/Model/TagTagCategoryRefsInner.ps1
 src/PSSailpoint.V2024/Model/TaggedObject.ps1
 src/PSSailpoint.V2024/Model/TaggedObjectDto.ps1
 src/PSSailpoint.V2024/Model/Target.ps1
@@ -2673,6 +2705,7 @@ tests/Api/V2024IdentitiesApi.Tests.ps1
 tests/Api/V2024IdentityAttributesApi.Tests.ps1
 tests/Api/V2024IdentityHistoryApi.Tests.ps1
 tests/Api/V2024IdentityProfilesApi.Tests.ps1
+tests/Api/V2024LaunchersApi.Tests.ps1
 tests/Api/V2024LifecycleStatesApi.Tests.ps1
 tests/Api/V2024MFAConfigurationApi.Tests.ps1
 tests/Api/V2024MachineAccountClassifyApi.Tests.ps1
@@ -2714,6 +2747,7 @@ tests/Api/V2024SourceUsagesApi.Tests.ps1
 tests/Api/V2024SourcesApi.Tests.ps1
 tests/Api/V2024SuggestedEntitlementDescriptionApi.Tests.ps1
 tests/Api/V2024TaggedObjectsApi.Tests.ps1
+tests/Api/V2024TagsApi.Tests.ps1
 tests/Api/V2024TaskManagementApi.Tests.ps1
 tests/Api/V2024TenantApi.Tests.ps1
 tests/Api/V2024TenantContextApi.Tests.ps1
@@ -3181,6 +3215,7 @@ tests/Model/GetActiveCampaigns200ResponseInner.Tests.ps1
 tests/Model/GetCampaign200Response.Tests.ps1
 tests/Model/GetDiscoveredApplications200ResponseInner.Tests.ps1
 tests/Model/GetHistoricalIdentityEvents200ResponseInner.Tests.ps1
+tests/Model/GetLaunchers200Response.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
 tests/Model/GetReferenceIdentityAttribute.Tests.ps1
@@ -3226,6 +3261,10 @@ tests/Model/IdentityDocumentAllOfManager.Tests.ps1
 tests/Model/IdentityDocumentAllOfSource.Tests.ps1
 tests/Model/IdentityEntities.Tests.ps1
 tests/Model/IdentityEntitiesIdentityEntity.Tests.ps1
+tests/Model/IdentityEntitlementDetails.Tests.ps1
+tests/Model/IdentityEntitlementDetailsAccountTarget.Tests.ps1
+tests/Model/IdentityEntitlementDetailsEntitlementDto.Tests.ps1
+tests/Model/IdentityEntitlements.Tests.ps1
 tests/Model/IdentityExceptionReportReference.Tests.ps1
 tests/Model/IdentityHistoryResponse.Tests.ps1
 tests/Model/IdentityLifecycleState.Tests.ps1
@@ -3277,6 +3316,11 @@ tests/Model/KbaAnswerRequestItem.Tests.ps1
 tests/Model/KbaAnswerResponseItem.Tests.ps1
 tests/Model/KbaQuestion.Tests.ps1
 tests/Model/LatestOutlierSummary.Tests.ps1
+tests/Model/Launcher.Tests.ps1
+tests/Model/LauncherOwner.Tests.ps1
+tests/Model/LauncherReference.Tests.ps1
+tests/Model/LauncherRequest.Tests.ps1
+tests/Model/LauncherRequestReference.Tests.ps1
 tests/Model/LeftPad.Tests.ps1
 tests/Model/License.Tests.ps1
 tests/Model/LifecycleState.Tests.ps1
@@ -3773,6 +3817,7 @@ tests/Model/SpDetails.Tests.ps1
 tests/Model/Split.Tests.ps1
 tests/Model/StandardLevel.Tests.ps1
 tests/Model/StartInvocationInput.Tests.ps1
+tests/Model/StartLauncher200Response.Tests.ps1
 tests/Model/Static.Tests.ps1
 tests/Model/StatusResponse.Tests.ps1
 tests/Model/SubSearchAggregationSpecification.Tests.ps1
@@ -3784,6 +3829,8 @@ tests/Model/SubscriptionPostRequest.Tests.ps1
 tests/Model/SubscriptionPutRequest.Tests.ps1
 tests/Model/SubscriptionType.Tests.ps1
 tests/Model/Substring.Tests.ps1
+tests/Model/Tag.Tests.ps1
+tests/Model/TagTagCategoryRefsInner.Tests.ps1
 tests/Model/TaggedObject.Tests.ps1
 tests/Model/TaggedObjectDto.Tests.ps1
 tests/Model/Target.Tests.ps1

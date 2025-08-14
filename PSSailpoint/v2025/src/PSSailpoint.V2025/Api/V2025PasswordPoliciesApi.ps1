@@ -14,6 +14,9 @@ Create password policy
 
 This API creates the specified password policy.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER PasswordPolicyV3Dto
 No description available.
 
@@ -29,6 +32,9 @@ function New-V2025PasswordPolicy {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${PasswordPolicyV3Dto},
         [Switch]
@@ -55,6 +61,11 @@ function New-V2025PasswordPolicy {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/password-policies'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling createPasswordPolicy."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$PasswordPolicyV3Dto) {
             throw "Error! The required parameter `PasswordPolicyV3Dto` missing when calling createPasswordPolicy."
@@ -107,6 +118,9 @@ This API deletes the specified password policy.
 .PARAMETER Id
 The ID of password policy to delete.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -121,6 +135,9 @@ function Remove-V2025PasswordPolicy {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -146,6 +163,11 @@ function Remove-V2025PasswordPolicy {
             throw "Error! The required parameter `Id` missing when calling deletePasswordPolicy."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling deletePasswordPolicy."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -181,6 +203,9 @@ This API returns the password policy for the specified ID.
 .PARAMETER Id
 The ID of password policy to retrieve.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -195,6 +220,9 @@ function Get-V2025PasswordPolicyById {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -220,6 +248,11 @@ function Get-V2025PasswordPolicyById {
             throw "Error! The required parameter `Id` missing when calling getPasswordPolicyById."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getPasswordPolicyById."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -252,6 +285,9 @@ List password policies
 
 This gets list of all Password Policies. Requires role of ORG_ADMIN
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -273,12 +309,15 @@ function Get-V2025PasswordPolicies {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Limit},
+        [String]
+        $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
-        ${Offset},
+        ${Limit},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
         [Switch]
@@ -302,6 +341,11 @@ function Get-V2025PasswordPolicies {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/password-policies'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling listPasswordPolicies."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Limit) {
             $LocalVarQueryParameters['limit'] = $Limit
@@ -349,6 +393,9 @@ This API updates the specified password policy.
 .PARAMETER Id
 The ID of password policy to update.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER PasswordPolicyV3Dto
 No description available.
 
@@ -367,6 +414,9 @@ function Set-V2025PasswordPolicy {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${PasswordPolicyV3Dto},
         [Switch]
@@ -397,6 +447,11 @@ function Set-V2025PasswordPolicy {
             throw "Error! The required parameter `Id` missing when calling setPasswordPolicy."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling setPasswordPolicy."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$PasswordPolicyV3Dto) {
             throw "Error! The required parameter `PasswordPolicyV3Dto` missing when calling setPasswordPolicy."

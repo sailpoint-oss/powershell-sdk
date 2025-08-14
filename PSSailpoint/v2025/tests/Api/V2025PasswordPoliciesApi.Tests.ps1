@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025PasswordPoliciesApi' {
     Context 'New-V2025PasswordPolicy' {
         It 'Test New-V2025PasswordPolicy' {
-            #$TestResult = New-V2025PasswordPolicy -PasswordPolicyV3Dto "TEST_VALUE"
+            #$TestResult = New-V2025PasswordPolicy -XSailPointExperimental "TEST_VALUE" -PasswordPolicyV3Dto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025PasswordPoliciesApi' {
 
     Context 'Remove-V2025PasswordPolicy' {
         It 'Test Remove-V2025PasswordPolicy' {
-            #$TestResult = Remove-V2025PasswordPolicy -Id "TEST_VALUE"
+            #$TestResult = Remove-V2025PasswordPolicy -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025PasswordPoliciesApi' {
 
     Context 'Get-V2025PasswordPolicyById' {
         It 'Test Get-V2025PasswordPolicyById' {
-            #$TestResult = Get-V2025PasswordPolicyById -Id "TEST_VALUE"
+            #$TestResult = Get-V2025PasswordPolicyById -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025PasswordPoliciesApi' {
 
     Context 'Get-V2025PasswordPolicies' {
         It 'Test Get-V2025PasswordPolicies' {
-            #$TestResult = Get-V2025PasswordPolicies -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-V2025PasswordPolicies -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025PasswordPoliciesApi' {
 
     Context 'Set-V2025PasswordPolicy' {
         It 'Test Set-V2025PasswordPolicy' {
-            #$TestResult = Set-V2025PasswordPolicy -Id "TEST_VALUE" -PasswordPolicyV3Dto "TEST_VALUE"
+            #$TestResult = Set-V2025PasswordPolicy -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -PasswordPolicyV3Dto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

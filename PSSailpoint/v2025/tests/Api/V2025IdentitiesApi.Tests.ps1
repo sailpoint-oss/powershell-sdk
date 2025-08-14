@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentitiesApi' {
 
     Context 'Start-V2025IdentitiesInvite' {
         It 'Test Start-V2025IdentitiesInvite' {
-            #$TestResult = Start-V2025IdentitiesInvite -InviteIdentitiesRequest "TEST_VALUE"
+            #$TestResult = Start-V2025IdentitiesInvite -XSailPointExperimental "TEST_VALUE" -InviteIdentitiesRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

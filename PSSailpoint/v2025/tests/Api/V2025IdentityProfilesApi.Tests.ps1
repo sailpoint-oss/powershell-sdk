@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IdentityProfilesApi' {
 
     Context 'New-V2025IdentityPreview' {
         It 'Test New-V2025IdentityPreview' {
-            #$TestResult = New-V2025IdentityPreview -XSailPointExperimental "TEST_VALUE" -IdentityPreviewRequest "TEST_VALUE"
+            #$TestResult = New-V2025IdentityPreview -IdentityPreviewRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

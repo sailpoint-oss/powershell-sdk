@@ -79,6 +79,7 @@ Class | Method | HTTP request | Description
 *V2024AccessRequestsApi* | [**Close-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#Close-V2024AccessRequest) | **POST** /access-requests/close | Close access request
 *V2024AccessRequestsApi* | [**New-V2024AccessRequest**](docs/V2024AccessRequestsApi.md#New-V2024AccessRequest) | **POST** /access-requests | Submit access request
 *V2024AccessRequestsApi* | [**Get-V2024AccessRequestConfig**](docs/V2024AccessRequestsApi.md#Get-V2024AccessRequestConfig) | **GET** /access-request-config | Get access request configuration
+*V2024AccessRequestsApi* | [**Get-V2024EntitlementDetailsForIdentity**](docs/V2024AccessRequestsApi.md#Get-V2024EntitlementDetailsForIdentity) | **GET** /revocable-objects | Identity entitlement details
 *V2024AccessRequestsApi* | [**Get-V2024AccessRequestStatus**](docs/V2024AccessRequestsApi.md#Get-V2024AccessRequestStatus) | **GET** /access-request-status | Access request status
 *V2024AccessRequestsApi* | [**Get-V2024AdministratorsAccessRequestStatus**](docs/V2024AccessRequestsApi.md#Get-V2024AdministratorsAccessRequestStatus) | **GET** /access-request-administration | Access request status for administrators
 *V2024AccessRequestsApi* | [**Invoke-V2024LoadAccountSelections**](docs/V2024AccessRequestsApi.md#Invoke-V2024LoadAccountSelections) | **POST** /access-requests/accounts-selection | Get accounts selections for identity
@@ -345,6 +346,7 @@ Class | Method | HTTP request | Description
 *V2024IdentitiesApi* | [**Get-V2024IdentityOwnershipDetails**](docs/V2024IdentitiesApi.md#Get-V2024IdentityOwnershipDetails) | **GET** /identities/{identityId}/ownership | Get ownership details
 *V2024IdentitiesApi* | [**Get-V2024RoleAssignment**](docs/V2024IdentitiesApi.md#Get-V2024RoleAssignment) | **GET** /identities/{identityId}/role-assignments/{assignmentId} | Role assignment details
 *V2024IdentitiesApi* | [**Get-V2024RoleAssignments**](docs/V2024IdentitiesApi.md#Get-V2024RoleAssignments) | **GET** /identities/{identityId}/role-assignments | List role assignments
+*V2024IdentitiesApi* | [**Get-V2024EntitlementsByIdentity**](docs/V2024IdentitiesApi.md#Get-V2024EntitlementsByIdentity) | **GET** /entitlements/identities/{id}/entitlements | List of entitlements by identity.
 *V2024IdentitiesApi* | [**Get-V2024Identities**](docs/V2024IdentitiesApi.md#Get-V2024Identities) | **GET** /identities | List identities
 *V2024IdentitiesApi* | [**Reset-V2024Identity**](docs/V2024IdentitiesApi.md#Reset-V2024Identity) | **POST** /identities/{id}/reset | Reset an identity
 *V2024IdentitiesApi* | [**Send-V2024IdentityVerificationAccountToken**](docs/V2024IdentitiesApi.md#Send-V2024IdentityVerificationAccountToken) | **POST** /identities/{id}/verification/account/send | Send password reset email
@@ -379,6 +381,12 @@ Class | Method | HTTP request | Description
 *V2024IdentityProfilesApi* | [**Get-V2024IdentityProfiles**](docs/V2024IdentityProfilesApi.md#Get-V2024IdentityProfiles) | **GET** /identity-profiles | List identity profiles
 *V2024IdentityProfilesApi* | [**Sync-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Sync-V2024IdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
 *V2024IdentityProfilesApi* | [**Update-V2024IdentityProfile**](docs/V2024IdentityProfilesApi.md#Update-V2024IdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update identity profile
+*V2024LaunchersApi* | [**New-V2024Launcher**](docs/V2024LaunchersApi.md#New-V2024Launcher) | **POST** /launchers | Create launcher
+*V2024LaunchersApi* | [**Remove-V2024Launcher**](docs/V2024LaunchersApi.md#Remove-V2024Launcher) | **DELETE** /launchers/{launcherID} | Delete launcher
+*V2024LaunchersApi* | [**Get-V2024Launcher**](docs/V2024LaunchersApi.md#Get-V2024Launcher) | **GET** /launchers/{launcherID} | Get launcher by id
+*V2024LaunchersApi* | [**Get-V2024Launchers**](docs/V2024LaunchersApi.md#Get-V2024Launchers) | **GET** /launchers | List all launchers for tenant
+*V2024LaunchersApi* | [**Send-V2024Launcher**](docs/V2024LaunchersApi.md#Send-V2024Launcher) | **PUT** /launchers/{launcherID} | Replace launcher
+*V2024LaunchersApi* | [**Start-V2024Launcher**](docs/V2024LaunchersApi.md#Start-V2024Launcher) | **POST** /launchers/{launcherID}/launch | Launch a launcher
 *V2024LifecycleStatesApi* | [**New-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#New-V2024LifecycleState) | **POST** /identity-profiles/{identity-profile-id}/lifecycle-states | Create lifecycle state
 *V2024LifecycleStatesApi* | [**Remove-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#Remove-V2024LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete lifecycle state
 *V2024LifecycleStatesApi* | [**Get-V2024LifecycleState**](docs/V2024LifecycleStatesApi.md#Get-V2024LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get lifecycle state
@@ -688,6 +696,10 @@ Class | Method | HTTP request | Description
 *V2024TaggedObjectsApi* | [**Send-V2024TaggedObject**](docs/V2024TaggedObjectsApi.md#Send-V2024TaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update tagged object
 *V2024TaggedObjectsApi* | [**Set-V2024TagToObject**](docs/V2024TaggedObjectsApi.md#Set-V2024TagToObject) | **POST** /tagged-objects | Add tag to object
 *V2024TaggedObjectsApi* | [**Set-V2024TagsToManyObjects**](docs/V2024TaggedObjectsApi.md#Set-V2024TagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag multiple objects
+*V2024TagsApi* | [**New-V2024Tag**](docs/V2024TagsApi.md#New-V2024Tag) | **POST** /tags | Create tag
+*V2024TagsApi* | [**Remove-V2024TagById**](docs/V2024TagsApi.md#Remove-V2024TagById) | **DELETE** /tags/{id} | Delete tag
+*V2024TagsApi* | [**Get-V2024TagById**](docs/V2024TagsApi.md#Get-V2024TagById) | **GET** /tags/{id} | Get tag by id
+*V2024TagsApi* | [**Get-V2024Tags**](docs/V2024TagsApi.md#Get-V2024Tags) | **GET** /tags | List tags
 *V2024TaskManagementApi* | [**Get-V2024PendingTaskHeaders**](docs/V2024TaskManagementApi.md#Get-V2024PendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve pending task list headers
 *V2024TaskManagementApi* | [**Get-V2024PendingTasks**](docs/V2024TaskManagementApi.md#Get-V2024PendingTasks) | **GET** /task-status/pending-tasks | Retrieve pending task status list
 *V2024TaskManagementApi* | [**Get-V2024TaskStatus**](docs/V2024TaskManagementApi.md#Get-V2024TaskStatus) | **GET** /task-status/{id} | Get task status by id
@@ -1217,6 +1229,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.GetCampaign200Response](docs/GetCampaign200Response.md)
  - [PSSailpoint.V2024\Model.GetDiscoveredApplications200ResponseInner](docs/GetDiscoveredApplications200ResponseInner.md)
  - [PSSailpoint.V2024\Model.GetHistoricalIdentityEvents200ResponseInner](docs/GetHistoricalIdentityEvents200ResponseInner.md)
+ - [PSSailpoint.V2024\Model.GetLaunchers200Response](docs/GetLaunchers200Response.md)
  - [PSSailpoint.V2024\Model.GetOAuthClientResponse](docs/GetOAuthClientResponse.md)
  - [PSSailpoint.V2024\Model.GetPersonalAccessTokenResponse](docs/GetPersonalAccessTokenResponse.md)
  - [PSSailpoint.V2024\Model.GetReferenceIdentityAttribute](docs/GetReferenceIdentityAttribute.md)
@@ -1262,6 +1275,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.IdentityDocumentAllOfSource](docs/IdentityDocumentAllOfSource.md)
  - [PSSailpoint.V2024\Model.IdentityEntities](docs/IdentityEntities.md)
  - [PSSailpoint.V2024\Model.IdentityEntitiesIdentityEntity](docs/IdentityEntitiesIdentityEntity.md)
+ - [PSSailpoint.V2024\Model.IdentityEntitlementDetails](docs/IdentityEntitlementDetails.md)
+ - [PSSailpoint.V2024\Model.IdentityEntitlementDetailsAccountTarget](docs/IdentityEntitlementDetailsAccountTarget.md)
+ - [PSSailpoint.V2024\Model.IdentityEntitlementDetailsEntitlementDto](docs/IdentityEntitlementDetailsEntitlementDto.md)
+ - [PSSailpoint.V2024\Model.IdentityEntitlements](docs/IdentityEntitlements.md)
  - [PSSailpoint.V2024\Model.IdentityExceptionReportReference](docs/IdentityExceptionReportReference.md)
  - [PSSailpoint.V2024\Model.IdentityHistoryResponse](docs/IdentityHistoryResponse.md)
  - [PSSailpoint.V2024\Model.IdentityLifecycleState](docs/IdentityLifecycleState.md)
@@ -1313,6 +1330,11 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.KbaAnswerResponseItem](docs/KbaAnswerResponseItem.md)
  - [PSSailpoint.V2024\Model.KbaQuestion](docs/KbaQuestion.md)
  - [PSSailpoint.V2024\Model.LatestOutlierSummary](docs/LatestOutlierSummary.md)
+ - [PSSailpoint.V2024\Model.Launcher](docs/Launcher.md)
+ - [PSSailpoint.V2024\Model.LauncherOwner](docs/LauncherOwner.md)
+ - [PSSailpoint.V2024\Model.LauncherReference](docs/LauncherReference.md)
+ - [PSSailpoint.V2024\Model.LauncherRequest](docs/LauncherRequest.md)
+ - [PSSailpoint.V2024\Model.LauncherRequestReference](docs/LauncherRequestReference.md)
  - [PSSailpoint.V2024\Model.LeftPad](docs/LeftPad.md)
  - [PSSailpoint.V2024\Model.License](docs/License.md)
  - [PSSailpoint.V2024\Model.LifecycleState](docs/LifecycleState.md)
@@ -1809,6 +1831,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.Split](docs/Split.md)
  - [PSSailpoint.V2024\Model.StandardLevel](docs/StandardLevel.md)
  - [PSSailpoint.V2024\Model.StartInvocationInput](docs/StartInvocationInput.md)
+ - [PSSailpoint.V2024\Model.StartLauncher200Response](docs/StartLauncher200Response.md)
  - [PSSailpoint.V2024\Model.Static](docs/Static.md)
  - [PSSailpoint.V2024\Model.StatusResponse](docs/StatusResponse.md)
  - [PSSailpoint.V2024\Model.SubSearchAggregationSpecification](docs/SubSearchAggregationSpecification.md)
@@ -1820,6 +1843,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.SubscriptionPutRequest](docs/SubscriptionPutRequest.md)
  - [PSSailpoint.V2024\Model.SubscriptionType](docs/SubscriptionType.md)
  - [PSSailpoint.V2024\Model.Substring](docs/Substring.md)
+ - [PSSailpoint.V2024\Model.Tag](docs/Tag.md)
+ - [PSSailpoint.V2024\Model.TagTagCategoryRefsInner](docs/TagTagCategoryRefsInner.md)
  - [PSSailpoint.V2024\Model.TaggedObject](docs/TaggedObject.md)
  - [PSSailpoint.V2024\Model.TaggedObjectDto](docs/TaggedObjectDto.md)
  - [PSSailpoint.V2024\Model.Target](docs/Target.md)

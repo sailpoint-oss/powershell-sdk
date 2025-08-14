@@ -962,6 +962,9 @@ Get accounts selections for identity
 
 Use this API to fetch account information for an identity against the items in an access request.  Used to fetch accountSelection for the AccessRequest prior to submitting for async processing. 
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER AccountsSelectionRequest
 No description available.
 
@@ -977,6 +980,9 @@ function Invoke-V2025LoadAccountSelections {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${AccountsSelectionRequest},
         [Switch]
@@ -1003,6 +1009,11 @@ function Invoke-V2025LoadAccountSelections {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/access-requests/accounts-selection'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling loadAccountSelections."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$AccountsSelectionRequest) {
             throw "Error! The required parameter `AccountsSelectionRequest` missing when calling loadAccountSelections."

@@ -46,6 +46,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentitiesApi' {
         }
     }
 
+    Context 'Get-V2024EntitlementsByIdentity' {
+        It 'Test Get-V2024EntitlementsByIdentity' {
+            #$TestResult = Get-V2024EntitlementsByIdentity -Id "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2024Identities' {
         It 'Test Get-V2024Identities' {
             #$TestResult = Get-V2024Identities -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -DefaultFilter "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
@@ -72,7 +80,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IdentitiesApi' {
 
     Context 'Start-V2024IdentitiesInvite' {
         It 'Test Start-V2024IdentitiesInvite' {
-            #$TestResult = Start-V2024IdentitiesInvite -InviteIdentitiesRequest "TEST_VALUE"
+            #$TestResult = Start-V2024IdentitiesInvite -XSailPointExperimental "TEST_VALUE" -InviteIdentitiesRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

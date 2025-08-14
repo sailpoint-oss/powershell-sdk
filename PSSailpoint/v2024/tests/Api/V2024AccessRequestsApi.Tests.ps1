@@ -54,6 +54,14 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccessRequestsApi' {
         }
     }
 
+    Context 'Get-V2024EntitlementDetailsForIdentity' {
+        It 'Test Get-V2024EntitlementDetailsForIdentity' {
+            #$TestResult = Get-V2024EntitlementDetailsForIdentity -XSailPointExperimental "TEST_VALUE" -IdentityId "TEST_VALUE" -EntitlementId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2024AccessRequestStatus' {
         It 'Test Get-V2024AccessRequestStatus' {
             #$TestResult = Get-V2024AccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -AssignedTo "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -RequestState "TEST_VALUE"
@@ -72,7 +80,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccessRequestsApi' {
 
     Context 'Invoke-V2024LoadAccountSelections' {
         It 'Test Invoke-V2024LoadAccountSelections' {
-            #$TestResult = Invoke-V2024LoadAccountSelections -AccountsSelectionRequest "TEST_VALUE"
+            #$TestResult = Invoke-V2024LoadAccountSelections -XSailPointExperimental "TEST_VALUE" -AccountsSelectionRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

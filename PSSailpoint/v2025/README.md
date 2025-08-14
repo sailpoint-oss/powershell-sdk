@@ -399,6 +399,12 @@ Class | Method | HTTP request | Description
 *V2025IdentityProfilesApi* | [**Get-V2025IdentityProfiles**](docs/V2025IdentityProfilesApi.md#Get-V2025IdentityProfiles) | **GET** /identity-profiles | List identity profiles
 *V2025IdentityProfilesApi* | [**Sync-V2025IdentityProfile**](docs/V2025IdentityProfilesApi.md#Sync-V2025IdentityProfile) | **POST** /identity-profiles/{identity-profile-id}/process-identities | Process identities under profile
 *V2025IdentityProfilesApi* | [**Update-V2025IdentityProfile**](docs/V2025IdentityProfilesApi.md#Update-V2025IdentityProfile) | **PATCH** /identity-profiles/{identity-profile-id} | Update identity profile
+*V2025LaunchersApi* | [**New-V2025Launcher**](docs/V2025LaunchersApi.md#New-V2025Launcher) | **POST** /launchers | Create launcher
+*V2025LaunchersApi* | [**Remove-V2025Launcher**](docs/V2025LaunchersApi.md#Remove-V2025Launcher) | **DELETE** /launchers/{launcherID} | Delete launcher
+*V2025LaunchersApi* | [**Get-V2025Launcher**](docs/V2025LaunchersApi.md#Get-V2025Launcher) | **GET** /launchers/{launcherID} | Get launcher by id
+*V2025LaunchersApi* | [**Get-V2025Launchers**](docs/V2025LaunchersApi.md#Get-V2025Launchers) | **GET** /launchers | List all launchers for tenant
+*V2025LaunchersApi* | [**Send-V2025Launcher**](docs/V2025LaunchersApi.md#Send-V2025Launcher) | **PUT** /launchers/{launcherID} | Replace launcher
+*V2025LaunchersApi* | [**Start-V2025Launcher**](docs/V2025LaunchersApi.md#Start-V2025Launcher) | **POST** /launchers/{launcherID}/launch | Launch a launcher
 *V2025LifecycleStatesApi* | [**New-V2025LifecycleState**](docs/V2025LifecycleStatesApi.md#New-V2025LifecycleState) | **POST** /identity-profiles/{identity-profile-id}/lifecycle-states | Create lifecycle state
 *V2025LifecycleStatesApi* | [**Remove-V2025LifecycleState**](docs/V2025LifecycleStatesApi.md#Remove-V2025LifecycleState) | **DELETE** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Delete lifecycle state
 *V2025LifecycleStatesApi* | [**Get-V2025LifecycleState**](docs/V2025LifecycleStatesApi.md#Get-V2025LifecycleState) | **GET** /identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id} | Get lifecycle state
@@ -715,6 +721,10 @@ Class | Method | HTTP request | Description
 *V2025TaggedObjectsApi* | [**Send-V2025TaggedObject**](docs/V2025TaggedObjectsApi.md#Send-V2025TaggedObject) | **PUT** /tagged-objects/{type}/{id} | Update tagged object
 *V2025TaggedObjectsApi* | [**Set-V2025TagToObject**](docs/V2025TaggedObjectsApi.md#Set-V2025TagToObject) | **POST** /tagged-objects | Add tag to object
 *V2025TaggedObjectsApi* | [**Set-V2025TagsToManyObjects**](docs/V2025TaggedObjectsApi.md#Set-V2025TagsToManyObjects) | **POST** /tagged-objects/bulk-add | Tag multiple objects
+*V2025TagsApi* | [**New-V2025Tag**](docs/V2025TagsApi.md#New-V2025Tag) | **POST** /tags | Create tag
+*V2025TagsApi* | [**Remove-V2025TagById**](docs/V2025TagsApi.md#Remove-V2025TagById) | **DELETE** /tags/{id} | Delete tag
+*V2025TagsApi* | [**Get-V2025TagById**](docs/V2025TagsApi.md#Get-V2025TagById) | **GET** /tags/{id} | Get tag by id
+*V2025TagsApi* | [**Get-V2025Tags**](docs/V2025TagsApi.md#Get-V2025Tags) | **GET** /tags | List tags
 *V2025TaskManagementApi* | [**Get-V2025PendingTaskHeaders**](docs/V2025TaskManagementApi.md#Get-V2025PendingTaskHeaders) | **HEAD** /task-status/pending-tasks | Retrieve pending task list headers
 *V2025TaskManagementApi* | [**Get-V2025PendingTasks**](docs/V2025TaskManagementApi.md#Get-V2025PendingTasks) | **GET** /task-status/pending-tasks | Retrieve pending task status list
 *V2025TaskManagementApi* | [**Get-V2025TaskStatus**](docs/V2025TaskManagementApi.md#Get-V2025TaskStatus) | **GET** /task-status/{id} | Get task status by id
@@ -1277,6 +1287,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.GetCampaign200Response](docs/GetCampaign200Response.md)
  - [PSSailpoint.V2025\Model.GetDiscoveredApplications200ResponseInner](docs/GetDiscoveredApplications200ResponseInner.md)
  - [PSSailpoint.V2025\Model.GetHistoricalIdentityEvents200ResponseInner](docs/GetHistoricalIdentityEvents200ResponseInner.md)
+ - [PSSailpoint.V2025\Model.GetLaunchers200Response](docs/GetLaunchers200Response.md)
  - [PSSailpoint.V2025\Model.GetOAuthClientResponse](docs/GetOAuthClientResponse.md)
  - [PSSailpoint.V2025\Model.GetPersonalAccessTokenResponse](docs/GetPersonalAccessTokenResponse.md)
  - [PSSailpoint.V2025\Model.GetReferenceIdentityAttribute](docs/GetReferenceIdentityAttribute.md)
@@ -1380,6 +1391,11 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.KbaAnswerResponseItem](docs/KbaAnswerResponseItem.md)
  - [PSSailpoint.V2025\Model.KbaQuestion](docs/KbaQuestion.md)
  - [PSSailpoint.V2025\Model.LatestOutlierSummary](docs/LatestOutlierSummary.md)
+ - [PSSailpoint.V2025\Model.Launcher](docs/Launcher.md)
+ - [PSSailpoint.V2025\Model.LauncherOwner](docs/LauncherOwner.md)
+ - [PSSailpoint.V2025\Model.LauncherReference](docs/LauncherReference.md)
+ - [PSSailpoint.V2025\Model.LauncherRequest](docs/LauncherRequest.md)
+ - [PSSailpoint.V2025\Model.LauncherRequestReference](docs/LauncherRequestReference.md)
  - [PSSailpoint.V2025\Model.LeftPad](docs/LeftPad.md)
  - [PSSailpoint.V2025\Model.License](docs/License.md)
  - [PSSailpoint.V2025\Model.LifecycleState](docs/LifecycleState.md)
@@ -1885,6 +1901,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.Split](docs/Split.md)
  - [PSSailpoint.V2025\Model.StandardLevel](docs/StandardLevel.md)
  - [PSSailpoint.V2025\Model.StartInvocationInput](docs/StartInvocationInput.md)
+ - [PSSailpoint.V2025\Model.StartLauncher200Response](docs/StartLauncher200Response.md)
  - [PSSailpoint.V2025\Model.Static](docs/Static.md)
  - [PSSailpoint.V2025\Model.StatusResponse](docs/StatusResponse.md)
  - [PSSailpoint.V2025\Model.SubSearchAggregationSpecification](docs/SubSearchAggregationSpecification.md)
@@ -1896,6 +1913,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.SubscriptionPutRequest](docs/SubscriptionPutRequest.md)
  - [PSSailpoint.V2025\Model.SubscriptionType](docs/SubscriptionType.md)
  - [PSSailpoint.V2025\Model.Substring](docs/Substring.md)
+ - [PSSailpoint.V2025\Model.Tag](docs/Tag.md)
+ - [PSSailpoint.V2025\Model.TagTagCategoryRefsInner](docs/TagTagCategoryRefsInner.md)
  - [PSSailpoint.V2025\Model.TaggedObject](docs/TaggedObject.md)
  - [PSSailpoint.V2025\Model.TaggedObjectDto](docs/TaggedObjectDto.md)
  - [PSSailpoint.V2025\Model.Target](docs/Target.md)

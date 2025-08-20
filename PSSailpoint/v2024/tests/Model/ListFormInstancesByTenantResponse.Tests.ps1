@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024ListFormInstancesByTenantResponse'
     Context 'V2024ListFormInstancesByTenantResponse' {
         It 'Initialize-V2024ListFormInstancesByTenantResponse' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024ListFormInstancesByTenantResponse -Count "TEST_VALUE" -Results "TEST_VALUE"
+            #$NewObject = Initialize-V2024ListFormInstancesByTenantResponse -Id "TEST_VALUE" -Expire "TEST_VALUE" -State "TEST_VALUE" -StandAloneForm "TEST_VALUE" -StandAloneFormUrl "TEST_VALUE" -CreatedBy "TEST_VALUE" -FormDefinitionId "TEST_VALUE" -FormInput "TEST_VALUE" -FormElements "TEST_VALUE" -FormData "TEST_VALUE" -FormErrors "TEST_VALUE" -FormConditions "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Recipients "TEST_VALUE"
             #$NewObject | Should -BeOfType ListFormInstancesByTenantResponse
             #$NewObject.property | Should -Be 0
         }

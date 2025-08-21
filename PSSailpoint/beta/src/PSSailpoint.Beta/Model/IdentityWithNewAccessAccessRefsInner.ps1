@@ -18,8 +18,6 @@ Entitlement including a specific set of access.
 Entitlement's DTO type.
 .PARAMETER Id
 Entitlement's ID.
-.PARAMETER Name
-Entitlement's display name.
 .OUTPUTS
 
 IdentityWithNewAccessAccessRefsInner<PSCustomObject>
@@ -34,10 +32,7 @@ function Initialize-BetaIdentityWithNewAccessAccessRefsInner {
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Name}
+        ${Id}
     )
 
     Process {
@@ -48,7 +43,6 @@ function Initialize-BetaIdentityWithNewAccessAccessRefsInner {
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
-            "name" = ${Name}
         }
 
         return $PSO
@@ -85,7 +79,7 @@ function ConvertFrom-BetaJsonToIdentityWithNewAccessAccessRefsInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaIdentityWithNewAccessAccessRefsInner
-        $AllProperties = ("type", "id", "name")
+        $AllProperties = ("type", "id")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -104,16 +98,9 @@ function ConvertFrom-BetaJsonToIdentityWithNewAccessAccessRefsInner {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
-        } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "type" = ${Type}
             "id" = ${Id}
-            "name" = ${Name}
         }
 
         return $PSO

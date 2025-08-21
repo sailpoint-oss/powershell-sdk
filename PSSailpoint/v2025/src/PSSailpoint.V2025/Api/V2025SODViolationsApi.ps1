@@ -105,7 +105,7 @@ Check sod violations
 
 This API initiates a SOD policy verification asynchronously.
 
-.PARAMETER IdentityWithNewAccess1
+.PARAMETER IdentityWithNewAccess
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -121,7 +121,7 @@ function Start-V2025ViolationCheck {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${IdentityWithNewAccess1},
+        ${IdentityWithNewAccess},
         [Switch]
         $WithHttpInfo
     )
@@ -147,14 +147,14 @@ function Start-V2025ViolationCheck {
 
         $LocalVarUri = '/sod-violations/check'
 
-        if (!$IdentityWithNewAccess1) {
-            throw "Error! The required parameter `IdentityWithNewAccess1` missing when calling startViolationCheck."
+        if (!$IdentityWithNewAccess) {
+            throw "Error! The required parameter `IdentityWithNewAccess` missing when calling startViolationCheck."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityWithNewAccess1 -is [array])) {
-            $LocalVarBodyParameter = $IdentityWithNewAccess1 | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($IdentityWithNewAccess -is [array])) {
+            $LocalVarBodyParameter = $IdentityWithNewAccess | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $IdentityWithNewAccess1 | ForEach-Object {
+            $LocalVarBodyParameter = $IdentityWithNewAccess | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

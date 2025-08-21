@@ -425,7 +425,6 @@ docs/EntitlementDocumentAllOfPermissions.md
 docs/EntitlementDocumentAllOfSource.md
 docs/EntitlementOwner.md
 docs/EntitlementRef.md
-docs/EntitlementRef1.md
 docs/EntitlementRequestConfig.md
 docs/EntitlementRevocationRequestConfig.md
 docs/EntitlementSource.md
@@ -572,7 +571,6 @@ docs/IdentitySummary.md
 docs/IdentitySyncJob.md
 docs/IdentitySyncPayload.md
 docs/IdentityWithNewAccess.md
-docs/IdentityWithNewAccess1.md
 docs/IdentityWithNewAccessAccessRefsInner.md
 docs/IdpDetails.md
 docs/ImportAccountsRequest.md
@@ -1949,7 +1947,6 @@ src/PSSailpoint.V2025/Model/EntitlementDocumentAllOfPermissions.ps1
 src/PSSailpoint.V2025/Model/EntitlementDocumentAllOfSource.ps1
 src/PSSailpoint.V2025/Model/EntitlementOwner.ps1
 src/PSSailpoint.V2025/Model/EntitlementRef.ps1
-src/PSSailpoint.V2025/Model/EntitlementRef1.ps1
 src/PSSailpoint.V2025/Model/EntitlementRequestConfig.ps1
 src/PSSailpoint.V2025/Model/EntitlementRevocationRequestConfig.ps1
 src/PSSailpoint.V2025/Model/EntitlementSource.ps1
@@ -2093,7 +2090,6 @@ src/PSSailpoint.V2025/Model/IdentitySummary.ps1
 src/PSSailpoint.V2025/Model/IdentitySyncJob.ps1
 src/PSSailpoint.V2025/Model/IdentitySyncPayload.ps1
 src/PSSailpoint.V2025/Model/IdentityWithNewAccess.ps1
-src/PSSailpoint.V2025/Model/IdentityWithNewAccess1.ps1
 src/PSSailpoint.V2025/Model/IdentityWithNewAccessAccessRefsInner.ps1
 src/PSSailpoint.V2025/Model/IdpDetails.ps1
 src/PSSailpoint.V2025/Model/ImportAccountsRequest.ps1
@@ -3286,7 +3282,6 @@ tests/Model/EntitlementDocumentAllOfPermissions.Tests.ps1
 tests/Model/EntitlementDocumentAllOfSource.Tests.ps1
 tests/Model/EntitlementOwner.Tests.ps1
 tests/Model/EntitlementRef.Tests.ps1
-tests/Model/EntitlementRef1.Tests.ps1
 tests/Model/EntitlementRequestConfig.Tests.ps1
 tests/Model/EntitlementRevocationRequestConfig.Tests.ps1
 tests/Model/EntitlementSource.Tests.ps1
@@ -3430,7 +3425,6 @@ tests/Model/IdentitySummary.Tests.ps1
 tests/Model/IdentitySyncJob.Tests.ps1
 tests/Model/IdentitySyncPayload.Tests.ps1
 tests/Model/IdentityWithNewAccess.Tests.ps1
-tests/Model/IdentityWithNewAccess1.Tests.ps1
 tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
 tests/Model/IdpDetails.Tests.ps1
 tests/Model/ImportAccountsRequest.Tests.ps1

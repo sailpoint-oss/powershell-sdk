@@ -242,7 +242,6 @@ docs/EntitlementDocumentAllOfPermissions.md
 docs/EntitlementDocumentAllOfSource.md
 docs/EntitlementOwner.md
 docs/EntitlementRef.md
-docs/EntitlementRef1.md
 docs/EntitlementRequestConfig.md
 docs/EntitlementSource.md
 docs/EntitlementSummary.md
@@ -314,7 +313,6 @@ docs/IdentityReference.md
 docs/IdentityReferenceWithNameAndEmail.md
 docs/IdentitySummary.md
 docs/IdentityWithNewAccess.md
-docs/IdentityWithNewAccess1.md
 docs/IdentityWithNewAccessAccessRefsInner.md
 docs/IdpDetails.md
 docs/ImportNonEmployeeRecordsInBulkRequest.md
@@ -1003,7 +1001,6 @@ src/PSSailpoint.V3/Model/EntitlementDocumentAllOfPermissions.ps1
 src/PSSailpoint.V3/Model/EntitlementDocumentAllOfSource.ps1
 src/PSSailpoint.V3/Model/EntitlementOwner.ps1
 src/PSSailpoint.V3/Model/EntitlementRef.ps1
-src/PSSailpoint.V3/Model/EntitlementRef1.ps1
 src/PSSailpoint.V3/Model/EntitlementRequestConfig.ps1
 src/PSSailpoint.V3/Model/EntitlementSource.ps1
 src/PSSailpoint.V3/Model/EntitlementSummary.ps1
@@ -1069,7 +1066,6 @@ src/PSSailpoint.V3/Model/IdentityReference.ps1
 src/PSSailpoint.V3/Model/IdentityReferenceWithNameAndEmail.ps1
 src/PSSailpoint.V3/Model/IdentitySummary.ps1
 src/PSSailpoint.V3/Model/IdentityWithNewAccess.ps1
-src/PSSailpoint.V3/Model/IdentityWithNewAccess1.ps1
 src/PSSailpoint.V3/Model/IdentityWithNewAccessAccessRefsInner.ps1
 src/PSSailpoint.V3/Model/IdpDetails.ps1
 src/PSSailpoint.V3/Model/ImportNonEmployeeRecordsInBulkRequest.ps1
@@ -1699,7 +1695,6 @@ tests/Model/EntitlementDocumentAllOfPermissions.Tests.ps1
 tests/Model/EntitlementDocumentAllOfSource.Tests.ps1
 tests/Model/EntitlementOwner.Tests.ps1
 tests/Model/EntitlementRef.Tests.ps1
-tests/Model/EntitlementRef1.Tests.ps1
 tests/Model/EntitlementRequestConfig.Tests.ps1
 tests/Model/EntitlementSource.Tests.ps1
 tests/Model/EntitlementSummary.Tests.ps1
@@ -1765,7 +1760,6 @@ tests/Model/IdentityReference.Tests.ps1
 tests/Model/IdentityReferenceWithNameAndEmail.Tests.ps1
 tests/Model/IdentitySummary.Tests.ps1
 tests/Model/IdentityWithNewAccess.Tests.ps1
-tests/Model/IdentityWithNewAccess1.Tests.ps1
 tests/Model/IdentityWithNewAccessAccessRefsInner.Tests.ps1
 tests/Model/IdpDetails.Tests.ps1
 tests/Model/ImportNonEmployeeRecordsInBulkRequest.Tests.ps1

@@ -727,6 +727,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.ManagedClientType](docs/ManagedClientType.md)
  - [PSSailpoint.V3\Model.ManagedCluster](docs/ManagedCluster.md)
  - [PSSailpoint.V3\Model.ManagedClusterAttributes](docs/ManagedClusterAttributes.md)
+ - [PSSailpoint.V3\Model.ManagedClusterEncryptionConfig](docs/ManagedClusterEncryptionConfig.md)
  - [PSSailpoint.V3\Model.ManagedClusterKeyPair](docs/ManagedClusterKeyPair.md)
  - [PSSailpoint.V3\Model.ManagedClusterQueue](docs/ManagedClusterQueue.md)
  - [PSSailpoint.V3\Model.ManagedClusterRedis](docs/ManagedClusterRedis.md)

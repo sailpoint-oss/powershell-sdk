@@ -619,6 +619,7 @@ docs/ManagedClientStatusCode.md
 docs/ManagedClientType.md
 docs/ManagedCluster.md
 docs/ManagedClusterAttributes.md
+docs/ManagedClusterEncryptionConfig.md
 docs/ManagedClusterKeyPair.md
 docs/ManagedClusterQueue.md
 docs/ManagedClusterRedis.md
@@ -2085,6 +2086,7 @@ src/PSSailpoint.V2024/Model/ManagedClientStatusCode.ps1
 src/PSSailpoint.V2024/Model/ManagedClientType.ps1
 src/PSSailpoint.V2024/Model/ManagedCluster.ps1
 src/PSSailpoint.V2024/Model/ManagedClusterAttributes.ps1
+src/PSSailpoint.V2024/Model/ManagedClusterEncryptionConfig.ps1
 src/PSSailpoint.V2024/Model/ManagedClusterKeyPair.ps1
 src/PSSailpoint.V2024/Model/ManagedClusterQueue.ps1
 src/PSSailpoint.V2024/Model/ManagedClusterRedis.ps1
@@ -3371,6 +3373,7 @@ tests/Model/ManagedClientStatusCode.Tests.ps1
 tests/Model/ManagedClientType.Tests.ps1
 tests/Model/ManagedCluster.Tests.ps1
 tests/Model/ManagedClusterAttributes.Tests.ps1
+tests/Model/ManagedClusterEncryptionConfig.Tests.ps1
 tests/Model/ManagedClusterKeyPair.Tests.ps1
 tests/Model/ManagedClusterQueue.Tests.ps1
 tests/Model/ManagedClusterRedis.Tests.ps1

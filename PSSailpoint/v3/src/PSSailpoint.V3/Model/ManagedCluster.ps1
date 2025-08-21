@@ -39,7 +39,7 @@ No description available.
 .PARAMETER CcgVersion
 CCG version used by the ManagedCluster
 .PARAMETER PinnedConfig
-boolean flag indiacting whether or not the cluster configuration is pinned
+boolean flag indicating whether or not the cluster configuration is pinned
 .PARAMETER LogConfiguration
 No description available.
 .PARAMETER Operational
@@ -52,6 +52,8 @@ Public key certificate
 Public key thumbprint
 .PARAMETER PublicKey
 Public key
+.PARAMETER EncryptionConfiguration
+No description available.
 .PARAMETER AlertKey
 Key describing any immediate cluster alerts
 .PARAMETER ClientIds
@@ -133,6 +135,9 @@ function Initialize-ManagedCluster {
         [String]
         ${PublicKey},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${EncryptionConfiguration},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${AlertKey},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -185,6 +190,7 @@ function Initialize-ManagedCluster {
             "publicKeyCertificate" = ${PublicKeyCertificate}
             "publicKeyThumbprint" = ${PublicKeyThumbprint}
             "publicKey" = ${PublicKey}
+            "encryptionConfiguration" = ${EncryptionConfiguration}
             "alertKey" = ${AlertKey}
             "clientIds" = ${ClientIds}
             "serviceCount" = ${ServiceCount}
@@ -227,7 +233,7 @@ function ConvertFrom-JsonToManagedCluster {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in ManagedCluster
-        $AllProperties = ("id", "name", "pod", "org", "type", "configuration", "keyPair", "attributes", "description", "redis", "clientType", "ccgVersion", "pinnedConfig", "logConfiguration", "operational", "status", "publicKeyCertificate", "publicKeyThumbprint", "publicKey", "alertKey", "clientIds", "serviceCount", "ccId", "createdAt", "updatedAt")
+        $AllProperties = ("id", "name", "pod", "org", "type", "configuration", "keyPair", "attributes", "description", "redis", "clientType", "ccgVersion", "pinnedConfig", "logConfiguration", "operational", "status", "publicKeyCertificate", "publicKeyThumbprint", "publicKey", "encryptionConfiguration", "alertKey", "clientIds", "serviceCount", "ccId", "createdAt", "updatedAt")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -352,6 +358,12 @@ function ConvertFrom-JsonToManagedCluster {
             $PublicKey = $JsonParameters.PSobject.Properties["publicKey"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "encryptionConfiguration"))) { #optional property not found
+            $EncryptionConfiguration = $null
+        } else {
+            $EncryptionConfiguration = $JsonParameters.PSobject.Properties["encryptionConfiguration"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "alertKey"))) { #optional property not found
             $AlertKey = $null
         } else {
@@ -408,6 +420,7 @@ function ConvertFrom-JsonToManagedCluster {
             "publicKeyCertificate" = ${PublicKeyCertificate}
             "publicKeyThumbprint" = ${PublicKeyThumbprint}
             "publicKey" = ${PublicKey}
+            "encryptionConfiguration" = ${EncryptionConfiguration}
             "alertKey" = ${AlertKey}
             "clientIds" = ${ClientIds}
             "serviceCount" = ${ServiceCount}

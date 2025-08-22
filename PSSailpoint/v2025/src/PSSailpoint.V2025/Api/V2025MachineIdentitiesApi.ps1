@@ -17,7 +17,7 @@ Use this API to create a machine identity. The maximum supported length for the 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER MachineIdentity
+.PARAMETER MachineIdentityRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-MachineIdentity
+MachineIdentityResponse
 #>
 function New-V2025MachineIdentity {
     [CmdletBinding()]
@@ -36,7 +36,7 @@ function New-V2025MachineIdentity {
         $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${MachineIdentity},
+        ${MachineIdentityRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -67,14 +67,14 @@ function New-V2025MachineIdentity {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$MachineIdentity) {
-            throw "Error! The required parameter `MachineIdentity` missing when calling createMachineIdentity."
+        if (!$MachineIdentityRequest) {
+            throw "Error! The required parameter `MachineIdentityRequest` missing when calling createMachineIdentity."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MachineIdentity -is [array])) {
-            $LocalVarBodyParameter = $MachineIdentity | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($MachineIdentityRequest -is [array])) {
+            $LocalVarBodyParameter = $MachineIdentityRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $MachineIdentity | ForEach-Object {
+            $LocalVarBodyParameter = $MachineIdentityRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -95,7 +95,7 @@ function New-V2025MachineIdentity {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "MachineIdentity" `
+                                -ReturnType "MachineIdentityResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -212,7 +212,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-MachineIdentity
+MachineIdentityResponse
 #>
 function Get-V2025MachineIdentity {
     [CmdletBinding()]
@@ -265,7 +265,7 @@ function Get-V2025MachineIdentity {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "MachineIdentity" `
+                                -ReturnType "MachineIdentityResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -289,10 +289,10 @@ This API returns a list of machine identities.
 Use this header to enable this experimental API.
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **description**: *eq, in, sw*  **businessApplication**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **description**: *eq, in, sw*  **businessApplication**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **source.name**: *eq, in, sw*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*
 
 .PARAMETER Sorters
-Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **businessApplication, name**
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **businessApplication, name, source.name**
 
 .PARAMETER Count
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -309,7 +309,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-MachineIdentity[]
+MachineIdentityResponse[]
 #>
 function Get-V2025MachineIdentities {
     [CmdletBinding()]
@@ -390,7 +390,7 @@ function Get-V2025MachineIdentities {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "MachineIdentity[]" `
+                                -ReturnType "MachineIdentityResponse[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -425,7 +425,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-MachineIdentity
+MachineIdentityResponse
 #>
 function Update-V2025MachineIdentity {
     [CmdletBinding()]
@@ -501,7 +501,7 @@ function Update-V2025MachineIdentity {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "MachineIdentity" `
+                                -ReturnType "MachineIdentityResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

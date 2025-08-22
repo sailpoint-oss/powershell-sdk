@@ -644,6 +644,10 @@ docs/MachineClassificationCriteriaLevel3.md
 docs/MachineClassificationCriteriaOperation.md
 docs/MachineIdentity.md
 docs/MachineIdentityDtoOwners.md
+docs/MachineIdentityRequest.md
+docs/MachineIdentityRequestUserEntitlements.md
+docs/MachineIdentityResponse.md
+docs/MachineIdentityResponseUserEntitlements.md
 docs/MailFromAttributes.md
 docs/MailFromAttributesDto.md
 docs/ManagedClient.md
@@ -2163,6 +2167,10 @@ src/PSSailpoint.V2025/Model/MachineClassificationCriteriaLevel3.ps1
 src/PSSailpoint.V2025/Model/MachineClassificationCriteriaOperation.ps1
 src/PSSailpoint.V2025/Model/MachineIdentity.ps1
 src/PSSailpoint.V2025/Model/MachineIdentityDtoOwners.ps1
+src/PSSailpoint.V2025/Model/MachineIdentityRequest.ps1
+src/PSSailpoint.V2025/Model/MachineIdentityRequestUserEntitlements.ps1
+src/PSSailpoint.V2025/Model/MachineIdentityResponse.ps1
+src/PSSailpoint.V2025/Model/MachineIdentityResponseUserEntitlements.ps1
 src/PSSailpoint.V2025/Model/MailFromAttributes.ps1
 src/PSSailpoint.V2025/Model/MailFromAttributesDto.ps1
 src/PSSailpoint.V2025/Model/ManagedClient.ps1
@@ -3498,6 +3506,10 @@ tests/Model/MachineClassificationCriteriaLevel3.Tests.ps1
 tests/Model/MachineClassificationCriteriaOperation.Tests.ps1
 tests/Model/MachineIdentity.Tests.ps1
 tests/Model/MachineIdentityDtoOwners.Tests.ps1
+tests/Model/MachineIdentityRequest.Tests.ps1
+tests/Model/MachineIdentityRequestUserEntitlements.Tests.ps1
+tests/Model/MachineIdentityResponse.Tests.ps1
+tests/Model/MachineIdentityResponseUserEntitlements.Tests.ps1
 tests/Model/MailFromAttributes.Tests.ps1
 tests/Model/MailFromAttributesDto.Tests.ps1
 tests/Model/ManagedClient.Tests.ps1

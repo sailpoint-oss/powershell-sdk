@@ -32,12 +32,22 @@ The source id associated to the machine identity
 The UUID associated to the machine identity directly aggregated from a source
 .PARAMETER NativeIdentity
 The native identity associated to the machine identity directly aggregated from a source
+.PARAMETER ManuallyEdited
+Indicates if the machine identity has been manually edited
+.PARAMETER ManuallyCreated
+Indicates if the machine identity has been manually created
+.PARAMETER Source
+The source of the machine identity
+.PARAMETER DatasetId
+The dataset id associated to the source in which the identity was retrieved from
+.PARAMETER UserEntitlements
+The user entitlements associated to the machine identity
 .OUTPUTS
 
-MachineIdentity<PSCustomObject>
+MachineIdentityResponse<PSCustomObject>
 #>
 
-function Initialize-V2025MachineIdentity {
+function Initialize-V2025MachineIdentityResponse {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -66,11 +76,26 @@ function Initialize-V2025MachineIdentity {
         ${Uuid},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${NativeIdentity}
+        ${NativeIdentity},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${ManuallyEdited} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${ManuallyCreated} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Source},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${DatasetId},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${UserEntitlements}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2025 => V2025MachineIdentity' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2025 => V2025MachineIdentityResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$BusinessApplication) {
@@ -92,6 +117,11 @@ function Initialize-V2025MachineIdentity {
             "sourceId" = ${SourceId}
             "uuid" = ${Uuid}
             "nativeIdentity" = ${NativeIdentity}
+            "manuallyEdited" = ${ManuallyEdited}
+            "manuallyCreated" = ${ManuallyCreated}
+            "source" = ${Source}
+            "datasetId" = ${DatasetId}
+            "userEntitlements" = ${UserEntitlements}
         }
 
         return $PSO
@@ -101,11 +131,11 @@ function Initialize-V2025MachineIdentity {
 <#
 .SYNOPSIS
 
-Convert from JSON to MachineIdentity<PSCustomObject>
+Convert from JSON to MachineIdentityResponse<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to MachineIdentity<PSCustomObject>
+Convert from JSON to MachineIdentityResponse<PSCustomObject>
 
 .PARAMETER Json
 
@@ -113,22 +143,22 @@ Json object
 
 .OUTPUTS
 
-MachineIdentity<PSCustomObject>
+MachineIdentityResponse<PSCustomObject>
 #>
-function ConvertFrom-V2025JsonToMachineIdentity {
+function ConvertFrom-V2025JsonToMachineIdentityResponse {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2025 => V2025MachineIdentity' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2025 => V2025MachineIdentityResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2025MachineIdentity
-        $AllProperties = ("id", "name", "created", "modified", "businessApplication", "description", "attributes", "subtype", "owners", "sourceId", "uuid", "nativeIdentity")
+        # check if Json contains properties not defined in V2025MachineIdentityResponse
+        $AllProperties = ("id", "name", "created", "modified", "businessApplication", "description", "attributes", "subtype", "owners", "sourceId", "uuid", "nativeIdentity", "manuallyEdited", "manuallyCreated", "source", "datasetId", "userEntitlements")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -211,6 +241,36 @@ function ConvertFrom-V2025JsonToMachineIdentity {
             $NativeIdentity = $JsonParameters.PSobject.Properties["nativeIdentity"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "manuallyEdited"))) { #optional property not found
+            $ManuallyEdited = $null
+        } else {
+            $ManuallyEdited = $JsonParameters.PSobject.Properties["manuallyEdited"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "manuallyCreated"))) { #optional property not found
+            $ManuallyCreated = $null
+        } else {
+            $ManuallyCreated = $JsonParameters.PSobject.Properties["manuallyCreated"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "source"))) { #optional property not found
+            $Source = $null
+        } else {
+            $Source = $JsonParameters.PSobject.Properties["source"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "datasetId"))) { #optional property not found
+            $DatasetId = $null
+        } else {
+            $DatasetId = $JsonParameters.PSobject.Properties["datasetId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "userEntitlements"))) { #optional property not found
+            $UserEntitlements = $null
+        } else {
+            $UserEntitlements = $JsonParameters.PSobject.Properties["userEntitlements"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -224,6 +284,11 @@ function ConvertFrom-V2025JsonToMachineIdentity {
             "sourceId" = ${SourceId}
             "uuid" = ${Uuid}
             "nativeIdentity" = ${NativeIdentity}
+            "manuallyEdited" = ${ManuallyEdited}
+            "manuallyCreated" = ${ManuallyCreated}
+            "source" = ${Source}
+            "datasetId" = ${DatasetId}
+            "userEntitlements" = ${UserEntitlements}
         }
 
         return $PSO

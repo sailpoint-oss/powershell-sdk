@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025MachineIdentitiesApi' {
     Context 'New-V2025MachineIdentity' {
         It 'Test New-V2025MachineIdentity' {
-            #$TestResult = New-V2025MachineIdentity -XSailPointExperimental "TEST_VALUE" -MachineIdentity "TEST_VALUE"
+            #$TestResult = New-V2025MachineIdentity -XSailPointExperimental "TEST_VALUE" -MachineIdentityRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

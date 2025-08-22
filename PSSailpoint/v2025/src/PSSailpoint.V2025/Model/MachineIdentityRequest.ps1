@@ -32,12 +32,14 @@ The source id associated to the machine identity
 The UUID associated to the machine identity directly aggregated from a source
 .PARAMETER NativeIdentity
 The native identity associated to the machine identity directly aggregated from a source
+.PARAMETER UserEntitlements
+The user entitlements associated to the machine identity
 .OUTPUTS
 
-MachineIdentity<PSCustomObject>
+MachineIdentityRequest<PSCustomObject>
 #>
 
-function Initialize-V2025MachineIdentity {
+function Initialize-V2025MachineIdentityRequest {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -66,11 +68,14 @@ function Initialize-V2025MachineIdentity {
         ${Uuid},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${NativeIdentity}
+        ${NativeIdentity},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${UserEntitlements}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2025 => V2025MachineIdentity' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2025 => V2025MachineIdentityRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$BusinessApplication) {
@@ -92,6 +97,7 @@ function Initialize-V2025MachineIdentity {
             "sourceId" = ${SourceId}
             "uuid" = ${Uuid}
             "nativeIdentity" = ${NativeIdentity}
+            "userEntitlements" = ${UserEntitlements}
         }
 
         return $PSO
@@ -101,11 +107,11 @@ function Initialize-V2025MachineIdentity {
 <#
 .SYNOPSIS
 
-Convert from JSON to MachineIdentity<PSCustomObject>
+Convert from JSON to MachineIdentityRequest<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to MachineIdentity<PSCustomObject>
+Convert from JSON to MachineIdentityRequest<PSCustomObject>
 
 .PARAMETER Json
 
@@ -113,22 +119,22 @@ Json object
 
 .OUTPUTS
 
-MachineIdentity<PSCustomObject>
+MachineIdentityRequest<PSCustomObject>
 #>
-function ConvertFrom-V2025JsonToMachineIdentity {
+function ConvertFrom-V2025JsonToMachineIdentityRequest {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2025 => V2025MachineIdentity' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2025 => V2025MachineIdentityRequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2025MachineIdentity
-        $AllProperties = ("id", "name", "created", "modified", "businessApplication", "description", "attributes", "subtype", "owners", "sourceId", "uuid", "nativeIdentity")
+        # check if Json contains properties not defined in V2025MachineIdentityRequest
+        $AllProperties = ("id", "name", "created", "modified", "businessApplication", "description", "attributes", "subtype", "owners", "sourceId", "uuid", "nativeIdentity", "userEntitlements")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -211,6 +217,12 @@ function ConvertFrom-V2025JsonToMachineIdentity {
             $NativeIdentity = $JsonParameters.PSobject.Properties["nativeIdentity"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "userEntitlements"))) { #optional property not found
+            $UserEntitlements = $null
+        } else {
+            $UserEntitlements = $JsonParameters.PSobject.Properties["userEntitlements"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -224,6 +236,7 @@ function ConvertFrom-V2025JsonToMachineIdentity {
             "sourceId" = ${SourceId}
             "uuid" = ${Uuid}
             "nativeIdentity" = ${NativeIdentity}
+            "userEntitlements" = ${UserEntitlements}
         }
 
         return $PSO

@@ -439,6 +439,8 @@ Class | Method | HTTP request | Description
 *V2025MachineIdentitiesApi* | [**Remove-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#Remove-V2025MachineIdentity) | **DELETE** /machine-identities/{id} | Delete machine identity
 *V2025MachineIdentitiesApi* | [**Get-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#Get-V2025MachineIdentity) | **GET** /machine-identities/{id} | Machine identity details
 *V2025MachineIdentitiesApi* | [**Get-V2025MachineIdentities**](docs/V2025MachineIdentitiesApi.md#Get-V2025MachineIdentities) | **GET** /machine-identities | List machine identities
+*V2025MachineIdentitiesApi* | [**Get-V2025MachineIdentityUserEntitlements**](docs/V2025MachineIdentitiesApi.md#Get-V2025MachineIdentityUserEntitlements) | **GET** /machine-identity-user-entitlements | List machine identity's user entitlements
+*V2025MachineIdentitiesApi* | [**Start-V2025MachineIdentityAggregation**](docs/V2025MachineIdentitiesApi.md#Start-V2025MachineIdentityAggregation) | **POST** /sources/{sourceId}/aggregate-agents | Start Machine Identity (AI Agent) Aggregation
 *V2025MachineIdentitiesApi* | [**Update-V2025MachineIdentity**](docs/V2025MachineIdentitiesApi.md#Update-V2025MachineIdentity) | **PATCH** /machine-identities/{id} | Update a machine identity
 *V2025ManagedClientsApi* | [**New-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#New-V2025ManagedClient) | **POST** /managed-clients | Create managed client
 *V2025ManagedClientsApi* | [**Remove-V2025ManagedClient**](docs/V2025ManagedClientsApi.md#Remove-V2025ManagedClient) | **DELETE** /managed-clients/{id} | Delete managed client
@@ -1435,11 +1437,17 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.MachineClassificationCriteriaLevel3](docs/MachineClassificationCriteriaLevel3.md)
  - [PSSailpoint.V2025\Model.MachineClassificationCriteriaOperation](docs/MachineClassificationCriteriaOperation.md)
  - [PSSailpoint.V2025\Model.MachineIdentity](docs/MachineIdentity.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityAggregationRequest](docs/MachineIdentityAggregationRequest.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityAggregationResponse](docs/MachineIdentityAggregationResponse.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityAggregationResponseTarget](docs/MachineIdentityAggregationResponseTarget.md)
  - [PSSailpoint.V2025\Model.MachineIdentityDtoOwners](docs/MachineIdentityDtoOwners.md)
  - [PSSailpoint.V2025\Model.MachineIdentityRequest](docs/MachineIdentityRequest.md)
  - [PSSailpoint.V2025\Model.MachineIdentityRequestUserEntitlements](docs/MachineIdentityRequestUserEntitlements.md)
  - [PSSailpoint.V2025\Model.MachineIdentityResponse](docs/MachineIdentityResponse.md)
  - [PSSailpoint.V2025\Model.MachineIdentityResponseUserEntitlements](docs/MachineIdentityResponseUserEntitlements.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityUserEntitlementResponse](docs/MachineIdentityUserEntitlementResponse.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityUserEntitlementResponseEntitlement](docs/MachineIdentityUserEntitlementResponseEntitlement.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityUserEntitlementResponseSource](docs/MachineIdentityUserEntitlementResponseSource.md)
  - [PSSailpoint.V2025\Model.MailFromAttributes](docs/MailFromAttributes.md)
  - [PSSailpoint.V2025\Model.MailFromAttributesDto](docs/MailFromAttributesDto.md)
  - [PSSailpoint.V2025\Model.ManagedClient](docs/ManagedClient.md)

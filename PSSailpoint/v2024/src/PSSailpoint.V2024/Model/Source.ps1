@@ -184,10 +184,6 @@ function Initialize-V2024Source {
             throw "invalid value for 'Name', 'Name' cannot be null."
         }
 
-        if (!$Owner) {
-            throw "invalid value for 'Owner', 'Owner' cannot be null."
-        }
-
         if (!$Connector) {
             throw "invalid value for 'Connector', 'Connector' cannot be null."
         }

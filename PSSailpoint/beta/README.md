@@ -1408,6 +1408,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.SourceDeletedActor](docs/SourceDeletedActor.md)
  - [PSSailpoint.Beta\Model.SourceEntitlementRequestConfig](docs/SourceEntitlementRequestConfig.md)
  - [PSSailpoint.Beta\Model.SourceItemRef](docs/SourceItemRef.md)
+ - [PSSailpoint.Beta\Model.SourceOwner](docs/SourceOwner.md)
  - [PSSailpoint.Beta\Model.SourceSyncJob](docs/SourceSyncJob.md)
  - [PSSailpoint.Beta\Model.SourceSyncPayload](docs/SourceSyncPayload.md)
  - [PSSailpoint.Beta\Model.SourceUpdated](docs/SourceUpdated.md)

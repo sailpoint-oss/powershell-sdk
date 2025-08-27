@@ -1496,6 +1496,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.MultiHostIntegrationsConnectorAttributesMultiHostAttributes](docs/MultiHostIntegrationsConnectorAttributesMultiHostAttributes.md)
  - [PSSailpoint.V2025\Model.MultiHostIntegrationsCreate](docs/MultiHostIntegrationsCreate.md)
  - [PSSailpoint.V2025\Model.MultiHostIntegrationsCreateSources](docs/MultiHostIntegrationsCreateSources.md)
+ - [PSSailpoint.V2025\Model.MultiHostIntegrationsOwner](docs/MultiHostIntegrationsOwner.md)
  - [PSSailpoint.V2025\Model.MultiHostSources](docs/MultiHostSources.md)
  - [PSSailpoint.V2025\Model.MultiPolicyRequest](docs/MultiPolicyRequest.md)
  - [PSSailpoint.V2025\Model.NameNormalizer](docs/NameNormalizer.md)

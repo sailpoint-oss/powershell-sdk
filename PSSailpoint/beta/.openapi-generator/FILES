@@ -946,6 +946,7 @@ docs/SourceDeleted.md
 docs/SourceDeletedActor.md
 docs/SourceEntitlementRequestConfig.md
 docs/SourceItemRef.md
+docs/SourceOwner.md
 docs/SourceSyncJob.md
 docs/SourceSyncPayload.md
 docs/SourceUpdated.md
@@ -1954,6 +1955,7 @@ src/PSSailpoint.Beta/Model/SourceDeleted.ps1
 src/PSSailpoint.Beta/Model/SourceDeletedActor.ps1
 src/PSSailpoint.Beta/Model/SourceEntitlementRequestConfig.ps1
 src/PSSailpoint.Beta/Model/SourceItemRef.ps1
+src/PSSailpoint.Beta/Model/SourceOwner.ps1
 src/PSSailpoint.Beta/Model/SourceSyncJob.ps1
 src/PSSailpoint.Beta/Model/SourceSyncPayload.ps1
 src/PSSailpoint.Beta/Model/SourceUpdated.ps1
@@ -2968,6 +2970,7 @@ tests/Model/SourceDeleted.Tests.ps1
 tests/Model/SourceDeletedActor.Tests.ps1
 tests/Model/SourceEntitlementRequestConfig.Tests.ps1
 tests/Model/SourceItemRef.Tests.ps1
+tests/Model/SourceOwner.Tests.ps1
 tests/Model/SourceSyncJob.Tests.ps1
 tests/Model/SourceSyncPayload.Tests.ps1
 tests/Model/SourceUpdated.Tests.ps1

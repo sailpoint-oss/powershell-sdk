@@ -700,6 +700,7 @@ docs/MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory.md
 docs/MultiHostIntegrationsConnectorAttributesMultiHostAttributes.md
 docs/MultiHostIntegrationsCreate.md
 docs/MultiHostIntegrationsCreateSources.md
+docs/MultiHostIntegrationsOwner.md
 docs/MultiHostSources.md
 docs/MultiPolicyRequest.md
 docs/NameNormalizer.md
@@ -2231,6 +2232,7 @@ src/PSSailpoint.V2025/Model/MultiHostIntegrationsConnectorAttributesConnectorFil
 src/PSSailpoint.V2025/Model/MultiHostIntegrationsConnectorAttributesMultiHostAttributes.ps1
 src/PSSailpoint.V2025/Model/MultiHostIntegrationsCreate.ps1
 src/PSSailpoint.V2025/Model/MultiHostIntegrationsCreateSources.ps1
+src/PSSailpoint.V2025/Model/MultiHostIntegrationsOwner.ps1
 src/PSSailpoint.V2025/Model/MultiHostSources.ps1
 src/PSSailpoint.V2025/Model/MultiPolicyRequest.ps1
 src/PSSailpoint.V2025/Model/NameNormalizer.ps1
@@ -3576,6 +3578,7 @@ tests/Model/MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory.T
 tests/Model/MultiHostIntegrationsConnectorAttributesMultiHostAttributes.Tests.ps1
 tests/Model/MultiHostIntegrationsCreate.Tests.ps1
 tests/Model/MultiHostIntegrationsCreateSources.Tests.ps1
+tests/Model/MultiHostIntegrationsOwner.Tests.ps1
 tests/Model/MultiHostSources.Tests.ps1
 tests/Model/MultiPolicyRequest.Tests.ps1
 tests/Model/NameNormalizer.Tests.ps1

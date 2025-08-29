@@ -930,11 +930,11 @@ Max number of results to return. See [V3 API Standard Collection Parameters](htt
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
-.PARAMETER TriggerId
-Trigger ID
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **enabled**: *eq*        **connectorInstanceId**: *eq*  **triggerId**: *eq*
 
-.PARAMETER ConnectorInstanceId
-Connector Instance ID
+.PARAMETER Sorters
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **modified, name**
 
 .PARAMETER WithHttpInfo
 
@@ -955,10 +955,10 @@ function Get-BetaWorkflows {
         ${Offset},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${TriggerId},
+        ${Filters},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${ConnectorInstanceId},
+        ${Sorters},
         [Switch]
         $WithHttpInfo
     )
@@ -989,12 +989,12 @@ function Get-BetaWorkflows {
             $LocalVarQueryParameters['offset'] = $Offset
         }
 
-        if ($TriggerId) {
-            $LocalVarQueryParameters['triggerId'] = $TriggerId
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
         }
 
-        if ($ConnectorInstanceId) {
-            $LocalVarQueryParameters['connectorInstanceId'] = $ConnectorInstanceId
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
         }
 
 

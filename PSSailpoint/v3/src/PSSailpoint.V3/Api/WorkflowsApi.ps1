@@ -1094,11 +1094,11 @@ List workflows
 
 List all workflows in the tenant.
 
-.PARAMETER TriggerId
-Trigger ID
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **enabled**: *eq*        **connectorInstanceId**: *eq*  **triggerId**: *eq*
 
-.PARAMETER ConnectorInstanceId
-Connector Instance ID
+.PARAMETER Sorters
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **modified, name**
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1119,10 +1119,10 @@ function Get-Workflows {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${TriggerId},
+        ${Filters},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${ConnectorInstanceId},
+        ${Sorters},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
@@ -1151,12 +1151,12 @@ function Get-Workflows {
 
         $LocalVarUri = '/workflows'
 
-        if ($TriggerId) {
-            $LocalVarQueryParameters['triggerId'] = $TriggerId
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
         }
 
-        if ($ConnectorInstanceId) {
-            $LocalVarQueryParameters['connectorInstanceId'] = $ConnectorInstanceId
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
         }
 
         if ($Limit) {

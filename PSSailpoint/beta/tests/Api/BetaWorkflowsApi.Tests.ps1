@@ -96,7 +96,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaWorkflowsApi' {
 
     Context 'Get-BetaWorkflows' {
         It 'Test Get-BetaWorkflows' {
-            #$TestResult = Get-BetaWorkflows -Limit "TEST_VALUE" -Offset "TEST_VALUE" -TriggerId "TEST_VALUE" -ConnectorInstanceId "TEST_VALUE"
+            #$TestResult = Get-BetaWorkflows -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

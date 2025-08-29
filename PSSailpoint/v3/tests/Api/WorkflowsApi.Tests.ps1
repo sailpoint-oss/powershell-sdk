@@ -112,7 +112,7 @@ Describe -tag 'PSSailpoint.V3' -name 'WorkflowsApi' {
 
     Context 'Get-Workflows' {
         It 'Test Get-Workflows' {
-            #$TestResult = Get-Workflows -TriggerId "TEST_VALUE" -ConnectorInstanceId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult = Get-Workflows -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -30,6 +30,14 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025MultiHostIntegrationApi' {
         }
     }
 
+    Context 'Remove-V2025MultiHostSources' {
+        It 'Test Remove-V2025MultiHostSources' {
+            #$TestResult = Remove-V2025MultiHostSources -MultiHostId "TEST_VALUE" -RequestBody "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2025AcctAggregationGroups' {
         It 'Test Get-V2025AcctAggregationGroups' {
             #$TestResult = Get-V2025AcctAggregationGroups -MultihostId "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE"

@@ -272,6 +272,106 @@ function Remove-V2025MultiHost {
 <#
 .SYNOPSIS
 
+Delete sources within multi-host integration
+
+.DESCRIPTION
+
+This endpoint performs bulk sources delete within Multi-Host Integration via a list of supplied IDs.  The following rights are required to access this endpoint: idn:multihosts:delete, idn:sources:delete
+
+.PARAMETER MultiHostId
+ID of the Multi-Host Integration
+
+.PARAMETER RequestBody
+The delete bulk sources within multi-host integration request body
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+None
+#>
+function Remove-V2025MultiHostSources {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${MultiHostId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String[]]
+        ${RequestBody},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Remove-V2025MultiHostSources' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/multihosts/{multiHostId}/sources/bulk-delete'
+        if (!$MultiHostId) {
+            throw "Error! The required parameter `MultiHostId` missing when calling deleteMultiHostSources."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{multiHostId}', [System.Web.HTTPUtility]::UrlEncode($MultiHostId))
+
+        if (!$RequestBody) {
+            throw "Error! The required parameter `RequestBody` missing when calling deleteMultiHostSources."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
+            $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $RequestBody | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 List account-aggregation-groups by multi-host id
 
 .DESCRIPTION

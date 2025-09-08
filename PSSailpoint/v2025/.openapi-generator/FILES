@@ -392,6 +392,7 @@ docs/DependantConnectionsMissingDto.md
 docs/DeployRequest.md
 docs/DeployResponse.md
 docs/Dimension.md
+docs/DimensionAttribute.md
 docs/DimensionBulkDeleteRequest.md
 docs/DimensionCriteriaKey.md
 docs/DimensionCriteriaKeyType.md
@@ -402,6 +403,7 @@ docs/DimensionCriteriaOperation.md
 docs/DimensionMembershipSelector.md
 docs/DimensionMembershipSelectorType.md
 docs/DimensionRef.md
+docs/DimensionSchema.md
 docs/DisplayReference.md
 docs/DkimAttributes.md
 docs/DomainAddress.md
@@ -1925,6 +1927,7 @@ src/PSSailpoint.V2025/Model/DependantConnectionsMissingDto.ps1
 src/PSSailpoint.V2025/Model/DeployRequest.ps1
 src/PSSailpoint.V2025/Model/DeployResponse.ps1
 src/PSSailpoint.V2025/Model/Dimension.ps1
+src/PSSailpoint.V2025/Model/DimensionAttribute.ps1
 src/PSSailpoint.V2025/Model/DimensionBulkDeleteRequest.ps1
 src/PSSailpoint.V2025/Model/DimensionCriteriaKey.ps1
 src/PSSailpoint.V2025/Model/DimensionCriteriaKeyType.ps1
@@ -1935,6 +1938,7 @@ src/PSSailpoint.V2025/Model/DimensionCriteriaOperation.ps1
 src/PSSailpoint.V2025/Model/DimensionMembershipSelector.ps1
 src/PSSailpoint.V2025/Model/DimensionMembershipSelectorType.ps1
 src/PSSailpoint.V2025/Model/DimensionRef.ps1
+src/PSSailpoint.V2025/Model/DimensionSchema.ps1
 src/PSSailpoint.V2025/Model/DisplayReference.ps1
 src/PSSailpoint.V2025/Model/DkimAttributes.ps1
 src/PSSailpoint.V2025/Model/DomainAddress.ps1
@@ -3271,6 +3275,7 @@ tests/Model/DependantConnectionsMissingDto.Tests.ps1
 tests/Model/DeployRequest.Tests.ps1
 tests/Model/DeployResponse.Tests.ps1
 tests/Model/Dimension.Tests.ps1
+tests/Model/DimensionAttribute.Tests.ps1
 tests/Model/DimensionBulkDeleteRequest.Tests.ps1
 tests/Model/DimensionCriteriaKey.Tests.ps1
 tests/Model/DimensionCriteriaKeyType.Tests.ps1
@@ -3281,6 +3286,7 @@ tests/Model/DimensionCriteriaOperation.Tests.ps1
 tests/Model/DimensionMembershipSelector.Tests.ps1
 tests/Model/DimensionMembershipSelectorType.Tests.ps1
 tests/Model/DimensionRef.Tests.ps1
+tests/Model/DimensionSchema.Tests.ps1
 tests/Model/DisplayReference.Tests.ps1
 tests/Model/DkimAttributes.Tests.ps1
 tests/Model/DomainAddress.Tests.ps1

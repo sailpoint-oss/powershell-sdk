@@ -22,6 +22,8 @@ Whether an approver must provide comments when denying the request
 Indicates whether reauthorization is required for the request.
 .PARAMETER ApprovalSchemes
 List describing the steps in approving the request
+.PARAMETER DimensionSchema
+No description available.
 .OUTPUTS
 
 RequestabilityForRole<PSCustomObject>
@@ -41,7 +43,10 @@ function Initialize-V2025RequestabilityForRole {
         ${ReauthorizationRequired} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${ApprovalSchemes}
+        ${ApprovalSchemes},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${DimensionSchema}
     )
 
     Process {
@@ -54,6 +59,7 @@ function Initialize-V2025RequestabilityForRole {
             "denialCommentsRequired" = ${DenialCommentsRequired}
             "reauthorizationRequired" = ${ReauthorizationRequired}
             "approvalSchemes" = ${ApprovalSchemes}
+            "dimensionSchema" = ${DimensionSchema}
         }
 
         return $PSO
@@ -90,7 +96,7 @@ function ConvertFrom-V2025JsonToRequestabilityForRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025RequestabilityForRole
-        $AllProperties = ("commentsRequired", "denialCommentsRequired", "reauthorizationRequired", "approvalSchemes")
+        $AllProperties = ("commentsRequired", "denialCommentsRequired", "reauthorizationRequired", "approvalSchemes", "dimensionSchema")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -121,11 +127,18 @@ function ConvertFrom-V2025JsonToRequestabilityForRole {
             $ApprovalSchemes = $JsonParameters.PSobject.Properties["approvalSchemes"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dimensionSchema"))) { #optional property not found
+            $DimensionSchema = $null
+        } else {
+            $DimensionSchema = $JsonParameters.PSobject.Properties["dimensionSchema"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "commentsRequired" = ${CommentsRequired}
             "denialCommentsRequired" = ${DenialCommentsRequired}
             "reauthorizationRequired" = ${ReauthorizationRequired}
             "approvalSchemes" = ${ApprovalSchemes}
+            "dimensionSchema" = ${DimensionSchema}
         }
 
         return $PSO

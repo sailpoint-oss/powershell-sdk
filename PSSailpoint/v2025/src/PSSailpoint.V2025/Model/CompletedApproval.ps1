@@ -62,6 +62,8 @@ No description available.
 Arbitrary key-value pairs provided during the request.
 .PARAMETER RequestedAccounts
 The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
+.PARAMETER PrivilegeLevel
+The privilege level of the requested access item, if applicable.
 .OUTPUTS
 
 CompletedApproval<PSCustomObject>
@@ -143,7 +145,10 @@ function Initialize-V2025CompletedApproval {
         ${ClientMetadata},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${RequestedAccounts}
+        ${RequestedAccounts},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${PrivilegeLevel}
     )
 
     Process {
@@ -176,6 +181,7 @@ function Initialize-V2025CompletedApproval {
             "preApprovalTriggerResult" = ${PreApprovalTriggerResult}
             "clientMetadata" = ${ClientMetadata}
             "requestedAccounts" = ${RequestedAccounts}
+            "privilegeLevel" = ${PrivilegeLevel}
         }
 
         return $PSO
@@ -212,7 +218,7 @@ function ConvertFrom-V2025JsonToCompletedApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025CompletedApproval
-        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata", "requestedAccounts")
+        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata", "requestedAccounts", "privilegeLevel")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -363,6 +369,12 @@ function ConvertFrom-V2025JsonToCompletedApproval {
             $RequestedAccounts = $JsonParameters.PSobject.Properties["requestedAccounts"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "privilegeLevel"))) { #optional property not found
+            $PrivilegeLevel = $null
+        } else {
+            $PrivilegeLevel = $JsonParameters.PSobject.Properties["privilegeLevel"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -388,6 +400,7 @@ function ConvertFrom-V2025JsonToCompletedApproval {
             "preApprovalTriggerResult" = ${PreApprovalTriggerResult}
             "clientMetadata" = ${ClientMetadata}
             "requestedAccounts" = ${RequestedAccounts}
+            "privilegeLevel" = ${PrivilegeLevel}
         }
 
         return $PSO

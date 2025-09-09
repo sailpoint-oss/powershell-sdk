@@ -56,6 +56,8 @@ No description available.
 Arbitrary key-value pairs, if any were included in the corresponding access request item
 .PARAMETER RequestedAccounts
 The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
+.PARAMETER PrivilegeLevel
+The privilege level of the requested access item, if applicable.
 .OUTPUTS
 
 PendingApproval<PSCustomObject>
@@ -128,7 +130,10 @@ function Initialize-BetaPendingApproval {
         ${ClientMetadata},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${RequestedAccounts}
+        ${RequestedAccounts},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${PrivilegeLevel}
     )
 
     Process {
@@ -158,6 +163,7 @@ function Initialize-BetaPendingApproval {
             "sodViolationContext" = ${SodViolationContext}
             "clientMetadata" = ${ClientMetadata}
             "requestedAccounts" = ${RequestedAccounts}
+            "privilegeLevel" = ${PrivilegeLevel}
         }
 
         return $PSO
@@ -194,7 +200,7 @@ function ConvertFrom-BetaJsonToPendingApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaPendingApproval
-        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "clientMetadata", "requestedAccounts")
+        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "clientMetadata", "requestedAccounts", "privilegeLevel")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -327,6 +333,12 @@ function ConvertFrom-BetaJsonToPendingApproval {
             $RequestedAccounts = $JsonParameters.PSobject.Properties["requestedAccounts"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "privilegeLevel"))) { #optional property not found
+            $PrivilegeLevel = $null
+        } else {
+            $PrivilegeLevel = $JsonParameters.PSobject.Properties["privilegeLevel"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -349,6 +361,7 @@ function ConvertFrom-BetaJsonToPendingApproval {
             "sodViolationContext" = ${SodViolationContext}
             "clientMetadata" = ${ClientMetadata}
             "requestedAccounts" = ${RequestedAccounts}
+            "privilegeLevel" = ${PrivilegeLevel}
         }
 
         return $PSO

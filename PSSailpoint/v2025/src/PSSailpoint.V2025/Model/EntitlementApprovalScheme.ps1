@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER ApproverType
-Describes the individual or group that is responsible for an approval step. Values are as follows.  **ENTITLEMENT_OWNER**: Owner of the associated Entitlement  **SOURCE_OWNER**: Owner of the associated Source  **MANAGER**: Manager of the Identity for whom the request is being made  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
+Describes the individual or group that is responsible for an approval step. Values are as follows.  **ENTITLEMENT_OWNER**: Owner of the associated Entitlement  **SOURCE_OWNER**: Owner of the associated Source  **MANAGER**: Manager of the Identity for whom the request is being made  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field, Workflows are exclusive to other types of approvals and License required.     
 .PARAMETER ApproverId
-Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
+Id of the specific approver, used only when approverType is GOVERNANCE_GROUP or WORKFLOW
 .OUTPUTS
 
 EntitlementApprovalScheme<PSCustomObject>
@@ -27,7 +27,7 @@ function Initialize-V2025EntitlementApprovalScheme {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ENTITLEMENT_OWNER", "SOURCE_OWNER", "MANAGER", "GOVERNANCE_GROUP")]
+        [ValidateSet("ENTITLEMENT_OWNER", "SOURCE_OWNER", "MANAGER", "GOVERNANCE_GROUP", "WORKFLOW")]
         [String]
         ${ApproverType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

@@ -148,6 +148,7 @@ docs/BaseCommonDto.md
 docs/BaseCommonDto1.md
 docs/BaseReferenceDto.md
 docs/BaseReferenceDto1.md
+docs/BaseRoleReferenceDto.md
 docs/BasicAuthConfig.md
 docs/BearerTokenAuthConfig.md
 docs/BeforeProvisioningRuleDto.md
@@ -799,6 +800,8 @@ docs/RevocabilityForRole.md
 docs/RightPad.md
 docs/Role.md
 docs/RoleAssignmentDto.md
+docs/RoleAssignmentDtoAssigner.md
+docs/RoleAssignmentDtoAssignmentContext.md
 docs/RoleAssignmentRef.md
 docs/RoleAssignmentSourceType.md
 docs/RoleBulkDeleteRequest.md
@@ -1306,6 +1309,7 @@ src/PSSailpoint.Beta/Model/BaseCommonDto.ps1
 src/PSSailpoint.Beta/Model/BaseCommonDto1.ps1
 src/PSSailpoint.Beta/Model/BaseReferenceDto.ps1
 src/PSSailpoint.Beta/Model/BaseReferenceDto1.ps1
+src/PSSailpoint.Beta/Model/BaseRoleReferenceDto.ps1
 src/PSSailpoint.Beta/Model/BasicAuthConfig.ps1
 src/PSSailpoint.Beta/Model/BearerTokenAuthConfig.ps1
 src/PSSailpoint.Beta/Model/BeforeProvisioningRuleDto.ps1
@@ -1808,6 +1812,8 @@ src/PSSailpoint.Beta/Model/RevocabilityForRole.ps1
 src/PSSailpoint.Beta/Model/RightPad.ps1
 src/PSSailpoint.Beta/Model/Role.ps1
 src/PSSailpoint.Beta/Model/RoleAssignmentDto.ps1
+src/PSSailpoint.Beta/Model/RoleAssignmentDtoAssigner.ps1
+src/PSSailpoint.Beta/Model/RoleAssignmentDtoAssignmentContext.ps1
 src/PSSailpoint.Beta/Model/RoleAssignmentRef.ps1
 src/PSSailpoint.Beta/Model/RoleAssignmentSourceType.ps1
 src/PSSailpoint.Beta/Model/RoleBulkDeleteRequest.ps1
@@ -2321,6 +2327,7 @@ tests/Model/BaseCommonDto.Tests.ps1
 tests/Model/BaseCommonDto1.Tests.ps1
 tests/Model/BaseReferenceDto.Tests.ps1
 tests/Model/BaseReferenceDto1.Tests.ps1
+tests/Model/BaseRoleReferenceDto.Tests.ps1
 tests/Model/BasicAuthConfig.Tests.ps1
 tests/Model/BearerTokenAuthConfig.Tests.ps1
 tests/Model/BeforeProvisioningRuleDto.Tests.ps1
@@ -2823,6 +2830,8 @@ tests/Model/RevocabilityForRole.Tests.ps1
 tests/Model/RightPad.Tests.ps1
 tests/Model/Role.Tests.ps1
 tests/Model/RoleAssignmentDto.Tests.ps1
+tests/Model/RoleAssignmentDtoAssigner.Tests.ps1
+tests/Model/RoleAssignmentDtoAssignmentContext.Tests.ps1
 tests/Model/RoleAssignmentRef.Tests.ps1
 tests/Model/RoleAssignmentSourceType.Tests.ps1
 tests/Model/RoleBulkDeleteRequest.Tests.ps1

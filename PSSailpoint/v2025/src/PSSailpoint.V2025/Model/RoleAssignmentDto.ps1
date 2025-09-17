@@ -32,6 +32,8 @@ No description available.
 No description available.
 .PARAMETER RemoveDate
 Date that the assignment will be removed
+.PARAMETER AddedDate
+Date that the assignment was added
 .OUTPUTS
 
 RoleAssignmentDto<PSCustomObject>
@@ -65,8 +67,11 @@ function Initialize-V2025RoleAssignmentDto {
         [PSCustomObject[]]
         ${AccountTargets},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${RemoveDate}
+        [System.Nullable[System.DateTime]]
+        ${RemoveDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${AddedDate}
     )
 
     Process {
@@ -84,6 +89,7 @@ function Initialize-V2025RoleAssignmentDto {
             "assignmentContext" = ${AssignmentContext}
             "accountTargets" = ${AccountTargets}
             "removeDate" = ${RemoveDate}
+            "addedDate" = ${AddedDate}
         }
 
         return $PSO
@@ -120,7 +126,7 @@ function ConvertFrom-V2025JsonToRoleAssignmentDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025RoleAssignmentDto
-        $AllProperties = ("id", "role", "comments", "assignmentSource", "assigner", "assignedDimensions", "assignmentContext", "accountTargets", "removeDate")
+        $AllProperties = ("id", "role", "comments", "assignmentSource", "assigner", "assignedDimensions", "assignmentContext", "accountTargets", "removeDate", "addedDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -181,6 +187,12 @@ function ConvertFrom-V2025JsonToRoleAssignmentDto {
             $RemoveDate = $JsonParameters.PSobject.Properties["removeDate"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "addedDate"))) { #optional property not found
+            $AddedDate = $null
+        } else {
+            $AddedDate = $JsonParameters.PSobject.Properties["addedDate"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "role" = ${Role}
@@ -191,6 +203,7 @@ function ConvertFrom-V2025JsonToRoleAssignmentDto {
             "assignmentContext" = ${AssignmentContext}
             "accountTargets" = ${AccountTargets}
             "removeDate" = ${RemoveDate}
+            "addedDate" = ${AddedDate}
         }
 
         return $PSO

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025RoleAssignmentDto' {
     Context 'V2025RoleAssignmentDto' {
         It 'Initialize-V2025RoleAssignmentDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025RoleAssignmentDto -Id "TEST_VALUE" -Role "TEST_VALUE" -Comments "TEST_VALUE" -AssignmentSource "TEST_VALUE" -Assigner "TEST_VALUE" -AssignedDimensions "TEST_VALUE" -AssignmentContext "TEST_VALUE" -AccountTargets "TEST_VALUE" -RemoveDate "TEST_VALUE"
+            #$NewObject = Initialize-V2025RoleAssignmentDto -Id "TEST_VALUE" -Role "TEST_VALUE" -Comments "TEST_VALUE" -AssignmentSource "TEST_VALUE" -Assigner "TEST_VALUE" -AssignedDimensions "TEST_VALUE" -AssignmentContext "TEST_VALUE" -AccountTargets "TEST_VALUE" -RemoveDate "TEST_VALUE" -AddedDate "TEST_VALUE"
             #$NewObject | Should -BeOfType RoleAssignmentDto
             #$NewObject.property | Should -Be 0
         }

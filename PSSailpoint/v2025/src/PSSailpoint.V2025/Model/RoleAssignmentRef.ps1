@@ -18,6 +18,8 @@ No description available.
 Assignment Id
 .PARAMETER Role
 No description available.
+.PARAMETER AddedDate
+Date that the assignment was added
 .OUTPUTS
 
 RoleAssignmentRef<PSCustomObject>
@@ -31,7 +33,10 @@ function Initialize-V2025RoleAssignmentRef {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Role}
+        ${Role},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${AddedDate}
     )
 
     Process {
@@ -42,6 +47,7 @@ function Initialize-V2025RoleAssignmentRef {
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "role" = ${Role}
+            "addedDate" = ${AddedDate}
         }
 
         return $PSO
@@ -78,7 +84,7 @@ function ConvertFrom-V2025JsonToRoleAssignmentRef {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025RoleAssignmentRef
-        $AllProperties = ("id", "role")
+        $AllProperties = ("id", "role", "addedDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -97,9 +103,16 @@ function ConvertFrom-V2025JsonToRoleAssignmentRef {
             $Role = $JsonParameters.PSobject.Properties["role"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "addedDate"))) { #optional property not found
+            $AddedDate = $null
+        } else {
+            $AddedDate = $JsonParameters.PSobject.Properties["addedDate"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "role" = ${Role}
+            "addedDate" = ${AddedDate}
         }
 
         return $PSO

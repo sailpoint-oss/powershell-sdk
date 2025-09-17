@@ -14,40 +14,40 @@ No summary available.
 
 No description available.
 
+.PARAMETER Type
+DTO type
 .PARAMETER Id
-Assignment Id
-.PARAMETER Role
-No description available.
-.PARAMETER AddedDate
-Date that the assignment was added
+ID of the object to which this reference applies
+.PARAMETER Name
+Human-readable display name of the object to which this reference applies
 .OUTPUTS
 
-RoleAssignmentRef<PSCustomObject>
+BaseRoleReferenceDto<PSCustomObject>
 #>
 
-function Initialize-BetaRoleAssignmentRef {
+function Initialize-BetaBaseRoleReferenceDto {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${Type},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Role},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[System.DateTime]]
-        ${AddedDate}
+        [String]
+        ${Name}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Beta => BetaRoleAssignmentRef' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Beta => BetaBaseRoleReferenceDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
+            "type" = ${Type}
             "id" = ${Id}
-            "role" = ${Role}
-            "addedDate" = ${AddedDate}
+            "name" = ${Name}
         }
 
         return $PSO
@@ -57,11 +57,11 @@ function Initialize-BetaRoleAssignmentRef {
 <#
 .SYNOPSIS
 
-Convert from JSON to RoleAssignmentRef<PSCustomObject>
+Convert from JSON to BaseRoleReferenceDto<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to RoleAssignmentRef<PSCustomObject>
+Convert from JSON to BaseRoleReferenceDto<PSCustomObject>
 
 .PARAMETER Json
 
@@ -69,26 +69,32 @@ Json object
 
 .OUTPUTS
 
-RoleAssignmentRef<PSCustomObject>
+BaseRoleReferenceDto<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToRoleAssignmentRef {
+function ConvertFrom-BetaJsonToBaseRoleReferenceDto {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaRoleAssignmentRef' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaBaseRoleReferenceDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaRoleAssignmentRef
-        $AllProperties = ("id", "role", "addedDate")
+        # check if Json contains properties not defined in BetaBaseRoleReferenceDto
+        $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -97,22 +103,16 @@ function ConvertFrom-BetaJsonToRoleAssignmentRef {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "role"))) { #optional property not found
-            $Role = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
         } else {
-            $Role = $JsonParameters.PSobject.Properties["role"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "addedDate"))) { #optional property not found
-            $AddedDate = $null
-        } else {
-            $AddedDate = $JsonParameters.PSobject.Properties["addedDate"].value
+            $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
         $PSO = [PSCustomObject]@{
+            "type" = ${Type}
             "id" = ${Id}
-            "role" = ${Role}
-            "addedDate" = ${AddedDate}
+            "name" = ${Name}
         }
 
         return $PSO

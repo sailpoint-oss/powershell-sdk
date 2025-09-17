@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER ApproverType
-Describes the individual or group that is responsible for an approval step. Values are as follows.  **OWNER**: Owner of the associated Role  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
+Describes the individual or group that is responsible for an approval step. Values are as follows.  **OWNER**: Owner of the associated Role  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required.     
 .PARAMETER ApproverId
-Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
+Id of the specific approver, used when approverType is GOVERNANCE_GROUP or WORKFLOW.
 .OUTPUTS
 
 ApprovalSchemeForRole<PSCustomObject>
@@ -27,7 +27,7 @@ function Initialize-V2024ApprovalSchemeForRole {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("OWNER", "MANAGER", "GOVERNANCE_GROUP")]
+        [ValidateSet("OWNER", "MANAGER", "GOVERNANCE_GROUP", "WORKFLOW")]
         [String]
         ${ApproverType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

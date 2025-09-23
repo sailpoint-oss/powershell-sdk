@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaAccountAction' {
     Context 'BetaAccountAction' {
         It 'Initialize-BetaAccountAction' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaAccountAction -Action "TEST_VALUE" -SourceIds "TEST_VALUE"
+            #$NewObject = Initialize-BetaAccountAction -Action "TEST_VALUE" -SourceIds "TEST_VALUE" -ExcludeSourceIds "TEST_VALUE" -AllSources "TEST_VALUE"
             #$NewObject | Should -BeOfType AccountAction
             #$NewObject.property | Should -Be 0
         }

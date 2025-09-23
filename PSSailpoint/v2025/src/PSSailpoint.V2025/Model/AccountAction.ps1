@@ -15,7 +15,7 @@ No summary available.
 Object for specifying Actions to be performed on a specified list of sources' account.
 
 .PARAMETER Action
-Describes if action will be enabled or disabled
+Describes if action will be enable, disable or delete.
 .PARAMETER SourceIds
 A unique list of specific source IDs to apply the action to. The sources must have the ENABLE feature or flat file source. Required if allSources is not true. Must not be provided if allSources is true. Cannot be used together with excludeSourceIds See ""/sources"" endpoint for source features.
 .PARAMETER ExcludeSourceIds
@@ -31,7 +31,7 @@ function Initialize-V2025AccountAction {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ENABLE", "DISABLE")]
+        [ValidateSet("ENABLE", "DISABLE", "DELETE")]
         [String]
         ${Action},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

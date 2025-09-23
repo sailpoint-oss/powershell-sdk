@@ -12,12 +12,16 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Object for specifying Actions to be performed on a specified list of sources' account.
 
 .PARAMETER Action
-Describes if action will be enabled or disabled
+Describes if action will be enable, disable or delete.
 .PARAMETER SourceIds
-List of source IDs. The sources must have the ENABLE feature or flat file source. See ""/sources"" endpoint for source features.
+A unique list of specific source IDs to apply the action to. The sources must have the ENABLE feature or flat file source. Required if allSources is not true. Must not be provided if allSources is true. Cannot be used together with excludeSourceIds See ""/sources"" endpoint for source features.
+.PARAMETER ExcludeSourceIds
+A list of source IDs to exclude from the action. Cannot be used together with sourceIds.
+.PARAMETER AllSources
+If true, the action applies to all available sources. If true, sourceIds must not be provided. If false or not set, sourceIds is required.
 .OUTPUTS
 
 AccountAction<PSCustomObject>
@@ -32,7 +36,13 @@ function Initialize-BetaAccountAction {
         ${Action},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${SourceIds}
+        ${SourceIds},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${ExcludeSourceIds},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${AllSources} = $false
     )
 
     Process {
@@ -43,6 +53,8 @@ function Initialize-BetaAccountAction {
         $PSO = [PSCustomObject]@{
             "action" = ${Action}
             "sourceIds" = ${SourceIds}
+            "excludeSourceIds" = ${ExcludeSourceIds}
+            "allSources" = ${AllSources}
         }
 
         return $PSO
@@ -79,7 +91,7 @@ function ConvertFrom-BetaJsonToAccountAction {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccountAction
-        $AllProperties = ("action", "sourceIds")
+        $AllProperties = ("action", "sourceIds", "excludeSourceIds", "allSources")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -98,9 +110,23 @@ function ConvertFrom-BetaJsonToAccountAction {
             $SourceIds = $JsonParameters.PSobject.Properties["sourceIds"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "excludeSourceIds"))) { #optional property not found
+            $ExcludeSourceIds = $null
+        } else {
+            $ExcludeSourceIds = $JsonParameters.PSobject.Properties["excludeSourceIds"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "allSources"))) { #optional property not found
+            $AllSources = $null
+        } else {
+            $AllSources = $JsonParameters.PSobject.Properties["allSources"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "action" = ${Action}
             "sourceIds" = ${SourceIds}
+            "excludeSourceIds" = ${ExcludeSourceIds}
+            "allSources" = ${AllSources}
         }
 
         return $PSO

@@ -205,7 +205,7 @@ $ProvisioningPolicyDto = @"{
 # Create provisioning policy
 
 try {
-    $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+    $Result = ConvertFrom-V2024JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
     New-V2024ProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -335,7 +335,7 @@ $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures 
 # Creates a source in identitynow.
 
 try {
-    $Result = ConvertFrom-JsonToSource -Json $Source
+    $Result = ConvertFrom-V2024JsonToSource -Json $Source
     New-V2024Source -Source $Result 
     
     # Below is a request that includes all optional parameters
@@ -384,7 +384,7 @@ $Schedule1 = @""@
 # Create schedule on source
 
 try {
-    $Result = ConvertFrom-JsonToSchedule1 -Json $Schedule1
+    $Result = ConvertFrom-V2024JsonToSchedule1 -Json $Schedule1
     New-V2024SourceSchedule -SourceId $SourceId -Schedule1 $Result 
     
     # Below is a request that includes all optional parameters
@@ -466,7 +466,7 @@ $Schema = @"{
 # Create schema on source
 
 try {
-    $Result = ConvertFrom-JsonToSchema -Json $Schema
+    $Result = ConvertFrom-V2024JsonToSchema -Json $Schema
     New-V2024SourceSchema -SourceId $SourceId -Schema $Result 
     
     # Below is a request that includes all optional parameters
@@ -2004,7 +2004,7 @@ $CorrelationConfig = @"{
 # Update source correlation configuration
 
 try {
-    $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
+    $Result = ConvertFrom-V2024JsonToCorrelationConfig -Json $CorrelationConfig
     Send-V2024CorrelationConfig -Id $Id -CorrelationConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -2060,7 +2060,7 @@ $NativeChangeDetectionConfig = @"{
 # Update native change detection configuration
 
 try {
-    $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
+    $Result = ConvertFrom-V2024JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
     Send-V2024NativeChangeDetectionConfig -Id $Id -NativeChangeDetectionConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -2152,7 +2152,7 @@ $ProvisioningPolicyDto = @"{
 # Update provisioning policy by usagetype
 
 try {
-    $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+    $Result = ConvertFrom-V2024JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
     Send-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -2295,7 +2295,7 @@ $Source = @"{
 # Update source (full)
 
 try {
-    $Result = ConvertFrom-JsonToSource -Json $Source
+    $Result = ConvertFrom-V2024JsonToSource -Json $Source
     Send-V2024Source -Id $Id -Source $Result 
     
     # Below is a request that includes all optional parameters
@@ -2367,7 +2367,7 @@ $AttrSyncSourceConfig = @"{
 # Update attribute sync config
 
 try {
-    $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
+    $Result = ConvertFrom-V2024JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
     Send-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -AttrSyncSourceConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -2461,7 +2461,7 @@ $Schema = @"{
 # Update source schema (full)
 
 try {
-    $Result = ConvertFrom-JsonToSchema -Json $Schema
+    $Result = ConvertFrom-V2024JsonToSchema -Json $Schema
     Send-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result 
     
     # Below is a request that includes all optional parameters
@@ -2513,7 +2513,7 @@ $ResourceObjectsRequest = @"{
 # Peek source connector's resource objects
 
 try {
-    $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
+    $Result = ConvertFrom-V2024JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
     Search-V2024ResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -2708,7 +2708,7 @@ $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 # Update password policy
 
 try {
-    $Result = ConvertFrom-JsonToPasswordPolicyHoldersDtoInner -Json $PasswordPolicyHoldersDtoInner
+    $Result = ConvertFrom-V2024JsonToPasswordPolicyHoldersDtoInner -Json $PasswordPolicyHoldersDtoInner
     Update-V2024PasswordPolicyHolders -SourceId $SourceId -PasswordPolicyHoldersDtoInner $Result 
     
     # Below is a request that includes all optional parameters
@@ -2797,7 +2797,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 # Bulk update provisioning policies
 
 try {
-    $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+    $Result = ConvertFrom-V2024JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
     Update-V2024ProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -2855,7 +2855,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Partial update of provisioning policy
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -2924,7 +2924,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Update source (partial)
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024Source -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -3001,7 +3001,7 @@ $SourceEntitlementRequestConfig = @"{
 # Update source entitlement request configuration
 
 try {
-    $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
+    $Result = ConvertFrom-V2024JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
     Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -3062,7 +3062,7 @@ $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
 # Update source schedule (partial)
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -3147,7 +3147,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 # Update source schema (partial)
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

@@ -86,7 +86,7 @@ $DeployRequest = @"{
 # Create a deploy
 
 try {
-    $Result = ConvertFrom-JsonToDeployRequest -Json $DeployRequest
+    $Result = ConvertFrom-V2025JsonToDeployRequest -Json $DeployRequest
     New-V2025Deploy -DeployRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -144,7 +144,7 @@ $ObjectMappingRequest = @"{
 # Creates an object mapping
 
 try {
-    $Result = ConvertFrom-JsonToObjectMappingRequest -Json $ObjectMappingRequest
+    $Result = ConvertFrom-V2025JsonToObjectMappingRequest -Json $ObjectMappingRequest
     New-V2025ObjectMapping -SourceOrg $SourceOrg -ObjectMappingRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -210,7 +210,7 @@ $ObjectMappingBulkCreateRequest = @"{
 # Bulk creates object mappings
 
 try {
-    $Result = ConvertFrom-JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
+    $Result = ConvertFrom-V2025JsonToObjectMappingBulkCreateRequest -Json $ObjectMappingBulkCreateRequest
     New-V2025ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -278,7 +278,7 @@ $ScheduledActionPayload = @"{
 # Create scheduled action
 
 try {
-    $Result = ConvertFrom-JsonToScheduledActionPayload -Json $ScheduledActionPayload
+    $Result = ConvertFrom-V2025JsonToScheduledActionPayload -Json $ScheduledActionPayload
     New-V2025ScheduledAction -ScheduledActionPayload $Result 
     
     # Below is a request that includes all optional parameters
@@ -1004,7 +1004,7 @@ $ObjectMappingBulkPatchRequest = @"{
 # Bulk updates object mappings
 
 try {
-    $Result = ConvertFrom-JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
+    $Result = ConvertFrom-V2025JsonToObjectMappingBulkPatchRequest -Json $ObjectMappingBulkPatchRequest
     Update-V2025ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -1063,7 +1063,7 @@ $JsonPatch = @"{
 # Update scheduled action
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    $Result = ConvertFrom-V2025JsonToJsonPatch -Json $JsonPatch
     Update-V2025ScheduledAction -ScheduledActionId $ScheduledActionId -JsonPatch $Result 
     
     # Below is a request that includes all optional parameters

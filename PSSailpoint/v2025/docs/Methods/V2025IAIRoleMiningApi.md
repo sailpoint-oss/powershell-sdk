@@ -178,7 +178,7 @@ $RoleMiningSessionDto = @"{
 # Create a role mining session
 
 try {
-    $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
+    $Result = ConvertFrom-V2025JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
     New-V2025RoleMiningSessions -XSailPointExperimental $XSailPointExperimental -RoleMiningSessionDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -1313,7 +1313,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Update a potential role
 
 try {
-    $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
+    $Result = ConvertFrom-V2025JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
     Update-V2025PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -PatchPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
@@ -1382,7 +1382,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Update a potential role
 
 try {
-    $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
+    $Result = ConvertFrom-V2025JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
     Update-V2025PotentialRole0 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -PatchPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
@@ -1441,7 +1441,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Patch a role mining session
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2025RoleMiningSession -SessionId $SessionId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -1498,7 +1498,7 @@ $RoleMiningPotentialRoleEditEntitlements = @"{
 # Edit entitlements for a potential role to exclude some entitlements
 
 try {
-    $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
+    $Result = ConvertFrom-V2025JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
     Update-V2025EntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -RoleMiningPotentialRoleEditEntitlements $Result 
     
     # Below is a request that includes all optional parameters

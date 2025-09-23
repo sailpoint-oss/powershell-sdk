@@ -117,7 +117,7 @@ $CompleteInvocation = @"{
 # Complete trigger invocation
 
 try {
-    $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
+    $Result = ConvertFrom-V2025JsonToCompleteInvocation -Json $CompleteInvocation
     Complete-V2025TriggerInvocation -Id $Id -XSailPointExperimental $XSailPointExperimental -CompleteInvocation $Result 
     
     # Below is a request that includes all optional parameters
@@ -194,7 +194,7 @@ $SubscriptionPostRequest = @"{
 # Create a subscription
 
 try {
-    $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
+    $Result = ConvertFrom-V2025JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
     New-V2025Subscription -XSailPointExperimental $XSailPointExperimental -SubscriptionPostRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -478,7 +478,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Patch a subscription
 
 try {
-    $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
+    $Result = ConvertFrom-V2025JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
     Update-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPatchRequestInner $Result 
     
     # Below is a request that includes all optional parameters
@@ -539,7 +539,7 @@ $TestInvocation = @"{
 # Start a test invocation
 
 try {
-    $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
+    $Result = ConvertFrom-V2025JsonToTestInvocation -Json $TestInvocation
     Start-V2025TestTriggerInvocation -XSailPointExperimental $XSailPointExperimental -TestInvocation $Result 
     
     # Below is a request that includes all optional parameters
@@ -596,7 +596,7 @@ $ValidateFilterInputDto = @"{
 # Validate a subscription filter
 
 try {
-    $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
+    $Result = ConvertFrom-V2025JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
     Test-V2025SubscriptionFilter -XSailPointExperimental $XSailPointExperimental -ValidateFilterInputDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -682,7 +682,7 @@ $SubscriptionPutRequest = @"{
 # Update a subscription
 
 try {
-    $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
+    $Result = ConvertFrom-V2025JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
     Update-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPutRequest $Result 
     
     # Below is a request that includes all optional parameters

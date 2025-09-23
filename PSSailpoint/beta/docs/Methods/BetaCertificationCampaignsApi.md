@@ -319,7 +319,7 @@ $Campaign = @"{
 # Create campaign
 
 try {
-    $Result = ConvertFrom-JsonToCampaign -Json $Campaign
+    $Result = ConvertFrom-BetaJsonToCampaign -Json $Campaign
     New-BetaCampaign -Campaign $Result 
     
     # Below is a request that includes all optional parameters
@@ -494,7 +494,7 @@ $CampaignTemplate = @"{
 # Create a campaign template
 
 try {
-    $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
+    $Result = ConvertFrom-BetaJsonToCampaignTemplate -Json $CampaignTemplate
     New-BetaCampaignTemplate -CampaignTemplate $Result 
     
     # Below is a request that includes all optional parameters
@@ -653,7 +653,7 @@ $DeleteCampaignsRequest = @"{
 # Delete campaigns
 
 try {
-    $Result = ConvertFrom-JsonToDeleteCampaignsRequest -Json $DeleteCampaignsRequest
+    $Result = ConvertFrom-BetaJsonToDeleteCampaignsRequest -Json $DeleteCampaignsRequest
     Remove-BetaCampaigns -DeleteCampaignsRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -1094,7 +1094,7 @@ $AdminReviewReassign = @"{
 # Reassign certifications
 
 try {
-    $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
+    $Result = ConvertFrom-BetaJsonToAdminReviewReassign -Json $AdminReviewReassign
     Move-Beta -Id $Id -AdminReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
@@ -1154,7 +1154,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 # Update a campaign template
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaCampaignTemplate -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -1208,7 +1208,7 @@ $CampaignReportsConfig = @"{
 # Set campaign reports configuration
 
 try {
-    $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
+    $Result = ConvertFrom-BetaJsonToCampaignReportsConfig -Json $CampaignReportsConfig
     Set-BetaCampaignReportsConfig -CampaignReportsConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -1564,7 +1564,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of campaign update opera
 # Update a campaign
 
 try {
-    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    $Result = ConvertFrom-BetaJsonToRequestBody -Json $RequestBody
     Update-BetaCampaign -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters

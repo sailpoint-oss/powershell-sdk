@@ -166,7 +166,7 @@ $CreateWorkflowRequest = @"{name=Send Email, owner={type=IDENTITY, id=2c91808568
 # Create workflow
 
 try {
-    $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
+    $Result = ConvertFrom-V2025JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
     New-V2025Workflow -CreateWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -786,7 +786,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 # Patch workflow
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2025Workflow -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -873,7 +873,7 @@ $WorkflowBody = @"{
 # Update workflow
 
 try {
-    $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
+    $Result = ConvertFrom-V2025JsonToWorkflowBody -Json $WorkflowBody
     Send-V2025Workflow -Id $Id -WorkflowBody $Result 
     
     # Below is a request that includes all optional parameters
@@ -979,7 +979,7 @@ $TestWorkflowRequest = @"{input={identity={id=ee769173319b41d19ccec6cea52f237b, 
 # Test workflow by id
 
 try {
-    $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
+    $Result = ConvertFrom-V2025JsonToTestWorkflowRequest -Json $TestWorkflowRequest
     Test-V2025Workflow -Id $Id -TestWorkflowRequest $Result 
     
     # Below is a request that includes all optional parameters

@@ -64,7 +64,7 @@ $ExportPayload = @"{
 # Initiates configuration objects export job
 
 try {
-    $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
+    $Result = ConvertFrom-BetaJsonToExportPayload -Json $ExportPayload
     Export-BetaSpConfig -ExportPayload $Result 
     
     # Below is a request that includes all optional parameters

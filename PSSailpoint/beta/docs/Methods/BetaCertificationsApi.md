@@ -357,7 +357,7 @@ $ReviewReassign = @"{
 # Reassign certifications asynchronously
 
 try {
-    $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
+    $Result = ConvertFrom-BetaJsonToReviewReassign -Json $ReviewReassign
     Submit-BetaReassignCertsAsync -Id $Id -ReviewReassign $Result 
     
     # Below is a request that includes all optional parameters

@@ -87,7 +87,7 @@ $V3CreateConnectorDto = @"{
 # Create custom connector
 
 try {
-    $Result = ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
+    $Result = ConvertFrom-V2024JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
     New-V2024CustomConnector -V3CreateConnectorDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -679,7 +679,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 # Update connector by script name
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-V2024Connector -ScriptName $ScriptName -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

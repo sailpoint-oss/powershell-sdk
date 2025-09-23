@@ -83,7 +83,7 @@ $BulkApproveAccessRequest = @"{
 # Bulk approve access request
 
 try {
-    $Result = ConvertFrom-JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
+    $Result = ConvertFrom-V2025JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
     Approve-V2025BulkAccessRequest -BulkApproveAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -134,7 +134,7 @@ $CancelAccessRequest = @"{
 # Cancel access request
 
 try {
-    $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
+    $Result = ConvertFrom-V2025JsonToCancelAccessRequest -Json $CancelAccessRequest
     Suspend-V2025AccessRequest -CancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -185,7 +185,7 @@ $BulkCancelAccessRequest = @"{
 # Bulk cancel access request
 
 try {
-    $Result = ConvertFrom-JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
+    $Result = ConvertFrom-V2025JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
     Suspend-V2025AccessRequestInBulk -BulkCancelAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -247,7 +247,7 @@ $CloseAccessRequest = @"{
 # Close access request
 
 try {
-    $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
+    $Result = ConvertFrom-V2025JsonToCloseAccessRequest -Json $CloseAccessRequest
     Close-V2025AccessRequest -CloseAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -487,7 +487,7 @@ $AccessRequest = @"{
 # Submit access request
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
+    $Result = ConvertFrom-V2025JsonToAccessRequest -Json $AccessRequest
     New-V2025AccessRequest -AccessRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -834,7 +834,7 @@ $AccountsSelectionRequest = @"{
 # Get accounts selections for identity
 
 try {
-    $Result = ConvertFrom-JsonToAccountsSelectionRequest -Json $AccountsSelectionRequest
+    $Result = ConvertFrom-V2025JsonToAccountsSelectionRequest -Json $AccountsSelectionRequest
     Invoke-V2025LoadAccountSelections -XSailPointExperimental $XSailPointExperimental -AccountsSelectionRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -922,7 +922,7 @@ $AccessRequestConfig = @"{
 # Update access request configuration
 
 try {
-    $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig
+    $Result = ConvertFrom-V2025JsonToAccessRequestConfig -Json $AccessRequestConfig
     Set-V2025AccessRequestConfig -AccessRequestConfig $Result 
     
     # Below is a request that includes all optional parameters

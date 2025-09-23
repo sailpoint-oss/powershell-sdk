@@ -41,7 +41,7 @@
         {{/summary}}
         
         try {
-            {{#requiredAndNotNullableParams}}{{#isBodyParam}}$Result = ConvertFrom-JsonTo{{paramName}} -Json ${{paramName}}
+            {{#requiredAndNotNullableParams}}{{#isBodyParam}}$Result = ConvertFrom-{{apiNamePrefix}}JsonTo{{paramName}} -Json ${{paramName}}
             {{/isBodyParam}}{{/requiredAndNotNullableParams}}{{{vendorExtensions.x-powershell-method-name}}} {{#allParams}}{{#required}}{{^isArray}}{{#isModel}}-{{paramName}}{{/isModel}}{{^isModel}}-{{paramName}}{{/isModel}}{{/isArray}}{{#isArray}}{{#items.isModel}}-{{paramName}}{{/items.isModel}}{{^items.isModel}}-{{paramName}}{{/items.isModel}}{{/isArray}}{{^isBodyParam}} ${{paramName}} {{/isBodyParam}}{{#isBodyParam}} $Result {{/isBodyParam}}{{/required}}{{/allParams}}
     
             # Below is a request that includes all optional parameters

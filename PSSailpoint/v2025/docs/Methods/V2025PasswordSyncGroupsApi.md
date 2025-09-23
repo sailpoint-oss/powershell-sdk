@@ -97,7 +97,7 @@ $PasswordSyncGroup = @"{
 # Create password sync group
 
 try {
-    $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
+    $Result = ConvertFrom-V2025JsonToPasswordSyncGroup -Json $PasswordSyncGroup
     New-V2025PasswordSyncGroup -PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
@@ -293,7 +293,7 @@ $PasswordSyncGroup = @"{
 # Update password sync group by id
 
 try {
-    $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
+    $Result = ConvertFrom-V2025JsonToPasswordSyncGroup -Json $PasswordSyncGroup
     Update-V2025PasswordSyncGroup -Id $Id -PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters

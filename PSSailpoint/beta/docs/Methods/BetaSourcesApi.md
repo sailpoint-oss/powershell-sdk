@@ -197,7 +197,7 @@ $ProvisioningPolicyDto = @"{
 # Create provisioning policy
 
 try {
-    $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+    $Result = ConvertFrom-BetaJsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
     New-BetaProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -328,7 +328,7 @@ $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures 
 # Creates a source in identitynow.
 
 try {
-    $Result = ConvertFrom-JsonToSource -Json $Source
+    $Result = ConvertFrom-BetaJsonToSource -Json $Source
     New-BetaSource -Source $Result 
     
     # Below is a request that includes all optional parameters
@@ -409,7 +409,7 @@ $Schema = @"{
 # Create schema on source
 
 try {
-    $Result = ConvertFrom-JsonToSchema -Json $Schema
+    $Result = ConvertFrom-BetaJsonToSchema -Json $Schema
     New-BetaSourceSchema -SourceId $SourceId -Schema $Result 
     
     # Below is a request that includes all optional parameters
@@ -1630,7 +1630,7 @@ $ResourceObjectsRequest = @"{
 # Peek source connector's resource objects
 
 try {
-    $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
+    $Result = ConvertFrom-BetaJsonToResourceObjectsRequest -Json $ResourceObjectsRequest
     Receive-BetaResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result 
     
     # Below is a request that includes all optional parameters
@@ -1748,7 +1748,7 @@ $CorrelationConfig = @"{
 # Update source correlation configuration
 
 try {
-    $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
+    $Result = ConvertFrom-BetaJsonToCorrelationConfig -Json $CorrelationConfig
     Send-BetaCorrelationConfig -SourceId $SourceId -CorrelationConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -1806,7 +1806,7 @@ $NativeChangeDetectionConfig = @"{
 # Update native change detection configuration
 
 try {
-    $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
+    $Result = ConvertFrom-BetaJsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
     Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -NativeChangeDetectionConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -1898,7 +1898,7 @@ $ProvisioningPolicyDto = @"{
 # Update provisioning policy by usagetype
 
 try {
-    $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+    $Result = ConvertFrom-BetaJsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
     Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -2043,7 +2043,7 @@ $Source = @"{
 # Update source (full)
 
 try {
-    $Result = ConvertFrom-JsonToSource -Json $Source
+    $Result = ConvertFrom-BetaJsonToSource -Json $Source
     Send-BetaSource -Id $Id -Source $Result 
     
     # Below is a request that includes all optional parameters
@@ -2111,7 +2111,7 @@ $AttrSyncSourceConfig = @"{
 # Update attribute sync config
 
 try {
-    $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
+    $Result = ConvertFrom-BetaJsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
     Send-BetaSourceAttrSyncConfig -Id $Id -AttrSyncSourceConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -2200,7 +2200,7 @@ $Schema = @"{
 # Update source schema (full)
 
 try {
-    $Result = ConvertFrom-JsonToSchema -Json $Schema
+    $Result = ConvertFrom-BetaJsonToSchema -Json $Schema
     Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result 
     
     # Below is a request that includes all optional parameters
@@ -2430,7 +2430,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 # Bulk update provisioning policies
 
 try {
-    $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
+    $Result = ConvertFrom-BetaJsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
     Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
@@ -2488,7 +2488,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 # Partial update of provisioning policy
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -2558,7 +2558,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 # Update source (partial)
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaSource -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
@@ -2634,7 +2634,7 @@ $SourceEntitlementRequestConfig = @"{
 # Update source entitlement request configuration
 
 try {
-    $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
+    $Result = ConvertFrom-BetaJsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
     Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -SourceEntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
@@ -2719,7 +2719,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 # Update source schema (partial)
 
 try {
-    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
     Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters

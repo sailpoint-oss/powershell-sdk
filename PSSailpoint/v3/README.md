@@ -1079,7 +1079,7 @@ Authentication schemes defined for the API:
 
 - **Type**: OAuth
 - **Flow**: accessCode
-- **Authorization URL**: https://tenant.login.sailpoint.com/oauth/authorize
+- **Authorization URL**: https://example-tenant.login.sailpoint.com/oauth/authorize
 - **Scopes**: 
   - sp:scopes:default: default scope
   - sp:scopes:all: access to all scopes

@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025AccessRequestsApi' {
 
     Context 'Get-V2025EntitlementDetailsForIdentity' {
         It 'Test Get-V2025EntitlementDetailsForIdentity' {
-            #$TestResult = Get-V2025EntitlementDetailsForIdentity -XSailPointExperimental "TEST_VALUE" -IdentityId "TEST_VALUE" -EntitlementId "TEST_VALUE"
+            #$TestResult = Get-V2025EntitlementDetailsForIdentity -IdentityId "TEST_VALUE" -EntitlementId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

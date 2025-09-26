@@ -528,9 +528,6 @@ Identity entitlement details
 
 Use this API to return the details for a entitlement on an identity including specific data relating to remove date and the ability to revoke the identity.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER IdentityId
 The identity ID.
 
@@ -550,11 +547,8 @@ function Get-V2025EntitlementDetailsForIdentity {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
         ${IdentityId},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${EntitlementId},
         [Switch]
@@ -586,11 +580,6 @@ function Get-V2025EntitlementDetailsForIdentity {
             throw "Error! The required parameter `EntitlementId` missing when calling getEntitlementDetailsForIdentity."
         }
         $LocalVarUri = $LocalVarUri.replace('{entitlementId}', [System.Web.HTTPUtility]::UrlEncode($EntitlementId))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getEntitlementDetailsForIdentity."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 

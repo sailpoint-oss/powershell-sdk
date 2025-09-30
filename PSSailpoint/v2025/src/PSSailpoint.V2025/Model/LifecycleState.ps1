@@ -33,7 +33,7 @@ The lifecycle state's associated identity state. This field is generally 'null'.
 .PARAMETER AccessActionConfiguration
 No description available.
 .PARAMETER Priority
-Priority level used to determine which profile to assign when a user exists in multiple profiles. Lower numeric values have higher priority.  By default, new profiles are assigned the lowest priority. The assigned profile also controls access granted or removed during provisioning based on lifecycle state changes.
+Used to control the order of lifecycle states when listing with `?sorters=priority`. Lower numbers appear first (ascending order). Out-of-the-box lifecycle states are assigned priorities in increments of 10.
 .OUTPUTS
 
 LifecycleState<PSCustomObject>

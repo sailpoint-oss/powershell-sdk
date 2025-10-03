@@ -384,7 +384,6 @@ docs/DateMath.md
 docs/DecomposeDiacriticalMarks.md
 docs/DeleteNonEmployeeRecordsInBulkRequest.md
 docs/DeleteSource202Response.md
-docs/DeleteVendorConnectorMapping200Response.md
 docs/DependantAppConnections.md
 docs/DependantAppConnectionsAccountSource.md
 docs/DependantAppConnectionsAccountSourcePasswordPoliciesInner.md
@@ -1380,8 +1379,6 @@ docs/V2025TriggersApi.md
 docs/V2025TriggersApideveloperSite_code_examples.yaml
 docs/V2025UIMetadataApi.md
 docs/V2025UIMetadataApideveloperSite_code_examples.yaml
-docs/V2025VendorConnectorMappingsApi.md
-docs/V2025VendorConnectorMappingsApideveloperSite_code_examples.yaml
 docs/V2025WorkItemsApi.md
 docs/V2025WorkItemsApideveloperSite_code_examples.yaml
 docs/V2025WorkReassignmentApi.md
@@ -1397,11 +1394,6 @@ docs/VAClusterStatusChangeEventPreviousHealthCheckResult.md
 docs/ValidateFilterInputDto.md
 docs/ValidateFilterOutputDto.md
 docs/Value.md
-docs/VendorConnectorMapping.md
-docs/VendorConnectorMappingDeletedAt.md
-docs/VendorConnectorMappingDeletedBy.md
-docs/VendorConnectorMappingUpdatedAt.md
-docs/VendorConnectorMappingUpdatedBy.md
 docs/ViolationContext.md
 docs/ViolationContextPolicy.md
 docs/ViolationOwnerAssignmentConfig.md
@@ -1533,7 +1525,6 @@ src/PSSailpoint.V2025/Api/V2025TenantContextApi.ps1
 src/PSSailpoint.V2025/Api/V2025TransformsApi.ps1
 src/PSSailpoint.V2025/Api/V2025TriggersApi.ps1
 src/PSSailpoint.V2025/Api/V2025UIMetadataApi.ps1
-src/PSSailpoint.V2025/Api/V2025VendorConnectorMappingsApi.ps1
 src/PSSailpoint.V2025/Api/V2025WorkItemsApi.ps1
 src/PSSailpoint.V2025/Api/V2025WorkReassignmentApi.ps1
 src/PSSailpoint.V2025/Api/V2025WorkflowsApi.ps1
@@ -1919,7 +1910,6 @@ src/PSSailpoint.V2025/Model/DateMath.ps1
 src/PSSailpoint.V2025/Model/DecomposeDiacriticalMarks.ps1
 src/PSSailpoint.V2025/Model/DeleteNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint.V2025/Model/DeleteSource202Response.ps1
-src/PSSailpoint.V2025/Model/DeleteVendorConnectorMapping200Response.ps1
 src/PSSailpoint.V2025/Model/DependantAppConnections.ps1
 src/PSSailpoint.V2025/Model/DependantAppConnectionsAccountSource.ps1
 src/PSSailpoint.V2025/Model/DependantAppConnectionsAccountSourcePasswordPoliciesInner.ps1
@@ -2739,11 +2729,6 @@ src/PSSailpoint.V2025/Model/VAClusterStatusChangeEventPreviousHealthCheckResult.
 src/PSSailpoint.V2025/Model/ValidateFilterInputDto.ps1
 src/PSSailpoint.V2025/Model/ValidateFilterOutputDto.ps1
 src/PSSailpoint.V2025/Model/Value.ps1
-src/PSSailpoint.V2025/Model/VendorConnectorMapping.ps1
-src/PSSailpoint.V2025/Model/VendorConnectorMappingDeletedAt.ps1
-src/PSSailpoint.V2025/Model/VendorConnectorMappingDeletedBy.ps1
-src/PSSailpoint.V2025/Model/VendorConnectorMappingUpdatedAt.ps1
-src/PSSailpoint.V2025/Model/VendorConnectorMappingUpdatedBy.ps1
 src/PSSailpoint.V2025/Model/ViolationContext.ps1
 src/PSSailpoint.V2025/Model/ViolationContextPolicy.ps1
 src/PSSailpoint.V2025/Model/ViolationOwnerAssignmentConfig.ps1
@@ -2882,7 +2867,6 @@ tests/Api/V2025TenantContextApi.Tests.ps1
 tests/Api/V2025TransformsApi.Tests.ps1
 tests/Api/V2025TriggersApi.Tests.ps1
 tests/Api/V2025UIMetadataApi.Tests.ps1
-tests/Api/V2025VendorConnectorMappingsApi.Tests.ps1
 tests/Api/V2025WorkItemsApi.Tests.ps1
 tests/Api/V2025WorkReassignmentApi.Tests.ps1
 tests/Api/V2025WorkflowsApi.Tests.ps1
@@ -3267,7 +3251,6 @@ tests/Model/DateMath.Tests.ps1
 tests/Model/DecomposeDiacriticalMarks.Tests.ps1
 tests/Model/DeleteNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/DeleteSource202Response.Tests.ps1
-tests/Model/DeleteVendorConnectorMapping200Response.Tests.ps1
 tests/Model/DependantAppConnections.Tests.ps1
 tests/Model/DependantAppConnectionsAccountSource.Tests.ps1
 tests/Model/DependantAppConnectionsAccountSourcePasswordPoliciesInner.Tests.ps1
@@ -4087,11 +4070,6 @@ tests/Model/VAClusterStatusChangeEventPreviousHealthCheckResult.Tests.ps1
 tests/Model/ValidateFilterInputDto.Tests.ps1
 tests/Model/ValidateFilterOutputDto.Tests.ps1
 tests/Model/Value.Tests.ps1
-tests/Model/VendorConnectorMapping.Tests.ps1
-tests/Model/VendorConnectorMappingDeletedAt.Tests.ps1
-tests/Model/VendorConnectorMappingDeletedBy.Tests.ps1
-tests/Model/VendorConnectorMappingUpdatedAt.Tests.ps1
-tests/Model/VendorConnectorMappingUpdatedBy.Tests.ps1
 tests/Model/ViolationContext.Tests.ps1
 tests/Model/ViolationContextPolicy.Tests.ps1
 tests/Model/ViolationOwnerAssignmentConfig.Tests.ps1

@@ -223,7 +223,6 @@ docs/DateMath.md
 docs/DecomposeDiacriticalMarks.md
 docs/DeleteNonEmployeeRecordsInBulkRequest.md
 docs/DeleteSource202Response.md
-docs/DeleteVendorConnectorMapping200Response.md
 docs/DependantAppConnections.md
 docs/DependantAppConnectionsAccountSource.md
 docs/DependantAppConnectionsAccountSourcePasswordPoliciesInner.md
@@ -278,7 +277,6 @@ docs/GetDiscoveredApplications200ResponseInner.md
 docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
 docs/GetReferenceIdentityAttribute.md
-docs/GetVendorConnectorMappings405Response.md
 docs/GlobalTenantSecuritySettingsApi.md
 docs/GlobalTenantSecuritySettingsApideveloperSite_code_examples.yaml
 docs/GrantType.md
@@ -698,13 +696,6 @@ docs/UsageType.md
 docs/V3ConnectorDto.md
 docs/V3CreateConnectorDto.md
 docs/Value.md
-docs/VendorConnectorMapping.md
-docs/VendorConnectorMappingDeletedAt.md
-docs/VendorConnectorMappingDeletedBy.md
-docs/VendorConnectorMappingUpdatedAt.md
-docs/VendorConnectorMappingUpdatedBy.md
-docs/VendorConnectorMappingsApi.md
-docs/VendorConnectorMappingsApideveloperSite_code_examples.yaml
 docs/VerificationPollRequest.md
 docs/VerificationResponse.md
 docs/ViolationContext.md
@@ -788,7 +779,6 @@ src/PSSailpoint.V3/Api/SourceUsagesApi.ps1
 src/PSSailpoint.V3/Api/SourcesApi.ps1
 src/PSSailpoint.V3/Api/TaggedObjectsApi.ps1
 src/PSSailpoint.V3/Api/TransformsApi.ps1
-src/PSSailpoint.V3/Api/VendorConnectorMappingsApi.ps1
 src/PSSailpoint.V3/Api/WorkItemsApi.ps1
 src/PSSailpoint.V3/Api/WorkflowsApi.ps1
 src/PSSailpoint.V3/Client/Configuration.ps1
@@ -982,7 +972,6 @@ src/PSSailpoint.V3/Model/DateMath.ps1
 src/PSSailpoint.V3/Model/DecomposeDiacriticalMarks.ps1
 src/PSSailpoint.V3/Model/DeleteNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint.V3/Model/DeleteSource202Response.ps1
-src/PSSailpoint.V3/Model/DeleteVendorConnectorMapping200Response.ps1
 src/PSSailpoint.V3/Model/DependantAppConnections.ps1
 src/PSSailpoint.V3/Model/DependantAppConnectionsAccountSource.ps1
 src/PSSailpoint.V3/Model/DependantAppConnectionsAccountSourcePasswordPoliciesInner.ps1
@@ -1035,7 +1024,6 @@ src/PSSailpoint.V3/Model/GetDiscoveredApplications200ResponseInner.ps1
 src/PSSailpoint.V3/Model/GetOAuthClientResponse.ps1
 src/PSSailpoint.V3/Model/GetPersonalAccessTokenResponse.ps1
 src/PSSailpoint.V3/Model/GetReferenceIdentityAttribute.ps1
-src/PSSailpoint.V3/Model/GetVendorConnectorMappings405Response.ps1
 src/PSSailpoint.V3/Model/GrantType.ps1
 src/PSSailpoint.V3/Model/ISO3166.ps1
 src/PSSailpoint.V3/Model/IdentitiesDetailsReportArguments.ps1
@@ -1392,11 +1380,6 @@ src/PSSailpoint.V3/Model/UsageType.ps1
 src/PSSailpoint.V3/Model/V3ConnectorDto.ps1
 src/PSSailpoint.V3/Model/V3CreateConnectorDto.ps1
 src/PSSailpoint.V3/Model/Value.ps1
-src/PSSailpoint.V3/Model/VendorConnectorMapping.ps1
-src/PSSailpoint.V3/Model/VendorConnectorMappingDeletedAt.ps1
-src/PSSailpoint.V3/Model/VendorConnectorMappingDeletedBy.ps1
-src/PSSailpoint.V3/Model/VendorConnectorMappingUpdatedAt.ps1
-src/PSSailpoint.V3/Model/VendorConnectorMappingUpdatedBy.ps1
 src/PSSailpoint.V3/Model/VerificationPollRequest.ps1
 src/PSSailpoint.V3/Model/VerificationResponse.ps1
 src/PSSailpoint.V3/Model/ViolationContext.ps1
@@ -1483,7 +1466,6 @@ tests/Api/SourceUsagesApi.Tests.ps1
 tests/Api/SourcesApi.Tests.ps1
 tests/Api/TaggedObjectsApi.Tests.ps1
 tests/Api/TransformsApi.Tests.ps1
-tests/Api/VendorConnectorMappingsApi.Tests.ps1
 tests/Api/WorkItemsApi.Tests.ps1
 tests/Api/WorkflowsApi.Tests.ps1
 tests/Model/Access.Tests.ps1
@@ -1676,7 +1658,6 @@ tests/Model/DateMath.Tests.ps1
 tests/Model/DecomposeDiacriticalMarks.Tests.ps1
 tests/Model/DeleteNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/DeleteSource202Response.Tests.ps1
-tests/Model/DeleteVendorConnectorMapping200Response.Tests.ps1
 tests/Model/DependantAppConnections.Tests.ps1
 tests/Model/DependantAppConnectionsAccountSource.Tests.ps1
 tests/Model/DependantAppConnectionsAccountSourcePasswordPoliciesInner.Tests.ps1
@@ -1729,7 +1710,6 @@ tests/Model/GetDiscoveredApplications200ResponseInner.Tests.ps1
 tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
 tests/Model/GetReferenceIdentityAttribute.Tests.ps1
-tests/Model/GetVendorConnectorMappings405Response.Tests.ps1
 tests/Model/GrantType.Tests.ps1
 tests/Model/ISO3166.Tests.ps1
 tests/Model/IdentitiesDetailsReportArguments.Tests.ps1
@@ -2086,11 +2066,6 @@ tests/Model/UsageType.Tests.ps1
 tests/Model/V3ConnectorDto.Tests.ps1
 tests/Model/V3CreateConnectorDto.Tests.ps1
 tests/Model/Value.Tests.ps1
-tests/Model/VendorConnectorMapping.Tests.ps1
-tests/Model/VendorConnectorMappingDeletedAt.Tests.ps1
-tests/Model/VendorConnectorMappingDeletedBy.Tests.ps1
-tests/Model/VendorConnectorMappingUpdatedAt.Tests.ps1
-tests/Model/VendorConnectorMappingUpdatedBy.Tests.ps1
 tests/Model/VerificationPollRequest.Tests.ps1
 tests/Model/VerificationResponse.Tests.ps1
 tests/Model/ViolationContext.Tests.ps1

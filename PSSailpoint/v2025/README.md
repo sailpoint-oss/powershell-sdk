@@ -753,9 +753,6 @@ Class | Method | HTTP request | Description
 *V2025TriggersApi* | [**Update-V2025Subscription**](docs/V2025TriggersApi.md#Update-V2025Subscription) | **PUT** /trigger-subscriptions/{id} | Update a subscription
 *V2025UIMetadataApi* | [**Get-V2025TenantUiMetadata**](docs/V2025UIMetadataApi.md#Get-V2025TenantUiMetadata) | **GET** /ui-metadata/tenant | Get a tenant ui metadata
 *V2025UIMetadataApi* | [**Set-V2025TenantUiMetadata**](docs/V2025UIMetadataApi.md#Set-V2025TenantUiMetadata) | **PUT** /ui-metadata/tenant | Update tenant ui metadata
-*V2025VendorConnectorMappingsApi* | [**New-V2025VendorConnectorMapping**](docs/V2025VendorConnectorMappingsApi.md#New-V2025VendorConnectorMapping) | **POST** /vendor-connector-mappings | Create vendor connector mapping
-*V2025VendorConnectorMappingsApi* | [**Remove-V2025VendorConnectorMapping**](docs/V2025VendorConnectorMappingsApi.md#Remove-V2025VendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete vendor connector mapping
-*V2025VendorConnectorMappingsApi* | [**Get-V2025VendorConnectorMappings**](docs/V2025VendorConnectorMappingsApi.md#Get-V2025VendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
 *V2025WorkItemsApi* | [**Approve-V2025ApprovalItem**](docs/V2025WorkItemsApi.md#Approve-V2025ApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an approval item
 *V2025WorkItemsApi* | [**Approve-V2025ApprovalItemsInBulk**](docs/V2025WorkItemsApi.md#Approve-V2025ApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve approval items
 *V2025WorkItemsApi* | [**Complete-V2025WorkItem**](docs/V2025WorkItemsApi.md#Complete-V2025WorkItem) | **POST** /work-items/{id} | Complete a work item
@@ -1182,7 +1179,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.DecomposeDiacriticalMarks](docs/DecomposeDiacriticalMarks.md)
  - [PSSailpoint.V2025\Model.DeleteNonEmployeeRecordsInBulkRequest](docs/DeleteNonEmployeeRecordsInBulkRequest.md)
  - [PSSailpoint.V2025\Model.DeleteSource202Response](docs/DeleteSource202Response.md)
- - [PSSailpoint.V2025\Model.DeleteVendorConnectorMapping200Response](docs/DeleteVendorConnectorMapping200Response.md)
  - [PSSailpoint.V2025\Model.DependantAppConnections](docs/DependantAppConnections.md)
  - [PSSailpoint.V2025\Model.DependantAppConnectionsAccountSource](docs/DependantAppConnectionsAccountSource.md)
  - [PSSailpoint.V2025\Model.DependantAppConnectionsAccountSourcePasswordPoliciesInner](docs/DependantAppConnectionsAccountSourcePasswordPoliciesInner.md)
@@ -2002,11 +1998,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.ValidateFilterInputDto](docs/ValidateFilterInputDto.md)
  - [PSSailpoint.V2025\Model.ValidateFilterOutputDto](docs/ValidateFilterOutputDto.md)
  - [PSSailpoint.V2025\Model.Value](docs/Value.md)
- - [PSSailpoint.V2025\Model.VendorConnectorMapping](docs/VendorConnectorMapping.md)
- - [PSSailpoint.V2025\Model.VendorConnectorMappingDeletedAt](docs/VendorConnectorMappingDeletedAt.md)
- - [PSSailpoint.V2025\Model.VendorConnectorMappingDeletedBy](docs/VendorConnectorMappingDeletedBy.md)
- - [PSSailpoint.V2025\Model.VendorConnectorMappingUpdatedAt](docs/VendorConnectorMappingUpdatedAt.md)
- - [PSSailpoint.V2025\Model.VendorConnectorMappingUpdatedBy](docs/VendorConnectorMappingUpdatedBy.md)
  - [PSSailpoint.V2025\Model.ViolationContext](docs/ViolationContext.md)
  - [PSSailpoint.V2025\Model.ViolationContextPolicy](docs/ViolationContextPolicy.md)
  - [PSSailpoint.V2025\Model.ViolationOwnerAssignmentConfig](docs/ViolationOwnerAssignmentConfig.md)

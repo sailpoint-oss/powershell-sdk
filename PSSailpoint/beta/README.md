@@ -567,9 +567,6 @@ Class | Method | HTTP request | Description
 *BetaTriggersApi* | [**Update-BetaSubscription**](docs/BetaTriggersApi.md#Update-BetaSubscription) | **PUT** /trigger-subscriptions/{id} | Update a subscription
 *BetaUIMetadataApi* | [**Get-BetaTenantUiMetadata**](docs/BetaUIMetadataApi.md#Get-BetaTenantUiMetadata) | **GET** /ui-metadata/tenant | Get a tenant ui metadata
 *BetaUIMetadataApi* | [**Set-BetaTenantUiMetadata**](docs/BetaUIMetadataApi.md#Set-BetaTenantUiMetadata) | **PUT** /ui-metadata/tenant | Update tenant ui metadata
-*BetaVendorConnectorMappingsApi* | [**New-BetaVendorConnectorMapping**](docs/BetaVendorConnectorMappingsApi.md#New-BetaVendorConnectorMapping) | **POST** /vendor-connector-mappings | Create vendor connector mapping
-*BetaVendorConnectorMappingsApi* | [**Remove-BetaVendorConnectorMapping**](docs/BetaVendorConnectorMappingsApi.md#Remove-BetaVendorConnectorMapping) | **DELETE** /vendor-connector-mappings | Delete vendor connector mapping
-*BetaVendorConnectorMappingsApi* | [**Get-BetaVendorConnectorMappings**](docs/BetaVendorConnectorMappingsApi.md#Get-BetaVendorConnectorMappings) | **GET** /vendor-connector-mappings | List vendor connector mappings
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItem**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItem) | **POST** /work-items/{id}/approve/{approvalItemId} | Approve an approval item
 *BetaWorkItemsApi* | [**Approve-BetaApprovalItemsInBulk**](docs/BetaWorkItemsApi.md#Approve-BetaApprovalItemsInBulk) | **POST** /work-items/bulk-approve/{id} | Bulk approve approval items
 *BetaWorkItemsApi* | [**Complete-BetaWorkItem**](docs/BetaWorkItemsApi.md#Complete-BetaWorkItem) | **POST** /work-items/{id} | Complete a work item
@@ -865,7 +862,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.Delete202Response](docs/Delete202Response.md)
  - [PSSailpoint.Beta\Model.DeleteCampaignsRequest](docs/DeleteCampaignsRequest.md)
  - [PSSailpoint.Beta\Model.DeleteNonEmployeeRecordInBulkRequest](docs/DeleteNonEmployeeRecordInBulkRequest.md)
- - [PSSailpoint.Beta\Model.DeleteVendorConnectorMapping200Response](docs/DeleteVendorConnectorMapping200Response.md)
  - [PSSailpoint.Beta\Model.DimensionRef](docs/DimensionRef.md)
  - [PSSailpoint.Beta\Model.DkimAttributes](docs/DkimAttributes.md)
  - [PSSailpoint.Beta\Model.DomainAddress](docs/DomainAddress.md)
@@ -1509,11 +1505,6 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.ValidateFilterInputDto](docs/ValidateFilterInputDto.md)
  - [PSSailpoint.Beta\Model.ValidateFilterOutputDto](docs/ValidateFilterOutputDto.md)
  - [PSSailpoint.Beta\Model.Value](docs/Value.md)
- - [PSSailpoint.Beta\Model.VendorConnectorMapping](docs/VendorConnectorMapping.md)
- - [PSSailpoint.Beta\Model.VendorConnectorMappingDeletedAt](docs/VendorConnectorMappingDeletedAt.md)
- - [PSSailpoint.Beta\Model.VendorConnectorMappingDeletedBy](docs/VendorConnectorMappingDeletedBy.md)
- - [PSSailpoint.Beta\Model.VendorConnectorMappingUpdatedAt](docs/VendorConnectorMappingUpdatedAt.md)
- - [PSSailpoint.Beta\Model.VendorConnectorMappingUpdatedBy](docs/VendorConnectorMappingUpdatedBy.md)
  - [PSSailpoint.Beta\Model.VerificationPollRequest](docs/VerificationPollRequest.md)
  - [PSSailpoint.Beta\Model.VerificationResponse](docs/VerificationResponse.md)
  - [PSSailpoint.Beta\Model.ViolationContext](docs/ViolationContext.md)

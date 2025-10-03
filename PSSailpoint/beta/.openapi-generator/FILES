@@ -292,8 +292,6 @@ docs/BetaTriggersApi.md
 docs/BetaTriggersApideveloperSite_code_examples.yaml
 docs/BetaUIMetadataApi.md
 docs/BetaUIMetadataApideveloperSite_code_examples.yaml
-docs/BetaVendorConnectorMappingsApi.md
-docs/BetaVendorConnectorMappingsApideveloperSite_code_examples.yaml
 docs/BetaWorkItemsApi.md
 docs/BetaWorkItemsApideveloperSite_code_examples.yaml
 docs/BetaWorkReassignmentApi.md
@@ -402,7 +400,6 @@ docs/DecomposeDiacriticalMarks.md
 docs/Delete202Response.md
 docs/DeleteCampaignsRequest.md
 docs/DeleteNonEmployeeRecordInBulkRequest.md
-docs/DeleteVendorConnectorMapping200Response.md
 docs/DimensionRef.md
 docs/DkimAttributes.md
 docs/DomainAddress.md
@@ -1047,11 +1044,6 @@ docs/VAClusterStatusChangeEventPreviousHealthCheckResult.md
 docs/ValidateFilterInputDto.md
 docs/ValidateFilterOutputDto.md
 docs/Value.md
-docs/VendorConnectorMapping.md
-docs/VendorConnectorMappingDeletedAt.md
-docs/VendorConnectorMappingDeletedBy.md
-docs/VendorConnectorMappingUpdatedAt.md
-docs/VendorConnectorMappingUpdatedBy.md
 docs/VerificationPollRequest.md
 docs/VerificationResponse.md
 docs/ViolationContext.md
@@ -1159,7 +1151,6 @@ src/PSSailpoint.Beta/Api/BetaTenantApi.ps1
 src/PSSailpoint.Beta/Api/BetaTransformsApi.ps1
 src/PSSailpoint.Beta/Api/BetaTriggersApi.ps1
 src/PSSailpoint.Beta/Api/BetaUIMetadataApi.ps1
-src/PSSailpoint.Beta/Api/BetaVendorConnectorMappingsApi.ps1
 src/PSSailpoint.Beta/Api/BetaWorkItemsApi.ps1
 src/PSSailpoint.Beta/Api/BetaWorkReassignmentApi.ps1
 src/PSSailpoint.Beta/Api/BetaWorkflowsApi.ps1
@@ -1415,7 +1406,6 @@ src/PSSailpoint.Beta/Model/DecomposeDiacriticalMarks.ps1
 src/PSSailpoint.Beta/Model/Delete202Response.ps1
 src/PSSailpoint.Beta/Model/DeleteCampaignsRequest.ps1
 src/PSSailpoint.Beta/Model/DeleteNonEmployeeRecordInBulkRequest.ps1
-src/PSSailpoint.Beta/Model/DeleteVendorConnectorMapping200Response.ps1
 src/PSSailpoint.Beta/Model/DimensionRef.ps1
 src/PSSailpoint.Beta/Model/DkimAttributes.ps1
 src/PSSailpoint.Beta/Model/DomainAddress.ps1
@@ -2059,11 +2049,6 @@ src/PSSailpoint.Beta/Model/VAClusterStatusChangeEventPreviousHealthCheckResult.p
 src/PSSailpoint.Beta/Model/ValidateFilterInputDto.ps1
 src/PSSailpoint.Beta/Model/ValidateFilterOutputDto.ps1
 src/PSSailpoint.Beta/Model/Value.ps1
-src/PSSailpoint.Beta/Model/VendorConnectorMapping.ps1
-src/PSSailpoint.Beta/Model/VendorConnectorMappingDeletedAt.ps1
-src/PSSailpoint.Beta/Model/VendorConnectorMappingDeletedBy.ps1
-src/PSSailpoint.Beta/Model/VendorConnectorMappingUpdatedAt.ps1
-src/PSSailpoint.Beta/Model/VendorConnectorMappingUpdatedBy.ps1
 src/PSSailpoint.Beta/Model/VerificationPollRequest.ps1
 src/PSSailpoint.Beta/Model/VerificationResponse.ps1
 src/PSSailpoint.Beta/Model/ViolationContext.ps1
@@ -2178,7 +2163,6 @@ tests/Api/BetaTenantApi.Tests.ps1
 tests/Api/BetaTransformsApi.Tests.ps1
 tests/Api/BetaTriggersApi.Tests.ps1
 tests/Api/BetaUIMetadataApi.Tests.ps1
-tests/Api/BetaVendorConnectorMappingsApi.Tests.ps1
 tests/Api/BetaWorkItemsApi.Tests.ps1
 tests/Api/BetaWorkReassignmentApi.Tests.ps1
 tests/Api/BetaWorkflowsApi.Tests.ps1
@@ -2433,7 +2417,6 @@ tests/Model/DecomposeDiacriticalMarks.Tests.ps1
 tests/Model/Delete202Response.Tests.ps1
 tests/Model/DeleteCampaignsRequest.Tests.ps1
 tests/Model/DeleteNonEmployeeRecordInBulkRequest.Tests.ps1
-tests/Model/DeleteVendorConnectorMapping200Response.Tests.ps1
 tests/Model/DimensionRef.Tests.ps1
 tests/Model/DkimAttributes.Tests.ps1
 tests/Model/DomainAddress.Tests.ps1
@@ -3077,11 +3060,6 @@ tests/Model/VAClusterStatusChangeEventPreviousHealthCheckResult.Tests.ps1
 tests/Model/ValidateFilterInputDto.Tests.ps1
 tests/Model/ValidateFilterOutputDto.Tests.ps1
 tests/Model/Value.Tests.ps1
-tests/Model/VendorConnectorMapping.Tests.ps1
-tests/Model/VendorConnectorMappingDeletedAt.Tests.ps1
-tests/Model/VendorConnectorMappingDeletedBy.Tests.ps1
-tests/Model/VendorConnectorMappingUpdatedAt.Tests.ps1
-tests/Model/VendorConnectorMappingUpdatedBy.Tests.ps1
 tests/Model/VerificationPollRequest.Tests.ps1
 tests/Model/VerificationResponse.Tests.ps1
 tests/Model/ViolationContext.Tests.ps1

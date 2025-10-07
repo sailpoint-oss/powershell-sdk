@@ -18,6 +18,8 @@ An identity with a set of access to be added
 Identity id to be checked.
 .PARAMETER AccessRefs
 The list of entitlements to consider for possible violations in a preventive check.
+.PARAMETER SourceIdAndNativeIdToEntitlementIdsMappings
+Mappings between sourceId and nativeId to entitlement IDs for which access is requested. This is only being used for ARM analysis in case of user having multiple accounts on the same source on which entitlement is requested. Optional parameter that helps identify which account the entitlement is requested on. For scenarios where users have a single account on the source and do not provide this field, the available account is chosen.
 .OUTPUTS
 
 IdentityWithNewAccess<PSCustomObject>
@@ -31,7 +33,10 @@ function Initialize-V2025IdentityWithNewAccess {
         ${IdentityId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
-        ${AccessRefs}
+        ${AccessRefs},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${SourceIdAndNativeIdToEntitlementIdsMappings}
     )
 
     Process {
@@ -50,6 +55,7 @@ function Initialize-V2025IdentityWithNewAccess {
         $PSO = [PSCustomObject]@{
             "identityId" = ${IdentityId}
             "accessRefs" = ${AccessRefs}
+            "sourceIdAndNativeIdToEntitlementIdsMappings" = ${SourceIdAndNativeIdToEntitlementIdsMappings}
         }
 
         return $PSO
@@ -86,7 +92,7 @@ function ConvertFrom-V2025JsonToIdentityWithNewAccess {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025IdentityWithNewAccess
-        $AllProperties = ("identityId", "accessRefs")
+        $AllProperties = ("identityId", "accessRefs", "sourceIdAndNativeIdToEntitlementIdsMappings")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,9 +115,16 @@ function ConvertFrom-V2025JsonToIdentityWithNewAccess {
             $AccessRefs = $JsonParameters.PSobject.Properties["accessRefs"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceIdAndNativeIdToEntitlementIdsMappings"))) { #optional property not found
+            $SourceIdAndNativeIdToEntitlementIdsMappings = $null
+        } else {
+            $SourceIdAndNativeIdToEntitlementIdsMappings = $JsonParameters.PSobject.Properties["sourceIdAndNativeIdToEntitlementIdsMappings"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "identityId" = ${IdentityId}
             "accessRefs" = ${AccessRefs}
+            "sourceIdAndNativeIdToEntitlementIdsMappings" = ${SourceIdAndNativeIdToEntitlementIdsMappings}
         }
 
         return $PSO

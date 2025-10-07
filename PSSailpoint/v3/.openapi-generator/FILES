@@ -376,6 +376,7 @@ docs/MfaOktaConfig.md
 docs/MultiPolicyRequest.md
 docs/NameNormalizer.md
 docs/NamedConstructs.md
+docs/NativeIdToEntitlementIdsMapping.md
 docs/NestedAggregation.md
 docs/NetworkConfiguration.md
 docs/NonEmployeeApprovalDecision.md
@@ -642,6 +643,7 @@ docs/SourceCluster.md
 docs/SourceClusterDto.md
 docs/SourceConnectionsDto.md
 docs/SourceHealthDto.md
+docs/SourceIdAndNativeIdToEntitlementIdsMapping.md
 docs/SourceItemRef.md
 docs/SourceManagementWorkgroup.md
 docs/SourceManagerCorrelationMapping.md
@@ -1110,6 +1112,7 @@ src/PSSailpoint.V3/Model/ModelFilter.ps1
 src/PSSailpoint.V3/Model/MultiPolicyRequest.ps1
 src/PSSailpoint.V3/Model/NameNormalizer.ps1
 src/PSSailpoint.V3/Model/NamedConstructs.ps1
+src/PSSailpoint.V3/Model/NativeIdToEntitlementIdsMapping.ps1
 src/PSSailpoint.V3/Model/NestedAggregation.ps1
 src/PSSailpoint.V3/Model/NetworkConfiguration.ps1
 src/PSSailpoint.V3/Model/NonEmployeeApprovalDecision.ps1
@@ -1334,6 +1337,7 @@ src/PSSailpoint.V3/Model/SourceCluster.ps1
 src/PSSailpoint.V3/Model/SourceClusterDto.ps1
 src/PSSailpoint.V3/Model/SourceConnectionsDto.ps1
 src/PSSailpoint.V3/Model/SourceHealthDto.ps1
+src/PSSailpoint.V3/Model/SourceIdAndNativeIdToEntitlementIdsMapping.ps1
 src/PSSailpoint.V3/Model/SourceItemRef.ps1
 src/PSSailpoint.V3/Model/SourceManagementWorkgroup.ps1
 src/PSSailpoint.V3/Model/SourceManagerCorrelationMapping.ps1
@@ -1796,6 +1800,7 @@ tests/Model/ModelFilter.Tests.ps1
 tests/Model/MultiPolicyRequest.Tests.ps1
 tests/Model/NameNormalizer.Tests.ps1
 tests/Model/NamedConstructs.Tests.ps1
+tests/Model/NativeIdToEntitlementIdsMapping.Tests.ps1
 tests/Model/NestedAggregation.Tests.ps1
 tests/Model/NetworkConfiguration.Tests.ps1
 tests/Model/NonEmployeeApprovalDecision.Tests.ps1
@@ -2020,6 +2025,7 @@ tests/Model/SourceCluster.Tests.ps1
 tests/Model/SourceClusterDto.Tests.ps1
 tests/Model/SourceConnectionsDto.Tests.ps1
 tests/Model/SourceHealthDto.Tests.ps1
+tests/Model/SourceIdAndNativeIdToEntitlementIdsMapping.Tests.ps1
 tests/Model/SourceItemRef.Tests.ps1
 tests/Model/SourceManagementWorkgroup.Tests.ps1
 tests/Model/SourceManagerCorrelationMapping.Tests.ps1

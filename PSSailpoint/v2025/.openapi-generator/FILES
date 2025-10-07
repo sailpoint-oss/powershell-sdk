@@ -707,6 +707,7 @@ docs/MultiPolicyRequest.md
 docs/NameNormalizer.md
 docs/NamedConstructs.md
 docs/NativeChangeDetectionConfig.md
+docs/NativeIdToEntitlementIdsMapping.md
 docs/NestedAggregation.md
 docs/NestedConfig.md
 docs/NetworkConfiguration.md
@@ -1087,6 +1088,7 @@ docs/SourceDeleted.md
 docs/SourceDeletedActor.md
 docs/SourceEntitlementRequestConfig.md
 docs/SourceHealthDto.md
+docs/SourceIdAndNativeIdToEntitlementIdsMapping.md
 docs/SourceItemRef.md
 docs/SourceManagementWorkgroup.md
 docs/SourceManagerCorrelationMapping.md
@@ -2232,6 +2234,7 @@ src/PSSailpoint.V2025/Model/MultiPolicyRequest.ps1
 src/PSSailpoint.V2025/Model/NameNormalizer.ps1
 src/PSSailpoint.V2025/Model/NamedConstructs.ps1
 src/PSSailpoint.V2025/Model/NativeChangeDetectionConfig.ps1
+src/PSSailpoint.V2025/Model/NativeIdToEntitlementIdsMapping.ps1
 src/PSSailpoint.V2025/Model/NestedAggregation.ps1
 src/PSSailpoint.V2025/Model/NestedConfig.ps1
 src/PSSailpoint.V2025/Model/NetworkConfiguration.ps1
@@ -2612,6 +2615,7 @@ src/PSSailpoint.V2025/Model/SourceDeleted.ps1
 src/PSSailpoint.V2025/Model/SourceDeletedActor.ps1
 src/PSSailpoint.V2025/Model/SourceEntitlementRequestConfig.ps1
 src/PSSailpoint.V2025/Model/SourceHealthDto.ps1
+src/PSSailpoint.V2025/Model/SourceIdAndNativeIdToEntitlementIdsMapping.ps1
 src/PSSailpoint.V2025/Model/SourceItemRef.ps1
 src/PSSailpoint.V2025/Model/SourceManagementWorkgroup.ps1
 src/PSSailpoint.V2025/Model/SourceManagerCorrelationMapping.ps1
@@ -3573,6 +3577,7 @@ tests/Model/MultiPolicyRequest.Tests.ps1
 tests/Model/NameNormalizer.Tests.ps1
 tests/Model/NamedConstructs.Tests.ps1
 tests/Model/NativeChangeDetectionConfig.Tests.ps1
+tests/Model/NativeIdToEntitlementIdsMapping.Tests.ps1
 tests/Model/NestedAggregation.Tests.ps1
 tests/Model/NestedConfig.Tests.ps1
 tests/Model/NetworkConfiguration.Tests.ps1
@@ -3953,6 +3958,7 @@ tests/Model/SourceDeleted.Tests.ps1
 tests/Model/SourceDeletedActor.Tests.ps1
 tests/Model/SourceEntitlementRequestConfig.Tests.ps1
 tests/Model/SourceHealthDto.Tests.ps1
+tests/Model/SourceIdAndNativeIdToEntitlementIdsMapping.Tests.ps1
 tests/Model/SourceItemRef.Tests.ps1
 tests/Model/SourceManagementWorkgroup.Tests.ps1
 tests/Model/SourceManagerCorrelationMapping.Tests.ps1

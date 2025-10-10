@@ -763,6 +763,12 @@ docs/OwnerDto.md
 docs/OwnerReference.md
 docs/OwnerReferenceSegments.md
 docs/Owns.md
+docs/ParameterStorageAttestationDocument.md
+docs/ParameterStorageJsonPatch.md
+docs/ParameterStorageNewParameter.md
+docs/ParameterStorageParameter.md
+docs/ParameterStorageReference.md
+docs/ParameterStorageUpdateParameter.md
 docs/PasswordChangeRequest.md
 docs/PasswordChangeResponse.md
 docs/PasswordDigitToken.md
@@ -1313,6 +1319,8 @@ docs/V2025OAuthClientsApi.md
 docs/V2025OAuthClientsApideveloperSite_code_examples.yaml
 docs/V2025OrgConfigApi.md
 docs/V2025OrgConfigApideveloperSite_code_examples.yaml
+docs/V2025ParameterStorageApi.md
+docs/V2025ParameterStorageApideveloperSite_code_examples.yaml
 docs/V2025PasswordConfigurationApi.md
 docs/V2025PasswordConfigurationApideveloperSite_code_examples.yaml
 docs/V2025PasswordDictionaryApi.md
@@ -1492,6 +1500,7 @@ src/PSSailpoint.V2025/Api/V2025NonEmployeeLifecycleManagementApi.ps1
 src/PSSailpoint.V2025/Api/V2025NotificationsApi.ps1
 src/PSSailpoint.V2025/Api/V2025OAuthClientsApi.ps1
 src/PSSailpoint.V2025/Api/V2025OrgConfigApi.ps1
+src/PSSailpoint.V2025/Api/V2025ParameterStorageApi.ps1
 src/PSSailpoint.V2025/Api/V2025PasswordConfigurationApi.ps1
 src/PSSailpoint.V2025/Api/V2025PasswordDictionaryApi.ps1
 src/PSSailpoint.V2025/Api/V2025PasswordManagementApi.ps1
@@ -2288,6 +2297,12 @@ src/PSSailpoint.V2025/Model/OwnerDto.ps1
 src/PSSailpoint.V2025/Model/OwnerReference.ps1
 src/PSSailpoint.V2025/Model/OwnerReferenceSegments.ps1
 src/PSSailpoint.V2025/Model/Owns.ps1
+src/PSSailpoint.V2025/Model/ParameterStorageAttestationDocument.ps1
+src/PSSailpoint.V2025/Model/ParameterStorageJsonPatch.ps1
+src/PSSailpoint.V2025/Model/ParameterStorageNewParameter.ps1
+src/PSSailpoint.V2025/Model/ParameterStorageParameter.ps1
+src/PSSailpoint.V2025/Model/ParameterStorageReference.ps1
+src/PSSailpoint.V2025/Model/ParameterStorageUpdateParameter.ps1
 src/PSSailpoint.V2025/Model/PasswordChangeRequest.ps1
 src/PSSailpoint.V2025/Model/PasswordChangeResponse.ps1
 src/PSSailpoint.V2025/Model/PasswordDigitToken.ps1
@@ -2834,6 +2849,7 @@ tests/Api/V2025NonEmployeeLifecycleManagementApi.Tests.ps1
 tests/Api/V2025NotificationsApi.Tests.ps1
 tests/Api/V2025OAuthClientsApi.Tests.ps1
 tests/Api/V2025OrgConfigApi.Tests.ps1
+tests/Api/V2025ParameterStorageApi.Tests.ps1
 tests/Api/V2025PasswordConfigurationApi.Tests.ps1
 tests/Api/V2025PasswordDictionaryApi.Tests.ps1
 tests/Api/V2025PasswordManagementApi.Tests.ps1
@@ -3629,6 +3645,12 @@ tests/Model/OwnerDto.Tests.ps1
 tests/Model/OwnerReference.Tests.ps1
 tests/Model/OwnerReferenceSegments.Tests.ps1
 tests/Model/Owns.Tests.ps1
+tests/Model/ParameterStorageAttestationDocument.Tests.ps1
+tests/Model/ParameterStorageJsonPatch.Tests.ps1
+tests/Model/ParameterStorageNewParameter.Tests.ps1
+tests/Model/ParameterStorageParameter.Tests.ps1
+tests/Model/ParameterStorageReference.Tests.ps1
+tests/Model/ParameterStorageUpdateParameter.Tests.ps1
 tests/Model/PasswordChangeRequest.Tests.ps1
 tests/Model/PasswordChangeResponse.Tests.ps1
 tests/Model/PasswordDigitToken.Tests.ps1

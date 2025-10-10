@@ -531,6 +531,14 @@ Class | Method | HTTP request | Description
 *V2025OrgConfigApi* | [**Get-V2025OrgConfig**](docs/V2025OrgConfigApi.md#Get-V2025OrgConfig) | **GET** /org-config | Get org config settings
 *V2025OrgConfigApi* | [**Get-V2025ValidTimeZones**](docs/V2025OrgConfigApi.md#Get-V2025ValidTimeZones) | **GET** /org-config/valid-time-zones | Get valid time zones
 *V2025OrgConfigApi* | [**Update-V2025OrgConfig**](docs/V2025OrgConfigApi.md#Update-V2025OrgConfig) | **PATCH** /org-config | Patch org config
+*V2025ParameterStorageApi* | [**New-V2025Parameter**](docs/V2025ParameterStorageApi.md#New-V2025Parameter) | **POST** /parameter-storage/parameters | Add a new parameter.
+*V2025ParameterStorageApi* | [**Remove-V2025Parameter**](docs/V2025ParameterStorageApi.md#Remove-V2025Parameter) | **DELETE** /parameter-storage/parameters/{id} | Delete a parameter.
+*V2025ParameterStorageApi* | [**Get-V2025AttestationDocument**](docs/V2025ParameterStorageApi.md#Get-V2025AttestationDocument) | **GET** /parameter-storage/attestation | Get an attestation document.
+*V2025ParameterStorageApi* | [**Get-V2025Parameter**](docs/V2025ParameterStorageApi.md#Get-V2025Parameter) | **GET** /parameter-storage/parameters/{id} | Get a specific parameter.
+*V2025ParameterStorageApi* | [**Get-V2025ParameterReferences**](docs/V2025ParameterStorageApi.md#Get-V2025ParameterReferences) | **GET** /parameter-storage/parameters/{id}/references | Get parameter references.
+*V2025ParameterStorageApi* | [**Get-V2025ParameterStorageSpecification**](docs/V2025ParameterStorageApi.md#Get-V2025ParameterStorageSpecification) | **GET** /parameter-storage/specification | Get specifications for parameter types.
+*V2025ParameterStorageApi* | [**Search-V2025Parameters**](docs/V2025ParameterStorageApi.md#Search-V2025Parameters) | **GET** /parameter-storage/parameters | Query stored parameters.
+*V2025ParameterStorageApi* | [**Update-V2025Parameter**](docs/V2025ParameterStorageApi.md#Update-V2025Parameter) | **PATCH** /parameter-storage/parameters/{id} | Update a parameter.
 *V2025PasswordConfigurationApi* | [**New-V2025PasswordOrgConfig**](docs/V2025PasswordConfigurationApi.md#New-V2025PasswordOrgConfig) | **POST** /password-org-config | Create password org config
 *V2025PasswordConfigurationApi* | [**Get-V2025PasswordOrgConfig**](docs/V2025PasswordConfigurationApi.md#Get-V2025PasswordOrgConfig) | **GET** /password-org-config | Get password org config
 *V2025PasswordConfigurationApi* | [**Send-V2025PasswordOrgConfig**](docs/V2025PasswordConfigurationApi.md#Send-V2025PasswordOrgConfig) | **PUT** /password-org-config | Update password org config
@@ -1557,6 +1565,12 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.OwnerReference](docs/OwnerReference.md)
  - [PSSailpoint.V2025\Model.OwnerReferenceSegments](docs/OwnerReferenceSegments.md)
  - [PSSailpoint.V2025\Model.Owns](docs/Owns.md)
+ - [PSSailpoint.V2025\Model.ParameterStorageAttestationDocument](docs/ParameterStorageAttestationDocument.md)
+ - [PSSailpoint.V2025\Model.ParameterStorageJsonPatch](docs/ParameterStorageJsonPatch.md)
+ - [PSSailpoint.V2025\Model.ParameterStorageNewParameter](docs/ParameterStorageNewParameter.md)
+ - [PSSailpoint.V2025\Model.ParameterStorageParameter](docs/ParameterStorageParameter.md)
+ - [PSSailpoint.V2025\Model.ParameterStorageReference](docs/ParameterStorageReference.md)
+ - [PSSailpoint.V2025\Model.ParameterStorageUpdateParameter](docs/ParameterStorageUpdateParameter.md)
  - [PSSailpoint.V2025\Model.PasswordChangeRequest](docs/PasswordChangeRequest.md)
  - [PSSailpoint.V2025\Model.PasswordChangeResponse](docs/PasswordChangeResponse.md)
  - [PSSailpoint.V2025\Model.PasswordDigitToken](docs/PasswordDigitToken.md)

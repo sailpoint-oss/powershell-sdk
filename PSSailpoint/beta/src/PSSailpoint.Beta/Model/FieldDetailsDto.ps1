@@ -21,7 +21,7 @@ The transform to apply to the field
 .PARAMETER Attributes
 Attributes required for the transform
 .PARAMETER Type
-The type of the attribute.
+The type of the attribute.  string: For text-based data.  int: For whole numbers.  long: For larger whole numbers.  date: For date and time values.  boolean: For true/false values.  secret: For sensitive data like passwords, which will be masked and encrypted. 
 .PARAMETER IsMultiValued
 Flag indicating whether or not the attribute is multi-valued.
 .OUTPUTS
@@ -42,6 +42,7 @@ function Initialize-BetaFieldDetailsDto {
         [PSCustomObject]
         ${Attributes},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("string", "int", "long", "date", "boolean", "secret")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

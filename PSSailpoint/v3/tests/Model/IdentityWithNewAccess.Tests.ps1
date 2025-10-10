@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'IdentityWithNewAccess' {
     Context 'IdentityWithNewAccess' {
         It 'Initialize-IdentityWithNewAccess' {
             # a simple test to create an object
-            #$NewObject = Initialize-IdentityWithNewAccess -IdentityId "TEST_VALUE" -AccessRefs "TEST_VALUE" -SourceIdAndNativeIdToEntitlementIdsMappings "TEST_VALUE"
+            #$NewObject = Initialize-IdentityWithNewAccess -IdentityId "TEST_VALUE" -AccessRefs "TEST_VALUE"
             #$NewObject | Should -BeOfType IdentityWithNewAccess
             #$NewObject.property | Should -Be 0
         }

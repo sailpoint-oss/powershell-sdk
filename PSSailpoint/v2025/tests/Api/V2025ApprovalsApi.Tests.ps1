@@ -24,7 +24,23 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
 
     Context 'Get-V2025Approvals' {
         It 'Test Get-V2025Approvals' {
-            #$TestResult = Get-V2025Approvals -Mine "TEST_VALUE" -RequesterId "TEST_VALUE" -RequesteeId "TEST_VALUE" -ApproverId "TEST_VALUE" -Count "TEST_VALUE" -CountOnly "TEST_VALUE" -IncludeComments "TEST_VALUE" -IncludeApprovers "TEST_VALUE" -IncludeBatchInfo "TEST_VALUE" -IncludeBatchInfo2 "TEST_VALUE" -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult = Get-V2025Approvals -Mine "TEST_VALUE" -RequesterId "TEST_VALUE" -RequesteeId "TEST_VALUE" -ApproverId "TEST_VALUE" -Count "TEST_VALUE" -CountOnly "TEST_VALUE" -IncludeComments "TEST_VALUE" -IncludeApprovers "TEST_VALUE" -IncludeBatchInfo "TEST_VALUE" -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2025ApprovalsConfigIdType' {
+        It 'Test Get-V2025ApprovalsConfigIdType' {
+            #$TestResult = Get-V2025ApprovalsConfigIdType -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2025ApprovalsConfigType' {
+        It 'Test Update-V2025ApprovalsConfigType' {
+            #$TestResult = Update-V2025ApprovalsConfigType -Id "TEST_VALUE" -Scope "TEST_VALUE" -ApprovalConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -193,10 +193,10 @@ Get approvals
 
 .DESCRIPTION
 
-Currently this endpoint only supports Entitlement Description Approvals. Get a list of approvals. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals.  Absence of all query parameters for non admins will will default to mine=true. Absence of all query parameters for admins will return all approvals in the org.
+Currently this endpoint only supports Entitlement Description Approvals. Get a list of approvals. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals.  Absence of all query parameters for non admins will will default to mine=true. Admin will default to mine=false. Absence of all query parameters for admins will return all approvals in the org.
 
 .PARAMETER Mine
-Returns the list of approvals for the current caller.
+Returns the list of approvals for the current caller. Defaults to false if admin, true otherwise.
 
 .PARAMETER RequesterId
 Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin.
@@ -222,11 +222,8 @@ If set to true in the query, the approval requests returned will include approve
 .PARAMETER IncludeBatchInfo
 If set to true in the query, the approval requests returned will include batch information.
 
-.PARAMETER IncludeBatchInfo2
-If set to true in the query, the approval requests returned will include batch information.
-
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq*  **name**: *eq*  **priority**: *eq*  **type**: *eq*  **medium**: *eq*  **description**: *eq*  **batchId**: *eq*  **approvalId**: *eq*  **tenantId**: *eq*  **createdDate**: *eq*  **dueDate**: *eq*  **completedDate**: *eq*  **search**: *eq*  **referenceId**: *eq*  **referenceName**: *eq*  **requestedTargetType**: *eq*  **requestedTargetRequestType**: *eq*  **requestedTargetId**: *eq*  **modifiedDate**: *eq*  **requesterId**: *eq*  **requesteeId**: *eq*  **approverId**: *eq*
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **approvalId**: *eq, ne, in, co, sw*  **tenantId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -273,15 +270,12 @@ function Get-V2025Approvals {
         [System.Nullable[Boolean]]
         ${IncludeBatchInfo},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Boolean]]
-        ${IncludeBatchInfo2},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
         [Switch]
@@ -327,7 +321,7 @@ function Get-V2025Approvals {
         }
 
         if ($CountOnly) {
-            $LocalVarQueryParameters['countOnly'] = $CountOnly
+            $LocalVarQueryParameters['count-only'] = $CountOnly
         }
 
         if ($IncludeComments) {
@@ -340,10 +334,6 @@ function Get-V2025Approvals {
 
         if ($IncludeBatchInfo) {
             $LocalVarQueryParameters['include-batch-info'] = $IncludeBatchInfo
-        }
-
-        if ($IncludeBatchInfo2) {
-            $LocalVarQueryParameters['include-batch-info'] = $IncludeBatchInfo2
         }
 
         if ($Filters) {
@@ -370,6 +360,192 @@ function Get-V2025Approvals {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "Approval[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get Approval Config Type
+
+.DESCRIPTION
+
+Currently this endpoint only supports Entitlement Description Approvals. Retrieves a singular approval configuration that matches the given ID
+
+.PARAMETER Id
+ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+ApprovalConfig
+#>
+function Get-V2025ApprovalsConfigIdType {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2025ApprovalsConfigIdType' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/generic-approvals/config'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getApprovalsConfigIdType."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+
+
+        $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "ApprovalConfig" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Patch Approval Config Type
+
+.DESCRIPTION
+
+Updates a singular approval configuration that matches the given configID and configScope
+
+.PARAMETER Id
+The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
+
+.PARAMETER Scope
+The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
+
+.PARAMETER ApprovalConfig
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+ApprovalConfig
+#>
+function Update-V2025ApprovalsConfigType {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Scope},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${ApprovalConfig},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-V2025ApprovalsConfigType' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/generic-approvals/config'
+
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling patchApprovalsConfigType."
+        }
+        $LocalVarQueryParameters['id'] = $Id
+
+        if (!$Scope) {
+            throw "Error! The required parameter `Scope` missing when calling patchApprovalsConfigType."
+        }
+        $LocalVarQueryParameters['scope'] = $Scope
+
+        if (!$ApprovalConfig) {
+            throw "Error! The required parameter `ApprovalConfig` missing when calling patchApprovalsConfigType."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ApprovalConfig -is [array])) {
+            $LocalVarBodyParameter = $ApprovalConfig | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $ApprovalConfig | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-V2025ApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "ApprovalConfig" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

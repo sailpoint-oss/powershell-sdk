@@ -22,5 +22,7 @@ enum ConfigTypeEnum {
     CERTIFICATIONS
     # enum value: "MANUAL_TASKS"
     MANUAL_TASKS
+    # enum value: "GENERIC_APPROVALS"
+    GENERIC_APPROVALS
 }
 

@@ -39,7 +39,7 @@ function Initialize-V2025ConfigurationItemRequest {
         [String]
         ${ReassignedToId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("ACCESS_REQUESTS", "CERTIFICATIONS", "MANUAL_TASKS")]
+        [ValidateSet("ACCESS_REQUESTS", "CERTIFICATIONS", "MANUAL_TASKS", "GENERIC_APPROVALS")]
         [PSCustomObject]
         ${ConfigType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

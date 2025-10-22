@@ -218,6 +218,8 @@ docs/AuditDetails.md
 docs/AuthProfile.md
 docs/AuthProfileSummary.md
 docs/AuthUser.md
+docs/AuthUserLevelsIdentityCount.md
+docs/AuthUserSlimResponse.md
 docs/BackupOptions.md
 docs/BackupOptions1.md
 docs/BackupResponse.md
@@ -1229,6 +1231,8 @@ docs/V2025AuthProfileApi.md
 docs/V2025AuthProfileApideveloperSite_code_examples.yaml
 docs/V2025AuthUsersApi.md
 docs/V2025AuthUsersApideveloperSite_code_examples.yaml
+docs/V2025AuthorizationApi.md
+docs/V2025AuthorizationApideveloperSite_code_examples.yaml
 docs/V2025BrandingApi.md
 docs/V2025BrandingApideveloperSite_code_examples.yaml
 docs/V2025CertificationCampaignFiltersApi.md
@@ -1455,6 +1459,7 @@ src/PSSailpoint.V2025/Api/V2025ApprovalsApi.ps1
 src/PSSailpoint.V2025/Api/V2025AppsApi.ps1
 src/PSSailpoint.V2025/Api/V2025AuthProfileApi.ps1
 src/PSSailpoint.V2025/Api/V2025AuthUsersApi.ps1
+src/PSSailpoint.V2025/Api/V2025AuthorizationApi.ps1
 src/PSSailpoint.V2025/Api/V2025BrandingApi.ps1
 src/PSSailpoint.V2025/Api/V2025CertificationCampaignFiltersApi.ps1
 src/PSSailpoint.V2025/Api/V2025CertificationCampaignsApi.ps1
@@ -1753,6 +1758,8 @@ src/PSSailpoint.V2025/Model/AuditDetails.ps1
 src/PSSailpoint.V2025/Model/AuthProfile.ps1
 src/PSSailpoint.V2025/Model/AuthProfileSummary.ps1
 src/PSSailpoint.V2025/Model/AuthUser.ps1
+src/PSSailpoint.V2025/Model/AuthUserLevelsIdentityCount.ps1
+src/PSSailpoint.V2025/Model/AuthUserSlimResponse.ps1
 src/PSSailpoint.V2025/Model/BackupOptions.ps1
 src/PSSailpoint.V2025/Model/BackupOptions1.ps1
 src/PSSailpoint.V2025/Model/BackupResponse.ps1
@@ -2804,6 +2811,7 @@ tests/Api/V2025ApprovalsApi.Tests.ps1
 tests/Api/V2025AppsApi.Tests.ps1
 tests/Api/V2025AuthProfileApi.Tests.ps1
 tests/Api/V2025AuthUsersApi.Tests.ps1
+tests/Api/V2025AuthorizationApi.Tests.ps1
 tests/Api/V2025BrandingApi.Tests.ps1
 tests/Api/V2025CertificationCampaignFiltersApi.Tests.ps1
 tests/Api/V2025CertificationCampaignsApi.Tests.ps1
@@ -3101,6 +3109,8 @@ tests/Model/AuditDetails.Tests.ps1
 tests/Model/AuthProfile.Tests.ps1
 tests/Model/AuthProfileSummary.Tests.ps1
 tests/Model/AuthUser.Tests.ps1
+tests/Model/AuthUserLevelsIdentityCount.Tests.ps1
+tests/Model/AuthUserSlimResponse.Tests.ps1
 tests/Model/BackupOptions.Tests.ps1
 tests/Model/BackupOptions1.Tests.ps1
 tests/Model/BackupResponse.Tests.ps1

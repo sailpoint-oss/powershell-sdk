@@ -138,6 +138,8 @@ Class | Method | HTTP request | Description
 *V2025AuthProfileApi* | [**Update-V2025ProfileConfig**](docs/V2025AuthProfileApi.md#Update-V2025ProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified auth profile
 *V2025AuthUsersApi* | [**Get-V2025AuthUser**](docs/V2025AuthUsersApi.md#Get-V2025AuthUser) | **GET** /auth-users/{id} | Auth user details
 *V2025AuthUsersApi* | [**Update-V2025AuthUser**](docs/V2025AuthUsersApi.md#Update-V2025AuthUser) | **PATCH** /auth-users/{id} | Auth user update
+*V2025AuthorizationApi* | [**Get-V2025UserLevelCounts**](docs/V2025AuthorizationApi.md#Get-V2025UserLevelCounts) | **POST** /authorization/user-levels/get-identity-count | Count user levels identities
+*V2025AuthorizationApi* | [**Get-V2025UserLevelIdentities**](docs/V2025AuthorizationApi.md#Get-V2025UserLevelIdentities) | **GET** /authorization/user-levels/{id}/identities | List user level identities
 *V2025BrandingApi* | [**New-V2025BrandingItem**](docs/V2025BrandingApi.md#New-V2025BrandingItem) | **POST** /brandings | Create a branding item
 *V2025BrandingApi* | [**Remove-V2025Branding**](docs/V2025BrandingApi.md#Remove-V2025Branding) | **DELETE** /brandings/{name} | Delete a branding item
 *V2025BrandingApi* | [**Get-V2025Branding**](docs/V2025BrandingApi.md#Get-V2025Branding) | **GET** /brandings/{name} | Get a branding item
@@ -1023,6 +1025,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.AuthProfile](docs/AuthProfile.md)
  - [PSSailpoint.V2025\Model.AuthProfileSummary](docs/AuthProfileSummary.md)
  - [PSSailpoint.V2025\Model.AuthUser](docs/AuthUser.md)
+ - [PSSailpoint.V2025\Model.AuthUserLevelsIdentityCount](docs/AuthUserLevelsIdentityCount.md)
+ - [PSSailpoint.V2025\Model.AuthUserSlimResponse](docs/AuthUserSlimResponse.md)
  - [PSSailpoint.V2025\Model.BackupOptions](docs/BackupOptions.md)
  - [PSSailpoint.V2025\Model.BackupOptions1](docs/BackupOptions1.md)
  - [PSSailpoint.V2025\Model.BackupResponse](docs/BackupResponse.md)

@@ -273,7 +273,7 @@ List tagged objects
 
 .DESCRIPTION
 
-This API returns a list of all tagged objects.  Any authenticated token may be used to call this API.
+This API returns a list of all tagged objects.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -377,7 +377,7 @@ List tagged objects by type
 
 .DESCRIPTION
 
-This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
+This API returns a list of all tagged objects by type.
 
 .PARAMETER Type
 The type of tagged object to retrieve.
@@ -603,7 +603,7 @@ Add tag to object
 
 .DESCRIPTION
 
-This adds a tag to an object.  Any authenticated token may be used to call this API.
+This adds a tag to an object.
 
 .PARAMETER TaggedObject
 No description available.

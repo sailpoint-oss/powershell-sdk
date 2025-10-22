@@ -14,6 +14,22 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
         }
     }
 
+    Context 'Approve-V2025Approval0' {
+        It 'Test Approve-V2025Approval0' {
+            #$TestResult = Approve-V2025Approval0 -BulkApproveRequestDTO "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Suspend-V2025Approval' {
+        It 'Test Suspend-V2025Approval' {
+            #$TestResult = Suspend-V2025Approval -BulkCancelRequestDTO "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2025Approval' {
         It 'Test Get-V2025Approval' {
             #$TestResult = Get-V2025Approval -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
@@ -38,6 +54,14 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
         }
     }
 
+    Context 'Move-V2025Approval' {
+        It 'Test Move-V2025Approval' {
+            #$TestResult = Move-V2025Approval -BulkReassignRequestDTO "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-V2025ApprovalsConfigType' {
         It 'Test Update-V2025ApprovalsConfigType' {
             #$TestResult = Update-V2025ApprovalsConfigType -Id "TEST_VALUE" -Scope "TEST_VALUE" -ApprovalConfig "TEST_VALUE"
@@ -49,6 +73,14 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
     Context 'Deny-V2025Approval' {
         It 'Test Deny-V2025Approval' {
             #$TestResult = Deny-V2025Approval -Id "TEST_VALUE" -ApprovalRejectRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Deny-V2025Approval0' {
+        It 'Test Deny-V2025Approval0' {
+            #$TestResult = Deny-V2025Approval0 -BulkRejectRequestDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

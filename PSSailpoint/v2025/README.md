@@ -111,11 +111,15 @@ Class | Method | HTTP request | Description
 *V2025ApplicationDiscoveryApi* | [**Get-V2025ManualDiscoverApplicationsCsvTemplate**](docs/V2025ApplicationDiscoveryApi.md#Get-V2025ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download csv template for discovery
 *V2025ApplicationDiscoveryApi* | [**Send-V2025ManualDiscoverApplicationsCsvTemplate**](docs/V2025ApplicationDiscoveryApi.md#Send-V2025ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload csv to discover applications
 *V2025ApprovalsApi* | [**Approve-V2025Approval**](docs/V2025ApprovalsApi.md#Approve-V2025Approval) | **POST** /generic-approvals/{id}/approve | Post Approvals Approve
+*V2025ApprovalsApi* | [**Approve-V2025Approval0**](docs/V2025ApprovalsApi.md#Approve-V2025Approval0) | **POST** /generic-approvals/bulk-approve | Post Bulk Approve Approvals
+*V2025ApprovalsApi* | [**Suspend-V2025Approval**](docs/V2025ApprovalsApi.md#Suspend-V2025Approval) | **POST** /generic-approvals/bulk-cancel | Post Bulk Cancel Approvals
 *V2025ApprovalsApi* | [**Get-V2025Approval**](docs/V2025ApprovalsApi.md#Get-V2025Approval) | **GET** /generic-approvals/{id} | Get an approval
 *V2025ApprovalsApi* | [**Get-V2025Approvals**](docs/V2025ApprovalsApi.md#Get-V2025Approvals) | **GET** /generic-approvals | Get approvals
 *V2025ApprovalsApi* | [**Get-V2025ApprovalsConfigIdType**](docs/V2025ApprovalsApi.md#Get-V2025ApprovalsConfigIdType) | **GET** /generic-approvals/config | Get Approval Config Type
+*V2025ApprovalsApi* | [**Move-V2025Approval**](docs/V2025ApprovalsApi.md#Move-V2025Approval) | **POST** /generic-approvals/bulk-reassign | Post Bulk Reassign Approvals
 *V2025ApprovalsApi* | [**Update-V2025ApprovalsConfigType**](docs/V2025ApprovalsApi.md#Update-V2025ApprovalsConfigType) | **PATCH** /generic-approvals/config | Patch Approval Config Type
 *V2025ApprovalsApi* | [**Deny-V2025Approval**](docs/V2025ApprovalsApi.md#Deny-V2025Approval) | **POST** /generic-approvals/{id}/reject | Post Approvals Reject
+*V2025ApprovalsApi* | [**Deny-V2025Approval0**](docs/V2025ApprovalsApi.md#Deny-V2025Approval0) | **POST** /generic-approvals/bulk-reject | Post Bulk Reject Approvals
 *V2025ApprovalsApi* | [**Update-V2025ApprovalsAttributes**](docs/V2025ApprovalsApi.md#Update-V2025ApprovalsAttributes) | **POST** /generic-approvals/{id}/attributes | Post Approvals Attributes
 *V2025ApprovalsApi* | [**Update-V2025ApprovalsComments**](docs/V2025ApprovalsApi.md#Update-V2025ApprovalsComments) | **POST** /generic-approvals/{id}/comments | Post Approvals Comments
 *V2025ApprovalsApi* | [**Update-V2025ApprovalsReassign**](docs/V2025ApprovalsApi.md#Update-V2025ApprovalsReassign) | **POST** /generic-approvals/{id}/reassign | Post Approvals Reassign
@@ -1052,8 +1056,12 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.BucketType](docs/BucketType.md)
  - [PSSailpoint.V2025\Model.BulkAddTaggedObject](docs/BulkAddTaggedObject.md)
  - [PSSailpoint.V2025\Model.BulkApproveAccessRequest](docs/BulkApproveAccessRequest.md)
+ - [PSSailpoint.V2025\Model.BulkApproveRequestDTO](docs/BulkApproveRequestDTO.md)
  - [PSSailpoint.V2025\Model.BulkCancelAccessRequest](docs/BulkCancelAccessRequest.md)
+ - [PSSailpoint.V2025\Model.BulkCancelRequestDTO](docs/BulkCancelRequestDTO.md)
  - [PSSailpoint.V2025\Model.BulkIdentitiesAccountsResponse](docs/BulkIdentitiesAccountsResponse.md)
+ - [PSSailpoint.V2025\Model.BulkReassignRequestDTO](docs/BulkReassignRequestDTO.md)
+ - [PSSailpoint.V2025\Model.BulkRejectRequestDTO](docs/BulkRejectRequestDTO.md)
  - [PSSailpoint.V2025\Model.BulkRemoveTaggedObject](docs/BulkRemoveTaggedObject.md)
  - [PSSailpoint.V2025\Model.BulkTaggedObjectResponse](docs/BulkTaggedObjectResponse.md)
  - [PSSailpoint.V2025\Model.Campaign](docs/Campaign.md)

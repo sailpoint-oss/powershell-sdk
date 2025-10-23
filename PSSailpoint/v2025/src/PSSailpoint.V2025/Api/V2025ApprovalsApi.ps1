@@ -717,11 +717,11 @@ function Move-V2025Approval {
 <#
 .SYNOPSIS
 
-Patch Approval Config Type
+Put Approval Config Type
 
 .DESCRIPTION
 
-Updates a singular approval configuration that matches the given configID and configScope
+Upserts a singular approval configuration that matches the given configID and configScope
 
 .PARAMETER Id
 The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
@@ -740,7 +740,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ApprovalConfig
 #>
-function Update-V2025ApprovalsConfigType {
+function Send-V2025ApprovalsConfigType {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -757,7 +757,7 @@ function Update-V2025ApprovalsConfigType {
     )
 
     Process {
-        'Calling method: Update-V2025ApprovalsConfigType' | Write-Debug
+        'Calling method: Send-V2025ApprovalsConfigType' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -778,17 +778,17 @@ function Update-V2025ApprovalsConfigType {
         $LocalVarUri = '/generic-approvals/config'
 
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling patchApprovalsConfigType."
+            throw "Error! The required parameter `Id` missing when calling putApprovalsConfigType."
         }
         $LocalVarQueryParameters['id'] = $Id
 
         if (!$Scope) {
-            throw "Error! The required parameter `Scope` missing when calling patchApprovalsConfigType."
+            throw "Error! The required parameter `Scope` missing when calling putApprovalsConfigType."
         }
         $LocalVarQueryParameters['scope'] = $Scope
 
         if (!$ApprovalConfig) {
-            throw "Error! The required parameter `ApprovalConfig` missing when calling patchApprovalsConfigType."
+            throw "Error! The required parameter `ApprovalConfig` missing when calling putApprovalsConfigType."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ApprovalConfig -is [array])) {
@@ -806,7 +806,7 @@ function Update-V2025ApprovalsConfigType {
 
 
 
-        $LocalVarResult = Invoke-V2025ApiClient -Method 'PATCH' `
+        $LocalVarResult = Invoke-V2025ApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
                                 -ContentTypes $LocalVarContentTypes `

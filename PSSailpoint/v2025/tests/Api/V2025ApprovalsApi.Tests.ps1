@@ -62,9 +62,9 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
         }
     }
 
-    Context 'Update-V2025ApprovalsConfigType' {
-        It 'Test Update-V2025ApprovalsConfigType' {
-            #$TestResult = Update-V2025ApprovalsConfigType -Id "TEST_VALUE" -Scope "TEST_VALUE" -ApprovalConfig "TEST_VALUE"
+    Context 'Send-V2025ApprovalsConfigType' {
+        It 'Test Send-V2025ApprovalsConfigType' {
+            #$TestResult = Send-V2025ApprovalsConfigType -Id "TEST_VALUE" -Scope "TEST_VALUE" -ApprovalConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

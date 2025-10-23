@@ -1971,10 +1971,10 @@
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/config
-  method: PATCH
+  method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2025/methods/approvals#patch-approvals-config-type
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#put-approvals-config-type
       source: |
         $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
         $Scope = "ROLE" # String | The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
@@ -2057,16 +2057,16 @@
         }
         "@
         
-        # Patch Approval Config Type
+        # Put Approval Config Type
         
         try {
             $Result = ConvertFrom-V2025JsonToApprovalConfig -Json $ApprovalConfig
-            Update-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result 
+            Send-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result   
+            # Send-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025ApprovalsConfigType"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ApprovalsConfigType"
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/{id}/reject

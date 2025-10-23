@@ -27,7 +27,7 @@ Method | HTTP request | Description
 [**Get-V2025Approvals**](#get-approvals) | **GET** `/generic-approvals` | Get approvals
 [**Get-V2025ApprovalsConfigIdType**](#get-approvals-config-id-type) | **GET** `/generic-approvals/config` | Get Approval Config Type
 [**Move-V2025Approval**](#move-approval) | **POST** `/generic-approvals/bulk-reassign` | Post Bulk Reassign Approvals
-[**Update-V2025ApprovalsConfigType**](#patch-approvals-config-type) | **PATCH** `/generic-approvals/config` | Patch Approval Config Type
+[**Send-V2025ApprovalsConfigType**](#put-approvals-config-type) | **PUT** `/generic-approvals/config` | Put Approval Config Type
 [**Deny-V2025Approval**](#reject-approval) | **POST** `/generic-approvals/{id}/reject` | Post Approvals Reject
 [**Deny-V2025Approval0**](#reject-approval-0) | **POST** `/generic-approvals/bulk-reject` | Post Bulk Reject Approvals
 [**Update-V2025ApprovalsAttributes**](#update-approvals-attributes) | **POST** `/generic-approvals/{id}/attributes` | Post Approvals Attributes
@@ -415,10 +415,10 @@ try {
 ```
 [[Back to top]](#) 
 
-## patch-approvals-config-type
-Updates a singular approval configuration that matches the given configID and configScope
+## put-approvals-config-type
+Upserts a singular approval configuration that matches the given configID and configScope
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-approvals-config-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-approvals-config-type)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -526,16 +526,16 @@ $ApprovalConfig = @"{
   "autoApprove" : "false"
 }"@
 
-# Patch Approval Config Type
+# Put Approval Config Type
 
 try {
     $Result = ConvertFrom-V2025JsonToApprovalConfig -Json $ApprovalConfig
-    Update-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result 
+    Send-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result  
+    # Send-V2025ApprovalsConfigType -Id $Id -Scope $Scope -ApprovalConfig $Result  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025ApprovalsConfigType"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ApprovalsConfigType"
     Write-Host $_.ErrorDetails
 }
 ```

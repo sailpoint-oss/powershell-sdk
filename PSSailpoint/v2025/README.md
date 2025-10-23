@@ -107,6 +107,8 @@ Class | Method | HTTP request | Description
 *V2025AccountsApi* | [**Submit-V2025ReloadAccount**](docs/V2025AccountsApi.md#Submit-V2025ReloadAccount) | **POST** /accounts/{id}/reload | Reload account
 *V2025AccountsApi* | [**Unlock-V2025Account**](docs/V2025AccountsApi.md#Unlock-V2025Account) | **POST** /accounts/{id}/unlock | Unlock account
 *V2025AccountsApi* | [**Update-V2025Account**](docs/V2025AccountsApi.md#Update-V2025Account) | **PATCH** /accounts/{id} | Update account
+*V2025ApiUsageApi* | [**Get-V2025TotalCount**](docs/V2025ApiUsageApi.md#Get-V2025TotalCount) | **GET** /api-usage/count | Total number of API requests
+*V2025ApiUsageApi* | [**Get-V2025ApiSummary**](docs/V2025ApiUsageApi.md#Get-V2025ApiSummary) | **GET** /api-usage/summary | Get Api Summary
 *V2025ApplicationDiscoveryApi* | [**Get-V2025DiscoveredApplications**](docs/V2025ApplicationDiscoveryApi.md#Get-V2025DiscoveredApplications) | **GET** /discovered-applications | Get discovered applications for tenant
 *V2025ApplicationDiscoveryApi* | [**Get-V2025ManualDiscoverApplicationsCsvTemplate**](docs/V2025ApplicationDiscoveryApi.md#Get-V2025ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download csv template for discovery
 *V2025ApplicationDiscoveryApi* | [**Send-V2025ManualDiscoverApplicationsCsvTemplate**](docs/V2025ApplicationDiscoveryApi.md#Send-V2025ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload csv to discover applications
@@ -1952,6 +1954,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.SubscriptionPutRequest](docs/SubscriptionPutRequest.md)
  - [PSSailpoint.V2025\Model.SubscriptionType](docs/SubscriptionType.md)
  - [PSSailpoint.V2025\Model.Substring](docs/Substring.md)
+ - [PSSailpoint.V2025\Model.SummaryResponse](docs/SummaryResponse.md)
  - [PSSailpoint.V2025\Model.Tag](docs/Tag.md)
  - [PSSailpoint.V2025\Model.TagTagCategoryRefsInner](docs/TagTagCategoryRefsInner.md)
  - [PSSailpoint.V2025\Model.TaggedObject](docs/TaggedObject.md)

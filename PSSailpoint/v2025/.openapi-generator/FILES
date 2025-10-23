@@ -1142,6 +1142,7 @@ docs/SubscriptionPostRequest.md
 docs/SubscriptionPutRequest.md
 docs/SubscriptionType.md
 docs/Substring.md
+docs/SummaryResponse.md
 docs/Tag.md
 docs/TagTagCategoryRefsInner.md
 docs/TaggedObject.md
@@ -1225,6 +1226,8 @@ docs/V2025AccountUsagesApi.md
 docs/V2025AccountUsagesApideveloperSite_code_examples.yaml
 docs/V2025AccountsApi.md
 docs/V2025AccountsApideveloperSite_code_examples.yaml
+docs/V2025ApiUsageApi.md
+docs/V2025ApiUsageApideveloperSite_code_examples.yaml
 docs/V2025ApplicationDiscoveryApi.md
 docs/V2025ApplicationDiscoveryApideveloperSite_code_examples.yaml
 docs/V2025ApprovalsApi.md
@@ -1458,6 +1461,7 @@ src/PSSailpoint.V2025/Api/V2025AccountActivitiesApi.ps1
 src/PSSailpoint.V2025/Api/V2025AccountAggregationsApi.ps1
 src/PSSailpoint.V2025/Api/V2025AccountUsagesApi.ps1
 src/PSSailpoint.V2025/Api/V2025AccountsApi.ps1
+src/PSSailpoint.V2025/Api/V2025ApiUsageApi.ps1
 src/PSSailpoint.V2025/Api/V2025ApplicationDiscoveryApi.ps1
 src/PSSailpoint.V2025/Api/V2025ApprovalsApi.ps1
 src/PSSailpoint.V2025/Api/V2025AppsApi.ps1
@@ -2685,6 +2689,7 @@ src/PSSailpoint.V2025/Model/SubscriptionPostRequest.ps1
 src/PSSailpoint.V2025/Model/SubscriptionPutRequest.ps1
 src/PSSailpoint.V2025/Model/SubscriptionType.ps1
 src/PSSailpoint.V2025/Model/Substring.ps1
+src/PSSailpoint.V2025/Model/SummaryResponse.ps1
 src/PSSailpoint.V2025/Model/Tag.ps1
 src/PSSailpoint.V2025/Model/TagTagCategoryRefsInner.ps1
 src/PSSailpoint.V2025/Model/TaggedObject.ps1
@@ -2814,6 +2819,7 @@ tests/Api/V2025AccountActivitiesApi.Tests.ps1
 tests/Api/V2025AccountAggregationsApi.Tests.ps1
 tests/Api/V2025AccountUsagesApi.Tests.ps1
 tests/Api/V2025AccountsApi.Tests.ps1
+tests/Api/V2025ApiUsageApi.Tests.ps1
 tests/Api/V2025ApplicationDiscoveryApi.Tests.ps1
 tests/Api/V2025ApprovalsApi.Tests.ps1
 tests/Api/V2025AppsApi.Tests.ps1
@@ -4040,6 +4046,7 @@ tests/Model/SubscriptionPostRequest.Tests.ps1
 tests/Model/SubscriptionPutRequest.Tests.ps1
 tests/Model/SubscriptionType.Tests.ps1
 tests/Model/Substring.Tests.ps1
+tests/Model/SummaryResponse.Tests.ps1
 tests/Model/Tag.Tests.ps1
 tests/Model/TagTagCategoryRefsInner.Tests.ps1
 tests/Model/TaggedObject.Tests.ps1

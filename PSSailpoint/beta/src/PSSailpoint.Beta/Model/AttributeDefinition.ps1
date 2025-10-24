@@ -16,6 +16,8 @@ No description available.
 
 .PARAMETER Name
 The name of the attribute.
+.PARAMETER NativeName
+Attribute name in the native system.
 .PARAMETER Type
 No description available.
 .PARAMETER Schema
@@ -39,6 +41,9 @@ function Initialize-BetaAttributeDefinition {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Name},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${NativeName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("STRING", "LONG", "INT", "BOOLEAN", "DATE")]
         [PSCustomObject]
@@ -67,6 +72,7 @@ function Initialize-BetaAttributeDefinition {
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
+            "nativeName" = ${NativeName}
             "type" = ${Type}
             "schema" = ${Schema}
             "description" = ${Description}
@@ -109,7 +115,7 @@ function ConvertFrom-BetaJsonToAttributeDefinition {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAttributeDefinition
-        $AllProperties = ("name", "type", "schema", "description", "isMulti", "isEntitlement", "isGroup")
+        $AllProperties = ("name", "nativeName", "type", "schema", "description", "isMulti", "isEntitlement", "isGroup")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -120,6 +126,12 @@ function ConvertFrom-BetaJsonToAttributeDefinition {
             $Name = $null
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "nativeName"))) { #optional property not found
+            $NativeName = $null
+        } else {
+            $NativeName = $JsonParameters.PSobject.Properties["nativeName"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
@@ -160,6 +172,7 @@ function ConvertFrom-BetaJsonToAttributeDefinition {
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
+            "nativeName" = ${NativeName}
             "type" = ${Type}
             "schema" = ${Schema}
             "description" = ${Description}

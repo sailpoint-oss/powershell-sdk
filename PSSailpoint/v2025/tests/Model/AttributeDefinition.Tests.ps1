@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025AttributeDefinition' {
     Context 'V2025AttributeDefinition' {
         It 'Initialize-V2025AttributeDefinition' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025AttributeDefinition -Name "TEST_VALUE" -Type "TEST_VALUE" -Schema "TEST_VALUE" -Description "TEST_VALUE" -IsMulti "TEST_VALUE" -IsEntitlement "TEST_VALUE" -IsGroup "TEST_VALUE"
+            #$NewObject = Initialize-V2025AttributeDefinition -Name "TEST_VALUE" -NativeName "TEST_VALUE" -Type "TEST_VALUE" -Schema "TEST_VALUE" -Description "TEST_VALUE" -IsMulti "TEST_VALUE" -IsEntitlement "TEST_VALUE" -IsGroup "TEST_VALUE"
             #$NewObject | Should -BeOfType AttributeDefinition
             #$NewObject.property | Should -Be 0
         }

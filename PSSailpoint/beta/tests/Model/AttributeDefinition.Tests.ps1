@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaAttributeDefinition' {
     Context 'BetaAttributeDefinition' {
         It 'Initialize-BetaAttributeDefinition' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaAttributeDefinition -Name "TEST_VALUE" -Type "TEST_VALUE" -Schema "TEST_VALUE" -Description "TEST_VALUE" -IsMulti "TEST_VALUE" -IsEntitlement "TEST_VALUE" -IsGroup "TEST_VALUE"
+            #$NewObject = Initialize-BetaAttributeDefinition -Name "TEST_VALUE" -NativeName "TEST_VALUE" -Type "TEST_VALUE" -Schema "TEST_VALUE" -Description "TEST_VALUE" -IsMulti "TEST_VALUE" -IsEntitlement "TEST_VALUE" -IsGroup "TEST_VALUE"
             #$NewObject | Should -BeOfType AttributeDefinition
             #$NewObject.property | Should -Be 0
         }

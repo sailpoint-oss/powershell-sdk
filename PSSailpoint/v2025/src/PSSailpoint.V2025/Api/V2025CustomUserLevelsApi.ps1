@@ -18,7 +18,7 @@ Creates a new custom user level for the tenant.
 Use this header to enable this experimental API.
 
 .PARAMETER UserLevelRequest
-Payload containing the details of the user level to be created.
+Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
 
 .PARAMETER WithHttpInfo
 
@@ -618,7 +618,7 @@ Use this header to enable this experimental API.
 The unique identifier of the user level.
 
 .PARAMETER JsonPatch
-JSON Patch payload for updating the user level.
+JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
 
 .PARAMETER WithHttpInfo
 

@@ -144,8 +144,6 @@ Class | Method | HTTP request | Description
 *V2025AuthProfileApi* | [**Update-V2025ProfileConfig**](docs/V2025AuthProfileApi.md#Update-V2025ProfileConfig) | **PATCH** /auth-profiles/{id} | Patch a specified auth profile
 *V2025AuthUsersApi* | [**Get-V2025AuthUser**](docs/V2025AuthUsersApi.md#Get-V2025AuthUser) | **GET** /auth-users/{id} | Auth user details
 *V2025AuthUsersApi* | [**Update-V2025AuthUser**](docs/V2025AuthUsersApi.md#Update-V2025AuthUser) | **PATCH** /auth-users/{id} | Auth user update
-*V2025AuthorizationApi* | [**Get-V2025UserLevelCounts**](docs/V2025AuthorizationApi.md#Get-V2025UserLevelCounts) | **POST** /authorization/user-levels/get-identity-count | Count user levels identities
-*V2025AuthorizationApi* | [**Get-V2025UserLevelIdentities**](docs/V2025AuthorizationApi.md#Get-V2025UserLevelIdentities) | **GET** /authorization/user-levels/{id}/identities | List user level identities
 *V2025BrandingApi* | [**New-V2025BrandingItem**](docs/V2025BrandingApi.md#New-V2025BrandingItem) | **POST** /brandings | Create a branding item
 *V2025BrandingApi* | [**Remove-V2025Branding**](docs/V2025BrandingApi.md#Remove-V2025Branding) | **DELETE** /brandings/{name} | Delete a branding item
 *V2025BrandingApi* | [**Get-V2025Branding**](docs/V2025BrandingApi.md#Get-V2025Branding) | **GET** /brandings/{name} | Get a branding item
@@ -266,6 +264,8 @@ Class | Method | HTTP request | Description
 *V2025CustomUserLevelsApi* | [**Remove-V2025UserLevel**](docs/V2025CustomUserLevelsApi.md#Remove-V2025UserLevel) | **DELETE** /authorization/custom-user-levels/{id} | Delete a user level
 *V2025CustomUserLevelsApi* | [**Get-V2025UserLevel**](docs/V2025CustomUserLevelsApi.md#Get-V2025UserLevel) | **GET** /authorization/custom-user-levels/{id} | Retrieve a user level
 *V2025CustomUserLevelsApi* | [**Get-V2025AllAuthorizationRightSets**](docs/V2025CustomUserLevelsApi.md#Get-V2025AllAuthorizationRightSets) | **GET** /authorization/authorization-assignable-right-sets | List all uiAssignable right sets
+*V2025CustomUserLevelsApi* | [**Get-V2025UserLevelCounts**](docs/V2025CustomUserLevelsApi.md#Get-V2025UserLevelCounts) | **POST** /authorization/user-levels/get-identity-count | Count user levels identities
+*V2025CustomUserLevelsApi* | [**Get-V2025UserLevelIdentities**](docs/V2025CustomUserLevelsApi.md#Get-V2025UserLevelIdentities) | **GET** /authorization/user-levels/{id}/identities | List user level identities
 *V2025CustomUserLevelsApi* | [**Get-V2025UserLevels**](docs/V2025CustomUserLevelsApi.md#Get-V2025UserLevels) | **GET** /authorization/custom-user-levels | List user levels
 *V2025CustomUserLevelsApi* | [**Publish-V2025CustomUserLevel**](docs/V2025CustomUserLevelsApi.md#Publish-V2025CustomUserLevel) | **POST** /authorization/custom-user-levels/{id}/publish | Publish a custom user level
 *V2025CustomUserLevelsApi* | [**Update-V2025UserLevel**](docs/V2025CustomUserLevelsApi.md#Update-V2025UserLevel) | **PATCH** /authorization/custom-user-levels/{id} | Update a user level

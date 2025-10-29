@@ -264,10 +264,10 @@ Class | Method | HTTP request | Description
 *V2025CustomUserLevelsApi* | [**Remove-V2025UserLevel**](docs/V2025CustomUserLevelsApi.md#Remove-V2025UserLevel) | **DELETE** /authorization/custom-user-levels/{id} | Delete a user level
 *V2025CustomUserLevelsApi* | [**Get-V2025UserLevel**](docs/V2025CustomUserLevelsApi.md#Get-V2025UserLevel) | **GET** /authorization/custom-user-levels/{id} | Retrieve a user level
 *V2025CustomUserLevelsApi* | [**Get-V2025AllAuthorizationRightSets**](docs/V2025CustomUserLevelsApi.md#Get-V2025AllAuthorizationRightSets) | **GET** /authorization/authorization-assignable-right-sets | List all uiAssignable right sets
-*V2025CustomUserLevelsApi* | [**Get-V2025UserLevelCounts**](docs/V2025CustomUserLevelsApi.md#Get-V2025UserLevelCounts) | **POST** /authorization/user-levels/get-identity-count | Count user levels identities
 *V2025CustomUserLevelsApi* | [**Get-V2025UserLevelIdentities**](docs/V2025CustomUserLevelsApi.md#Get-V2025UserLevelIdentities) | **GET** /authorization/user-levels/{id}/identities | List user level identities
 *V2025CustomUserLevelsApi* | [**Get-V2025UserLevels**](docs/V2025CustomUserLevelsApi.md#Get-V2025UserLevels) | **GET** /authorization/custom-user-levels | List user levels
 *V2025CustomUserLevelsApi* | [**Publish-V2025CustomUserLevel**](docs/V2025CustomUserLevelsApi.md#Publish-V2025CustomUserLevel) | **POST** /authorization/custom-user-levels/{id}/publish | Publish a custom user level
+*V2025CustomUserLevelsApi* | [**Show-V2025UserLevelCounts**](docs/V2025CustomUserLevelsApi.md#Show-V2025UserLevelCounts) | **POST** /authorization/user-levels/get-identity-count | Count user levels identities
 *V2025CustomUserLevelsApi* | [**Update-V2025UserLevel**](docs/V2025CustomUserLevelsApi.md#Update-V2025UserLevel) | **PATCH** /authorization/custom-user-levels/{id} | Update a user level
 *V2025DataSegmentationApi* | [**New-V2025DataSegment**](docs/V2025DataSegmentationApi.md#New-V2025DataSegment) | **POST** /data-segments | Create segment
 *V2025DataSegmentationApi* | [**Remove-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Remove-V2025DataSegment) | **DELETE** /data-segments/{segmentId} | Delete segment by id

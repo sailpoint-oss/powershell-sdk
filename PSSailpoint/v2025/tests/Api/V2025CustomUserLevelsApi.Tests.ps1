@@ -38,14 +38,6 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025CustomUserLevelsApi' {
         }
     }
 
-    Context 'Get-V2025UserLevelCounts' {
-        It 'Test Get-V2025UserLevelCounts' {
-            #$TestResult = Get-V2025UserLevelCounts -XSailPointExperimental "TEST_VALUE" -RequestBody "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
     Context 'Get-V2025UserLevelIdentities' {
         It 'Test Get-V2025UserLevelIdentities' {
             #$TestResult = Get-V2025UserLevelIdentities -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
@@ -65,6 +57,14 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025CustomUserLevelsApi' {
     Context 'Publish-V2025CustomUserLevel' {
         It 'Test Publish-V2025CustomUserLevel' {
             #$TestResult = Publish-V2025CustomUserLevel -XSailPointExperimental "TEST_VALUE" -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Show-V2025UserLevelCounts' {
+        It 'Test Show-V2025UserLevelCounts' {
+            #$TestResult = Show-V2025UserLevelCounts -XSailPointExperimental "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -724,10 +724,10 @@ Put Approval Config Type
 Upserts a singular approval configuration that matches the given configID and configScope
 
 .PARAMETER Id
-The ID defined by the scope field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
+The ID defined by the scope field, where [[id]]:[[scope]] is the following: [[approvalID]]:APPROVAL_REQUEST [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT 
 
 .PARAMETER Scope
-The scope of the field, where {id}:{scope} is the following: {approvalID}:APPROVAL_REQUEST {roleID}:ROLE {entitlementID}:ENTITLEMENT {accessProfileID}:ACCESS_PROFILE {sourceID}:SOURCE {applicationID}:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE {tenantID}:TENANT
+The scope of the field, where [[id]]:[[scope]] is the following: [[approvalID]]:APPROVAL_REQUEST [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT 
 
 .PARAMETER ApprovalConfig
 No description available.

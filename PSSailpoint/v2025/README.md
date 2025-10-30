@@ -117,9 +117,9 @@ Class | Method | HTTP request | Description
 *V2025ApprovalsApi* | [**Suspend-V2025Approval**](docs/V2025ApprovalsApi.md#Suspend-V2025Approval) | **POST** /generic-approvals/bulk-cancel | Post Bulk Cancel Approvals
 *V2025ApprovalsApi* | [**Get-V2025Approval**](docs/V2025ApprovalsApi.md#Get-V2025Approval) | **GET** /generic-approvals/{id} | Get an approval
 *V2025ApprovalsApi* | [**Get-V2025Approvals**](docs/V2025ApprovalsApi.md#Get-V2025Approvals) | **GET** /generic-approvals | Get approvals
-*V2025ApprovalsApi* | [**Get-V2025ApprovalsConfigIdType**](docs/V2025ApprovalsApi.md#Get-V2025ApprovalsConfigIdType) | **GET** /generic-approvals/config | Get Approval Config Type
+*V2025ApprovalsApi* | [**Get-V2025ApprovalsConfig**](docs/V2025ApprovalsApi.md#Get-V2025ApprovalsConfig) | **GET** /generic-approvals/config/{id} | Get Approval Config
 *V2025ApprovalsApi* | [**Move-V2025Approval**](docs/V2025ApprovalsApi.md#Move-V2025Approval) | **POST** /generic-approvals/bulk-reassign | Post Bulk Reassign Approvals
-*V2025ApprovalsApi* | [**Send-V2025ApprovalsConfigType**](docs/V2025ApprovalsApi.md#Send-V2025ApprovalsConfigType) | **PUT** /generic-approvals/config | Put Approval Config Type
+*V2025ApprovalsApi* | [**Send-V2025ApprovalsConfig**](docs/V2025ApprovalsApi.md#Send-V2025ApprovalsConfig) | **PUT** /generic-approvals/config | Put Approval Config
 *V2025ApprovalsApi* | [**Deny-V2025Approval**](docs/V2025ApprovalsApi.md#Deny-V2025Approval) | **POST** /generic-approvals/{id}/reject | Post Approvals Reject
 *V2025ApprovalsApi* | [**Deny-V2025Approval0**](docs/V2025ApprovalsApi.md#Deny-V2025Approval0) | **POST** /generic-approvals/bulk-reject | Post Bulk Reject Approvals
 *V2025ApprovalsApi* | [**Update-V2025ApprovalsAttributes**](docs/V2025ApprovalsApi.md#Update-V2025ApprovalsAttributes) | **POST** /generic-approvals/{id}/attributes | Post Approvals Attributes

@@ -19,7 +19,7 @@ Tenant ID of the approval configuration.
 .PARAMETER Id
 ID of the approval configuration.
 .PARAMETER Scope
-The type/scope of the configuration. Ie APPROVAL_REQUEST, DOMAIN_OBJECT, APPROVAL_TYPE, TENANT
+The type/scope of the configuration. Ie DOMAIN_OBJECT, APPROVAL_TYPE, TENANT
 .PARAMETER ReminderConfig
 No description available.
 .PARAMETER EscalationConfig

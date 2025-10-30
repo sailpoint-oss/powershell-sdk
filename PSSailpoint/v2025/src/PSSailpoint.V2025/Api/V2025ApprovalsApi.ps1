@@ -553,14 +553,14 @@ function Get-V2025Approvals {
 <#
 .SYNOPSIS
 
-Get Approval Config Type
+Get Approval Config
 
 .DESCRIPTION
 
-Currently this endpoint only supports Entitlement Description Approvals. Retrieves a singular approval configuration that matches the given ID
+Retrieves a singular approval configuration that matches the given ID
 
 .PARAMETER Id
-ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+The id of the object the config applies to, for example one of the following: [{approvalID}, {roleID}, {entitlementID}, {accessProfileID}, {sourceID}, {applicationID}, ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", {tenantID}]
 
 .PARAMETER WithHttpInfo
 
@@ -570,7 +570,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ApprovalConfig
 #>
-function Get-V2025ApprovalsConfigIdType {
+function Get-V2025ApprovalsConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -581,7 +581,7 @@ function Get-V2025ApprovalsConfigIdType {
     )
 
     Process {
-        'Calling method: Get-V2025ApprovalsConfigIdType' | Write-Debug
+        'Calling method: Get-V2025ApprovalsConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -596,9 +596,9 @@ function Get-V2025ApprovalsConfigIdType {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/generic-approvals/config'
+        $LocalVarUri = '/generic-approvals/config/{id}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getApprovalsConfigIdType."
+            throw "Error! The required parameter `Id` missing when calling getApprovalsConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
@@ -717,20 +717,20 @@ function Move-V2025Approval {
 <#
 .SYNOPSIS
 
-Put Approval Config Type
+Put Approval Config
 
 .DESCRIPTION
 
-Upserts a singular approval configuration that matches the given configID and configScope
-
-.PARAMETER Id
-The ID defined by the scope field, where [[id]]:[[scope]] is the following: [[approvalID]]:APPROVAL_REQUEST [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT 
-
-.PARAMETER Scope
-The scope of the field, where [[id]]:[[scope]] is the following: [[approvalID]]:APPROVAL_REQUEST [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE CUSTOM_ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE GENERIC_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT 
+Upserts a singular approval configuration that matches the given configID and configScope. If id and scope are not provided, it will default to setting the tenant config.
 
 .PARAMETER ApprovalConfig
 No description available.
+
+.PARAMETER Id
+The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT 
+
+.PARAMETER Scope
+The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT 
 
 .PARAMETER WithHttpInfo
 
@@ -740,24 +740,24 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 ApprovalConfig
 #>
-function Send-V2025ApprovalsConfigType {
+function Send-V2025ApprovalsConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Scope},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${ApprovalConfig},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Scope},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Send-V2025ApprovalsConfigType' | Write-Debug
+        'Calling method: Send-V2025ApprovalsConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -777,18 +777,16 @@ function Send-V2025ApprovalsConfigType {
 
         $LocalVarUri = '/generic-approvals/config'
 
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling putApprovalsConfigType."
+        if ($Id) {
+            $LocalVarQueryParameters['id'] = $Id
         }
-        $LocalVarQueryParameters['id'] = $Id
 
-        if (!$Scope) {
-            throw "Error! The required parameter `Scope` missing when calling putApprovalsConfigType."
+        if ($Scope) {
+            $LocalVarQueryParameters['scope'] = $Scope
         }
-        $LocalVarQueryParameters['scope'] = $Scope
 
         if (!$ApprovalConfig) {
-            throw "Error! The required parameter `ApprovalConfig` missing when calling putApprovalsConfigType."
+            throw "Error! The required parameter `ApprovalConfig` missing when calling putApprovalsConfig."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($ApprovalConfig -is [array])) {

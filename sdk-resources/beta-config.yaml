@@ -8,7 +8,7 @@ packageGuid: 61785CF2-2EB2-4FB6-9F7C-C5BD5B1733E8
 commonVerbs: Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select
 discardReadOnly: true
 subModuleName: Beta
-funtionPrefix: Beta
+functionPrefix: Beta
 files:
   developerSite_code_examples.mustache:
     templateType: APIDocs

@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 Build.ps1
 Index.md
 README.md
@@ -44,3 +45,19 @@ src/PSSailpoint.V2026/Private/V2026ApiClient.ps1
 src/PSSailpoint.V2026/Private/V2026HttpSignatureAuth.ps1
 src/PSSailpoint.V2026/Private/V2026RSAEncryptionProvider.cs
 src/PSSailpoint.V2026/en-US/about_PSSailpoint.V2026.help.txt
+tests/Api/V2026TaskManagementApi.Tests.ps1
+tests/Model/ArrayInner.Tests.ps1
+tests/Model/ErrorMessageDto.Tests.ps1
+tests/Model/ErrorResponseDto.Tests.ps1
+tests/Model/GetTaskStatus401Response.Tests.ps1
+tests/Model/GetTaskStatus429Response.Tests.ps1
+tests/Model/JsonPatchOperation.Tests.ps1
+tests/Model/JsonPatchOperationValue.Tests.ps1
+tests/Model/LocaleOrigin.Tests.ps1
+tests/Model/LocalizedMessage.Tests.ps1
+tests/Model/Target.Tests.ps1
+tests/Model/TaskDefinitionSummary.Tests.ps1
+tests/Model/TaskReturnDetails.Tests.ps1
+tests/Model/TaskStatus.Tests.ps1
+tests/Model/TaskStatusMessage.Tests.ps1
+tests/Model/TaskStatusMessageParametersInner.Tests.ps1

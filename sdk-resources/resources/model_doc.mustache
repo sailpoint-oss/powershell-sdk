@@ -1,12 +1,12 @@
 ---
-id: {{#lambda.kebabcase}}{{#lambda.titlecase}}{{funtionPrefix}}{{classname}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
+id: {{#lambda.kebabcase}}{{#lambda.titlecase}}{{functionPrefix}}{{classname}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
 title: {{#lambda.titlecase}}{{classname}}{{/lambda.titlecase}}
 pagination_label: {{classname}}
 sidebar_label: {{classname}}
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', '{{classname}}', '{{funtionPrefix}}{{classname}}'] 
+keywords: ['powershell', 'PowerShell', 'sdk', '{{classname}}', '{{functionPrefix}}{{classname}}'] 
 slug: /tools/sdk/powershell/{{#lambda.lowercase}}{{subModuleName}}{{/lambda.lowercase}}/models/{{#lambda.kebabcase}}{{#lambda.titlecase}}{{classname}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
-tags: ['SDK', 'Software Development Kit', '{{classname}}', '{{funtionPrefix}}{{classname}}']
+tags: ['SDK', 'Software Development Kit', '{{classname}}', '{{functionPrefix}}{{classname}}']
 ---
 
 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-${{{classname}}} = Initialize-{{funtionPrefix}}{{{classname}}} {{#vars}} -{{name}} {{{example}}}{{^-last}} `
+${{{classname}}} = Initialize-{{functionPrefix}}{{{classname}}} {{#vars}} -{{name}} {{{example}}}{{^-last}} `
         {{/-last}}
 {{/vars}}
 

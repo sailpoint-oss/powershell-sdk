@@ -106,3 +106,12 @@ Describe 'V2024' {
 
 }
 
+Describe 'V2026' {
+    It 'Returns results for Get-V2026TaskStatusList' {
+        $Response = Get-V2026TaskStatusList -WithHttpInfo
+        
+        $Response.Response | Should -Not -BeNullOrEmpty
+        $Response.StatusCode | Should -Be 200
+
+    }
+}

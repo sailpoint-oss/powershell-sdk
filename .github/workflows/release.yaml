@@ -43,7 +43,8 @@ jobs:
           Install-Module -Name 'PSSailpoint.Beta' -Force
           Install-Module -Name 'PSSailpoint.V3' -Force
           Install-Module -Name 'PSSailpoint.V2024' -Force  
-          Install-Module -Name 'PSSailpoint.V2025' -Force  
+          Install-Module -Name 'PSSailpoint.V2025' -Force
+          Install-Module -Name 'PSSailpoint.V2026' -Force
           
           Publish-Module `
               -Path './PSSailpoint' `

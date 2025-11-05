@@ -8,7 +8,7 @@ packageGuid: 7BEADB67-EE21-4CFB-9601-86E90518DFDA
 commonVerbs: Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select
 discardReadOnly: true
 subModuleName: V2025
-funtionPrefix: V2025
+functionPrefix: V2025
 files:
   developerSite_code_examples.mustache:
     templateType: APIDocs

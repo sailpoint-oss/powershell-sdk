@@ -121,7 +121,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Approve-V2025Approval0 {
+function Approve-V2025ApprovalInBulk {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -132,7 +132,7 @@ function Approve-V2025Approval0 {
     )
 
     Process {
-        'Calling method: Approve-V2025Approval0' | Write-Debug
+        'Calling method: Approve-V2025ApprovalInBulk' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -153,7 +153,7 @@ function Approve-V2025Approval0 {
         $LocalVarUri = '/generic-approvals/bulk-approve'
 
         if (!$BulkApproveRequestDTO) {
-            throw "Error! The required parameter `BulkApproveRequestDTO` missing when calling approveApproval_0."
+            throw "Error! The required parameter `BulkApproveRequestDTO` missing when calling approveApprovalInBulk."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkApproveRequestDTO -is [array])) {
@@ -940,7 +940,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Deny-V2025Approval0 {
+function Deny-V2025ApprovalInBulk {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -951,7 +951,7 @@ function Deny-V2025Approval0 {
     )
 
     Process {
-        'Calling method: Deny-V2025Approval0' | Write-Debug
+        'Calling method: Deny-V2025ApprovalInBulk' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -972,7 +972,7 @@ function Deny-V2025Approval0 {
         $LocalVarUri = '/generic-approvals/bulk-reject'
 
         if (!$BulkRejectRequestDTO) {
-            throw "Error! The required parameter `BulkRejectRequestDTO` missing when calling rejectApproval_0."
+            throw "Error! The required parameter `BulkRejectRequestDTO` missing when calling rejectApprovalInBulk."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkRejectRequestDTO -is [array])) {

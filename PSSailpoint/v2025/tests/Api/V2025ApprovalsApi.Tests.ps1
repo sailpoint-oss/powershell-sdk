@@ -14,9 +14,9 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
         }
     }
 
-    Context 'Approve-V2025Approval0' {
-        It 'Test Approve-V2025Approval0' {
-            #$TestResult = Approve-V2025Approval0 -BulkApproveRequestDTO "TEST_VALUE"
+    Context 'Approve-V2025ApprovalInBulk' {
+        It 'Test Approve-V2025ApprovalInBulk' {
+            #$TestResult = Approve-V2025ApprovalInBulk -BulkApproveRequestDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -78,9 +78,9 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
         }
     }
 
-    Context 'Deny-V2025Approval0' {
-        It 'Test Deny-V2025Approval0' {
-            #$TestResult = Deny-V2025Approval0 -BulkRejectRequestDTO "TEST_VALUE"
+    Context 'Deny-V2025ApprovalInBulk' {
+        It 'Test Deny-V2025ApprovalInBulk' {
+            #$TestResult = Deny-V2025ApprovalInBulk -BulkRejectRequestDTO "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

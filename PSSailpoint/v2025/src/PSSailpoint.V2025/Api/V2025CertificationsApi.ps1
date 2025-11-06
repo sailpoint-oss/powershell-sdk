@@ -86,7 +86,7 @@ Identity certification by id
 
 .DESCRIPTION
 
-This API returns a single identity campaign certification by its ID. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
+This API returns a single identity campaign certification by its ID. Reviewers for this certification can also call this API.
 
 .PARAMETER Id
 The certification id

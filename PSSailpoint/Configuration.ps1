@@ -66,6 +66,14 @@ function Get-DefaultConfiguration {
         $Configuration["Experimental"] = $false
     }
 
+    if (!$Configuration.containsKey("ClientIdOverride")) {
+        $Configuration["ClientIdOverride"] = $null
+    }
+
+    if (!$Configuration.containsKey("ClientSecretOverride")) {
+        $Configuration["ClientSecretOverride"] = $null
+    }
+
     Return $Configuration
 
 }
@@ -130,6 +138,8 @@ function Set-DefaultConfiguration {
         [string]$TokenUrl,
         [string]$ClientId,
         [string]$ClientSecret,
+        [string]$ClientIdOverride,
+        [string]$ClientSecretOverride,
         [System.Nullable[Int32]]$MaximumRetryCount,
         [System.Nullable[Int32]]$RetryIntervalSeconds,
         [System.Nullable[Boolean]]$Experimental,
@@ -172,6 +182,14 @@ function Set-DefaultConfiguration {
             $Script:Configuration['ClientSecret'] = $ClientSecret
         }
 
+        If ($ClientIdOverride) {
+            $Script:Configuration['ClientIdOverride'] = $ClientIdOverride
+        }
+
+        If ($ClientSecretOverride) {
+            $Script:Configuration['ClientSecretOverride'] = $ClientSecretOverride
+        }
+
         If ($RetryIntervalSeconds) {
             $Script:Configuration['RetryIntervalSeconds'] = $RetryIntervalSeconds
         }
@@ -200,14 +218,37 @@ function Set-DefaultConfiguration {
 }
 
 function Get-IDNAccessToken {
+    [CmdletBinding()]
+    Param(
+        [string]$ClientId,
+        [string]$ClientSecret
+    )
+
     Write-Debug "Getting Access Token"
 
-    if ($null -eq $Script:Configuration["ClientId"] -or $null -eq $Script:Configuration["ClientSecret"] -or $null -eq $Script:Configuration["TokenUrl"]) {
+    # Priority: 1. Function parameters, 2. Override configuration, 3. Default configuration
+    $effectiveClientId = if ($ClientId) { 
+        $ClientId 
+    } elseif ($Script:Configuration["ClientIdOverride"]) {
+        $Script:Configuration["ClientIdOverride"]
+    } else { 
+        $Script:Configuration["ClientId"] 
+    }
+    
+    $effectiveClientSecret = if ($ClientSecret) { 
+        $ClientSecret 
+    } elseif ($Script:Configuration["ClientSecretOverride"]) {
+        $Script:Configuration["ClientSecretOverride"]
+    } else { 
+        $Script:Configuration["ClientSecret"] 
+    }
+
+    if ($null -eq $effectiveClientId -or $null -eq $effectiveClientSecret -or $null -eq $Script:Configuration["TokenUrl"]) {
         throw "ClientId, ClientSecret or TokenUrl Missing. Please provide values in the environment or in ~/.sailpoint/config.yaml"
     } else {
         Write-Debug $Script:Configuration["TokenUrl"]
-        Write-Debug $Script:Configuration["ClientId"]
-        Write-Debug $Script:Configuration["ClientSecret"]
+        Write-Debug $effectiveClientId
+        Write-Debug $effectiveClientSecret
 
             $multipartContent = [System.Net.Http.MultipartFormDataContent]::new()
 
@@ -221,13 +262,13 @@ function Get-IDNAccessToken {
             #set client id formdata value
             $stringHeader = [System.Net.Http.Headers.ContentDispositionHeaderValue]::new("form-data")
             $stringHeader.Name = "client_id"
-            $stringContent = [System.Net.Http.StringContent]::new([string]$Script:Configuration["ClientId"])
+            $stringContent = [System.Net.Http.StringContent]::new([string]$effectiveClientId)
             $stringContent.Headers.ContentDisposition = $stringHeader
             $multipartContent.Add($stringContent)
             #set client secret formdata value
             $stringHeader = [System.Net.Http.Headers.ContentDispositionHeaderValue]::new("form-data")
             $stringHeader.Name = "client_secret"
-            $stringContent = [System.Net.Http.StringContent]::new([string]$Script:Configuration["ClientSecret"])
+            $stringContent = [System.Net.Http.StringContent]::new([string]$effectiveClientSecret)
             $stringContent.Headers.ContentDisposition = $stringHeader
             $multipartContent.Add($stringContent)
         
@@ -322,4 +363,111 @@ function Get-Config {
     }
 
     return $Configuration
+}
+
+<#
+.SYNOPSIS
+
+Set Client ID and Client Secret overrides for all API endpoints
+
+.DESCRIPTION
+
+This function sets client ID and secret overrides that will be used for all API calls instead of the default configured values.
+These overrides take precedence over environment variables and config file settings.
+To clear the overrides, call this function with empty strings or use Clear-ClientCredentialOverride.
+
+.PARAMETER ClientId
+The Client ID to use for authentication
+
+.PARAMETER ClientSecret
+The Client Secret to use for authentication
+
+.EXAMPLE
+Set-ClientCredentialOverride -ClientId "myClientId" -ClientSecret "myClientSecret"
+
+.EXAMPLE
+# Clear overrides
+Set-ClientCredentialOverride -ClientId "" -ClientSecret ""
+
+#>
+function Set-ClientCredentialOverride {
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory = $true)]
+        [string]$ClientId,
+        [Parameter(Mandatory = $true)]
+        [string]$ClientSecret
+    )
+
+    Process {
+        if([string]::IsNullOrEmpty($ClientId) -or [string]::IsNullOrEmpty($ClientSecret)) {
+            $Script:Configuration["ClientIdOverride"] = $null
+            $Script:Configuration["ClientSecretOverride"] = $null
+            Write-Verbose "Client credential overrides cleared"
+        } else {
+            $Script:Configuration["ClientIdOverride"] = $ClientId
+            $Script:Configuration["ClientSecretOverride"] = $ClientSecret
+            Write-Verbose "Client credential overrides set"
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Clear Client ID and Client Secret overrides
+
+.DESCRIPTION
+
+This function clears any client ID and secret overrides that were set using Set-ClientCredentialOverride.
+After calling this function, the SDK will revert to using the default configured credentials.
+
+.EXAMPLE
+Clear-ClientCredentialOverride
+
+#>
+function Clear-ClientCredentialOverride {
+    [CmdletBinding()]
+    Param()
+
+    Process {
+        $Script:Configuration["ClientIdOverride"] = $null
+        $Script:Configuration["ClientSecretOverride"] = $null
+        Write-Verbose "Client credential overrides cleared"
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get the current Client ID and Client Secret override status
+
+.DESCRIPTION
+
+This function returns whether client credential overrides are currently set and which client ID is being used.
+
+.EXAMPLE
+Get-ClientCredentialOverride
+
+.OUTPUTS
+PSCustomObject with IsOverrideSet and ClientId properties
+
+#>
+function Get-ClientCredentialOverride {
+    [CmdletBinding()]
+    Param()
+
+    Process {
+        $isOverrideSet = -not [string]::IsNullOrEmpty($Script:Configuration["ClientIdOverride"])
+        $clientId = if ($isOverrideSet) {
+            $Script:Configuration["ClientIdOverride"]
+        } else {
+            $null
+        }
+
+        return [PSCustomObject]@{
+            IsOverrideSet = $isOverrideSet
+            ClientId = $clientId
+        }
+    }
 }

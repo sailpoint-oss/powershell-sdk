@@ -85,6 +85,7 @@ function New-V2024ProvisioningPolicy {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -282,6 +283,7 @@ function New-V2024SourceSchedule {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -775,6 +777,7 @@ function Remove-V2024SourceSchedule {
             throw "Error! The required parameter `ScheduleType` missing when calling deleteSourceSchedule."
         }
         $LocalVarUri = $LocalVarUri.replace('{scheduleType}', [System.Web.HTTPUtility]::UrlEncode($ScheduleType))
+
 
 
 
@@ -1351,6 +1354,7 @@ function Get-V2024Source {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1595,6 +1599,7 @@ function Get-V2024SourceConnections {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1744,6 +1749,7 @@ function Get-V2024SourceHealth {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1829,6 +1835,7 @@ function Get-V2024SourceSchedule {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1900,6 +1907,7 @@ function Get-V2024SourceSchedules {
             throw "Error! The required parameter `SourceId` missing when calling getSourceSchedules."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 
@@ -3973,6 +3981,7 @@ function Update-V2024PasswordPolicyHolders {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -4494,6 +4503,7 @@ function Update-V2024SourceSchedule {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

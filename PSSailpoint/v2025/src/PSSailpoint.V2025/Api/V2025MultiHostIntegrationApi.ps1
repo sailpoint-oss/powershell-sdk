@@ -75,6 +75,7 @@ function New-V2025MultiHostIntegration {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -175,6 +176,7 @@ function New-V2025SourcesWithinMultiHost {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -246,6 +248,7 @@ function Remove-V2025MultiHost {
             throw "Error! The required parameter `MultihostId` missing when calling deleteMultiHost."
         }
         $LocalVarUri = $LocalVarUri.replace('{multihostId}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
+
 
 
 
@@ -346,6 +349,7 @@ function Remove-V2025MultiHostSources {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -611,6 +615,7 @@ function Get-V2025MultiHostIntegrations {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -735,6 +740,7 @@ function Get-V2025MultiHostIntegrationsList {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -809,6 +815,7 @@ function Get-V2025MultiHostSourceCreationErrors {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -870,6 +877,7 @@ function Get-V2025MultihostIntegrationTypes {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/multihosts/types'
+
 
 
 
@@ -994,6 +1002,7 @@ function Get-V2025SourcesWithinMultiHost {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 
@@ -1152,6 +1161,7 @@ function Test-V2025SourceConnectionMultihost {
             throw "Error! The required parameter `SourceId` missing when calling testSourceConnectionMultihost."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 

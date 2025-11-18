@@ -75,6 +75,7 @@ function Add-BetaAccessRequestRecommendationsIgnoredItem {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -162,6 +163,7 @@ function Add-BetaAccessRequestRecommendationsRequestedItem {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -479,6 +481,7 @@ function Get-BetaAccessRequestRecommendations {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -590,6 +593,7 @@ function Get-BetaAccessRequestRecommendationsIgnoredItems {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
+
 
 
 
@@ -707,6 +711,7 @@ function Get-BetaAccessRequestRecommendationsRequestedItems {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -818,6 +823,7 @@ function Get-BetaAccessRequestRecommendationsViewedItems {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
+
 
 
 

@@ -329,6 +329,7 @@ function Get-BetaCustomViolationReport {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -415,6 +416,7 @@ function Get-BetaDefaultViolationReport {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -476,6 +478,7 @@ function Get-BetaSodAllReportRunStatus {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/sod-violation-report'
+
 
 
 
@@ -701,6 +704,7 @@ function Get-BetaSodViolationReportRunStatus {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -772,6 +776,7 @@ function Get-BetaSodViolationReportStatus {
             throw "Error! The required parameter `Id` missing when calling getSodViolationReportStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -1275,6 +1280,7 @@ function Start-BetaSodAllPoliciesForOrg {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1346,6 +1352,7 @@ function Start-BetaSodPolicy {
             throw "Error! The required parameter `Id` missing when calling startSodPolicy."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 

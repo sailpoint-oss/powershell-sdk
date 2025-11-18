@@ -175,6 +175,7 @@ function New-V2024NonEmployeeRecord {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -265,6 +266,7 @@ function New-V2024NonEmployeeRequest {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -352,6 +354,7 @@ function New-V2024NonEmployeeSource {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -455,6 +458,7 @@ function New-V2024NonEmployeeSourceSchemaAttributes {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -526,6 +530,7 @@ function Remove-V2024NonEmployeeRecord {
             throw "Error! The required parameter `Id` missing when calling deleteNonEmployeeRecord."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -619,6 +624,7 @@ function Remove-V2024NonEmployeeRecordsInBulk {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -690,6 +696,7 @@ function Remove-V2024NonEmployeeRequest {
             throw "Error! The required parameter `Id` missing when calling deleteNonEmployeeRequest."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -777,6 +784,7 @@ function Remove-V2024NonEmployeeSchemaAttribute {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -851,6 +859,7 @@ function Remove-V2024NonEmployeeSource {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -922,6 +931,7 @@ function Remove-V2024NonEmployeeSourceSchemaAttributes {
             throw "Error! The required parameter `SourceId` missing when calling deleteNonEmployeeSourceSchemaAttributes."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 
@@ -1011,6 +1021,7 @@ function Export-V2024NonEmployeeRecords {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1094,6 +1105,7 @@ function Export-V2024NonEmployeeSourceSchemaTemplate {
             throw "Error! The required parameter `Id` missing when calling exportNonEmployeeSourceSchemaTemplate."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -1255,6 +1267,7 @@ function Get-V2024NonEmployeeApprovalSummary {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1326,6 +1339,7 @@ function Get-V2024NonEmployeeBulkUploadStatus {
             throw "Error! The required parameter `Id` missing when calling getNonEmployeeBulkUploadStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -1403,6 +1417,7 @@ function Get-V2024NonEmployeeRecord {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1477,6 +1492,7 @@ function Get-V2024NonEmployeeRequest {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1548,6 +1564,7 @@ function Get-V2024NonEmployeeRequestSummary {
             throw "Error! The required parameter `RequestedFor` missing when calling getNonEmployeeRequestSummary."
         }
         $LocalVarUri = $LocalVarUri.replace('{requested-for}', [System.Web.HTTPUtility]::UrlEncode($RequestedFor))
+
 
 
 
@@ -1635,6 +1652,7 @@ function Get-V2024NonEmployeeSchemaAttribute {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1709,6 +1727,7 @@ function Get-V2024NonEmployeeSource {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1780,6 +1799,7 @@ function Get-V2024NonEmployeeSourceSchemaAttributes {
             throw "Error! The required parameter `SourceId` missing when calling getNonEmployeeSourceSchemaAttributes."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 
@@ -1868,6 +1888,7 @@ function Import-V2024NonEmployeeRecordsInBulk {
             throw "Error! The required parameter `Data` missing when calling importNonEmployeeRecordsInBulk."
         }
         $LocalVarFormParameters['data'] = $Data | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
+
 
 
 
@@ -1995,6 +2016,7 @@ function Get-V2024NonEmployeeApprovals {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2106,6 +2128,7 @@ function Get-V2024NonEmployeeRecords {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 
@@ -2234,6 +2257,7 @@ function Get-V2024NonEmployeeRequests {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2355,6 +2379,7 @@ function Get-V2024NonEmployeeSources {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
+
 
 
 
@@ -2568,6 +2593,7 @@ function Update-V2024NonEmployeeSchemaAttribute {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2665,6 +2691,7 @@ function Update-V2024NonEmployeeSource {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

@@ -122,6 +122,7 @@ function New-V2024PotentialRoleProvisionRequest {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -220,6 +221,7 @@ function New-V2024RoleMiningSessions {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -340,6 +342,7 @@ function Invoke-V2024DownloadRoleMiningPotentialRoleZip {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -444,6 +447,7 @@ function Export-V2024RoleMiningPotentialRole {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling exportRoleMiningPotentialRole."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -564,6 +568,7 @@ function Export-V2024RoleMiningPotentialRoleAsync {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -666,6 +671,7 @@ function Export-V2024RoleMiningPotentialRoleStatus {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling exportRoleMiningPotentialRoleStatus."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -794,6 +800,7 @@ function Get-V2024AllPotentialRoleSummaries {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -896,6 +903,7 @@ function Get-V2024EntitlementDistributionPotentialRole {
         if ($IncludeCommonAccess) {
             $LocalVarQueryParameters['includeCommonAccess'] = $IncludeCommonAccess
         }
+
 
 
 
@@ -1054,6 +1062,7 @@ function Get-V2024EntitlementsPotentialRole {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1196,6 +1205,7 @@ function Get-V2024ExcludedEntitlementsPotentialRole {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 
@@ -1344,6 +1354,7 @@ function Get-V2024IdentitiesPotentialRole {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1436,6 +1447,7 @@ function Get-V2024PotentialRole {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getPotentialRole."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -1574,6 +1586,7 @@ function Get-V2024PotentialRoleApplications {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1706,6 +1719,7 @@ function Get-V2024PotentialRoleEntitlements {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 
@@ -1844,6 +1858,7 @@ function Get-V2024PotentialRoleSourceIdentityUsage {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1979,6 +1994,7 @@ function Get-V2024PotentialRoleSummaries {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2061,6 +2077,7 @@ function Get-V2024RoleMiningPotentialRole {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getRoleMiningPotentialRole."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -2149,6 +2166,7 @@ function Get-V2024RoleMiningSession {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2231,6 +2249,7 @@ function Get-V2024RoleMiningSessionStatus {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getRoleMiningSessionStatus."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -2359,6 +2378,7 @@ function Get-V2024RoleMiningSessions {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2471,6 +2491,7 @@ function Get-V2024SavedPotentialRoles {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 
@@ -2827,6 +2848,7 @@ function Update-V2024RoleMiningSession {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2945,6 +2967,7 @@ function Update-V2024EntitlementsPotentialRole {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

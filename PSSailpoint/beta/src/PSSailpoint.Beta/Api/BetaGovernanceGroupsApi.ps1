@@ -75,6 +75,7 @@ function New-BetaWorkgroup {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -146,6 +147,7 @@ function Remove-BetaWorkgroup {
             throw "Error! The required parameter `Id` missing when calling deleteWorkgroup."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -339,6 +341,7 @@ function Remove-BetaWorkgroupsInBulk {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -410,6 +413,7 @@ function Get-BetaWorkgroup {
             throw "Error! The required parameter `Id` missing when calling getWorkgroup."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -527,6 +531,7 @@ function Get-BetaConnections {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -638,6 +643,7 @@ function Get-BetaWorkgroupMembers {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
+
 
 
 
@@ -755,6 +761,7 @@ function Get-BetaWorkgroups {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -848,6 +855,7 @@ function Update-BetaWorkgroup {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

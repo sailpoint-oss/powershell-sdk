@@ -75,6 +75,7 @@ function New-V2024MultiHostIntegration {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -175,6 +176,7 @@ function New-V2024SourcesWithinMultiHost {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -246,6 +248,7 @@ function Remove-V2024MultiHost {
             throw "Error! The required parameter `MultihostId` missing when calling deleteMultiHost."
         }
         $LocalVarUri = $LocalVarUri.replace('{multihostId}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
+
 
 
 
@@ -511,6 +514,7 @@ function Get-V2024MultiHostIntegrations {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -635,6 +639,7 @@ function Get-V2024MultiHostIntegrationsList {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -709,6 +714,7 @@ function Get-V2024MultiHostSourceCreationErrors {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -770,6 +776,7 @@ function Get-V2024MultihostIntegrationTypes {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/multihosts/types'
+
 
 
 
@@ -894,6 +901,7 @@ function Get-V2024SourcesWithinMultiHost {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 
@@ -1052,6 +1060,7 @@ function Test-V2024SourceConnectionMultihost {
             throw "Error! The required parameter `SourceId` missing when calling testSourceConnectionMultihost."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 

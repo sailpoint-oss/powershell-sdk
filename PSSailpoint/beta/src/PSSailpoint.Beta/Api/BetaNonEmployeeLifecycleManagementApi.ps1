@@ -175,6 +175,7 @@ function New-BetaNonEmployeeRecord {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -265,6 +266,7 @@ function New-BetaNonEmployeeRequest {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -352,6 +354,7 @@ function New-BetaNonEmployeeSource {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -455,6 +458,7 @@ function New-BetaNonEmployeeSourceSchemaAttributes {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -526,6 +530,7 @@ function Remove-BetaNonEmployeeRecord {
             throw "Error! The required parameter `Id` missing when calling deleteNonEmployeeRecord."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -619,6 +624,7 @@ function Remove-BetaNonEmployeeRecordInBulk {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -690,6 +696,7 @@ function Remove-BetaNonEmployeeRequest {
             throw "Error! The required parameter `Id` missing when calling deleteNonEmployeeRequest."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -777,6 +784,7 @@ function Remove-BetaNonEmployeeSchemaAttribute {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -851,6 +859,7 @@ function Remove-BetaNonEmployeeSource {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -922,6 +931,7 @@ function Remove-BetaNonEmployeeSourceSchemaAttributes {
             throw "Error! The required parameter `SourceId` missing when calling deleteNonEmployeeSourceSchemaAttributes."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 
@@ -1083,6 +1093,7 @@ function Get-BetaNonEmployeeApprovalSummary {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1154,6 +1165,7 @@ function Get-BetaNonEmployeeBulkUploadStatus {
             throw "Error! The required parameter `Id` missing when calling getNonEmployeeBulkUploadStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -1243,6 +1255,7 @@ function Get-BetaNonEmployeeExportRecords {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1329,6 +1342,7 @@ function Get-BetaNonEmployeeExportSourceSchemaTemplate {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1400,6 +1414,7 @@ function Get-BetaNonEmployeeRecord {
             throw "Error! The required parameter `Id` missing when calling getNonEmployeeRecord."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -1477,6 +1492,7 @@ function Get-BetaNonEmployeeRequest {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1548,6 +1564,7 @@ function Get-BetaNonEmployeeRequestSummary {
             throw "Error! The required parameter `RequestedFor` missing when calling getNonEmployeeRequestSummary."
         }
         $LocalVarUri = $LocalVarUri.replace('{requested-for}', [System.Web.HTTPUtility]::UrlEncode($RequestedFor))
+
 
 
 
@@ -1635,6 +1652,7 @@ function Get-BetaNonEmployeeSchemaAttribute {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1706,6 +1724,7 @@ function Get-BetaNonEmployeeSource {
             throw "Error! The required parameter `SourceId` missing when calling getNonEmployeeSource."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 
@@ -1803,6 +1822,7 @@ function Get-BetaNonEmployeeSourceSchemaAttributes {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1888,6 +1908,7 @@ function Import-BetaNonEmployeeRecordsInBulk {
             throw "Error! The required parameter `Data` missing when calling importNonEmployeeRecordsInBulk."
         }
         $LocalVarFormParameters['data'] = $Data | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
+
 
 
 
@@ -2015,6 +2036,7 @@ function Get-BetaNonEmployeeApproval {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2126,6 +2148,7 @@ function Get-BetaNonEmployeeRecords {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 
@@ -2254,6 +2277,7 @@ function Get-BetaNonEmployeeRequests {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2375,6 +2399,7 @@ function Get-BetaNonEmployeeSources {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
+
 
 
 
@@ -2588,6 +2613,7 @@ function Update-BetaNonEmployeeSchemaAttribute {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2685,6 +2711,7 @@ function Update-BetaNonEmployeeSource {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

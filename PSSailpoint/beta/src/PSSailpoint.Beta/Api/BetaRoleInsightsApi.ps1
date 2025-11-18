@@ -49,6 +49,7 @@ function New-BetaRoleInsightRequests {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -152,6 +153,7 @@ function Invoke-BetaDownloadRoleInsightsEntitlementsChanges {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 
@@ -299,6 +301,7 @@ function Get-BetaEntitlementChangesIdentities {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -370,6 +373,7 @@ function Get-BetaRoleInsight {
             throw "Error! The required parameter `InsightId` missing when calling getRoleInsight."
         }
         $LocalVarUri = $LocalVarUri.replace('{insightId}', [System.Web.HTTPUtility]::UrlEncode($InsightId))
+
 
 
 
@@ -487,6 +491,7 @@ function Get-BetaRoleInsights {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -568,6 +573,7 @@ function Get-BetaRoleInsightsCurrentEntitlements {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 
@@ -665,6 +671,7 @@ function Get-BetaRoleInsightsEntitlementsChanges {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -739,6 +746,7 @@ function Get-BetaRoleInsightsRequests {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -800,6 +808,7 @@ function Get-BetaRoleInsightsSummary {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/role-insights/summary'
+
 
 
 

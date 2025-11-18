@@ -119,6 +119,7 @@ function Compare-BetaIdentitySnapshots {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -338,6 +339,7 @@ function Get-BetaHistoricalIdentity {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -472,6 +474,7 @@ function Get-BetaHistoricalIdentityEvents {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -553,6 +556,7 @@ function Get-BetaIdentitySnapshot {
             throw "Error! The required parameter `Date` missing when calling getIdentitySnapshot."
         }
         $LocalVarUri = $LocalVarUri.replace('{date}', [System.Web.HTTPUtility]::UrlEncode($Date))
+
 
 
 
@@ -691,6 +695,7 @@ function Get-BetaIdentitySnapshotSummary {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -762,6 +767,7 @@ function Get-BetaIdentityStartDate {
             throw "Error! The required parameter `Id` missing when calling getIdentityStartDate."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -876,6 +882,7 @@ function Get-BetaHistoricalIdentities {
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
         }
+
 
 
 
@@ -1024,6 +1031,7 @@ function Get-BetaIdentityAccessItems {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1116,6 +1124,7 @@ function Get-BetaIdentitySnapshotAccessItems {
         if ($Type) {
             $LocalVarQueryParameters['type'] = $Type
         }
+
 
 
 
@@ -1241,6 +1250,7 @@ function Get-BetaIdentitySnapshots {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 

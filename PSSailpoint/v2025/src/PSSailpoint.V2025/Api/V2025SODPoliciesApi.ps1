@@ -329,6 +329,7 @@ function Get-V2025CustomViolationReport {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -415,6 +416,7 @@ function Get-V2025DefaultViolationReport {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -476,6 +478,7 @@ function Get-V2025SodAllReportRunStatus {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/sod-violation-report'
+
 
 
 
@@ -701,6 +704,7 @@ function Get-V2025SodViolationReportRunStatus {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -772,6 +776,7 @@ function Get-V2025SodViolationReportStatus {
             throw "Error! The required parameter `Id` missing when calling getSodViolationReportStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -1263,6 +1268,7 @@ function Start-V2025EvaluateSodPolicy {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1349,6 +1355,7 @@ function Start-V2025SodAllPoliciesForOrg {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1420,6 +1427,7 @@ function Start-V2025SodPolicy {
             throw "Error! The required parameter `Id` missing when calling startSodPolicy."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 

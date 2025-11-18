@@ -75,7 +75,6 @@ function New-V2024DataSegment {
 
 
 
-
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -171,7 +170,6 @@ function Remove-V2024DataSegment {
 
 
 
-
         $LocalVarResult = Invoke-V2024ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -254,7 +252,6 @@ function Get-V2024DataSegment {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getDataSegment."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
-
 
 
 
@@ -343,7 +340,6 @@ function Get-V2024DataSegmentIdentityMembership {
 
 
 
-
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -426,7 +422,6 @@ function Get-V2024DataSegmentationEnabledForUser {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getDataSegmentationEnabledForUser."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
-
 
 
 
@@ -575,7 +570,6 @@ function Get-V2024DataSegments {
 
 
 
-
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -687,7 +681,6 @@ function Update-V2024DataSegment {
 
 
 
-
         $LocalVarResult = Invoke-V2024ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -796,7 +789,6 @@ function Publish-V2024DataSegment {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
-
 
 
 

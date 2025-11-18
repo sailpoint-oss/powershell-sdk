@@ -70,6 +70,7 @@ function Remove-V2025Identity {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -696,6 +697,7 @@ function Reset-V2025Identity {
             throw "Error! The required parameter `IdentityId` missing when calling resetIdentity."
         }
         $LocalVarUri = $LocalVarUri.replace('{identityId}', [System.Web.HTTPUtility]::UrlEncode($IdentityId))
+
 
 
 

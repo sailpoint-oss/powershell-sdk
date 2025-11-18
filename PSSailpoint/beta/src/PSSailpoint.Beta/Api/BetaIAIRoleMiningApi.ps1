@@ -111,6 +111,7 @@ function New-BetaPotentialRoleProvisionRequest {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -198,6 +199,7 @@ function New-BetaRoleMiningSessions {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -307,6 +309,7 @@ function Invoke-BetaDownloadRoleMiningPotentialRoleZip {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -400,6 +403,7 @@ function Export-BetaRoleMiningPotentialRole {
             throw "Error! The required parameter `PotentialRoleId` missing when calling exportRoleMiningPotentialRole."
         }
         $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
+
 
 
 
@@ -509,6 +513,7 @@ function Export-BetaRoleMiningPotentialRoleAsync {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -600,6 +605,7 @@ function Export-BetaRoleMiningPotentialRoleStatus {
             throw "Error! The required parameter `ExportId` missing when calling exportRoleMiningPotentialRoleStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{exportId}', [System.Web.HTTPUtility]::UrlEncode($ExportId))
+
 
 
 
@@ -717,6 +723,7 @@ function Get-BetaAllPotentialRoleSummaries {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -808,6 +815,7 @@ function Get-BetaEntitlementDistributionPotentialRole {
         if ($IncludeCommonAccess) {
             $LocalVarQueryParameters['includeCommonAccess'] = $IncludeCommonAccess
         }
+
 
 
 
@@ -955,6 +963,7 @@ function Get-BetaEntitlementsPotentialRole {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1086,6 +1095,7 @@ function Get-BetaExcludedEntitlementsPotentialRole {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 
@@ -1223,6 +1233,7 @@ function Get-BetaIdentitiesPotentialRole {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1304,6 +1315,7 @@ function Get-BetaPotentialRole {
             throw "Error! The required parameter `PotentialRoleId` missing when calling getPotentialRole."
         }
         $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
+
 
 
 
@@ -1431,6 +1443,7 @@ function Get-BetaPotentialRoleApplications {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1552,6 +1565,7 @@ function Get-BetaPotentialRoleEntitlements {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 
@@ -1679,6 +1693,7 @@ function Get-BetaPotentialRoleSourceIdentityUsage {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1803,6 +1818,7 @@ function Get-BetaPotentialRoleSummaries {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1874,6 +1890,7 @@ function Get-BetaRoleMiningPotentialRole {
             throw "Error! The required parameter `PotentialRoleId` missing when calling getRoleMiningPotentialRole."
         }
         $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
+
 
 
 
@@ -1951,6 +1968,7 @@ function Get-BetaRoleMiningSession {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2022,6 +2040,7 @@ function Get-BetaRoleMiningSessionStatus {
             throw "Error! The required parameter `SessionId` missing when calling getRoleMiningSessionStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{sessionId}', [System.Web.HTTPUtility]::UrlEncode($SessionId))
+
 
 
 
@@ -2139,6 +2158,7 @@ function Get-BetaRoleMiningSessions {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2240,6 +2260,7 @@ function Get-BetaSavedPotentialRoles {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 
@@ -2553,6 +2574,7 @@ function Update-BetaRoleMiningSession {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2660,6 +2682,7 @@ function Update-BetaEntitlementsPotentialRole {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

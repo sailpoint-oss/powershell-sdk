@@ -177,6 +177,7 @@ function Get-V2025Report {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -258,6 +259,7 @@ function Get-V2025ReportResult {
         if ($Completed) {
             $LocalVarQueryParameters['completed'] = $Completed
         }
+
 
 
 

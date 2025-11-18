@@ -96,6 +96,7 @@ function New-V2025MachineAccountSubtype {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -188,6 +189,7 @@ function Remove-V2025MachineAccountSubtype {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteMachineAccountSubtype."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -361,6 +363,7 @@ function Get-V2025MachineAccountSubtypeById {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -453,6 +456,7 @@ function Get-V2025MachineAccountSubtypeByTechnicalName {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getMachineAccountSubtypeByTechnicalName."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -588,6 +592,7 @@ function Get-V2025MachineAccountSubtypes {
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
         }
+
 
 
 
@@ -834,6 +839,7 @@ function Update-V2025MachineAccountSubtype {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

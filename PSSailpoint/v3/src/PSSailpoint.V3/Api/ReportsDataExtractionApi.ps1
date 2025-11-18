@@ -177,6 +177,7 @@ function Get-Report {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -258,6 +259,7 @@ function Get-ReportResult {
         if ($Completed) {
             $LocalVarQueryParameters['completed'] = $Completed
         }
+
 
 
 

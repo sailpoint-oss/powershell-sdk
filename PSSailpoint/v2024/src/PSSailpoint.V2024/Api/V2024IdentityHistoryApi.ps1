@@ -130,6 +130,7 @@ function Compare-V2024IdentitySnapshots {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -286,6 +287,7 @@ function Compare-V2024IdentitySnapshotsAccessType {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -368,6 +370,7 @@ function Get-V2024HistoricalIdentity {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getHistoricalIdentity."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -516,6 +519,7 @@ function Get-V2024HistoricalIdentityEvents {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -608,6 +612,7 @@ function Get-V2024IdentitySnapshot {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getIdentitySnapshot."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -757,6 +762,7 @@ function Get-V2024IdentitySnapshotSummary {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -839,6 +845,7 @@ function Get-V2024IdentityStartDate {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getIdentityStartDate."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -964,6 +971,7 @@ function Get-V2024HistoricalIdentities {
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
         }
+
 
 
 
@@ -1093,6 +1101,7 @@ function Get-V2024IdentityAccessItems {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1195,6 +1204,7 @@ function Get-V2024IdentitySnapshotAccessItems {
         if ($Type) {
             $LocalVarQueryParameters['type'] = $Type
         }
+
 
 
 
@@ -1331,6 +1341,7 @@ function Get-V2024IdentitySnapshots {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 

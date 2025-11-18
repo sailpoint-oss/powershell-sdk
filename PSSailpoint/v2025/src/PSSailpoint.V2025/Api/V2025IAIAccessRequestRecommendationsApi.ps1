@@ -86,6 +86,7 @@ function Add-V2025AccessRequestRecommendationsIgnoredItem {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -184,6 +185,7 @@ function Add-V2025AccessRequestRecommendationsRequestedItem {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -534,6 +536,7 @@ function Get-V2025AccessRequestRecommendations {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -606,6 +609,7 @@ function Get-V2025AccessRequestRecommendationsConfig {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getAccessRequestRecommendationsConfig."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -734,6 +738,7 @@ function Get-V2025AccessRequestRecommendationsIgnoredItems {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -856,6 +861,7 @@ function Get-V2025AccessRequestRecommendationsRequestedItems {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
+
 
 
 
@@ -984,6 +990,7 @@ function Get-V2025AccessRequestRecommendationsViewedItems {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1082,6 +1089,7 @@ function Set-V2025AccessRequestRecommendationsConfig {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

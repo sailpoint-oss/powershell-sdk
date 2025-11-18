@@ -267,6 +267,7 @@ function Get-AuthOrgServiceProviderConfig {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -598,6 +599,7 @@ function Update-AuthOrgServiceProviderConfig {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

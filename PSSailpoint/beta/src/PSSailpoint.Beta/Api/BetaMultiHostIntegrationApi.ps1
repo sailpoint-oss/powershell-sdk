@@ -75,6 +75,7 @@ function New-BetaMultiHostIntegration {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -175,6 +176,7 @@ function New-BetaSourcesWithinMultiHost {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -246,6 +248,7 @@ function Remove-BetaMultiHost {
             throw "Error! The required parameter `MultihostId` missing when calling deleteMultiHost."
         }
         $LocalVarUri = $LocalVarUri.replace('{multihostId}', [System.Web.HTTPUtility]::UrlEncode($MultihostId))
+
 
 
 
@@ -471,6 +474,7 @@ function Get-BetaMultiHostIntegrations {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -595,6 +599,7 @@ function Get-BetaMultiHostIntegrationsList {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -669,6 +674,7 @@ function Get-BetaMultiHostSourceCreationErrors {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -730,6 +736,7 @@ function Get-BetaMultihostIntegrationTypes {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/multihosts/types'
+
 
 
 
@@ -854,6 +861,7 @@ function Get-BetaSourcesWithinMultiHost {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 
@@ -1012,6 +1020,7 @@ function Test-BetaSourceConnectionMultihost {
             throw "Error! The required parameter `SourceId` missing when calling testSourceConnectionMultihost."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 

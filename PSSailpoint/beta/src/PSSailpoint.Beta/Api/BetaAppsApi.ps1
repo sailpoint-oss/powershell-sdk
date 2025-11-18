@@ -259,6 +259,7 @@ function Remove-BetaSourceApp {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -330,6 +331,7 @@ function Get-BetaSourceApp {
             throw "Error! The required parameter `Id` missing when calling getSourceApp."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -770,6 +772,7 @@ function Get-BetaAssignedSourceApp {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -871,6 +874,7 @@ function Get-BetaAvailableAccountsForUserApp {
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
         }
+
 
 
 
@@ -988,6 +992,7 @@ function Get-BetaAvailableSourceApps {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1092,6 +1097,7 @@ function Get-BetaOwnedUserApps {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1185,6 +1191,7 @@ function Update-BetaSourceApp {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

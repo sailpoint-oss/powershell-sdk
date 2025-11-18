@@ -292,6 +292,7 @@ function Remove-V2025SourceApp {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -374,6 +375,7 @@ function Get-V2025SourceApp {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getSourceApp."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -858,6 +860,7 @@ function Get-V2025AssignedSourceApp {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -960,6 +963,7 @@ function Get-V2025AvailableAccountsForUserApp {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 
@@ -1088,6 +1092,7 @@ function Get-V2025AvailableSourceApps {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1203,6 +1208,7 @@ function Get-V2025OwnedUserApps {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1307,6 +1313,7 @@ function Update-V2025SourceApp {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

@@ -59,6 +59,7 @@ function Get-BetaStatusBySourceId {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -170,6 +171,7 @@ function Get-BetaUsagesBySourceId {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
+
 
 
 

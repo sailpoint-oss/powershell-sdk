@@ -313,6 +313,7 @@ function Get-BetaIdentityAttribute {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -414,6 +415,7 @@ function Get-BetaIdentityAttributes {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 

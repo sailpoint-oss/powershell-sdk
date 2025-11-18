@@ -59,6 +59,7 @@ function Get-BetaAccessModelMetadataAttribute {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -140,6 +141,7 @@ function Get-BetaAccessModelMetadataAttributeValue {
             throw "Error! The required parameter `Value` missing when calling getAccessModelMetadataAttributeValue."
         }
         $LocalVarUri = $LocalVarUri.replace('{value}', [System.Web.HTTPUtility]::UrlEncode($Value))
+
 
 
 
@@ -257,6 +259,7 @@ function Get-BetaAccessModelMetadataAttribute {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -358,6 +361,7 @@ function Get-BetaAccessModelMetadataAttributeValue {
         if ($Count) {
             $LocalVarQueryParameters['count'] = $Count
         }
+
 
 
 

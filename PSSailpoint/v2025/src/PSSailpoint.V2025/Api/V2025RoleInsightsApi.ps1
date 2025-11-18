@@ -60,6 +60,7 @@ function New-V2025RoleInsightRequests {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -174,6 +175,7 @@ function Invoke-V2025DownloadRoleInsightsEntitlementsChanges {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 
@@ -332,6 +334,7 @@ function Get-V2025EntitlementChangesIdentities {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -414,6 +417,7 @@ function Get-V2025RoleInsight {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getRoleInsight."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -542,6 +546,7 @@ function Get-V2025RoleInsights {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -634,6 +639,7 @@ function Get-V2025RoleInsightsCurrentEntitlements {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 
@@ -742,6 +748,7 @@ function Get-V2025RoleInsightsEntitlementsChanges {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -827,6 +834,7 @@ function Get-V2025RoleInsightsRequests {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -899,6 +907,7 @@ function Get-V2025RoleInsightsSummary {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getRoleInsightsSummary."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 

@@ -1372,7 +1372,10 @@ List form instances by tenant.
 
 .DESCRIPTION
 
-No parameters required.
+Returns a list of form instances for the tenant. Optionally filter by form definition ID.
+
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq*
 
 .PARAMETER WithHttpInfo
 
@@ -1385,6 +1388,9 @@ ListFormInstancesByTenantResponse[]
 function Search-V2024FormInstancesByTenant {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
         [Switch]
         $WithHttpInfo
     )
@@ -1406,6 +1412,10 @@ function Search-V2024FormInstancesByTenant {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/form-instances'
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
 
 
 

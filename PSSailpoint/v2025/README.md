@@ -269,6 +269,16 @@ Class | Method | HTTP request | Description
 *V2025CustomUserLevelsApi* | [**Publish-V2025CustomUserLevel**](docs/V2025CustomUserLevelsApi.md#Publish-V2025CustomUserLevel) | **POST** /authorization/custom-user-levels/{id}/publish | Publish a custom user level
 *V2025CustomUserLevelsApi* | [**Show-V2025UserLevelCounts**](docs/V2025CustomUserLevelsApi.md#Show-V2025UserLevelCounts) | **POST** /authorization/user-levels/get-identity-count | Count user levels identities
 *V2025CustomUserLevelsApi* | [**Update-V2025UserLevel**](docs/V2025CustomUserLevelsApi.md#Update-V2025UserLevel) | **PATCH** /authorization/custom-user-levels/{id} | Update a user level
+*V2025DataAccessSecurityApi* | [**Suspend-V2025Task**](docs/V2025DataAccessSecurityApi.md#Suspend-V2025Task) | **POST** /das/tasks/cancel/{id} | Cancel a DAS task.
+*V2025DataAccessSecurityApi* | [**New-V2025Schedule**](docs/V2025DataAccessSecurityApi.md#New-V2025Schedule) | **POST** /das/tasks/schedules | Create a new schedule.
+*V2025DataAccessSecurityApi* | [**Remove-V2025Schedule**](docs/V2025DataAccessSecurityApi.md#Remove-V2025Schedule) | **DELETE** /das/tasks/schedules/{id} | Delete a DAS schedule.
+*V2025DataAccessSecurityApi* | [**Remove-V2025Task**](docs/V2025DataAccessSecurityApi.md#Remove-V2025Task) | **DELETE** /das/tasks/{id} | Delete a DAS task.
+*V2025DataAccessSecurityApi* | [**Get-V2025Schedule**](docs/V2025DataAccessSecurityApi.md#Get-V2025Schedule) | **GET** /das/tasks/schedules/{id} | Get a DAS schedule.
+*V2025DataAccessSecurityApi* | [**Get-V2025Schedules**](docs/V2025DataAccessSecurityApi.md#Get-V2025Schedules) | **GET** /das/tasks/schedules | List all schedules.
+*V2025DataAccessSecurityApi* | [**Get-V2025Task**](docs/V2025DataAccessSecurityApi.md#Get-V2025Task) | **GET** /das/tasks/{id} | Get a DAS task.
+*V2025DataAccessSecurityApi* | [**Get-V2025Tasks**](docs/V2025DataAccessSecurityApi.md#Get-V2025Tasks) | **GET** /das/tasks | Lists all DAS tasks.
+*V2025DataAccessSecurityApi* | [**Send-V2025Schedule**](docs/V2025DataAccessSecurityApi.md#Send-V2025Schedule) | **PUT** /das/tasks/schedules/{id} | Update a schedule.
+*V2025DataAccessSecurityApi* | [**Start-V2025TaskRerun**](docs/V2025DataAccessSecurityApi.md#Start-V2025TaskRerun) | **POST** /das/tasks/rerun/{id} | Rerun a DAS task.
 *V2025DataSegmentationApi* | [**New-V2025DataSegment**](docs/V2025DataSegmentationApi.md#New-V2025DataSegment) | **POST** /data-segments | Create segment
 *V2025DataSegmentationApi* | [**Remove-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Remove-V2025DataSegment) | **DELETE** /data-segments/{segmentId} | Delete segment by id
 *V2025DataSegmentationApi* | [**Get-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Get-V2025DataSegment) | **GET** /data-segments/{segmentId} | Get segment by id
@@ -1183,6 +1193,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.CreatePersonalAccessTokenRequest](docs/CreatePersonalAccessTokenRequest.md)
  - [PSSailpoint.V2025\Model.CreatePersonalAccessTokenResponse](docs/CreatePersonalAccessTokenResponse.md)
  - [PSSailpoint.V2025\Model.CreateSavedSearchRequest](docs/CreateSavedSearchRequest.md)
+ - [PSSailpoint.V2025\Model.CreateScheduleRequest](docs/CreateScheduleRequest.md)
  - [PSSailpoint.V2025\Model.CreateScheduledSearchRequest](docs/CreateScheduledSearchRequest.md)
  - [PSSailpoint.V2025\Model.CreateUploadedConfigurationRequest](docs/CreateUploadedConfigurationRequest.md)
  - [PSSailpoint.V2025\Model.CreateWorkflowRequest](docs/CreateWorkflowRequest.md)
@@ -1798,6 +1809,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.Schedule2Months](docs/Schedule2Months.md)
  - [PSSailpoint.V2025\Model.ScheduleDays](docs/ScheduleDays.md)
  - [PSSailpoint.V2025\Model.ScheduleHours](docs/ScheduleHours.md)
+ - [PSSailpoint.V2025\Model.ScheduleInfo](docs/ScheduleInfo.md)
  - [PSSailpoint.V2025\Model.ScheduleMonths](docs/ScheduleMonths.md)
  - [PSSailpoint.V2025\Model.ScheduleType](docs/ScheduleType.md)
  - [PSSailpoint.V2025\Model.ScheduledActionPayload](docs/ScheduledActionPayload.md)
@@ -1961,6 +1973,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.TaggedObjectDto](docs/TaggedObjectDto.md)
  - [PSSailpoint.V2025\Model.Target](docs/Target.md)
  - [PSSailpoint.V2025\Model.TaskDefinitionSummary](docs/TaskDefinitionSummary.md)
+ - [PSSailpoint.V2025\Model.TaskInfo](docs/TaskInfo.md)
  - [PSSailpoint.V2025\Model.TaskResultDetails](docs/TaskResultDetails.md)
  - [PSSailpoint.V2025\Model.TaskResultDetailsMessagesInner](docs/TaskResultDetailsMessagesInner.md)
  - [PSSailpoint.V2025\Model.TaskResultDetailsReturnsInner](docs/TaskResultDetailsReturnsInner.md)
@@ -2010,6 +2023,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.UpdateDetail](docs/UpdateDetail.md)
  - [PSSailpoint.V2025\Model.UpdateMultiHostSourcesRequestInner](docs/UpdateMultiHostSourcesRequestInner.md)
  - [PSSailpoint.V2025\Model.UpdateMultiHostSourcesRequestInnerValue](docs/UpdateMultiHostSourcesRequestInnerValue.md)
+ - [PSSailpoint.V2025\Model.UpdateScheduleRequest](docs/UpdateScheduleRequest.md)
  - [PSSailpoint.V2025\Model.Upper](docs/Upper.md)
  - [PSSailpoint.V2025\Model.UsageType](docs/UsageType.md)
  - [PSSailpoint.V2025\Model.UserApp](docs/UserApp.md)

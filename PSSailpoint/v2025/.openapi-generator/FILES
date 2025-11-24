@@ -370,6 +370,7 @@ docs/CreateOAuthClientResponse.md
 docs/CreatePersonalAccessTokenRequest.md
 docs/CreatePersonalAccessTokenResponse.md
 docs/CreateSavedSearchRequest.md
+docs/CreateScheduleRequest.md
 docs/CreateScheduledSearchRequest.md
 docs/CreateUploadedConfigurationRequest.md
 docs/CreateWorkflowRequest.md
@@ -986,6 +987,7 @@ docs/Schedule2Hours.md
 docs/Schedule2Months.md
 docs/ScheduleDays.md
 docs/ScheduleHours.md
+docs/ScheduleInfo.md
 docs/ScheduleMonths.md
 docs/ScheduleType.md
 docs/ScheduledActionPayload.md
@@ -1149,6 +1151,7 @@ docs/TaggedObject.md
 docs/TaggedObjectDto.md
 docs/Target.md
 docs/TaskDefinitionSummary.md
+docs/TaskInfo.md
 docs/TaskResultDetails.md
 docs/TaskResultDetailsMessagesInner.md
 docs/TaskResultDetailsReturnsInner.md
@@ -1198,6 +1201,7 @@ docs/UpdateAccessProfilesInBulk412Response.md
 docs/UpdateDetail.md
 docs/UpdateMultiHostSourcesRequestInner.md
 docs/UpdateMultiHostSourcesRequestInnerValue.md
+docs/UpdateScheduleRequest.md
 docs/Upper.md
 docs/UsageType.md
 docs/UserApp.md
@@ -1264,6 +1268,8 @@ docs/V2025CustomPasswordInstructionsApi.md
 docs/V2025CustomPasswordInstructionsApideveloperSite_code_examples.yaml
 docs/V2025CustomUserLevelsApi.md
 docs/V2025CustomUserLevelsApideveloperSite_code_examples.yaml
+docs/V2025DataAccessSecurityApi.md
+docs/V2025DataAccessSecurityApideveloperSite_code_examples.yaml
 docs/V2025DataSegmentationApi.md
 docs/V2025DataSegmentationApideveloperSite_code_examples.yaml
 docs/V2025DimensionsApi.md
@@ -1478,6 +1484,7 @@ src/PSSailpoint.V2025/Api/V2025ConnectorsApi.ps1
 src/PSSailpoint.V2025/Api/V2025CustomFormsApi.ps1
 src/PSSailpoint.V2025/Api/V2025CustomPasswordInstructionsApi.ps1
 src/PSSailpoint.V2025/Api/V2025CustomUserLevelsApi.ps1
+src/PSSailpoint.V2025/Api/V2025DataAccessSecurityApi.ps1
 src/PSSailpoint.V2025/Api/V2025DataSegmentationApi.ps1
 src/PSSailpoint.V2025/Api/V2025DimensionsApi.ps1
 src/PSSailpoint.V2025/Api/V2025EntitlementsApi.ps1
@@ -1915,6 +1922,7 @@ src/PSSailpoint.V2025/Model/CreateOAuthClientResponse.ps1
 src/PSSailpoint.V2025/Model/CreatePersonalAccessTokenRequest.ps1
 src/PSSailpoint.V2025/Model/CreatePersonalAccessTokenResponse.ps1
 src/PSSailpoint.V2025/Model/CreateSavedSearchRequest.ps1
+src/PSSailpoint.V2025/Model/CreateScheduleRequest.ps1
 src/PSSailpoint.V2025/Model/CreateScheduledSearchRequest.ps1
 src/PSSailpoint.V2025/Model/CreateUploadedConfigurationRequest.ps1
 src/PSSailpoint.V2025/Model/CreateWorkflowRequest.ps1
@@ -2530,6 +2538,7 @@ src/PSSailpoint.V2025/Model/Schedule2Hours.ps1
 src/PSSailpoint.V2025/Model/Schedule2Months.ps1
 src/PSSailpoint.V2025/Model/ScheduleDays.ps1
 src/PSSailpoint.V2025/Model/ScheduleHours.ps1
+src/PSSailpoint.V2025/Model/ScheduleInfo.ps1
 src/PSSailpoint.V2025/Model/ScheduleMonths.ps1
 src/PSSailpoint.V2025/Model/ScheduleType.ps1
 src/PSSailpoint.V2025/Model/ScheduledActionPayload.ps1
@@ -2693,6 +2702,7 @@ src/PSSailpoint.V2025/Model/TaggedObject.ps1
 src/PSSailpoint.V2025/Model/TaggedObjectDto.ps1
 src/PSSailpoint.V2025/Model/Target.ps1
 src/PSSailpoint.V2025/Model/TaskDefinitionSummary.ps1
+src/PSSailpoint.V2025/Model/TaskInfo.ps1
 src/PSSailpoint.V2025/Model/TaskResultDetails.ps1
 src/PSSailpoint.V2025/Model/TaskResultDetailsMessagesInner.ps1
 src/PSSailpoint.V2025/Model/TaskResultDetailsReturnsInner.ps1
@@ -2742,6 +2752,7 @@ src/PSSailpoint.V2025/Model/UpdateAccessProfilesInBulk412Response.ps1
 src/PSSailpoint.V2025/Model/UpdateDetail.ps1
 src/PSSailpoint.V2025/Model/UpdateMultiHostSourcesRequestInner.ps1
 src/PSSailpoint.V2025/Model/UpdateMultiHostSourcesRequestInnerValue.ps1
+src/PSSailpoint.V2025/Model/UpdateScheduleRequest.ps1
 src/PSSailpoint.V2025/Model/Upper.ps1
 src/PSSailpoint.V2025/Model/UsageType.ps1
 src/PSSailpoint.V2025/Model/UserApp.ps1
@@ -2835,6 +2846,7 @@ tests/Api/V2025ConnectorsApi.Tests.ps1
 tests/Api/V2025CustomFormsApi.Tests.ps1
 tests/Api/V2025CustomPasswordInstructionsApi.Tests.ps1
 tests/Api/V2025CustomUserLevelsApi.Tests.ps1
+tests/Api/V2025DataAccessSecurityApi.Tests.ps1
 tests/Api/V2025DataSegmentationApi.Tests.ps1
 tests/Api/V2025DimensionsApi.Tests.ps1
 tests/Api/V2025EntitlementsApi.Tests.ps1
@@ -3271,6 +3283,7 @@ tests/Model/CreateOAuthClientResponse.Tests.ps1
 tests/Model/CreatePersonalAccessTokenRequest.Tests.ps1
 tests/Model/CreatePersonalAccessTokenResponse.Tests.ps1
 tests/Model/CreateSavedSearchRequest.Tests.ps1
+tests/Model/CreateScheduleRequest.Tests.ps1
 tests/Model/CreateScheduledSearchRequest.Tests.ps1
 tests/Model/CreateUploadedConfigurationRequest.Tests.ps1
 tests/Model/CreateWorkflowRequest.Tests.ps1
@@ -3886,6 +3899,7 @@ tests/Model/Schedule2Hours.Tests.ps1
 tests/Model/Schedule2Months.Tests.ps1
 tests/Model/ScheduleDays.Tests.ps1
 tests/Model/ScheduleHours.Tests.ps1
+tests/Model/ScheduleInfo.Tests.ps1
 tests/Model/ScheduleMonths.Tests.ps1
 tests/Model/ScheduleType.Tests.ps1
 tests/Model/ScheduledActionPayload.Tests.ps1
@@ -4049,6 +4063,7 @@ tests/Model/TaggedObject.Tests.ps1
 tests/Model/TaggedObjectDto.Tests.ps1
 tests/Model/Target.Tests.ps1
 tests/Model/TaskDefinitionSummary.Tests.ps1
+tests/Model/TaskInfo.Tests.ps1
 tests/Model/TaskResultDetails.Tests.ps1
 tests/Model/TaskResultDetailsMessagesInner.Tests.ps1
 tests/Model/TaskResultDetailsReturnsInner.Tests.ps1
@@ -4098,6 +4113,7 @@ tests/Model/UpdateAccessProfilesInBulk412Response.Tests.ps1
 tests/Model/UpdateDetail.Tests.ps1
 tests/Model/UpdateMultiHostSourcesRequestInner.Tests.ps1
 tests/Model/UpdateMultiHostSourcesRequestInnerValue.Tests.ps1
+tests/Model/UpdateScheduleRequest.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/UserApp.Tests.ps1

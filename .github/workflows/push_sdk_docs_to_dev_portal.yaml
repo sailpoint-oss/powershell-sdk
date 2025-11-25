@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout PR branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.ref }}
           path: powershell-sdk
 
       - name: Checkout API Specs Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: sailpoint-oss/developer.sailpoint.com
           path: developer-community

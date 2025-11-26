@@ -16,23 +16,23 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
           token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
 
       - name: Checkout API Specs Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           repository: sailpoint-oss/api-specs
           path: api-specs
           ref: main
 
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: "16"
+          node-version: "24"
       
       - name: Download OpenAPI Generator
         run: |
@@ -45,7 +45,7 @@ jobs:
 
       # Install yq for working with yaml files
       - name: Set up yq
-        uses: frenck/action-setup-yq@v1
+        uses: frenck/action-setup-yq@v2
 
       # Check input version is greater than the current tag
       - name: Check valid version
@@ -146,7 +146,7 @@ jobs:
 
       - name: Commit changes and create new version tag
         if: steps.buildSDK.outcome == 'success'
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: Bump version to v${{ github.event.inputs.version }}
           tagging_message: v${{ github.event.inputs.version }}
@@ -155,11 +155,11 @@ jobs:
 
       - name: Create Draft Release
         id: createRelease
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ github.event.inputs.version }}
-          release_name: v${{ github.event.inputs.version }}
+          name: v${{ github.event.inputs.version }}
           draft: false
           prerelease: false

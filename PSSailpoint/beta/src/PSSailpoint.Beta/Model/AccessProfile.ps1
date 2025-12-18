@@ -34,7 +34,11 @@ No description available.
 No description available.
 .PARAMETER Segments
 List of segment IDs, if any, that the access profile is assigned to.
+.PARAMETER AccessModelMetadata
+No description available.
 .PARAMETER ProvisioningCriteria
+No description available.
+.PARAMETER AdditionalOwners
 No description available.
 .OUTPUTS
 
@@ -76,7 +80,13 @@ function Initialize-BetaAccessProfile {
         ${Segments},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${ProvisioningCriteria}
+        ${AccessModelMetadata},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${ProvisioningCriteria},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${AdditionalOwners}
     )
 
     Process {
@@ -107,7 +117,9 @@ function Initialize-BetaAccessProfile {
             "accessRequestConfig" = ${AccessRequestConfig}
             "revocationRequestConfig" = ${RevocationRequestConfig}
             "segments" = ${Segments}
+            "accessModelMetadata" = ${AccessModelMetadata}
             "provisioningCriteria" = ${ProvisioningCriteria}
+            "additionalOwners" = ${AdditionalOwners}
         }
 
         return $PSO
@@ -144,7 +156,7 @@ function ConvertFrom-BetaJsonToAccessProfile {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccessProfile
-        $AllProperties = ("id", "name", "description", "created", "modified", "enabled", "owner", "source", "entitlements", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments", "provisioningCriteria")
+        $AllProperties = ("id", "name", "description", "created", "modified", "enabled", "owner", "source", "entitlements", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments", "accessModelMetadata", "provisioningCriteria", "additionalOwners")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -233,10 +245,22 @@ function ConvertFrom-BetaJsonToAccessProfile {
             $Segments = $JsonParameters.PSobject.Properties["segments"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessModelMetadata"))) { #optional property not found
+            $AccessModelMetadata = $null
+        } else {
+            $AccessModelMetadata = $JsonParameters.PSobject.Properties["accessModelMetadata"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "provisioningCriteria"))) { #optional property not found
             $ProvisioningCriteria = $null
         } else {
             $ProvisioningCriteria = $JsonParameters.PSobject.Properties["provisioningCriteria"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "additionalOwners"))) { #optional property not found
+            $AdditionalOwners = $null
+        } else {
+            $AdditionalOwners = $JsonParameters.PSobject.Properties["additionalOwners"].value
         }
 
         $PSO = [PSCustomObject]@{
@@ -253,7 +277,9 @@ function ConvertFrom-BetaJsonToAccessProfile {
             "accessRequestConfig" = ${AccessRequestConfig}
             "revocationRequestConfig" = ${RevocationRequestConfig}
             "segments" = ${Segments}
+            "accessModelMetadata" = ${AccessModelMetadata}
             "provisioningCriteria" = ${ProvisioningCriteria}
+            "additionalOwners" = ${AdditionalOwners}
         }
 
         return $PSO

@@ -423,6 +423,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.AccessCriteriaCriteriaListInner](docs/AccessCriteriaCriteriaListInner.md)
  - [PSSailpoint.V3\Model.AccessCriteriaRequest](docs/AccessCriteriaRequest.md)
  - [PSSailpoint.V3\Model.AccessCriteriaRequestCriteriaListInner](docs/AccessCriteriaRequestCriteriaListInner.md)
+ - [PSSailpoint.V3\Model.AccessDuration](docs/AccessDuration.md)
  - [PSSailpoint.V3\Model.AccessItemRequestedFor](docs/AccessItemRequestedFor.md)
  - [PSSailpoint.V3\Model.AccessItemRequester](docs/AccessItemRequester.md)
  - [PSSailpoint.V3\Model.AccessItemReviewedBy](docs/AccessItemReviewedBy.md)

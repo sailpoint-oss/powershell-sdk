@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**Get-V2025DiscoveredApplications**](#get-discovered-applications) | **GET** `/discovered-applications` | Get discovered applications for tenant
 [**Get-V2025ManualDiscoverApplicationsCsvTemplate**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download csv template for discovery
 [**Send-V2025ManualDiscoverApplicationsCsvTemplate**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload csv to discover applications
+[**Start-V2025ApplicationDiscovery**](#start-application-discovery) | **POST** `/sources/{sourceId}/discover-applications` | Start Application Discovery
 
 
 ## get-discovered-applications
@@ -36,8 +37,8 @@ Param Type | Name | Data Type | Required  | Description
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Detail | **String** |   (optional) | Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
-  Query | Filter | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in* 
-  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
+  Query | Filter | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  **discoverySourceName**: *eq, in*  **discoverySourceCategory**: *eq, in* 
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource, discoverySourceName, discoverySourceCategory**
 
 ### Return type
 [**GetDiscoveredApplications200ResponseInner[]**](../models/get-discovered-applications200-response-inner)
@@ -61,8 +62,8 @@ Code | Description  | Data Type
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior. (optional)
-$Filter = "name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  (optional)
-$Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource** (optional)
+$Filter = "name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  **discoverySourceName**: *eq, in*  **discoverySourceCategory**: *eq, in*  (optional)
+$Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource, discoverySourceName, discoverySourceCategory** (optional)
 
 # Get discovered applications for tenant
 
@@ -165,6 +166,60 @@ try {
     # Send-V2025ManualDiscoverApplicationsCsvTemplate -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ManualDiscoverApplicationsCsvTemplate"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## start-application-discovery
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Use this API to discover applications.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-application-discovery)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | ApplicationDiscoveryRequest | [**ApplicationDiscoveryRequest**](../models/application-discovery-request) | True  | 
+
+### Return type
+[**ApplicationDiscoveryResponse**](../models/application-discovery-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Application Discovery task was started successfully. | ApplicationDiscoveryResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$ApplicationDiscoveryRequest = @"{
+  "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ]
+}"@
+
+# Start Application Discovery
+
+try {
+    $Result = ConvertFrom-V2025JsonToApplicationDiscoveryRequest -Json $ApplicationDiscoveryRequest
+    Start-V2025ApplicationDiscovery -XSailPointExperimental $XSailPointExperimental -ApplicationDiscoveryRequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Start-V2025ApplicationDiscovery -XSailPointExperimental $XSailPointExperimental -ApplicationDiscoveryRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2025ApplicationDiscovery"
     Write-Host $_.ErrorDetails
 }
 ```

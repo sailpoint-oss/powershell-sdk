@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025FullDiscoveredApplications' {
     Context 'V2025FullDiscoveredApplications' {
         It 'Initialize-V2025FullDiscoveredApplications' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025FullDiscoveredApplications -Id "TEST_VALUE" -Name "TEST_VALUE" -DiscoverySource "TEST_VALUE" -DiscoveredVendor "TEST_VALUE" -Description "TEST_VALUE" -RecommendedConnectors "TEST_VALUE" -DiscoveredAt "TEST_VALUE" -CreatedAt "TEST_VALUE" -Status "TEST_VALUE" -AssociatedSources "TEST_VALUE"
+            #$NewObject = Initialize-V2025FullDiscoveredApplications -Id "TEST_VALUE" -Name "TEST_VALUE" -DiscoverySource "TEST_VALUE" -DiscoveredVendor "TEST_VALUE" -Description "TEST_VALUE" -RecommendedConnectors "TEST_VALUE" -DiscoveredAt "TEST_VALUE" -CreatedAt "TEST_VALUE" -Status "TEST_VALUE" -AssociatedSources "TEST_VALUE" -OperationalStatus "TEST_VALUE" -DiscoverySourceCategory "TEST_VALUE" -LicenseCount "TEST_VALUE" -IsSanctioned "TEST_VALUE" -Logo "TEST_VALUE" -AppUrl "TEST_VALUE" -Groups "TEST_VALUE" -UsersCount "TEST_VALUE" -ApplicationOwner "TEST_VALUE" -ItApplicationOwner "TEST_VALUE" -BusinessCriticality "TEST_VALUE" -DataClassification "TEST_VALUE" -BusinessUnit "TEST_VALUE" -InstallType "TEST_VALUE" -Environment "TEST_VALUE" -RiskScore "TEST_VALUE" -IsPrivileged "TEST_VALUE" -WarrantyExpiration "TEST_VALUE" -Attributes "TEST_VALUE"
             #$NewObject | Should -BeOfType FullDiscoveredApplications
             #$NewObject.property | Should -Be 0
         }

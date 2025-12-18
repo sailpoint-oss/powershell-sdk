@@ -1,0 +1,49 @@
+---
+id: v2025-activity-configuration-settings
+title: ActivityConfigurationSettings
+pagination_label: ActivityConfigurationSettings
+sidebar_label: ActivityConfigurationSettings
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'ActivityConfigurationSettings', 'V2025ActivityConfigurationSettings'] 
+slug: /tools/sdk/powershell/v2025/models/activity-configuration-settings
+tags: ['SDK', 'Software Development Kit', 'ActivityConfigurationSettings', 'V2025ActivityConfigurationSettings']
+---
+
+
+# ActivityConfigurationSettings
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**IsEnabled** | **Boolean** | Indicates whether the feature or configuration is enabled. | [optional] [default to $false]
+**ClusterId** | **String** | The identifier of the cluster associated with this configuration, if applicable. | [optional] 
+**RetentionTimePeriod** | **Int32** | The time period for retaining activity logs. | [optional] 
+**RetentionTimeType** | **String** | The type of retention period (e.g., days, months, years). | [optional] 
+**ExcludeUsers** | **[]String** | List of user identifiers to exclude from activity tracking. | [optional] 
+**ExcludeFolders** | **[]String** | List of folder paths to exclude from activity tracking. | [optional] 
+**ExcludeFileExtensions** | **[]String** | List of file extensions to exclude from activity tracking. | [optional] 
+**ExcludeActions** | **[]String** | List of actions to exclude from activity tracking. | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$ActivityConfigurationSettings = Initialize-V2025ActivityConfigurationSettings  -IsEnabled true `
+ -ClusterId cluster-001 `
+ -RetentionTimePeriod 30 `
+ -RetentionTimeType days `
+ -ExcludeUsers [user1, user2] `
+ -ExcludeFolders [/tmp, /archive] `
+ -ExcludeFileExtensions [.log, .bak] `
+ -ExcludeActions [delete, move]
+```
+
+- Convert the resource to JSON
+```powershell
+$ActivityConfigurationSettings | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

@@ -11,6 +11,7 @@ docs/AccessCriteria.md
 docs/AccessCriteriaCriteriaListInner.md
 docs/AccessCriteriaRequest.md
 docs/AccessCriteriaRequestCriteriaListInner.md
+docs/AccessDuration.md
 docs/AccessItemRequestedFor.md
 docs/AccessItemRequester.md
 docs/AccessItemReviewedBy.md
@@ -790,6 +791,7 @@ src/PSSailpoint.V3/Model/AccessCriteria.ps1
 src/PSSailpoint.V3/Model/AccessCriteriaCriteriaListInner.ps1
 src/PSSailpoint.V3/Model/AccessCriteriaRequest.ps1
 src/PSSailpoint.V3/Model/AccessCriteriaRequestCriteriaListInner.ps1
+src/PSSailpoint.V3/Model/AccessDuration.ps1
 src/PSSailpoint.V3/Model/AccessItemRequestedFor.ps1
 src/PSSailpoint.V3/Model/AccessItemRequester.ps1
 src/PSSailpoint.V3/Model/AccessItemReviewedBy.ps1
@@ -1476,6 +1478,7 @@ tests/Model/AccessCriteria.Tests.ps1
 tests/Model/AccessCriteriaCriteriaListInner.Tests.ps1
 tests/Model/AccessCriteriaRequest.Tests.ps1
 tests/Model/AccessCriteriaRequestCriteriaListInner.Tests.ps1
+tests/Model/AccessDuration.Tests.ps1
 tests/Model/AccessItemRequestedFor.Tests.ps1
 tests/Model/AccessItemRequester.Tests.ps1
 tests/Model/AccessItemReviewedBy.Tests.ps1

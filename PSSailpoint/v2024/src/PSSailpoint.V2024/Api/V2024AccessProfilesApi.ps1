@@ -75,7 +75,6 @@ function New-V2024AccessProfile {
 
 
 
-
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -147,7 +146,6 @@ function Remove-V2024AccessProfile {
             throw "Error! The required parameter `Id` missing when calling deleteAccessProfile."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
 
 
 
@@ -241,7 +239,6 @@ function Remove-V2024AccessProfilesInBulk {
 
 
 
-
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -313,7 +310,6 @@ function Get-V2024AccessProfile {
             throw "Error! The required parameter `Id` missing when calling getAccessProfile."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
 
 
 
@@ -438,7 +434,6 @@ function Get-V2024AccessProfileEntitlements {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
-
 
 
 
@@ -586,7 +581,6 @@ function Get-V2024AccessProfiles {
 
 
 
-
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -684,7 +678,6 @@ function Update-V2024AccessProfile {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
-
 
 
 

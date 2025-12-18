@@ -9,6 +9,7 @@ docs/AccessAppsOwner.md
 docs/AccessConstraint.md
 docs/AccessCriteria.md
 docs/AccessCriteriaCriteriaListInner.md
+docs/AccessDuration.md
 docs/AccessItemAccessProfileResponse.md
 docs/AccessItemAccessProfileResponseAppRefsInner.md
 docs/AccessItemAccountResponse.md
@@ -1469,6 +1470,7 @@ src/PSSailpoint.V2024/Model/AccessAppsOwner.ps1
 src/PSSailpoint.V2024/Model/AccessConstraint.ps1
 src/PSSailpoint.V2024/Model/AccessCriteria.ps1
 src/PSSailpoint.V2024/Model/AccessCriteriaCriteriaListInner.ps1
+src/PSSailpoint.V2024/Model/AccessDuration.ps1
 src/PSSailpoint.V2024/Model/AccessItemAccessProfileResponse.ps1
 src/PSSailpoint.V2024/Model/AccessItemAccessProfileResponseAppRefsInner.ps1
 src/PSSailpoint.V2024/Model/AccessItemAccountResponse.ps1
@@ -2748,6 +2750,7 @@ tests/Model/AccessAppsOwner.Tests.ps1
 tests/Model/AccessConstraint.Tests.ps1
 tests/Model/AccessCriteria.Tests.ps1
 tests/Model/AccessCriteriaCriteriaListInner.Tests.ps1
+tests/Model/AccessDuration.Tests.ps1
 tests/Model/AccessItemAccessProfileResponse.Tests.ps1
 tests/Model/AccessItemAccessProfileResponseAppRefsInner.Tests.ps1
 tests/Model/AccessItemAccountResponse.Tests.ps1

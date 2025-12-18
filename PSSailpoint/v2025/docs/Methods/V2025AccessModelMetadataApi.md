@@ -233,6 +233,9 @@ try {
 [[Back to top]](#) 
 
 ## update-access-model-metadata-by-filter
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Bulk update Access Model Metadata Attribute Values using a filter
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-access-model-metadata-by-filter)
@@ -287,6 +290,9 @@ try {
 [[Back to top]](#) 
 
 ## update-access-model-metadata-by-ids
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Bulk update Access Model Metadata Attribute Values using ids.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-access-model-metadata-by-ids)
@@ -341,6 +347,9 @@ try {
 [[Back to top]](#) 
 
 ## update-access-model-metadata-by-query
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Bulk update Access Model Metadata Attribute Values using a query
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-access-model-metadata-by-query)

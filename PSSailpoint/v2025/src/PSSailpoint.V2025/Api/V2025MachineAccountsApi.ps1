@@ -20,7 +20,7 @@ The ID of the source.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER SourceSubtype
+.PARAMETER CreateMachineAccountSubtypeRequest
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -42,7 +42,7 @@ function New-V2025MachineAccountSubtype {
         $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
-        ${SourceSubtype},
+        ${CreateMachineAccountSubtypeRequest},
         [Switch]
         $WithHttpInfo
     )
@@ -77,14 +77,14 @@ function New-V2025MachineAccountSubtype {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$SourceSubtype) {
-            throw "Error! The required parameter `SourceSubtype` missing when calling createMachineAccountSubtype."
+        if (!$CreateMachineAccountSubtypeRequest) {
+            throw "Error! The required parameter `CreateMachineAccountSubtypeRequest` missing when calling createMachineAccountSubtype."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SourceSubtype -is [array])) {
-            $LocalVarBodyParameter = $SourceSubtype | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($CreateMachineAccountSubtypeRequest -is [array])) {
+            $LocalVarBodyParameter = $CreateMachineAccountSubtypeRequest | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $SourceSubtype | ForEach-Object {
+            $LocalVarBodyParameter = $CreateMachineAccountSubtypeRequest | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -124,10 +124,10 @@ Delete subtype
 
 .DESCRIPTION
 
-Delete a machine account subtype by its ID.
+Delete a machine account subtype by source ID and technical name.
 
-.PARAMETER SubtypeId
-The ID of the machine account subtype.
+.PARAMETER SourceId
+The ID of the source.
 
 .PARAMETER TechnicalName
 The technical name of the subtype.
@@ -148,7 +148,7 @@ function Remove-V2025MachineAccountSubtype {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${SubtypeId},
+        ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TechnicalName},
@@ -176,10 +176,10 @@ function Remove-V2025MachineAccountSubtype {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/sources/{sourceId}/subtypes/{technicalName}'
-        if (!$SubtypeId) {
-            throw "Error! The required parameter `SubtypeId` missing when calling deleteMachineAccountSubtype."
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling deleteMachineAccountSubtype."
         }
-        $LocalVarUri = $LocalVarUri.replace('{subtypeId}', [System.Web.HTTPUtility]::UrlEncode($SubtypeId))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
         if (!$TechnicalName) {
             throw "Error! The required parameter `TechnicalName` missing when calling deleteMachineAccountSubtype."
         }
@@ -350,7 +350,7 @@ function Get-V2025MachineAccountSubtypeById {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/sources/subtype/{subtypeId}'
+        $LocalVarUri = '/sources/subtypes/{subtypeId}'
         if (!$SubtypeId) {
             throw "Error! The required parameter `SubtypeId` missing when calling getMachineAccountSubtypeById."
         }
@@ -496,7 +496,7 @@ The ID of the source.
 Use this header to enable this experimental API.
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)   Filtering is supported for the following fields and operators:   **displayName**: *eq, sw*   **technicalName**: *eq, sw* 
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw*
 
 .PARAMETER Sorters
 Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
@@ -748,10 +748,10 @@ Patch subtype
 
 .DESCRIPTION
 
-Update fields of a machine account subtype by its ID. Patchable fields include: `displayName`, `description`, `technicalName`.
+Update fields of a machine account subtype by source ID and technical name. Patchable fields include: `displayName`, `description`.
 
-.PARAMETER SubtypeId
-The ID of the machine account subtype.
+.PARAMETER SourceId
+The ID of the source.
 
 .PARAMETER TechnicalName
 The technical name of the subtype.
@@ -759,8 +759,8 @@ The technical name of the subtype.
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER SourceSubtype
-No description available.
+.PARAMETER RequestBody
+A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 .PARAMETER WithHttpInfo
 
@@ -775,7 +775,7 @@ function Update-V2025MachineAccountSubtype {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${SubtypeId},
+        ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${TechnicalName},
@@ -783,8 +783,8 @@ function Update-V2025MachineAccountSubtype {
         [String]
         $XSailPointExperimental = "true",
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
-        ${SourceSubtype},
+        [PSCustomObject[]]
+        ${RequestBody},
         [Switch]
         $WithHttpInfo
     )
@@ -806,13 +806,13 @@ function Update-V2025MachineAccountSubtype {
         $LocalVarAccepts = @('application/json')
 
         # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json')
+        $LocalVarContentTypes = @('application/json-patch+json')
 
         $LocalVarUri = '/sources/{sourceId}/subtypes/{technicalName}'
-        if (!$SubtypeId) {
-            throw "Error! The required parameter `SubtypeId` missing when calling patchMachineAccountSubtype."
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling patchMachineAccountSubtype."
         }
-        $LocalVarUri = $LocalVarUri.replace('{subtypeId}', [System.Web.HTTPUtility]::UrlEncode($SubtypeId))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
         if (!$TechnicalName) {
             throw "Error! The required parameter `TechnicalName` missing when calling patchMachineAccountSubtype."
         }
@@ -823,14 +823,14 @@ function Update-V2025MachineAccountSubtype {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$SourceSubtype) {
-            throw "Error! The required parameter `SourceSubtype` missing when calling patchMachineAccountSubtype."
+        if (!$RequestBody) {
+            throw "Error! The required parameter `RequestBody` missing when calling patchMachineAccountSubtype."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($SourceSubtype -is [array])) {
-            $LocalVarBodyParameter = $SourceSubtype | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
+            $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $SourceSubtype | ForEach-Object {
+            $LocalVarBodyParameter = $RequestBody | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

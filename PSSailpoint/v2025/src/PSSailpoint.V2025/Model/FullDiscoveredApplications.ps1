@@ -34,6 +34,44 @@ The timestamp when the application was first discovered, in ISO 8601 format.
 The status of an application within the discovery source.  By default this field is set to ""ACTIVE"" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to ""INACTIVE"".
 .PARAMETER AssociatedSources
 List of associated sources related to this discovered application.
+.PARAMETER OperationalStatus
+The operational status of the application.
+.PARAMETER DiscoverySourceCategory
+The category of the discovery source.
+.PARAMETER LicenseCount
+The number of licenses associated with the application.
+.PARAMETER IsSanctioned
+Indicates whether the application is sanctioned.
+.PARAMETER Logo
+URL of the application's logo.
+.PARAMETER AppUrl
+The URL of the application.
+.PARAMETER Groups
+List of groups associated with the application.
+.PARAMETER UsersCount
+The count of users associated with the application.
+.PARAMETER ApplicationOwner
+The owners of the application.
+.PARAMETER ItApplicationOwner
+The IT owners of the application.
+.PARAMETER BusinessCriticality
+The business criticality level of the application.
+.PARAMETER DataClassification
+The data classification level of the application.
+.PARAMETER BusinessUnit
+The business unit associated with the application.
+.PARAMETER InstallType
+The installation type of the application.
+.PARAMETER Environment
+The environment in which the application operates.
+.PARAMETER RiskScore
+The risk score of the application.
+.PARAMETER IsPrivileged
+Indicates whether the application has privileged access.
+.PARAMETER WarrantyExpiration
+The warranty expiration date of the application.
+.PARAMETER Attributes
+Additional attributes of the application useful for visibility of governance posture.
 .OUTPUTS
 
 FullDiscoveredApplications<PSCustomObject>
@@ -71,7 +109,64 @@ function Initialize-V2025FullDiscoveredApplications {
         ${Status},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${AssociatedSources}
+        ${AssociatedSources},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${OperationalStatus},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${DiscoverySourceCategory},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${LicenseCount},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsSanctioned} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Logo},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${AppUrl},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${Groups},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${UsersCount},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${ApplicationOwner},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${ItApplicationOwner},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${BusinessCriticality},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${DataClassification},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${BusinessUnit},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${InstallType},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Environment},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${RiskScore},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsPrivileged} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${WarrantyExpiration},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Attributes}
     )
 
     Process {
@@ -90,6 +185,25 @@ function Initialize-V2025FullDiscoveredApplications {
             "createdAt" = ${CreatedAt}
             "status" = ${Status}
             "associatedSources" = ${AssociatedSources}
+            "operationalStatus" = ${OperationalStatus}
+            "discoverySourceCategory" = ${DiscoverySourceCategory}
+            "licenseCount" = ${LicenseCount}
+            "isSanctioned" = ${IsSanctioned}
+            "logo" = ${Logo}
+            "appUrl" = ${AppUrl}
+            "groups" = ${Groups}
+            "usersCount" = ${UsersCount}
+            "applicationOwner" = ${ApplicationOwner}
+            "itApplicationOwner" = ${ItApplicationOwner}
+            "businessCriticality" = ${BusinessCriticality}
+            "dataClassification" = ${DataClassification}
+            "businessUnit" = ${BusinessUnit}
+            "installType" = ${InstallType}
+            "environment" = ${Environment}
+            "riskScore" = ${RiskScore}
+            "isPrivileged" = ${IsPrivileged}
+            "warrantyExpiration" = ${WarrantyExpiration}
+            "attributes" = ${Attributes}
         }
 
         return $PSO
@@ -126,7 +240,7 @@ function ConvertFrom-V2025JsonToFullDiscoveredApplications {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025FullDiscoveredApplications
-        $AllProperties = ("id", "name", "discoverySource", "discoveredVendor", "description", "recommendedConnectors", "discoveredAt", "createdAt", "status", "associatedSources")
+        $AllProperties = ("id", "name", "discoverySource", "discoveredVendor", "description", "recommendedConnectors", "discoveredAt", "createdAt", "status", "associatedSources", "operationalStatus", "discoverySourceCategory", "licenseCount", "isSanctioned", "logo", "appUrl", "groups", "usersCount", "applicationOwner", "itApplicationOwner", "businessCriticality", "dataClassification", "businessUnit", "installType", "environment", "riskScore", "isPrivileged", "warrantyExpiration", "attributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -193,6 +307,120 @@ function ConvertFrom-V2025JsonToFullDiscoveredApplications {
             $AssociatedSources = $JsonParameters.PSobject.Properties["associatedSources"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "operationalStatus"))) { #optional property not found
+            $OperationalStatus = $null
+        } else {
+            $OperationalStatus = $JsonParameters.PSobject.Properties["operationalStatus"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "discoverySourceCategory"))) { #optional property not found
+            $DiscoverySourceCategory = $null
+        } else {
+            $DiscoverySourceCategory = $JsonParameters.PSobject.Properties["discoverySourceCategory"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "licenseCount"))) { #optional property not found
+            $LicenseCount = $null
+        } else {
+            $LicenseCount = $JsonParameters.PSobject.Properties["licenseCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isSanctioned"))) { #optional property not found
+            $IsSanctioned = $null
+        } else {
+            $IsSanctioned = $JsonParameters.PSobject.Properties["isSanctioned"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "logo"))) { #optional property not found
+            $Logo = $null
+        } else {
+            $Logo = $JsonParameters.PSobject.Properties["logo"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "appUrl"))) { #optional property not found
+            $AppUrl = $null
+        } else {
+            $AppUrl = $JsonParameters.PSobject.Properties["appUrl"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "groups"))) { #optional property not found
+            $Groups = $null
+        } else {
+            $Groups = $JsonParameters.PSobject.Properties["groups"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "usersCount"))) { #optional property not found
+            $UsersCount = $null
+        } else {
+            $UsersCount = $JsonParameters.PSobject.Properties["usersCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "applicationOwner"))) { #optional property not found
+            $ApplicationOwner = $null
+        } else {
+            $ApplicationOwner = $JsonParameters.PSobject.Properties["applicationOwner"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "itApplicationOwner"))) { #optional property not found
+            $ItApplicationOwner = $null
+        } else {
+            $ItApplicationOwner = $JsonParameters.PSobject.Properties["itApplicationOwner"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessCriticality"))) { #optional property not found
+            $BusinessCriticality = $null
+        } else {
+            $BusinessCriticality = $JsonParameters.PSobject.Properties["businessCriticality"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "dataClassification"))) { #optional property not found
+            $DataClassification = $null
+        } else {
+            $DataClassification = $JsonParameters.PSobject.Properties["dataClassification"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessUnit"))) { #optional property not found
+            $BusinessUnit = $null
+        } else {
+            $BusinessUnit = $JsonParameters.PSobject.Properties["businessUnit"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "installType"))) { #optional property not found
+            $InstallType = $null
+        } else {
+            $InstallType = $JsonParameters.PSobject.Properties["installType"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "environment"))) { #optional property not found
+            $Environment = $null
+        } else {
+            $Environment = $JsonParameters.PSobject.Properties["environment"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "riskScore"))) { #optional property not found
+            $RiskScore = $null
+        } else {
+            $RiskScore = $JsonParameters.PSobject.Properties["riskScore"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isPrivileged"))) { #optional property not found
+            $IsPrivileged = $null
+        } else {
+            $IsPrivileged = $JsonParameters.PSobject.Properties["isPrivileged"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "warrantyExpiration"))) { #optional property not found
+            $WarrantyExpiration = $null
+        } else {
+            $WarrantyExpiration = $JsonParameters.PSobject.Properties["warrantyExpiration"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) { #optional property not found
+            $Attributes = $null
+        } else {
+            $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -204,6 +432,25 @@ function ConvertFrom-V2025JsonToFullDiscoveredApplications {
             "createdAt" = ${CreatedAt}
             "status" = ${Status}
             "associatedSources" = ${AssociatedSources}
+            "operationalStatus" = ${OperationalStatus}
+            "discoverySourceCategory" = ${DiscoverySourceCategory}
+            "licenseCount" = ${LicenseCount}
+            "isSanctioned" = ${IsSanctioned}
+            "logo" = ${Logo}
+            "appUrl" = ${AppUrl}
+            "groups" = ${Groups}
+            "usersCount" = ${UsersCount}
+            "applicationOwner" = ${ApplicationOwner}
+            "itApplicationOwner" = ${ItApplicationOwner}
+            "businessCriticality" = ${BusinessCriticality}
+            "dataClassification" = ${DataClassification}
+            "businessUnit" = ${BusinessUnit}
+            "installType" = ${InstallType}
+            "environment" = ${Environment}
+            "riskScore" = ${RiskScore}
+            "isPrivileged" = ${IsPrivileged}
+            "warrantyExpiration" = ${WarrantyExpiration}
+            "attributes" = ${Attributes}
         }
 
         return $PSO

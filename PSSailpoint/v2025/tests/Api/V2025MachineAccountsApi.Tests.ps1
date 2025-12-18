@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025MachineAccountsApi' {
     Context 'New-V2025MachineAccountSubtype' {
         It 'Test New-V2025MachineAccountSubtype' {
-            #$TestResult = New-V2025MachineAccountSubtype -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SourceSubtype "TEST_VALUE"
+            #$TestResult = New-V2025MachineAccountSubtype -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -CreateMachineAccountSubtypeRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025MachineAccountsApi' {
 
     Context 'Remove-V2025MachineAccountSubtype' {
         It 'Test Remove-V2025MachineAccountSubtype' {
-            #$TestResult = Remove-V2025MachineAccountSubtype -SubtypeId "TEST_VALUE" -TechnicalName "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Remove-V2025MachineAccountSubtype -SourceId "TEST_VALUE" -TechnicalName "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025MachineAccountsApi' {
 
     Context 'Update-V2025MachineAccountSubtype' {
         It 'Test Update-V2025MachineAccountSubtype' {
-            #$TestResult = Update-V2025MachineAccountSubtype -SubtypeId "TEST_VALUE" -TechnicalName "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SourceSubtype "TEST_VALUE"
+            #$TestResult = Update-V2025MachineAccountSubtype -SourceId "TEST_VALUE" -TechnicalName "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -75,7 +75,6 @@ function New-BetaAccessProfile {
 
 
 
-
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -240,7 +239,6 @@ function Remove-BetaAccessProfilesInBulk {
 
 
 
-
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -312,7 +310,6 @@ function Get-BetaAccessProfile {
             throw "Error! The required parameter `Id` missing when calling getAccessProfile."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
 
 
 
@@ -437,7 +434,6 @@ function Get-BetaAccessProfileEntitlements {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
-
 
 
 
@@ -582,7 +578,6 @@ function Get-BetaAccessProfiles {
         if ($IncludeUnsegmented) {
             $LocalVarQueryParameters['include-unsegmented'] = $IncludeUnsegmented
         }
-
 
 
 

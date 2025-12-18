@@ -30,4 +30,12 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApplicationDiscoveryApi' {
         }
     }
 
+    Context 'Start-V2025ApplicationDiscovery' {
+        It 'Test Start-V2025ApplicationDiscovery' {
+            #$TestResult = Start-V2025ApplicationDiscovery -XSailPointExperimental "TEST_VALUE" -ApplicationDiscoveryRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
 }

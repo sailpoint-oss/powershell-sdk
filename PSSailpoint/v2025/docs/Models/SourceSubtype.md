@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **Description** | **String** | Description of the subtype. | [required]
 **Created** | **System.DateTime** | Creation timestamp. | [optional] 
 **Modified** | **System.DateTime** | Last modified timestamp. | [optional] 
+**Type** | **String** | Type of the subtype. Either MACHINE OR null. | [optional] 
 
 ## Examples
 
@@ -34,7 +35,8 @@ $SourceSubtype = Initialize-V2025SourceSubtype  -Id 43bdd144-4b17-4fce-a744-17c7
  -DisplayName Mr Foo `
  -Description fighters `
  -Created 2025-07-28T16:13:42.801300Z `
- -Modified 2025-07-28T16:13:42.750850Z
+ -Modified 2025-07-28T16:13:42.750850Z `
+ -Type MACHINE
 ```
 
 - Convert the resource to JSON

@@ -130,6 +130,38 @@ function ConvertFrom-V2025JsonToTriggerExampleInput {
             Write-Debug "Failed to match 'AccountCorrelated' defined in oneOf (V2025TriggerExampleInput). Proceeding to the next one if any."
         }
 
+        # try to match AccountCreated defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-V2025JsonToAccountCreated $Json
+
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "AccountCreated"
+                    $match++
+                    break
+                }
+            }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'AccountCreated' defined in oneOf (V2025TriggerExampleInput). Proceeding to the next one if any."
+        }
+
+        # try to match AccountDeleted defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-V2025JsonToAccountDeleted $Json
+
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "AccountDeleted"
+                    $match++
+                    break
+                }
+            }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'AccountDeleted' defined in oneOf (V2025TriggerExampleInput). Proceeding to the next one if any."
+        }
+
         # try to match AccountUncorrelated defined in the oneOf schemas
         try {
             $matchInstance = ConvertFrom-V2025JsonToAccountUncorrelated $Json
@@ -144,6 +176,22 @@ function ConvertFrom-V2025JsonToTriggerExampleInput {
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
             Write-Debug "Failed to match 'AccountUncorrelated' defined in oneOf (V2025TriggerExampleInput). Proceeding to the next one if any."
+        }
+
+        # try to match AccountUpdated defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-V2025JsonToAccountUpdated $Json
+
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "AccountUpdated"
+                    $match++
+                    break
+                }
+            }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'AccountUpdated' defined in oneOf (V2025TriggerExampleInput). Proceeding to the next one if any."
         }
 
         # try to match AccountsCollectedForAggregation defined in the oneOf schemas
@@ -272,6 +320,54 @@ function ConvertFrom-V2025JsonToTriggerExampleInput {
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
             Write-Debug "Failed to match 'IdentityDeleted' defined in oneOf (V2025TriggerExampleInput). Proceeding to the next one if any."
+        }
+
+        # try to match MachineIdentityCreated defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-V2025JsonToMachineIdentityCreated $Json
+
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "MachineIdentityCreated"
+                    $match++
+                    break
+                }
+            }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'MachineIdentityCreated' defined in oneOf (V2025TriggerExampleInput). Proceeding to the next one if any."
+        }
+
+        # try to match MachineIdentityDeleted defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-V2025JsonToMachineIdentityDeleted $Json
+
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "MachineIdentityDeleted"
+                    $match++
+                    break
+                }
+            }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'MachineIdentityDeleted' defined in oneOf (V2025TriggerExampleInput). Proceeding to the next one if any."
+        }
+
+        # try to match MachineIdentityUpdated defined in the oneOf schemas
+        try {
+            $matchInstance = ConvertFrom-V2025JsonToMachineIdentityUpdated $Json
+
+            foreach($property in $matchInstance.PsObject.Properties) {
+                if ($null -ne $property.Value) {
+                    $matchType = "MachineIdentityUpdated"
+                    $match++
+                    break
+                }
+            }
+        } catch {
+            # fail to match the schema defined in oneOf, proceed to the next one
+            Write-Debug "Failed to match 'MachineIdentityUpdated' defined in oneOf (V2025TriggerExampleInput). Proceeding to the next one if any."
         }
 
         # try to match ProvisioningCompleted defined in the oneOf schemas
@@ -419,15 +515,15 @@ function ConvertFrom-V2025JsonToTriggerExampleInput {
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccessRequestDynamicApprover, AccessRequestPostApproval, AccessRequestPreApproval, AccountAggregationCompleted, AccountAttributesChanged, AccountCorrelated, AccountUncorrelated, AccountsCollectedForAggregation, CampaignActivated, CampaignEnded, CampaignGenerated, CertificationSignedOff, IdentityAttributesChanged, IdentityCreated, IdentityDeleted, ProvisioningCompleted, SavedSearchComplete, SourceAccountCreated, SourceAccountDeleted, SourceAccountUpdated, SourceCreated, SourceDeleted, SourceUpdated, VAClusterStatusChangeEvent]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([AccessRequestDynamicApprover, AccessRequestPostApproval, AccessRequestPreApproval, AccountAggregationCompleted, AccountAttributesChanged, AccountCorrelated, AccountCreated, AccountDeleted, AccountUncorrelated, AccountUpdated, AccountsCollectedForAggregation, CampaignActivated, CampaignEnded, CampaignGenerated, CertificationSignedOff, IdentityAttributesChanged, IdentityCreated, IdentityDeleted, MachineIdentityCreated, MachineIdentityDeleted, MachineIdentityUpdated, ProvisioningCompleted, SavedSearchComplete, SourceAccountCreated, SourceAccountDeleted, SourceAccountUpdated, SourceCreated, SourceDeleted, SourceUpdated, VAClusterStatusChangeEvent]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("AccessRequestDynamicApprover", "AccessRequestPostApproval", "AccessRequestPreApproval", "AccountAggregationCompleted", "AccountAttributesChanged", "AccountCorrelated", "AccountUncorrelated", "AccountsCollectedForAggregation", "CampaignActivated", "CampaignEnded", "CampaignGenerated", "CertificationSignedOff", "IdentityAttributesChanged", "IdentityCreated", "IdentityDeleted", "ProvisioningCompleted", "SavedSearchComplete", "SourceAccountCreated", "SourceAccountDeleted", "SourceAccountUpdated", "SourceCreated", "SourceDeleted", "SourceUpdated", "VAClusterStatusChangeEvent")
+                "OneOfSchemas" = @("AccessRequestDynamicApprover", "AccessRequestPostApproval", "AccessRequestPreApproval", "AccountAggregationCompleted", "AccountAttributesChanged", "AccountCorrelated", "AccountCreated", "AccountDeleted", "AccountUncorrelated", "AccountUpdated", "AccountsCollectedForAggregation", "CampaignActivated", "CampaignEnded", "CampaignGenerated", "CertificationSignedOff", "IdentityAttributesChanged", "IdentityCreated", "IdentityDeleted", "MachineIdentityCreated", "MachineIdentityDeleted", "MachineIdentityUpdated", "ProvisioningCompleted", "SavedSearchComplete", "SourceAccountCreated", "SourceAccountDeleted", "SourceAccountUpdated", "SourceCreated", "SourceDeleted", "SourceUpdated", "VAClusterStatusChangeEvent")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccessRequestDynamicApprover, AccessRequestPostApproval, AccessRequestPreApproval, AccountAggregationCompleted, AccountAttributesChanged, AccountCorrelated, AccountUncorrelated, AccountsCollectedForAggregation, CampaignActivated, CampaignEnded, CampaignGenerated, CertificationSignedOff, IdentityAttributesChanged, IdentityCreated, IdentityDeleted, ProvisioningCompleted, SavedSearchComplete, SourceAccountCreated, SourceAccountDeleted, SourceAccountUpdated, SourceCreated, SourceDeleted, SourceUpdated, VAClusterStatusChangeEvent]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([AccessRequestDynamicApprover, AccessRequestPostApproval, AccessRequestPreApproval, AccountAggregationCompleted, AccountAttributesChanged, AccountCorrelated, AccountCreated, AccountDeleted, AccountUncorrelated, AccountUpdated, AccountsCollectedForAggregation, CampaignActivated, CampaignEnded, CampaignGenerated, CertificationSignedOff, IdentityAttributesChanged, IdentityCreated, IdentityDeleted, MachineIdentityCreated, MachineIdentityDeleted, MachineIdentityUpdated, ProvisioningCompleted, SavedSearchComplete, SourceAccountCreated, SourceAccountDeleted, SourceAccountUpdated, SourceCreated, SourceDeleted, SourceUpdated, VAClusterStatusChangeEvent]). JSON Payload: $($Json)"
         }
     }
 }

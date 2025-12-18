@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V3' -name 'Requestability' {
     Context 'Requestability' {
         It 'Initialize-Requestability' {
             # a simple test to create an object
-            #$NewObject = Initialize-Requestability -CommentsRequired "TEST_VALUE" -DenialCommentsRequired "TEST_VALUE" -ReauthorizationRequired "TEST_VALUE" -ApprovalSchemes "TEST_VALUE"
+            #$NewObject = Initialize-Requestability -CommentsRequired "TEST_VALUE" -DenialCommentsRequired "TEST_VALUE" -ReauthorizationRequired "TEST_VALUE" -RequireEndDate "TEST_VALUE" -MaxPermittedAccessDuration "TEST_VALUE" -ApprovalSchemes "TEST_VALUE"
             #$NewObject | Should -BeOfType Requestability
             #$NewObject.property | Should -Be 0
         }

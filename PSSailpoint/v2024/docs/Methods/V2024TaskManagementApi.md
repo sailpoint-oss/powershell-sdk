@@ -25,7 +25,13 @@ Method | HTTP request | Description
 
 
 ## get-pending-task-headers
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+This API is being deprecated. Please use the [task-status-list](https://developer.sailpoint.com/docs/api/v2025/get-task-status-list) endpoint with isnull filtering on the completionStatus field and count=true. Example: /v2025/task-status?count=true&filters=completionStatus isnull
+
 Responds with headers only for list of task statuses for pending tasks.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-pending-task-headers)
 
@@ -75,7 +81,13 @@ try {
 [[Back to top]](#) 
 
 ## get-pending-tasks
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+This API is being deprecated. Please use the [task-status-list](https://developer.sailpoint.com/docs/api/v2025/get-task-status-list) endpoint with isnull filtering on the completionStatus field to retrieve pending tasks. Example: /v2025/task-status?filters=completionStatus isnull 
+
 Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks)
 

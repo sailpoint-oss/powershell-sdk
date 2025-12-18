@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024AccessProfile' {
     Context 'V2024AccessProfile' {
         It 'Initialize-V2024AccessProfile' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024AccessProfile -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Enabled "TEST_VALUE" -Owner "TEST_VALUE" -Source "TEST_VALUE" -Entitlements "TEST_VALUE" -Requestable "TEST_VALUE" -AccessRequestConfig "TEST_VALUE" -RevocationRequestConfig "TEST_VALUE" -Segments "TEST_VALUE" -ProvisioningCriteria "TEST_VALUE"
+            #$NewObject = Initialize-V2024AccessProfile -Id "TEST_VALUE" -Name "TEST_VALUE" -Description "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Enabled "TEST_VALUE" -Owner "TEST_VALUE" -Source "TEST_VALUE" -Entitlements "TEST_VALUE" -Requestable "TEST_VALUE" -AccessRequestConfig "TEST_VALUE" -RevocationRequestConfig "TEST_VALUE" -Segments "TEST_VALUE" -AccessModelMetadata "TEST_VALUE" -ProvisioningCriteria "TEST_VALUE" -AdditionalOwners "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessProfile
             #$NewObject.property | Should -Be 0
         }

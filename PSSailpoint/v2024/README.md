@@ -775,6 +775,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.AccessConstraint](docs/AccessConstraint.md)
  - [PSSailpoint.V2024\Model.AccessCriteria](docs/AccessCriteria.md)
  - [PSSailpoint.V2024\Model.AccessCriteriaCriteriaListInner](docs/AccessCriteriaCriteriaListInner.md)
+ - [PSSailpoint.V2024\Model.AccessDuration](docs/AccessDuration.md)
  - [PSSailpoint.V2024\Model.AccessItemAccessProfileResponse](docs/AccessItemAccessProfileResponse.md)
  - [PSSailpoint.V2024\Model.AccessItemAccessProfileResponseAppRefsInner](docs/AccessItemAccessProfileResponseAppRefsInner.md)
  - [PSSailpoint.V2024\Model.AccessItemAccountResponse](docs/AccessItemAccountResponse.md)

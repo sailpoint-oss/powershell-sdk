@@ -26,6 +26,8 @@ Description of the subtype.
 Creation timestamp.
 .PARAMETER Modified
 Last modified timestamp.
+.PARAMETER Type
+Type of the subtype. Either MACHINE OR null.
 .OUTPUTS
 
 SourceSubtype<PSCustomObject>
@@ -51,7 +53,10 @@ function Initialize-V2025SourceSubtype {
         ${Created},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${Modified}
+        ${Modified},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Type}
     )
 
     Process {
@@ -78,6 +83,7 @@ function Initialize-V2025SourceSubtype {
             "description" = ${Description}
             "created" = ${Created}
             "modified" = ${Modified}
+            "type" = ${Type}
         }
 
         return $PSO
@@ -114,7 +120,7 @@ function ConvertFrom-V2025JsonToSourceSubtype {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025SourceSubtype
-        $AllProperties = ("id", "sourceId", "technicalName", "displayName", "description", "created", "modified")
+        $AllProperties = ("id", "sourceId", "technicalName", "displayName", "description", "created", "modified", "type")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -167,6 +173,12 @@ function ConvertFrom-V2025JsonToSourceSubtype {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "sourceId" = ${SourceId}
@@ -175,6 +187,7 @@ function ConvertFrom-V2025JsonToSourceSubtype {
             "description" = ${Description}
             "created" = ${Created}
             "modified" = ${Modified}
+            "type" = ${Type}
         }
 
         return $PSO

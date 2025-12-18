@@ -6,6 +6,7 @@ appveyor.yml
 docs/AccessConstraint.md
 docs/AccessCriteria.md
 docs/AccessCriteriaCriteriaListInner.md
+docs/AccessDuration.md
 docs/AccessItemAccessProfileResponse.md
 docs/AccessItemAccessProfileResponseAppRefsInner.md
 docs/AccessItemAccountResponse.md
@@ -1158,6 +1159,7 @@ src/PSSailpoint.Beta/Client/BetaConfiguration.ps1
 src/PSSailpoint.Beta/Model/AccessConstraint.ps1
 src/PSSailpoint.Beta/Model/AccessCriteria.ps1
 src/PSSailpoint.Beta/Model/AccessCriteriaCriteriaListInner.ps1
+src/PSSailpoint.Beta/Model/AccessDuration.ps1
 src/PSSailpoint.Beta/Model/AccessItemAccessProfileResponse.ps1
 src/PSSailpoint.Beta/Model/AccessItemAccessProfileResponseAppRefsInner.ps1
 src/PSSailpoint.Beta/Model/AccessItemAccountResponse.ps1
@@ -2169,6 +2171,7 @@ tests/Api/BetaWorkflowsApi.Tests.ps1
 tests/Model/AccessConstraint.Tests.ps1
 tests/Model/AccessCriteria.Tests.ps1
 tests/Model/AccessCriteriaCriteriaListInner.Tests.ps1
+tests/Model/AccessDuration.Tests.ps1
 tests/Model/AccessItemAccessProfileResponse.Tests.ps1
 tests/Model/AccessItemAccessProfileResponseAppRefsInner.Tests.ps1
 tests/Model/AccessItemAccountResponse.Tests.ps1

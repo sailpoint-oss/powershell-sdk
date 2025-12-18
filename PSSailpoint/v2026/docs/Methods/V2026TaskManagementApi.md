@@ -25,10 +25,16 @@ Method | HTTP request | Description
 
 
 ## get-pending-task-headers
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
+This API is being deprecated. Please use the [task-status-list](https://developer.sailpoint.com/docs/api/v2026/get-task-status-list) endpoint with isnull filtering on the completionStatus field and count=true. Example: /v2026/task-status?count=true&filters=completionStatus isnull
+
 Responds with headers only for list of task statuses for pending tasks.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2026/get-pending-task-headers)
 
@@ -80,11 +86,15 @@ try {
 [[Back to top]](#) 
 
 ## get-pending-tasks
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
-Possible tasks to be returned: Cloud Account Aggregation, Cloud Group Aggregation, Cloud Process Uncorrelated Accounts, Cloud Refresh Role, Source Application Discovery, AI Agent Aggregation, Cloud Entitlement Import, Cloud Uncorrelated Refresh, Cloud Identity Aggregation, Cloud Attribute Synchronization, Identity Refresh
+This API is being deprecated. Please use the [task-status-list](https://developer.sailpoint.com/docs/api/v2026/get-task-status-list) endpoint with isnull filtering on the completionStatus field to retrieve pending tasks. Example: /v2026/task-status?filters=completionStatus isnull
+
+Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks. Data for tasks older than 90 days will not be returned.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2026/get-pending-tasks)
@@ -103,7 +113,7 @@ Param Type | Name | Data Type | Required  | Description
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Responds with a list of TaskStatus for pending tasks. | TaskStatus[]
+200 | Responds with a list of TaskStatus for pending tasks.  Possible Values: CLOUD_ACCOUNT_AGGREGATION, CLOUD_GROUP_AGGREGATION, CLOUD_PROCESS_UNCORRELATED_ACCOUNTS, CLOUD_REFRESH_ROLE, SOURCE_APPLICATION_DISCOVERY, AI_AGENT_AGGREGATION, CLOUD_ENTITLEMENT_IMPORT, CLOUD_UNCORRELATED_REFRESH, CLOUD_IDENTITY_AGGREGATION, CLOUD_ATTRIBUTE_SYNCHRONIZATION, IDENTITY_REFRESH, APPLICATION_DISCOVERY, MACHINE_IDENTITY_AGGREGATION, MACHINE_IDENTITY_DELETION, ACCOUNT_DELETION  | TaskStatus[]
 204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetTaskStatus401Response
@@ -191,8 +201,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this endpoint to get a list of statuses for **all** tasks which include finished, in-progress, terminated, and errored tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for only **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks) endpoint.
-Possible tasks to be returned: Cloud Account Aggregation, Cloud Group Aggregation, Cloud Process Uncorrelated Accounts, Cloud Refresh Role, Source Application Discovery, AI Agent Aggregation, Cloud Entitlement Import, Cloud Uncorrelated Refresh, Cloud Identity Aggregation, Cloud Attribute Synchronization, Identity Refresh
+Use this endpoint to get a list of statuses for **all** tasks, including completed, in-progress, terminated, and errored tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks. Data for tasks older than 90 days will not be returned. For a list of **in-progress** tasks, apply the isnull filter to the Completion Status field.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2026/get-task-status-list)
@@ -204,7 +213,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in*
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in, isnull*  **type**: *eq, in*  **Possible Values:** CLOUD_ACCOUNT_AGGREGATION, CLOUD_GROUP_AGGREGATION, CLOUD_PROCESS_UNCORRELATED_ACCOUNTS, CLOUD_REFRESH_ROLE, SOURCE_APPLICATION_DISCOVERY, AI_AGENT_AGGREGATION, CLOUD_ENTITLEMENT_IMPORT, CLOUD_UNCORRELATED_REFRESH, CLOUD_IDENTITY_AGGREGATION, CLOUD_ATTRIBUTE_SYNCHRONIZATION, IDENTITY_REFRESH, APPLICATION_DISCOVERY, MACHINE_IDENTITY_AGGREGATION, MACHINE_IDENTITY_DELETION, ACCOUNT_DELETION
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created**
 
 ### Return type
@@ -231,7 +240,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = 'type eq "Cloud Account Aggregation" and completionStatus eq "null"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in* (optional)
+$Filters = 'type eq "CLOUD_ACCOUNT_AGGREGATION" and completionStatus isnull' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in, isnull*  **type**: *eq, in*  **Possible Values:** CLOUD_ACCOUNT_AGGREGATION, CLOUD_GROUP_AGGREGATION, CLOUD_PROCESS_UNCORRELATED_ACCOUNTS, CLOUD_REFRESH_ROLE, SOURCE_APPLICATION_DISCOVERY, AI_AGENT_AGGREGATION, CLOUD_ENTITLEMENT_IMPORT, CLOUD_UNCORRELATED_REFRESH, CLOUD_IDENTITY_AGGREGATION, CLOUD_ATTRIBUTE_SYNCHRONIZATION, IDENTITY_REFRESH, APPLICATION_DISCOVERY, MACHINE_IDENTITY_AGGREGATION, MACHINE_IDENTITY_DELETION, ACCOUNT_DELETION (optional)
 $Sorters = "-created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional)
 
 # Retrieve task status list

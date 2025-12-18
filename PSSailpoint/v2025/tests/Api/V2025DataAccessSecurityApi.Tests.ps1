@@ -14,9 +14,25 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025DataAccessSecurityApi' {
         }
     }
 
+    Context 'New-V2025Application' {
+        It 'Test New-V2025Application' {
+            #$TestResult = New-V2025Application -BaseCreateApplicationRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-V2025Schedule' {
         It 'Test New-V2025Schedule' {
             #$TestResult = New-V2025Schedule -CreateScheduleRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-V2025Application' {
+        It 'Test Remove-V2025Application' {
+            #$TestResult = Remove-V2025Application -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -33,6 +49,22 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025DataAccessSecurityApi' {
     Context 'Remove-V2025Task' {
         It 'Test Remove-V2025Task' {
             #$TestResult = Remove-V2025Task -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2025Application' {
+        It 'Test Get-V2025Application' {
+            #$TestResult = Get-V2025Application -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2025Applications' {
+        It 'Test Get-V2025Applications' {
+            #$TestResult = Get-V2025Applications -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -65,6 +97,14 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025DataAccessSecurityApi' {
     Context 'Get-V2025Tasks' {
         It 'Test Get-V2025Tasks' {
             #$TestResult = Get-V2025Tasks -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-V2025Application' {
+        It 'Test Send-V2025Application' {
+            #$TestResult = Send-V2025Application -Id "TEST_VALUE" -BaseCreateApplicationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

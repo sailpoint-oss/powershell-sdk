@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **RequestedItems** | [**[]AccessRequestPreApprovalRequestedItemsInner**](access-request-pre-approval-requested-items-inner) | Details of the access items being requested. | [required]
 **RequestedBy** | [**AccessItemRequesterDto**](access-item-requester-dto) |  | [required]
 **RequestedItemsStatus** | [**[]AccessRequestPostApprovalRequestedItemsStatusInner**](access-request-post-approval-requested-items-status-inner) | Details on the outcome of each access item. | [required]
-**Source** | [**AccountUncorrelatedSource**](account-uncorrelated-source) |  | [required]
+**Source** | [**AccountSourceReference**](account-source-reference) |  | [required]
 **Status** |  **Enum** [  "Success",    "Failed",    "Terminated" ] | The overall status of the collection. | [required]
 **Started** | **System.DateTime** | The date and time when the account collection started. | [required]
 **Completed** | **System.DateTime** | The date and time when the account collection finished. | [required]
@@ -29,12 +29,22 @@ Name | Type | Description | Notes
 **Warnings** | **[]String** | A list of any accumulated warning messages that occurred during provisioning. | [required]
 **Stats** | [**AccountsCollectedForAggregationStats**](accounts-collected-for-aggregation-stats) |  | [required]
 **Identity** | [**IdentityDeletedIdentity**](identity-deleted-identity) |  | [required]
-**Account** | [**AccountUncorrelatedAccount**](account-uncorrelated-account) |  | [required]
+**Account** | [**AccountV2**](account-v2) |  | [required]
 **Changes** | [**[]IdentityAttributesChangedChangesInner**](identity-attributes-changed-changes-inner) | A list of one or more identity attributes that changed on the identity. | [required]
 **Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
 **EntitlementCount** | **Int32** | The number of entitlements associated with this account. | [optional] 
+**VarEvent** | [**AccountUpdatedEvent**](account-updated-event) |  | [required]
+**AccountChangeTypes** | **[]String** | The types of changes that occurred to the account. | [required]
+**SingleValueAttributeChanges** | [**[]MachineIdentityUpdatedSingleValueAttributeChangesInner**](machine-identity-updated-single-value-attribute-changes-inner) | Details about the single-value attribute changes that occurred. | [required]
+**MultiValueAttributeChanges** | [**[]AccountUpdatedMultiValueAttributeChangesInner**](account-updated-multi-value-attribute-changes-inner) | Details about the multi-value attribute changes that occurred to the account. | [required]
+**EntitlementChanges** | [**[]AccountUpdatedEntitlementChangesInner**](account-updated-entitlement-changes-inner) | Details about the entitlement changes that occurred to the account. | [required]
 **Campaign** | [**CampaignGeneratedCampaign**](campaign-generated-campaign) |  | [required]
 **Certification** | [**CertificationSignedOffCertification**](certification-signed-off-certification) |  | [required]
+**EventType** |  **Enum** [  "MACHINE_IDENTITY_DELETED" ] | Type of the event. | [required]
+**MachineIdentity** | [**MachineIdentityDeletedMachineIdentity**](machine-identity-deleted-machine-identity) |  | [required]
+**MachineIdentityChangeTypes** | **[]String** | Types of changes that occurred to the machine identity. | [required]
+**UserEntitlementChanges** | [**MachineIdentityUpdatedUserEntitlementChanges**](machine-identity-updated-user-entitlement-changes) |  | [required]
+**OwnerChanges** | [**MachineIdentityUpdatedOwnerChanges**](machine-identity-updated-owner-changes) |  | [required]
 **TrackingNumber** | **String** | The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface. | [required]
 **Sources** | **String** | One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated. | [required]
 **Action** | **String** | Origin of where the provisioning request came from. | [optional] 
@@ -87,8 +97,18 @@ $TriggerExampleInput = Initialize-V2025TriggerExampleInput  -AccessRequestId 2c9
  -Changes null `
  -Attributes {firstname=John, lastname=Doe, email=john.doe@gmail.com, department=Sales, displayName=John Doe, created=2020-04-27T16:48:33.597Z, employeeNumber=E009, uid=E009, inactive=true, phone=null, identificationNumber=E009} `
  -EntitlementCount 0 `
+ -VarEvent null `
+ -AccountChangeTypes null `
+ -SingleValueAttributeChanges null `
+ -MultiValueAttributeChanges null `
+ -EntitlementChanges null `
  -Campaign null `
  -Certification null `
+ -EventType MACHINE_IDENTITY_DELETED `
+ -MachineIdentity null `
+ -MachineIdentityChangeTypes [ATTRIBUTES_CHANGED, USER_ENTITLEMENTS_ADDED, USER_ENTITLEMENTS_REMOVED, OWNERS_ADDED, OWNERS_REMOVED] `
+ -UserEntitlementChanges null `
+ -OwnerChanges null `
  -TrackingNumber 4b4d982dddff4267ab12f0f1e72b5a6d `
  -Sources Corp AD, Corp LDAP, Corp Salesforce `
  -Action IdentityRefresh `

@@ -614,6 +614,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.AccessConstraint](docs/AccessConstraint.md)
  - [PSSailpoint.Beta\Model.AccessCriteria](docs/AccessCriteria.md)
  - [PSSailpoint.Beta\Model.AccessCriteriaCriteriaListInner](docs/AccessCriteriaCriteriaListInner.md)
+ - [PSSailpoint.Beta\Model.AccessDuration](docs/AccessDuration.md)
  - [PSSailpoint.Beta\Model.AccessItemAccessProfileResponse](docs/AccessItemAccessProfileResponse.md)
  - [PSSailpoint.Beta\Model.AccessItemAccessProfileResponseAppRefsInner](docs/AccessItemAccessProfileResponseAppRefsInner.md)
  - [PSSailpoint.Beta\Model.AccessItemAccountResponse](docs/AccessItemAccountResponse.md)

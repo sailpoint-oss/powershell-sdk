@@ -318,6 +318,15 @@
             "type" : "SOURCE"
           },
           "enabled" : true,
+          "additionalOwners" : [ {
+            "name" : "support",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "type" : "IDENTITY"
+          }, {
+            "name" : "support",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "type" : "IDENTITY"
+          } ],
           "revocationRequestConfig" : {
             "approvalSchemes" : [ {
               "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
@@ -338,7 +347,12 @@
               "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
               "approverType" : "GOVERNANCE_GROUP"
             } ],
-            "denialCommentsRequired" : true
+            "denialCommentsRequired" : true,
+            "requireEndDate" : true,
+            "maxPermittedAccessDuration" : {
+              "value" : 6,
+              "timeUnit" : "MONTHS"
+            }
           },
           "name" : "Employee-database-read-write",
           "provisioningCriteria" : {
@@ -378,6 +392,22 @@
             "value" : "carlee.cert1c9f9b6fd@mailinator.com"
           },
           "modified" : "2021-03-02T20:22:28.104Z",
+          "accessModelMetadata" : {
+            "attributes" : [ {
+              "key" : "iscPrivacy",
+              "name" : "Privacy",
+              "multiselect" : false,
+              "status" : "active",
+              "type" : "governance",
+              "objectTypes" : [ "all" ],
+              "description" : "Specifies the level of privacy associated with an access item.",
+              "values" : [ {
+                "value" : "public",
+                "name" : "Public",
+                "status" : "active"
+              } ]
+            } ]
+          },
           "id" : "2c91808a7190d06e01719938fcd20792",
           "requestable" : true
         }
@@ -1782,8 +1812,8 @@
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior. (optional)
-        $Filter = "name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  (optional)
-        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource** (optional)
+        $Filter = "name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  **discoverySourceName**: *eq, in*  **discoverySourceCategory**: *eq, in*  (optional)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource, discoverySourceName, discoverySourceCategory** (optional)
         
         # Get discovered applications for tenant
         
@@ -1831,6 +1861,31 @@
             # Send-V2025ManualDiscoverApplicationsCsvTemplate -File $File   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ManualDiscoverApplicationsCsvTemplate"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/discover-applications
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/application-discovery#start-application-discovery
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $ApplicationDiscoveryRequest = @"
+        {
+          "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ]
+        }
+        "@
+        
+        # Start Application Discovery
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToApplicationDiscoveryRequest -Json $ApplicationDiscoveryRequest
+            Start-V2025ApplicationDiscovery -XSailPointExperimental $XSailPointExperimental -ApplicationDiscoveryRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-V2025ApplicationDiscovery -XSailPointExperimental $XSailPointExperimental -ApplicationDiscoveryRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2025ApplicationDiscovery"
             Write-Host $_.ErrorDetails
         }
 - path: /generic-approvals/{id}/approve
@@ -6005,6 +6060,74 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2025Task"
             Write-Host $_.ErrorDetails
         }
+- path: /das/applications
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#create-application
+      source: |
+        $BaseCreateApplicationRequest = @"
+        {
+          "adIdentityCollectorId" : 987654321,
+          "applicationType" : 9,
+          "nisIdentityCollectorId" : 192837465,
+          "executeNow" : false,
+          "name" : "HR File Server",
+          "description" : "Stores HR documents and employee records.",
+          "dataClassificationSettings" : {
+            "isEnabled" : true,
+            "clusterId" : "cluster-001"
+          },
+          "activityConfigurationSettings" : {
+            "excludeFolders" : [ "/tmp", "/archive" ],
+            "excludeFileExtensions" : [ ".log", ".bak" ],
+            "excludeActions" : [ "delete", "move" ],
+            "isEnabled" : true,
+            "retentionTimePeriod" : 30,
+            "retentionTimeType" : "days",
+            "clusterId" : "cluster-001",
+            "excludeUsers" : [ "user1", "user2" ]
+          },
+          "applicationCrawlerSettings" : {
+            "calculateResourceSize" : 2,
+            "excludedResources" : [ "resourceA", "resourceB" ],
+            "crawlPublicFolders" : true,
+            "excludedPathsByRegex" : "^/archive/.*",
+            "isEnabled" : true,
+            "crawlSnapshotsFolder" : true,
+            "crawlMailboxes" : false,
+            "crawlTopLevelShares" : [ "share1", "share2" ],
+            "clusterId" : "cluster-001",
+            "includeResources" : [ "resourceX", "resourceY" ]
+          },
+          "identityCollectorId" : 123456789,
+          "permissionCollectorSettings" : {
+            "analyzeUniquePermissions" : true,
+            "calculateRiskiestPermissions" : false,
+            "isEnabled" : true,
+            "calculateEffectivePermissions" : true,
+            "clusterId" : "cluster-001",
+            "effectivePermissionsSource" : "S3"
+          },
+          "tags" : [ {
+            "key" : 1,
+            "value" : "Confidential"
+          } ]
+        }
+        "@
+        
+        # Create application
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToBaseCreateApplicationRequest -Json $BaseCreateApplicationRequest
+            New-V2025Application -BaseCreateApplicationRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2025Application -BaseCreateApplicationRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025Application"
+            Write-Host $_.ErrorDetails
+        }
 - path: /das/tasks/schedules
   method: POST
   xCodeSample:
@@ -6036,6 +6159,25 @@
             # New-V2025Schedule -CreateScheduleRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025Schedule"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/applications/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#delete-application
+      source: |
+        $Id = 12345 # Int64 | The unique identifier of the application to delete.
+        
+        # Delete an application by identifier.
+        
+        try {
+            Remove-V2025Application -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025Application -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025Application"
             Write-Host $_.ErrorDetails
         }
 - path: /das/tasks/schedules/{id}
@@ -6074,6 +6216,47 @@
             # Remove-V2025Task -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025Task"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/applications/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#get-application
+      source: |
+        $Id = 12345 # Int64 | The unique identifier of the application to retrieve.
+        
+        # Retrieve application details by identifier.
+        
+        try {
+            Get-V2025Application -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025Application -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Application"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/applications
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#get-applications
+      source: |
+        $Filters = "AppType eq 'ActiveDirectory' and Statuses eq 'Passed'" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **appIds**: *eq, in*  **tagIds**: *eq, in*  **statuses**: *eq, in*  **groupCodes**: *eq, in*  **virtualAppId**: *eq*  **appName**: *eq*  **supportsValidation**: *eq*  Supported composite operators are *and, or* (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Search applications in DAS.
+        
+        try {
+            Get-V2025Applications 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025Applications -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Applications"
             Write-Host $_.ErrorDetails
         }
 - path: /das/tasks/schedules/{id}
@@ -6156,6 +6339,75 @@
             # Get-V2025Tasks -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Tasks"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/applications/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/data-access-security#put-application
+      source: |
+        $Id = 12345 # Int64 | The unique identifier of the application to update.
+        $BaseCreateApplicationRequest = @"
+        {
+          "adIdentityCollectorId" : 987654321,
+          "applicationType" : 9,
+          "nisIdentityCollectorId" : 192837465,
+          "executeNow" : false,
+          "name" : "HR File Server",
+          "description" : "Stores HR documents and employee records.",
+          "dataClassificationSettings" : {
+            "isEnabled" : true,
+            "clusterId" : "cluster-001"
+          },
+          "activityConfigurationSettings" : {
+            "excludeFolders" : [ "/tmp", "/archive" ],
+            "excludeFileExtensions" : [ ".log", ".bak" ],
+            "excludeActions" : [ "delete", "move" ],
+            "isEnabled" : true,
+            "retentionTimePeriod" : 30,
+            "retentionTimeType" : "days",
+            "clusterId" : "cluster-001",
+            "excludeUsers" : [ "user1", "user2" ]
+          },
+          "applicationCrawlerSettings" : {
+            "calculateResourceSize" : 2,
+            "excludedResources" : [ "resourceA", "resourceB" ],
+            "crawlPublicFolders" : true,
+            "excludedPathsByRegex" : "^/archive/.*",
+            "isEnabled" : true,
+            "crawlSnapshotsFolder" : true,
+            "crawlMailboxes" : false,
+            "crawlTopLevelShares" : [ "share1", "share2" ],
+            "clusterId" : "cluster-001",
+            "includeResources" : [ "resourceX", "resourceY" ]
+          },
+          "identityCollectorId" : 123456789,
+          "permissionCollectorSettings" : {
+            "analyzeUniquePermissions" : true,
+            "calculateRiskiestPermissions" : false,
+            "isEnabled" : true,
+            "calculateEffectivePermissions" : true,
+            "clusterId" : "cluster-001",
+            "effectivePermissionsSource" : "S3"
+          },
+          "tags" : [ {
+            "key" : 1,
+            "value" : "Confidential"
+          } ]
+        }
+        "@
+        
+        # Update application by identifier.
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToBaseCreateApplicationRequest -Json $BaseCreateApplicationRequest
+            Send-V2025Application -Id $Id -BaseCreateApplicationRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2025Application -Id $Id -BaseCreateApplicationRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025Application"
             Write-Host $_.ErrorDetails
         }
 - path: /das/tasks/schedules/{id}
@@ -10437,26 +10689,18 @@
       source: |
         $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SourceSubtype = @"
-        {
-          "sourceId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
-          "displayName" : "Mr Foo",
-          "created" : "2025-07-28T16:13:42.8013Z",
-          "description" : "fighters",
-          "modified" : "2025-07-28T16:13:42.75085Z",
-          "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
-          "technicalName" : "foo"
-        }
+        $CreateMachineAccountSubtypeRequest = @"
+        {technicalName=foo, displayName=Mr Foo, description=fighters, type=MACHINE}
         "@
         
         # Create subtype
         
         try {
-            $Result = ConvertFrom-V2025JsonToSourceSubtype -Json $SourceSubtype
-            New-V2025MachineAccountSubtype -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceSubtype $Result 
+            $Result = ConvertFrom-V2025JsonToCreateMachineAccountSubtypeRequest -Json $CreateMachineAccountSubtypeRequest
+            New-V2025MachineAccountSubtype -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -CreateMachineAccountSubtypeRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-V2025MachineAccountSubtype -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceSubtype $Result   
+            # New-V2025MachineAccountSubtype -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -CreateMachineAccountSubtypeRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025MachineAccountSubtype"
             Write-Host $_.ErrorDetails
@@ -10467,17 +10711,17 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/machine-accounts#delete-machine-account-subtype
       source: |
-        $SubtypeId = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the machine account subtype.
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
         $TechnicalName = "foo" # String | The technical name of the subtype.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete subtype
         
         try {
-            Remove-V2025MachineAccountSubtype -SubtypeId $SubtypeId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2025MachineAccountSubtype -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2025MachineAccountSubtype -SubtypeId $SubtypeId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2025MachineAccountSubtype -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025MachineAccountSubtype"
             Write-Host $_.ErrorDetails
@@ -10502,7 +10746,7 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025MachineAccount"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/subtype/{subtypeId}
+- path: /sources/subtypes/{subtypeId}
   method: GET
   xCodeSample:
     - lang: PowerShell
@@ -10551,7 +10795,7 @@
       source: |
         $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)   Filtering is supported for the following fields and operators:   **displayName**: *eq, sw*   **technicalName**: *eq, sw*  (optional)
+        $Filters = "displayName eq "sail"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional)
         $Sorters = "displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -10598,29 +10842,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/machine-accounts#patch-machine-account-subtype
       source: |
-        $SubtypeId = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the machine account subtype.
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
         $TechnicalName = "foo" # String | The technical name of the subtype.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SourceSubtype = @"
-        {
-          "sourceId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
-          "displayName" : "Mr Foo",
-          "created" : "2025-07-28T16:13:42.8013Z",
-          "description" : "fighters",
-          "modified" : "2025-07-28T16:13:42.75085Z",
-          "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
-          "technicalName" : "foo"
-        }
-        "@
+        $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        $RequestBody = @"[{op=replace, path=/displayName, value=Test New DisplayName}]"@ 
+        
         
         # Patch subtype
         
         try {
-            $Result = ConvertFrom-V2025JsonToSourceSubtype -Json $SourceSubtype
-            Update-V2025MachineAccountSubtype -SubtypeId $SubtypeId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -SourceSubtype $Result 
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
+            Update-V2025MachineAccountSubtype -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025MachineAccountSubtype -SubtypeId $SubtypeId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -SourceSubtype $Result   
+            # Update-V2025MachineAccountSubtype -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025MachineAccountSubtype"
             Write-Host $_.ErrorDetails
@@ -13090,7 +13326,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/parameter-storage#get-attestation-document
       source: |
-        $Key = "cHVibGljIGtleSBnb2VzIGhlcmU=" # String | Base64Url encoded public key
+        $Key = "BLdV-KA7nSRXx2XkksQX7bmOAShARsB3CCVWodKr4dOJj_puru76wy6drBTVlSytW_rDheLwepm9xdrRuqUI7p81wMP576frFBbsjndBKyRm3eouPbDcW8MAz0XRH1BB3w==" # String | Base64Url encoded NIST P-384 public key
         
         # Get an attestation document.
         
@@ -17916,6 +18152,28 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2025UncorrelatedAccounts"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/{sourceId}/password-policies
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/sources#list-password-policy-holders-on-source
+      source: |
+        $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Get Password Policy for source
+        
+        try {
+            Get-V2025PasswordPolicyHoldersOnSource -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025PasswordPolicyHoldersOnSource -SourceId $SourceId -Offset $Offset -Limit $Limit -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025PasswordPolicyHoldersOnSource"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/{sourceId}/provisioning-policies
   method: GET
   xCodeSample:
@@ -19208,7 +19466,7 @@
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "completionStatus eq "Success"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in* (optional)
+        $Filters = "completionStatus eq "Success"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in, isnull*  **type**: *eq, in*  **Possible Values:** CLOUD_ACCOUNT_AGGREGATION, CLOUD_GROUP_AGGREGATION, CLOUD_PROCESS_UNCORRELATED_ACCOUNTS, CLOUD_REFRESH_ROLE, SOURCE_APPLICATION_DISCOVERY, AI_AGENT_AGGREGATION, APPLICATION_DISCOVERY, MACHINE_IDENTITY_AGGREGATION, MACHINE_IDENTITY_DELETION, ACCOUNT_DELETION (optional)
         $Sorters = "-created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional)
         
         # Retrieve task status list

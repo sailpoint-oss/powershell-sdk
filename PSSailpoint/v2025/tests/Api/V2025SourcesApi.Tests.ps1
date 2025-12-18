@@ -254,6 +254,14 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025SourcesApi' {
         }
     }
 
+    Context 'Get-V2025PasswordPolicyHoldersOnSource' {
+        It 'Test Get-V2025PasswordPolicyHoldersOnSource' {
+            #$TestResult = Get-V2025PasswordPolicyHoldersOnSource -SourceId "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2025ProvisioningPolicies' {
         It 'Test Get-V2025ProvisioningPolicies' {
             #$TestResult = Get-V2025ProvisioningPolicies -SourceId "TEST_VALUE"

@@ -29,7 +29,9 @@ Name | Type | Description | Notes
 **AccessRequestConfig** | [**Requestability**](requestability) |  | [optional] 
 **RevocationRequestConfig** | [**Revocability**](revocability) |  | [optional] 
 **Segments** | **[]String** | List of segment IDs, if any, that the access profile is assigned to. | [optional] 
+**AccessModelMetadata** | [**AttributeDTOList**](attribute-dto-list) |  | [optional] 
 **ProvisioningCriteria** | [**ProvisioningCriteriaLevel1**](provisioning-criteria-level1) |  | [optional] 
+**AdditionalOwners** | [**[]OwnerReference**](owner-reference) |  | [optional] 
 
 ## Examples
 
@@ -48,7 +50,9 @@ $AccessProfile = Initialize-AccessProfile  -Id 2c91808a7190d06e01719938fcd20792 
  -AccessRequestConfig null `
  -RevocationRequestConfig null `
  -Segments [f7b1b8a3-5fed-4fd4-ad29-82014e137e19, 29cb6c06-1da8-43ea-8be4-b3125f248f2a] `
- -ProvisioningCriteria null
+ -AccessModelMetadata null `
+ -ProvisioningCriteria null `
+ -AdditionalOwners null
 ```
 
 - Convert the resource to JSON

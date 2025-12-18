@@ -112,6 +112,7 @@ Class | Method | HTTP request | Description
 *V2025ApplicationDiscoveryApi* | [**Get-V2025DiscoveredApplications**](docs/V2025ApplicationDiscoveryApi.md#Get-V2025DiscoveredApplications) | **GET** /discovered-applications | Get discovered applications for tenant
 *V2025ApplicationDiscoveryApi* | [**Get-V2025ManualDiscoverApplicationsCsvTemplate**](docs/V2025ApplicationDiscoveryApi.md#Get-V2025ManualDiscoverApplicationsCsvTemplate) | **GET** /manual-discover-applications-template | Download csv template for discovery
 *V2025ApplicationDiscoveryApi* | [**Send-V2025ManualDiscoverApplicationsCsvTemplate**](docs/V2025ApplicationDiscoveryApi.md#Send-V2025ManualDiscoverApplicationsCsvTemplate) | **POST** /manual-discover-applications | Upload csv to discover applications
+*V2025ApplicationDiscoveryApi* | [**Start-V2025ApplicationDiscovery**](docs/V2025ApplicationDiscoveryApi.md#Start-V2025ApplicationDiscovery) | **POST** /sources/{sourceId}/discover-applications | Start Application Discovery
 *V2025ApprovalsApi* | [**Approve-V2025Approval**](docs/V2025ApprovalsApi.md#Approve-V2025Approval) | **POST** /generic-approvals/{id}/approve | Post Approvals Approve
 *V2025ApprovalsApi* | [**Approve-V2025ApprovalInBulk**](docs/V2025ApprovalsApi.md#Approve-V2025ApprovalInBulk) | **POST** /generic-approvals/bulk-approve | Post Bulk Approve Approvals
 *V2025ApprovalsApi* | [**Suspend-V2025Approval**](docs/V2025ApprovalsApi.md#Suspend-V2025Approval) | **POST** /generic-approvals/bulk-cancel | Post Bulk Cancel Approvals
@@ -270,13 +271,18 @@ Class | Method | HTTP request | Description
 *V2025CustomUserLevelsApi* | [**Show-V2025UserLevelCounts**](docs/V2025CustomUserLevelsApi.md#Show-V2025UserLevelCounts) | **POST** /authorization/user-levels/get-identity-count | Count user levels identities
 *V2025CustomUserLevelsApi* | [**Update-V2025UserLevel**](docs/V2025CustomUserLevelsApi.md#Update-V2025UserLevel) | **PATCH** /authorization/custom-user-levels/{id} | Update a user level
 *V2025DataAccessSecurityApi* | [**Suspend-V2025Task**](docs/V2025DataAccessSecurityApi.md#Suspend-V2025Task) | **POST** /das/tasks/cancel/{id} | Cancel a DAS task.
+*V2025DataAccessSecurityApi* | [**New-V2025Application**](docs/V2025DataAccessSecurityApi.md#New-V2025Application) | **POST** /das/applications | Create application
 *V2025DataAccessSecurityApi* | [**New-V2025Schedule**](docs/V2025DataAccessSecurityApi.md#New-V2025Schedule) | **POST** /das/tasks/schedules | Create a new schedule.
+*V2025DataAccessSecurityApi* | [**Remove-V2025Application**](docs/V2025DataAccessSecurityApi.md#Remove-V2025Application) | **DELETE** /das/applications/{id} | Delete an application by identifier.
 *V2025DataAccessSecurityApi* | [**Remove-V2025Schedule**](docs/V2025DataAccessSecurityApi.md#Remove-V2025Schedule) | **DELETE** /das/tasks/schedules/{id} | Delete a DAS schedule.
 *V2025DataAccessSecurityApi* | [**Remove-V2025Task**](docs/V2025DataAccessSecurityApi.md#Remove-V2025Task) | **DELETE** /das/tasks/{id} | Delete a DAS task.
+*V2025DataAccessSecurityApi* | [**Get-V2025Application**](docs/V2025DataAccessSecurityApi.md#Get-V2025Application) | **GET** /das/applications/{id} | Retrieve application details by identifier.
+*V2025DataAccessSecurityApi* | [**Get-V2025Applications**](docs/V2025DataAccessSecurityApi.md#Get-V2025Applications) | **GET** /das/applications | Search applications in DAS.
 *V2025DataAccessSecurityApi* | [**Get-V2025Schedule**](docs/V2025DataAccessSecurityApi.md#Get-V2025Schedule) | **GET** /das/tasks/schedules/{id} | Get a DAS schedule.
 *V2025DataAccessSecurityApi* | [**Get-V2025Schedules**](docs/V2025DataAccessSecurityApi.md#Get-V2025Schedules) | **GET** /das/tasks/schedules | List all schedules.
 *V2025DataAccessSecurityApi* | [**Get-V2025Task**](docs/V2025DataAccessSecurityApi.md#Get-V2025Task) | **GET** /das/tasks/{id} | Get a DAS task.
 *V2025DataAccessSecurityApi* | [**Get-V2025Tasks**](docs/V2025DataAccessSecurityApi.md#Get-V2025Tasks) | **GET** /das/tasks | Lists all DAS tasks.
+*V2025DataAccessSecurityApi* | [**Send-V2025Application**](docs/V2025DataAccessSecurityApi.md#Send-V2025Application) | **PUT** /das/applications/{id} | Update application by identifier.
 *V2025DataAccessSecurityApi* | [**Send-V2025Schedule**](docs/V2025DataAccessSecurityApi.md#Send-V2025Schedule) | **PUT** /das/tasks/schedules/{id} | Update a schedule.
 *V2025DataAccessSecurityApi* | [**Start-V2025TaskRerun**](docs/V2025DataAccessSecurityApi.md#Start-V2025TaskRerun) | **POST** /das/tasks/rerun/{id} | Rerun a DAS task.
 *V2025DataSegmentationApi* | [**New-V2025DataSegment**](docs/V2025DataSegmentationApi.md#New-V2025DataSegment) | **POST** /data-segments | Create segment
@@ -446,7 +452,7 @@ Class | Method | HTTP request | Description
 *V2025MachineAccountsApi* | [**New-V2025MachineAccountSubtype**](docs/V2025MachineAccountsApi.md#New-V2025MachineAccountSubtype) | **POST** /sources/{sourceId}/subtypes | Create subtype
 *V2025MachineAccountsApi* | [**Remove-V2025MachineAccountSubtype**](docs/V2025MachineAccountsApi.md#Remove-V2025MachineAccountSubtype) | **DELETE** /sources/{sourceId}/subtypes/{technicalName} | Delete subtype
 *V2025MachineAccountsApi* | [**Get-V2025MachineAccount**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccount) | **GET** /machine-accounts/{id} | Machine account details
-*V2025MachineAccountsApi* | [**Get-V2025MachineAccountSubtypeById**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccountSubtypeById) | **GET** /sources/subtype/{subtypeId} | Retrieve subtype by subtype id
+*V2025MachineAccountsApi* | [**Get-V2025MachineAccountSubtypeById**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccountSubtypeById) | **GET** /sources/subtypes/{subtypeId} | Retrieve subtype by subtype id
 *V2025MachineAccountsApi* | [**Get-V2025MachineAccountSubtypeByTechnicalName**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccountSubtypeByTechnicalName) | **GET** /sources/{sourceId}/subtypes/{technicalName} | Retrieve subtype by source and technicalName
 *V2025MachineAccountsApi* | [**Get-V2025MachineAccountSubtypes**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccountSubtypes) | **GET** /sources/{sourceId}/subtypes | Retrieve all subtypes by source
 *V2025MachineAccountsApi* | [**Get-V2025MachineAccounts**](docs/V2025MachineAccountsApi.md#Get-V2025MachineAccounts) | **GET** /machine-accounts | Machine accounts list
@@ -717,6 +723,7 @@ Class | Method | HTTP request | Description
 *V2025SourcesApi* | [**Import-V2025Entitlements**](docs/V2025SourcesApi.md#Import-V2025Entitlements) | **POST** /sources/{sourceId}/load-entitlements | Entitlement aggregation
 *V2025SourcesApi* | [**Import-V2025EntitlementsSchema**](docs/V2025SourcesApi.md#Import-V2025EntitlementsSchema) | **POST** /sources/{id}/schemas/entitlements | Uploads source entitlements schema template
 *V2025SourcesApi* | [**Import-V2025UncorrelatedAccounts**](docs/V2025SourcesApi.md#Import-V2025UncorrelatedAccounts) | **POST** /sources/{id}/load-uncorrelated-accounts | Process uncorrelated accounts
+*V2025SourcesApi* | [**Get-V2025PasswordPolicyHoldersOnSource**](docs/V2025SourcesApi.md#Get-V2025PasswordPolicyHoldersOnSource) | **GET** /sources/{sourceId}/password-policies | Get Password Policy for source
 *V2025SourcesApi* | [**Get-V2025ProvisioningPolicies**](docs/V2025SourcesApi.md#Get-V2025ProvisioningPolicies) | **GET** /sources/{sourceId}/provisioning-policies | Lists provisioningpolicies
 *V2025SourcesApi* | [**Get-V2025Sources**](docs/V2025SourcesApi.md#Get-V2025Sources) | **GET** /sources | Lists all sources in identitynow.
 *V2025SourcesApi* | [**Ping-V2025Cluster**](docs/V2025SourcesApi.md#Ping-V2025Cluster) | **POST** /sources/{sourceId}/connector/ping-cluster | Ping cluster for source connector
@@ -833,6 +840,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.AccessConstraint](docs/AccessConstraint.md)
  - [PSSailpoint.V2025\Model.AccessCriteria](docs/AccessCriteria.md)
  - [PSSailpoint.V2025\Model.AccessCriteriaCriteriaListInner](docs/AccessCriteriaCriteriaListInner.md)
+ - [PSSailpoint.V2025\Model.AccessDuration](docs/AccessDuration.md)
  - [PSSailpoint.V2025\Model.AccessItemAccessProfileResponse](docs/AccessItemAccessProfileResponse.md)
  - [PSSailpoint.V2025\Model.AccessItemAccessProfileResponseAppRefsInner](docs/AccessItemAccessProfileResponseAppRefsInner.md)
  - [PSSailpoint.V2025\Model.AccessItemAccountResponse](docs/AccessItemAccountResponse.md)
@@ -937,6 +945,10 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.AccountCorrelatedAccount](docs/AccountCorrelatedAccount.md)
  - [PSSailpoint.V2025\Model.AccountCorrelatedIdentity](docs/AccountCorrelatedIdentity.md)
  - [PSSailpoint.V2025\Model.AccountCorrelatedSource](docs/AccountCorrelatedSource.md)
+ - [PSSailpoint.V2025\Model.AccountCreated](docs/AccountCreated.md)
+ - [PSSailpoint.V2025\Model.AccountCreatedEvent](docs/AccountCreatedEvent.md)
+ - [PSSailpoint.V2025\Model.AccountDeleted](docs/AccountDeleted.md)
+ - [PSSailpoint.V2025\Model.AccountDeletedEvent](docs/AccountDeletedEvent.md)
  - [PSSailpoint.V2025\Model.AccountInfoDto](docs/AccountInfoDto.md)
  - [PSSailpoint.V2025\Model.AccountInfoRef](docs/AccountInfoRef.md)
  - [PSSailpoint.V2025\Model.AccountItemRef](docs/AccountItemRef.md)
@@ -944,6 +956,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.AccountRequestInfo](docs/AccountRequestInfo.md)
  - [PSSailpoint.V2025\Model.AccountRequestResult](docs/AccountRequestResult.md)
  - [PSSailpoint.V2025\Model.AccountSource](docs/AccountSource.md)
+ - [PSSailpoint.V2025\Model.AccountSourceReference](docs/AccountSourceReference.md)
+ - [PSSailpoint.V2025\Model.AccountSourceReferenceGovernanceGroup](docs/AccountSourceReferenceGovernanceGroup.md)
+ - [PSSailpoint.V2025\Model.AccountSourceReferenceOwner](docs/AccountSourceReferenceOwner.md)
  - [PSSailpoint.V2025\Model.AccountStatusChanged](docs/AccountStatusChanged.md)
  - [PSSailpoint.V2025\Model.AccountStatusChangedAccount](docs/AccountStatusChangedAccount.md)
  - [PSSailpoint.V2025\Model.AccountStatusChangedStatusChange](docs/AccountStatusChangedStatusChange.md)
@@ -953,7 +968,18 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.AccountUncorrelatedIdentity](docs/AccountUncorrelatedIdentity.md)
  - [PSSailpoint.V2025\Model.AccountUncorrelatedSource](docs/AccountUncorrelatedSource.md)
  - [PSSailpoint.V2025\Model.AccountUnlockRequest](docs/AccountUnlockRequest.md)
+ - [PSSailpoint.V2025\Model.AccountUpdated](docs/AccountUpdated.md)
+ - [PSSailpoint.V2025\Model.AccountUpdatedEntitlementChangesInner](docs/AccountUpdatedEntitlementChangesInner.md)
+ - [PSSailpoint.V2025\Model.AccountUpdatedEntitlementChangesInnerAddedInner](docs/AccountUpdatedEntitlementChangesInnerAddedInner.md)
+ - [PSSailpoint.V2025\Model.AccountUpdatedEntitlementChangesInnerAddedInnerOwner](docs/AccountUpdatedEntitlementChangesInnerAddedInnerOwner.md)
+ - [PSSailpoint.V2025\Model.AccountUpdatedEvent](docs/AccountUpdatedEvent.md)
+ - [PSSailpoint.V2025\Model.AccountUpdatedMultiValueAttributeChangesInner](docs/AccountUpdatedMultiValueAttributeChangesInner.md)
+ - [PSSailpoint.V2025\Model.AccountUpdatedMultiValueAttributeChangesInnerAddedValuesInner](docs/AccountUpdatedMultiValueAttributeChangesInnerAddedValuesInner.md)
+ - [PSSailpoint.V2025\Model.AccountUpdatedSingleValueAttributeChangesInner](docs/AccountUpdatedSingleValueAttributeChangesInner.md)
+ - [PSSailpoint.V2025\Model.AccountUpdatedSingleValueAttributeChangesInnerNewValue](docs/AccountUpdatedSingleValueAttributeChangesInnerNewValue.md)
+ - [PSSailpoint.V2025\Model.AccountUpdatedSingleValueAttributeChangesInnerOldValue](docs/AccountUpdatedSingleValueAttributeChangesInnerOldValue.md)
  - [PSSailpoint.V2025\Model.AccountUsage](docs/AccountUsage.md)
+ - [PSSailpoint.V2025\Model.AccountV2](docs/AccountV2.md)
  - [PSSailpoint.V2025\Model.AccountsAsyncResult](docs/AccountsAsyncResult.md)
  - [PSSailpoint.V2025\Model.AccountsCollectedForAggregation](docs/AccountsCollectedForAggregation.md)
  - [PSSailpoint.V2025\Model.AccountsCollectedForAggregationSource](docs/AccountsCollectedForAggregationSource.md)
@@ -962,6 +988,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.AccountsSelectionRequest](docs/AccountsSelectionRequest.md)
  - [PSSailpoint.V2025\Model.AccountsSelectionResponse](docs/AccountsSelectionResponse.md)
  - [PSSailpoint.V2025\Model.ActivateCampaignOptions](docs/ActivateCampaignOptions.md)
+ - [PSSailpoint.V2025\Model.ActivityConfigurationSettings](docs/ActivityConfigurationSettings.md)
  - [PSSailpoint.V2025\Model.ActivityIdentity](docs/ActivityIdentity.md)
  - [PSSailpoint.V2025\Model.ActivityInsights](docs/ActivityInsights.md)
  - [PSSailpoint.V2025\Model.AdminReviewReassign](docs/AdminReviewReassign.md)
@@ -973,6 +1000,12 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.AppAccountDetails](docs/AppAccountDetails.md)
  - [PSSailpoint.V2025\Model.AppAccountDetailsSourceAccount](docs/AppAccountDetailsSourceAccount.md)
  - [PSSailpoint.V2025\Model.AppAllOfAccount](docs/AppAllOfAccount.md)
+ - [PSSailpoint.V2025\Model.ApplicationCrawlerSettings](docs/ApplicationCrawlerSettings.md)
+ - [PSSailpoint.V2025\Model.ApplicationDiscoveryRequest](docs/ApplicationDiscoveryRequest.md)
+ - [PSSailpoint.V2025\Model.ApplicationDiscoveryResponse](docs/ApplicationDiscoveryResponse.md)
+ - [PSSailpoint.V2025\Model.ApplicationDiscoveryResponseTarget](docs/ApplicationDiscoveryResponseTarget.md)
+ - [PSSailpoint.V2025\Model.ApplicationItem](docs/ApplicationItem.md)
+ - [PSSailpoint.V2025\Model.ApplicationType](docs/ApplicationType.md)
  - [PSSailpoint.V2025\Model.Approval](docs/Approval.md)
  - [PSSailpoint.V2025\Model.Approval1](docs/Approval1.md)
  - [PSSailpoint.V2025\Model.ApprovalApprovalCriteria](docs/ApprovalApprovalCriteria.md)
@@ -1054,10 +1087,12 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.BaseAccessProfile](docs/BaseAccessProfile.md)
  - [PSSailpoint.V2025\Model.BaseAccount](docs/BaseAccount.md)
  - [PSSailpoint.V2025\Model.BaseCommonDto](docs/BaseCommonDto.md)
+ - [PSSailpoint.V2025\Model.BaseCreateApplicationRequest](docs/BaseCreateApplicationRequest.md)
  - [PSSailpoint.V2025\Model.BaseDocument](docs/BaseDocument.md)
  - [PSSailpoint.V2025\Model.BaseEntitlement](docs/BaseEntitlement.md)
  - [PSSailpoint.V2025\Model.BaseReferenceDto](docs/BaseReferenceDto.md)
  - [PSSailpoint.V2025\Model.BaseSegment](docs/BaseSegment.md)
+ - [PSSailpoint.V2025\Model.BaseSettings](docs/BaseSettings.md)
  - [PSSailpoint.V2025\Model.BasicAuthConfig](docs/BasicAuthConfig.md)
  - [PSSailpoint.V2025\Model.BearerTokenAuthConfig](docs/BearerTokenAuthConfig.md)
  - [PSSailpoint.V2025\Model.BeforeProvisioningRuleDto](docs/BeforeProvisioningRuleDto.md)
@@ -1182,12 +1217,14 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.CorrelatedGovernanceEvent](docs/CorrelatedGovernanceEvent.md)
  - [PSSailpoint.V2025\Model.CorrelationConfig](docs/CorrelationConfig.md)
  - [PSSailpoint.V2025\Model.CorrelationConfigAttributeAssignmentsInner](docs/CorrelationConfigAttributeAssignmentsInner.md)
+ - [PSSailpoint.V2025\Model.CrawlResourcesSizesOptions](docs/CrawlResourcesSizesOptions.md)
  - [PSSailpoint.V2025\Model.CreateDomainDkim405Response](docs/CreateDomainDkim405Response.md)
  - [PSSailpoint.V2025\Model.CreateExternalExecuteWorkflow200Response](docs/CreateExternalExecuteWorkflow200Response.md)
  - [PSSailpoint.V2025\Model.CreateExternalExecuteWorkflowRequest](docs/CreateExternalExecuteWorkflowRequest.md)
  - [PSSailpoint.V2025\Model.CreateFormDefinitionFileRequestRequest](docs/CreateFormDefinitionFileRequestRequest.md)
  - [PSSailpoint.V2025\Model.CreateFormDefinitionRequest](docs/CreateFormDefinitionRequest.md)
  - [PSSailpoint.V2025\Model.CreateFormInstanceRequest](docs/CreateFormInstanceRequest.md)
+ - [PSSailpoint.V2025\Model.CreateMachineAccountSubtypeRequest](docs/CreateMachineAccountSubtypeRequest.md)
  - [PSSailpoint.V2025\Model.CreateOAuthClientRequest](docs/CreateOAuthClientRequest.md)
  - [PSSailpoint.V2025\Model.CreateOAuthClientResponse](docs/CreateOAuthClientResponse.md)
  - [PSSailpoint.V2025\Model.CreatePersonalAccessTokenRequest](docs/CreatePersonalAccessTokenRequest.md)
@@ -1203,6 +1240,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.DataAccessCategoriesInner](docs/DataAccessCategoriesInner.md)
  - [PSSailpoint.V2025\Model.DataAccessImpactScore](docs/DataAccessImpactScore.md)
  - [PSSailpoint.V2025\Model.DataAccessPoliciesInner](docs/DataAccessPoliciesInner.md)
+ - [PSSailpoint.V2025\Model.DataClassificationSettings](docs/DataClassificationSettings.md)
  - [PSSailpoint.V2025\Model.DataSegment](docs/DataSegment.md)
  - [PSSailpoint.V2025\Model.DateCompare](docs/DateCompare.md)
  - [PSSailpoint.V2025\Model.DateCompareFirstDate](docs/DateCompareFirstDate.md)
@@ -1393,6 +1431,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.IdentityProfileIdentityErrorReportArguments](docs/IdentityProfileIdentityErrorReportArguments.md)
  - [PSSailpoint.V2025\Model.IdentityProfilesConnections](docs/IdentityProfilesConnections.md)
  - [PSSailpoint.V2025\Model.IdentityReference](docs/IdentityReference.md)
+ - [PSSailpoint.V2025\Model.IdentityReference1](docs/IdentityReference1.md)
  - [PSSailpoint.V2025\Model.IdentityReferenceWithNameAndEmail](docs/IdentityReferenceWithNameAndEmail.md)
  - [PSSailpoint.V2025\Model.IdentitySnapshotSummaryResponse](docs/IdentitySnapshotSummaryResponse.md)
  - [PSSailpoint.V2025\Model.IdentitySummary](docs/IdentitySummary.md)
@@ -1414,6 +1453,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.Index](docs/Index.md)
  - [PSSailpoint.V2025\Model.IndexOf](docs/IndexOf.md)
  - [PSSailpoint.V2025\Model.InnerHit](docs/InnerHit.md)
+ - [PSSailpoint.V2025\Model.Int64StringKeyValuePair](docs/Int64StringKeyValuePair.md)
  - [PSSailpoint.V2025\Model.InviteIdentitiesRequest](docs/InviteIdentitiesRequest.md)
  - [PSSailpoint.V2025\Model.Invocation](docs/Invocation.md)
  - [PSSailpoint.V2025\Model.InvocationStatus](docs/InvocationStatus.md)
@@ -1474,14 +1514,28 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.MachineIdentityAggregationRequest](docs/MachineIdentityAggregationRequest.md)
  - [PSSailpoint.V2025\Model.MachineIdentityAggregationResponse](docs/MachineIdentityAggregationResponse.md)
  - [PSSailpoint.V2025\Model.MachineIdentityAggregationResponseTarget](docs/MachineIdentityAggregationResponseTarget.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityCreated](docs/MachineIdentityCreated.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityCreatedMachineIdentity](docs/MachineIdentityCreatedMachineIdentity.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityDeleted](docs/MachineIdentityDeleted.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityDeletedMachineIdentity](docs/MachineIdentityDeletedMachineIdentity.md)
  - [PSSailpoint.V2025\Model.MachineIdentityDtoOwners](docs/MachineIdentityDtoOwners.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityOwnerReference](docs/MachineIdentityOwnerReference.md)
  - [PSSailpoint.V2025\Model.MachineIdentityRequest](docs/MachineIdentityRequest.md)
  - [PSSailpoint.V2025\Model.MachineIdentityRequestUserEntitlements](docs/MachineIdentityRequestUserEntitlements.md)
  - [PSSailpoint.V2025\Model.MachineIdentityResponse](docs/MachineIdentityResponse.md)
  - [PSSailpoint.V2025\Model.MachineIdentityResponseUserEntitlements](docs/MachineIdentityResponseUserEntitlements.md)
+ - [PSSailpoint.V2025\Model.MachineIdentitySourceReference](docs/MachineIdentitySourceReference.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityUpdated](docs/MachineIdentityUpdated.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityUpdatedMachineIdentity](docs/MachineIdentityUpdatedMachineIdentity.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityUpdatedOwnerChanges](docs/MachineIdentityUpdatedOwnerChanges.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityUpdatedSingleValueAttributeChangesInner](docs/MachineIdentityUpdatedSingleValueAttributeChangesInner.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityUpdatedSingleValueAttributeChangesInnerNewValue](docs/MachineIdentityUpdatedSingleValueAttributeChangesInnerNewValue.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityUpdatedSingleValueAttributeChangesInnerOldValue](docs/MachineIdentityUpdatedSingleValueAttributeChangesInnerOldValue.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityUpdatedUserEntitlementChanges](docs/MachineIdentityUpdatedUserEntitlementChanges.md)
  - [PSSailpoint.V2025\Model.MachineIdentityUserEntitlementResponse](docs/MachineIdentityUserEntitlementResponse.md)
  - [PSSailpoint.V2025\Model.MachineIdentityUserEntitlementResponseEntitlement](docs/MachineIdentityUserEntitlementResponseEntitlement.md)
  - [PSSailpoint.V2025\Model.MachineIdentityUserEntitlementResponseSource](docs/MachineIdentityUserEntitlementResponseSource.md)
+ - [PSSailpoint.V2025\Model.MachineIdentityUserEntitlements](docs/MachineIdentityUserEntitlements.md)
  - [PSSailpoint.V2025\Model.MailFromAttributes](docs/MailFromAttributes.md)
  - [PSSailpoint.V2025\Model.MailFromAttributesDto](docs/MailFromAttributesDto.md)
  - [PSSailpoint.V2025\Model.ManagedClient](docs/ManagedClient.md)
@@ -1618,6 +1672,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.PendingApproval](docs/PendingApproval.md)
  - [PSSailpoint.V2025\Model.PendingApprovalAction](docs/PendingApprovalAction.md)
  - [PSSailpoint.V2025\Model.PendingApprovalOwner](docs/PendingApprovalOwner.md)
+ - [PSSailpoint.V2025\Model.PermissionCollectorSettings](docs/PermissionCollectorSettings.md)
  - [PSSailpoint.V2025\Model.PermissionDto](docs/PermissionDto.md)
  - [PSSailpoint.V2025\Model.PreApprovalTriggerDetails](docs/PreApprovalTriggerDetails.md)
  - [PSSailpoint.V2025\Model.PreferencesDto](docs/PreferencesDto.md)
@@ -1968,6 +2023,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.Substring](docs/Substring.md)
  - [PSSailpoint.V2025\Model.SummaryResponse](docs/SummaryResponse.md)
  - [PSSailpoint.V2025\Model.Tag](docs/Tag.md)
+ - [PSSailpoint.V2025\Model.Tag1](docs/Tag1.md)
  - [PSSailpoint.V2025\Model.TagTagCategoryRefsInner](docs/TagTagCategoryRefsInner.md)
  - [PSSailpoint.V2025\Model.TaggedObject](docs/TaggedObject.md)
  - [PSSailpoint.V2025\Model.TaggedObjectDto](docs/TaggedObjectDto.md)

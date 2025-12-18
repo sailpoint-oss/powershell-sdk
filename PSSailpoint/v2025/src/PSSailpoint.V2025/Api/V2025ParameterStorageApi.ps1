@@ -184,10 +184,10 @@ Get an attestation document.
 
 .DESCRIPTION
 
-Get an attestation document, and perform x25519 handshake to enabled end-to-end encrypted transport of parameter private fields.
+Get an attestation document containing a NIST P-384 service public key for an ECDHE handshake, enabling the end-to-end-encrypted transport of parameter private fields.
 
 .PARAMETER Key
-Base64Url encoded public key
+Base64Url encoded NIST P-384 public key
 
 .PARAMETER WithHttpInfo
 

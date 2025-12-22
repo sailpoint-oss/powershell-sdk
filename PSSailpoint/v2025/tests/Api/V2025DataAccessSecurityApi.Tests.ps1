@@ -30,6 +30,46 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025DataAccessSecurityApi' {
         }
     }
 
+    Context 'Invoke-V2025DasOwnersAssignPost' {
+        It 'Test Invoke-V2025DasOwnersAssignPost' {
+            #$TestResult = Invoke-V2025DasOwnersAssignPost -AssignResourceOwnerRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-V2025DasOwnersOwnerIdentityIdResourcesGet' {
+        It 'Test Invoke-V2025DasOwnersOwnerIdentityIdResourcesGet' {
+            #$TestResult = Invoke-V2025DasOwnersOwnerIdentityIdResourcesGet -OwnerIdentityId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-V2025DasOwnersReelectPost' {
+        It 'Test Invoke-V2025DasOwnersReelectPost' {
+            #$TestResult = Invoke-V2025DasOwnersReelectPost -ReelectRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-V2025DasOwnersResourcesResourceIdGet' {
+        It 'Test Invoke-V2025DasOwnersResourcesResourceIdGet' {
+            #$TestResult = Invoke-V2025DasOwnersResourcesResourceIdGet -ResourceId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-V2025DasOwnersSourceIdentityIdReassignDestinationIdentityIdPost' {
+        It 'Test Invoke-V2025DasOwnersSourceIdentityIdReassignDestinationIdentityIdPost' {
+            #$TestResult = Invoke-V2025DasOwnersSourceIdentityIdReassignDestinationIdentityIdPost -SourceIdentityId "TEST_VALUE" -DestinationIdentityId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-V2025Application' {
         It 'Test Remove-V2025Application' {
             #$TestResult = Remove-V2025Application -Id "TEST_VALUE"
@@ -65,6 +105,14 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025DataAccessSecurityApi' {
     Context 'Get-V2025Applications' {
         It 'Test Get-V2025Applications' {
             #$TestResult = Get-V2025Applications -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2025Owners' {
+        It 'Test Get-V2025Owners' {
+            #$TestResult = Get-V2025Owners -AppId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

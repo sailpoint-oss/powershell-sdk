@@ -220,6 +220,7 @@ docs/ApprovalStatusDtoOriginalOwner.md
 docs/ApprovalSummary.md
 docs/Argument.md
 docs/ArrayInner.md
+docs/AssignResourceOwnerRequest.md
 docs/AssignmentContextDto.md
 docs/AttrSyncSource.md
 docs/AttrSyncSourceAttributeConfig.md
@@ -281,6 +282,7 @@ docs/BulkReassignRequestDTO.md
 docs/BulkRejectRequestDTO.md
 docs/BulkRemoveTaggedObject.md
 docs/BulkTaggedObjectResponse.md
+docs/BusinessServiceType.md
 docs/Campaign.md
 docs/CampaignActivated.md
 docs/CampaignActivatedCampaign.md
@@ -411,6 +413,7 @@ docs/DataAccessCategoriesInner.md
 docs/DataAccessImpactScore.md
 docs/DataAccessPoliciesInner.md
 docs/DataClassificationSettings.md
+docs/DataOwnerModel.md
 docs/DataSegment.md
 docs/DateCompare.md
 docs/DateCompareFirstDate.md
@@ -897,6 +900,7 @@ docs/RecommendationResponse.md
 docs/RecommendationResponseDto.md
 docs/RecommenderCalculations.md
 docs/RecommenderCalculationsIdentityAttributesValue.md
+docs/ReelectRequest.md
 docs/Ref.md
 docs/Reference.md
 docs/Reference1.md
@@ -930,6 +934,7 @@ docs/RequestedItemStatusRequestState.md
 docs/RequestedItemStatusRequestedFor.md
 docs/RequestedItemStatusRequesterComment.md
 docs/RequestedItemStatusSodViolationContext.md
+docs/ResourceModel.md
 docs/ResourceObject.md
 docs/ResourceObjectsRequest.md
 docs/ResourceObjectsResponse.md
@@ -1821,6 +1826,7 @@ src/PSSailpoint.V2025/Model/ApprovalStatusDtoOriginalOwner.ps1
 src/PSSailpoint.V2025/Model/ApprovalSummary.ps1
 src/PSSailpoint.V2025/Model/Argument.ps1
 src/PSSailpoint.V2025/Model/ArrayInner.ps1
+src/PSSailpoint.V2025/Model/AssignResourceOwnerRequest.ps1
 src/PSSailpoint.V2025/Model/AssignmentContextDto.ps1
 src/PSSailpoint.V2025/Model/AttrSyncSource.ps1
 src/PSSailpoint.V2025/Model/AttrSyncSourceAttributeConfig.ps1
@@ -1882,6 +1888,7 @@ src/PSSailpoint.V2025/Model/BulkReassignRequestDTO.ps1
 src/PSSailpoint.V2025/Model/BulkRejectRequestDTO.ps1
 src/PSSailpoint.V2025/Model/BulkRemoveTaggedObject.ps1
 src/PSSailpoint.V2025/Model/BulkTaggedObjectResponse.ps1
+src/PSSailpoint.V2025/Model/BusinessServiceType.ps1
 src/PSSailpoint.V2025/Model/Campaign.ps1
 src/PSSailpoint.V2025/Model/CampaignActivated.ps1
 src/PSSailpoint.V2025/Model/CampaignActivatedCampaign.ps1
@@ -2012,6 +2019,7 @@ src/PSSailpoint.V2025/Model/DataAccessCategoriesInner.ps1
 src/PSSailpoint.V2025/Model/DataAccessImpactScore.ps1
 src/PSSailpoint.V2025/Model/DataAccessPoliciesInner.ps1
 src/PSSailpoint.V2025/Model/DataClassificationSettings.ps1
+src/PSSailpoint.V2025/Model/DataOwnerModel.ps1
 src/PSSailpoint.V2025/Model/DataSegment.ps1
 src/PSSailpoint.V2025/Model/DateCompare.ps1
 src/PSSailpoint.V2025/Model/DateCompareFirstDate.ps1
@@ -2497,6 +2505,7 @@ src/PSSailpoint.V2025/Model/RecommendationResponse.ps1
 src/PSSailpoint.V2025/Model/RecommendationResponseDto.ps1
 src/PSSailpoint.V2025/Model/RecommenderCalculations.ps1
 src/PSSailpoint.V2025/Model/RecommenderCalculationsIdentityAttributesValue.ps1
+src/PSSailpoint.V2025/Model/ReelectRequest.ps1
 src/PSSailpoint.V2025/Model/Ref.ps1
 src/PSSailpoint.V2025/Model/Reference.ps1
 src/PSSailpoint.V2025/Model/Reference1.ps1
@@ -2530,6 +2539,7 @@ src/PSSailpoint.V2025/Model/RequestedItemStatusRequestState.ps1
 src/PSSailpoint.V2025/Model/RequestedItemStatusRequestedFor.ps1
 src/PSSailpoint.V2025/Model/RequestedItemStatusRequesterComment.ps1
 src/PSSailpoint.V2025/Model/RequestedItemStatusSodViolationContext.ps1
+src/PSSailpoint.V2025/Model/ResourceModel.ps1
 src/PSSailpoint.V2025/Model/ResourceObject.ps1
 src/PSSailpoint.V2025/Model/ResourceObjectsRequest.ps1
 src/PSSailpoint.V2025/Model/ResourceObjectsResponse.ps1
@@ -3231,6 +3241,7 @@ tests/Model/ApprovalStatusDtoOriginalOwner.Tests.ps1
 tests/Model/ApprovalSummary.Tests.ps1
 tests/Model/Argument.Tests.ps1
 tests/Model/ArrayInner.Tests.ps1
+tests/Model/AssignResourceOwnerRequest.Tests.ps1
 tests/Model/AssignmentContextDto.Tests.ps1
 tests/Model/AttrSyncSource.Tests.ps1
 tests/Model/AttrSyncSourceAttributeConfig.Tests.ps1
@@ -3292,6 +3303,7 @@ tests/Model/BulkReassignRequestDTO.Tests.ps1
 tests/Model/BulkRejectRequestDTO.Tests.ps1
 tests/Model/BulkRemoveTaggedObject.Tests.ps1
 tests/Model/BulkTaggedObjectResponse.Tests.ps1
+tests/Model/BusinessServiceType.Tests.ps1
 tests/Model/Campaign.Tests.ps1
 tests/Model/CampaignActivated.Tests.ps1
 tests/Model/CampaignActivatedCampaign.Tests.ps1
@@ -3422,6 +3434,7 @@ tests/Model/DataAccessCategoriesInner.Tests.ps1
 tests/Model/DataAccessImpactScore.Tests.ps1
 tests/Model/DataAccessPoliciesInner.Tests.ps1
 tests/Model/DataClassificationSettings.Tests.ps1
+tests/Model/DataOwnerModel.Tests.ps1
 tests/Model/DataSegment.Tests.ps1
 tests/Model/DateCompare.Tests.ps1
 tests/Model/DateCompareFirstDate.Tests.ps1
@@ -3907,6 +3920,7 @@ tests/Model/RecommendationResponse.Tests.ps1
 tests/Model/RecommendationResponseDto.Tests.ps1
 tests/Model/RecommenderCalculations.Tests.ps1
 tests/Model/RecommenderCalculationsIdentityAttributesValue.Tests.ps1
+tests/Model/ReelectRequest.Tests.ps1
 tests/Model/Ref.Tests.ps1
 tests/Model/Reference.Tests.ps1
 tests/Model/Reference1.Tests.ps1
@@ -3940,6 +3954,7 @@ tests/Model/RequestedItemStatusRequestState.Tests.ps1
 tests/Model/RequestedItemStatusRequestedFor.Tests.ps1
 tests/Model/RequestedItemStatusRequesterComment.Tests.ps1
 tests/Model/RequestedItemStatusSodViolationContext.Tests.ps1
+tests/Model/ResourceModel.Tests.ps1
 tests/Model/ResourceObject.Tests.ps1
 tests/Model/ResourceObjectsRequest.Tests.ps1
 tests/Model/ResourceObjectsResponse.Tests.ps1

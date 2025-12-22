@@ -273,11 +273,17 @@ Class | Method | HTTP request | Description
 *V2025DataAccessSecurityApi* | [**Suspend-V2025Task**](docs/V2025DataAccessSecurityApi.md#Suspend-V2025Task) | **POST** /das/tasks/cancel/{id} | Cancel a DAS task.
 *V2025DataAccessSecurityApi* | [**New-V2025Application**](docs/V2025DataAccessSecurityApi.md#New-V2025Application) | **POST** /das/applications | Create application
 *V2025DataAccessSecurityApi* | [**New-V2025Schedule**](docs/V2025DataAccessSecurityApi.md#New-V2025Schedule) | **POST** /das/tasks/schedules | Create a new schedule.
+*V2025DataAccessSecurityApi* | [**Invoke-V2025DasOwnersAssignPost**](docs/V2025DataAccessSecurityApi.md#Invoke-V2025DasOwnersAssignPost) | **POST** /das/owners/assign | Assign owner to application resource.
+*V2025DataAccessSecurityApi* | [**Invoke-V2025DasOwnersOwnerIdentityIdResourcesGet**](docs/V2025DataAccessSecurityApi.md#Invoke-V2025DasOwnersOwnerIdentityIdResourcesGet) | **GET** /das/owners/{ownerIdentityId}/resources | List resources for owner.
+*V2025DataAccessSecurityApi* | [**Invoke-V2025DasOwnersReelectPost**](docs/V2025DataAccessSecurityApi.md#Invoke-V2025DasOwnersReelectPost) | **POST** /das/owners/reelect | Re-elect resource owner.
+*V2025DataAccessSecurityApi* | [**Invoke-V2025DasOwnersResourcesResourceIdGet**](docs/V2025DataAccessSecurityApi.md#Invoke-V2025DasOwnersResourcesResourceIdGet) | **GET** /das/owners/resources/{resourceId} | List owners for resource.
+*V2025DataAccessSecurityApi* | [**Invoke-V2025DasOwnersSourceIdentityIdReassignDestinationIdentityIdPost**](docs/V2025DataAccessSecurityApi.md#Invoke-V2025DasOwnersSourceIdentityIdReassignDestinationIdentityIdPost) | **POST** /das/owners/{sourceIdentityId}/reassign/{destinationIdentityId} | Reassign resource owner.
 *V2025DataAccessSecurityApi* | [**Remove-V2025Application**](docs/V2025DataAccessSecurityApi.md#Remove-V2025Application) | **DELETE** /das/applications/{id} | Delete an application by identifier.
 *V2025DataAccessSecurityApi* | [**Remove-V2025Schedule**](docs/V2025DataAccessSecurityApi.md#Remove-V2025Schedule) | **DELETE** /das/tasks/schedules/{id} | Delete a DAS schedule.
 *V2025DataAccessSecurityApi* | [**Remove-V2025Task**](docs/V2025DataAccessSecurityApi.md#Remove-V2025Task) | **DELETE** /das/tasks/{id} | Delete a DAS task.
 *V2025DataAccessSecurityApi* | [**Get-V2025Application**](docs/V2025DataAccessSecurityApi.md#Get-V2025Application) | **GET** /das/applications/{id} | Retrieve application details by identifier.
 *V2025DataAccessSecurityApi* | [**Get-V2025Applications**](docs/V2025DataAccessSecurityApi.md#Get-V2025Applications) | **GET** /das/applications | Search applications in DAS.
+*V2025DataAccessSecurityApi* | [**Get-V2025Owners**](docs/V2025DataAccessSecurityApi.md#Get-V2025Owners) | **GET** /das/owners/applications/{appId} | Retrieve owners per application.
 *V2025DataAccessSecurityApi* | [**Get-V2025Schedule**](docs/V2025DataAccessSecurityApi.md#Get-V2025Schedule) | **GET** /das/tasks/schedules/{id} | Get a DAS schedule.
 *V2025DataAccessSecurityApi* | [**Get-V2025Schedules**](docs/V2025DataAccessSecurityApi.md#Get-V2025Schedules) | **GET** /das/tasks/schedules | List all schedules.
 *V2025DataAccessSecurityApi* | [**Get-V2025Task**](docs/V2025DataAccessSecurityApi.md#Get-V2025Task) | **GET** /das/tasks/{id} | Get a DAS task.
@@ -1050,6 +1056,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.ApprovalSummary](docs/ApprovalSummary.md)
  - [PSSailpoint.V2025\Model.Argument](docs/Argument.md)
  - [PSSailpoint.V2025\Model.ArrayInner](docs/ArrayInner.md)
+ - [PSSailpoint.V2025\Model.AssignResourceOwnerRequest](docs/AssignResourceOwnerRequest.md)
  - [PSSailpoint.V2025\Model.AssignmentContextDto](docs/AssignmentContextDto.md)
  - [PSSailpoint.V2025\Model.AttrSyncSource](docs/AttrSyncSource.md)
  - [PSSailpoint.V2025\Model.AttrSyncSourceAttributeConfig](docs/AttrSyncSourceAttributeConfig.md)
@@ -1111,6 +1118,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.BulkRejectRequestDTO](docs/BulkRejectRequestDTO.md)
  - [PSSailpoint.V2025\Model.BulkRemoveTaggedObject](docs/BulkRemoveTaggedObject.md)
  - [PSSailpoint.V2025\Model.BulkTaggedObjectResponse](docs/BulkTaggedObjectResponse.md)
+ - [PSSailpoint.V2025\Model.BusinessServiceType](docs/BusinessServiceType.md)
  - [PSSailpoint.V2025\Model.Campaign](docs/Campaign.md)
  - [PSSailpoint.V2025\Model.CampaignActivated](docs/CampaignActivated.md)
  - [PSSailpoint.V2025\Model.CampaignActivatedCampaign](docs/CampaignActivatedCampaign.md)
@@ -1241,6 +1249,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.DataAccessImpactScore](docs/DataAccessImpactScore.md)
  - [PSSailpoint.V2025\Model.DataAccessPoliciesInner](docs/DataAccessPoliciesInner.md)
  - [PSSailpoint.V2025\Model.DataClassificationSettings](docs/DataClassificationSettings.md)
+ - [PSSailpoint.V2025\Model.DataOwnerModel](docs/DataOwnerModel.md)
  - [PSSailpoint.V2025\Model.DataSegment](docs/DataSegment.md)
  - [PSSailpoint.V2025\Model.DateCompare](docs/DateCompare.md)
  - [PSSailpoint.V2025\Model.DateCompareFirstDate](docs/DateCompareFirstDate.md)
@@ -1726,6 +1735,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.RecommendationResponseDto](docs/RecommendationResponseDto.md)
  - [PSSailpoint.V2025\Model.RecommenderCalculations](docs/RecommenderCalculations.md)
  - [PSSailpoint.V2025\Model.RecommenderCalculationsIdentityAttributesValue](docs/RecommenderCalculationsIdentityAttributesValue.md)
+ - [PSSailpoint.V2025\Model.ReelectRequest](docs/ReelectRequest.md)
  - [PSSailpoint.V2025\Model.Ref](docs/Ref.md)
  - [PSSailpoint.V2025\Model.Reference](docs/Reference.md)
  - [PSSailpoint.V2025\Model.Reference1](docs/Reference1.md)
@@ -1759,6 +1769,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.RequestedItemStatusRequestedFor](docs/RequestedItemStatusRequestedFor.md)
  - [PSSailpoint.V2025\Model.RequestedItemStatusRequesterComment](docs/RequestedItemStatusRequesterComment.md)
  - [PSSailpoint.V2025\Model.RequestedItemStatusSodViolationContext](docs/RequestedItemStatusSodViolationContext.md)
+ - [PSSailpoint.V2025\Model.ResourceModel](docs/ResourceModel.md)
  - [PSSailpoint.V2025\Model.ResourceObject](docs/ResourceObject.md)
  - [PSSailpoint.V2025\Model.ResourceObjectsRequest](docs/ResourceObjectsRequest.md)
  - [PSSailpoint.V2025\Model.ResourceObjectsResponse](docs/ResourceObjectsResponse.md)

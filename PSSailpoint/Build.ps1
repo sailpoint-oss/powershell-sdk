@@ -63,13 +63,13 @@ $Manifest = @{
     PowerShellVersion = '6.2'
 
     FunctionsToExport = $FunctionPath | Get-ChildItem -Filter *.ps1 | Get-FunctionsToExport
-
-    RequiredModules = @(
-        @{ModuleName = 'PSSailpoint.Beta'; RequiredVersion = '1.7.0'; }, 
-        @{ModuleName = 'PSSailpoint.V3'; RequiredVersion = '1.7.0'; },
-        @{ModuleName = 'PSSailpoint.V2024'; RequiredVersion = '1.7.0'; },
-        @{ModuleName = 'PSSailpoint.V2025'; RequiredVersion = '1.7.0'; },
-        @{ModuleName = 'PSSailpoint.V2026'; RequiredVersion = '1.7.0'; }
+    
+    NestedModules = @(
+        '.\beta\src\PSSailpoint.Beta\PSSailpoint.Beta.psd1',
+        '.\v3\src\PSSailpoint.V3\PSSailpoint.V3.psd1',
+        '.\v2024\src\PSSailpoint.V2024\PSSailpoint.V2024.psd1',
+        '.\v2025\src\PSSailpoint.V2025\PSSailpoint.V2025.psd1',
+        '.\v2026\src\PSSailpoint.V2026\PSSailpoint.V2026.psd1'
     )
 
     VariablesToExport = @()

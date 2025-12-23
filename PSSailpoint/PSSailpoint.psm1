@@ -27,4 +27,42 @@ $Script:CmdletBindingParameters = @('Verbose', 'Debug', 'ErrorAction', 'WarningA
 . $PSScriptRoot\Configuration.ps1
 . $PSScriptRoot\Pagination.ps1
 
+# Import nested version modules
+$NestedModules = @(
+    "$PSScriptRoot\beta\src\PSSailpoint.Beta\PSSailpoint.Beta.psd1",
+    "$PSScriptRoot\v3\src\PSSailpoint.V3\PSSailpoint.V3.psd1",
+    "$PSScriptRoot\v2024\src\PSSailpoint.V2024\PSSailpoint.V2024.psd1",
+    "$PSScriptRoot\v2025\src\PSSailpoint.V2025\PSSailpoint.V2025.psd1",
+    "$PSScriptRoot\v2026\src\PSSailpoint.V2026\PSSailpoint.V2026.psd1"
+)
+
+foreach ($ModulePath in $NestedModules) {
+    if (Test-Path $ModulePath) {
+        try {
+            Import-Module $ModulePath -Force -Global -ErrorAction Stop
+            Write-Verbose "Successfully imported: $ModulePath"
+        }
+        catch {
+            Write-Warning "Failed to import $ModulePath : $_"
+        }
+    }
+    else {
+        Write-Verbose "Module not found: $ModulePath"
+    }
+}
+
+# Import any additional function files from root
+$FunctionFiles = Get-ChildItem -Path $PSScriptRoot\*.ps1 -ErrorAction SilentlyContinue |
+    Where-Object { $_.DirectoryName -eq $PSScriptRoot }
+
+foreach ($File in $FunctionFiles) {
+    try {
+        . $File.FullName
+        Write-Verbose "Dot-sourced: $($File.Name)"
+    }
+    catch {
+        Write-Error "Failed to import $($File.Name): $_"
+    }
+}
+
 #endregion

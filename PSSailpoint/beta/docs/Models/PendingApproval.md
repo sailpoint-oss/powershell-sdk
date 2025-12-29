@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **RemoveDate** | **System.DateTime** | The date the role or access profile or entitlement is no longer assigned to the specified identity. | [optional] 
 **RemoveDateUpdateRequested** | **Boolean** | If true, then the request is to change the remove date or sunset date. | [optional] [default to $false]
 **CurrentRemoveDate** | **System.DateTime** | The remove date or sunset date that was assigned at the time of the request. | [optional] 
-**SodViolationContext** | [**SodViolationContextCheckCompleted1**](sod-violation-context-check-completed1) |  | [optional] 
+**SodViolationContext** | [**SodViolationContextCheckCompleted2**](sod-violation-context-check-completed2) |  | [optional] 
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request item | [optional] 
 **RequestedAccounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 **PrivilegeLevel** | **String** | The privilege level of the requested access item, if applicable. | [optional] 

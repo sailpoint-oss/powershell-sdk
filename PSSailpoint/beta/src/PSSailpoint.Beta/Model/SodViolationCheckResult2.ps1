@@ -21,13 +21,13 @@ Arbitrary key-value pairs. They will never be processed by the IdentityNow syste
 .PARAMETER ViolationContexts
 No description available.
 .PARAMETER ViolatedPolicies
-A list of the SOD policies that were violated.
+A list of the Policies that were violated.
 .OUTPUTS
 
-SodViolationCheckResult1<PSCustomObject>
+SodViolationCheckResult2<PSCustomObject>
 #>
 
-function Initialize-BetaSodViolationCheckResult1 {
+function Initialize-BetaSodViolationCheckResult2 {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -45,7 +45,7 @@ function Initialize-BetaSodViolationCheckResult1 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Beta => BetaSodViolationCheckResult1' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Beta => BetaSodViolationCheckResult2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -63,11 +63,11 @@ function Initialize-BetaSodViolationCheckResult1 {
 <#
 .SYNOPSIS
 
-Convert from JSON to SodViolationCheckResult1<PSCustomObject>
+Convert from JSON to SodViolationCheckResult2<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SodViolationCheckResult1<PSCustomObject>
+Convert from JSON to SodViolationCheckResult2<PSCustomObject>
 
 .PARAMETER Json
 
@@ -75,21 +75,21 @@ Json object
 
 .OUTPUTS
 
-SodViolationCheckResult1<PSCustomObject>
+SodViolationCheckResult2<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSodViolationCheckResult1 {
+function ConvertFrom-BetaJsonToSodViolationCheckResult2 {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaSodViolationCheckResult1' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaSodViolationCheckResult2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSodViolationCheckResult1
+        # check if Json contains properties not defined in BetaSodViolationCheckResult2
         $AllProperties = ("message", "clientMetadata", "violationContexts", "violatedPolicies")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

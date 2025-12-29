@@ -77,6 +77,7 @@ Class | Method | HTTP request | Description
 *BetaAccessRequestsApi* | [**New-BetaAccessRequest**](docs/BetaAccessRequestsApi.md#New-BetaAccessRequest) | **POST** /access-requests | Submit access request
 *BetaAccessRequestsApi* | [**Get-BetaAccessRequestConfig**](docs/BetaAccessRequestsApi.md#Get-BetaAccessRequestConfig) | **GET** /access-request-config | Get access request configuration
 *BetaAccessRequestsApi* | [**Get-BetaAccessRequestStatus**](docs/BetaAccessRequestsApi.md#Get-BetaAccessRequestStatus) | **GET** /access-request-status | Access request status
+*BetaAccessRequestsApi* | [**Get-BetaAdministratorsAccessRequestStatus**](docs/BetaAccessRequestsApi.md#Get-BetaAdministratorsAccessRequestStatus) | **GET** /access-request-administration | Access request status for administrators
 *BetaAccessRequestsApi* | [**Set-BetaAccessRequestConfig**](docs/BetaAccessRequestsApi.md#Set-BetaAccessRequestConfig) | **PUT** /access-request-config | Update access request configuration
 *BetaAccountActivitiesApi* | [**Get-BetaAccountActivity**](docs/BetaAccountActivitiesApi.md#Get-BetaAccountActivity) | **GET** /account-activities/{id} | Get account activity
 *BetaAccountActivitiesApi* | [**Get-BetaAccountActivities**](docs/BetaAccountActivitiesApi.md#Get-BetaAccountActivities) | **GET** /account-activities | List account activities
@@ -648,6 +649,9 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.AccessProfileUsageUsedByInner](docs/AccessProfileUsageUsedByInner.md)
  - [PSSailpoint.Beta\Model.AccessRecommendationMessage](docs/AccessRecommendationMessage.md)
  - [PSSailpoint.Beta\Model.AccessRequest](docs/AccessRequest.md)
+ - [PSSailpoint.Beta\Model.AccessRequestAdminItemStatus](docs/AccessRequestAdminItemStatus.md)
+ - [PSSailpoint.Beta\Model.AccessRequestAdminItemStatusCancelledRequestDetails](docs/AccessRequestAdminItemStatusCancelledRequestDetails.md)
+ - [PSSailpoint.Beta\Model.AccessRequestAdminItemStatusSodViolationContext](docs/AccessRequestAdminItemStatusSodViolationContext.md)
  - [PSSailpoint.Beta\Model.AccessRequestConfig](docs/AccessRequestConfig.md)
  - [PSSailpoint.Beta\Model.AccessRequestContext](docs/AccessRequestContext.md)
  - [PSSailpoint.Beta\Model.AccessRequestDynamicApprover](docs/AccessRequestDynamicApprover.md)
@@ -722,6 +726,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.AppAccountDetails](docs/AppAccountDetails.md)
  - [PSSailpoint.Beta\Model.AppAccountDetailsSourceAccount](docs/AppAccountDetailsSourceAccount.md)
  - [PSSailpoint.Beta\Model.ApprovalForwardHistory](docs/ApprovalForwardHistory.md)
+ - [PSSailpoint.Beta\Model.ApprovalForwardHistory1](docs/ApprovalForwardHistory1.md)
  - [PSSailpoint.Beta\Model.ApprovalInfoResponse](docs/ApprovalInfoResponse.md)
  - [PSSailpoint.Beta\Model.ApprovalItemDetails](docs/ApprovalItemDetails.md)
  - [PSSailpoint.Beta\Model.ApprovalItems](docs/ApprovalItems.md)
@@ -730,6 +735,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.ApprovalSchemeForRole](docs/ApprovalSchemeForRole.md)
  - [PSSailpoint.Beta\Model.ApprovalStatus](docs/ApprovalStatus.md)
  - [PSSailpoint.Beta\Model.ApprovalStatusDto](docs/ApprovalStatusDto.md)
+ - [PSSailpoint.Beta\Model.ApprovalStatusDto1](docs/ApprovalStatusDto1.md)
  - [PSSailpoint.Beta\Model.ApprovalStatusDtoCurrentOwner](docs/ApprovalStatusDtoCurrentOwner.md)
  - [PSSailpoint.Beta\Model.ApprovalStatusDtoOriginalOwner](docs/ApprovalStatusDtoOriginalOwner.md)
  - [PSSailpoint.Beta\Model.ApprovalSummary](docs/ApprovalSummary.md)
@@ -782,6 +788,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.CancelAccessRequest](docs/CancelAccessRequest.md)
  - [PSSailpoint.Beta\Model.CancelableAccountActivity](docs/CancelableAccountActivity.md)
  - [PSSailpoint.Beta\Model.CancelledRequestDetails](docs/CancelledRequestDetails.md)
+ - [PSSailpoint.Beta\Model.CancelledRequestDetails1](docs/CancelledRequestDetails1.md)
  - [PSSailpoint.Beta\Model.CertificationDto](docs/CertificationDto.md)
  - [PSSailpoint.Beta\Model.CertificationPhase](docs/CertificationPhase.md)
  - [PSSailpoint.Beta\Model.CertificationReference](docs/CertificationReference.md)
@@ -888,6 +895,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.EntityCreatedByDTO](docs/EntityCreatedByDTO.md)
  - [PSSailpoint.Beta\Model.ErrorMessage](docs/ErrorMessage.md)
  - [PSSailpoint.Beta\Model.ErrorMessageDto](docs/ErrorMessageDto.md)
+ - [PSSailpoint.Beta\Model.ErrorMessageDto1](docs/ErrorMessageDto1.md)
  - [PSSailpoint.Beta\Model.ErrorResponseDto](docs/ErrorResponseDto.md)
  - [PSSailpoint.Beta\Model.EvaluateResponse](docs/EvaluateResponse.md)
  - [PSSailpoint.Beta\Model.EventAttributes](docs/EventAttributes.md)
@@ -1088,6 +1096,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.ManualDiscoverApplications](docs/ManualDiscoverApplications.md)
  - [PSSailpoint.Beta\Model.ManualDiscoverApplicationsTemplate](docs/ManualDiscoverApplicationsTemplate.md)
  - [PSSailpoint.Beta\Model.ManualWorkItemDetails](docs/ManualWorkItemDetails.md)
+ - [PSSailpoint.Beta\Model.ManualWorkItemDetails1](docs/ManualWorkItemDetails1.md)
  - [PSSailpoint.Beta\Model.ManualWorkItemDetailsCurrentOwner](docs/ManualWorkItemDetailsCurrentOwner.md)
  - [PSSailpoint.Beta\Model.ManualWorkItemDetailsOriginalOwner](docs/ManualWorkItemDetailsOriginalOwner.md)
  - [PSSailpoint.Beta\Model.ManualWorkItemState](docs/ManualWorkItemState.md)
@@ -1370,6 +1379,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.Slimcampaign](docs/Slimcampaign.md)
  - [PSSailpoint.Beta\Model.SodExemptCriteria](docs/SodExemptCriteria.md)
  - [PSSailpoint.Beta\Model.SodExemptCriteria1](docs/SodExemptCriteria1.md)
+ - [PSSailpoint.Beta\Model.SodExemptCriteria2](docs/SodExemptCriteria2.md)
  - [PSSailpoint.Beta\Model.SodPolicy](docs/SodPolicy.md)
  - [PSSailpoint.Beta\Model.SodPolicyConflictingAccessCriteria](docs/SodPolicyConflictingAccessCriteria.md)
  - [PSSailpoint.Beta\Model.SodPolicyDto](docs/SodPolicyDto.md)
@@ -1380,12 +1390,17 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.SodReportResultDto](docs/SodReportResultDto.md)
  - [PSSailpoint.Beta\Model.SodViolationCheckResult](docs/SodViolationCheckResult.md)
  - [PSSailpoint.Beta\Model.SodViolationCheckResult1](docs/SodViolationCheckResult1.md)
+ - [PSSailpoint.Beta\Model.SodViolationCheckResult2](docs/SodViolationCheckResult2.md)
  - [PSSailpoint.Beta\Model.SodViolationContext](docs/SodViolationContext.md)
  - [PSSailpoint.Beta\Model.SodViolationContext1](docs/SodViolationContext1.md)
  - [PSSailpoint.Beta\Model.SodViolationContext1ConflictingAccessCriteria](docs/SodViolationContext1ConflictingAccessCriteria.md)
  - [PSSailpoint.Beta\Model.SodViolationContext1ConflictingAccessCriteriaLeftCriteria](docs/SodViolationContext1ConflictingAccessCriteriaLeftCriteria.md)
+ - [PSSailpoint.Beta\Model.SodViolationContext2](docs/SodViolationContext2.md)
+ - [PSSailpoint.Beta\Model.SodViolationContext2ConflictingAccessCriteria](docs/SodViolationContext2ConflictingAccessCriteria.md)
+ - [PSSailpoint.Beta\Model.SodViolationContext2ConflictingAccessCriteriaLeftCriteria](docs/SodViolationContext2ConflictingAccessCriteriaLeftCriteria.md)
  - [PSSailpoint.Beta\Model.SodViolationContextCheckCompleted](docs/SodViolationContextCheckCompleted.md)
  - [PSSailpoint.Beta\Model.SodViolationContextCheckCompleted1](docs/SodViolationContextCheckCompleted1.md)
+ - [PSSailpoint.Beta\Model.SodViolationContextCheckCompleted2](docs/SodViolationContextCheckCompleted2.md)
  - [PSSailpoint.Beta\Model.SodViolationContextConflictingAccessCriteria](docs/SodViolationContextConflictingAccessCriteria.md)
  - [PSSailpoint.Beta\Model.SodViolationContextConflictingAccessCriteriaLeftCriteria](docs/SodViolationContextConflictingAccessCriteriaLeftCriteria.md)
  - [PSSailpoint.Beta\Model.Source](docs/Source.md)

@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-The contextual information of the violated criteria
+The contextual information of the violated criteria.
 
 .PARAMETER Policy
 No description available.
@@ -20,10 +20,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-SodViolationContext1<PSCustomObject>
+SodViolationContext2<PSCustomObject>
 #>
 
-function Initialize-BetaSodViolationContext1 {
+function Initialize-BetaSodViolationContext2 {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -35,7 +35,7 @@ function Initialize-BetaSodViolationContext1 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Beta => BetaSodViolationContext1' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Beta => BetaSodViolationContext2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -51,11 +51,11 @@ function Initialize-BetaSodViolationContext1 {
 <#
 .SYNOPSIS
 
-Convert from JSON to SodViolationContext1<PSCustomObject>
+Convert from JSON to SodViolationContext2<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SodViolationContext1<PSCustomObject>
+Convert from JSON to SodViolationContext2<PSCustomObject>
 
 .PARAMETER Json
 
@@ -63,21 +63,21 @@ Json object
 
 .OUTPUTS
 
-SodViolationContext1<PSCustomObject>
+SodViolationContext2<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSodViolationContext1 {
+function ConvertFrom-BetaJsonToSodViolationContext2 {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaSodViolationContext1' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaSodViolationContext2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSodViolationContext1
+        # check if Json contains properties not defined in BetaSodViolationContext2
         $AllProperties = ("policy", "conflictingAccessCriteria")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

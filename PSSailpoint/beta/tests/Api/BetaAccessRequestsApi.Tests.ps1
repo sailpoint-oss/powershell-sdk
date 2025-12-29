@@ -46,6 +46,14 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAccessRequestsApi' {
         }
     }
 
+    Context 'Get-BetaAdministratorsAccessRequestStatus' {
+        It 'Test Get-BetaAdministratorsAccessRequestStatus' {
+            #$TestResult = Get-BetaAdministratorsAccessRequestStatus -XSailPointExperimental "TEST_VALUE" -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -AssignedTo "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -RequestState "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Set-BetaAccessRequestConfig' {
         It 'Test Set-BetaAccessRequestConfig' {
             #$TestResult = Set-BetaAccessRequestConfig -AccessRequestConfig "TEST_VALUE"

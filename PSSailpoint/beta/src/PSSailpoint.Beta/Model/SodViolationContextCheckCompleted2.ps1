@@ -22,14 +22,14 @@ The id of the Violation check event
 No description available.
 .OUTPUTS
 
-SodViolationContextCheckCompleted1<PSCustomObject>
+SodViolationContextCheckCompleted2<PSCustomObject>
 #>
 
-function Initialize-BetaSodViolationContextCheckCompleted1 {
+function Initialize-BetaSodViolationContextCheckCompleted2 {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("SUCCESS", "ERROR", "")]
+        [ValidateSet("SUCCESS", "ERROR")]
         [String]
         ${State},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -41,7 +41,7 @@ function Initialize-BetaSodViolationContextCheckCompleted1 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Beta => BetaSodViolationContextCheckCompleted1' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Beta => BetaSodViolationContextCheckCompleted2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -58,11 +58,11 @@ function Initialize-BetaSodViolationContextCheckCompleted1 {
 <#
 .SYNOPSIS
 
-Convert from JSON to SodViolationContextCheckCompleted1<PSCustomObject>
+Convert from JSON to SodViolationContextCheckCompleted2<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SodViolationContextCheckCompleted1<PSCustomObject>
+Convert from JSON to SodViolationContextCheckCompleted2<PSCustomObject>
 
 .PARAMETER Json
 
@@ -70,21 +70,21 @@ Json object
 
 .OUTPUTS
 
-SodViolationContextCheckCompleted1<PSCustomObject>
+SodViolationContextCheckCompleted2<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToSodViolationContextCheckCompleted1 {
+function ConvertFrom-BetaJsonToSodViolationContextCheckCompleted2 {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaSodViolationContextCheckCompleted1' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaSodViolationContextCheckCompleted2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaSodViolationContextCheckCompleted1
+        # check if Json contains properties not defined in BetaSodViolationContextCheckCompleted2
         $AllProperties = ("state", "uuid", "violationCheckResult")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

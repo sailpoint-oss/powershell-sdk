@@ -1326,6 +1326,8 @@ docs/V2025DataAccessSecurityApi.md
 docs/V2025DataAccessSecurityApideveloperSite_code_examples.yaml
 docs/V2025DataSegmentationApi.md
 docs/V2025DataSegmentationApideveloperSite_code_examples.yaml
+docs/V2025DeclassifySourceApi.md
+docs/V2025DeclassifySourceApideveloperSite_code_examples.yaml
 docs/V2025DimensionsApi.md
 docs/V2025DimensionsApideveloperSite_code_examples.yaml
 docs/V2025EntitlementsApi.md
@@ -1540,6 +1542,7 @@ src/PSSailpoint.V2025/Api/V2025CustomPasswordInstructionsApi.ps1
 src/PSSailpoint.V2025/Api/V2025CustomUserLevelsApi.ps1
 src/PSSailpoint.V2025/Api/V2025DataAccessSecurityApi.ps1
 src/PSSailpoint.V2025/Api/V2025DataSegmentationApi.ps1
+src/PSSailpoint.V2025/Api/V2025DeclassifySourceApi.ps1
 src/PSSailpoint.V2025/Api/V2025DimensionsApi.ps1
 src/PSSailpoint.V2025/Api/V2025EntitlementsApi.ps1
 src/PSSailpoint.V2025/Api/V2025GlobalTenantSecuritySettingsApi.ps1
@@ -2956,6 +2959,7 @@ tests/Api/V2025CustomPasswordInstructionsApi.Tests.ps1
 tests/Api/V2025CustomUserLevelsApi.Tests.ps1
 tests/Api/V2025DataAccessSecurityApi.Tests.ps1
 tests/Api/V2025DataSegmentationApi.Tests.ps1
+tests/Api/V2025DeclassifySourceApi.Tests.ps1
 tests/Api/V2025DimensionsApi.Tests.ps1
 tests/Api/V2025EntitlementsApi.Tests.ps1
 tests/Api/V2025GlobalTenantSecuritySettingsApi.Tests.ps1

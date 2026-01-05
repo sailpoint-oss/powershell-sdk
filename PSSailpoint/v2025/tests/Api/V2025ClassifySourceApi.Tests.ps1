@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ClassifySourceApi' {
 
     Context 'Send-V2025ClassifyMachineAccountFromSource' {
         It 'Test Send-V2025ClassifyMachineAccountFromSource' {
-            #$TestResult = Send-V2025ClassifyMachineAccountFromSource -Id "TEST_VALUE"
+            #$TestResult = Send-V2025ClassifyMachineAccountFromSource -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

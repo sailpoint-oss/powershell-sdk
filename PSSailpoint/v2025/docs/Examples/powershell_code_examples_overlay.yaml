@@ -4149,15 +4149,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/classify-source#send-classify-machine-account-from-source
       source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         
         # Classify source's all accounts
         
         try {
-            Send-V2025ClassifyMachineAccountFromSource -Id $Id 
+            Send-V2025ClassifyMachineAccountFromSource -SourceId $SourceId 
     
             # Below is a request that includes all optional parameters
-            # Send-V2025ClassifyMachineAccountFromSource -Id $Id   
+            # Send-V2025ClassifyMachineAccountFromSource -SourceId $SourceId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ClassifyMachineAccountFromSource"
             Write-Host $_.ErrorDetails
@@ -6773,6 +6773,25 @@
             # Publish-V2025DataSegment -XSailPointExperimental $XSailPointExperimental -RequestBody $Result -PublishAll $PublishAll   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Publish-V2025DataSegment"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/declassify
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/declassify-source#send-declassify-machine-account-from-source
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        
+        # Declassify source's all accounts
+        
+        try {
+            Send-V2025DeclassifyMachineAccountFromSource -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2025DeclassifyMachineAccountFromSource -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025DeclassifyMachineAccountFromSource"
             Write-Host $_.ErrorDetails
         }
 - path: /roles/{roleId}/dimensions

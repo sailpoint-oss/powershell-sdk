@@ -124,7 +124,7 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | Source ID.
+Path   | SourceId | **String** | True  | Source ID.
 
 ### Return type
 [**SendClassifyMachineAccountFromSource200Response**](../models/send-classify-machine-account-from-source200-response)
@@ -145,15 +145,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+$SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
 
 # Classify source's all accounts
 
 try {
-    Send-V2025ClassifyMachineAccountFromSource -Id $Id 
+    Send-V2025ClassifyMachineAccountFromSource -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Send-V2025ClassifyMachineAccountFromSource -Id $Id  
+    # Send-V2025ClassifyMachineAccountFromSource -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ClassifyMachineAccountFromSource"
     Write-Host $_.ErrorDetails

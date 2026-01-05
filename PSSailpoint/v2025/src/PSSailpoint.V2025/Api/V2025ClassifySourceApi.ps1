@@ -162,7 +162,7 @@ Classify source's all accounts
 
 Use this API to classify all the accounts from a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-.PARAMETER Id
+.PARAMETER SourceId
 Source ID.
 
 .PARAMETER WithHttpInfo
@@ -178,7 +178,7 @@ function Send-V2025ClassifyMachineAccountFromSource {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${SourceId},
         [Switch]
         $WithHttpInfo
     )
@@ -200,10 +200,10 @@ function Send-V2025ClassifyMachineAccountFromSource {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/sources/{sourceId}/classify'
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling sendClassifyMachineAccountFromSource."
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling sendClassifyMachineAccountFromSource."
         }
-        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
 
 

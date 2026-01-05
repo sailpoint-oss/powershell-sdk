@@ -299,6 +299,7 @@ Class | Method | HTTP request | Description
 *V2025DataSegmentationApi* | [**Get-V2025DataSegments**](docs/V2025DataSegmentationApi.md#Get-V2025DataSegments) | **GET** /data-segments | Get segments
 *V2025DataSegmentationApi* | [**Update-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Update-V2025DataSegment) | **PATCH** /data-segments/{segmentId} | Update segment
 *V2025DataSegmentationApi* | [**Publish-V2025DataSegment**](docs/V2025DataSegmentationApi.md#Publish-V2025DataSegment) | **POST** /data-segments/{segmentId} | Publish segment by id
+*V2025DeclassifySourceApi* | [**Send-V2025DeclassifyMachineAccountFromSource**](docs/V2025DeclassifySourceApi.md#Send-V2025DeclassifyMachineAccountFromSource) | **POST** /sources/{sourceId}/declassify | Declassify source's all accounts
 *V2025DimensionsApi* | [**New-V2025Dimension**](docs/V2025DimensionsApi.md#New-V2025Dimension) | **POST** /roles/{roleId}/dimensions | Create a dimension
 *V2025DimensionsApi* | [**Remove-V2025BulkDimensions**](docs/V2025DimensionsApi.md#Remove-V2025BulkDimensions) | **POST** /roles/{roleId}/dimensions/bulk-delete | Delete dimension(s)
 *V2025DimensionsApi* | [**Remove-V2025Dimension**](docs/V2025DimensionsApi.md#Remove-V2025Dimension) | **DELETE** /roles/{roleId}/dimensions/{dimensionId} | Delete a dimension

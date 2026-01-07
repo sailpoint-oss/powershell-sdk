@@ -27,13 +27,13 @@ Time when the source app was last modified
 .PARAMETER Enabled
 True if the source app is enabled
 .PARAMETER ProvisionRequestEnabled
-True if the source app is provision request enabled
+True if the app allows access request
 .PARAMETER Description
 The description of the source app
 .PARAMETER MatchAllAccounts
 True if the source app match all accounts
 .PARAMETER AppCenterEnabled
-True if the source app is shown in the app center
+True if the app is visible in the request center
 .PARAMETER AccountSource
 No description available.
 .PARAMETER Owner

@@ -25,9 +25,9 @@ True if the owner has multiple accounts for the source
 .PARAMETER UseForPasswordManagement
 True if the source has password feature
 .PARAMETER ProvisionRequestEnabled
-True if the source app related to the user app is provision request enabled
+True if the app allows access request
 .PARAMETER AppCenterEnabled
-True if the source app related to the user app is shown in the app center
+True if the app is visible in the request center
 .PARAMETER SourceApp
 No description available.
 .PARAMETER Source

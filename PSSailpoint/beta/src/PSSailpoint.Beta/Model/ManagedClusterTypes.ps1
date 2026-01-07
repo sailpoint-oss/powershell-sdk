@@ -12,7 +12,7 @@ Enum ManagedClusterTypes.
 
 .DESCRIPTION
 
-The Type of Cluster
+The Type of Cluster: * `idn` - IDN VA type * `iai` - IAI harvester VA * `spConnectCluster` - Saas 2.0 connector cluster (this should be one per org) * `sqsCluster` - This should be unused * `das-rc` - Data Access Security Resources Collector * `das-pc` - Data Access Security Permissions Collector * `das-dc` - Data Access Security Data Classification Collector * `pag` - Privilege Action Gateway VA * `das-am` - Data Access Security Activity Monitor * `standard` - Standard Cluster type for running multiple products 
 #>
 
 enum ManagedClusterTypes {
@@ -20,5 +20,21 @@ enum ManagedClusterTypes {
     idn
     # enum value: "iai"
     iai
+    # enum value: "spConnectCluster"
+    spConnectCluster
+    # enum value: "sqsCluster"
+    sqsCluster
+    # enum value: "das-rc"
+    das_rc
+    # enum value: "das-pc"
+    das_pc
+    # enum value: "das-dc"
+    das_dc
+    # enum value: "pag"
+    pag
+    # enum value: "das-am"
+    das_am
+    # enum value: "standard"
+    standard
 }
 

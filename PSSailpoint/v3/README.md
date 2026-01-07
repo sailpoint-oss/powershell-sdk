@@ -727,6 +727,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.ManagedClusterRedis](docs/ManagedClusterRedis.md)
  - [PSSailpoint.V3\Model.ManagedClusterRequest](docs/ManagedClusterRequest.md)
  - [PSSailpoint.V3\Model.ManagedClusterTypes](docs/ManagedClusterTypes.md)
+ - [PSSailpoint.V3\Model.ManagedClusterUpdatePreferences](docs/ManagedClusterUpdatePreferences.md)
  - [PSSailpoint.V3\Model.ManagerCorrelationMapping](docs/ManagerCorrelationMapping.md)
  - [PSSailpoint.V3\Model.ManualDiscoverApplications](docs/ManualDiscoverApplications.md)
  - [PSSailpoint.V3\Model.ManualDiscoverApplicationsTemplate](docs/ManualDiscoverApplicationsTemplate.md)

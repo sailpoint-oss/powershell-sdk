@@ -99,7 +99,7 @@ function Initialize-V2024ManagedCluster {
         [String]
         ${Org},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("idn", "iai")]
+        [ValidateSet("idn", "iai", "spConnectCluster", "sqsCluster", "das-rc", "das-pc", "das-dc", "pag", "das-am", "standard")]
         [PSCustomObject]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

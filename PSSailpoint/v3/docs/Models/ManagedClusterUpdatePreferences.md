@@ -1,12 +1,12 @@
 ---
-id: v2024-managed-cluster-update-preferences
+id: managed-cluster-update-preferences
 title: ManagedClusterUpdatePreferences
 pagination_label: ManagedClusterUpdatePreferences
 sidebar_label: ManagedClusterUpdatePreferences
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusterUpdatePreferences', 'V2024ManagedClusterUpdatePreferences'] 
-slug: /tools/sdk/powershell/v2024/models/managed-cluster-update-preferences
-tags: ['SDK', 'Software Development Kit', 'ManagedClusterUpdatePreferences', 'V2024ManagedClusterUpdatePreferences']
+keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedClusterUpdatePreferences', 'ManagedClusterUpdatePreferences'] 
+slug: /tools/sdk/powershell/v3/models/managed-cluster-update-preferences
+tags: ['SDK', 'Software Development Kit', 'ManagedClusterUpdatePreferences', 'ManagedClusterUpdatePreferences']
 ---
 
 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClusterUpdatePreferences = Initialize-V2024ManagedClusterUpdatePreferences  -ProcessGroups processGroup1 `
+$ManagedClusterUpdatePreferences = Initialize-ManagedClusterUpdatePreferences  -ProcessGroups processGroup1 `
  -UpdateState DISABLED `
  -NotificationEmail test@mail.com
 ```

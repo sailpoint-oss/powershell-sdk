@@ -731,6 +731,7 @@ docs/ManagedClusterRedis.md
 docs/ManagedClusterRequest.md
 docs/ManagedClusterType.md
 docs/ManagedClusterTypes.md
+docs/ManagedClusterUpdatePreferences.md
 docs/ManagerCorrelationMapping.md
 docs/ManualDiscoverApplications.md
 docs/ManualDiscoverApplicationsTemplate.md
@@ -2337,6 +2338,7 @@ src/PSSailpoint.V2025/Model/ManagedClusterRedis.ps1
 src/PSSailpoint.V2025/Model/ManagedClusterRequest.ps1
 src/PSSailpoint.V2025/Model/ManagedClusterType.ps1
 src/PSSailpoint.V2025/Model/ManagedClusterTypes.ps1
+src/PSSailpoint.V2025/Model/ManagedClusterUpdatePreferences.ps1
 src/PSSailpoint.V2025/Model/ManagerCorrelationMapping.ps1
 src/PSSailpoint.V2025/Model/ManualDiscoverApplications.ps1
 src/PSSailpoint.V2025/Model/ManualDiscoverApplicationsTemplate.ps1
@@ -3753,6 +3755,7 @@ tests/Model/ManagedClusterRedis.Tests.ps1
 tests/Model/ManagedClusterRequest.Tests.ps1
 tests/Model/ManagedClusterType.Tests.ps1
 tests/Model/ManagedClusterTypes.Tests.ps1
+tests/Model/ManagedClusterUpdatePreferences.Tests.ps1
 tests/Model/ManagerCorrelationMapping.Tests.ps1
 tests/Model/ManualDiscoverApplications.Tests.ps1
 tests/Model/ManualDiscoverApplicationsTemplate.Tests.ps1

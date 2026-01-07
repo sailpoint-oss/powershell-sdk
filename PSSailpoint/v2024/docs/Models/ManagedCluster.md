@@ -82,7 +82,7 @@ $ManagedCluster = Initialize-V2024ManagedCluster  -Id e1ff7bb24c934240bbf55e1aa3
  -LastReleaseNotifiedAt 2025-03-11T07:00:13.729721Z `
  -UpdatePreferences null `
  -CurrentInstalledReleaseVersion 123.1 `
- -UpdatePackage null `
+ -UpdatePackage 123.1.2 `
  -IsOutOfDateNotifiedAt 2025-03-11T07:00:13.734393Z `
  -ConsolidatedHealthIndicatorsStatus ERROR
 ```

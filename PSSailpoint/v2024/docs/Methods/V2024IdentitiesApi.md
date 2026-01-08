@@ -156,7 +156,7 @@ Path   | IdentityId | **String** | True  | Identity ID.
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Identity&#39;s ownership association details. | IdentityOwnershipAssociationDetails
+200 | Identity&#39;s ownership association details. If the API is triggered for uncorrelated accounts, will respond with OK. | IdentityOwnershipAssociationDetails
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto

@@ -186,6 +186,7 @@ function New-V2025Source {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -695,6 +696,7 @@ function Remove-V2025Source {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1025,6 +1027,7 @@ function Get-V2025CorrelationConfig {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1192,6 +1195,7 @@ function Get-V2025NativeChangeDetectionConfig {
             throw "Error! The required parameter `Id` missing when calling getNativeChangeDetectionConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -1672,6 +1676,7 @@ function Get-V2025SourceEntitlementRequestConfig {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getSourceEntitlementRequestConfig."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -2187,6 +2192,7 @@ function Import-V2025Accounts {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2632,6 +2638,7 @@ function Import-V2025UncorrelatedAccounts {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -3020,6 +3027,7 @@ function Ping-V2025Cluster {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -3120,6 +3128,7 @@ function Send-V2025CorrelationConfig {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -3217,6 +3226,7 @@ function Send-V2025NativeChangeDetectionConfig {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -3428,6 +3438,7 @@ function Send-V2025Source {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -3752,6 +3763,7 @@ function Search-V2025ResourceObjects {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -3911,6 +3923,7 @@ function Test-V2025SourceConfiguration {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -3982,6 +3995,7 @@ function Test-V2025SourceConnection {
             throw "Error! The required parameter `SourceId` missing when calling testSourceConnection."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 
@@ -4398,6 +4412,7 @@ function Update-V2025Source {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -4496,6 +4511,7 @@ function Update-V2025SourceEntitlementRequestConfig {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

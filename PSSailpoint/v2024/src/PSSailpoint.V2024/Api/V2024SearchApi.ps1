@@ -117,6 +117,7 @@ function Search-V2024Aggregate {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -204,6 +205,7 @@ function Search-V2024Count {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

@@ -223,6 +223,7 @@ function Get-ManagedClient {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -305,6 +306,7 @@ function Get-ManagedClientStatus {
             throw "Error! The required parameter `Type` missing when calling getManagedClientStatus."
         }
         $LocalVarQueryParameters['type'] = $Type
+
 
 
 
@@ -409,6 +411,7 @@ function Get-ManagedClients {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 

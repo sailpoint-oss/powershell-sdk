@@ -545,6 +545,7 @@ function Get-V2025Role {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -666,6 +667,7 @@ function Get-V2025RoleAssignedIdentities {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
+
 
 
 
@@ -946,6 +948,7 @@ function Get-V2025Roles {
         if ($IncludeUnsegmented) {
             $LocalVarQueryParameters['include-unsegmented'] = $IncludeUnsegmented
         }
+
 
 
 

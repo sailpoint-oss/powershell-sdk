@@ -313,6 +313,7 @@ function Get-Role {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -434,6 +435,7 @@ function Get-RoleAssignedIdentities {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
+
 
 
 
@@ -578,6 +580,7 @@ function Get-Roles {
         if ($IncludeUnsegmented) {
             $LocalVarQueryParameters['include-unsegmented'] = $IncludeUnsegmented
         }
+
 
 
 

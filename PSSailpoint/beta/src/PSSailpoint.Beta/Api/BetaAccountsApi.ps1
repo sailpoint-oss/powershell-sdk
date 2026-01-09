@@ -150,6 +150,7 @@ function Remove-BetaAccount {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -221,6 +222,7 @@ function Remove-BetaAccountAsync {
             throw "Error! The required parameter `Id` missing when calling deleteAccountAsync."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -324,6 +326,7 @@ function Disable-BetaAccount {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -395,6 +398,7 @@ function Disable-BetaAccountForIdentity {
             throw "Error! The required parameter `Id` missing when calling disableAccountForIdentity."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -485,6 +489,7 @@ function Disable-BetaAccountsForIdentities {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -588,6 +593,7 @@ function Enable-BetaAccount {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -659,6 +665,7 @@ function Enable-BetaAccountForIdentity {
             throw "Error! The required parameter `Id` missing when calling enableAccountForIdentity."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -749,6 +756,7 @@ function Enable-BetaAccountsForIdentities {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -1158,6 +1166,7 @@ function Send-BetaAccount {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1229,6 +1238,7 @@ function Submit-BetaReloadAccount {
             throw "Error! The required parameter `Id` missing when calling submitReloadAccount."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -1430,6 +1440,7 @@ function Update-BetaAccount {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

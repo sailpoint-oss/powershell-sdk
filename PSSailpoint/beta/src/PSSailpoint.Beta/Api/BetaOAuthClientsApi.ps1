@@ -223,6 +223,7 @@ function Get-BetaOauthClient {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `

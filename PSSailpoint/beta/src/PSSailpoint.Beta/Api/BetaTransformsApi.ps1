@@ -75,6 +75,7 @@ function New-BetaTransform {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -149,6 +150,7 @@ function Remove-BetaTransform {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -220,6 +222,7 @@ function Get-BetaTransform {
             throw "Error! The required parameter `Id` missing when calling getTransform."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -337,6 +340,7 @@ function Get-BetaTransforms {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -430,6 +434,7 @@ function Update-BetaTransform {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

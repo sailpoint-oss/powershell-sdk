@@ -81,6 +81,7 @@ function Remove-V2025Icon {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -188,6 +189,7 @@ function Set-V2025Icon {
             throw "Error! The required parameter `Image` missing when calling setIcon."
         }
         $LocalVarFormParameters['image'] = $Image | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
+
 
 
 

@@ -172,6 +172,7 @@ function Remove-V2024MachineIdentity {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -490,6 +491,7 @@ function Update-V2024MachineIdentity {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

@@ -75,6 +75,7 @@ function New-AuthOrgNetworkConfig {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -139,6 +140,7 @@ function Get-AuthOrgLockoutConfig {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -200,6 +202,7 @@ function Get-AuthOrgNetworkConfig {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/auth-org/network-config'
+
 
 
 
@@ -332,6 +335,7 @@ function Get-AuthOrgSessionConfig {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -422,6 +426,7 @@ function Update-AuthOrgLockoutConfig {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -509,6 +514,7 @@ function Update-AuthOrgNetworkConfig {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -690,6 +696,7 @@ function Update-AuthOrgSessionConfig {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

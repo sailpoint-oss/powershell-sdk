@@ -75,6 +75,7 @@ function New-V2025AuthOrgNetworkConfig {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -139,6 +140,7 @@ function Get-V2025AuthOrgLockoutConfig {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -200,6 +202,7 @@ function Get-V2025AuthOrgNetworkConfig {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/auth-org/network-config'
+
 
 
 
@@ -332,6 +335,7 @@ function Get-V2025AuthOrgSessionConfig {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -422,6 +426,7 @@ function Update-V2025AuthOrgLockoutConfig {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -509,6 +514,7 @@ function Update-V2025AuthOrgNetworkConfig {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -690,6 +696,7 @@ function Update-V2025AuthOrgSessionConfig {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

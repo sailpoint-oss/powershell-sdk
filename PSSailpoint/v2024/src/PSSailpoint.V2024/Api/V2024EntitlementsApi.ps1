@@ -247,6 +247,7 @@ function Get-V2024Entitlement {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -318,6 +319,7 @@ function Get-V2024EntitlementRequestConfig {
             throw "Error! The required parameter `Id` missing when calling getEntitlementRequestConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -657,6 +659,7 @@ function Get-V2024EntitlementParents {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -808,6 +811,7 @@ function Get-V2024Entitlements {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 

@@ -283,6 +283,7 @@ function Remove-V2025Subscription {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -534,6 +535,7 @@ function Get-V2025TriggerInvocationStatus {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -659,6 +661,7 @@ function Get-V2025Triggers {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -770,6 +773,7 @@ function Update-V2025Subscription {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -871,6 +875,7 @@ function Start-V2025TestTriggerInvocation {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -969,6 +974,7 @@ function Test-V2025SubscriptionFilter {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

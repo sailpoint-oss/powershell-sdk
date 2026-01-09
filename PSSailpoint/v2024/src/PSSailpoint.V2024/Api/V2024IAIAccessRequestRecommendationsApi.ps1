@@ -290,6 +290,7 @@ function Add-V2024AccessRequestRecommendationsViewedItem {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -388,6 +389,7 @@ function Add-V2024AccessRequestRecommendationsViewedItems {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

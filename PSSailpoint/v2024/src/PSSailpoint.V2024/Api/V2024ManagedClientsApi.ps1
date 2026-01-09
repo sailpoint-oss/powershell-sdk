@@ -223,6 +223,7 @@ function Get-V2024ManagedClient {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -305,6 +306,7 @@ function Get-V2024ManagedClientStatus {
             throw "Error! The required parameter `Type` missing when calling getManagedClientStatus."
         }
         $LocalVarQueryParameters['type'] = $Type
+
 
 
 

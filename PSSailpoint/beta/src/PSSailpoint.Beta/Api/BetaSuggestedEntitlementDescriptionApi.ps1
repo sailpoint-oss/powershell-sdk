@@ -59,6 +59,7 @@ function Get-BetaSedBatchStats {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -170,6 +171,7 @@ function Get-BetaSedBatches {
         if ($Status) {
             $LocalVarQueryParameters['status'] = $Status
         }
+
 
 
 
@@ -307,6 +309,7 @@ function Get-BetaSeds {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -407,6 +410,7 @@ function Update-BetaSed {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -494,6 +498,7 @@ function Submit-BetaSedApproval {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -587,6 +592,7 @@ function Submit-BetaSedAssignment {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -670,6 +676,7 @@ function Submit-BetaSedBatchRequest {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

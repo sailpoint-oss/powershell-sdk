@@ -86,6 +86,7 @@ function New-V2025SourceApp {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -204,6 +205,7 @@ function Remove-V2025AccessProfilesFromSourceAppByBulk {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -494,6 +496,7 @@ function Get-V2025AccessProfilesForSourceApp {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -732,6 +735,7 @@ function Get-V2025AllUserApps {
             throw "Error! The required parameter `Filters` missing when calling listAllUserApps."
         }
         $LocalVarQueryParameters['filters'] = $Filters
+
 
 
 
@@ -1518,6 +1522,7 @@ function Update-V2025SourceAppsInBulk {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

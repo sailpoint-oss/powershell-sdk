@@ -250,6 +250,7 @@ function Remove-BetaSubscription {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -479,6 +480,7 @@ function Get-BetaTriggerInvocationStatus {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -593,6 +595,7 @@ function Get-BetaTriggers {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -693,6 +696,7 @@ function Update-BetaSubscription {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -783,6 +787,7 @@ function Start-BetaTestTriggerInvocation {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -870,6 +875,7 @@ function Test-BetaSubscriptionFilter {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

@@ -75,6 +75,7 @@ function New-BetaSourceApp {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -182,6 +183,7 @@ function Remove-BetaAccessProfilesFromSourceAppByBulk {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -439,6 +441,7 @@ function Get-BetaAccessProfilesForSourceApp {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -655,6 +658,7 @@ function Get-BetaAllUserApps {
             throw "Error! The required parameter `Filters` missing when calling listAllUserApps."
         }
         $LocalVarQueryParameters['filters'] = $Filters
+
 
 
 
@@ -1374,6 +1378,7 @@ function Update-BetaSourceAppsInBulk {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

@@ -70,6 +70,7 @@ function Remove-BetaIcon {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -166,6 +167,7 @@ function Set-BetaIcon {
             throw "Error! The required parameter `Image` missing when calling setIcon."
         }
         $LocalVarFormParameters['image'] = $Image | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
+
 
 
 

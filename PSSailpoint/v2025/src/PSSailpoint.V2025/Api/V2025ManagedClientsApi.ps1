@@ -223,6 +223,7 @@ function Get-V2025ManagedClient {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -294,6 +295,7 @@ function Get-V2025ManagedClientHealthIndicators {
             throw "Error! The required parameter `Id` missing when calling getManagedClientHealthIndicators."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -379,6 +381,7 @@ function Get-V2025ManagedClientStatus {
             throw "Error! The required parameter `Type` missing when calling getManagedClientStatus."
         }
         $LocalVarQueryParameters['type'] = $Type
+
 
 
 
@@ -483,6 +486,7 @@ function Get-V2025ManagedClients {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 

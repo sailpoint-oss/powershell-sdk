@@ -247,6 +247,7 @@ function Get-BetaEntitlement {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -318,6 +319,7 @@ function Get-BetaEntitlementRequestConfig {
             throw "Error! The required parameter `Id` missing when calling getEntitlementRequestConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -657,6 +659,7 @@ function Get-BetaEntitlementParents {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -808,6 +811,7 @@ function Get-BetaEntitlements {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 

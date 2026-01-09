@@ -86,6 +86,7 @@ function New-V2024SourceApp {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -204,6 +205,7 @@ function Remove-V2024AccessProfilesFromSourceAppByBulk {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -494,6 +496,7 @@ function Get-V2024AccessProfilesForSourceApp {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -732,6 +735,7 @@ function Get-V2024AllUserApps {
             throw "Error! The required parameter `Filters` missing when calling listAllUserApps."
         }
         $LocalVarQueryParameters['filters'] = $Filters
+
 
 
 
@@ -1518,6 +1522,7 @@ function Update-V2024SourceAppsInBulk {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

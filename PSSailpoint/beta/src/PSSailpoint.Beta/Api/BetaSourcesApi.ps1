@@ -186,6 +186,7 @@ function New-BetaSource {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -357,6 +358,7 @@ function Remove-Beta {
             throw "Error! The required parameter `Id` missing when calling delete."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -823,6 +825,7 @@ function Get-BetaNativeChangeDetectionConfig {
             throw "Error! The required parameter `SourceId` missing when calling getNativeChangeDetectionConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 
@@ -2432,6 +2435,7 @@ function Receive-BetaResourceObjects {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2503,6 +2507,7 @@ function Ping-BetaCluster {
             throw "Error! The required parameter `SourceId` missing when calling pingCluster."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 
@@ -2703,6 +2708,7 @@ function Send-BetaNativeChangeDetectionConfig {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -2914,6 +2920,7 @@ function Send-BetaSource {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -3275,6 +3282,7 @@ function Test-BetaSourceConfiguration {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -3346,6 +3354,7 @@ function Test-BetaSourceConnection {
             throw "Error! The required parameter `SourceId` missing when calling testSourceConnection."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 
@@ -3658,6 +3667,7 @@ function Update-BetaSource {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

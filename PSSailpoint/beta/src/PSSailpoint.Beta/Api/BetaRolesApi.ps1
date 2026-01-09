@@ -313,6 +313,7 @@ function Get-BetaRole {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -434,6 +435,7 @@ function Get-BetaRoleAssignedIdentities {
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
+
 
 
 
@@ -703,6 +705,7 @@ function Get-BetaRoles {
         if ($IncludeUnsegmented) {
             $LocalVarQueryParameters['include-unsegmented'] = $IncludeUnsegmented
         }
+
 
 
 

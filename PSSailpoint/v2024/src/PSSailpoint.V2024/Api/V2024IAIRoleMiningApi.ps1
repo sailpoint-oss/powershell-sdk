@@ -2614,8 +2614,6 @@ function Update-V2024PotentialRole {
             }
         }
 
-
-
         $LocalVarResult = Invoke-V2024ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `

@@ -257,6 +257,7 @@ function Add-BetaAccessRequestRecommendationsViewedItem {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -344,6 +345,7 @@ function Add-BetaAccessRequestRecommendationsViewedItems {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

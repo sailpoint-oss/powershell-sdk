@@ -75,6 +75,7 @@ function New-V2024Transform {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -149,6 +150,7 @@ function Remove-V2024Transform {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -220,6 +222,7 @@ function Get-V2024Transform {
             throw "Error! The required parameter `Id` missing when calling getTransform."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -337,6 +340,7 @@ function Get-V2024Transforms {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -430,6 +434,7 @@ function Update-V2024Transform {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

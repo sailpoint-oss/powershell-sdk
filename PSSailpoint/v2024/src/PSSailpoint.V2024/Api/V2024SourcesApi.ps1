@@ -186,6 +186,7 @@ function New-V2024Source {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -695,6 +696,7 @@ function Remove-V2024Source {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1025,6 +1027,7 @@ function Get-V2024CorrelationConfig {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -1192,6 +1195,7 @@ function Get-V2024NativeChangeDetectionConfig {
             throw "Error! The required parameter `Id` missing when calling getNativeChangeDetectionConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -1672,6 +1676,7 @@ function Get-V2024SourceEntitlementRequestConfig {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getSourceEntitlementRequestConfig."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
 
 
 
@@ -2187,6 +2192,7 @@ function Import-V2024Accounts {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2632,6 +2638,7 @@ function Import-V2024UncorrelatedAccounts {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2916,6 +2923,7 @@ function Ping-V2024Cluster {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -3016,6 +3024,7 @@ function Send-V2024CorrelationConfig {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -3113,6 +3122,7 @@ function Send-V2024NativeChangeDetectionConfig {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -3324,6 +3334,7 @@ function Send-V2024Source {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -3648,6 +3659,7 @@ function Search-V2024ResourceObjects {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -3807,6 +3819,7 @@ function Test-V2024SourceConfiguration {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -3878,6 +3891,7 @@ function Test-V2024SourceConnection {
             throw "Error! The required parameter `SourceId` missing when calling testSourceConnection."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 
@@ -4294,6 +4308,7 @@ function Update-V2024Source {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -4392,6 +4407,7 @@ function Update-V2024SourceEntitlementRequestConfig {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

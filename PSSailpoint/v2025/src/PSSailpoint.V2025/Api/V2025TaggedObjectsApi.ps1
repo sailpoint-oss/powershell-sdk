@@ -70,6 +70,7 @@ function Remove-V2025TaggedObject {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -246,6 +247,7 @@ function Get-V2025TaggedObject {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -347,6 +349,7 @@ function Get-V2025TaggedObjects {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 
@@ -465,6 +468,7 @@ function Get-V2025TaggedObjectsByType {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -576,6 +580,7 @@ function Send-V2025TaggedObject {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -663,6 +668,7 @@ function Set-V2025TagToObject {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

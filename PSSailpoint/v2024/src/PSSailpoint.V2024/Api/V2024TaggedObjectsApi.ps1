@@ -70,6 +70,7 @@ function Remove-V2024TaggedObject {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -246,6 +247,7 @@ function Get-V2024TaggedObject {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -347,6 +349,7 @@ function Get-V2024TaggedObjects {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 
@@ -465,6 +468,7 @@ function Get-V2024TaggedObjectsByType {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -576,6 +580,7 @@ function Send-V2024TaggedObject {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -663,6 +668,7 @@ function Set-V2024TagToObject {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

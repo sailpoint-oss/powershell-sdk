@@ -49,6 +49,7 @@ function Get-BetaOrgConfig {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -110,6 +111,7 @@ function Get-BetaValidTimeZones {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/org-config/valid-time-zones'
+
 
 
 

@@ -2372,8 +2372,6 @@ function Update-BetaPotentialRole {
             }
         }
 
-
-
         $LocalVarResult = Invoke-BetaApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `

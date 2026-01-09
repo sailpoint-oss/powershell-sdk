@@ -59,6 +59,7 @@ function Remove-V2025ClassifyMachineAccountFromSource {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -133,6 +134,7 @@ function Get-V2025ClassifyMachineAccountFromSourceStatus {
 
 
 
+
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -204,6 +206,7 @@ function Send-V2025ClassifyMachineAccountFromSource {
             throw "Error! The required parameter `SourceId` missing when calling sendClassifyMachineAccountFromSource."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
 
 
 

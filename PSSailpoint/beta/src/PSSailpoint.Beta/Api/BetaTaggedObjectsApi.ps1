@@ -70,6 +70,7 @@ function Remove-BetaTaggedObject {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -245,6 +246,7 @@ function Get-BetaTaggedObject {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -346,6 +348,7 @@ function Get-BetaTaggedObjects {
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
         }
+
 
 
 
@@ -464,6 +467,7 @@ function Get-BetaTaggedObjectsByType {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -575,6 +579,7 @@ function Send-BetaTaggedObject {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -662,6 +667,7 @@ function Set-BetaTagToObject {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

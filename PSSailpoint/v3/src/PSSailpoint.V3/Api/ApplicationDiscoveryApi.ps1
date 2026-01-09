@@ -254,6 +254,7 @@ function Send-ManualDiscoverApplicationsCsvTemplate {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `

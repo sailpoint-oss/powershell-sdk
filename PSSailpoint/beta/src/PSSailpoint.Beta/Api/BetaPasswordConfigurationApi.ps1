@@ -140,6 +140,7 @@ function Get-BetaPasswordOrgConfig {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `

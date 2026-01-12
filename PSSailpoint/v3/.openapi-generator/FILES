@@ -448,6 +448,7 @@ docs/PasswordSyncGroupsApideveloperSite_code_examples.yaml
 docs/PatOwner.md
 docs/PendingApproval.md
 docs/PendingApprovalAction.md
+docs/PendingApprovalMaxPermittedAccessDuration.md
 docs/PendingApprovalOwner.md
 docs/PermissionDto.md
 docs/PersonalAccessTokensApi.md
@@ -1170,6 +1171,7 @@ src/PSSailpoint.V3/Model/PasswordSyncGroup.ps1
 src/PSSailpoint.V3/Model/PatOwner.ps1
 src/PSSailpoint.V3/Model/PendingApproval.ps1
 src/PSSailpoint.V3/Model/PendingApprovalAction.ps1
+src/PSSailpoint.V3/Model/PendingApprovalMaxPermittedAccessDuration.ps1
 src/PSSailpoint.V3/Model/PendingApprovalOwner.ps1
 src/PSSailpoint.V3/Model/PermissionDto.ps1
 src/PSSailpoint.V3/Model/PreApprovalTriggerDetails.ps1
@@ -1858,6 +1860,7 @@ tests/Model/PasswordSyncGroup.Tests.ps1
 tests/Model/PatOwner.Tests.ps1
 tests/Model/PendingApproval.Tests.ps1
 tests/Model/PendingApprovalAction.Tests.ps1
+tests/Model/PendingApprovalMaxPermittedAccessDuration.Tests.ps1
 tests/Model/PendingApprovalOwner.Tests.ps1
 tests/Model/PermissionDto.Tests.ps1
 tests/Model/PreApprovalTriggerDetails.Tests.ps1

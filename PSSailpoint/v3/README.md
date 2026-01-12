@@ -801,6 +801,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V3\Model.PatOwner](docs/PatOwner.md)
  - [PSSailpoint.V3\Model.PendingApproval](docs/PendingApproval.md)
  - [PSSailpoint.V3\Model.PendingApprovalAction](docs/PendingApprovalAction.md)
+ - [PSSailpoint.V3\Model.PendingApprovalMaxPermittedAccessDuration](docs/PendingApprovalMaxPermittedAccessDuration.md)
  - [PSSailpoint.V3\Model.PendingApprovalOwner](docs/PendingApprovalOwner.md)
  - [PSSailpoint.V3\Model.PermissionDto](docs/PermissionDto.md)
  - [PSSailpoint.V3\Model.PreApprovalTriggerDetails](docs/PreApprovalTriggerDetails.md)

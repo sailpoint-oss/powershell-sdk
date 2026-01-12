@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request item | [optional] 
 **RequestedAccounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 **PrivilegeLevel** | **String** | The privilege level of the requested access item, if applicable. | [optional] 
+**MaxPermittedAccessDuration** | [**PendingApprovalMaxPermittedAccessDuration**](pending-approval-max-permitted-access-duration) |  | [optional] 
 
 ## Examples
 
@@ -64,7 +65,8 @@ $PendingApproval = Initialize-BetaPendingApproval  -Id 2c9180835d2e5168015d32f89
  -SodViolationContext null `
  -ClientMetadata {customKey1=custom value 1, customKey2=custom value 2} `
  -RequestedAccounts null `
- -PrivilegeLevel High
+ -PrivilegeLevel High `
+ -MaxPermittedAccessDuration null
 ```
 
 - Convert the resource to JSON

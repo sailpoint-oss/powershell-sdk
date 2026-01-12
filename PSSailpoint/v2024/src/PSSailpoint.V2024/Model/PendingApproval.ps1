@@ -60,6 +60,8 @@ Arbitrary key-value pairs, if any were included in the corresponding access requ
 The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
 .PARAMETER PrivilegeLevel
 The privilege level of the requested access item, if applicable.
+.PARAMETER MaxPermittedAccessDuration
+No description available.
 .OUTPUTS
 
 PendingApproval<PSCustomObject>
@@ -138,7 +140,10 @@ function Initialize-V2024PendingApproval {
         ${RequestedAccounts},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PrivilegeLevel}
+        ${PrivilegeLevel},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${MaxPermittedAccessDuration}
     )
 
     Process {
@@ -170,6 +175,7 @@ function Initialize-V2024PendingApproval {
             "clientMetadata" = ${ClientMetadata}
             "requestedAccounts" = ${RequestedAccounts}
             "privilegeLevel" = ${PrivilegeLevel}
+            "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
         }
 
         return $PSO
@@ -206,7 +212,7 @@ function ConvertFrom-V2024JsonToPendingApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024PendingApproval
-        $AllProperties = ("id", "accessRequestId", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "clientMetadata", "requestedAccounts", "privilegeLevel")
+        $AllProperties = ("id", "accessRequestId", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "clientMetadata", "requestedAccounts", "privilegeLevel", "maxPermittedAccessDuration")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -351,6 +357,12 @@ function ConvertFrom-V2024JsonToPendingApproval {
             $PrivilegeLevel = $JsonParameters.PSobject.Properties["privilegeLevel"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "maxPermittedAccessDuration"))) { #optional property not found
+            $MaxPermittedAccessDuration = $null
+        } else {
+            $MaxPermittedAccessDuration = $JsonParameters.PSobject.Properties["maxPermittedAccessDuration"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "accessRequestId" = ${AccessRequestId}
@@ -375,6 +387,7 @@ function ConvertFrom-V2024JsonToPendingApproval {
             "clientMetadata" = ${ClientMetadata}
             "requestedAccounts" = ${RequestedAccounts}
             "privilegeLevel" = ${PrivilegeLevel}
+            "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
         }
 
         return $PSO

@@ -1497,6 +1497,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.PeerGroupMember](docs/PeerGroupMember.md)
  - [PSSailpoint.V2024\Model.PendingApproval](docs/PendingApproval.md)
  - [PSSailpoint.V2024\Model.PendingApprovalAction](docs/PendingApprovalAction.md)
+ - [PSSailpoint.V2024\Model.PendingApprovalMaxPermittedAccessDuration](docs/PendingApprovalMaxPermittedAccessDuration.md)
  - [PSSailpoint.V2024\Model.PendingApprovalOwner](docs/PendingApprovalOwner.md)
  - [PSSailpoint.V2024\Model.PermissionDto](docs/PermissionDto.md)
  - [PSSailpoint.V2024\Model.PreApprovalTriggerDetails](docs/PreApprovalTriggerDetails.md)

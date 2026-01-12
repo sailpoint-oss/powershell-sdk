@@ -1190,6 +1190,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.PeerGroupMember](docs/PeerGroupMember.md)
  - [PSSailpoint.Beta\Model.PendingApproval](docs/PendingApproval.md)
  - [PSSailpoint.Beta\Model.PendingApprovalAction](docs/PendingApprovalAction.md)
+ - [PSSailpoint.Beta\Model.PendingApprovalMaxPermittedAccessDuration](docs/PendingApprovalMaxPermittedAccessDuration.md)
  - [PSSailpoint.Beta\Model.PermissionDto](docs/PermissionDto.md)
  - [PSSailpoint.Beta\Model.PostExternalExecuteWorkflow200Response](docs/PostExternalExecuteWorkflow200Response.md)
  - [PSSailpoint.Beta\Model.PostExternalExecuteWorkflowRequest](docs/PostExternalExecuteWorkflowRequest.md)

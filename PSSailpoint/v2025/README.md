@@ -386,8 +386,8 @@ Class | Method | HTTP request | Description
 *V2025IAIRoleMiningApi* | [**Get-V2025RoleMiningSessionStatus**](docs/V2025IAIRoleMiningApi.md#Get-V2025RoleMiningSessionStatus) | **GET** /role-mining-sessions/{sessionId}/status | Get role mining session status state
 *V2025IAIRoleMiningApi* | [**Get-V2025RoleMiningSessions**](docs/V2025IAIRoleMiningApi.md#Get-V2025RoleMiningSessions) | **GET** /role-mining-sessions | Retrieves all role mining sessions
 *V2025IAIRoleMiningApi* | [**Get-V2025SavedPotentialRoles**](docs/V2025IAIRoleMiningApi.md#Get-V2025SavedPotentialRoles) | **GET** /role-mining-potential-roles/saved | Retrieves all saved potential roles
-*V2025IAIRoleMiningApi* | [**Update-V2025PotentialRole**](docs/V2025IAIRoleMiningApi.md#Update-V2025PotentialRole) | **PATCH** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Update a potential role
-*V2025IAIRoleMiningApi* | [**Update-V2025PotentialRole0**](docs/V2025IAIRoleMiningApi.md#Update-V2025PotentialRole0) | **PATCH** /role-mining-potential-roles/{potentialRoleId} | Update a potential role
+*V2025IAIRoleMiningApi* | [**Update-V2025PotentialRole**](docs/V2025IAIRoleMiningApi.md#Update-V2025PotentialRole) | **PATCH** /role-mining-potential-roles/{potentialRoleId} | Update a potential role
+*V2025IAIRoleMiningApi* | [**Update-V2025PotentialRoleSession**](docs/V2025IAIRoleMiningApi.md#Update-V2025PotentialRoleSession) | **PATCH** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Update a potential role session
 *V2025IAIRoleMiningApi* | [**Update-V2025RoleMiningSession**](docs/V2025IAIRoleMiningApi.md#Update-V2025RoleMiningSession) | **PATCH** /role-mining-sessions/{sessionId} | Patch a role mining session
 *V2025IAIRoleMiningApi* | [**Update-V2025EntitlementsPotentialRole**](docs/V2025IAIRoleMiningApi.md#Update-V2025EntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
 *V2025IconsApi* | [**Remove-V2025Icon**](docs/V2025IconsApi.md#Remove-V2025Icon) | **DELETE** /icons/{objectType}/{objectId} | Delete an icon
@@ -1835,6 +1835,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.RoleMiningEntitlementRef](docs/RoleMiningEntitlementRef.md)
  - [PSSailpoint.V2025\Model.RoleMiningIdentity](docs/RoleMiningIdentity.md)
  - [PSSailpoint.V2025\Model.RoleMiningIdentityDistribution](docs/RoleMiningIdentityDistribution.md)
+ - [PSSailpoint.V2025\Model.RoleMiningIdentityDistributionDistributionInner](docs/RoleMiningIdentityDistributionDistributionInner.md)
  - [PSSailpoint.V2025\Model.RoleMiningPotentialRole](docs/RoleMiningPotentialRole.md)
  - [PSSailpoint.V2025\Model.RoleMiningPotentialRoleApplication](docs/RoleMiningPotentialRoleApplication.md)
  - [PSSailpoint.V2025\Model.RoleMiningPotentialRoleEditEntitlements](docs/RoleMiningPotentialRoleEditEntitlements.md)

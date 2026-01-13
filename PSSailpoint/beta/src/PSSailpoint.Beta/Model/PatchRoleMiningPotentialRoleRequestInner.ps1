@@ -22,10 +22,10 @@ A string JSON Pointer representing the target path to an element to be affected 
 No description available.
 .OUTPUTS
 
-PatchPotentialRoleRequestInner<PSCustomObject>
+PatchRoleMiningPotentialRoleRequestInner<PSCustomObject>
 #>
 
-function Initialize-BetaPatchPotentialRoleRequestInner {
+function Initialize-BetaPatchRoleMiningPotentialRoleRequestInner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -41,7 +41,7 @@ function Initialize-BetaPatchPotentialRoleRequestInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.Beta => BetaPatchPotentialRoleRequestInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Beta => BetaPatchRoleMiningPotentialRoleRequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Path) {
@@ -62,11 +62,11 @@ function Initialize-BetaPatchPotentialRoleRequestInner {
 <#
 .SYNOPSIS
 
-Convert from JSON to PatchPotentialRoleRequestInner<PSCustomObject>
+Convert from JSON to PatchRoleMiningPotentialRoleRequestInner<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to PatchPotentialRoleRequestInner<PSCustomObject>
+Convert from JSON to PatchRoleMiningPotentialRoleRequestInner<PSCustomObject>
 
 .PARAMETER Json
 
@@ -74,21 +74,21 @@ Json object
 
 .OUTPUTS
 
-PatchPotentialRoleRequestInner<PSCustomObject>
+PatchRoleMiningPotentialRoleRequestInner<PSCustomObject>
 #>
-function ConvertFrom-BetaJsonToPatchPotentialRoleRequestInner {
+function ConvertFrom-BetaJsonToPatchRoleMiningPotentialRoleRequestInner {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaPatchPotentialRoleRequestInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Beta => BetaPatchRoleMiningPotentialRoleRequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in BetaPatchPotentialRoleRequestInner
+        # check if Json contains properties not defined in BetaPatchRoleMiningPotentialRoleRequestInner
         $AllProperties = ("op", "path", "value")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

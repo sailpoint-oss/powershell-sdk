@@ -38,7 +38,7 @@ Method | HTTP request | Description
 [**Get-BetaRoleMiningSessionStatus**](#get-role-mining-session-status) | **GET** `/role-mining-sessions/{sessionId}/status` | Get role mining session status state
 [**Get-BetaRoleMiningSessions**](#get-role-mining-sessions) | **GET** `/role-mining-sessions` | Retrieves all role mining sessions
 [**Get-BetaSavedPotentialRoles**](#get-saved-potential-roles) | **GET** `/role-mining-potential-roles/saved` | Retrieves all saved potential roles
-[**Update-BetaPotentialRole**](#patch-potential-role) | **PATCH** `/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}` | Update a potential role in session
+[**Update-BetaPotentialRoleSession**](#patch-potential-role-session) | **PATCH** `/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}` | Update a potential role in session
 [**Update-BetaRoleMiningPotentialRole**](#patch-role-mining-potential-role) | **PATCH** `/role-mining-potential-roles/{potentialRoleId}` | Update a potential role
 [**Update-BetaRoleMiningSession**](#patch-role-mining-session) | **PATCH** `/role-mining-sessions/{sessionId}` | Patch a role mining session
 [**Update-BetaEntitlementsPotentialRole**](#update-entitlements-potential-role) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements` | Edit entitlements for a potential role to exclude some entitlements
@@ -1151,7 +1151,7 @@ try {
 ```
 [[Back to top]](#) 
 
-## patch-potential-role
+## patch-potential-role-session
 This method updates an existing potential role using the role mining session id and the potential role summary id.
 
 The following fields can be modified:
@@ -1166,14 +1166,14 @@ The following fields can be modified:
 >**NOTE: All other fields cannot be modified.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/patch-potential-role-session)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SessionId | **String** | True  | The role mining session id
 Path   | PotentialRoleId | **String** | True  | The potential role summary id
- Body  | PatchPotentialRoleRequestInner | [**[]PatchPotentialRoleRequestInner**](../models/patch-potential-role-request-inner) | True  | 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -1197,19 +1197,23 @@ Code | Description  | Data Type
 ```powershell
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
- $PatchPotentialRoleRequestInner = @"[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]"@ # PatchPotentialRoleRequestInner[] | 
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | 
  
 
 # Update a potential role in session
 
 try {
-    $Result = ConvertFrom-BetaJsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result 
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-BetaPotentialRoleSession -SessionId $SessionId -PotentialRoleId $PotentialRoleId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result  
+    # Update-BetaPotentialRoleSession -SessionId $SessionId -PotentialRoleId $PotentialRoleId -JsonPatchOperation $Result  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPotentialRole"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPotentialRoleSession"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -1236,7 +1240,7 @@ The following fields can be modified:
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | PotentialRoleId | **String** | True  | The potential role summary id
- Body  | PatchPotentialRoleRequestInner | [**[]PatchPotentialRoleRequestInner**](../models/patch-potential-role-request-inner) | True  | 
+ Body  | PatchRoleMiningPotentialRoleRequestInner | [**[]PatchRoleMiningPotentialRoleRequestInner**](../models/patch-role-mining-potential-role-request-inner) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -1259,17 +1263,17 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
- $PatchPotentialRoleRequestInner = @"[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]"@ # PatchPotentialRoleRequestInner[] | 
+ $PatchRoleMiningPotentialRoleRequestInner = @"[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]"@ # PatchRoleMiningPotentialRoleRequestInner[] | 
  
 
 # Update a potential role
 
 try {
-    $Result = ConvertFrom-BetaJsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result 
+    $Result = ConvertFrom-BetaJsonToPatchRoleMiningPotentialRoleRequestInner -Json $PatchRoleMiningPotentialRoleRequestInner
+    Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchRoleMiningPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result  
+    # Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchRoleMiningPotentialRoleRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRoleMiningPotentialRole"
     Write-Host $_.ErrorDetails

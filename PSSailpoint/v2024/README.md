@@ -335,8 +335,8 @@ Class | Method | HTTP request | Description
 *V2024IAIRoleMiningApi* | [**Get-V2024RoleMiningSessionStatus**](docs/V2024IAIRoleMiningApi.md#Get-V2024RoleMiningSessionStatus) | **GET** /role-mining-sessions/{sessionId}/status | Get role mining session status state
 *V2024IAIRoleMiningApi* | [**Get-V2024RoleMiningSessions**](docs/V2024IAIRoleMiningApi.md#Get-V2024RoleMiningSessions) | **GET** /role-mining-sessions | Retrieves all role mining sessions
 *V2024IAIRoleMiningApi* | [**Get-V2024SavedPotentialRoles**](docs/V2024IAIRoleMiningApi.md#Get-V2024SavedPotentialRoles) | **GET** /role-mining-potential-roles/saved | Retrieves all saved potential roles
-*V2024IAIRoleMiningApi* | [**Update-V2024PotentialRole**](docs/V2024IAIRoleMiningApi.md#Update-V2024PotentialRole) | **PATCH** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Update a potential role
-*V2024IAIRoleMiningApi* | [**Update-V2024PotentialRole0**](docs/V2024IAIRoleMiningApi.md#Update-V2024PotentialRole0) | **PATCH** /role-mining-potential-roles/{potentialRoleId} | Update a potential role
+*V2024IAIRoleMiningApi* | [**Update-V2024PotentialRole**](docs/V2024IAIRoleMiningApi.md#Update-V2024PotentialRole) | **PATCH** /role-mining-potential-roles/{potentialRoleId} | Update a potential role
+*V2024IAIRoleMiningApi* | [**Update-V2024PotentialRoleSession**](docs/V2024IAIRoleMiningApi.md#Update-V2024PotentialRoleSession) | **PATCH** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Update a potential role session
 *V2024IAIRoleMiningApi* | [**Update-V2024RoleMiningSession**](docs/V2024IAIRoleMiningApi.md#Update-V2024RoleMiningSession) | **PATCH** /role-mining-sessions/{sessionId} | Patch a role mining session
 *V2024IAIRoleMiningApi* | [**Update-V2024EntitlementsPotentialRole**](docs/V2024IAIRoleMiningApi.md#Update-V2024EntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
 *V2024IconsApi* | [**Remove-V2024Icon**](docs/V2024IconsApi.md#Remove-V2024Icon) | **DELETE** /icons/{objectType}/{objectId} | Delete an icon
@@ -1646,6 +1646,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2024\Model.RoleMiningEntitlementRef](docs/RoleMiningEntitlementRef.md)
  - [PSSailpoint.V2024\Model.RoleMiningIdentity](docs/RoleMiningIdentity.md)
  - [PSSailpoint.V2024\Model.RoleMiningIdentityDistribution](docs/RoleMiningIdentityDistribution.md)
+ - [PSSailpoint.V2024\Model.RoleMiningIdentityDistributionDistributionInner](docs/RoleMiningIdentityDistributionDistributionInner.md)
  - [PSSailpoint.V2024\Model.RoleMiningPotentialRole](docs/RoleMiningPotentialRole.md)
  - [PSSailpoint.V2024\Model.RoleMiningPotentialRoleApplication](docs/RoleMiningPotentialRoleApplication.md)
  - [PSSailpoint.V2024\Model.RoleMiningPotentialRoleEditEntitlements](docs/RoleMiningPotentialRoleEditEntitlements.md)

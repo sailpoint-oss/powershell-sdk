@@ -182,9 +182,9 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025IAIRoleMiningApi' {
         }
     }
 
-    Context 'Update-V2025PotentialRole0' {
-        It 'Test Update-V2025PotentialRole0' {
-            #$TestResult = Update-V2025PotentialRole0 -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -PatchPotentialRoleRequestInner "TEST_VALUE"
+    Context 'Update-V2025PotentialRoleSession' {
+        It 'Test Update-V2025PotentialRoleSession' {
+            #$TestResult = Update-V2025PotentialRoleSession -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -30,7 +30,7 @@ function Initialize-V2024RoleMiningIdentityDistribution {
         [String]
         ${AttributeName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Collections.Hashtable[]]
+        [PSCustomObject[]]
         ${Distribution}
     )
 

@@ -17,14 +17,14 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningIdentityDistribution', 'V20
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AttributeName** | **String** | Id of the potential role | [optional] 
-**Distribution** | [**[]System.Collections.Hashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**Distribution** | [**[]RoleMiningIdentityDistributionDistributionInner**](role-mining-identity-distribution-distribution-inner) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $RoleMiningIdentityDistribution = Initialize-V2025RoleMiningIdentityDistribution  -AttributeName department `
- -Distribution [{attributeValue=NM Tier 3, count=6}]
+ -Distribution null
 ```
 
 - Convert the resource to JSON

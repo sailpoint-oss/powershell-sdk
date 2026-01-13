@@ -999,6 +999,7 @@ docs/RoleMiningEntitlement.md
 docs/RoleMiningEntitlementRef.md
 docs/RoleMiningIdentity.md
 docs/RoleMiningIdentityDistribution.md
+docs/RoleMiningIdentityDistributionDistributionInner.md
 docs/RoleMiningPotentialRole.md
 docs/RoleMiningPotentialRoleApplication.md
 docs/RoleMiningPotentialRoleEditEntitlements.md
@@ -2609,6 +2610,7 @@ src/PSSailpoint.V2025/Model/RoleMiningEntitlement.ps1
 src/PSSailpoint.V2025/Model/RoleMiningEntitlementRef.ps1
 src/PSSailpoint.V2025/Model/RoleMiningIdentity.ps1
 src/PSSailpoint.V2025/Model/RoleMiningIdentityDistribution.ps1
+src/PSSailpoint.V2025/Model/RoleMiningIdentityDistributionDistributionInner.ps1
 src/PSSailpoint.V2025/Model/RoleMiningPotentialRole.ps1
 src/PSSailpoint.V2025/Model/RoleMiningPotentialRoleApplication.ps1
 src/PSSailpoint.V2025/Model/RoleMiningPotentialRoleEditEntitlements.ps1
@@ -4027,6 +4029,7 @@ tests/Model/RoleMiningEntitlement.Tests.ps1
 tests/Model/RoleMiningEntitlementRef.Tests.ps1
 tests/Model/RoleMiningIdentity.Tests.ps1
 tests/Model/RoleMiningIdentityDistribution.Tests.ps1
+tests/Model/RoleMiningIdentityDistributionDistributionInner.Tests.ps1
 tests/Model/RoleMiningPotentialRole.Tests.ps1
 tests/Model/RoleMiningPotentialRoleApplication.Tests.ps1
 tests/Model/RoleMiningPotentialRoleEditEntitlements.Tests.ps1

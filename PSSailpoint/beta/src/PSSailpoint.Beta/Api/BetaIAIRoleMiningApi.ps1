@@ -2299,7 +2299,7 @@ The role mining session id
 .PARAMETER PotentialRoleId
 The potential role summary id
 
-.PARAMETER PatchPotentialRoleRequestInner
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -2310,7 +2310,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Update-BetaPotentialRole {
+function Update-BetaPotentialRoleSession {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -2321,13 +2321,13 @@ function Update-BetaPotentialRole {
         ${PotentialRoleId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${PatchPotentialRoleRequestInner},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Update-BetaPotentialRole' | Write-Debug
+        'Calling method: Update-BetaPotentialRoleSession' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -2347,22 +2347,22 @@ function Update-BetaPotentialRole {
 
         $LocalVarUri = '/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}'
         if (!$SessionId) {
-            throw "Error! The required parameter `SessionId` missing when calling patchPotentialRole."
+            throw "Error! The required parameter `SessionId` missing when calling patchPotentialRoleSession."
         }
         $LocalVarUri = $LocalVarUri.replace('{sessionId}', [System.Web.HTTPUtility]::UrlEncode($SessionId))
         if (!$PotentialRoleId) {
-            throw "Error! The required parameter `PotentialRoleId` missing when calling patchPotentialRole."
+            throw "Error! The required parameter `PotentialRoleId` missing when calling patchPotentialRoleSession."
         }
         $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
 
-        if (!$PatchPotentialRoleRequestInner) {
-            throw "Error! The required parameter `PatchPotentialRoleRequestInner` missing when calling patchPotentialRole."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchPotentialRoleSession."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PatchPotentialRoleRequestInner -is [array])) {
-            $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2371,6 +2371,9 @@ function Update-BetaPotentialRole {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
+
+
 
         $LocalVarResult = Invoke-BetaApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
@@ -2404,7 +2407,7 @@ This method updates an existing potential role.  The following fields can be mod
 .PARAMETER PotentialRoleId
 The potential role summary id
 
-.PARAMETER PatchPotentialRoleRequestInner
+.PARAMETER PatchRoleMiningPotentialRoleRequestInner
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -2423,7 +2426,7 @@ function Update-BetaRoleMiningPotentialRole {
         ${PotentialRoleId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${PatchPotentialRoleRequestInner},
+        ${PatchRoleMiningPotentialRoleRequestInner},
         [Switch]
         $WithHttpInfo
     )
@@ -2453,14 +2456,14 @@ function Update-BetaRoleMiningPotentialRole {
         }
         $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
 
-        if (!$PatchPotentialRoleRequestInner) {
-            throw "Error! The required parameter `PatchPotentialRoleRequestInner` missing when calling patchRoleMiningPotentialRole."
+        if (!$PatchRoleMiningPotentialRoleRequestInner) {
+            throw "Error! The required parameter `PatchRoleMiningPotentialRoleRequestInner` missing when calling patchRoleMiningPotentialRole."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PatchPotentialRoleRequestInner -is [array])) {
-            $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PatchRoleMiningPotentialRoleRequestInner -is [array])) {
+            $LocalVarBodyParameter = $PatchRoleMiningPotentialRoleRequestInner | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ForEach-Object {
+            $LocalVarBodyParameter = $PatchRoleMiningPotentialRoleRequestInner | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

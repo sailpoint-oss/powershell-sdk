@@ -17,14 +17,14 @@ tags: ['SDK', 'Software Development Kit', 'RoleMiningIdentityDistribution', 'Bet
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AttributeName** | **String** | Id of the potential role | [optional] 
-**Distribution** | **[]System.Collections.Hashtable** |  | [optional] 
+**Distribution** | [**[]RoleMiningIdentityDistributionDistributionInner**](role-mining-identity-distribution-distribution-inner) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $RoleMiningIdentityDistribution = Initialize-BetaRoleMiningIdentityDistribution  -AttributeName department `
- -Distribution [{attributeValue=NM Tier 3, count=6}]
+ -Distribution null
 ```
 
 - Convert the resource to JSON

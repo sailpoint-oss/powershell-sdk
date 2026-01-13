@@ -9014,7 +9014,7 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025SavedPotentialRoles"
             Write-Host $_.ErrorDetails
         }
-- path: /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}
+- path: /role-mining-potential-roles/{potentialRoleId}
   method: PATCH
   xCodeSample:
     - lang: PowerShell
@@ -9038,28 +9038,32 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025PotentialRole"
             Write-Host $_.ErrorDetails
         }
-- path: /role-mining-potential-roles/{potentialRoleId}
+- path: /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2025/methods/iai-role-mining#patch-potential-role-0
+      label: SDK_tools/sdk/powershell/v2025/methods/iai-role-mining#patch-potential-role-session
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $PatchPotentialRoleRequestInner = @"[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
-        # Update a potential role
+        # Update a potential role session
         
         try {
-            $Result = ConvertFrom-V2025JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-            Update-V2025PotentialRole0 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -PatchPotentialRoleRequestInner $Result 
+            $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-V2025PotentialRoleSession -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025PotentialRole0 -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -PatchPotentialRoleRequestInner $Result   
+            # Update-V2025PotentialRoleSession -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025PotentialRole0"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025PotentialRoleSession"
             Write-Host $_.ErrorDetails
         }
 - path: /role-mining-sessions/{sessionId}

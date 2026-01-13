@@ -246,7 +246,7 @@ Class | Method | HTTP request | Description
 *BetaIAIRoleMiningApi* | [**Get-BetaRoleMiningSessionStatus**](docs/BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSessionStatus) | **GET** /role-mining-sessions/{sessionId}/status | Get role mining session status state
 *BetaIAIRoleMiningApi* | [**Get-BetaRoleMiningSessions**](docs/BetaIAIRoleMiningApi.md#Get-BetaRoleMiningSessions) | **GET** /role-mining-sessions | Retrieves all role mining sessions
 *BetaIAIRoleMiningApi* | [**Get-BetaSavedPotentialRoles**](docs/BetaIAIRoleMiningApi.md#Get-BetaSavedPotentialRoles) | **GET** /role-mining-potential-roles/saved | Retrieves all saved potential roles
-*BetaIAIRoleMiningApi* | [**Update-BetaPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaPotentialRole) | **PATCH** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Update a potential role in session
+*BetaIAIRoleMiningApi* | [**Update-BetaPotentialRoleSession**](docs/BetaIAIRoleMiningApi.md#Update-BetaPotentialRoleSession) | **PATCH** /role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId} | Update a potential role in session
 *BetaIAIRoleMiningApi* | [**Update-BetaRoleMiningPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaRoleMiningPotentialRole) | **PATCH** /role-mining-potential-roles/{potentialRoleId} | Update a potential role
 *BetaIAIRoleMiningApi* | [**Update-BetaRoleMiningSession**](docs/BetaIAIRoleMiningApi.md#Update-BetaRoleMiningSession) | **PATCH** /role-mining-sessions/{sessionId} | Patch a role mining session
 *BetaIAIRoleMiningApi* | [**Update-BetaEntitlementsPotentialRole**](docs/BetaIAIRoleMiningApi.md#Update-BetaEntitlementsPotentialRole) | **POST** /role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements | Edit entitlements for a potential role to exclude some entitlements
@@ -1186,7 +1186,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.PasswordStatus](docs/PasswordStatus.md)
  - [PSSailpoint.Beta\Model.PasswordSyncGroup](docs/PasswordSyncGroup.md)
  - [PSSailpoint.Beta\Model.PatOwner](docs/PatOwner.md)
- - [PSSailpoint.Beta\Model.PatchPotentialRoleRequestInner](docs/PatchPotentialRoleRequestInner.md)
+ - [PSSailpoint.Beta\Model.PatchRoleMiningPotentialRoleRequestInner](docs/PatchRoleMiningPotentialRoleRequestInner.md)
  - [PSSailpoint.Beta\Model.PeerGroupMember](docs/PeerGroupMember.md)
  - [PSSailpoint.Beta\Model.PendingApproval](docs/PendingApproval.md)
  - [PSSailpoint.Beta\Model.PendingApprovalAction](docs/PendingApprovalAction.md)
@@ -1299,6 +1299,7 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.Beta\Model.RoleMiningEntitlementRef](docs/RoleMiningEntitlementRef.md)
  - [PSSailpoint.Beta\Model.RoleMiningIdentity](docs/RoleMiningIdentity.md)
  - [PSSailpoint.Beta\Model.RoleMiningIdentityDistribution](docs/RoleMiningIdentityDistribution.md)
+ - [PSSailpoint.Beta\Model.RoleMiningIdentityDistributionDistributionInner](docs/RoleMiningIdentityDistributionDistributionInner.md)
  - [PSSailpoint.Beta\Model.RoleMiningPotentialRole](docs/RoleMiningPotentialRole.md)
  - [PSSailpoint.Beta\Model.RoleMiningPotentialRoleApplication](docs/RoleMiningPotentialRoleApplication.md)
  - [PSSailpoint.Beta\Model.RoleMiningPotentialRoleEditEntitlements](docs/RoleMiningPotentialRoleEditEntitlements.md)

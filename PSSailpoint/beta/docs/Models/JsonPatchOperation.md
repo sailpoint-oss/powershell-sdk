@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'JsonPatchOperation', 'BetaJsonPatchOp
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Op** |  **Enum** [  "add",    "remove",    "replace",    "move",    "copy",    "test" ] | The operation to be performed | [required]
+**Op** |  **Enum** [  "remove",    "replace" ] | The operation to be performed | [required]
 **Path** | **String** | A string JSON Pointer representing the target path to an element to be affected by the operation | [required]
 **Value** | [**UpdateMultiHostSourcesRequestInnerValue**](update-multi-host-sources-request-inner-value) |  | [optional] 
 

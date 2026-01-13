@@ -5314,23 +5314,27 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/iai-role-mining#patch-potential-role
+      label: SDK_tools/sdk/powershell/beta/methods/iai-role-mining#patch-potential-role-session
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
-        $PatchPotentialRoleRequestInner = @"[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]"@ 
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
         
         
         # Update a potential role in session
         
         try {
-            $Result = ConvertFrom-BetaJsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-            Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result 
+            $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-BetaPotentialRoleSession -SessionId $SessionId -PotentialRoleId $PotentialRoleId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result   
+            # Update-BetaPotentialRoleSession -SessionId $SessionId -PotentialRoleId $PotentialRoleId -JsonPatchOperation $Result   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPotentialRole"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPotentialRoleSession"
             Write-Host $_.ErrorDetails
         }
 - path: /role-mining-potential-roles/{potentialRoleId}
@@ -5340,17 +5344,17 @@
       label: SDK_tools/sdk/powershell/beta/methods/iai-role-mining#patch-role-mining-potential-role
       source: |
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
-        $PatchPotentialRoleRequestInner = @"[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]"@ 
+        $PatchRoleMiningPotentialRoleRequestInner = @"[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]"@ 
         
         
         # Update a potential role
         
         try {
-            $Result = ConvertFrom-BetaJsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-            Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result 
+            $Result = ConvertFrom-BetaJsonToPatchRoleMiningPotentialRoleRequestInner -Json $PatchRoleMiningPotentialRoleRequestInner
+            Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchRoleMiningPotentialRoleRequestInner $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result   
+            # Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchRoleMiningPotentialRoleRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRoleMiningPotentialRole"
             Write-Host $_.ErrorDetails

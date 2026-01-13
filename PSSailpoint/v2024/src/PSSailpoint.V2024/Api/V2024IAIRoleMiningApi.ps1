@@ -2582,7 +2582,7 @@ function Update-V2024PotentialRole {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json-patch+json')
 
-        $LocalVarUri = '/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}'
+        $LocalVarUri = '/role-mining-potential-roles/{potentialRoleId}'
         if (!$SessionId) {
             throw "Error! The required parameter `SessionId` missing when calling patchPotentialRole."
         }
@@ -2614,6 +2614,8 @@ function Update-V2024PotentialRole {
             }
         }
 
+
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -2637,7 +2639,7 @@ function Update-V2024PotentialRole {
 <#
 .SYNOPSIS
 
-Update a potential role
+Update a potential role session
 
 .DESCRIPTION
 
@@ -2652,7 +2654,7 @@ The potential role summary id
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER PatchPotentialRoleRequestInner
+.PARAMETER JsonPatchOperation
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -2663,7 +2665,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SystemCollectionsHashtable
 #>
-function Update-V2024PotentialRole0 {
+function Update-V2024PotentialRoleSession {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -2677,13 +2679,13 @@ function Update-V2024PotentialRole0 {
         $XSailPointExperimental = "true",
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${PatchPotentialRoleRequestInner},
+        ${JsonPatchOperation},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Update-V2024PotentialRole0' | Write-Debug
+        'Calling method: Update-V2024PotentialRoleSession' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -2701,29 +2703,29 @@ function Update-V2024PotentialRole0 {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json-patch+json')
 
-        $LocalVarUri = '/role-mining-potential-roles/{potentialRoleId}'
+        $LocalVarUri = '/role-mining-sessions/{sessionId}/potential-role-summaries/{potentialRoleId}'
         if (!$SessionId) {
-            throw "Error! The required parameter `SessionId` missing when calling patchPotentialRole_0."
+            throw "Error! The required parameter `SessionId` missing when calling patchPotentialRoleSession."
         }
         $LocalVarUri = $LocalVarUri.replace('{sessionId}', [System.Web.HTTPUtility]::UrlEncode($SessionId))
         if (!$PotentialRoleId) {
-            throw "Error! The required parameter `PotentialRoleId` missing when calling patchPotentialRole_0."
+            throw "Error! The required parameter `PotentialRoleId` missing when calling patchPotentialRoleSession."
         }
         $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
 
         if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchPotentialRole_0."
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchPotentialRoleSession."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$PatchPotentialRoleRequestInner) {
-            throw "Error! The required parameter `PatchPotentialRoleRequestInner` missing when calling patchPotentialRole_0."
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchPotentialRoleSession."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PatchPotentialRoleRequestInner -is [array])) {
-            $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2732,6 +2734,7 @@ function Update-V2024PotentialRole0 {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

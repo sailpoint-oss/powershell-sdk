@@ -30,7 +30,7 @@ function Initialize-BetaRoleMiningIdentityDistribution {
         [String]
         ${AttributeName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Collections.Hashtable[]]
+        [PSCustomObject[]]
         ${Distribution}
     )
 

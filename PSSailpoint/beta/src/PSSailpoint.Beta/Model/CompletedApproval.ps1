@@ -64,6 +64,8 @@ Arbitrary key-value pairs provided during the request.
 The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
 .PARAMETER PrivilegeLevel
 The privilege level of the requested access item, if applicable.
+.PARAMETER MaxPermittedAccessDuration
+No description available.
 .OUTPUTS
 
 CompletedApproval<PSCustomObject>
@@ -148,7 +150,10 @@ function Initialize-BetaCompletedApproval {
         ${RequestedAccounts},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PrivilegeLevel}
+        ${PrivilegeLevel},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${MaxPermittedAccessDuration}
     )
 
     Process {
@@ -182,6 +187,7 @@ function Initialize-BetaCompletedApproval {
             "clientMetadata" = ${ClientMetadata}
             "requestedAccounts" = ${RequestedAccounts}
             "privilegeLevel" = ${PrivilegeLevel}
+            "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
         }
 
         return $PSO
@@ -218,7 +224,7 @@ function ConvertFrom-BetaJsonToCompletedApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaCompletedApproval
-        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata", "requestedAccounts", "privilegeLevel")
+        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata", "requestedAccounts", "privilegeLevel", "maxPermittedAccessDuration")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -375,6 +381,12 @@ function ConvertFrom-BetaJsonToCompletedApproval {
             $PrivilegeLevel = $JsonParameters.PSobject.Properties["privilegeLevel"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "maxPermittedAccessDuration"))) { #optional property not found
+            $MaxPermittedAccessDuration = $null
+        } else {
+            $MaxPermittedAccessDuration = $JsonParameters.PSobject.Properties["maxPermittedAccessDuration"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -401,6 +413,7 @@ function ConvertFrom-BetaJsonToCompletedApproval {
             "clientMetadata" = ${ClientMetadata}
             "requestedAccounts" = ${RequestedAccounts}
             "privilegeLevel" = ${PrivilegeLevel}
+            "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
         }
 
         return $PSO

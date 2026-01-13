@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs provided during the request. | [optional] 
 **RequestedAccounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 **PrivilegeLevel** | **String** | The privilege level of the requested access item, if applicable. | [optional] 
+**MaxPermittedAccessDuration** | [**PendingApprovalMaxPermittedAccessDuration**](pending-approval-max-permitted-access-duration) |  | [optional] 
 
 ## Examples
 
@@ -70,7 +71,8 @@ $CompletedApproval = Initialize-BetaCompletedApproval  -Id 2c938083633d259901633
  -PreApprovalTriggerResult null `
  -ClientMetadata {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1} `
  -RequestedAccounts null `
- -PrivilegeLevel High
+ -PrivilegeLevel High `
+ -MaxPermittedAccessDuration null
 ```
 
 - Convert the resource to JSON

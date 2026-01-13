@@ -45,7 +45,7 @@ jobs:
 
       # Install yq for working with yaml files
       - name: Set up yq
-        uses: frenck/action-setup-yq@v2
+        uses: frenck/action-setup-yq@v1
 
       # Check input version is greater than the current tag
       - name: Check valid version

@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **RequestCommentRequired** | **Boolean** | If the requester must provide a comment during access request. | [optional] [default to $false]
 **DenialCommentRequired** | **Boolean** | If the reviewer must provide a comment when denying the access request. | [optional] [default to $false]
 **ReauthorizationRequired** | **Boolean** | Is Reauthorization Required | [optional] [default to $false]
+**RequireEndDate** | **Boolean** | If true, then remove date or sunset date is required in access request of the entitlement. | [optional] [default to $false]
+**MaxPermittedAccessDuration** | [**PendingApprovalMaxPermittedAccessDuration**](pending-approval-max-permitted-access-duration) |  | [optional] 
 
 ## Examples
 
@@ -28,7 +30,9 @@ Name | Type | Description | Notes
 $EntitlementAccessRequestConfig = Initialize-V2024EntitlementAccessRequestConfig  -ApprovalSchemes null `
  -RequestCommentRequired true `
  -DenialCommentRequired false `
- -ReauthorizationRequired false
+ -ReauthorizationRequired false `
+ -RequireEndDate true `
+ -MaxPermittedAccessDuration null
 ```
 
 - Convert the resource to JSON

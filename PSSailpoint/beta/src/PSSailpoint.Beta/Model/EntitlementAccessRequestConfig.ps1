@@ -22,6 +22,10 @@ If the requester must provide a comment during access request.
 If the reviewer must provide a comment when denying the access request.
 .PARAMETER ReauthorizationRequired
 Is Reauthorization Required
+.PARAMETER RequireEndDate
+If true, then remove date or sunset date is required in access request of the entitlement.
+.PARAMETER MaxPermittedAccessDuration
+No description available.
 .OUTPUTS
 
 EntitlementAccessRequestConfig<PSCustomObject>
@@ -41,7 +45,13 @@ function Initialize-BetaEntitlementAccessRequestConfig {
         ${DenialCommentRequired} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${ReauthorizationRequired} = $false
+        ${ReauthorizationRequired} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${RequireEndDate} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${MaxPermittedAccessDuration}
     )
 
     Process {
@@ -54,6 +64,8 @@ function Initialize-BetaEntitlementAccessRequestConfig {
             "requestCommentRequired" = ${RequestCommentRequired}
             "denialCommentRequired" = ${DenialCommentRequired}
             "reauthorizationRequired" = ${ReauthorizationRequired}
+            "requireEndDate" = ${RequireEndDate}
+            "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
         }
 
         return $PSO
@@ -90,7 +102,7 @@ function ConvertFrom-BetaJsonToEntitlementAccessRequestConfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaEntitlementAccessRequestConfig
-        $AllProperties = ("approvalSchemes", "requestCommentRequired", "denialCommentRequired", "reauthorizationRequired")
+        $AllProperties = ("approvalSchemes", "requestCommentRequired", "denialCommentRequired", "reauthorizationRequired", "requireEndDate", "maxPermittedAccessDuration")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -121,11 +133,25 @@ function ConvertFrom-BetaJsonToEntitlementAccessRequestConfig {
             $ReauthorizationRequired = $JsonParameters.PSobject.Properties["reauthorizationRequired"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requireEndDate"))) { #optional property not found
+            $RequireEndDate = $null
+        } else {
+            $RequireEndDate = $JsonParameters.PSobject.Properties["requireEndDate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "maxPermittedAccessDuration"))) { #optional property not found
+            $MaxPermittedAccessDuration = $null
+        } else {
+            $MaxPermittedAccessDuration = $JsonParameters.PSobject.Properties["maxPermittedAccessDuration"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "approvalSchemes" = ${ApprovalSchemes}
             "requestCommentRequired" = ${RequestCommentRequired}
             "denialCommentRequired" = ${DenialCommentRequired}
             "reauthorizationRequired" = ${ReauthorizationRequired}
+            "requireEndDate" = ${RequireEndDate}
+            "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
         }
 
         return $PSO

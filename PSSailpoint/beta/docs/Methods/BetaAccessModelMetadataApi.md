@@ -27,11 +27,133 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**New-BetaAccessModelMetadataAttribute**](#create-access-model-metadata-attribute) | **POST** `/access-model-metadata/attributes` | Create access model metadata attribute
+[**New-BetaAccessModelMetadataAttributeValue**](#create-access-model-metadata-attribute-value) | **POST** `/access-model-metadata/attributes/{key}/values` | Create access model metadata value
 [**Get-BetaAccessModelMetadataAttribute**](#get-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes/{key}` | Get access model metadata attribute
 [**Get-BetaAccessModelMetadataAttributeValue**](#get-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values/{value}` | Get access model metadata value
 [**Get-BetaAccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List access model metadata attributes
 [**Get-BetaAccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List access model metadata values
+[**Update-BetaAccessModelMetadataAttribute**](#update-access-model-metadata-attribute) | **PATCH** `/access-model-metadata/attributes/{key}` | Update access model metadata attribute
+[**Update-BetaAccessModelMetadataAttributeValue**](#update-access-model-metadata-attribute-value) | **PATCH** `/access-model-metadata/attributes/{key}/values/{value}` | Update access model metadata value
 
+
+## create-access-model-metadata-attribute
+Create a new Access Model Metadata Attribute.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-access-model-metadata-attribute)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | AttributeDTO | [**AttributeDTO**](../models/attribute-dto) | True  | Attribute to create
+
+### Return type
+[**AttributeDTO**](../models/attribute-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+201 | Created | AttributeDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$AttributeDTO = @"{
+  "multiselect" : false,
+  "values" : [ {
+    "name" : "Public",
+    "value" : "public",
+    "status" : "active"
+  }, {
+    "name" : "Public",
+    "value" : "public",
+    "status" : "active"
+  } ],
+  "name" : "Privacy",
+  "description" : "Specifies the level of privacy associated with an access item.",
+  "type" : "governance",
+  "objectTypes" : [ "entitlement" ],
+  "key" : "iscPrivacy",
+  "status" : "active"
+}"@
+
+# Create access model metadata attribute
+
+try {
+    $Result = ConvertFrom-BetaJsonToAttributeDTO -Json $AttributeDTO
+    New-BetaAccessModelMetadataAttribute -AttributeDTO $Result 
+    
+    # Below is a request that includes all optional parameters
+    # New-BetaAccessModelMetadataAttribute -AttributeDTO $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaAccessModelMetadataAttribute"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## create-access-model-metadata-attribute-value
+Create a new value for an existing Access Model Metadata Attribute.    
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/create-access-model-metadata-attribute-value)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Key | **String** | True  | Technical name of the Attribute.
+ Body  | AttributeValueDTO | [**AttributeValueDTO**](../models/attribute-value-dto) | True  | Attribute value to create
+
+### Return type
+[**AttributeValueDTO**](../models/attribute-value-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+201 | Created | AttributeValueDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Key = "iscPrivacy" # String | Technical name of the Attribute.
+$AttributeValueDTO = @"{
+  "name" : "Public",
+  "value" : "public",
+  "status" : "active"
+}"@
+
+# Create access model metadata value
+
+try {
+    $Result = ConvertFrom-BetaJsonToAttributeValueDTO -Json $AttributeValueDTO
+    New-BetaAccessModelMetadataAttributeValue -Key $Key -AttributeValueDTO $Result 
+    
+    # Below is a request that includes all optional parameters
+    # New-BetaAccessModelMetadataAttributeValue -Key $Key -AttributeValueDTO $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaAccessModelMetadataAttributeValue"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
 
 ## get-access-model-metadata-attribute
 Get single Access Model Metadata Attribute
@@ -53,6 +175,7 @@ Code | Description  | Data Type
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
@@ -99,6 +222,7 @@ Code | Description  | Data Type
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
@@ -133,9 +257,8 @@ Get a list of Access Model Metadata Attributes
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and*
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or*
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key**
-  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -149,6 +272,7 @@ Code | Description  | Data Type
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
@@ -158,9 +282,8 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = 'name eq "Privacy"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and* (optional)
+$Filters = 'name eq "Privacy"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
 $Sorters = "name,-key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
@@ -170,7 +293,7 @@ try {
     Get-BetaAccessModelMetadataAttribute 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessModelMetadataAttribute -Filters $Filters -Sorters $Sorters -Offset $Offset -Limit $Limit -Count $Count  
+    # Get-BetaAccessModelMetadataAttribute -Filters $Filters -Sorters $Sorters -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessModelMetadataAttribute"
     Write-Host $_.ErrorDetails
@@ -187,7 +310,6 @@ Get a list of Access Model Metadata Attribute Values
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Key | **String** | True  | Technical name of the Attribute.
-  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -201,6 +323,7 @@ Code | Description  | Data Type
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
@@ -211,7 +334,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
@@ -221,9 +343,123 @@ try {
     Get-BetaAccessModelMetadataAttributeValue -Key $Key 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaAccessModelMetadataAttributeValue -Key $Key -Offset $Offset -Limit $Limit -Count $Count  
+    # Get-BetaAccessModelMetadataAttributeValue -Key $Key -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccessModelMetadataAttributeValue"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-access-model-metadata-attribute
+Update an existing Access Model Metadata Attribute.  
+The following fields are patchable: **name**, **description**, **multiselect**, **values**
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-access-model-metadata-attribute)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Key | **String** | True  | Technical name of the Attribute.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | JSON Patch array to apply
+
+### Return type
+[**AttributeDTO**](../models/attribute-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | OK - Attribute updated successfully | AttributeDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Key = "iscPrivacy" # String | Technical name of the Attribute.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | JSON Patch array to apply
+ 
+
+# Update access model metadata attribute
+
+try {
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-BetaAccessModelMetadataAttribute -Key $Key -JsonPatchOperation $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-BetaAccessModelMetadataAttribute -Key $Key -JsonPatchOperation $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaAccessModelMetadataAttribute"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-access-model-metadata-attribute-value
+Update an existing Access Model Metadata Attribute Value.    
+The following fields are patchable: **name**
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/update-access-model-metadata-attribute-value)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Key | **String** | True  | Technical name of the Attribute.
+Path   | Value | **String** | True  | Technical name of the Attribute value.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | JSON Patch array to apply
+
+### Return type
+[**AttributeValueDTO**](../models/attribute-value-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | OK - Attribute value updated successfully | AttributeValueDTO
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Key = "iscPrivacy" # String | Technical name of the Attribute.
+$Value = "public" # String | Technical name of the Attribute value.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | JSON Patch array to apply
+ 
+
+# Update access model metadata value
+
+try {
+    $Result = ConvertFrom-BetaJsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-BetaAccessModelMetadataAttributeValue -Key $Key -Value $Value -JsonPatchOperation $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-BetaAccessModelMetadataAttributeValue -Key $Key -Value $Value -JsonPatchOperation $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaAccessModelMetadataAttributeValue"
     Write-Host $_.ErrorDetails
 }
 ```

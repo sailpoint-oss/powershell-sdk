@@ -1,3 +1,69 @@
+- path: /access-model-metadata/attributes
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/access-model-metadata#create-access-model-metadata-attribute
+      source: |
+        $AttributeDTO = @"
+        {
+          "multiselect" : false,
+          "values" : [ {
+            "name" : "Public",
+            "value" : "public",
+            "status" : "active"
+          }, {
+            "name" : "Public",
+            "value" : "public",
+            "status" : "active"
+          } ],
+          "name" : "Privacy",
+          "description" : "Specifies the level of privacy associated with an access item.",
+          "type" : "governance",
+          "objectTypes" : [ "entitlement" ],
+          "key" : "iscPrivacy",
+          "status" : "active"
+        }
+        "@
+        
+        # Create access model metadata attribute
+        
+        try {
+            $Result = ConvertFrom-V2024JsonToAttributeDTO -Json $AttributeDTO
+            New-V2024AccessModelMetadataAttribute -AttributeDTO $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024AccessModelMetadataAttribute -AttributeDTO $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024AccessModelMetadataAttribute"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/attributes/{key}/values
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/access-model-metadata#create-access-model-metadata-attribute-value
+      source: |
+        $Key = "iscPrivacy" # String | Technical name of the Attribute.
+        $AttributeValueDTO = @"
+        {
+          "name" : "Public",
+          "value" : "public",
+          "status" : "active"
+        }
+        "@
+        
+        # Create access model metadata value
+        
+        try {
+            $Result = ConvertFrom-V2024JsonToAttributeValueDTO -Json $AttributeValueDTO
+            New-V2024AccessModelMetadataAttributeValue -Key $Key -AttributeValueDTO $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024AccessModelMetadataAttributeValue -Key $Key -AttributeValueDTO $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024AccessModelMetadataAttributeValue"
+            Write-Host $_.ErrorDetails
+        }
 - path: /access-model-metadata/attributes/{key}
   method: GET
   xCodeSample:
@@ -43,9 +109,8 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/access-model-metadata#list-access-model-metadata-attribute
       source: |
-        $Filters = "name eq "Privacy"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and* (optional)
+        $Filters = "name eq "Privacy"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
         $Sorters = "name,-key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         
@@ -55,7 +120,7 @@
             Get-V2024AccessModelMetadataAttribute 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024AccessModelMetadataAttribute -Filters $Filters -Sorters $Sorters -Offset $Offset -Limit $Limit -Count $Count   
+            # Get-V2024AccessModelMetadataAttribute -Filters $Filters -Sorters $Sorters -Limit $Limit -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessModelMetadataAttribute"
             Write-Host $_.ErrorDetails
@@ -67,7 +132,6 @@
       label: SDK_tools/sdk/powershell/v2024/methods/access-model-metadata#list-access-model-metadata-attribute-value
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         
@@ -77,9 +141,62 @@
             Get-V2024AccessModelMetadataAttributeValue -Key $Key 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024AccessModelMetadataAttributeValue -Key $Key -Offset $Offset -Limit $Limit -Count $Count   
+            # Get-V2024AccessModelMetadataAttributeValue -Key $Key -Limit $Limit -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessModelMetadataAttributeValue"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/attributes/{key}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/access-model-metadata#update-access-model-metadata-attribute
+      source: |
+        $Key = "iscPrivacy" # String | Technical name of the Attribute.
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Update access model metadata attribute
+        
+        try {
+            $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-V2024AccessModelMetadataAttribute -Key $Key -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2024AccessModelMetadataAttribute -Key $Key -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024AccessModelMetadataAttribute"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/attributes/{key}/values/{value}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/access-model-metadata#update-access-model-metadata-attribute-value
+      source: |
+        $Key = "iscPrivacy" # String | Technical name of the Attribute.
+        $Value = "public" # String | Technical name of the Attribute value.
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Update access model metadata value
+        
+        try {
+            $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-V2024AccessModelMetadataAttributeValue -Key $Key -Value $Value -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2024AccessModelMetadataAttributeValue -Key $Key -Value $Value -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024AccessModelMetadataAttributeValue"
             Write-Host $_.ErrorDetails
         }
 - path: /access-profiles

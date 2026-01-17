@@ -6,6 +6,22 @@
 #
 
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccessModelMetadataApi' {
+    Context 'New-V2024AccessModelMetadataAttribute' {
+        It 'Test New-V2024AccessModelMetadataAttribute' {
+            #$TestResult = New-V2024AccessModelMetadataAttribute -AttributeDTO "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'New-V2024AccessModelMetadataAttributeValue' {
+        It 'Test New-V2024AccessModelMetadataAttributeValue' {
+            #$TestResult = New-V2024AccessModelMetadataAttributeValue -Key "TEST_VALUE" -AttributeValueDTO "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2024AccessModelMetadataAttribute' {
         It 'Test Get-V2024AccessModelMetadataAttribute' {
             #$TestResult = Get-V2024AccessModelMetadataAttribute -Key "TEST_VALUE"
@@ -24,7 +40,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccessModelMetadataApi' {
 
     Context 'Get-V2024AccessModelMetadataAttribute' {
         It 'Test Get-V2024AccessModelMetadataAttribute' {
-            #$TestResult = Get-V2024AccessModelMetadataAttribute -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-V2024AccessModelMetadataAttribute -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +48,23 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024AccessModelMetadataApi' {
 
     Context 'Get-V2024AccessModelMetadataAttributeValue' {
         It 'Test Get-V2024AccessModelMetadataAttributeValue' {
-            #$TestResult = Get-V2024AccessModelMetadataAttributeValue -Key "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-V2024AccessModelMetadataAttributeValue -Key "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2024AccessModelMetadataAttribute' {
+        It 'Test Update-V2024AccessModelMetadataAttribute' {
+            #$TestResult = Update-V2024AccessModelMetadataAttribute -Key "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2024AccessModelMetadataAttributeValue' {
+        It 'Test Update-V2024AccessModelMetadataAttributeValue' {
+            #$TestResult = Update-V2024AccessModelMetadataAttributeValue -Key "TEST_VALUE" -Value "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -53,10 +53,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*V2024AccessModelMetadataApi* | [**New-V2024AccessModelMetadataAttribute**](docs/V2024AccessModelMetadataApi.md#New-V2024AccessModelMetadataAttribute) | **POST** /access-model-metadata/attributes | Create access model metadata attribute
+*V2024AccessModelMetadataApi* | [**New-V2024AccessModelMetadataAttributeValue**](docs/V2024AccessModelMetadataApi.md#New-V2024AccessModelMetadataAttributeValue) | **POST** /access-model-metadata/attributes/{key}/values | Create access model metadata value
 *V2024AccessModelMetadataApi* | [**Get-V2024AccessModelMetadataAttribute**](docs/V2024AccessModelMetadataApi.md#Get-V2024AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes/{key} | Get access model metadata attribute
 *V2024AccessModelMetadataApi* | [**Get-V2024AccessModelMetadataAttributeValue**](docs/V2024AccessModelMetadataApi.md#Get-V2024AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values/{value} | Get access model metadata value
 *V2024AccessModelMetadataApi* | [**Get-V2024AccessModelMetadataAttribute**](docs/V2024AccessModelMetadataApi.md#Get-V2024AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes | List access model metadata attributes
 *V2024AccessModelMetadataApi* | [**Get-V2024AccessModelMetadataAttributeValue**](docs/V2024AccessModelMetadataApi.md#Get-V2024AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values | List access model metadata values
+*V2024AccessModelMetadataApi* | [**Update-V2024AccessModelMetadataAttribute**](docs/V2024AccessModelMetadataApi.md#Update-V2024AccessModelMetadataAttribute) | **PATCH** /access-model-metadata/attributes/{key} | Update access model metadata attribute
+*V2024AccessModelMetadataApi* | [**Update-V2024AccessModelMetadataAttributeValue**](docs/V2024AccessModelMetadataApi.md#Update-V2024AccessModelMetadataAttributeValue) | **PATCH** /access-model-metadata/attributes/{key}/values/{value} | Update access model metadata value
 *V2024AccessProfilesApi* | [**New-V2024AccessProfile**](docs/V2024AccessProfilesApi.md#New-V2024AccessProfile) | **POST** /access-profiles | Create access profile
 *V2024AccessProfilesApi* | [**Remove-V2024AccessProfile**](docs/V2024AccessProfilesApi.md#Remove-V2024AccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified access profile
 *V2024AccessProfilesApi* | [**Remove-V2024AccessProfilesInBulk**](docs/V2024AccessProfilesApi.md#Remove-V2024AccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete access profile(s)

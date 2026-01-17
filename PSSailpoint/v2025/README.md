@@ -53,10 +53,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*V2025AccessModelMetadataApi* | [**New-V2025AccessModelMetadataAttribute**](docs/V2025AccessModelMetadataApi.md#New-V2025AccessModelMetadataAttribute) | **POST** /access-model-metadata/attributes | Create access model metadata attribute
+*V2025AccessModelMetadataApi* | [**New-V2025AccessModelMetadataAttributeValue**](docs/V2025AccessModelMetadataApi.md#New-V2025AccessModelMetadataAttributeValue) | **POST** /access-model-metadata/attributes/{key}/values | Create access model metadata value
 *V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttribute**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes/{key} | Get access model metadata attribute
 *V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttributeValue**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values/{value} | Get access model metadata value
 *V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttribute**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes | List access model metadata attributes
 *V2025AccessModelMetadataApi* | [**Get-V2025AccessModelMetadataAttributeValue**](docs/V2025AccessModelMetadataApi.md#Get-V2025AccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values | List access model metadata values
+*V2025AccessModelMetadataApi* | [**Update-V2025AccessModelMetadataAttribute**](docs/V2025AccessModelMetadataApi.md#Update-V2025AccessModelMetadataAttribute) | **PATCH** /access-model-metadata/attributes/{key} | Update access model metadata attribute
+*V2025AccessModelMetadataApi* | [**Update-V2025AccessModelMetadataAttributeValue**](docs/V2025AccessModelMetadataApi.md#Update-V2025AccessModelMetadataAttributeValue) | **PATCH** /access-model-metadata/attributes/{key}/values/{value} | Update access model metadata value
 *V2025AccessModelMetadataApi* | [**Update-V2025AccessModelMetadataByFilter**](docs/V2025AccessModelMetadataApi.md#Update-V2025AccessModelMetadataByFilter) | **POST** /access-model-metadata/bulk-update/filter | Metadata Attribute update by filter
 *V2025AccessModelMetadataApi* | [**Update-V2025AccessModelMetadataByIds**](docs/V2025AccessModelMetadataApi.md#Update-V2025AccessModelMetadataByIds) | **POST** /access-model-metadata/bulk-update/ids | Metadata Attribute update by ids
 *V2025AccessModelMetadataApi* | [**Update-V2025AccessModelMetadataByQuery**](docs/V2025AccessModelMetadataApi.md#Update-V2025AccessModelMetadataByQuery) | **POST** /access-model-metadata/bulk-update/query | Metadata Attribute update by query

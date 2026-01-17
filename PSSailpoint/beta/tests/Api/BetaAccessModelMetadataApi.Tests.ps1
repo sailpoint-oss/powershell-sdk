@@ -6,6 +6,22 @@
 #
 
 Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAccessModelMetadataApi' {
+    Context 'New-BetaAccessModelMetadataAttribute' {
+        It 'Test New-BetaAccessModelMetadataAttribute' {
+            #$TestResult = New-BetaAccessModelMetadataAttribute -AttributeDTO "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'New-BetaAccessModelMetadataAttributeValue' {
+        It 'Test New-BetaAccessModelMetadataAttributeValue' {
+            #$TestResult = New-BetaAccessModelMetadataAttributeValue -Key "TEST_VALUE" -AttributeValueDTO "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-BetaAccessModelMetadataAttribute' {
         It 'Test Get-BetaAccessModelMetadataAttribute' {
             #$TestResult = Get-BetaAccessModelMetadataAttribute -Key "TEST_VALUE"
@@ -24,7 +40,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAccessModelMetadataApi' {
 
     Context 'Get-BetaAccessModelMetadataAttribute' {
         It 'Test Get-BetaAccessModelMetadataAttribute' {
-            #$TestResult = Get-BetaAccessModelMetadataAttribute -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-BetaAccessModelMetadataAttribute -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +48,23 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaAccessModelMetadataApi' {
 
     Context 'Get-BetaAccessModelMetadataAttributeValue' {
         It 'Test Get-BetaAccessModelMetadataAttributeValue' {
-            #$TestResult = Get-BetaAccessModelMetadataAttributeValue -Key "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult = Get-BetaAccessModelMetadataAttributeValue -Key "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-BetaAccessModelMetadataAttribute' {
+        It 'Test Update-BetaAccessModelMetadataAttribute' {
+            #$TestResult = Update-BetaAccessModelMetadataAttribute -Key "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-BetaAccessModelMetadataAttributeValue' {
+        It 'Test Update-BetaAccessModelMetadataAttributeValue' {
+            #$TestResult = Update-BetaAccessModelMetadataAttributeValue -Key "TEST_VALUE" -Value "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

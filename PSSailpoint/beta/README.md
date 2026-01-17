@@ -53,10 +53,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*BetaAccessModelMetadataApi* | [**New-BetaAccessModelMetadataAttribute**](docs/BetaAccessModelMetadataApi.md#New-BetaAccessModelMetadataAttribute) | **POST** /access-model-metadata/attributes | Create access model metadata attribute
+*BetaAccessModelMetadataApi* | [**New-BetaAccessModelMetadataAttributeValue**](docs/BetaAccessModelMetadataApi.md#New-BetaAccessModelMetadataAttributeValue) | **POST** /access-model-metadata/attributes/{key}/values | Create access model metadata value
 *BetaAccessModelMetadataApi* | [**Get-BetaAccessModelMetadataAttribute**](docs/BetaAccessModelMetadataApi.md#Get-BetaAccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes/{key} | Get access model metadata attribute
 *BetaAccessModelMetadataApi* | [**Get-BetaAccessModelMetadataAttributeValue**](docs/BetaAccessModelMetadataApi.md#Get-BetaAccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values/{value} | Get access model metadata value
 *BetaAccessModelMetadataApi* | [**Get-BetaAccessModelMetadataAttribute**](docs/BetaAccessModelMetadataApi.md#Get-BetaAccessModelMetadataAttribute) | **GET** /access-model-metadata/attributes | List access model metadata attributes
 *BetaAccessModelMetadataApi* | [**Get-BetaAccessModelMetadataAttributeValue**](docs/BetaAccessModelMetadataApi.md#Get-BetaAccessModelMetadataAttributeValue) | **GET** /access-model-metadata/attributes/{key}/values | List access model metadata values
+*BetaAccessModelMetadataApi* | [**Update-BetaAccessModelMetadataAttribute**](docs/BetaAccessModelMetadataApi.md#Update-BetaAccessModelMetadataAttribute) | **PATCH** /access-model-metadata/attributes/{key} | Update access model metadata attribute
+*BetaAccessModelMetadataApi* | [**Update-BetaAccessModelMetadataAttributeValue**](docs/BetaAccessModelMetadataApi.md#Update-BetaAccessModelMetadataAttributeValue) | **PATCH** /access-model-metadata/attributes/{key}/values/{value} | Update access model metadata value
 *BetaAccessProfilesApi* | [**New-BetaAccessProfile**](docs/BetaAccessProfilesApi.md#New-BetaAccessProfile) | **POST** /access-profiles | Create access profile
 *BetaAccessProfilesApi* | [**Remove-BetaAccessProfile**](docs/BetaAccessProfilesApi.md#Remove-BetaAccessProfile) | **DELETE** /access-profiles/{id} | Delete the specified access profile
 *BetaAccessProfilesApi* | [**Remove-BetaAccessProfilesInBulk**](docs/BetaAccessProfilesApi.md#Remove-BetaAccessProfilesInBulk) | **POST** /access-profiles/bulk-delete | Delete access profile(s)

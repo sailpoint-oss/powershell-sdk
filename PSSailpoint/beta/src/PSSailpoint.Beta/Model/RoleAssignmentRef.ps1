@@ -20,6 +20,8 @@ Assignment Id
 No description available.
 .PARAMETER AddedDate
 Date that the assignment was added
+.PARAMETER RemoveDate
+Date that the assignment will be removed
 .OUTPUTS
 
 RoleAssignmentRef<PSCustomObject>
@@ -36,7 +38,10 @@ function Initialize-BetaRoleAssignmentRef {
         ${Role},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${AddedDate}
+        ${AddedDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${RemoveDate}
     )
 
     Process {
@@ -48,6 +53,7 @@ function Initialize-BetaRoleAssignmentRef {
             "id" = ${Id}
             "role" = ${Role}
             "addedDate" = ${AddedDate}
+            "removeDate" = ${RemoveDate}
         }
 
         return $PSO
@@ -84,7 +90,7 @@ function ConvertFrom-BetaJsonToRoleAssignmentRef {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleAssignmentRef
-        $AllProperties = ("id", "role", "addedDate")
+        $AllProperties = ("id", "role", "addedDate", "removeDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -109,10 +115,17 @@ function ConvertFrom-BetaJsonToRoleAssignmentRef {
             $AddedDate = $JsonParameters.PSobject.Properties["addedDate"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "removeDate"))) { #optional property not found
+            $RemoveDate = $null
+        } else {
+            $RemoveDate = $JsonParameters.PSobject.Properties["removeDate"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "role" = ${Role}
             "addedDate" = ${AddedDate}
+            "removeDate" = ${RemoveDate}
         }
 
         return $PSO

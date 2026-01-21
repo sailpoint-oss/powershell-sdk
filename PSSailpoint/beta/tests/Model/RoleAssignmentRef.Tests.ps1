@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaRoleAssignmentRef' {
     Context 'BetaRoleAssignmentRef' {
         It 'Initialize-BetaRoleAssignmentRef' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaRoleAssignmentRef -Id "TEST_VALUE" -Role "TEST_VALUE" -AddedDate "TEST_VALUE"
+            #$NewObject = Initialize-BetaRoleAssignmentRef -Id "TEST_VALUE" -Role "TEST_VALUE" -AddedDate "TEST_VALUE" -RemoveDate "TEST_VALUE"
             #$NewObject | Should -BeOfType RoleAssignmentRef
             #$NewObject.property | Should -Be 0
         }

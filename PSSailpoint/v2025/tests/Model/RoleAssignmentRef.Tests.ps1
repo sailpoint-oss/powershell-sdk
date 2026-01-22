@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025RoleAssignmentRef' {
     Context 'V2025RoleAssignmentRef' {
         It 'Initialize-V2025RoleAssignmentRef' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025RoleAssignmentRef -Id "TEST_VALUE" -Role "TEST_VALUE" -AddedDate "TEST_VALUE"
+            #$NewObject = Initialize-V2025RoleAssignmentRef -Id "TEST_VALUE" -Role "TEST_VALUE" -AddedDate "TEST_VALUE" -RemoveDate "TEST_VALUE"
             #$NewObject | Should -BeOfType RoleAssignmentRef
             #$NewObject.property | Should -Be 0
         }

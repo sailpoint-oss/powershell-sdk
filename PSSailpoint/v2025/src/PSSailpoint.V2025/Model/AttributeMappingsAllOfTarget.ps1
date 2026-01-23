@@ -29,7 +29,7 @@ function Initialize-V2025AttributeMappingsAllOfTarget {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("IDENTITY")]
+        [ValidateSet("ACCOUNT", "IDENTITY", "OWNER_ACCOUNT", "OWNER_IDENTITY")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

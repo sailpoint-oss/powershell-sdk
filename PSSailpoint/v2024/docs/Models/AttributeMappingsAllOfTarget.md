@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AttributeMappingsAllOfTarget', 'V2024
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **Enum** [  "IDENTITY" ] | The type of target entity | [optional] 
+**Type** |  **Enum** [  "ACCOUNT",    "IDENTITY",    "OWNER_ACCOUNT",    "OWNER_IDENTITY" ] | The type of target entity | [optional] 
 **AttributeName** | **String** | Name of the targeted attribute | [optional] 
 **SourceId** | **String** | The ID of Source | [optional] 
 

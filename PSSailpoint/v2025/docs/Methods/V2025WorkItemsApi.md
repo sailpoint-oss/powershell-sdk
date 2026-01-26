@@ -189,9 +189,6 @@ try {
 [[Back to top]](#) 
 
 ## forward-work-item
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/forward-work-item)
@@ -200,7 +197,6 @@ This API forwards a work item to a new owner. Either an admin, or the owning/cur
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the work item
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | WorkItemForward | [**WorkItemForward**](../models/work-item-forward) | True  | 
 
 ### Return type
@@ -223,7 +219,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $WorkItemForward = @"{
   "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
   "comment" : "I'm going on vacation.",
@@ -234,10 +229,10 @@ $WorkItemForward = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToWorkItemForward -Json $WorkItemForward
-    Invoke-V2025ForwardWorkItem -Id $Id -XSailPointExperimental $XSailPointExperimental -WorkItemForward $Result 
+    Invoke-V2025ForwardWorkItem -Id $Id -WorkItemForward $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2025ForwardWorkItem -Id $Id -XSailPointExperimental $XSailPointExperimental -WorkItemForward $Result  
+    # Invoke-V2025ForwardWorkItem -Id $Id -WorkItemForward $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2025ForwardWorkItem"
     Write-Host $_.ErrorDetails
@@ -297,9 +292,6 @@ try {
 [[Back to top]](#) 
 
 ## get-count-completed-work-items
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-count-completed-work-items)
@@ -307,7 +299,6 @@ This gets a count of completed work items belonging to either the specified user
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | OwnerId | **String** |   (optional) | ID of the work item owner.
 
 ### Return type
@@ -327,16 +318,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
 
 # Count completed work items
 
 try {
-    Get-V2025CountCompletedWorkItems -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025CountCompletedWorkItems 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025CountCompletedWorkItems -XSailPointExperimental $XSailPointExperimental -OwnerId $OwnerId  
+    # Get-V2025CountCompletedWorkItems -OwnerId $OwnerId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025CountCompletedWorkItems"
     Write-Host $_.ErrorDetails

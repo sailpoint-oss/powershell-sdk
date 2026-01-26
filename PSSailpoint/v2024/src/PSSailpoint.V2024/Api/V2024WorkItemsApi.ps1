@@ -271,9 +271,6 @@ This API forwards a work item to a new owner. Either an admin, or the owning/cur
 .PARAMETER Id
 The ID of the work item
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WorkItemForward
 No description available.
 
@@ -292,9 +289,6 @@ function Invoke-V2024ForwardWorkItem {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${WorkItemForward},
         [Switch]
@@ -325,11 +319,6 @@ function Invoke-V2024ForwardWorkItem {
             throw "Error! The required parameter `Id` missing when calling forwardWorkItem."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling forwardWorkItem."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$WorkItemForward) {
             throw "Error! The required parameter `WorkItemForward` missing when calling forwardWorkItem."
@@ -483,9 +472,6 @@ Count completed work items
 
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER OwnerId
 ID of the work item owner.
 
@@ -501,9 +487,6 @@ function Get-V2024CountCompletedWorkItems {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${OwnerId},
         [Switch]
@@ -527,11 +510,6 @@ function Get-V2024CountCompletedWorkItems {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/work-items/completed/count'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getCountCompletedWorkItems."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($OwnerId) {
             $LocalVarQueryParameters['ownerId'] = $OwnerId

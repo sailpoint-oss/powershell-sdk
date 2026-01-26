@@ -18429,7 +18429,6 @@
       label: SDK_tools/sdk/powershell/v2024/methods/work-items#forward-work-item
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $WorkItemForward = @"
         {
           "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
@@ -18442,10 +18441,10 @@
         
         try {
             $Result = ConvertFrom-V2024JsonToWorkItemForward -Json $WorkItemForward
-            Invoke-V2024ForwardWorkItem -Id $Id -XSailPointExperimental $XSailPointExperimental -WorkItemForward $Result 
+            Invoke-V2024ForwardWorkItem -Id $Id -WorkItemForward $Result 
     
             # Below is a request that includes all optional parameters
-            # Invoke-V2024ForwardWorkItem -Id $Id -XSailPointExperimental $XSailPointExperimental -WorkItemForward $Result   
+            # Invoke-V2024ForwardWorkItem -Id $Id -WorkItemForward $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024ForwardWorkItem"
             Write-Host $_.ErrorDetails
@@ -18478,16 +18477,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/work-items#get-count-completed-work-items
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
         
         # Count completed work items
         
         try {
-            Get-V2024CountCompletedWorkItems -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024CountCompletedWorkItems 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024CountCompletedWorkItems -XSailPointExperimental $XSailPointExperimental -OwnerId $OwnerId   
+            # Get-V2024CountCompletedWorkItems -OwnerId $OwnerId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CountCompletedWorkItems"
             Write-Host $_.ErrorDetails

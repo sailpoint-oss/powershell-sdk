@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024WorkItemsApi' {
 
     Context 'Invoke-V2024ForwardWorkItem' {
         It 'Test Invoke-V2024ForwardWorkItem' {
-            #$TestResult = Invoke-V2024ForwardWorkItem -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -WorkItemForward "TEST_VALUE"
+            #$TestResult = Invoke-V2024ForwardWorkItem -Id "TEST_VALUE" -WorkItemForward "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024WorkItemsApi' {
 
     Context 'Get-V2024CountCompletedWorkItems' {
         It 'Test Get-V2024CountCompletedWorkItems' {
-            #$TestResult = Get-V2024CountCompletedWorkItems -XSailPointExperimental "TEST_VALUE" -OwnerId "TEST_VALUE"
+            #$TestResult = Get-V2024CountCompletedWorkItems -OwnerId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

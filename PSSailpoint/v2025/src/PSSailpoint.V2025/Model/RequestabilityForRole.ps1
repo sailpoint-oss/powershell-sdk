@@ -20,6 +20,10 @@ Whether the requester of the containing object must provide comments justifying 
 Whether an approver must provide comments when denying the request
 .PARAMETER ReauthorizationRequired
 Indicates whether reauthorization is required for the request.
+.PARAMETER RequireEndDate
+Indicates whether the requester of the containing object must provide access end date.
+.PARAMETER MaxPermittedAccessDuration
+No description available.
 .PARAMETER ApprovalSchemes
 List describing the steps in approving the request
 .PARAMETER DimensionSchema
@@ -42,6 +46,12 @@ function Initialize-V2025RequestabilityForRole {
         [System.Nullable[Boolean]]
         ${ReauthorizationRequired} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${RequireEndDate} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${MaxPermittedAccessDuration},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${ApprovalSchemes},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -58,6 +68,8 @@ function Initialize-V2025RequestabilityForRole {
             "commentsRequired" = ${CommentsRequired}
             "denialCommentsRequired" = ${DenialCommentsRequired}
             "reauthorizationRequired" = ${ReauthorizationRequired}
+            "requireEndDate" = ${RequireEndDate}
+            "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
             "approvalSchemes" = ${ApprovalSchemes}
             "dimensionSchema" = ${DimensionSchema}
         }
@@ -96,7 +108,7 @@ function ConvertFrom-V2025JsonToRequestabilityForRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025RequestabilityForRole
-        $AllProperties = ("commentsRequired", "denialCommentsRequired", "reauthorizationRequired", "approvalSchemes", "dimensionSchema")
+        $AllProperties = ("commentsRequired", "denialCommentsRequired", "reauthorizationRequired", "requireEndDate", "maxPermittedAccessDuration", "approvalSchemes", "dimensionSchema")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -121,6 +133,18 @@ function ConvertFrom-V2025JsonToRequestabilityForRole {
             $ReauthorizationRequired = $JsonParameters.PSobject.Properties["reauthorizationRequired"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requireEndDate"))) { #optional property not found
+            $RequireEndDate = $null
+        } else {
+            $RequireEndDate = $JsonParameters.PSobject.Properties["requireEndDate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "maxPermittedAccessDuration"))) { #optional property not found
+            $MaxPermittedAccessDuration = $null
+        } else {
+            $MaxPermittedAccessDuration = $JsonParameters.PSobject.Properties["maxPermittedAccessDuration"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvalSchemes"))) { #optional property not found
             $ApprovalSchemes = $null
         } else {
@@ -137,6 +161,8 @@ function ConvertFrom-V2025JsonToRequestabilityForRole {
             "commentsRequired" = ${CommentsRequired}
             "denialCommentsRequired" = ${DenialCommentsRequired}
             "reauthorizationRequired" = ${ReauthorizationRequired}
+            "requireEndDate" = ${RequireEndDate}
+            "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
             "approvalSchemes" = ${ApprovalSchemes}
             "dimensionSchema" = ${DimensionSchema}
         }

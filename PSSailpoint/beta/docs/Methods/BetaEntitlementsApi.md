@@ -98,7 +98,7 @@ Path   | AttributeValue | **String** | True  | Technical name of the Attribute V
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | OK | Entitlement
+201 | Created | Entitlement
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto

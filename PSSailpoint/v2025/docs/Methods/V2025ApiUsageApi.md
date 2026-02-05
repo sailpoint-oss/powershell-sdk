@@ -27,7 +27,7 @@ Method | HTTP request | Description
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-This API gets an aggregated number of all API calls from an org in a given timespan.
+This API gets an aggregated number of all API calls from an org in a specific timespan. Unless specified, the results are aggregated between the first day of the current month and today.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-total-count)
 
@@ -77,7 +77,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-This API gets a list of APIs called by the org in a specific timespan, sorted by number of calls.
+This API gets a list of APIs called by the org in a specific timespan, sorted by number of calls. Unless specified,  the results are aggregated between the first day of the current month and today.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-api-summary)
 
@@ -95,7 +95,7 @@ Param Type | Name | Data Type | Required  | Description
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List API calls sorted by number of requests. | SummaryResponse[]
+200 | A list of API calls sorted by number of requests. | SummaryResponse[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto

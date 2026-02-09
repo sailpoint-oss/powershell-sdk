@@ -18,8 +18,8 @@ No description available.
 No description available.
 .PARAMETER AccountInfo
 No description available.
-.PARAMETER RoleName
-Specific role name for this target if using multiple accounts
+.PARAMETER Role
+No description available.
 .OUTPUTS
 
 RoleTargetDto<PSCustomObject>
@@ -35,8 +35,8 @@ function Initialize-BetaRoleTargetDto {
         [PSCustomObject]
         ${AccountInfo},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${RoleName}
+        [PSCustomObject]
+        ${Role}
     )
 
     Process {
@@ -47,7 +47,7 @@ function Initialize-BetaRoleTargetDto {
         $PSO = [PSCustomObject]@{
             "source" = ${Source}
             "accountInfo" = ${AccountInfo}
-            "roleName" = ${RoleName}
+            "role" = ${Role}
         }
 
         return $PSO
@@ -84,7 +84,7 @@ function ConvertFrom-BetaJsonToRoleTargetDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleTargetDto
-        $AllProperties = ("source", "accountInfo", "roleName")
+        $AllProperties = ("source", "accountInfo", "role")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -103,16 +103,16 @@ function ConvertFrom-BetaJsonToRoleTargetDto {
             $AccountInfo = $JsonParameters.PSobject.Properties["accountInfo"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "roleName"))) { #optional property not found
-            $RoleName = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "role"))) { #optional property not found
+            $Role = $null
         } else {
-            $RoleName = $JsonParameters.PSobject.Properties["roleName"].value
+            $Role = $JsonParameters.PSobject.Properties["role"].value
         }
 
         $PSO = [PSCustomObject]@{
             "source" = ${Source}
             "accountInfo" = ${AccountInfo}
-            "roleName" = ${RoleName}
+            "role" = ${Role}
         }
 
         return $PSO

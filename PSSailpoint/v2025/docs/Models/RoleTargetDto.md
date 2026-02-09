@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Source** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 **AccountInfo** | [**AccountInfoDto**](account-info-dto) |  | [optional] 
-**RoleName** | **String** | Specific role name for this target if using multiple accounts | [optional] 
+**Role** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
 
 ## Examples
 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ```powershell
 $RoleTargetDto = Initialize-V2025RoleTargetDto  -Source null `
  -AccountInfo null `
- -RoleName Marketing
+ -Role null
 ```
 
 - Convert the resource to JSON

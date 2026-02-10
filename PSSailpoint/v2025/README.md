@@ -616,6 +616,10 @@ Class | Method | HTTP request | Description
 *V2025RoleInsightsApi* | [**Get-V2025RoleInsightsEntitlementsChanges**](docs/V2025RoleInsightsApi.md#Get-V2025RoleInsightsEntitlementsChanges) | **GET** /role-insights/{insightId}/entitlement-changes | Get entitlement insights for a role
 *V2025RoleInsightsApi* | [**Get-V2025RoleInsightsRequests**](docs/V2025RoleInsightsApi.md#Get-V2025RoleInsightsRequests) | **GET** /role-insights/requests/{id} | Returns metadata from prior request.
 *V2025RoleInsightsApi* | [**Get-V2025RoleInsightsSummary**](docs/V2025RoleInsightsApi.md#Get-V2025RoleInsightsSummary) | **GET** /role-insights/summary | Get role insights summary information
+*V2025RolePropagationApi* | [**Suspend-V2025RolePropagation**](docs/V2025RolePropagationApi.md#Suspend-V2025RolePropagation) | **POST** /role-propagation/terminate | Terminate Role Propagation process
+*V2025RolePropagationApi* | [**Get-V2025OngoingRolePropagation**](docs/V2025RolePropagationApi.md#Get-V2025OngoingRolePropagation) | **GET** /role-propagation/is-running | Get ongoing Role Propagation process
+*V2025RolePropagationApi* | [**Get-V2025RolePropagationStatus**](docs/V2025RolePropagationApi.md#Get-V2025RolePropagationStatus) | **GET** /role-propagation/{rolePropagationId}/status | Get status of Role-Propagation process
+*V2025RolePropagationApi* | [**Start-V2025RolePropagation**](docs/V2025RolePropagationApi.md#Start-V2025RolePropagation) | **POST** /role-propagation | Initiate Role Propagation process
 *V2025RolesApi* | [**New-V2025Role**](docs/V2025RolesApi.md#New-V2025Role) | **POST** /roles | Create a role
 *V2025RolesApi* | [**Remove-V2025BulkRoles**](docs/V2025RolesApi.md#Remove-V2025BulkRoles) | **POST** /roles/bulk-delete | Delete role(s)
 *V2025RolesApi* | [**Remove-V2025MetadataFromRoleByKeyAndValue**](docs/V2025RolesApi.md#Remove-V2025MetadataFromRoleByKeyAndValue) | **DELETE** /roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue} | Remove a metadata from role.
@@ -1863,6 +1867,12 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.V2025\Model.RoleMiningSessionScopingMethod](docs/RoleMiningSessionScopingMethod.md)
  - [PSSailpoint.V2025\Model.RoleMiningSessionState](docs/RoleMiningSessionState.md)
  - [PSSailpoint.V2025\Model.RoleMiningSessionStatus](docs/RoleMiningSessionStatus.md)
+ - [PSSailpoint.V2025\Model.RolePropagationOngoingResponse](docs/RolePropagationOngoingResponse.md)
+ - [PSSailpoint.V2025\Model.RolePropagationOngoingResponseRolePropagationDetails](docs/RolePropagationOngoingResponseRolePropagationDetails.md)
+ - [PSSailpoint.V2025\Model.RolePropagationResponse](docs/RolePropagationResponse.md)
+ - [PSSailpoint.V2025\Model.RolePropagationStatusResponse](docs/RolePropagationStatusResponse.md)
+ - [PSSailpoint.V2025\Model.RolePropagationStatusResponseLaunchedBy](docs/RolePropagationStatusResponseLaunchedBy.md)
+ - [PSSailpoint.V2025\Model.RolePropagationStatusResponseTerminatedBy](docs/RolePropagationStatusResponseTerminatedBy.md)
  - [PSSailpoint.V2025\Model.RoleSummary](docs/RoleSummary.md)
  - [PSSailpoint.V2025\Model.RoleTargetDto](docs/RoleTargetDto.md)
  - [PSSailpoint.V2025\Model.Rule](docs/Rule.md)

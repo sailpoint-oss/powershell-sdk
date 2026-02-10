@@ -1023,6 +1023,12 @@ docs/RoleMiningSessionScope.md
 docs/RoleMiningSessionScopingMethod.md
 docs/RoleMiningSessionState.md
 docs/RoleMiningSessionStatus.md
+docs/RolePropagationOngoingResponse.md
+docs/RolePropagationOngoingResponseRolePropagationDetails.md
+docs/RolePropagationResponse.md
+docs/RolePropagationStatusResponse.md
+docs/RolePropagationStatusResponseLaunchedBy.md
+docs/RolePropagationStatusResponseTerminatedBy.md
 docs/RoleSummary.md
 docs/RoleTargetDto.md
 docs/Rule.md
@@ -1417,6 +1423,8 @@ docs/V2025RequestableObjectsApi.md
 docs/V2025RequestableObjectsApideveloperSite_code_examples.yaml
 docs/V2025RoleInsightsApi.md
 docs/V2025RoleInsightsApideveloperSite_code_examples.yaml
+docs/V2025RolePropagationApi.md
+docs/V2025RolePropagationApideveloperSite_code_examples.yaml
 docs/V2025RolesApi.md
 docs/V2025RolesApideveloperSite_code_examples.yaml
 docs/V2025SIMIntegrationsApi.md
@@ -1589,6 +1597,7 @@ src/PSSailpoint.V2025/Api/V2025PublicIdentitiesConfigApi.ps1
 src/PSSailpoint.V2025/Api/V2025ReportsDataExtractionApi.ps1
 src/PSSailpoint.V2025/Api/V2025RequestableObjectsApi.ps1
 src/PSSailpoint.V2025/Api/V2025RoleInsightsApi.ps1
+src/PSSailpoint.V2025/Api/V2025RolePropagationApi.ps1
 src/PSSailpoint.V2025/Api/V2025RolesApi.ps1
 src/PSSailpoint.V2025/Api/V2025SIMIntegrationsApi.ps1
 src/PSSailpoint.V2025/Api/V2025SODPoliciesApi.ps1
@@ -2634,6 +2643,12 @@ src/PSSailpoint.V2025/Model/RoleMiningSessionScope.ps1
 src/PSSailpoint.V2025/Model/RoleMiningSessionScopingMethod.ps1
 src/PSSailpoint.V2025/Model/RoleMiningSessionState.ps1
 src/PSSailpoint.V2025/Model/RoleMiningSessionStatus.ps1
+src/PSSailpoint.V2025/Model/RolePropagationOngoingResponse.ps1
+src/PSSailpoint.V2025/Model/RolePropagationOngoingResponseRolePropagationDetails.ps1
+src/PSSailpoint.V2025/Model/RolePropagationResponse.ps1
+src/PSSailpoint.V2025/Model/RolePropagationStatusResponse.ps1
+src/PSSailpoint.V2025/Model/RolePropagationStatusResponseLaunchedBy.ps1
+src/PSSailpoint.V2025/Model/RolePropagationStatusResponseTerminatedBy.ps1
 src/PSSailpoint.V2025/Model/RoleSummary.ps1
 src/PSSailpoint.V2025/Model/RoleTargetDto.ps1
 src/PSSailpoint.V2025/Model/Rule.ps1
@@ -3009,6 +3024,7 @@ tests/Api/V2025PublicIdentitiesConfigApi.Tests.ps1
 tests/Api/V2025ReportsDataExtractionApi.Tests.ps1
 tests/Api/V2025RequestableObjectsApi.Tests.ps1
 tests/Api/V2025RoleInsightsApi.Tests.ps1
+tests/Api/V2025RolePropagationApi.Tests.ps1
 tests/Api/V2025RolesApi.Tests.ps1
 tests/Api/V2025SIMIntegrationsApi.Tests.ps1
 tests/Api/V2025SODPoliciesApi.Tests.ps1
@@ -4053,6 +4069,12 @@ tests/Model/RoleMiningSessionScope.Tests.ps1
 tests/Model/RoleMiningSessionScopingMethod.Tests.ps1
 tests/Model/RoleMiningSessionState.Tests.ps1
 tests/Model/RoleMiningSessionStatus.Tests.ps1
+tests/Model/RolePropagationOngoingResponse.Tests.ps1
+tests/Model/RolePropagationOngoingResponseRolePropagationDetails.Tests.ps1
+tests/Model/RolePropagationResponse.Tests.ps1
+tests/Model/RolePropagationStatusResponse.Tests.ps1
+tests/Model/RolePropagationStatusResponseLaunchedBy.Tests.ps1
+tests/Model/RolePropagationStatusResponseTerminatedBy.Tests.ps1
 tests/Model/RoleSummary.Tests.ps1
 tests/Model/RoleTargetDto.Tests.ps1
 tests/Model/Rule.Tests.ps1

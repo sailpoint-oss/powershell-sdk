@@ -12,7 +12,7 @@ Enum AccessRequestType.
 
 .DESCRIPTION
 
-Access request type. Defaults to GRANT_ACCESS. REVOKE_ACCESS type can only have a single Identity ID in the requestedFor field.
+Access request type. Defaults to GRANT_ACCESS. REVOKE_ACCESS type can only have a single Identity ID in the requestedFor field. MODIFY_ACCESS type is used for updating access expiration dates or other access modifications.
 #>
 
 enum AccessRequestType {
@@ -20,5 +20,7 @@ enum AccessRequestType {
     GRANT_ACCESS
     # enum value: "REVOKE_ACCESS"
     REVOKE_ACCESS
+    # enum value: "MODIFY_ACCESS"
+    MODIFY_ACCESS
 }
 

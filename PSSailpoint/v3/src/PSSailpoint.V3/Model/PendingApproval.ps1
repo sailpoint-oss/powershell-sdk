@@ -89,7 +89,7 @@ function Initialize-PendingApproval {
         [System.Nullable[System.DateTime]]
         ${RequestCreated},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS", "")]
+        [ValidateSet("GRANT_ACCESS", "REVOKE_ACCESS", "MODIFY_ACCESS", "")]
         [PSCustomObject]
         ${RequestType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

@@ -726,12 +726,6 @@ Upserts a singular approval configuration that matches the given configID and co
 .PARAMETER ApprovalConfig
 No description available.
 
-.PARAMETER Id
-The ID defined by the scope field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT 
-
-.PARAMETER Scope
-The scope of the field, where [[id]]:[[scope]] is the following:  [[roleID]]:ROLE  [[entitlementID]]:ENTITLEMENT  [[accessProfileID]]:ACCESS_PROFILE  [[sourceID]]:SOURCE  [[applicationID]]:APPLICATION  ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE  ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE  [[tenantID]]:TENANT 
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -746,12 +740,6 @@ function Send-V2025ApprovalsConfig {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${ApprovalConfig},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Scope},
         [Switch]
         $WithHttpInfo
     )
@@ -776,14 +764,6 @@ function Send-V2025ApprovalsConfig {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/generic-approvals/config'
-
-        if ($Id) {
-            $LocalVarQueryParameters['id'] = $Id
-        }
-
-        if ($Scope) {
-            $LocalVarQueryParameters['scope'] = $Scope
-        }
 
         if (!$ApprovalConfig) {
             throw "Error! The required parameter `ApprovalConfig` missing when calling putApprovalsConfig."

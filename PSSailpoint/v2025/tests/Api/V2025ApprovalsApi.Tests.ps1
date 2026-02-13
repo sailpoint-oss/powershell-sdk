@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
 
     Context 'Send-V2025ApprovalsConfig' {
         It 'Test Send-V2025ApprovalsConfig' {
-            #$TestResult = Send-V2025ApprovalsConfig -ApprovalConfig "TEST_VALUE" -Id "TEST_VALUE" -Scope "TEST_VALUE"
+            #$TestResult = Send-V2025ApprovalsConfig -ApprovalConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

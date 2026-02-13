@@ -17,9 +17,9 @@ Approval config Object
 .PARAMETER TenantId
 Tenant ID of the approval configuration.
 .PARAMETER Id
-ID of the approval configuration.
+The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 .PARAMETER Scope
-The type/scope of the configuration. Ie DOMAIN_OBJECT, APPROVAL_TYPE, TENANT
+The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 .PARAMETER ReminderConfig
 No description available.
 .PARAMETER EscalationConfig
@@ -85,6 +85,14 @@ function Initialize-V2025ApprovalConfig {
         'Creating PSCustomObject: PSSailpoint.V2025 => V2025ApprovalConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$Id) {
+            throw "invalid value for 'Id', 'Id' cannot be null."
+        }
+
+        if (!$Scope) {
+            throw "invalid value for 'Scope', 'Scope' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
             "tenantId" = ${TenantId}
@@ -141,22 +149,26 @@ function ConvertFrom-V2025JsonToApprovalConfig {
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "scope"))) { #optional property not found
-            $Scope = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "scope"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'scope' missing."
         } else {
             $Scope = $JsonParameters.PSobject.Properties["scope"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
+            $TenantId = $null
+        } else {
+            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "reminderConfig"))) { #optional property not found

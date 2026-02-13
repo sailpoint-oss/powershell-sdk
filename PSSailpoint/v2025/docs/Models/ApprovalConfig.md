@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalConfig', 'V2025ApprovalConfig
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TenantId** | **String** | Tenant ID of the approval configuration. | [optional] 
-**Id** | **String** | ID of the approval configuration. | [optional] 
-**Scope** | **String** | The type/scope of the configuration. Ie DOMAIN_OBJECT, APPROVAL_TYPE, TENANT | [optional] 
+**Id** | **String** | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT | [required]
+**Scope** | **String** | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT | [required]
 **ReminderConfig** | [**ApprovalConfigReminderConfig**](approval-config-reminder-config) |  | [optional] 
 **EscalationConfig** | [**ApprovalConfigEscalationConfig**](approval-config-escalation-config) |  | [optional] 
 **TimeoutConfig** | [**ApprovalConfigTimeoutConfig**](approval-config-timeout-config) |  | [optional] 

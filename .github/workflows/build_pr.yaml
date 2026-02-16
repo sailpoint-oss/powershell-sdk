@@ -11,6 +11,10 @@ on:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: pr-build-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build_powershell_sdk:
     name: Build PowerShell SDK

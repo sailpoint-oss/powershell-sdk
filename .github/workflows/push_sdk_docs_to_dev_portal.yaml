@@ -6,6 +6,10 @@ on:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: docs-sync-${{ github.repository }}
+  cancel-in-progress: true
+
 jobs:
   push_spec_workflow:
     name: Push API spec changes

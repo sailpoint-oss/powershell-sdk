@@ -1,0 +1,53 @@
+name: "Publish PowerShell Module"
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  publish_powershell_sdk:
+    name: Publish PowerShell SDK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Publish Module
+        shell: pwsh
+        run: |
+          $DebugPreference = "Continue"
+          Publish-Module `
+              -Path './PSSailpoint/v3/src/PSSailpoint.V3' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force
+          Publish-Module `
+              -Path './PSSailpoint/beta/src/PSSailpoint.Beta' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force
+          Publish-Module `
+              -Path './PSSailpoint/v2024/src/PSSailpoint.V2024' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force
+          Publish-Module `
+              -Path './PSSailpoint/v2025/src/PSSailpoint.V2025' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force
+          Publish-Module `
+              -Path './PSSailpoint/v2026/src/PSSailpoint.V2026' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force
+
+          Start-Sleep -Seconds 60
+
+          Install-Module -Name 'PSSailpoint.V3' -Force
+          Install-Module -Name 'PSSailpoint.Beta' -Force
+          Install-Module -Name 'PSSailpoint.V2024' -Force
+          Install-Module -Name 'PSSailpoint.V2025' -Force
+          Install-Module -Name 'PSSailpoint.V2026' -Force
+
+          Publish-Module `
+              -Path './PSSailpoint' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force

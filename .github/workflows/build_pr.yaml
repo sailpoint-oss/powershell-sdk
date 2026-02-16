@@ -1,4 +1,4 @@
-name: "Build Powershell SDK"
+name: "Build PowerShell SDK"
 
 env:
   SAIL_CLIENT_ID: ${{ secrets.SDK_TEST_TENANT_CLIENT_ID }}
@@ -13,86 +13,18 @@ on:
 
 jobs:
   build_powershell_sdk:
-    name: Build powershell SDK
+    name: Build PowerShell SDK
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout PR branch
+      - name: Checkout
         uses: actions/checkout@v6
-        with:
-          ref: ${{ github.ref }}
 
-      - name: Checkout API Specs Repo
+      - name: Checkout API Specs
         uses: actions/checkout@v6
         with:
           repository: sailpoint-oss/api-specs
           path: api-specs
           ref: main
 
-      - name: Set up Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: "24"
-      
-      - name: Download OpenAPI Generator
-        run: |
-          wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.11.0/openapi-generator-cli-7.11.0.jar -O openapi-generator-cli.jar
-
-      - name: Run Prescript
-        id: prescript
-        run: |
-          node sdk-resources/prescript.js api-specs/idn
-      - name: Build V2026 SDK
-        id: buildV2026
-        run: |
-          rm -rf ./PSSailpoint/v2026
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2026.yaml -g powershell -o PSSailpoint/v2026 --global-property skipFormModel=false,apiDocs=true,modelDocs=true --config sdk-resources/v2026-config.yaml
-          node sdk-resources/postscript.js ./PSSailpoint/v2026
-
-      - name: Build V2025 SDK
-        id: buildV2025
-        if: steps.buildV2026.outcome == 'success'
-        run: |
-          rm -rf ./PSSailpoint/v2025
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2025.yaml -g powershell -o PSSailpoint/v2025 --global-property skipFormModel=false,apiDocs=true,modelDocs=true --config sdk-resources/v2025-config.yaml
-          node sdk-resources/postscript.js ./PSSailpoint/v2025
-  
-      - name: Build V2024 SDK
-        id: buildV2024
-        if: steps.buildV2025.outcome == 'success'
-        run: |
-          rm -rf ./PSSailpoint/v2024
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2024.yaml -g powershell -o PSSailpoint/v2024 --global-property skipFormModel=false,apiDocs=true,modelDocs=true --config sdk-resources/v2024-config.yaml
-          node sdk-resources/postscript.js ./PSSailpoint/v2024
-
-      - name: Build V3 SDK
-        id: buildV3
-        if: steps.buildV2024.outcome == 'success'
-        run: |
-          rm -rf ./PSSailpoint/v3
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v3.yaml -g powershell -o PSSailpoint/v3 --global-property skipFormModel=false,apiDocs=true,modelDocs=true --config sdk-resources/v3-config.yaml
-          node sdk-resources/postscript.js ./PSSailpoint/v3
-
-      - name: Build Beta SDK
-        id: buildBeta
-        if: steps.buildV3.outcome == 'success'
-        run: |
-          rm -rf ./PSSailpoint/beta
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.beta.yaml -g powershell -o PSSailpoint/beta --global-property skipFormModel=false,apiDocs=true,modelDocs=true --config sdk-resources/beta-config.yaml    
-          node sdk-resources/postscript.js ./PSSailpoint/beta
-
-      - name: After SDK Build
-        if: steps.buildBeta.outcome == 'success'
-        shell: pwsh
-        run: |
-          $DebugPreference="Continue"
-          Import-Module -Name '.\PSSailpoint\beta\src\PSSailpoint.Beta' -Verbose
-          Import-Module -Name '.\PSSailpoint\v3\src\PSSailpoint.V3' -Verbose
-          Import-Module -Name '.\PSSailpoint\v2024\src\PSSailpoint.V2024' -Verbose
-          Import-Module -Name '.\PSSailpoint\v2025\src\PSSailpoint.V2025' -Verbose
-          Import-Module -Name '.\PSSailpoint\v2026\src\PSSailpoint.V2026' -Verbose
-
-          . .\PSSailpoint\Configuration.ps1
-          . .\PSSailpoint\Pagination.ps1
-
-          Install-Module -Name Pester -Force
-          Invoke-Pester -Output Detailed ./PSSailpoint/tests/
+      - name: Build SDK
+        uses: ./.github/actions/build-sdk

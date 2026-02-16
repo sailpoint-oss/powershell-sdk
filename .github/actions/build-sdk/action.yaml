@@ -94,7 +94,7 @@ runs:
         ./PSSailpoint/v2025/Build.ps1
         ./PSSailpoint/v2026/Build.ps1
 
-    - name: Import and Validate Modules
+    - name: Import Modules and Run Tests
       shell: pwsh
       run: |
         $DebugPreference = "Continue"
@@ -105,10 +105,7 @@ runs:
         Import-Module -Name '.\PSSailpoint\v2026\src\PSSailpoint.V2026' -Verbose
         . .\PSSailpoint\Configuration.ps1
         . .\PSSailpoint\Pagination.ps1
-
-    - name: Run Tests
-      if: inputs.skip-tests != 'true'
-      shell: pwsh
-      run: |
-        Install-Module -Name Pester -Force
-        Invoke-Pester -Output Detailed ./PSSailpoint/tests/
+        if ("${{ inputs.skip-tests }}" -ne "true") {
+          Install-Module -Name Pester -Force
+          Invoke-Pester -Output Detailed ./PSSailpoint/tests/
+        }

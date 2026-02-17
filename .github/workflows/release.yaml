@@ -1,52 +1,162 @@
-name: "Publish Powershell Module"
+name: "Release PowerShell SDK"
+
+run-name: >-
+  ${{
+    github.event_name == 'workflow_dispatch' && github.event.inputs.version != ''
+      && format('Release PowerShell SDK v{0}', github.event.inputs.version)
+      || 'Release PowerShell SDK (auto)'
+  }}
 
 on:
-  release:
-    types: [published]
   workflow_dispatch:
-  workflow_call:
-  
+    inputs:
+      version:
+        description: "The version to release (e.g. 1.8.0). Leave empty to auto-increment patch."
+        required: false
+  repository_dispatch:
+    types: [api-specs-updated]
+  schedule:
+    - cron: "0 8 * * 1-5"
+
+concurrency:
+  group: release-${{ github.repository }}
+  cancel-in-progress: false
+
+env:
+  SAIL_CLIENT_ID: ${{ secrets.SDK_TEST_TENANT_CLIENT_ID }}
+  SAIL_CLIENT_SECRET: ${{ secrets.SDK_TEST_TENANT_CLIENT_SECRET }}
+  SAIL_BASE_URL: ${{ secrets.SDK_TEST_TENANT_BASE_URL }}
+
 jobs:
-  publish_powershell_sdk:
-    name: Publish powershell SDK
+  check-changes:
+    name: Check for spec changes
     runs-on: ubuntu-latest
+    outputs:
+      proceed: ${{ steps.check.outputs.proceed }}
     steps:
-      - name: Checkout PR branch
+      - name: Checkout SDK
+        if: github.event_name == 'schedule'
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.ref }}
+          fetch-depth: 0
 
+      - name: Checkout API Specs
+        if: github.event_name == 'schedule'
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/api-specs
+          path: api-specs
+          ref: main
 
-      - name: Publish Module
-        shell: pwsh
+      - name: Determine whether to proceed
+        id: check
+        shell: bash
         run: |
-          $DebugPreference="Continue"
-          Publish-Module `
-              -Path './PSSailpoint/beta/src/PSSailpoint.Beta' `
-              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
-              -Verbose -Force
-          Publish-Module `
-              -Path './PSSailpoint/v3/src/PSSailpoint.V3' `
-              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
-              -Verbose -Force
-          Publish-Module `
-              -Path './PSSailpoint/v2024/src/PSSailpoint.V2024' `
-              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
-              -Verbose -Force
-          Publish-Module `
-              -Path './PSSailpoint/v2025/src/PSSailpoint.V2025' `
-              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
-              -Verbose -Force
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
 
-          Start-Sleep -Seconds 60
-          
-          Install-Module -Name 'PSSailpoint.Beta' -Force
-          Install-Module -Name 'PSSailpoint.V3' -Force
-          Install-Module -Name 'PSSailpoint.V2024' -Force  
-          Install-Module -Name 'PSSailpoint.V2025' -Force
-          Install-Module -Name 'PSSailpoint.V2026' -Force
-          
-          Publish-Module `
-              -Path './PSSailpoint' `
-              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
-              -Verbose -Force
+          LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
+          TAG_DATE=$(git log -1 --format=%aI "$LATEST_TAG" 2>/dev/null || echo "1970-01-01")
+          SPEC_CHANGES=$(cd api-specs && git log --after="$TAG_DATE" --oneline | wc -l)
+
+          if [ "$SPEC_CHANGES" -eq 0 ]; then
+            echo "No spec changes since $LATEST_TAG ($TAG_DATE). Skipping release."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Found $SPEC_CHANGES spec changes since $LATEST_TAG. Proceeding."
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  release:
+    name: Release PowerShell SDK
+    needs: check-changes
+    if: needs.check-changes.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
+
+      - name: Checkout API Specs
+        uses: actions/checkout@v6
+        with:
+          repository: sailpoint-oss/api-specs
+          path: api-specs
+          ref: main
+
+      - name: Set up yq
+        uses: frenck/action-setup-yq@v1
+
+      - name: Determine version
+        id: version
+        shell: bash
+        run: |
+          LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
+          LATEST_VERSION="${LATEST_TAG#v}"
+          echo "latest=$LATEST_VERSION" >> "$GITHUB_OUTPUT"
+
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            NEW_VERSION="${{ github.event.inputs.version }}"
+          else
+            IFS='.' read -r MAJOR MINOR PATCH <<< "$LATEST_VERSION"
+            PATCH=$((PATCH + 1))
+            NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+          fi
+
+          function ver { printf "%03d%03d%03d%03d" $(echo "$1" | tr '.' ' '); }
+          if [ "$(ver "$LATEST_VERSION")" -ge "$(ver "$NEW_VERSION")" ]; then
+            echo "::error::New version $NEW_VERSION is not greater than current version $LATEST_VERSION"
+            exit 1
+          fi
+
+          echo "new=$NEW_VERSION" >> "$GITHUB_OUTPUT"
+          echo "Releasing version $NEW_VERSION (previous: $LATEST_VERSION)"
+
+      - name: Update config files with new version
+        shell: bash
+        run: |
+          VERSION="${{ steps.version.outputs.new }}"
+          yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v3-config.yaml
+          yq -i ".packageVersion = \"$VERSION\"" sdk-resources/beta-config.yaml
+          yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2024-config.yaml
+          yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2025-config.yaml
+          yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2026-config.yaml
+
+      - name: Update Build.ps1 ModuleVersion
+        shell: bash
+        run: |
+          LATEST="${{ steps.version.outputs.latest }}"
+          NEW="${{ steps.version.outputs.new }}"
+          LATEST_ESCAPED="${LATEST//./\\.}"
+          cd PSSailpoint
+          sed -e "s/ModuleVersion     = '${LATEST_ESCAPED}'/ModuleVersion     = '${NEW}'/g" Build.ps1 > Build.ps1.tmp && mv Build.ps1.tmp Build.ps1
+          sed -e "s/RequiredVersion = '${LATEST_ESCAPED}'/RequiredVersion = '${NEW}'/g" Build.ps1 > Build.ps1.tmp && mv Build.ps1.tmp Build.ps1
+
+      - name: Build SDK
+        uses: ./.github/actions/build-sdk
+
+      - name: Commit changes and tag
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "Bump version to v${{ steps.version.outputs.new }}"
+          tagging_message: "v${{ steps.version.outputs.new }}"
+          commit_user_name: developer-relations-sp
+          commit_user_email: devrel-service@sailpoint.com
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: "v${{ steps.version.outputs.new }}"
+          name: "v${{ steps.version.outputs.new }}"
+          draft: false
+          prerelease: false
+          generate_release_notes: true

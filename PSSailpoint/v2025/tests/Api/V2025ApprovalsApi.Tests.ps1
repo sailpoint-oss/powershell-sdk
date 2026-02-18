@@ -30,6 +30,14 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
         }
     }
 
+    Context 'Remove-V2025ApprovalConfigRequest' {
+        It 'Test Remove-V2025ApprovalConfigRequest' {
+            #$TestResult = Remove-V2025ApprovalConfigRequest -Id "TEST_VALUE" -Scope "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2025Approval' {
         It 'Test Get-V2025Approval' {
             #$TestResult = Get-V2025Approval -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
@@ -64,7 +72,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
 
     Context 'Send-V2025ApprovalsConfig' {
         It 'Test Send-V2025ApprovalsConfig' {
-            #$TestResult = Send-V2025ApprovalsConfig -ApprovalConfig "TEST_VALUE"
+            #$TestResult = Send-V2025ApprovalsConfig -Id "TEST_VALUE" -Scope "TEST_VALUE" -ApprovalConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -2093,6 +2093,26 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2025Approval"
             Write-Host $_.ErrorDetails
         }
+- path: /generic-approvals/config/{id}/{scope}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/approvals#delete-approval-config-request
+      source: |
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+        $Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+        
+        # Delete Approval Configuration
+        
+        try {
+            Remove-V2025ApprovalConfigRequest -Id $Id -Scope $Scope 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025ApprovalConfigRequest -Id $Id -Scope $Scope   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025ApprovalConfigRequest"
+            Write-Host $_.ErrorDetails
+        }
 - path: /generic-approvals/{id}
   method: GET
   xCodeSample:
@@ -2189,12 +2209,14 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-V2025Approval"
             Write-Host $_.ErrorDetails
         }
-- path: /generic-approvals/config
+- path: /generic-approvals/config/{id}/{scope}
   method: PUT
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/approvals#put-approvals-config
       source: |
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+        $Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
         $ApprovalConfig = @"
         {
           "timeoutConfig" : {
@@ -2278,10 +2300,10 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToApprovalConfig -Json $ApprovalConfig
-            Send-V2025ApprovalsConfig -ApprovalConfig $Result 
+            Send-V2025ApprovalsConfig -Id $Id -Scope $Scope -ApprovalConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-V2025ApprovalsConfig -ApprovalConfig $Result   
+            # Send-V2025ApprovalsConfig -Id $Id -Scope $Scope -ApprovalConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ApprovalsConfig"
             Write-Host $_.ErrorDetails

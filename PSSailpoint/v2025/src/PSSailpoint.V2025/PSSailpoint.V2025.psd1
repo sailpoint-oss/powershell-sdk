@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.V2025.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.7.3'
+ModuleVersion = '1.7.4'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -112,7 +112,8 @@ FunctionsToExport = 'New-V2025AccessModelMetadataAttribute',
                'Send-V2025ManualDiscoverApplicationsCsvTemplate', 
                'Start-V2025ApplicationDiscovery', 'Approve-V2025Approval', 
                'Approve-V2025ApprovalInBulk', 'Suspend-V2025Approval', 
-               'Get-V2025Approval', 'Get-V2025Approvals', 'Get-V2025ApprovalsConfig', 
+               'Remove-V2025ApprovalConfigRequest', 'Get-V2025Approval', 
+               'Get-V2025Approvals', 'Get-V2025ApprovalsConfig', 
                'Move-V2025Approval', 'Send-V2025ApprovalsConfig', 
                'Deny-V2025Approval', 'Deny-V2025ApprovalInBulk', 
                'Update-V2025ApprovalsAttributes', 'Update-V2025ApprovalsComments', 

@@ -85,14 +85,6 @@ function Initialize-V2025ApprovalConfig {
         'Creating PSCustomObject: PSSailpoint.V2025 => V2025ApprovalConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$Id) {
-            throw "invalid value for 'Id', 'Id' cannot be null."
-        }
-
-        if (!$Scope) {
-            throw "invalid value for 'Scope', 'Scope' cannot be null."
-        }
-
 
         $PSO = [PSCustomObject]@{
             "tenantId" = ${TenantId}
@@ -149,26 +141,22 @@ function ConvertFrom-V2025JsonToApprovalConfig {
             }
         }
 
-        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
-            throw "Error! Empty JSON cannot be serialized due to the required property 'id' missing."
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'id' missing."
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "scope"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'scope' missing."
-        } else {
-            $Scope = $JsonParameters.PSobject.Properties["scope"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
             $TenantId = $null
         } else {
             $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "scope"))) { #optional property not found
+            $Scope = $null
+        } else {
+            $Scope = $JsonParameters.PSobject.Properties["scope"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "reminderConfig"))) { #optional property not found

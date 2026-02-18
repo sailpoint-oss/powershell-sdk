@@ -284,6 +284,91 @@ function Suspend-V2025Approval {
 <#
 .SYNOPSIS
 
+Delete Approval Configuration
+
+.DESCRIPTION
+
+Deletes an approval configuration. Configurations at the APPROVAL_REQUEST scope cannot be deleted.
+
+.PARAMETER Id
+The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+
+.PARAMETER Scope
+The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+None
+#>
+function Remove-V2025ApprovalConfigRequest {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("DOMAIN_OBJECT", "ROLE", "APPLICATION", "ACCESS_PROFILE", "ENTITLEMENT", "APPROVAL_TYPE", "TENANT", "SOURCE")]
+        [String]
+        ${Scope},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Remove-V2025ApprovalConfigRequest' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/generic-approvals/config/{id}/{scope}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling deleteApprovalConfigRequest."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        if (!$Scope) {
+            throw "Error! The required parameter `Scope` missing when calling deleteApprovalConfigRequest."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{scope}', [System.Web.HTTPUtility]::UrlEncode($Scope))
+
+
+
+        $LocalVarResult = Invoke-V2025ApiClient -Method 'DELETE' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Get an approval
 
 .DESCRIPTION
@@ -723,6 +808,12 @@ Put Approval Config
 
 Upserts a singular approval configuration that matches the given configID and configScope. If id and scope are not provided, it will default to setting the tenant config.
 
+.PARAMETER Id
+The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+
+.PARAMETER Scope
+The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE [[sourceID]]:SOURCE [[applicationID]]:APPLICATION ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+
 .PARAMETER ApprovalConfig
 No description available.
 
@@ -738,6 +829,13 @@ function Send-V2025ApprovalsConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("DOMAIN_OBJECT", "ROLE", "APPLICATION", "ACCESS_PROFILE", "ENTITLEMENT", "APPROVAL_TYPE", "TENANT", "SOURCE")]
+        [String]
+        ${Scope},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${ApprovalConfig},
         [Switch]
@@ -763,7 +861,15 @@ function Send-V2025ApprovalsConfig {
         # HTTP header 'Content-Type'
         $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/generic-approvals/config'
+        $LocalVarUri = '/generic-approvals/config/{id}/{scope}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling putApprovalsConfig."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        if (!$Scope) {
+            throw "Error! The required parameter `Scope` missing when calling putApprovalsConfig."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{scope}', [System.Web.HTTPUtility]::UrlEncode($Scope))
 
         if (!$ApprovalConfig) {
             throw "Error! The required parameter `ApprovalConfig` missing when calling putApprovalsConfig."

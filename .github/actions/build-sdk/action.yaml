@@ -19,6 +19,12 @@ runs:
       with:
         node-version: "24"
 
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
     - name: Download OpenAPI Generator
       shell: bash
       run: |

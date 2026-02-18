@@ -152,9 +152,8 @@ jobs:
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
           tag_name: "v${{ steps.version.outputs.new }}"
           name: "v${{ steps.version.outputs.new }}"
           draft: false

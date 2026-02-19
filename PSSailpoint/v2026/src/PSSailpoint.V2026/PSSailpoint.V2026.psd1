@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.V2026.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.7.8'
+ModuleVersion = '1.7.9'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -70,6 +70,10 @@ PowerShellVersion = '6.2'
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = 'Get-V2026AccountDeletionRequests', 'Remove-V2026AccountRequest', 
+               'Get-V2026AccountEntitlements', 'Get-V2026Entitlement', 
+               'Get-V2026EntitlementChildren', 'Get-V2026EntitlementParents', 
+               'Get-V2026Entitlements', 'Update-V2026Entitlement', 
+               'Update-V2026EntitlementsInBulk', 
                'Get-V2026AccountDeleteApprovalConfig', 
                'Update-V2026AccountDeletionApprovalConfig', 
                'Get-V2026MachineAccountDeletionApprovalConfigBySource', 
@@ -84,6 +88,10 @@ FunctionsToExport = 'Get-V2026AccountDeletionRequests', 'Remove-V2026AccountRequ
                'Set-V2026ConfigurationDefaultHeader', 'Get-V2026HostSetting', 
                'Get-V2026UrlFromHostSetting', 'Set-V2026ConfigurationHttpSigning', 
                'Get-V2026ConfigurationHttpSigning', 
+               'Initialize-V2026AccessModelMetadata', 
+               'ConvertFrom-V2026JsonToAccessModelMetadata', 
+               'Initialize-V2026AccessModelMetadataValuesInner', 
+               'ConvertFrom-V2026JsonToAccessModelMetadataValuesInner', 
                'Initialize-V2026AccountActionRequestDto', 
                'ConvertFrom-V2026JsonToAccountActionRequestDto', 
                'Initialize-V2026AccountActionRequestDtoAccountDetails', 
@@ -114,19 +122,30 @@ FunctionsToExport = 'Get-V2026AccountDeletionRequests', 'Remove-V2026AccountRequ
                'ConvertFrom-V2026JsonToArrayInner', 
                'Initialize-V2026BaseReferenceDto', 
                'ConvertFrom-V2026JsonToBaseReferenceDto', 
+               'Initialize-V2026Entitlement', 'ConvertFrom-V2026JsonToEntitlement', 
+               'Initialize-V2026EntitlementAccessModelMetadata', 
+               'ConvertFrom-V2026JsonToEntitlementAccessModelMetadata', 
+               'Initialize-V2026EntitlementBulkUpdateRequest', 
+               'ConvertFrom-V2026JsonToEntitlementBulkUpdateRequest', 
+               'Initialize-V2026EntitlementOwner', 
+               'ConvertFrom-V2026JsonToEntitlementOwner', 
+               'Initialize-V2026EntitlementPrivilegeLevel', 
+               'ConvertFrom-V2026JsonToEntitlementPrivilegeLevel', 
+               'Initialize-V2026EntitlementSource', 
+               'ConvertFrom-V2026JsonToEntitlementSource', 
                'Initialize-V2026ErrorMessageDto', 
                'ConvertFrom-V2026JsonToErrorMessageDto', 
                'Initialize-V2026ErrorResponseDto', 
                'ConvertFrom-V2026JsonToErrorResponseDto', 
-               'Initialize-V2026GetTaskStatus401Response', 
-               'ConvertFrom-V2026JsonToGetTaskStatus401Response', 
-               'Initialize-V2026GetTaskStatus429Response', 
-               'ConvertFrom-V2026JsonToGetTaskStatus429Response', 
                'Initialize-V2026IdentityReference', 
                'ConvertFrom-V2026JsonToIdentityReference', 
                'Initialize-V2026JsonPatchOperation', 
                'ConvertFrom-V2026JsonToJsonPatchOperation', 
                'ConvertFrom-V2026JsonToJsonPatchOperationValue', 
+               'Initialize-V2026ListEntitlements401Response', 
+               'ConvertFrom-V2026JsonToListEntitlements401Response', 
+               'Initialize-V2026ListEntitlements429Response', 
+               'ConvertFrom-V2026JsonToListEntitlements429Response', 
                'Initialize-V2026LocalizedMessage', 
                'ConvertFrom-V2026JsonToLocalizedMessage', 
                'Initialize-V2026MachineAccountSubTypeConfigDto', 
@@ -135,7 +154,9 @@ FunctionsToExport = 'Get-V2026AccountDeletionRequests', 'Remove-V2026AccountRequ
                'ConvertFrom-V2026JsonToMachineAccountSubTypeConfigDtoMachineAccountCreate', 
                'Initialize-V2026MachineAccountSubTypeConfigDtoMachineAccountDelete', 
                'ConvertFrom-V2026JsonToMachineAccountSubTypeConfigDtoMachineAccountDelete', 
-               'Initialize-V2026Target', 'ConvertFrom-V2026JsonToTarget', 
+               'Initialize-V2026PermissionDto', 
+               'ConvertFrom-V2026JsonToPermissionDto', 'Initialize-V2026Target', 
+               'ConvertFrom-V2026JsonToTarget', 
                'Initialize-V2026TaskDefinitionSummary', 
                'ConvertFrom-V2026JsonToTaskDefinitionSummary', 
                'Initialize-V2026TaskReturnDetails', 

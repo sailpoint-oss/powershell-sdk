@@ -18,10 +18,10 @@ No description available.
 A message describing the error
 .OUTPUTS
 
-GetTaskStatus401Response<PSCustomObject>
+ListEntitlements401Response<PSCustomObject>
 #>
 
-function Initialize-V2026GetTaskStatus401Response {
+function Initialize-V2026ListEntitlements401Response {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-V2026GetTaskStatus401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026GetTaskStatus401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026ListEntitlements401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -45,11 +45,11 @@ function Initialize-V2026GetTaskStatus401Response {
 <#
 .SYNOPSIS
 
-Convert from JSON to GetTaskStatus401Response<PSCustomObject>
+Convert from JSON to ListEntitlements401Response<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to GetTaskStatus401Response<PSCustomObject>
+Convert from JSON to ListEntitlements401Response<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,21 +57,21 @@ Json object
 
 .OUTPUTS
 
-GetTaskStatus401Response<PSCustomObject>
+ListEntitlements401Response<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToGetTaskStatus401Response {
+function ConvertFrom-V2026JsonToListEntitlements401Response {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026GetTaskStatus401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026ListEntitlements401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026GetTaskStatus401Response
+        # check if Json contains properties not defined in V2026ListEntitlements401Response
         $AllProperties = ("error")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

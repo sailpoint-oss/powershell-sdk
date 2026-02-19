@@ -12,30 +12,24 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Simplified DTO for the Permission objects stored in SailPoint's database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
 
-.PARAMETER Message
-A message describing the error
 .OUTPUTS
 
-GetTaskStatus429Response<PSCustomObject>
+PermissionDto<PSCustomObject>
 #>
 
-function Initialize-V2026GetTaskStatus429Response {
+function Initialize-V2026PermissionDto {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${Message}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026GetTaskStatus429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026PermissionDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "message" = ${Message}
         }
 
         return $PSO
@@ -45,11 +39,11 @@ function Initialize-V2026GetTaskStatus429Response {
 <#
 .SYNOPSIS
 
-Convert from JSON to GetTaskStatus429Response<PSCustomObject>
+Convert from JSON to PermissionDto<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to GetTaskStatus429Response<PSCustomObject>
+Convert from JSON to PermissionDto<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,36 +51,43 @@ Json object
 
 .OUTPUTS
 
-GetTaskStatus429Response<PSCustomObject>
+PermissionDto<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToGetTaskStatus429Response {
+function ConvertFrom-V2026JsonToPermissionDto {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026GetTaskStatus429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026PermissionDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026GetTaskStatus429Response
-        $AllProperties = ("message")
+        # check if Json contains properties not defined in V2026PermissionDto
+        $AllProperties = ("rights", "target")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "message"))) { #optional property not found
-            $Message = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "rights"))) { #optional property not found
+            $Rights = $null
         } else {
-            $Message = $JsonParameters.PSobject.Properties["message"].value
+            $Rights = $JsonParameters.PSobject.Properties["rights"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "target"))) { #optional property not found
+            $Target = $null
+        } else {
+            $Target = $JsonParameters.PSobject.Properties["target"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "message" = ${Message}
+            "rights" = ${Rights}
+            "target" = ${Target}
         }
 
         return $PSO

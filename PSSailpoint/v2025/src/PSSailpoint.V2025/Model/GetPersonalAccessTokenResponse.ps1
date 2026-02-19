@@ -31,7 +31,9 @@ If true, this token is managed by the SailPoint platform, and is not visible in 
 .PARAMETER AccessTokenValiditySeconds
 Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
 .PARAMETER ExpirationDate
-Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date.
+Date and time, down to the millisecond, when this personal access token will expire. **Important:** When `expirationDate` is `null` or empty, the token will never expire (and `userAwareTokenNeverExpires` will be `true`). When `expirationDate` is provided, this value must be a future date. There is no upper limit on how far in the future the expiration date can be set.
+.PARAMETER UserAwareTokenNeverExpires
+Indicates that the user who created or updated this Personal Access Token is aware of and acknowledges the security implications of creating a token that will never expire. When `true`, this flag confirms that the user understood the security risks associated with non-expiring tokens at the time of creation or update. **Security Awareness:** This field serves as a record that the user acknowledged: * Tokens that never expire pose a greater security risk if compromised * Non-expiring tokens should be used only when necessary and with appropriate security measures * Regular rotation and monitoring of non-expiring tokens is recommended **Behavior:** * When `true`: Indicates that the user acknowledged they were creating a token that will never expire. When `expirationDate` is `null`, the token will never expire. * When `false`: The token follows normal expiration rules based on the `expirationDate` field and `accessTokenValiditySeconds` setting.
 .OUTPUTS
 
 GetPersonalAccessTokenResponse<PSCustomObject>
@@ -66,7 +68,10 @@ function Initialize-V2025GetPersonalAccessTokenResponse {
         ${AccessTokenValiditySeconds} = 43200,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
-        ${ExpirationDate}
+        ${ExpirationDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${UserAwareTokenNeverExpires} = $false
     )
 
     Process {
@@ -100,6 +105,7 @@ function Initialize-V2025GetPersonalAccessTokenResponse {
             "managed" = ${Managed}
             "accessTokenValiditySeconds" = ${AccessTokenValiditySeconds}
             "expirationDate" = ${ExpirationDate}
+            "userAwareTokenNeverExpires" = ${UserAwareTokenNeverExpires}
         }
 
         return $PSO
@@ -136,7 +142,7 @@ function ConvertFrom-V2025JsonToGetPersonalAccessTokenResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025GetPersonalAccessTokenResponse
-        $AllProperties = ("id", "name", "scope", "owner", "created", "lastUsed", "managed", "accessTokenValiditySeconds", "expirationDate")
+        $AllProperties = ("id", "name", "scope", "owner", "created", "lastUsed", "managed", "accessTokenValiditySeconds", "expirationDate", "userAwareTokenNeverExpires")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -201,6 +207,12 @@ function ConvertFrom-V2025JsonToGetPersonalAccessTokenResponse {
             $ExpirationDate = $JsonParameters.PSobject.Properties["expirationDate"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "userAwareTokenNeverExpires"))) { #optional property not found
+            $UserAwareTokenNeverExpires = $null
+        } else {
+            $UserAwareTokenNeverExpires = $JsonParameters.PSobject.Properties["userAwareTokenNeverExpires"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -211,6 +223,7 @@ function ConvertFrom-V2025JsonToGetPersonalAccessTokenResponse {
             "managed" = ${Managed}
             "accessTokenValiditySeconds" = ${AccessTokenValiditySeconds}
             "expirationDate" = ${ExpirationDate}
+            "userAwareTokenNeverExpires" = ${UserAwareTokenNeverExpires}
         }
 
         return $PSO

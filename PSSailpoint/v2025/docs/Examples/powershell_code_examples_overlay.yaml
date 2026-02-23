@@ -14353,6 +14353,238 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025PersonalAccessToken"
             Write-Host $_.ErrorDetails
         }
+- path: /criteria/privilege
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/privilege-criteria#create-custom-privilege-criteria
+      source: |
+        $CreatePrivilegeCriteriaRequest = @"
+        {
+          "sourceId" : "c42c45d8d7c04d2da64d215cd8c32f21",
+          "privilegeLevel" : "HIGH",
+          "groups" : [ {
+            "criteriaItems" : [ {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "targetType" : "group",
+              "operator" : "IN"
+            }, {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "targetType" : "group",
+              "operator" : "IN"
+            } ],
+            "operator" : "AND"
+          }, {
+            "criteriaItems" : [ {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "targetType" : "group",
+              "operator" : "IN"
+            }, {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "targetType" : "group",
+              "operator" : "IN"
+            } ],
+            "operator" : "AND"
+          } ],
+          "type" : "CUSTOM",
+          "operator" : "AND"
+        }
+        "@
+        
+        # Create custom privilege criteria
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToCreatePrivilegeCriteriaRequest -Json $CreatePrivilegeCriteriaRequest
+            New-V2025CustomPrivilegeCriteria -CreatePrivilegeCriteriaRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2025CustomPrivilegeCriteria -CreatePrivilegeCriteriaRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025CustomPrivilegeCriteria"
+            Write-Host $_.ErrorDetails
+        }
+- path: /criteria/privilege/{criteriaId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/privilege-criteria#delete-custom-privilege-criteria
+      source: |
+        $CriteriaId = "6d123044-5834-4e8d-a49f-9c70089b0de1" # String | The Id of the custom privilege criteria to delete.
+        
+        # Delete privilege criteria
+        
+        try {
+            Remove-V2025CustomPrivilegeCriteria -CriteriaId $CriteriaId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025CustomPrivilegeCriteria -CriteriaId $CriteriaId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025CustomPrivilegeCriteria"
+            Write-Host $_.ErrorDetails
+        }
+- path: /criteria/privilege/{criteriaId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/privilege-criteria#get-privilege-criteria
+      source: |
+        $CriteriaId = "6d123044-5834-4e8d-a49f-9c70089b0de1" # String | The Id of the privilege criteria record to return.
+        
+        # Get privilege criteria
+        
+        try {
+            Get-V2025PrivilegeCriteria -CriteriaId $CriteriaId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025PrivilegeCriteria -CriteriaId $CriteriaId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025PrivilegeCriteria"
+            Write-Host $_.ErrorDetails
+        }
+- path: /criteria/privilege
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/privilege-criteria#list-privilege-criteria
+      source: |
+        $Filters = "type eq "CUSTOM" and sourceId eq "c42c45d8d7c04d2da64d215cd8c32f21"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq*  **sourceId**: *eq*  **privilegeLevel**: *eq*  **Supported composite operators**: *and*  All filter values are case-sensitive for this API.  For example, the following is valid: `?filters=type eq ""CUSTOM"" and sourceId eq ""2c91809175e6c63f0175fb5570220569""`
+        
+        # List privilege criteria
+        
+        try {
+            Get-V2025PrivilegeCriteria -Filters $Filters 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025PrivilegeCriteria -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025PrivilegeCriteria"
+            Write-Host $_.ErrorDetails
+        }
+- path: /criteria/privilege/{criteriaId}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/privilege-criteria#put-custom-privilege-criteria-value
+      source: |
+        $CriteriaId = "6d123044-5834-4e8d-a49f-9c70089b0de1" # String | The Id of the privilege criteria record to return.
+        $PrivilegeCriteriaDTO = @"
+        {
+          "sourceId" : "c42c45d8d7c04d2da64d215cd8c32f21",
+          "privilegeLevel" : "HIGH",
+          "groups" : [ {
+            "criteriaItems" : [ {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "property" : "property",
+              "targetType" : "group",
+              "operator" : "IN"
+            }, {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "property" : "property",
+              "targetType" : "group",
+              "operator" : "IN"
+            } ],
+            "operator" : "AND"
+          }, {
+            "criteriaItems" : [ {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "property" : "property",
+              "targetType" : "group",
+              "operator" : "IN"
+            }, {
+              "ignoreCase" : true,
+              "values" : [ "admin", "superuser" ],
+              "property" : "property",
+              "targetType" : "group",
+              "operator" : "IN"
+            } ],
+            "operator" : "AND"
+          } ],
+          "id" : "2c9180867817ac4d017817c491119a20",
+          "type" : "CUSTOM",
+          "operator" : "AND"
+        }
+        "@
+        
+        # Update privilege criteria
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToPrivilegeCriteriaDTO -Json $PrivilegeCriteriaDTO
+            Send-V2025CustomPrivilegeCriteriaValue -CriteriaId $CriteriaId -PrivilegeCriteriaDTO $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2025CustomPrivilegeCriteriaValue -CriteriaId $CriteriaId -PrivilegeCriteriaDTO $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025CustomPrivilegeCriteriaValue"
+            Write-Host $_.ErrorDetails
+        }
+- path: /criteria-config/privilege/{criteriaConfigId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/privilege-criteria-configuration#get-privilege-criteria-config
+      source: |
+        $CriteriaConfigId = "6d123044-5834-4e8d-a49f-9c70089b0de1" # String | The Id of the privilege criteria configuration record to retrieve.
+        
+        # Get privilege criteria config
+        
+        try {
+            Get-V2025PrivilegeCriteriaConfig -CriteriaConfigId $CriteriaConfigId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025PrivilegeCriteriaConfig -CriteriaConfigId $CriteriaConfigId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025PrivilegeCriteriaConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /criteria-config/privilege
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/privilege-criteria-configuration#list-privilege-criteria-config
+      source: |
+        $Filters = "sourceId eq "c42c45d8d7c04d2da64d215cd8c32f21"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  All filter values are case-sensitive for this API.  For example, the following is valid: `?filters=sourceId eq ""2c91809175e6c63f0175fb5570220569""`
+        
+        # List privilege criteria config
+        
+        try {
+            Get-V2025PrivilegeCriteriaConfig -Filters $Filters 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025PrivilegeCriteriaConfig -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025PrivilegeCriteriaConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /criteria-config/privilege/{criteriaConfigId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/privilege-criteria-configuration#patch-privilege-criteria-config
+      source: |
+        $CriteriaConfigId = "6d123044-5834-4e8d-a49f-9c70089b0de1" # String | The Id of the privilege criteria configuration to update.
+        $RequestBody =  # SystemCollectionsHashtable[] | A list of criteria configuration operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        $RequestBody = @"[{op=replace, path=/config/privilegeClassificationMode, value=SINGLE_PRIVILEGE_LEVEL}, {op=replace, path=/config/criteriaPrivilegeLevel/connectorMediumEnabled, value=true}]"@ 
+        
+        
+        # Update privilege criteria configuration
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
+            Update-V2025PrivilegeCriteriaConfig -CriteriaConfigId $CriteriaConfigId -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2025PrivilegeCriteriaConfig -CriteriaConfigId $CriteriaConfigId -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025PrivilegeCriteriaConfig"
+            Write-Host $_.ErrorDetails
+        }
 - path: /public-identities
   method: GET
   xCodeSample:

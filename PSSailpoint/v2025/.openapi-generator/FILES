@@ -401,6 +401,9 @@ docs/CreateOAuthClientRequest.md
 docs/CreateOAuthClientResponse.md
 docs/CreatePersonalAccessTokenRequest.md
 docs/CreatePersonalAccessTokenResponse.md
+docs/CreatePrivilegeCriteriaRequest.md
+docs/CreatePrivilegeCriteriaRequestGroupsInner.md
+docs/CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner.md
 docs/CreateSavedSearchRequest.md
 docs/CreateScheduleRequest.md
 docs/CreateScheduledSearchRequest.md
@@ -853,6 +856,10 @@ docs/PermissionDto.md
 docs/PreApprovalTriggerDetails.md
 docs/PreferencesDto.md
 docs/PreviewDataSourceResponse.md
+docs/PrivilegeCriteriaConfigDTO.md
+docs/PrivilegeCriteriaDTO.md
+docs/PrivilegeCriteriaDTOGroupsInner.md
+docs/PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner.md
 docs/ProcessIdentitiesRequest.md
 docs/ProcessingDetails.md
 docs/Product.md
@@ -1413,6 +1420,10 @@ docs/V2025PasswordSyncGroupsApi.md
 docs/V2025PasswordSyncGroupsApideveloperSite_code_examples.yaml
 docs/V2025PersonalAccessTokensApi.md
 docs/V2025PersonalAccessTokensApideveloperSite_code_examples.yaml
+docs/V2025PrivilegeCriteriaApi.md
+docs/V2025PrivilegeCriteriaApideveloperSite_code_examples.yaml
+docs/V2025PrivilegeCriteriaConfigurationApi.md
+docs/V2025PrivilegeCriteriaConfigurationApideveloperSite_code_examples.yaml
 docs/V2025PublicIdentitiesApi.md
 docs/V2025PublicIdentitiesApideveloperSite_code_examples.yaml
 docs/V2025PublicIdentitiesConfigApi.md
@@ -1592,6 +1603,8 @@ src/PSSailpoint.V2025/Api/V2025PasswordManagementApi.ps1
 src/PSSailpoint.V2025/Api/V2025PasswordPoliciesApi.ps1
 src/PSSailpoint.V2025/Api/V2025PasswordSyncGroupsApi.ps1
 src/PSSailpoint.V2025/Api/V2025PersonalAccessTokensApi.ps1
+src/PSSailpoint.V2025/Api/V2025PrivilegeCriteriaApi.ps1
+src/PSSailpoint.V2025/Api/V2025PrivilegeCriteriaConfigurationApi.ps1
 src/PSSailpoint.V2025/Api/V2025PublicIdentitiesApi.ps1
 src/PSSailpoint.V2025/Api/V2025PublicIdentitiesConfigApi.ps1
 src/PSSailpoint.V2025/Api/V2025ReportsDataExtractionApi.ps1
@@ -2022,6 +2035,9 @@ src/PSSailpoint.V2025/Model/CreateOAuthClientRequest.ps1
 src/PSSailpoint.V2025/Model/CreateOAuthClientResponse.ps1
 src/PSSailpoint.V2025/Model/CreatePersonalAccessTokenRequest.ps1
 src/PSSailpoint.V2025/Model/CreatePersonalAccessTokenResponse.ps1
+src/PSSailpoint.V2025/Model/CreatePrivilegeCriteriaRequest.ps1
+src/PSSailpoint.V2025/Model/CreatePrivilegeCriteriaRequestGroupsInner.ps1
+src/PSSailpoint.V2025/Model/CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner.ps1
 src/PSSailpoint.V2025/Model/CreateSavedSearchRequest.ps1
 src/PSSailpoint.V2025/Model/CreateScheduleRequest.ps1
 src/PSSailpoint.V2025/Model/CreateScheduledSearchRequest.ps1
@@ -2473,6 +2489,10 @@ src/PSSailpoint.V2025/Model/PermissionDto.ps1
 src/PSSailpoint.V2025/Model/PreApprovalTriggerDetails.ps1
 src/PSSailpoint.V2025/Model/PreferencesDto.ps1
 src/PSSailpoint.V2025/Model/PreviewDataSourceResponse.ps1
+src/PSSailpoint.V2025/Model/PrivilegeCriteriaConfigDTO.ps1
+src/PSSailpoint.V2025/Model/PrivilegeCriteriaDTO.ps1
+src/PSSailpoint.V2025/Model/PrivilegeCriteriaDTOGroupsInner.ps1
+src/PSSailpoint.V2025/Model/PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner.ps1
 src/PSSailpoint.V2025/Model/ProcessIdentitiesRequest.ps1
 src/PSSailpoint.V2025/Model/ProcessingDetails.ps1
 src/PSSailpoint.V2025/Model/Product.ps1
@@ -3019,6 +3039,8 @@ tests/Api/V2025PasswordManagementApi.Tests.ps1
 tests/Api/V2025PasswordPoliciesApi.Tests.ps1
 tests/Api/V2025PasswordSyncGroupsApi.Tests.ps1
 tests/Api/V2025PersonalAccessTokensApi.Tests.ps1
+tests/Api/V2025PrivilegeCriteriaApi.Tests.ps1
+tests/Api/V2025PrivilegeCriteriaConfigurationApi.Tests.ps1
 tests/Api/V2025PublicIdentitiesApi.Tests.ps1
 tests/Api/V2025PublicIdentitiesConfigApi.Tests.ps1
 tests/Api/V2025ReportsDataExtractionApi.Tests.ps1
@@ -3448,6 +3470,9 @@ tests/Model/CreateOAuthClientRequest.Tests.ps1
 tests/Model/CreateOAuthClientResponse.Tests.ps1
 tests/Model/CreatePersonalAccessTokenRequest.Tests.ps1
 tests/Model/CreatePersonalAccessTokenResponse.Tests.ps1
+tests/Model/CreatePrivilegeCriteriaRequest.Tests.ps1
+tests/Model/CreatePrivilegeCriteriaRequestGroupsInner.Tests.ps1
+tests/Model/CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner.Tests.ps1
 tests/Model/CreateSavedSearchRequest.Tests.ps1
 tests/Model/CreateScheduleRequest.Tests.ps1
 tests/Model/CreateScheduledSearchRequest.Tests.ps1
@@ -3899,6 +3924,10 @@ tests/Model/PermissionDto.Tests.ps1
 tests/Model/PreApprovalTriggerDetails.Tests.ps1
 tests/Model/PreferencesDto.Tests.ps1
 tests/Model/PreviewDataSourceResponse.Tests.ps1
+tests/Model/PrivilegeCriteriaConfigDTO.Tests.ps1
+tests/Model/PrivilegeCriteriaDTO.Tests.ps1
+tests/Model/PrivilegeCriteriaDTOGroupsInner.Tests.ps1
+tests/Model/PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner.Tests.ps1
 tests/Model/ProcessIdentitiesRequest.Tests.ps1
 tests/Model/ProcessingDetails.Tests.ps1
 tests/Model/Product.Tests.ps1

@@ -13,8 +13,6 @@ on:
       version:
         description: "The version to release (e.g. 1.8.0). Leave empty to auto-increment patch."
         required: false
-  repository_dispatch:
-    types: [api-specs-updated]
   schedule:
     - cron: "0 8 * * 1-5"
 

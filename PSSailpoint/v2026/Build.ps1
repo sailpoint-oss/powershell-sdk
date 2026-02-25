@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.V2026 - the PowerShell module for Identity Security Cloud v2026 API'
 
-    ModuleVersion = '1.7.14'
+    ModuleVersion = '1.7.15'
 
     RootModule = 'PSSailpoint.V2026.psm1'
     Guid = 'D4B8E3C3-1F7C-4D1C-8A2E-3F6C2E5B9A12' # Has to be static, otherwise each new build will be considered different module

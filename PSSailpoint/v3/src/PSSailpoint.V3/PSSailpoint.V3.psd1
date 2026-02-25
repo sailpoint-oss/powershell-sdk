@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.V3.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.7.15'
+ModuleVersion = '1.7.16'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()

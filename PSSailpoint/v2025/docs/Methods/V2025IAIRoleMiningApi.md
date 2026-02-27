@@ -1282,7 +1282,7 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SessionId | **String** | True  | The role mining session id
 Path   | PotentialRoleId | **String** | True  | The potential role summary id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | PatchPotentialRoleRequestInner | [**[]PatchPotentialRoleRequestInner**](../models/patch-potential-role-request-inner) | True  | 
+ Body  | JsonPatchOperationRoleMining | [**[]JsonPatchOperationRoleMining**](../models/json-patch-operation-role-mining) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -1307,17 +1307,21 @@ Code | Description  | Data Type
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- $PatchPotentialRoleRequestInner = @"[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]"@ # PatchPotentialRoleRequestInner[] | 
+ $JsonPatchOperationRoleMining = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperationRoleMining[] | 
  
 
 # Update a potential role
 
 try {
-    $Result = ConvertFrom-V2025JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-V2025PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -PatchPotentialRoleRequestInner $Result 
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperationRoleMining -Json $JsonPatchOperationRoleMining
+    Update-V2025PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperationRoleMining $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2025PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -PatchPotentialRoleRequestInner $Result  
+    # Update-V2025PotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperationRoleMining $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025PotentialRole"
     Write-Host $_.ErrorDetails
@@ -1351,7 +1355,7 @@ Param Type | Name | Data Type | Required  | Description
 Path   | SessionId | **String** | True  | The role mining session id
 Path   | PotentialRoleId | **String** | True  | The potential role summary id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
+ Body  | JsonPatchOperationRoleMining | [**[]JsonPatchOperationRoleMining**](../models/json-patch-operation-role-mining) | True  | 
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -1376,21 +1380,21 @@ Code | Description  | Data Type
 $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
 $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
- $JsonPatchOperation = @"{
+ $JsonPatchOperationRoleMining = @"{
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ # JsonPatchOperation[] | 
+}"@ # JsonPatchOperationRoleMining[] | 
  
 
 # Update a potential role session
 
 try {
-    $Result = ConvertFrom-V2025JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2025PotentialRoleSession -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    $Result = ConvertFrom-V2025JsonToJsonPatchOperationRoleMining -Json $JsonPatchOperationRoleMining
+    Update-V2025PotentialRoleSession -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperationRoleMining $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2025PotentialRoleSession -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
+    # Update-V2025PotentialRoleSession -SessionId $SessionId -PotentialRoleId $PotentialRoleId -XSailPointExperimental $XSailPointExperimental -JsonPatchOperationRoleMining $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025PotentialRoleSession"
     Write-Host $_.ErrorDetails

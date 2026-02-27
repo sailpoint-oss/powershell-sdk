@@ -29,7 +29,7 @@ function Initialize-V2024JsonPatchOperation {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("remove", "replace")]
+        [ValidateSet("add", "remove", "replace", "move", "copy", "test")]
         [String]
         ${Op},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

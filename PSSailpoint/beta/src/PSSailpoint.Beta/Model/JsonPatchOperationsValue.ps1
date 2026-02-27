@@ -34,20 +34,20 @@ function ConvertFrom-BetaJsonToJsonPatchOperationsValue {
         $matchType = $null
         $matchInstance = $null
 
-        # try to match ArrayInner1[] defined in the oneOf schemas
+        # try to match ArrayInner2[] defined in the oneOf schemas
         try {
-            $matchInstance = ConvertFrom-BetaJsonToArrayInner1[] $Json
+            $matchInstance = ConvertFrom-BetaJsonToArrayInner2[] $Json
 
             foreach($property in $matchInstance.PsObject.Properties) {
                 if ($null -ne $property.Value) {
-                    $matchType = "ArrayInner1[]"
+                    $matchType = "ArrayInner2[]"
                     $match++
                     break
                 }
             }
         } catch {
             # fail to match the schema defined in oneOf, proceed to the next one
-            Write-Debug "Failed to match 'ArrayInner1[]' defined in oneOf (BetaJsonPatchOperationsValue). Proceeding to the next one if any."
+            Write-Debug "Failed to match 'ArrayInner2[]' defined in oneOf (BetaJsonPatchOperationsValue). Proceeding to the next one if any."
         }
 
         # try to match Boolean defined in the oneOf schemas
@@ -83,15 +83,15 @@ function ConvertFrom-BetaJsonToJsonPatchOperationsValue {
         }
 
         if ($match -gt 1) {
-            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([ArrayInner1[], Boolean, String]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload matches more than one type defined in oneOf schemas ([ArrayInner2[], Boolean, String]). JSON Payload: $($Json)"
         } elseif ($match -eq 1) {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "OneOfSchemas" = @("ArrayInner1[]", "Boolean", "String")
+                "OneOfSchemas" = @("ArrayInner2[]", "Boolean", "String")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([ArrayInner1[], Boolean, String]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in oneOf schemas ([ArrayInner2[], Boolean, String]). JSON Payload: $($Json)"
         }
     }
 }

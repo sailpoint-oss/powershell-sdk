@@ -32,8 +32,12 @@ The number of identities in a potential role.
 Identity attribute distribution.
 .PARAMETER IdentityIds
 The list of ids in a potential role.
+.PARAMETER IdentityGroupStatus
+The status for this identity group which can be OBTAINED or COMPRESSED
 .PARAMETER Name
 Name of the potential role.
+.PARAMETER PotentialRoleRef
+No description available.
 .PARAMETER ProvisionState
 No description available.
 .PARAMETER Quality
@@ -89,7 +93,13 @@ function Initialize-BetaRoleMiningPotentialRole {
         ${IdentityIds},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${IdentityGroupStatus},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${Name},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${PotentialRoleRef},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("POTENTIAL", "PENDING", "COMPLETE", "FAILED")]
         [PSCustomObject]
@@ -102,7 +112,7 @@ function Initialize-BetaRoleMiningPotentialRole {
         ${RoleId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Saved},
+        ${Saved} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Session},
@@ -136,7 +146,9 @@ function Initialize-BetaRoleMiningPotentialRole {
             "identityCount" = ${IdentityCount}
             "identityDistribution" = ${IdentityDistribution}
             "identityIds" = ${IdentityIds}
+            "identityGroupStatus" = ${IdentityGroupStatus}
             "name" = ${Name}
+            "potentialRoleRef" = ${PotentialRoleRef}
             "provisionState" = ${ProvisionState}
             "quality" = ${Quality}
             "roleId" = ${RoleId}
@@ -182,7 +194,7 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleMiningPotentialRole
-        $AllProperties = ("createdBy", "density", "description", "entitlementCount", "excludedEntitlements", "freshness", "identityCount", "identityDistribution", "identityIds", "name", "provisionState", "quality", "roleId", "saved", "session", "type", "id", "createdDate", "modifiedDate")
+        $AllProperties = ("createdBy", "density", "description", "entitlementCount", "excludedEntitlements", "freshness", "identityCount", "identityDistribution", "identityIds", "identityGroupStatus", "name", "potentialRoleRef", "provisionState", "quality", "roleId", "saved", "session", "type", "id", "createdDate", "modifiedDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -243,10 +255,22 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRole {
             $IdentityIds = $JsonParameters.PSobject.Properties["identityIds"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identityGroupStatus"))) { #optional property not found
+            $IdentityGroupStatus = $null
+        } else {
+            $IdentityGroupStatus = $JsonParameters.PSobject.Properties["identityGroupStatus"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
             $Name = $null
         } else {
             $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "potentialRoleRef"))) { #optional property not found
+            $PotentialRoleRef = $null
+        } else {
+            $PotentialRoleRef = $JsonParameters.PSobject.Properties["potentialRoleRef"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "provisionState"))) { #optional property not found
@@ -313,7 +337,9 @@ function ConvertFrom-BetaJsonToRoleMiningPotentialRole {
             "identityCount" = ${IdentityCount}
             "identityDistribution" = ${IdentityDistribution}
             "identityIds" = ${IdentityIds}
+            "identityGroupStatus" = ${IdentityGroupStatus}
             "name" = ${Name}
+            "potentialRoleRef" = ${PotentialRoleRef}
             "provisionState" = ${ProvisionState}
             "quality" = ${Quality}
             "roleId" = ${RoleId}

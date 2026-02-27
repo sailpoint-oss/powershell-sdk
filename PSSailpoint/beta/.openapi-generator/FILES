@@ -133,6 +133,7 @@ docs/ApprovalSummary.md
 docs/Argument.md
 docs/ArrayInner.md
 docs/ArrayInner1.md
+docs/ArrayInner2.md
 docs/AssignmentContextDto.md
 docs/AttrSyncSource.md
 docs/AttrSyncSourceAttributeConfig.md
@@ -575,6 +576,8 @@ docs/InvocationStatus.md
 docs/InvocationStatusType.md
 docs/JsonPatch.md
 docs/JsonPatchOperation.md
+docs/JsonPatchOperationRoleMining.md
+docs/JsonPatchOperationRoleMiningValue.md
 docs/JsonPatchOperations.md
 docs/JsonPatchOperationsValue.md
 docs/KbaAnswerRequestItem.md
@@ -724,7 +727,6 @@ docs/PasswordPolicyV3Dto.md
 docs/PasswordStatus.md
 docs/PasswordSyncGroup.md
 docs/PatOwner.md
-docs/PatchRoleMiningPotentialRoleRequestInner.md
 docs/PeerGroupMember.md
 docs/PendingApproval.md
 docs/PendingApprovalAction.md
@@ -845,6 +847,7 @@ docs/RoleMiningPotentialRoleEntitlements.md
 docs/RoleMiningPotentialRoleExportRequest.md
 docs/RoleMiningPotentialRoleExportResponse.md
 docs/RoleMiningPotentialRoleExportState.md
+docs/RoleMiningPotentialRolePotentialRoleRef.md
 docs/RoleMiningPotentialRoleProvisionRequest.md
 docs/RoleMiningPotentialRoleProvisionState.md
 docs/RoleMiningPotentialRoleRef.md
@@ -992,7 +995,6 @@ docs/StatusResponse.md
 docs/Subscription.md
 docs/SubscriptionPatchRequestInner.md
 docs/SubscriptionPatchRequestInnerValue.md
-docs/SubscriptionPatchRequestInnerValueAnyOfInner.md
 docs/SubscriptionPostRequest.md
 docs/SubscriptionPutRequest.md
 docs/SubscriptionType.md
@@ -1304,6 +1306,7 @@ src/PSSailpoint.Beta/Model/ApprovalSummary.ps1
 src/PSSailpoint.Beta/Model/Argument.ps1
 src/PSSailpoint.Beta/Model/ArrayInner.ps1
 src/PSSailpoint.Beta/Model/ArrayInner1.ps1
+src/PSSailpoint.Beta/Model/ArrayInner2.ps1
 src/PSSailpoint.Beta/Model/AssignmentContextDto.ps1
 src/PSSailpoint.Beta/Model/AttrSyncSource.ps1
 src/PSSailpoint.Beta/Model/AttrSyncSourceAttributeConfig.ps1
@@ -1599,6 +1602,8 @@ src/PSSailpoint.Beta/Model/InvocationStatus.ps1
 src/PSSailpoint.Beta/Model/InvocationStatusType.ps1
 src/PSSailpoint.Beta/Model/JsonPatch.ps1
 src/PSSailpoint.Beta/Model/JsonPatchOperation.ps1
+src/PSSailpoint.Beta/Model/JsonPatchOperationRoleMining.ps1
+src/PSSailpoint.Beta/Model/JsonPatchOperationRoleMiningValue.ps1
 src/PSSailpoint.Beta/Model/JsonPatchOperations.ps1
 src/PSSailpoint.Beta/Model/JsonPatchOperationsValue.ps1
 src/PSSailpoint.Beta/Model/KbaAnswerRequestItem.ps1
@@ -1748,7 +1753,6 @@ src/PSSailpoint.Beta/Model/PasswordPolicyV3Dto.ps1
 src/PSSailpoint.Beta/Model/PasswordStatus.ps1
 src/PSSailpoint.Beta/Model/PasswordSyncGroup.ps1
 src/PSSailpoint.Beta/Model/PatOwner.ps1
-src/PSSailpoint.Beta/Model/PatchRoleMiningPotentialRoleRequestInner.ps1
 src/PSSailpoint.Beta/Model/PeerGroupMember.ps1
 src/PSSailpoint.Beta/Model/PendingApproval.ps1
 src/PSSailpoint.Beta/Model/PendingApprovalAction.ps1
@@ -1869,6 +1873,7 @@ src/PSSailpoint.Beta/Model/RoleMiningPotentialRoleEntitlements.ps1
 src/PSSailpoint.Beta/Model/RoleMiningPotentialRoleExportRequest.ps1
 src/PSSailpoint.Beta/Model/RoleMiningPotentialRoleExportResponse.ps1
 src/PSSailpoint.Beta/Model/RoleMiningPotentialRoleExportState.ps1
+src/PSSailpoint.Beta/Model/RoleMiningPotentialRolePotentialRoleRef.ps1
 src/PSSailpoint.Beta/Model/RoleMiningPotentialRoleProvisionRequest.ps1
 src/PSSailpoint.Beta/Model/RoleMiningPotentialRoleProvisionState.ps1
 src/PSSailpoint.Beta/Model/RoleMiningPotentialRoleRef.ps1
@@ -2016,7 +2021,6 @@ src/PSSailpoint.Beta/Model/StatusResponse.ps1
 src/PSSailpoint.Beta/Model/Subscription.ps1
 src/PSSailpoint.Beta/Model/SubscriptionPatchRequestInner.ps1
 src/PSSailpoint.Beta/Model/SubscriptionPatchRequestInnerValue.ps1
-src/PSSailpoint.Beta/Model/SubscriptionPatchRequestInnerValueAnyOfInner.ps1
 src/PSSailpoint.Beta/Model/SubscriptionPostRequest.ps1
 src/PSSailpoint.Beta/Model/SubscriptionPutRequest.ps1
 src/PSSailpoint.Beta/Model/SubscriptionType.ps1
@@ -2334,6 +2338,7 @@ tests/Model/ApprovalSummary.Tests.ps1
 tests/Model/Argument.Tests.ps1
 tests/Model/ArrayInner.Tests.ps1
 tests/Model/ArrayInner1.Tests.ps1
+tests/Model/ArrayInner2.Tests.ps1
 tests/Model/AssignmentContextDto.Tests.ps1
 tests/Model/AttrSyncSource.Tests.ps1
 tests/Model/AttrSyncSourceAttributeConfig.Tests.ps1
@@ -2629,6 +2634,8 @@ tests/Model/InvocationStatus.Tests.ps1
 tests/Model/InvocationStatusType.Tests.ps1
 tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
+tests/Model/JsonPatchOperationRoleMining.Tests.ps1
+tests/Model/JsonPatchOperationRoleMiningValue.Tests.ps1
 tests/Model/JsonPatchOperations.Tests.ps1
 tests/Model/JsonPatchOperationsValue.Tests.ps1
 tests/Model/KbaAnswerRequestItem.Tests.ps1
@@ -2778,7 +2785,6 @@ tests/Model/PasswordPolicyV3Dto.Tests.ps1
 tests/Model/PasswordStatus.Tests.ps1
 tests/Model/PasswordSyncGroup.Tests.ps1
 tests/Model/PatOwner.Tests.ps1
-tests/Model/PatchRoleMiningPotentialRoleRequestInner.Tests.ps1
 tests/Model/PeerGroupMember.Tests.ps1
 tests/Model/PendingApproval.Tests.ps1
 tests/Model/PendingApprovalAction.Tests.ps1
@@ -2899,6 +2905,7 @@ tests/Model/RoleMiningPotentialRoleEntitlements.Tests.ps1
 tests/Model/RoleMiningPotentialRoleExportRequest.Tests.ps1
 tests/Model/RoleMiningPotentialRoleExportResponse.Tests.ps1
 tests/Model/RoleMiningPotentialRoleExportState.Tests.ps1
+tests/Model/RoleMiningPotentialRolePotentialRoleRef.Tests.ps1
 tests/Model/RoleMiningPotentialRoleProvisionRequest.Tests.ps1
 tests/Model/RoleMiningPotentialRoleProvisionState.Tests.ps1
 tests/Model/RoleMiningPotentialRoleRef.Tests.ps1
@@ -3046,7 +3053,6 @@ tests/Model/StatusResponse.Tests.ps1
 tests/Model/Subscription.Tests.ps1
 tests/Model/SubscriptionPatchRequestInner.Tests.ps1
 tests/Model/SubscriptionPatchRequestInnerValue.Tests.ps1
-tests/Model/SubscriptionPatchRequestInnerValueAnyOfInner.Tests.ps1
 tests/Model/SubscriptionPostRequest.Tests.ps1
 tests/Model/SubscriptionPutRequest.Tests.ps1
 tests/Model/SubscriptionType.Tests.ps1

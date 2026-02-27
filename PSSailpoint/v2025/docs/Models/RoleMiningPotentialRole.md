@@ -25,11 +25,13 @@ Name | Type | Description | Notes
 **IdentityCount** | **Int32** | The number of identities in a potential role. | [optional] 
 **IdentityDistribution** | [**[]RoleMiningIdentityDistribution**](role-mining-identity-distribution) | Identity attribute distribution. | [optional] 
 **IdentityIds** | **[]String** | The list of ids in a potential role. | [optional] 
+**IdentityGroupStatus** | **String** | The status for this identity group which can be OBTAINED or COMPRESSED | [optional] 
 **Name** | **String** | Name of the potential role. | [optional] 
+**PotentialRoleRef** | [**RoleMiningPotentialRolePotentialRoleRef**](role-mining-potential-role-potential-role-ref) |  | [optional] 
 **ProvisionState** | [**RoleMiningPotentialRoleProvisionState**](role-mining-potential-role-provision-state) |  | [optional] 
 **Quality** | **Int32** | The quality of a potential role. | [optional] 
 **RoleId** | **String** | The roleId of a potential role. | [optional] 
-**Saved** | **Boolean** | The potential role's saved status. | [optional] 
+**Saved** | **Boolean** | The potential role's saved status. | [optional] [default to $false]
 **Session** | [**RoleMiningSessionParametersDto**](role-mining-session-parameters-dto) |  | [optional] 
 **Type** | [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
 **Id** | **String** | Id of the potential role | [optional] 
@@ -49,7 +51,9 @@ $RoleMiningPotentialRole = Initialize-V2025RoleMiningPotentialRole  -CreatedBy n
  -IdentityCount 25 `
  -IdentityDistribution null `
  -IdentityIds [07a0b4e2, 13b4e2a0] `
+ -IdentityGroupStatus OBTAINED `
  -Name Saved Potential Role - 07/10 `
+ -PotentialRoleRef null `
  -ProvisionState null `
  -Quality 100 `
  -RoleId 07a0b4e2-7a76-44fa-bd0b-c64654b66519 `
@@ -57,8 +61,8 @@ $RoleMiningPotentialRole = Initialize-V2025RoleMiningPotentialRole  -CreatedBy n
  -Session null `
  -Type null `
  -Id e0cc5d7d-bf7f-4f81-b2af-8885b09d9923 `
- -CreatedDate null `
- -ModifiedDate null
+ -CreatedDate 2020-01-01T00:00Z `
+ -ModifiedDate 2020-01-01T00:00Z
 ```
 
 - Convert the resource to JSON

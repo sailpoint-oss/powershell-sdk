@@ -2287,7 +2287,7 @@ function Get-BetaSavedPotentialRoles {
 <#
 .SYNOPSIS
 
-Update a potential role in session
+Update potential role in session
 
 .DESCRIPTION
 
@@ -2299,7 +2299,7 @@ The role mining session id
 .PARAMETER PotentialRoleId
 The potential role summary id
 
-.PARAMETER JsonPatchOperation
+.PARAMETER JsonPatchOperationRoleMining
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -2321,7 +2321,7 @@ function Update-BetaPotentialRoleSession {
         ${PotentialRoleId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${JsonPatchOperation},
+        ${JsonPatchOperationRoleMining},
         [Switch]
         $WithHttpInfo
     )
@@ -2355,14 +2355,14 @@ function Update-BetaPotentialRoleSession {
         }
         $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
 
-        if (!$JsonPatchOperation) {
-            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchPotentialRoleSession."
+        if (!$JsonPatchOperationRoleMining) {
+            throw "Error! The required parameter `JsonPatchOperationRoleMining` missing when calling patchPotentialRoleSession."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
-            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperationRoleMining -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperationRoleMining | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperationRoleMining | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2407,7 +2407,7 @@ This method updates an existing potential role.  The following fields can be mod
 .PARAMETER PotentialRoleId
 The potential role summary id
 
-.PARAMETER PatchRoleMiningPotentialRoleRequestInner
+.PARAMETER JsonPatchOperationRoleMining
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -2426,7 +2426,7 @@ function Update-BetaRoleMiningPotentialRole {
         ${PotentialRoleId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${PatchRoleMiningPotentialRoleRequestInner},
+        ${JsonPatchOperationRoleMining},
         [Switch]
         $WithHttpInfo
     )
@@ -2456,14 +2456,14 @@ function Update-BetaRoleMiningPotentialRole {
         }
         $LocalVarUri = $LocalVarUri.replace('{potentialRoleId}', [System.Web.HTTPUtility]::UrlEncode($PotentialRoleId))
 
-        if (!$PatchRoleMiningPotentialRoleRequestInner) {
-            throw "Error! The required parameter `PatchRoleMiningPotentialRoleRequestInner` missing when calling patchRoleMiningPotentialRole."
+        if (!$JsonPatchOperationRoleMining) {
+            throw "Error! The required parameter `JsonPatchOperationRoleMining` missing when calling patchRoleMiningPotentialRole."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PatchRoleMiningPotentialRoleRequestInner -is [array])) {
-            $LocalVarBodyParameter = $PatchRoleMiningPotentialRoleRequestInner | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperationRoleMining -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperationRoleMining | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $PatchRoleMiningPotentialRoleRequestInner | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperationRoleMining | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2472,6 +2472,7 @@ function Update-BetaRoleMiningPotentialRole {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

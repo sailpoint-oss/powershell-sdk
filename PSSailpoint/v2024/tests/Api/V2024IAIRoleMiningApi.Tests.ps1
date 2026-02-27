@@ -176,7 +176,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IAIRoleMiningApi' {
 
     Context 'Update-V2024PotentialRole' {
         It 'Test Update-V2024PotentialRole' {
-            #$TestResult = Update-V2024PotentialRole -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -PatchPotentialRoleRequestInner "TEST_VALUE"
+            #$TestResult = Update-V2024PotentialRole -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperationRoleMining "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -184,7 +184,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024IAIRoleMiningApi' {
 
     Context 'Update-V2024PotentialRoleSession' {
         It 'Test Update-V2024PotentialRoleSession' {
-            #$TestResult = Update-V2024PotentialRoleSession -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-V2024PotentialRoleSession -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperationRoleMining "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

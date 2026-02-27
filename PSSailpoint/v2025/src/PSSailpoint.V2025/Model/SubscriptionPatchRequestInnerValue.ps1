@@ -35,6 +35,24 @@ function ConvertFrom-V2025JsonToSubscriptionPatchRequestInnerValue {
         $matchInstance = $null
 
         if ($match -ne 0) { # no match yet
+            # try to match ArrayInner1[] defined in the anyOf schemas
+            try {
+                $matchInstance = ConvertFrom-V2025JsonToArrayInner1[] $Json
+
+                foreach($property in $matchInstance.PsObject.Properties) {
+                    if ($null -ne $property.Value) {
+                        $matchType = "ArrayInner1[]"
+                        $match++
+                        break
+                    }
+                }
+            } catch {
+                # fail to match the schema defined in anyOf, proceed to the next one
+                Write-Debug "Failed to match 'ArrayInner1[]' defined in anyOf (V2025SubscriptionPatchRequestInnerValue). Proceeding to the next one if any."
+            }
+        }
+
+        if ($match -ne 0) { # no match yet
             # try to match Int32 defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2025JsonToInt32 $Json
@@ -71,24 +89,6 @@ function ConvertFrom-V2025JsonToSubscriptionPatchRequestInnerValue {
         }
 
         if ($match -ne 0) { # no match yet
-            # try to match SubscriptionPatchRequestInnerValueAnyOfInner[] defined in the anyOf schemas
-            try {
-                $matchInstance = ConvertFrom-V2025JsonToSubscriptionPatchRequestInnerValueAnyOfInner[] $Json
-
-                foreach($property in $matchInstance.PsObject.Properties) {
-                    if ($null -ne $property.Value) {
-                        $matchType = "SubscriptionPatchRequestInnerValueAnyOfInner[]"
-                        $match++
-                        break
-                    }
-                }
-            } catch {
-                # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'SubscriptionPatchRequestInnerValueAnyOfInner[]' defined in anyOf (V2025SubscriptionPatchRequestInnerValue). Proceeding to the next one if any."
-            }
-        }
-
-        if ($match -ne 0) { # no match yet
             # try to match SystemCollectionsHashtable defined in the anyOf schemas
             try {
                 $matchInstance = ConvertFrom-V2025JsonToSystemCollectionsHashtable $Json
@@ -110,10 +110,10 @@ function ConvertFrom-V2025JsonToSubscriptionPatchRequestInnerValue {
             return [PSCustomObject]@{
                 "ActualType" = ${matchType}
                 "ActualInstance" = ${matchInstance}
-                "anyOfSchemas" = @("Int32", "String", "SubscriptionPatchRequestInnerValueAnyOfInner[]", "SystemCollectionsHashtable")
+                "anyOfSchemas" = @("ArrayInner1[]", "Int32", "String", "SystemCollectionsHashtable")
             }
         } else {
-            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([Int32, String, SubscriptionPatchRequestInnerValueAnyOfInner[], SystemCollectionsHashtable]). JSON Payload: $($Json)"
+            throw "Error! The JSON payload doesn't matches any type defined in anyOf schemas ([ArrayInner1[], Int32, String, SystemCollectionsHashtable]). JSON Payload: $($Json)"
         }
     }
 }

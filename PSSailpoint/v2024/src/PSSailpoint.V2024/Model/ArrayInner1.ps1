@@ -20,9 +20,9 @@ JSON object
 
 .OUTPUTS
 
-SubscriptionPatchRequestInnerValueAnyOfInner<PSCustomObject>
+ArrayInner1<PSCustomObject>
 #>
-function ConvertFrom-V2024JsonToSubscriptionPatchRequestInnerValueAnyOfInner {
+function ConvertFrom-V2024JsonToArrayInner1 {
     [CmdletBinding()]
     Param (
         [AllowEmptyString()]
@@ -48,7 +48,7 @@ function ConvertFrom-V2024JsonToSubscriptionPatchRequestInnerValueAnyOfInner {
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'Int32' defined in anyOf (V2024SubscriptionPatchRequestInnerValueAnyOfInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'Int32' defined in anyOf (V2024ArrayInner1). Proceeding to the next one if any."
             }
         }
 
@@ -66,7 +66,7 @@ function ConvertFrom-V2024JsonToSubscriptionPatchRequestInnerValueAnyOfInner {
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'String' defined in anyOf (V2024SubscriptionPatchRequestInnerValueAnyOfInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'String' defined in anyOf (V2024ArrayInner1). Proceeding to the next one if any."
             }
         }
 
@@ -84,7 +84,7 @@ function ConvertFrom-V2024JsonToSubscriptionPatchRequestInnerValueAnyOfInner {
                 }
             } catch {
                 # fail to match the schema defined in anyOf, proceed to the next one
-                Write-Debug "Failed to match 'SystemCollectionsHashtable' defined in anyOf (V2024SubscriptionPatchRequestInnerValueAnyOfInner). Proceeding to the next one if any."
+                Write-Debug "Failed to match 'SystemCollectionsHashtable' defined in anyOf (V2024ArrayInner1). Proceeding to the next one if any."
             }
         }
 

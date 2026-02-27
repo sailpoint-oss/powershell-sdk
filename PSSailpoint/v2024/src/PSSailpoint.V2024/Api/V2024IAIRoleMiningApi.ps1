@@ -2533,7 +2533,7 @@ The potential role summary id
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER PatchPotentialRoleRequestInner
+.PARAMETER JsonPatchOperationRoleMining
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -2558,7 +2558,7 @@ function Update-V2024PotentialRole {
         $XSailPointExperimental = "true",
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${PatchPotentialRoleRequestInner},
+        ${JsonPatchOperationRoleMining},
         [Switch]
         $WithHttpInfo
     )
@@ -2597,14 +2597,14 @@ function Update-V2024PotentialRole {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$PatchPotentialRoleRequestInner) {
-            throw "Error! The required parameter `PatchPotentialRoleRequestInner` missing when calling patchPotentialRole."
+        if (!$JsonPatchOperationRoleMining) {
+            throw "Error! The required parameter `JsonPatchOperationRoleMining` missing when calling patchPotentialRole."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($PatchPotentialRoleRequestInner -is [array])) {
-            $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperationRoleMining -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperationRoleMining | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $PatchPotentialRoleRequestInner | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperationRoleMining | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -2613,6 +2613,7 @@ function Update-V2024PotentialRole {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -2654,7 +2655,7 @@ The potential role summary id
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
-.PARAMETER JsonPatchOperation
+.PARAMETER JsonPatchOperationRoleMining
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -2679,7 +2680,7 @@ function Update-V2024PotentialRoleSession {
         $XSailPointExperimental = "true",
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
-        ${JsonPatchOperation},
+        ${JsonPatchOperationRoleMining},
         [Switch]
         $WithHttpInfo
     )
@@ -2718,14 +2719,14 @@ function Update-V2024PotentialRoleSession {
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
-        if (!$JsonPatchOperation) {
-            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchPotentialRoleSession."
+        if (!$JsonPatchOperationRoleMining) {
+            throw "Error! The required parameter `JsonPatchOperationRoleMining` missing when calling patchPotentialRoleSession."
         }
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
-            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperationRoleMining -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperationRoleMining | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            $LocalVarBodyParameter = $JsonPatchOperationRoleMining | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name

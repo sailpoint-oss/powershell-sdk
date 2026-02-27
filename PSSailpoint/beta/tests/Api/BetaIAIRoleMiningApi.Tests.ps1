@@ -176,7 +176,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaIAIRoleMiningApi' {
 
     Context 'Update-BetaPotentialRoleSession' {
         It 'Test Update-BetaPotentialRoleSession' {
-            #$TestResult = Update-BetaPotentialRoleSession -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-BetaPotentialRoleSession -SessionId "TEST_VALUE" -PotentialRoleId "TEST_VALUE" -JsonPatchOperationRoleMining "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -184,7 +184,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaBetaIAIRoleMiningApi' {
 
     Context 'Update-BetaRoleMiningPotentialRole' {
         It 'Test Update-BetaRoleMiningPotentialRole' {
-            #$TestResult = Update-BetaRoleMiningPotentialRole -PotentialRoleId "TEST_VALUE" -PatchRoleMiningPotentialRoleRequestInner "TEST_VALUE"
+            #$TestResult = Update-BetaRoleMiningPotentialRole -PotentialRoleId "TEST_VALUE" -JsonPatchOperationRoleMining "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

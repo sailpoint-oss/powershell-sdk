@@ -17957,6 +17957,242 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025StatusCheckDetails"
             Write-Host $_.ErrorDetails
         }
+- path: /ssf/streams
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/shared-signals-framework-ssf#create-stream
+      source: |
+        $CreateStreamRequest = @"
+        {
+          "delivery" : {
+            "method" : "urn:ietf:rfc:8935",
+            "endpoint_url" : "https://receiver.example.com/ssf/events",
+            "authorization_header" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."
+          },
+          "description" : "Production event stream",
+          "events_requested" : [ "https://schemas.openid.net/secevent/caep/event-type/session-revoked" ]
+        }
+        "@
+        
+        # Create stream
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToCreateStreamRequest -Json $CreateStreamRequest
+            New-V2025Stream -CreateStreamRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2025Stream -CreateStreamRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025Stream"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/streams
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/shared-signals-framework-ssf#delete-stream
+      source: |
+        $StreamId = "550e8400-e29b-41d4-a716-446655440000" # String | ID of the stream to delete. Required; omitted or empty returns 400.
+        
+        # Delete stream
+        
+        try {
+            Remove-V2025Stream -StreamId $StreamId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025Stream -StreamId $StreamId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025Stream"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/jwks
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/shared-signals-framework-ssf#get-jwks-data
+      source: |
+        
+        # Get JWKS
+        
+        try {
+            Get-V2025JWKSData 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025JWKSData   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025JWKSData"
+            Write-Host $_.ErrorDetails
+        }
+- path: /.well-known/ssf-configuration
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/shared-signals-framework-ssf#get-ssf-configuration
+      source: |
+        
+        # Get SSF configuration
+        
+        try {
+            Get-V2025SSFConfiguration 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025SSFConfiguration   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025SSFConfiguration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/streams
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/shared-signals-framework-ssf#get-stream
+      source: |
+        $StreamId = "550e8400-e29b-41d4-a716-446655440000" # String | If provided, returns that stream; otherwise returns list of all streams. (optional)
+        
+        # Get stream(s)
+        
+        try {
+            Get-V2025Stream 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025Stream -StreamId $StreamId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Stream"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/streams/status
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/shared-signals-framework-ssf#get-stream-status
+      source: |
+        $StreamId = "550e8400-e29b-41d4-a716-446655440000" # String | ID of the stream whose status to retrieve.
+        
+        # Get stream status
+        
+        try {
+            Get-V2025StreamStatus -StreamId $StreamId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025StreamStatus -StreamId $StreamId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025StreamStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/streams/verify
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/shared-signals-framework-ssf#send-stream-verification
+      source: |
+        $VerificationRequest = @"
+        {
+          "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+          "state" : "verification-challenge-state-123"
+        }
+        "@
+        
+        # Verify stream
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToVerificationRequest -Json $VerificationRequest
+            Send-V2025StreamVerification -VerificationRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2025StreamVerification -VerificationRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025StreamVerification"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/streams
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/shared-signals-framework-ssf#set-stream-configuration
+      source: |
+        $ReplaceStreamConfigurationRequest = @"
+        {
+          "delivery" : {
+            "method" : "urn:ietf:rfc:8935",
+            "endpoint_url" : "https://receiver.example.com/ssf/events",
+            "authorization_header" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."
+          },
+          "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+          "description" : "Production event stream",
+          "events_requested" : [ "https://schemas.openid.net/secevent/caep/event-type/session-revoked" ]
+        }
+        "@
+        
+        # Replace stream configuration
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToReplaceStreamConfigurationRequest -Json $ReplaceStreamConfigurationRequest
+            Set-V2025StreamConfiguration -ReplaceStreamConfigurationRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-V2025StreamConfiguration -ReplaceStreamConfigurationRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2025StreamConfiguration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/streams
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/shared-signals-framework-ssf#update-stream-configuration
+      source: |
+        $UpdateStreamConfigurationRequest = @"
+        {
+          "delivery" : {
+            "method" : "urn:ietf:rfc:8935",
+            "endpoint_url" : "https://receiver.example.com/ssf/events",
+            "authorization_header" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."
+          },
+          "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+          "description" : "Updated production event stream configuration",
+          "events_requested" : [ "https://schemas.openid.net/secevent/caep/event-type/session-revoked" ]
+        }
+        "@
+        
+        # Update stream configuration
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToUpdateStreamConfigurationRequest -Json $UpdateStreamConfigurationRequest
+            Update-V2025StreamConfiguration -UpdateStreamConfigurationRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2025StreamConfiguration -UpdateStreamConfigurationRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025StreamConfiguration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/streams/status
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/shared-signals-framework-ssf#update-stream-status
+      source: |
+        $UpdateStreamStatusRequest = @"
+        {
+          "reason" : "manually paused",
+          "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+          "status" : "paused"
+        }
+        "@
+        
+        # Update stream status
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToUpdateStreamStatusRequest -Json $UpdateStreamStatusRequest
+            Update-V2025StreamStatus -UpdateStreamStatusRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2025StreamStatus -UpdateStreamStatusRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025StreamStatus"
+            Write-Host $_.ErrorDetails
+        }
 - path: /source-usages/{sourceId}/status
   method: GET
   xCodeSample:

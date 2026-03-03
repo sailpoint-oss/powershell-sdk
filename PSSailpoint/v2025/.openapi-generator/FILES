@@ -248,6 +248,7 @@ docs/AuthProfileSummary.md
 docs/AuthUser.md
 docs/AuthUserLevelsIdentityCount.md
 docs/AuthUserSlimResponse.md
+docs/AuthorizationScheme.md
 docs/BackupOptions.md
 docs/BackupOptions1.md
 docs/BackupResponse.md
@@ -408,6 +409,8 @@ docs/CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner.md
 docs/CreateSavedSearchRequest.md
 docs/CreateScheduleRequest.md
 docs/CreateScheduledSearchRequest.md
+docs/CreateStreamDeliveryRequest.md
+docs/CreateStreamRequest.md
 docs/CreateUploadedConfigurationRequest.md
 docs/CreateWorkflowRequest.md
 docs/CriteriaType.md
@@ -429,6 +432,8 @@ docs/DateMath.md
 docs/DecomposeDiacriticalMarks.md
 docs/DeleteNonEmployeeRecordsInBulkRequest.md
 docs/DeleteSource202Response.md
+docs/DeliveryRequest.md
+docs/DeliveryResponse.md
 docs/DependantAppConnections.md
 docs/DependantAppConnectionsAccountSource.md
 docs/DependantAppConnectionsAccountSourcePasswordPoliciesInner.md
@@ -545,6 +550,7 @@ docs/GetOAuthClientResponse.md
 docs/GetPersonalAccessTokenResponse.md
 docs/GetReferenceIdentityAttribute.md
 docs/GetRoleAssignments200ResponseInner.md
+docs/GetStream200Response.md
 docs/GetTenantContext200ResponseInner.md
 docs/GrantType.md
 docs/HealthEvent.md
@@ -639,6 +645,8 @@ docs/Invocation.md
 docs/InvocationStatus.md
 docs/InvocationStatusType.md
 docs/JITConfiguration.md
+docs/JWK.md
+docs/JWKS.md
 docs/JsonPatch.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationRoleMining.md
@@ -919,6 +927,8 @@ docs/RemediationItemDetails.md
 docs/RemediationItems.md
 docs/Replace.md
 docs/ReplaceAll.md
+docs/ReplaceStreamConfigurationRequest.md
+docs/ReplaceStreamConfigurationRequestDelivery.md
 docs/ReportConfigDTO.md
 docs/ReportDetails.md
 docs/ReportDetailsArguments.md
@@ -1207,6 +1217,8 @@ docs/StartInvocationInput.md
 docs/StartLauncher200Response.md
 docs/Static.md
 docs/StatusResponse.md
+docs/StreamConfigResponse.md
+docs/StreamStatusResponse.md
 docs/SubSearchAggregationSpecification.md
 docs/Subscription.md
 docs/SubscriptionPatchRequestInner.md
@@ -1260,6 +1272,7 @@ docs/TransformDefinition.md
 docs/TransformRead.md
 docs/TransformRule.md
 docs/TranslationMessage.md
+docs/TransmitterMetadata.md
 docs/Trigger.md
 docs/TriggerExampleInput.md
 docs/TriggerExampleOutput.md
@@ -1274,6 +1287,9 @@ docs/UpdateDetail.md
 docs/UpdateMultiHostSourcesRequestInner.md
 docs/UpdateMultiHostSourcesRequestInnerValue.md
 docs/UpdateScheduleRequest.md
+docs/UpdateStreamConfigResponse.md
+docs/UpdateStreamConfigurationRequest.md
+docs/UpdateStreamStatusRequest.md
 docs/Upper.md
 docs/UsageType.md
 docs/UserApp.md
@@ -1460,6 +1476,8 @@ docs/V2025SegmentsApi.md
 docs/V2025SegmentsApideveloperSite_code_examples.yaml
 docs/V2025ServiceDeskIntegrationApi.md
 docs/V2025ServiceDeskIntegrationApideveloperSite_code_examples.yaml
+docs/V2025SharedSignalsFrameworkSSFApi.md
+docs/V2025SharedSignalsFrameworkSSFApideveloperSite_code_examples.yaml
 docs/V2025SourceUsagesApi.md
 docs/V2025SourceUsagesApideveloperSite_code_examples.yaml
 docs/V2025SourcesApi.md
@@ -1497,6 +1515,7 @@ docs/VAClusterStatusChangeEventPreviousHealthCheckResult.md
 docs/ValidateFilterInputDto.md
 docs/ValidateFilterOutputDto.md
 docs/Value.md
+docs/VerificationRequest.md
 docs/ViolationContext.md
 docs/ViolationContextPolicy.md
 docs/ViolationOwnerAssignmentConfig.md
@@ -1624,6 +1643,7 @@ src/PSSailpoint.V2025/Api/V2025SearchApi.ps1
 src/PSSailpoint.V2025/Api/V2025SearchAttributeConfigurationApi.ps1
 src/PSSailpoint.V2025/Api/V2025SegmentsApi.ps1
 src/PSSailpoint.V2025/Api/V2025ServiceDeskIntegrationApi.ps1
+src/PSSailpoint.V2025/Api/V2025SharedSignalsFrameworkSSFApi.ps1
 src/PSSailpoint.V2025/Api/V2025SourceUsagesApi.ps1
 src/PSSailpoint.V2025/Api/V2025SourcesApi.ps1
 src/PSSailpoint.V2025/Api/V2025SuggestedEntitlementDescriptionApi.ps1
@@ -1884,6 +1904,7 @@ src/PSSailpoint.V2025/Model/AuthProfileSummary.ps1
 src/PSSailpoint.V2025/Model/AuthUser.ps1
 src/PSSailpoint.V2025/Model/AuthUserLevelsIdentityCount.ps1
 src/PSSailpoint.V2025/Model/AuthUserSlimResponse.ps1
+src/PSSailpoint.V2025/Model/AuthorizationScheme.ps1
 src/PSSailpoint.V2025/Model/BackupOptions.ps1
 src/PSSailpoint.V2025/Model/BackupOptions1.ps1
 src/PSSailpoint.V2025/Model/BackupResponse.ps1
@@ -2044,6 +2065,8 @@ src/PSSailpoint.V2025/Model/CreatePrivilegeCriteriaRequestGroupsInnerCriteriaIte
 src/PSSailpoint.V2025/Model/CreateSavedSearchRequest.ps1
 src/PSSailpoint.V2025/Model/CreateScheduleRequest.ps1
 src/PSSailpoint.V2025/Model/CreateScheduledSearchRequest.ps1
+src/PSSailpoint.V2025/Model/CreateStreamDeliveryRequest.ps1
+src/PSSailpoint.V2025/Model/CreateStreamRequest.ps1
 src/PSSailpoint.V2025/Model/CreateUploadedConfigurationRequest.ps1
 src/PSSailpoint.V2025/Model/CreateWorkflowRequest.ps1
 src/PSSailpoint.V2025/Model/CriteriaType.ps1
@@ -2065,6 +2088,8 @@ src/PSSailpoint.V2025/Model/DateMath.ps1
 src/PSSailpoint.V2025/Model/DecomposeDiacriticalMarks.ps1
 src/PSSailpoint.V2025/Model/DeleteNonEmployeeRecordsInBulkRequest.ps1
 src/PSSailpoint.V2025/Model/DeleteSource202Response.ps1
+src/PSSailpoint.V2025/Model/DeliveryRequest.ps1
+src/PSSailpoint.V2025/Model/DeliveryResponse.ps1
 src/PSSailpoint.V2025/Model/DependantAppConnections.ps1
 src/PSSailpoint.V2025/Model/DependantAppConnectionsAccountSource.ps1
 src/PSSailpoint.V2025/Model/DependantAppConnectionsAccountSourcePasswordPoliciesInner.ps1
@@ -2178,6 +2203,7 @@ src/PSSailpoint.V2025/Model/GetOAuthClientResponse.ps1
 src/PSSailpoint.V2025/Model/GetPersonalAccessTokenResponse.ps1
 src/PSSailpoint.V2025/Model/GetReferenceIdentityAttribute.ps1
 src/PSSailpoint.V2025/Model/GetRoleAssignments200ResponseInner.ps1
+src/PSSailpoint.V2025/Model/GetStream200Response.ps1
 src/PSSailpoint.V2025/Model/GetTenantContext200ResponseInner.ps1
 src/PSSailpoint.V2025/Model/GrantType.ps1
 src/PSSailpoint.V2025/Model/HealthEvent.ps1
@@ -2272,6 +2298,8 @@ src/PSSailpoint.V2025/Model/Invocation.ps1
 src/PSSailpoint.V2025/Model/InvocationStatus.ps1
 src/PSSailpoint.V2025/Model/InvocationStatusType.ps1
 src/PSSailpoint.V2025/Model/JITConfiguration.ps1
+src/PSSailpoint.V2025/Model/JWK.ps1
+src/PSSailpoint.V2025/Model/JWKS.ps1
 src/PSSailpoint.V2025/Model/JsonPatch.ps1
 src/PSSailpoint.V2025/Model/JsonPatchOperation.ps1
 src/PSSailpoint.V2025/Model/JsonPatchOperationRoleMining.ps1
@@ -2554,6 +2582,8 @@ src/PSSailpoint.V2025/Model/RemediationItemDetails.ps1
 src/PSSailpoint.V2025/Model/RemediationItems.ps1
 src/PSSailpoint.V2025/Model/Replace.ps1
 src/PSSailpoint.V2025/Model/ReplaceAll.ps1
+src/PSSailpoint.V2025/Model/ReplaceStreamConfigurationRequest.ps1
+src/PSSailpoint.V2025/Model/ReplaceStreamConfigurationRequestDelivery.ps1
 src/PSSailpoint.V2025/Model/ReportConfigDTO.ps1
 src/PSSailpoint.V2025/Model/ReportDetails.ps1
 src/PSSailpoint.V2025/Model/ReportDetailsArguments.ps1
@@ -2842,6 +2872,8 @@ src/PSSailpoint.V2025/Model/StartInvocationInput.ps1
 src/PSSailpoint.V2025/Model/StartLauncher200Response.ps1
 src/PSSailpoint.V2025/Model/Static.ps1
 src/PSSailpoint.V2025/Model/StatusResponse.ps1
+src/PSSailpoint.V2025/Model/StreamConfigResponse.ps1
+src/PSSailpoint.V2025/Model/StreamStatusResponse.ps1
 src/PSSailpoint.V2025/Model/SubSearchAggregationSpecification.ps1
 src/PSSailpoint.V2025/Model/Subscription.ps1
 src/PSSailpoint.V2025/Model/SubscriptionPatchRequestInner.ps1
@@ -2895,6 +2927,7 @@ src/PSSailpoint.V2025/Model/TransformDefinition.ps1
 src/PSSailpoint.V2025/Model/TransformRead.ps1
 src/PSSailpoint.V2025/Model/TransformRule.ps1
 src/PSSailpoint.V2025/Model/TranslationMessage.ps1
+src/PSSailpoint.V2025/Model/TransmitterMetadata.ps1
 src/PSSailpoint.V2025/Model/Trigger.ps1
 src/PSSailpoint.V2025/Model/TriggerExampleInput.ps1
 src/PSSailpoint.V2025/Model/TriggerExampleOutput.ps1
@@ -2909,6 +2942,9 @@ src/PSSailpoint.V2025/Model/UpdateDetail.ps1
 src/PSSailpoint.V2025/Model/UpdateMultiHostSourcesRequestInner.ps1
 src/PSSailpoint.V2025/Model/UpdateMultiHostSourcesRequestInnerValue.ps1
 src/PSSailpoint.V2025/Model/UpdateScheduleRequest.ps1
+src/PSSailpoint.V2025/Model/UpdateStreamConfigResponse.ps1
+src/PSSailpoint.V2025/Model/UpdateStreamConfigurationRequest.ps1
+src/PSSailpoint.V2025/Model/UpdateStreamStatusRequest.ps1
 src/PSSailpoint.V2025/Model/Upper.ps1
 src/PSSailpoint.V2025/Model/UsageType.ps1
 src/PSSailpoint.V2025/Model/UserApp.ps1
@@ -2928,6 +2964,7 @@ src/PSSailpoint.V2025/Model/VAClusterStatusChangeEventPreviousHealthCheckResult.
 src/PSSailpoint.V2025/Model/ValidateFilterInputDto.ps1
 src/PSSailpoint.V2025/Model/ValidateFilterOutputDto.ps1
 src/PSSailpoint.V2025/Model/Value.ps1
+src/PSSailpoint.V2025/Model/VerificationRequest.ps1
 src/PSSailpoint.V2025/Model/ViolationContext.ps1
 src/PSSailpoint.V2025/Model/ViolationContextPolicy.ps1
 src/PSSailpoint.V2025/Model/ViolationOwnerAssignmentConfig.ps1
@@ -3062,6 +3099,7 @@ tests/Api/V2025SearchApi.Tests.ps1
 tests/Api/V2025SearchAttributeConfigurationApi.Tests.ps1
 tests/Api/V2025SegmentsApi.Tests.ps1
 tests/Api/V2025ServiceDeskIntegrationApi.Tests.ps1
+tests/Api/V2025SharedSignalsFrameworkSSFApi.Tests.ps1
 tests/Api/V2025SourceUsagesApi.Tests.ps1
 tests/Api/V2025SourcesApi.Tests.ps1
 tests/Api/V2025SuggestedEntitlementDescriptionApi.Tests.ps1
@@ -3321,6 +3359,7 @@ tests/Model/AuthProfileSummary.Tests.ps1
 tests/Model/AuthUser.Tests.ps1
 tests/Model/AuthUserLevelsIdentityCount.Tests.ps1
 tests/Model/AuthUserSlimResponse.Tests.ps1
+tests/Model/AuthorizationScheme.Tests.ps1
 tests/Model/BackupOptions.Tests.ps1
 tests/Model/BackupOptions1.Tests.ps1
 tests/Model/BackupResponse.Tests.ps1
@@ -3481,6 +3520,8 @@ tests/Model/CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner.Tests.ps
 tests/Model/CreateSavedSearchRequest.Tests.ps1
 tests/Model/CreateScheduleRequest.Tests.ps1
 tests/Model/CreateScheduledSearchRequest.Tests.ps1
+tests/Model/CreateStreamDeliveryRequest.Tests.ps1
+tests/Model/CreateStreamRequest.Tests.ps1
 tests/Model/CreateUploadedConfigurationRequest.Tests.ps1
 tests/Model/CreateWorkflowRequest.Tests.ps1
 tests/Model/CriteriaType.Tests.ps1
@@ -3502,6 +3543,8 @@ tests/Model/DateMath.Tests.ps1
 tests/Model/DecomposeDiacriticalMarks.Tests.ps1
 tests/Model/DeleteNonEmployeeRecordsInBulkRequest.Tests.ps1
 tests/Model/DeleteSource202Response.Tests.ps1
+tests/Model/DeliveryRequest.Tests.ps1
+tests/Model/DeliveryResponse.Tests.ps1
 tests/Model/DependantAppConnections.Tests.ps1
 tests/Model/DependantAppConnectionsAccountSource.Tests.ps1
 tests/Model/DependantAppConnectionsAccountSourcePasswordPoliciesInner.Tests.ps1
@@ -3615,6 +3658,7 @@ tests/Model/GetOAuthClientResponse.Tests.ps1
 tests/Model/GetPersonalAccessTokenResponse.Tests.ps1
 tests/Model/GetReferenceIdentityAttribute.Tests.ps1
 tests/Model/GetRoleAssignments200ResponseInner.Tests.ps1
+tests/Model/GetStream200Response.Tests.ps1
 tests/Model/GetTenantContext200ResponseInner.Tests.ps1
 tests/Model/GrantType.Tests.ps1
 tests/Model/HealthEvent.Tests.ps1
@@ -3709,6 +3753,8 @@ tests/Model/Invocation.Tests.ps1
 tests/Model/InvocationStatus.Tests.ps1
 tests/Model/InvocationStatusType.Tests.ps1
 tests/Model/JITConfiguration.Tests.ps1
+tests/Model/JWK.Tests.ps1
+tests/Model/JWKS.Tests.ps1
 tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationRoleMining.Tests.ps1
@@ -3991,6 +4037,8 @@ tests/Model/RemediationItemDetails.Tests.ps1
 tests/Model/RemediationItems.Tests.ps1
 tests/Model/Replace.Tests.ps1
 tests/Model/ReplaceAll.Tests.ps1
+tests/Model/ReplaceStreamConfigurationRequest.Tests.ps1
+tests/Model/ReplaceStreamConfigurationRequestDelivery.Tests.ps1
 tests/Model/ReportConfigDTO.Tests.ps1
 tests/Model/ReportDetails.Tests.ps1
 tests/Model/ReportDetailsArguments.Tests.ps1
@@ -4279,6 +4327,8 @@ tests/Model/StartInvocationInput.Tests.ps1
 tests/Model/StartLauncher200Response.Tests.ps1
 tests/Model/Static.Tests.ps1
 tests/Model/StatusResponse.Tests.ps1
+tests/Model/StreamConfigResponse.Tests.ps1
+tests/Model/StreamStatusResponse.Tests.ps1
 tests/Model/SubSearchAggregationSpecification.Tests.ps1
 tests/Model/Subscription.Tests.ps1
 tests/Model/SubscriptionPatchRequestInner.Tests.ps1
@@ -4332,6 +4382,7 @@ tests/Model/TransformDefinition.Tests.ps1
 tests/Model/TransformRead.Tests.ps1
 tests/Model/TransformRule.Tests.ps1
 tests/Model/TranslationMessage.Tests.ps1
+tests/Model/TransmitterMetadata.Tests.ps1
 tests/Model/Trigger.Tests.ps1
 tests/Model/TriggerExampleInput.Tests.ps1
 tests/Model/TriggerExampleOutput.Tests.ps1
@@ -4346,6 +4397,9 @@ tests/Model/UpdateDetail.Tests.ps1
 tests/Model/UpdateMultiHostSourcesRequestInner.Tests.ps1
 tests/Model/UpdateMultiHostSourcesRequestInnerValue.Tests.ps1
 tests/Model/UpdateScheduleRequest.Tests.ps1
+tests/Model/UpdateStreamConfigResponse.Tests.ps1
+tests/Model/UpdateStreamConfigurationRequest.Tests.ps1
+tests/Model/UpdateStreamStatusRequest.Tests.ps1
 tests/Model/Upper.Tests.ps1
 tests/Model/UsageType.Tests.ps1
 tests/Model/UserApp.Tests.ps1
@@ -4365,6 +4419,7 @@ tests/Model/VAClusterStatusChangeEventPreviousHealthCheckResult.Tests.ps1
 tests/Model/ValidateFilterInputDto.Tests.ps1
 tests/Model/ValidateFilterOutputDto.Tests.ps1
 tests/Model/Value.Tests.ps1
+tests/Model/VerificationRequest.Tests.ps1
 tests/Model/ViolationContext.Tests.ps1
 tests/Model/ViolationContextPolicy.Tests.ps1
 tests/Model/ViolationOwnerAssignmentConfig.Tests.ps1

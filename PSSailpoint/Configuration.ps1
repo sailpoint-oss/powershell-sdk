@@ -66,6 +66,14 @@ function Get-DefaultConfiguration {
         $Configuration["Experimental"] = $false
     }
 
+    if (!$Configuration.containsKey("ConsumerIdentifier")) {
+        $Configuration["ConsumerIdentifier"] = $null
+    }
+
+    if (!$Configuration.containsKey("ConsumerVersion")) {
+        $Configuration["ConsumerVersion"] = $null
+    }
+
     Return $Configuration
 
 }
@@ -134,6 +142,8 @@ function Set-DefaultConfiguration {
         [System.Nullable[Int32]]$RetryIntervalSeconds,
         [System.Nullable[Boolean]]$Experimental,
         [System.Object]$Proxy,
+        [string]$ConsumerIdentifier,
+        [string]$ConsumerVersion,
         [switch]$PassThru
     )
 
@@ -182,6 +192,14 @@ function Set-DefaultConfiguration {
 
         If ($Experimental) {
             $Script:Configuration['Experimental'] = $Experimental
+        }
+
+        If ($ConsumerIdentifier) {
+            $Script:Configuration['ConsumerIdentifier'] = $ConsumerIdentifier
+        }
+
+        If ($ConsumerVersion) {
+            $Script:Configuration['ConsumerVersion'] = $ConsumerVersion
         }
 
         If ($null -ne $Proxy) {

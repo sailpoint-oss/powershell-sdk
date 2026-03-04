@@ -75,9 +75,15 @@ function Invoke-{{{apiNamePrefix}}}ApiClient {
         break
     }
 
-    # Add Custom Header
-    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-{{packageVersion}}"
-    $HeaderParameters['User-Agent'] = "OpenAPI-Generator/{{{packageVersion}}}/ps"
+    # Add SailPoint SDK telemetry headers
+    $HeaderParameters['X-SailPoint-SDK'] = "powershell/{{packageVersion}}"
+    $UserAgent = "SailPoint-SDK/powershell/{{{packageVersion}}}"
+    if ($Configuration["ConsumerIdentifier"] -and $Configuration["ConsumerVersion"]) {
+        $UserAgent = "$UserAgent ($($Configuration["ConsumerIdentifier"])/$($Configuration["ConsumerVersion"]))"
+    }
+    $HeaderParameters['User-Agent'] = $UserAgent
+    $HeaderParameters['X-SailPoint-SDK-Runtime'] = "powershell/$($PSVersionTable.PSVersion.ToString())"
+    $HeaderParameters['X-SailPoint-SDK-OS'] = "$([System.Runtime.InteropServices.RuntimeInformation]::OSDescription.Trim())/$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)"
 
 
     $HasFormData = $False

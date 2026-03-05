@@ -1,3 +1,80 @@
+- path: /access-request-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/access-requests#get-access-request-config
+      source: |
+        
+        # Get access request configuration
+        
+        try {
+            Get-V2026AccessRequestConfig 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026AccessRequestConfig   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026AccessRequestConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-request-config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/access-requests#set-access-request-config
+      source: |
+        $AccessRequestConfig = @"
+        {
+          "govGroupVisibilityEnabled" : true,
+          "requestOnBehalfOfConfig" : {
+            "allowRequestOnBehalfOfEmployeeByManager" : true,
+            "allowRequestOnBehalfOfAnyoneByAnyone" : true
+          },
+          "autoApprovalEnabled" : true,
+          "entitlementRequestConfig" : {
+            "accessRequestConfig" : {
+              "denialCommentRequired" : false,
+              "approvalSchemes" : [ {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              }, {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              } ],
+              "reauthorizationRequired" : false,
+              "requestCommentRequired" : true,
+              "requireEndDate" : true,
+              "maxPermittedAccessDuration" : {
+                "value" : 5,
+                "timeUnit" : "DAYS"
+              }
+            },
+            "revocationRequestConfig" : {
+              "approvalSchemes" : [ {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              }, {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              } ]
+            }
+          },
+          "reauthorizationEnabled" : true,
+          "approvalsMustBeExternal" : true
+        }
+        "@
+        
+        # Update access request configuration
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToAccessRequestConfig -Json $AccessRequestConfig
+            Set-V2026AccessRequestConfig -AccessRequestConfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-V2026AccessRequestConfig -AccessRequestConfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2026AccessRequestConfig"
+            Write-Host $_.ErrorDetails
+        }
 - path: /account-requests/deletion
   method: GET
   xCodeSample:

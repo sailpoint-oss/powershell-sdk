@@ -502,6 +502,9 @@ try {
 [[Back to top]](#) 
 
 ## get-access-request-config
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This endpoint returns the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-config)
@@ -844,6 +847,9 @@ try {
 [[Back to top]](#) 
 
 ## set-access-request-config
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This endpoint replaces the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/set-access-request-config)

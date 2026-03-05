@@ -14,28 +14,28 @@ No summary available.
 
 No description available.
 
-.PARAMETER Message
+.PARAMETER VarError
 A message describing the error
 .OUTPUTS
 
-ListEntitlements429Response<PSCustomObject>
+GetAccessRequestConfig401Response<PSCustomObject>
 #>
 
-function Initialize-V2026ListEntitlements429Response {
+function Initialize-V2026GetAccessRequestConfig401Response {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Message}
+        ${VarError}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026ListEntitlements429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026GetAccessRequestConfig401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "message" = ${Message}
+            "error" = ${VarError}
         }
 
         return $PSO
@@ -45,11 +45,11 @@ function Initialize-V2026ListEntitlements429Response {
 <#
 .SYNOPSIS
 
-Convert from JSON to ListEntitlements429Response<PSCustomObject>
+Convert from JSON to GetAccessRequestConfig401Response<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ListEntitlements429Response<PSCustomObject>
+Convert from JSON to GetAccessRequestConfig401Response<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,36 +57,36 @@ Json object
 
 .OUTPUTS
 
-ListEntitlements429Response<PSCustomObject>
+GetAccessRequestConfig401Response<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToListEntitlements429Response {
+function ConvertFrom-V2026JsonToGetAccessRequestConfig401Response {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026ListEntitlements429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026GetAccessRequestConfig401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026ListEntitlements429Response
-        $AllProperties = ("message")
+        # check if Json contains properties not defined in V2026GetAccessRequestConfig401Response
+        $AllProperties = ("error")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "message"))) { #optional property not found
-            $Message = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "error"))) { #optional property not found
+            $VarError = $null
         } else {
-            $Message = $JsonParameters.PSobject.Properties["message"].value
+            $VarError = $JsonParameters.PSobject.Properties["error"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "message" = ${Message}
+            "error" = ${VarError}
         }
 
         return $PSO

@@ -14,28 +14,28 @@ No summary available.
 
 No description available.
 
-.PARAMETER VarError
-A message describing the error
+.PARAMETER ApprovalSchemes
+Ordered list of approval steps for the access request. Empty when no approval is required.
 .OUTPUTS
 
-ListEntitlements401Response<PSCustomObject>
+EntitlementRevocationRequestConfig<PSCustomObject>
 #>
 
-function Initialize-V2026ListEntitlements401Response {
+function Initialize-V2026EntitlementRevocationRequestConfig {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${VarError}
+        [PSCustomObject[]]
+        ${ApprovalSchemes}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026ListEntitlements401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026EntitlementRevocationRequestConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
-            "error" = ${VarError}
+            "approvalSchemes" = ${ApprovalSchemes}
         }
 
         return $PSO
@@ -45,11 +45,11 @@ function Initialize-V2026ListEntitlements401Response {
 <#
 .SYNOPSIS
 
-Convert from JSON to ListEntitlements401Response<PSCustomObject>
+Convert from JSON to EntitlementRevocationRequestConfig<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to ListEntitlements401Response<PSCustomObject>
+Convert from JSON to EntitlementRevocationRequestConfig<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,36 +57,36 @@ Json object
 
 .OUTPUTS
 
-ListEntitlements401Response<PSCustomObject>
+EntitlementRevocationRequestConfig<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToListEntitlements401Response {
+function ConvertFrom-V2026JsonToEntitlementRevocationRequestConfig {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026ListEntitlements401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026EntitlementRevocationRequestConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026ListEntitlements401Response
-        $AllProperties = ("error")
+        # check if Json contains properties not defined in V2026EntitlementRevocationRequestConfig
+        $AllProperties = ("approvalSchemes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "error"))) { #optional property not found
-            $VarError = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvalSchemes"))) { #optional property not found
+            $ApprovalSchemes = $null
         } else {
-            $VarError = $JsonParameters.PSobject.Properties["error"].value
+            $ApprovalSchemes = $JsonParameters.PSobject.Properties["approvalSchemes"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "error" = ${VarError}
+            "approvalSchemes" = ${ApprovalSchemes}
         }
 
         return $PSO

@@ -67,9 +67,7 @@ const createDir = async (srcDir, dirName) => {
 
 const moveFiles = async (srcPath, destPath, filename = null) => {
   try {
-    if (!await fs.stat(destPath)) {
-      await fs.mkdir(destPath, { recursive: true });
-    }
+    await fs.mkdir(destPath, { recursive: true });
 
     if (filename) {
       const filePath = path.join(srcPath, filename);

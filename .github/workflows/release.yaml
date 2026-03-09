@@ -57,13 +57,21 @@ jobs:
 
           LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
           TAG_DATE=$(git log -1 --format=%aI "$LATEST_TAG" 2>/dev/null || echo "1970-01-01")
-          SPEC_CHANGES=$(cd api-specs && git log --after="$TAG_DATE" --oneline | wc -l)
+          TAG_COMMIT=$(cd api-specs && git rev-list -1 --before="$TAG_DATE" HEAD 2>/dev/null || echo "")
+
+          if [ -z "$TAG_COMMIT" ]; then
+            echo "Could not find api-specs commit at tag date. Proceeding to be safe."
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          SPEC_CHANGES=$(cd api-specs && git diff --name-only "$TAG_COMMIT" HEAD -- 'idn/**/*.yaml' | wc -l)
 
           if [ "$SPEC_CHANGES" -eq 0 ]; then
-            echo "No spec changes since $LATEST_TAG ($TAG_DATE). Skipping release."
+            echo "No spec file changes since $LATEST_TAG ($TAG_DATE). Skipping release."
             echo "proceed=false" >> "$GITHUB_OUTPUT"
           else
-            echo "Found $SPEC_CHANGES spec changes since $LATEST_TAG. Proceeding."
+            echo "Found $SPEC_CHANGES spec file(s) changed since $LATEST_TAG. Proceeding."
             echo "proceed=true" >> "$GITHUB_OUTPUT"
           fi
 

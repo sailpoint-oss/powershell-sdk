@@ -442,6 +442,27 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountDeletionBySubTypeApprovalConfig"
             Write-Host $_.ErrorDetails
         }
+- path: /notification-template-variables/{key}/{medium}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/notifications#get-notification-template-variables
+      source: |
+        $Key = "approval_request_notification" # String | The notification template key. Valid keys (and key/medium pairs) are available from the list notification templates operation. 
+        $Medium = "EMAIL" # String | The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation. 
+        $Sorters = "-description" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, type, description** (optional)
+        
+        # Get notification template variables
+        
+        try {
+            Get-V2026NotificationTemplateVariables -Key $Key -Medium $Medium 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026NotificationTemplateVariables -Key $Key -Medium $Medium -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026NotificationTemplateVariables"
+            Write-Host $_.ErrorDetails
+        }
 - path: /task-status/pending-tasks
   method: HEAD
   xCodeSample:

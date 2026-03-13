@@ -56,6 +56,9 @@ docs/TaskReturnDetails.md
 docs/TaskStatus.md
 docs/TaskStatusMessage.md
 docs/TaskStatusMessageParametersInner.md
+docs/TemplateMediumDto.md
+docs/TemplateVariable.md
+docs/TemplateVariablesDto.md
 docs/V2026AccessRequestsApi.md
 docs/V2026AccessRequestsApideveloperSite_code_examples.yaml
 docs/V2026AccountDeletionRequestsApi.md
@@ -70,6 +73,8 @@ docs/V2026MachineAccountDeletionApprovalConfigApi.md
 docs/V2026MachineAccountDeletionApprovalConfigApideveloperSite_code_examples.yaml
 docs/V2026MachineSubtypeApprovalConfigApi.md
 docs/V2026MachineSubtypeApprovalConfigApideveloperSite_code_examples.yaml
+docs/V2026NotificationsApi.md
+docs/V2026NotificationsApideveloperSite_code_examples.yaml
 docs/V2026TaskManagementApi.md
 docs/V2026TaskManagementApideveloperSite_code_examples.yaml
 src/PSSailpoint.V2026/Api/V2026AccessRequestsApi.ps1
@@ -79,6 +84,7 @@ src/PSSailpoint.V2026/Api/V2026EntitlementsApi.ps1
 src/PSSailpoint.V2026/Api/V2026HumanAccountDeletionApprovalConfigApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineAccountDeletionApprovalConfigApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineSubtypeApprovalConfigApi.ps1
+src/PSSailpoint.V2026/Api/V2026NotificationsApi.ps1
 src/PSSailpoint.V2026/Api/V2026TaskManagementApi.ps1
 src/PSSailpoint.V2026/Client/V2026Configuration.ps1
 src/PSSailpoint.V2026/Model/AccessModelMetadata.ps1
@@ -133,6 +139,9 @@ src/PSSailpoint.V2026/Model/TaskReturnDetails.ps1
 src/PSSailpoint.V2026/Model/TaskStatus.ps1
 src/PSSailpoint.V2026/Model/TaskStatusMessage.ps1
 src/PSSailpoint.V2026/Model/TaskStatusMessageParametersInner.ps1
+src/PSSailpoint.V2026/Model/TemplateMediumDto.ps1
+src/PSSailpoint.V2026/Model/TemplateVariable.ps1
+src/PSSailpoint.V2026/Model/TemplateVariablesDto.ps1
 src/PSSailpoint.V2026/PSSailpoint.V2026.psm1
 src/PSSailpoint.V2026/Private/Get-CommonParameters.ps1
 src/PSSailpoint.V2026/Private/Out-DebugParameter.ps1
@@ -147,6 +156,7 @@ tests/Api/V2026EntitlementsApi.Tests.ps1
 tests/Api/V2026HumanAccountDeletionApprovalConfigApi.Tests.ps1
 tests/Api/V2026MachineAccountDeletionApprovalConfigApi.Tests.ps1
 tests/Api/V2026MachineSubtypeApprovalConfigApi.Tests.ps1
+tests/Api/V2026NotificationsApi.Tests.ps1
 tests/Api/V2026TaskManagementApi.Tests.ps1
 tests/Model/AccessModelMetadata.Tests.ps1
 tests/Model/AccessModelMetadataValuesInner.Tests.ps1
@@ -200,3 +210,6 @@ tests/Model/TaskReturnDetails.Tests.ps1
 tests/Model/TaskStatus.Tests.ps1
 tests/Model/TaskStatusMessage.Tests.ps1
 tests/Model/TaskStatusMessageParametersInner.Tests.ps1
+tests/Model/TemplateMediumDto.Tests.ps1
+tests/Model/TemplateVariable.Tests.ps1
+tests/Model/TemplateVariablesDto.Tests.ps1

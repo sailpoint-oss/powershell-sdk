@@ -12,14 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Configuration for approval reminder and escalation behavior. Important: Modifying this object will override the sp-approval service's reminderConfig and escalationConfig settings. Changes made here take precedence over any configuration set directly in the sp-approval service. 
 
 .PARAMETER DaysUntilEscalation
 Number of days to wait before the first reminder. If no reminders are configured, then this is the number of days to wait before escalation.
 .PARAMETER DaysBetweenReminders
 Number of days to wait between reminder notifications.
 .PARAMETER MaxReminders
-Maximum number of reminder notification to send to the reviewer before approval escalation.
+Maximum number of reminder notifications to send to the reviewer before approval escalation. The maximum allowed value is 20.
 .PARAMETER FallbackApproverRef
 No description available.
 .OUTPUTS
@@ -48,8 +48,12 @@ function Initialize-V2024ApprovalReminderAndEscalationConfig {
         'Creating PSCustomObject: PSSailpoint.V2024 => V2024ApprovalReminderAndEscalationConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if ($MaxReminders -and $MaxReminders -lt 1) {
-          throw "invalid value for 'MaxReminders', must be greater than or equal to 1."
+        if ($MaxReminders -and $MaxReminders -gt 20) {
+          throw "invalid value for 'MaxReminders', must be smaller than or equal to 20."
+        }
+
+        if ($MaxReminders -and $MaxReminders -lt 0) {
+          throw "invalid value for 'MaxReminders', must be greater than or equal to 0."
         }
 
 

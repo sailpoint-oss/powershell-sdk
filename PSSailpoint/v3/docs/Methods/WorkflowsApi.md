@@ -911,6 +911,8 @@ This endpoint will return an execution ID, which can be used to lookup more info
 
 **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
 
+This endpoint has a rate limit of 5 requests per 10 seconds.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/test-workflow)
 

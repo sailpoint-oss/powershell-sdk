@@ -76,9 +76,15 @@ function Invoke-ApiClient {
         break
     }
 
-    # Add Custom Header
-    $HeaderParameters['X-SailPoint-SDK'] = "Powershell-1.7.32"
-    $HeaderParameters['User-Agent'] = "OpenAPI-Generator/1.7.32/ps"
+    # Build User-Agent header
+    $UserAgent = "SailPoint-SDK-PowerShell/1.7.33"
+    if ($Configuration["ConsumerIdentifier"] -and $Configuration["ConsumerVersion"]) {
+        $UserAgent = "$UserAgent ($($Configuration["ConsumerIdentifier"])/$($Configuration["ConsumerVersion"]))"
+    }
+    if ($IsWindows) { $OSPlatform = "windows" } elseif ($IsLinux) { $OSPlatform = "linux" } elseif ($IsMacOS) { $OSPlatform = "darwin" } else { $OSPlatform = "unknown" }
+    $OSArch = [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture.ToString().ToLower()
+    $UserAgent = "$UserAgent ($OSPlatform; $OSArch) PowerShell/$($PSVersionTable.PSVersion.ToString()) (openapi-generator/7.12.0)"
+    $HeaderParameters['User-Agent'] = $UserAgent
 
 
     $HasFormData = $False

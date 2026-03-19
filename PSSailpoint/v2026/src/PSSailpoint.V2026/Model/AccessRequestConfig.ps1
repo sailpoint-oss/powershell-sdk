@@ -16,8 +16,6 @@ No description available.
 
 .PARAMETER ApprovalsMustBeExternal
 If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn't an org admin.
-.PARAMETER AutoApprovalEnabled
-If this is true and the requester and reviewer are the same, the request is automatically approved.
 .PARAMETER ReauthorizationEnabled
 If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state.
 .PARAMETER RequestOnBehalfOfConfig
@@ -39,9 +37,6 @@ function Initialize-V2026AccessRequestConfig {
         ${ApprovalsMustBeExternal} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${AutoApprovalEnabled} = $false,
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
         ${ReauthorizationEnabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
@@ -61,7 +56,6 @@ function Initialize-V2026AccessRequestConfig {
 
         $PSO = [PSCustomObject]@{
             "approvalsMustBeExternal" = ${ApprovalsMustBeExternal}
-            "autoApprovalEnabled" = ${AutoApprovalEnabled}
             "reauthorizationEnabled" = ${ReauthorizationEnabled}
             "requestOnBehalfOfConfig" = ${RequestOnBehalfOfConfig}
             "entitlementRequestConfig" = ${EntitlementRequestConfig}
@@ -102,7 +96,7 @@ function ConvertFrom-V2026JsonToAccessRequestConfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026AccessRequestConfig
-        $AllProperties = ("approvalsMustBeExternal", "autoApprovalEnabled", "reauthorizationEnabled", "requestOnBehalfOfConfig", "entitlementRequestConfig", "govGroupVisibilityEnabled")
+        $AllProperties = ("approvalsMustBeExternal", "reauthorizationEnabled", "requestOnBehalfOfConfig", "entitlementRequestConfig", "govGroupVisibilityEnabled")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -113,12 +107,6 @@ function ConvertFrom-V2026JsonToAccessRequestConfig {
             $ApprovalsMustBeExternal = $null
         } else {
             $ApprovalsMustBeExternal = $JsonParameters.PSobject.Properties["approvalsMustBeExternal"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "autoApprovalEnabled"))) { #optional property not found
-            $AutoApprovalEnabled = $null
-        } else {
-            $AutoApprovalEnabled = $JsonParameters.PSobject.Properties["autoApprovalEnabled"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "reauthorizationEnabled"))) { #optional property not found
@@ -147,7 +135,6 @@ function ConvertFrom-V2026JsonToAccessRequestConfig {
 
         $PSO = [PSCustomObject]@{
             "approvalsMustBeExternal" = ${ApprovalsMustBeExternal}
-            "autoApprovalEnabled" = ${AutoApprovalEnabled}
             "reauthorizationEnabled" = ${ReauthorizationEnabled}
             "requestOnBehalfOfConfig" = ${RequestOnBehalfOfConfig}
             "entitlementRequestConfig" = ${EntitlementRequestConfig}

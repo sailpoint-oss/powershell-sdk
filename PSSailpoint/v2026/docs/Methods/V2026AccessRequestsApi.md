@@ -99,7 +99,6 @@ $AccessRequestConfig = @"{
     "allowRequestOnBehalfOfEmployeeByManager" : true,
     "allowRequestOnBehalfOfAnyoneByAnyone" : true
   },
-  "autoApprovalEnabled" : true,
   "entitlementRequestConfig" : {
     "accessRequestConfig" : {
       "denialCommentRequired" : false,

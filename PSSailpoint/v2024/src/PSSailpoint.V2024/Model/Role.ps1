@@ -22,6 +22,8 @@ The human-readable display name of the Role
 A human-readable description of the Role
 .PARAMETER Owner
 No description available.
+.PARAMETER AdditionalOwners
+List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
 .PARAMETER AccessProfiles
 No description available.
 .PARAMETER Entitlements
@@ -66,6 +68,9 @@ function Initialize-V2024Role {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${AdditionalOwners},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${AccessProfiles},
@@ -122,6 +127,7 @@ function Initialize-V2024Role {
             "name" = ${Name}
             "description" = ${Description}
             "owner" = ${Owner}
+            "additionalOwners" = ${AdditionalOwners}
             "accessProfiles" = ${AccessProfiles}
             "entitlements" = ${Entitlements}
             "membership" = ${Membership}
@@ -170,7 +176,7 @@ function ConvertFrom-V2024JsonToRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024Role
-        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "accessProfiles", "entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments", "dimensional", "dimensionRefs", "accessModelMetadata")
+        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "additionalOwners", "accessProfiles", "entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments", "dimensional", "dimensionRefs", "accessModelMetadata")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -215,6 +221,12 @@ function ConvertFrom-V2024JsonToRole {
             $Description = $null
         } else {
             $Description = $JsonParameters.PSobject.Properties["description"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "additionalOwners"))) { #optional property not found
+            $AdditionalOwners = $null
+        } else {
+            $AdditionalOwners = $JsonParameters.PSobject.Properties["additionalOwners"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessProfiles"))) { #optional property not found
@@ -296,6 +308,7 @@ function ConvertFrom-V2024JsonToRole {
             "modified" = ${Modified}
             "description" = ${Description}
             "owner" = ${Owner}
+            "additionalOwners" = ${AdditionalOwners}
             "accessProfiles" = ${AccessProfiles}
             "entitlements" = ${Entitlements}
             "membership" = ${Membership}

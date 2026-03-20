@@ -22,6 +22,7 @@ docs/ApprovalDetails.md
 docs/ApproverDto.md
 docs/ApproverReference.md
 docs/ArrayInner.md
+docs/BaseCommonDto.md
 docs/BaseReferenceDto.md
 docs/DtoType.md
 docs/Entitlement.md
@@ -47,6 +48,12 @@ docs/LocalizedMessage.md
 docs/MachineAccountSubTypeConfigDto.md
 docs/MachineAccountSubTypeConfigDtoMachineAccountCreate.md
 docs/MachineAccountSubTypeConfigDtoMachineAccountDelete.md
+docs/MachineIdentity.md
+docs/MachineIdentityDtoOwners.md
+docs/MachineIdentityRequest.md
+docs/MachineIdentityRequestUserEntitlements.md
+docs/MachineIdentityResponse.md
+docs/MachineIdentityResponseUserEntitlements.md
 docs/Methods/Index.md
 docs/PermissionDto.md
 docs/RequestOnBehalfOfConfig.md
@@ -71,6 +78,8 @@ docs/V2026HumanAccountDeletionApprovalConfigApi.md
 docs/V2026HumanAccountDeletionApprovalConfigApideveloperSite_code_examples.yaml
 docs/V2026MachineAccountDeletionApprovalConfigApi.md
 docs/V2026MachineAccountDeletionApprovalConfigApideveloperSite_code_examples.yaml
+docs/V2026MachineIdentitiesApi.md
+docs/V2026MachineIdentitiesApideveloperSite_code_examples.yaml
 docs/V2026MachineSubtypeApprovalConfigApi.md
 docs/V2026MachineSubtypeApprovalConfigApideveloperSite_code_examples.yaml
 docs/V2026NotificationsApi.md
@@ -83,6 +92,7 @@ src/PSSailpoint.V2026/Api/V2026DeleteAccountApi.ps1
 src/PSSailpoint.V2026/Api/V2026EntitlementsApi.ps1
 src/PSSailpoint.V2026/Api/V2026HumanAccountDeletionApprovalConfigApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineAccountDeletionApprovalConfigApi.ps1
+src/PSSailpoint.V2026/Api/V2026MachineIdentitiesApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineSubtypeApprovalConfigApi.ps1
 src/PSSailpoint.V2026/Api/V2026NotificationsApi.ps1
 src/PSSailpoint.V2026/Api/V2026TaskManagementApi.ps1
@@ -106,6 +116,7 @@ src/PSSailpoint.V2026/Model/ApprovalDetails.ps1
 src/PSSailpoint.V2026/Model/ApproverDto.ps1
 src/PSSailpoint.V2026/Model/ApproverReference.ps1
 src/PSSailpoint.V2026/Model/ArrayInner.ps1
+src/PSSailpoint.V2026/Model/BaseCommonDto.ps1
 src/PSSailpoint.V2026/Model/BaseReferenceDto.ps1
 src/PSSailpoint.V2026/Model/DtoType.ps1
 src/PSSailpoint.V2026/Model/Entitlement.ps1
@@ -131,6 +142,12 @@ src/PSSailpoint.V2026/Model/LocalizedMessage.ps1
 src/PSSailpoint.V2026/Model/MachineAccountSubTypeConfigDto.ps1
 src/PSSailpoint.V2026/Model/MachineAccountSubTypeConfigDtoMachineAccountCreate.ps1
 src/PSSailpoint.V2026/Model/MachineAccountSubTypeConfigDtoMachineAccountDelete.ps1
+src/PSSailpoint.V2026/Model/MachineIdentity.ps1
+src/PSSailpoint.V2026/Model/MachineIdentityDtoOwners.ps1
+src/PSSailpoint.V2026/Model/MachineIdentityRequest.ps1
+src/PSSailpoint.V2026/Model/MachineIdentityRequestUserEntitlements.ps1
+src/PSSailpoint.V2026/Model/MachineIdentityResponse.ps1
+src/PSSailpoint.V2026/Model/MachineIdentityResponseUserEntitlements.ps1
 src/PSSailpoint.V2026/Model/PermissionDto.ps1
 src/PSSailpoint.V2026/Model/RequestOnBehalfOfConfig.ps1
 src/PSSailpoint.V2026/Model/Target.ps1
@@ -155,6 +172,7 @@ tests/Api/V2026DeleteAccountApi.Tests.ps1
 tests/Api/V2026EntitlementsApi.Tests.ps1
 tests/Api/V2026HumanAccountDeletionApprovalConfigApi.Tests.ps1
 tests/Api/V2026MachineAccountDeletionApprovalConfigApi.Tests.ps1
+tests/Api/V2026MachineIdentitiesApi.Tests.ps1
 tests/Api/V2026MachineSubtypeApprovalConfigApi.Tests.ps1
 tests/Api/V2026NotificationsApi.Tests.ps1
 tests/Api/V2026TaskManagementApi.Tests.ps1
@@ -177,6 +195,7 @@ tests/Model/ApprovalDetails.Tests.ps1
 tests/Model/ApproverDto.Tests.ps1
 tests/Model/ApproverReference.Tests.ps1
 tests/Model/ArrayInner.Tests.ps1
+tests/Model/BaseCommonDto.Tests.ps1
 tests/Model/BaseReferenceDto.Tests.ps1
 tests/Model/DtoType.Tests.ps1
 tests/Model/Entitlement.Tests.ps1
@@ -202,6 +221,12 @@ tests/Model/LocalizedMessage.Tests.ps1
 tests/Model/MachineAccountSubTypeConfigDto.Tests.ps1
 tests/Model/MachineAccountSubTypeConfigDtoMachineAccountCreate.Tests.ps1
 tests/Model/MachineAccountSubTypeConfigDtoMachineAccountDelete.Tests.ps1
+tests/Model/MachineIdentity.Tests.ps1
+tests/Model/MachineIdentityDtoOwners.Tests.ps1
+tests/Model/MachineIdentityRequest.Tests.ps1
+tests/Model/MachineIdentityRequestUserEntitlements.Tests.ps1
+tests/Model/MachineIdentityResponse.Tests.ps1
+tests/Model/MachineIdentityResponseUserEntitlements.Tests.ps1
 tests/Model/PermissionDto.Tests.ps1
 tests/Model/RequestOnBehalfOfConfig.Tests.ps1
 tests/Model/Target.Tests.ps1

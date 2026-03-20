@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **Segments** | **[]String** | List of segment IDs, if any, that the access profile is assigned to. | [optional] 
 **AccessModelMetadata** | [**AttributeDTOList**](attribute-dto-list) |  | [optional] 
 **ProvisioningCriteria** | [**ProvisioningCriteriaLevel1**](provisioning-criteria-level1) |  | [optional] 
-**AdditionalOwners** | [**[]OwnerReference**](owner-reference) |  | [optional] 
+**AdditionalOwners** | [**[]AdditionalOwnerRef**](additional-owner-ref) | List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP). | [optional] 
 
 ## Examples
 

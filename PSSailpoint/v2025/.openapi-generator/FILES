@@ -161,6 +161,7 @@ docs/ActivateCampaignOptions.md
 docs/ActivityConfigurationSettings.md
 docs/ActivityIdentity.md
 docs/ActivityInsights.md
+docs/AdditionalOwnerRef.md
 docs/AdminReviewReassign.md
 docs/AdminReviewReassignReassignTo.md
 docs/AggregationResult.md
@@ -1817,6 +1818,7 @@ src/PSSailpoint.V2025/Model/ActivateCampaignOptions.ps1
 src/PSSailpoint.V2025/Model/ActivityConfigurationSettings.ps1
 src/PSSailpoint.V2025/Model/ActivityIdentity.ps1
 src/PSSailpoint.V2025/Model/ActivityInsights.ps1
+src/PSSailpoint.V2025/Model/AdditionalOwnerRef.ps1
 src/PSSailpoint.V2025/Model/AdminReviewReassign.ps1
 src/PSSailpoint.V2025/Model/AdminReviewReassignReassignTo.ps1
 src/PSSailpoint.V2025/Model/AggregationResult.ps1
@@ -3272,6 +3274,7 @@ tests/Model/ActivateCampaignOptions.Tests.ps1
 tests/Model/ActivityConfigurationSettings.Tests.ps1
 tests/Model/ActivityIdentity.Tests.ps1
 tests/Model/ActivityInsights.Tests.ps1
+tests/Model/AdditionalOwnerRef.Tests.ps1
 tests/Model/AdminReviewReassign.Tests.ps1
 tests/Model/AdminReviewReassignReassignTo.Tests.ps1
 tests/Model/AggregationResult.Tests.ps1

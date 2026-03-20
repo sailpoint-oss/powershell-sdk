@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | Date the Role was last modified. | [optional] [readonly] 
 **Description** | **String** | A human-readable description of the Role | [optional] 
 **Owner** | [**OwnerReference**](owner-reference) |  | [required]
+**AdditionalOwners** | [**[]AdditionalOwnerRef**](additional-owner-ref) | List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP). | [optional] 
 **AccessProfiles** | [**[]AccessProfileRef**](access-profile-ref) |  | [optional] 
 **Entitlements** | [**[]EntitlementRef**](entitlement-ref) |  | [optional] 
 **Membership** | [**RoleMembershipSelector**](role-membership-selector) |  | [optional] 
@@ -45,6 +46,7 @@ $Role = Initialize-V2024Role  -Id 2c918086749d78830174a1a40e121518 `
  -Modified 2021-03-02T20:22:28.104Z `
  -Description Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor. `
  -Owner null `
+ -AdditionalOwners null `
  -AccessProfiles null `
  -Entitlements null `
  -Membership null `

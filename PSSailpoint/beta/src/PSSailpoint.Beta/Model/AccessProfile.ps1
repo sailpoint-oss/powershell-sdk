@@ -39,7 +39,7 @@ No description available.
 .PARAMETER ProvisioningCriteria
 No description available.
 .PARAMETER AdditionalOwners
-No description available.
+List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
 .OUTPUTS
 
 AccessProfile<PSCustomObject>

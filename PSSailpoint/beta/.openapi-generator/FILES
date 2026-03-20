@@ -112,6 +112,7 @@ docs/AccountsCollectedForAggregation.md
 docs/AccountsCollectedForAggregationSource.md
 docs/AccountsCollectedForAggregationStats.md
 docs/ActivateCampaignOptions.md
+docs/AdditionalOwnerRef.md
 docs/AdminReviewReassign.md
 docs/AdminReviewReassignReassignTo.md
 docs/AppAccountDetails.md
@@ -1285,6 +1286,7 @@ src/PSSailpoint.Beta/Model/AccountsCollectedForAggregation.ps1
 src/PSSailpoint.Beta/Model/AccountsCollectedForAggregationSource.ps1
 src/PSSailpoint.Beta/Model/AccountsCollectedForAggregationStats.ps1
 src/PSSailpoint.Beta/Model/ActivateCampaignOptions.ps1
+src/PSSailpoint.Beta/Model/AdditionalOwnerRef.ps1
 src/PSSailpoint.Beta/Model/AdminReviewReassign.ps1
 src/PSSailpoint.Beta/Model/AdminReviewReassignReassignTo.ps1
 src/PSSailpoint.Beta/Model/AppAccountDetails.ps1
@@ -2317,6 +2319,7 @@ tests/Model/AccountsCollectedForAggregation.Tests.ps1
 tests/Model/AccountsCollectedForAggregationSource.Tests.ps1
 tests/Model/AccountsCollectedForAggregationStats.Tests.ps1
 tests/Model/ActivateCampaignOptions.Tests.ps1
+tests/Model/AdditionalOwnerRef.Tests.ps1
 tests/Model/AdminReviewReassign.Tests.ps1
 tests/Model/AdminReviewReassignReassignTo.Tests.ps1
 tests/Model/AppAccountDetails.Tests.ps1

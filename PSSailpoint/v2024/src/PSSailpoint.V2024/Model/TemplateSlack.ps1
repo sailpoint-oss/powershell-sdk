@@ -15,23 +15,23 @@ No summary available.
 No description available.
 
 .PARAMETER Key
-No description available.
+The template key
 .PARAMETER Text
-No description available.
+The main text content of the Slack message
 .PARAMETER Blocks
-No description available.
+JSON string of Slack Block Kit blocks for rich formatting
 .PARAMETER Attachments
-No description available.
+JSON string of Slack attachments
 .PARAMETER NotificationType
-No description available.
+The type of notification
 .PARAMETER ApprovalId
-No description available.
+The approval request ID
 .PARAMETER RequestId
-No description available.
+The request ID
 .PARAMETER RequestedById
-No description available.
+The ID of the user who made the request
 .PARAMETER IsSubscription
-No description available.
+Whether this is a subscription notification
 .PARAMETER AutoApprovalData
 No description available.
 .PARAMETER CustomFields
@@ -70,7 +70,7 @@ function Initialize-V2024TemplateSlack {
         ${RequestedById},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsSubscription},
+        ${IsSubscription} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${AutoApprovalData},

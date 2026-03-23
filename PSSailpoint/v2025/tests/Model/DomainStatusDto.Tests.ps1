@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025DomainStatusDto' {
     Context 'V2025DomainStatusDto' {
         It 'Initialize-V2025DomainStatusDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025DomainStatusDto -Id "TEST_VALUE" -Domain "TEST_VALUE" -DkimEnabled "TEST_VALUE" -DkimTokens "TEST_VALUE" -DkimVerificationStatus "TEST_VALUE"
+            #$NewObject = Initialize-V2025DomainStatusDto -Id "TEST_VALUE" -Domain "TEST_VALUE" -DkimEnabled "TEST_VALUE" -DkimTokens "TEST_VALUE" -DkimVerificationStatus "TEST_VALUE" -Region "TEST_VALUE"
             #$NewObject | Should -BeOfType DomainStatusDto
             #$NewObject.property | Should -Be 0
         }

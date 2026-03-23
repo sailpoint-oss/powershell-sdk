@@ -465,7 +465,8 @@ try {
 [[Back to top]](#) 
 
 ## put-approvals-config
-Upserts a singular approval configuration that matches the given configID and configScope. If id and scope are not provided, it will default to setting the tenant config.
+Upserts a singular approval configuration that matches the given configID and configScope. 
+For example to update the approval configurations for all Access Request Approvals please use: '/generic-approvals/config/ACCESS_REQUEST_APPROVAL/APPROVAL_TYPE'
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-approvals-config)
 

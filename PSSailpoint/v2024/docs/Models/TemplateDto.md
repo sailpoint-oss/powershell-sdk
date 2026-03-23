@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **String** | The key of the template | [required]
 **Name** | **String** | The name of the Task Manager Subscription | [optional] 
-**Medium** |  **Enum** [  "EMAIL",    "PHONE",    "SMS",    "SLACK",    "TEAMS" ] | The message medium. More mediums may be added in the future. | [required]
+**Medium** |  **Enum** [  "EMAIL",    "SLACK",    "TEAMS" ] | The message medium. More mediums may be added in the future. | [required]
 **Locale** | **String** | The locale for the message text, a BCP 47 language tag. | [required]
 **Subject** | **String** | The subject line in the template | [optional] 
 **Header** | **String** | The header value is now located within the body field. If included with non-null values, will result in a 400. | [optional] 
@@ -30,8 +30,8 @@ Name | Type | Description | Notes
 **Id** | **String** | This is auto-generated. | [optional] 
 **Created** | **System.DateTime** | The time when this template is created. This is auto-generated. | [optional] 
 **Modified** | **System.DateTime** | The time when this template was last modified. This is auto-generated. | [optional] 
-**SlackTemplate** | **String** |  | [optional] 
-**TeamsTemplate** | **String** |  | [optional] 
+**SlackTemplate** | [**TemplateDtoSlackTemplate**](template-dto-slack-template) |  | [optional] 
+**TeamsTemplate** | [**TemplateDtoTeamsTemplate**](template-dto-teams-template) |  | [optional] 
 
 ## Examples
 

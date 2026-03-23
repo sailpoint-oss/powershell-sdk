@@ -1099,6 +1099,8 @@ docs/TaskStatusMessageParametersInner.md
 docs/TemplateBulkDeleteDto.md
 docs/TemplateDto.md
 docs/TemplateDtoDefault.md
+docs/TemplateDtoSlackTemplate.md
+docs/TemplateDtoTeamsTemplate.md
 docs/TemplateSlack.md
 docs/TemplateSlackAutoApprovalData.md
 docs/TemplateSlackCustomFields.md
@@ -2564,6 +2566,8 @@ src/PSSailpoint.V2024/Model/TaskStatusMessageParametersInner.ps1
 src/PSSailpoint.V2024/Model/TemplateBulkDeleteDto.ps1
 src/PSSailpoint.V2024/Model/TemplateDto.ps1
 src/PSSailpoint.V2024/Model/TemplateDtoDefault.ps1
+src/PSSailpoint.V2024/Model/TemplateDtoSlackTemplate.ps1
+src/PSSailpoint.V2024/Model/TemplateDtoTeamsTemplate.ps1
 src/PSSailpoint.V2024/Model/TemplateSlack.ps1
 src/PSSailpoint.V2024/Model/TemplateSlackAutoApprovalData.ps1
 src/PSSailpoint.V2024/Model/TemplateSlackCustomFields.ps1
@@ -3849,6 +3853,8 @@ tests/Model/TaskStatusMessageParametersInner.Tests.ps1
 tests/Model/TemplateBulkDeleteDto.Tests.ps1
 tests/Model/TemplateDto.Tests.ps1
 tests/Model/TemplateDtoDefault.Tests.ps1
+tests/Model/TemplateDtoSlackTemplate.Tests.ps1
+tests/Model/TemplateDtoTeamsTemplate.Tests.ps1
 tests/Model/TemplateSlack.Tests.ps1
 tests/Model/TemplateSlackAutoApprovalData.Tests.ps1
 tests/Model/TemplateSlackCustomFields.Tests.ps1

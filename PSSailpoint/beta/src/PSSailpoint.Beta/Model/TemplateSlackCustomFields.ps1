@@ -15,13 +15,13 @@ No summary available.
 No description available.
 
 .PARAMETER RequestType
-No description available.
+The type of request
 .PARAMETER ContainsDeny
-No description available.
+Whether the request contains a deny action
 .PARAMETER CampaignId
-No description available.
+The campaign ID
 .PARAMETER CampaignStatus
-No description available.
+The campaign status
 .OUTPUTS
 
 TemplateSlackCustomFields<PSCustomObject>

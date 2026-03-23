@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
 
     Context 'Get-V2024MailFromAttributes' {
         It 'Test Get-V2024MailFromAttributes' {
-            #$TestResult = Get-V2024MailFromAttributes -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024MailFromAttributes -Identity "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

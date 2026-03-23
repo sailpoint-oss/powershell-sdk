@@ -315,7 +315,7 @@ Bulk delete notification templates
 
 .DESCRIPTION
 
-This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
+This lets you bulk delete templates that you previously created for your site.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -578,7 +578,7 @@ Get mail from attributes
 
 Retrieve MAIL FROM attributes for a given AWS SES identity.
 
-.PARAMETER Id
+.PARAMETER Identity
 Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 
 .PARAMETER XSailPointExperimental
@@ -597,7 +597,7 @@ function Get-V2024MailFromAttributes {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        ${Identity},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         $XSailPointExperimental = "true",
@@ -622,16 +622,15 @@ function Get-V2024MailFromAttributes {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/mail-from-attributes/{identity}'
+        if (!$Identity) {
+            throw "Error! The required parameter `Identity` missing when calling getMailFromAttributes."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{identity}', [System.Web.HTTPUtility]::UrlEncode($Identity))
 
         if (!$XSailPointExperimental) {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getMailFromAttributes."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
-
-        if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getMailFromAttributes."
-        }
-        $LocalVarQueryParameters['id'] = $Id
 
 
 

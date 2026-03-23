@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'TemplateSlackCustomFields', 'BetaTemp
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestType** | **String** |  | [optional] 
-**ContainsDeny** | **String** |  | [optional] 
-**CampaignId** | **String** |  | [optional] 
-**CampaignStatus** | **String** |  | [optional] 
+**RequestType** | **String** | The type of request | [optional] 
+**ContainsDeny** | **String** | Whether the request contains a deny action | [optional] 
+**CampaignId** | **String** | The campaign ID | [optional] 
+**CampaignStatus** | **String** | The campaign status | [optional] 
 
 ## Examples
 

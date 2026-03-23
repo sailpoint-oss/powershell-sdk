@@ -61,7 +61,7 @@ function Initialize-V2024TemplateDto {
         [String]
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("EMAIL", "PHONE", "SMS", "SLACK", "TEAMS")]
+        [ValidateSet("EMAIL", "SLACK", "TEAMS")]
         [String]
         ${Medium},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -98,10 +98,10 @@ function Initialize-V2024TemplateDto {
         [System.Nullable[System.DateTime]]
         ${Modified},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject]
         ${SlackTemplate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [PSCustomObject]
         ${TeamsTemplate}
     )
 

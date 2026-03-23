@@ -55,7 +55,7 @@ function Initialize-V2025TemplateDtoDefault {
         [String]
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("EMAIL", "PHONE", "SMS", "SLACK", "TEAMS")]
+        [ValidateSet("EMAIL", "SLACK", "TEAMS")]
         [String]
         ${Medium},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

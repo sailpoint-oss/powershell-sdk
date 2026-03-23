@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024DkimAttributes' {
     Context 'V2024DkimAttributes' {
         It 'Initialize-V2024DkimAttributes' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024DkimAttributes -Id "TEST_VALUE" -Address "TEST_VALUE" -DkimEnabled "TEST_VALUE" -DkimTokens "TEST_VALUE" -DkimVerificationStatus "TEST_VALUE"
+            #$NewObject = Initialize-V2024DkimAttributes -Id "TEST_VALUE" -Address "TEST_VALUE" -DkimEnabled "TEST_VALUE" -DkimTokens "TEST_VALUE" -DkimVerificationStatus "TEST_VALUE" -Region "TEST_VALUE"
             #$NewObject | Should -BeOfType DkimAttributes
             #$NewObject.property | Should -Be 0
         }

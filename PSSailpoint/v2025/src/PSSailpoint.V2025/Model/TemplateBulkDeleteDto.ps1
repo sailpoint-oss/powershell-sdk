@@ -15,9 +15,9 @@ No summary available.
 No description available.
 
 .PARAMETER Key
-No description available.
+The template key to delete
 .PARAMETER Medium
-No description available.
+The notification medium (EMAIL, SLACK, or TEAMS)
 .PARAMETER Locale
 The locale for the message text, a BCP 47 language tag.
 .OUTPUTS
@@ -32,7 +32,7 @@ function Initialize-V2025TemplateBulkDeleteDto {
         [String]
         ${Key},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("EMAIL", "PHONE", "SMS")]
+        [ValidateSet("EMAIL", "SLACK", "TEAMS")]
         [String]
         ${Medium},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

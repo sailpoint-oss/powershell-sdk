@@ -15,13 +15,15 @@ No summary available.
 No description available.
 
 .PARAMETER Id
-No description available.
+Unique identifier for the verified sender address
 .PARAMETER Email
-No description available.
+The verified sender email address
 .PARAMETER IsVerifiedByDomain
-No description available.
+Whether the sender address is verified by domain
 .PARAMETER VerificationStatus
-No description available.
+The verification status of the sender address
+.PARAMETER Region
+The AWS SES region the sender address is associated with
 .OUTPUTS
 
 EmailStatusDto<PSCustomObject>
@@ -38,11 +40,14 @@ function Initialize-V2025EmailStatusDto {
         ${Email},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsVerifiedByDomain},
+        ${IsVerifiedByDomain} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("PENDING", "SUCCESS", "FAILED")]
+        [ValidateSet("PENDING", "SUCCESS", "FAILED", "NA")]
         [String]
-        ${VerificationStatus}
+        ${VerificationStatus},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Region}
     )
 
     Process {
@@ -55,6 +60,7 @@ function Initialize-V2025EmailStatusDto {
             "email" = ${Email}
             "isVerifiedByDomain" = ${IsVerifiedByDomain}
             "verificationStatus" = ${VerificationStatus}
+            "region" = ${Region}
         }
 
         return $PSO
@@ -91,7 +97,7 @@ function ConvertFrom-V2025JsonToEmailStatusDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025EmailStatusDto
-        $AllProperties = ("id", "email", "isVerifiedByDomain", "verificationStatus")
+        $AllProperties = ("id", "email", "isVerifiedByDomain", "verificationStatus", "region")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -122,11 +128,18 @@ function ConvertFrom-V2025JsonToEmailStatusDto {
             $VerificationStatus = $JsonParameters.PSobject.Properties["verificationStatus"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "region"))) { #optional property not found
+            $Region = $null
+        } else {
+            $Region = $JsonParameters.PSobject.Properties["region"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "email" = ${Email}
             "isVerifiedByDomain" = ${IsVerifiedByDomain}
             "verificationStatus" = ${VerificationStatus}
+            "region" = ${Region}
         }
 
         return $PSO

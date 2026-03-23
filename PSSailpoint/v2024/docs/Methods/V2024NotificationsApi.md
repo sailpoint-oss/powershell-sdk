@@ -126,9 +126,55 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $TemplateDto = @"{
-  "slackTemplate" : "slackTemplate",
+  "slackTemplate" : {
+    "isSubscription" : false,
+    "attachments" : "[]",
+    "blocks" : "blocks",
+    "requestId" : "requestId",
+    "autoApprovalData" : {
+      "itemId" : "itemId",
+      "itemType" : "itemType",
+      "autoApprovalMessageJSON" : "autoApprovalMessageJSON",
+      "isAutoApproved" : "isAutoApproved",
+      "autoApprovalTitle" : "autoApprovalTitle"
+    },
+    "customFields" : {
+      "requestType" : "requestType",
+      "campaignId" : "campaignId",
+      "campaignStatus" : "campaignStatus",
+      "containsDeny" : "containsDeny"
+    },
+    "requestedById" : "requestedById",
+    "approvalId" : "approvalId",
+    "text" : "You have a new approval request",
+    "notificationType" : "notificationType",
+    "key" : "key"
+  },
   "footer" : "footer",
-  "teamsTemplate" : "teamsTemplate",
+  "teamsTemplate" : {
+    "isSubscription" : false,
+    "requestId" : "requestId",
+    "autoApprovalData" : {
+      "itemId" : "itemId",
+      "itemType" : "itemType",
+      "autoApprovalMessageJSON" : "autoApprovalMessageJSON",
+      "isAutoApproved" : "isAutoApproved",
+      "autoApprovalTitle" : "autoApprovalTitle"
+    },
+    "customFields" : {
+      "requestType" : "requestType",
+      "campaignId" : "campaignId",
+      "campaignStatus" : "campaignStatus",
+      "containsDeny" : "containsDeny"
+    },
+    "requestedById" : "requestedById",
+    "approvalId" : "approvalId",
+    "text" : "You have a new approval request",
+    "notificationType" : "notificationType",
+    "title" : "title",
+    "key" : "key",
+    "messageJSON" : "messageJSON"
+  },
   "subject" : "You have $numberOfPendingTasks $taskTasks to complete in ${__global.productName}.",
   "created" : "2020-01-01T00:00:00Z",
   "description" : "Daily digest - sent if number of outstanding tasks for task owner > 0",
@@ -195,8 +241,9 @@ Code | Description  | Data Type
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $EmailStatusDto = @"{
   "isVerifiedByDomain" : false,
-  "verificationStatus" : "PENDING",
+  "verificationStatus" : "SUCCESS",
   "id" : "id",
+  "region" : "us-east-1",
   "email" : "sender@example.com"
 }"@
 
@@ -219,7 +266,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
+This lets you bulk delete templates that you previously created for your site.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-notification-templates-in-bulk)
 
@@ -381,7 +428,7 @@ Retrieve MAIL FROM attributes for a given AWS SES identity.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Id | **String** | True  | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+Path   | Identity | **String** | True  | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
@@ -403,16 +450,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+$Identity = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get mail from attributes
 
 try {
-    Get-V2024MailFromAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024MailFromAttributes -Identity $Identity -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024MailFromAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024MailFromAttributes -Identity $Identity -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MailFromAttributes"
     Write-Host $_.ErrorDetails
@@ -826,8 +873,15 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SendTestNotificationRequestDto = @"{
-  "context" : "{}",
+  "carbonCopy" : [ "cc@example.com" ],
+  "context" : {
+    "numberOfPendingTasks" : "4",
+    "taskTasks" : "tasks"
+  },
+  "blindCarbonCopy" : [ "bcc@example.com" ],
   "medium" : "EMAIL",
+  "locale" : "en",
+  "recipientEmailList" : [ "test@example.com" ],
   "key" : "cloud_manual_work_item_summary"
 }"@
 

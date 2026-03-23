@@ -16,10 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'EmailStatusDto', 'V2024EmailStatusDto
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** |  | [optional] 
-**Email** | **String** |  | [optional] 
-**IsVerifiedByDomain** | **Boolean** |  | [optional] 
-**VerificationStatus** |  **Enum** [  "PENDING",    "SUCCESS",    "FAILED" ] |  | [optional] 
+**Id** | **String** | Unique identifier for the verified sender address | [optional] 
+**Email** | **String** | The verified sender email address | [optional] 
+**IsVerifiedByDomain** | **Boolean** | Whether the sender address is verified by domain | [optional] [default to $false]
+**VerificationStatus** |  **Enum** [  "PENDING",    "SUCCESS",    "FAILED",    "NA" ] | The verification status of the sender address | [optional] 
+**Region** | **String** | The AWS SES region the sender address is associated with | [optional] 
 
 ## Examples
 
@@ -28,7 +29,8 @@ Name | Type | Description | Notes
 $EmailStatusDto = Initialize-V2024EmailStatusDto  -Id null `
  -Email sender@example.com `
  -IsVerifiedByDomain false `
- -VerificationStatus null
+ -VerificationStatus SUCCESS `
+ -Region us-east-1
 ```
 
 - Convert the resource to JSON

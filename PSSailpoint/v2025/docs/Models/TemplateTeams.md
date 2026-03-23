@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'TemplateTeams', 'V2025TemplateTeams']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **String** |  | [optional] 
-**Title** | **String** |  | [optional] 
-**Text** | **String** |  | [optional] 
-**MessageJSON** | **String** |  | [optional] 
-**IsSubscription** | **Boolean** |  | [optional] 
-**ApprovalId** | **String** |  | [optional] 
-**RequestId** | **String** |  | [optional] 
-**RequestedById** | **String** |  | [optional] 
-**NotificationType** | **String** |  | [optional] 
+**Key** | **String** | The template key | [optional] 
+**Title** | **String** | The title of the Teams message | [optional] 
+**Text** | **String** | The main text content of the Teams message | [optional] 
+**MessageJSON** | **String** | JSON string of the Teams adaptive card | [optional] 
+**IsSubscription** | **Boolean** | Whether this is a subscription notification | [optional] [default to $false]
+**ApprovalId** | **String** | The approval request ID | [optional] 
+**RequestId** | **String** | The request ID | [optional] 
+**RequestedById** | **String** | The ID of the user who made the request | [optional] 
+**NotificationType** | **String** | The type of notification | [optional] 
 **AutoApprovalData** | [**TemplateSlackAutoApprovalData**](template-slack-auto-approval-data) |  | [optional] 
 **CustomFields** | [**TemplateSlackCustomFields**](template-slack-custom-fields) |  | [optional] 
 
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 ```powershell
 $TemplateTeams = Initialize-V2025TemplateTeams  -Key null `
  -Title null `
- -Text null `
+ -Text You have a new approval request `
  -MessageJSON null `
  -IsSubscription null `
  -ApprovalId null `

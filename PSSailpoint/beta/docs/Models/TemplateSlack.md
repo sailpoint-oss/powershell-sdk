@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'TemplateSlack', 'BetaTemplateSlack']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **String** |  | [optional] 
-**Text** | **String** |  | [optional] 
-**Blocks** | **String** |  | [optional] 
-**Attachments** | **String** |  | [optional] 
-**NotificationType** | **String** |  | [optional] 
-**ApprovalId** | **String** |  | [optional] 
-**RequestId** | **String** |  | [optional] 
-**RequestedById** | **String** |  | [optional] 
-**IsSubscription** | **Boolean** |  | [optional] 
+**Key** | **String** | The template key | [optional] 
+**Text** | **String** | The main text content of the Slack message | [optional] 
+**Blocks** | **String** | JSON string of Slack Block Kit blocks for rich formatting | [optional] 
+**Attachments** | **String** | JSON string of Slack attachments | [optional] 
+**NotificationType** | **String** | The type of notification | [optional] 
+**ApprovalId** | **String** | The approval request ID | [optional] 
+**RequestId** | **String** | The request ID | [optional] 
+**RequestedById** | **String** | The ID of the user who made the request | [optional] 
+**IsSubscription** | **Boolean** | Whether this is a subscription notification | [optional] [default to $false]
 **AutoApprovalData** | [**TemplateSlackAutoApprovalData**](template-slack-auto-approval-data) |  | [optional] 
 **CustomFields** | [**TemplateSlackCustomFields**](template-slack-custom-fields) |  | [optional] 
 
@@ -33,9 +33,9 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $TemplateSlack = Initialize-BetaTemplateSlack  -Key null `
- -Text null `
+ -Text You have a new approval request `
  -Blocks null `
- -Attachments null `
+ -Attachments [] `
  -NotificationType null `
  -ApprovalId null `
  -RequestId null `

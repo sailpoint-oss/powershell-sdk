@@ -15,15 +15,15 @@ No summary available.
 No description available.
 
 .PARAMETER IsAutoApproved
-No description available.
+Whether the request was auto-approved
 .PARAMETER ItemId
-No description available.
+The item ID
 .PARAMETER ItemType
-No description available.
+The item type
 .PARAMETER AutoApprovalMessageJSON
-No description available.
+JSON message for auto-approval
 .PARAMETER AutoApprovalTitle
-No description available.
+Title for auto-approval
 .OUTPUTS
 
 TemplateSlackAutoApprovalData<PSCustomObject>

@@ -15,23 +15,23 @@ No summary available.
 No description available.
 
 .PARAMETER Key
-No description available.
+The template key
 .PARAMETER Title
-No description available.
+The title of the Teams message
 .PARAMETER Text
-No description available.
+The main text content of the Teams message
 .PARAMETER MessageJSON
-No description available.
+JSON string of the Teams adaptive card
 .PARAMETER IsSubscription
-No description available.
+Whether this is a subscription notification
 .PARAMETER ApprovalId
-No description available.
+The approval request ID
 .PARAMETER RequestId
-No description available.
+The request ID
 .PARAMETER RequestedById
-No description available.
+The ID of the user who made the request
 .PARAMETER NotificationType
-No description available.
+The type of notification
 .PARAMETER AutoApprovalData
 No description available.
 .PARAMETER CustomFields
@@ -58,7 +58,7 @@ function Initialize-V2024TemplateTeams {
         ${MessageJSON},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsSubscription},
+        ${IsSubscription} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ApprovalId},

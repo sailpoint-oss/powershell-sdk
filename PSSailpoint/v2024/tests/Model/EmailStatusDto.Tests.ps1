@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024EmailStatusDto' {
     Context 'V2024EmailStatusDto' {
         It 'Initialize-V2024EmailStatusDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024EmailStatusDto -Id "TEST_VALUE" -Email "TEST_VALUE" -IsVerifiedByDomain "TEST_VALUE" -VerificationStatus "TEST_VALUE"
+            #$NewObject = Initialize-V2024EmailStatusDto -Id "TEST_VALUE" -Email "TEST_VALUE" -IsVerifiedByDomain "TEST_VALUE" -VerificationStatus "TEST_VALUE" -Region "TEST_VALUE"
             #$NewObject | Should -BeOfType EmailStatusDto
             #$NewObject.property | Should -Be 0
         }

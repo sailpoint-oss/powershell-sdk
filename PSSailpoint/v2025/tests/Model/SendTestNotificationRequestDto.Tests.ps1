@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025SendTestNotificationRequestDto' {
     Context 'V2025SendTestNotificationRequestDto' {
         It 'Initialize-V2025SendTestNotificationRequestDto' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025SendTestNotificationRequestDto -Key "TEST_VALUE" -Medium "TEST_VALUE" -Context "TEST_VALUE"
+            #$NewObject = Initialize-V2025SendTestNotificationRequestDto -Key "TEST_VALUE" -Medium "TEST_VALUE" -Locale "TEST_VALUE" -Context "TEST_VALUE" -RecipientEmailList "TEST_VALUE" -CarbonCopy "TEST_VALUE" -BlindCarbonCopy "TEST_VALUE"
             #$NewObject | Should -BeOfType SendTestNotificationRequestDto
             #$NewObject.property | Should -Be 0
         }

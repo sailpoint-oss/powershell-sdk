@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'TemplateSlackAutoApprovalData', 'Beta
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IsAutoApproved** | **String** |  | [optional] 
-**ItemId** | **String** |  | [optional] 
-**ItemType** | **String** |  | [optional] 
-**AutoApprovalMessageJSON** | **String** |  | [optional] 
-**AutoApprovalTitle** | **String** |  | [optional] 
+**IsAutoApproved** | **String** | Whether the request was auto-approved | [optional] 
+**ItemId** | **String** | The item ID | [optional] 
+**ItemType** | **String** | The item type | [optional] 
+**AutoApprovalMessageJSON** | **String** | JSON message for auto-approval | [optional] 
+**AutoApprovalTitle** | **String** | Title for auto-approval | [optional] 
 
 ## Examples
 

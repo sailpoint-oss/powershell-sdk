@@ -18,8 +18,16 @@ No description available.
 The template notification key.
 .PARAMETER Medium
 The notification medium. Has to be one of the following enum values.
+.PARAMETER Locale
+The locale for the message text.
 .PARAMETER Context
 A Json object that denotes the context specific to the template.
+.PARAMETER RecipientEmailList
+A list of override recipient email addresses for the test notification.
+.PARAMETER CarbonCopy
+A list of CC email addresses for the test notification.
+.PARAMETER BlindCarbonCopy
+A list of BCC email addresses for the test notification.
 .OUTPUTS
 
 SendTestNotificationRequestDto<PSCustomObject>
@@ -36,8 +44,20 @@ function Initialize-V2025SendTestNotificationRequestDto {
         [String]
         ${Medium},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Locale},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Context}
+        ${Context},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${RecipientEmailList},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${CarbonCopy},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${BlindCarbonCopy}
     )
 
     Process {
@@ -48,7 +68,11 @@ function Initialize-V2025SendTestNotificationRequestDto {
         $PSO = [PSCustomObject]@{
             "key" = ${Key}
             "medium" = ${Medium}
+            "locale" = ${Locale}
             "context" = ${Context}
+            "recipientEmailList" = ${RecipientEmailList}
+            "carbonCopy" = ${CarbonCopy}
+            "blindCarbonCopy" = ${BlindCarbonCopy}
         }
 
         return $PSO
@@ -85,7 +109,7 @@ function ConvertFrom-V2025JsonToSendTestNotificationRequestDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025SendTestNotificationRequestDto
-        $AllProperties = ("key", "medium", "context")
+        $AllProperties = ("key", "medium", "locale", "context", "recipientEmailList", "carbonCopy", "blindCarbonCopy")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -104,16 +128,44 @@ function ConvertFrom-V2025JsonToSendTestNotificationRequestDto {
             $Medium = $JsonParameters.PSobject.Properties["medium"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "locale"))) { #optional property not found
+            $Locale = $null
+        } else {
+            $Locale = $JsonParameters.PSobject.Properties["locale"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "context"))) { #optional property not found
             $Context = $null
         } else {
             $Context = $JsonParameters.PSobject.Properties["context"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "recipientEmailList"))) { #optional property not found
+            $RecipientEmailList = $null
+        } else {
+            $RecipientEmailList = $JsonParameters.PSobject.Properties["recipientEmailList"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "carbonCopy"))) { #optional property not found
+            $CarbonCopy = $null
+        } else {
+            $CarbonCopy = $JsonParameters.PSobject.Properties["carbonCopy"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "blindCarbonCopy"))) { #optional property not found
+            $BlindCarbonCopy = $null
+        } else {
+            $BlindCarbonCopy = $JsonParameters.PSobject.Properties["blindCarbonCopy"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "key" = ${Key}
             "medium" = ${Medium}
+            "locale" = ${Locale}
             "context" = ${Context}
+            "recipientEmailList" = ${RecipientEmailList}
+            "carbonCopy" = ${CarbonCopy}
+            "blindCarbonCopy" = ${BlindCarbonCopy}
         }
 
         return $PSO

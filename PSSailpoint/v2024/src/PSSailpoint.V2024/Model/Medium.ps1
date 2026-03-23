@@ -12,16 +12,12 @@ Enum Medium.
 
 .DESCRIPTION
 
-No description available.
+The notification medium (EMAIL, SLACK, or TEAMS)
 #>
 
 enum Medium {
     # enum value: "EMAIL"
     EMAIL
-    # enum value: "SMS"
-    SMS
-    # enum value: "PHONE"
-    PHONE
     # enum value: "SLACK"
     SLACK
     # enum value: "TEAMS"

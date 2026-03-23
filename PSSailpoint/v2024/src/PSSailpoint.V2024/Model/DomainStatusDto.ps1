@@ -24,6 +24,8 @@ DKIM is enabled for this domain
 DKIM tokens required for authentication
 .PARAMETER DkimVerificationStatus
 Status of DKIM authentication
+.PARAMETER Region
+The AWS SES region the domain is associated with
 .OUTPUTS
 
 DomainStatusDto<PSCustomObject>
@@ -39,14 +41,17 @@ function Initialize-V2024DomainStatusDto {
         [String]
         ${Domain},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${DkimEnabled},
+        [System.Nullable[Boolean]]
+        ${DkimEnabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${DkimTokens},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${DkimVerificationStatus}
+        ${DkimVerificationStatus},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Region}
     )
 
     Process {
@@ -60,6 +65,7 @@ function Initialize-V2024DomainStatusDto {
             "dkimEnabled" = ${DkimEnabled}
             "dkimTokens" = ${DkimTokens}
             "dkimVerificationStatus" = ${DkimVerificationStatus}
+            "region" = ${Region}
         }
 
         return $PSO
@@ -96,7 +102,7 @@ function ConvertFrom-V2024JsonToDomainStatusDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024DomainStatusDto
-        $AllProperties = ("id", "domain", "dkimEnabled", "dkimTokens", "dkimVerificationStatus")
+        $AllProperties = ("id", "domain", "dkimEnabled", "dkimTokens", "dkimVerificationStatus", "region")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -133,12 +139,19 @@ function ConvertFrom-V2024JsonToDomainStatusDto {
             $DkimVerificationStatus = $JsonParameters.PSobject.Properties["dkimVerificationStatus"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "region"))) { #optional property not found
+            $Region = $null
+        } else {
+            $Region = $JsonParameters.PSobject.Properties["region"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "domain" = ${Domain}
             "dkimEnabled" = ${DkimEnabled}
             "dkimTokens" = ${DkimTokens}
             "dkimVerificationStatus" = ${DkimVerificationStatus}
+            "region" = ${Region}
         }
 
         return $PSO

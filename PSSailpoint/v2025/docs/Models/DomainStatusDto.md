@@ -18,9 +18,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | New UUID associated with domain to be verified | [optional] 
 **Domain** | **String** | A domain address | [optional] 
-**DkimEnabled** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | DKIM is enabled for this domain | [optional] 
+**DkimEnabled** | **Boolean** | DKIM is enabled for this domain | [optional] [default to $false]
 **DkimTokens** | **[]String** | DKIM tokens required for authentication | [optional] 
 **DkimVerificationStatus** | **String** | Status of DKIM authentication | [optional] 
+**Region** | **String** | The AWS SES region the domain is associated with | [optional] 
 
 ## Examples
 
@@ -30,7 +31,8 @@ $DomainStatusDto = Initialize-V2025DomainStatusDto  -Id 123b45b0-aaaa-bbbb-a7db-
  -Domain sailpoint.com `
  -DkimEnabled true `
  -DkimTokens [token1, token2, token3] `
- -DkimVerificationStatus PENDING
+ -DkimVerificationStatus PENDING `
+ -Region us-east-1
 ```
 
 - Convert the resource to JSON

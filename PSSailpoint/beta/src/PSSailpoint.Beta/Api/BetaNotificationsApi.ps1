@@ -282,7 +282,7 @@ Bulk delete notification templates
 
 .DESCRIPTION
 
-This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
+This lets you bulk delete templates that you previously created for your site.
 
 .PARAMETER TemplateBulkDeleteDto
 No description available.

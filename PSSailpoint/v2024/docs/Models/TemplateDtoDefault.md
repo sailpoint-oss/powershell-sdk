@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **String** | The key of the default template | [optional] 
 **Name** | **String** | The name of the default template | [optional] 
-**Medium** |  **Enum** [  "EMAIL",    "PHONE",    "SMS",    "SLACK",    "TEAMS" ] | The message medium. More mediums may be added in the future. | [optional] 
+**Medium** |  **Enum** [  "EMAIL",    "SLACK",    "TEAMS" ] | The message medium. More mediums may be added in the future. | [optional] 
 **Locale** | **String** | The locale for the message text, a BCP 47 language tag. | [optional] 
 **Subject** | **String** | The subject of the default template | [optional] 
 **Header** | **String** | The header value is now located within the body field. If included with non-null values, will result in a 400. | [optional] 

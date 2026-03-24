@@ -1214,6 +1214,8 @@ docs/SpConfigRules.md
 docs/SpDetails.md
 docs/Split.md
 docs/StandardLevel.md
+docs/StartApplicationDiscovery403Response.md
+docs/StartApplicationDiscovery403ResponseOneOf.md
 docs/StartInvocationInput.md
 docs/StartLauncher200Response.md
 docs/Static.md
@@ -2872,6 +2874,8 @@ src/PSSailpoint.V2025/Model/SpConfigRules.ps1
 src/PSSailpoint.V2025/Model/SpDetails.ps1
 src/PSSailpoint.V2025/Model/Split.ps1
 src/PSSailpoint.V2025/Model/StandardLevel.ps1
+src/PSSailpoint.V2025/Model/StartApplicationDiscovery403Response.ps1
+src/PSSailpoint.V2025/Model/StartApplicationDiscovery403ResponseOneOf.ps1
 src/PSSailpoint.V2025/Model/StartInvocationInput.ps1
 src/PSSailpoint.V2025/Model/StartLauncher200Response.ps1
 src/PSSailpoint.V2025/Model/Static.ps1
@@ -4330,6 +4334,8 @@ tests/Model/SpConfigRules.Tests.ps1
 tests/Model/SpDetails.Tests.ps1
 tests/Model/Split.Tests.ps1
 tests/Model/StandardLevel.Tests.ps1
+tests/Model/StartApplicationDiscovery403Response.Tests.ps1
+tests/Model/StartApplicationDiscovery403ResponseOneOf.Tests.ps1
 tests/Model/StartInvocationInput.Tests.ps1
 tests/Model/StartLauncher200Response.Tests.ps1
 tests/Model/Static.Tests.ps1

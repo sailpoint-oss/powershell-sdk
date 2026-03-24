@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map of free-form key-value pairs from the source system | [optional] 
 **Source** | [**EntitlementSource**](entitlement-source) |  | [optional] 
 **Owner** | [**EntitlementOwner**](entitlement-owner) |  | [optional] 
+**AdditionalOwners** | [**[]AdditionalOwnerRef**](additional-owner-ref) | List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP). | [optional] 
 **DirectPermissions** | [**[]PermissionDto**](permission-dto) |  | [optional] 
 **Segments** | **[]String** | List of IDs of segments, if any, to which this Entitlement is assigned. | [optional] 
 **ManuallyUpdatedFields** | [**EntitlementManuallyUpdatedFields**](entitlement-manually-updated-fields) |  | [optional] 
@@ -53,6 +54,7 @@ $Entitlement = Initialize-BetaEntitlement  -Id 2c91808874ff91550175097daaec161c 
  -Attributes {fieldName=fieldValue} `
  -Source null `
  -Owner null `
+ -AdditionalOwners null `
  -DirectPermissions null `
  -Segments [f7b1b8a3-5fed-4fd4-ad29-82014e137e19, 29cb6c06-1da8-43ea-8be4-b3125f248f2a] `
  -ManuallyUpdatedFields null `

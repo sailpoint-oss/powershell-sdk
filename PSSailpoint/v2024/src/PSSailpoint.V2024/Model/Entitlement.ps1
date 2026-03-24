@@ -34,6 +34,8 @@ True if the entitlement is cloud governed
 True if the entitlement is able to be directly requested
 .PARAMETER Owner
 No description available.
+.PARAMETER AdditionalOwners
+List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
 .PARAMETER ManuallyUpdatedFields
 A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
 .PARAMETER AccessModelMetadata
@@ -78,16 +80,19 @@ function Initialize-V2024Entitlement {
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Privileged},
+        ${Privileged} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${CloudGoverned},
+        ${CloudGoverned} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${Requestable} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${AdditionalOwners},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${ManuallyUpdatedFields},
@@ -130,6 +135,7 @@ function Initialize-V2024Entitlement {
             "cloudGoverned" = ${CloudGoverned}
             "requestable" = ${Requestable}
             "owner" = ${Owner}
+            "additionalOwners" = ${AdditionalOwners}
             "manuallyUpdatedFields" = ${ManuallyUpdatedFields}
             "accessModelMetadata" = ${AccessModelMetadata}
             "created" = ${Created}
@@ -174,7 +180,7 @@ function ConvertFrom-V2024JsonToEntitlement {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024Entitlement
-        $AllProperties = ("id", "name", "attribute", "value", "sourceSchemaObjectType", "description", "privileged", "cloudGoverned", "requestable", "owner", "manuallyUpdatedFields", "accessModelMetadata", "created", "modified", "source", "attributes", "segments", "directPermissions")
+        $AllProperties = ("id", "name", "attribute", "value", "sourceSchemaObjectType", "description", "privileged", "cloudGoverned", "requestable", "owner", "additionalOwners", "manuallyUpdatedFields", "accessModelMetadata", "created", "modified", "source", "attributes", "segments", "directPermissions")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -241,6 +247,12 @@ function ConvertFrom-V2024JsonToEntitlement {
             $Owner = $JsonParameters.PSobject.Properties["owner"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "additionalOwners"))) { #optional property not found
+            $AdditionalOwners = $null
+        } else {
+            $AdditionalOwners = $JsonParameters.PSobject.Properties["additionalOwners"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "manuallyUpdatedFields"))) { #optional property not found
             $ManuallyUpdatedFields = $null
         } else {
@@ -300,6 +312,7 @@ function ConvertFrom-V2024JsonToEntitlement {
             "cloudGoverned" = ${CloudGoverned}
             "requestable" = ${Requestable}
             "owner" = ${Owner}
+            "additionalOwners" = ${AdditionalOwners}
             "manuallyUpdatedFields" = ${ManuallyUpdatedFields}
             "accessModelMetadata" = ${AccessModelMetadata}
             "created" = ${Created}

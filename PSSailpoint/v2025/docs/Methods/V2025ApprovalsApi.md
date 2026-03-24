@@ -247,9 +247,6 @@ try {
 [[Back to top]](#) 
 
 ## get-approval
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Currently this endpoint only supports Entitlement Description Approvals.
 Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
 
@@ -259,7 +256,6 @@ Retrieve a single approval for a given approval ID. This endpoint is for generic
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the approval that is to be returned
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**Approval**](../models/approval)
@@ -281,15 +277,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval that is to be returned
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get an approval
 
 try {
-    Get-V2025Approval -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025Approval -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025Approval -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2025Approval -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Approval"
     Write-Host $_.ErrorDetails

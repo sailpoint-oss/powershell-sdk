@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024SlimDiscoveredApplications' {
     Context 'V2024SlimDiscoveredApplications' {
         It 'Initialize-V2024SlimDiscoveredApplications' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2024SlimDiscoveredApplications -Id "TEST_VALUE" -Name "TEST_VALUE" -DiscoverySource "TEST_VALUE" -DiscoveredVendor "TEST_VALUE" -Description "TEST_VALUE" -RecommendedConnectors "TEST_VALUE" -DiscoveredAt "TEST_VALUE" -CreatedAt "TEST_VALUE" -Status "TEST_VALUE"
+            #$NewObject = Initialize-V2024SlimDiscoveredApplications -Id "TEST_VALUE" -Name "TEST_VALUE" -DiscoverySource "TEST_VALUE" -DiscoveredVendor "TEST_VALUE" -Description "TEST_VALUE" -RecommendedConnectors "TEST_VALUE" -DiscoveredAt "TEST_VALUE" -CreatedAt "TEST_VALUE" -Status "TEST_VALUE" -RiskScore "TEST_VALUE" -IsBusiness "TEST_VALUE" -TotalSigninsCount "TEST_VALUE" -RiskLevel "TEST_VALUE"
             #$NewObject | Should -BeOfType SlimDiscoveredApplications
             #$NewObject.property | Should -Be 0
         }

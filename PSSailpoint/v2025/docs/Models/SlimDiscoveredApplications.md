@@ -40,7 +40,10 @@ Name | Type | Description | Notes
 **BusinessUnit** | **String** | The business unit associated with the application. | [optional] 
 **InstallType** | **String** | The installation type of the application. | [optional] 
 **Environment** | **String** | The environment in which the application operates. | [optional] 
-**RiskScore** | **String** | The risk score of the application. | [optional] 
+**RiskScore** | **Int32** | The risk score of the application ranging from 0-100, 100 being highest risk. | [optional] 
+**IsBusiness** | **Boolean** | Indicates whether the application is used for business purposes. | [optional] [default to $true]
+**TotalSigninsCount** | **Int32** | The total number of sign-in accounts for the application. | [optional] 
+**RiskLevel** |  **Enum** [  "High",    "Medium",    "Low" ] | The risk level of the application. | [optional] 
 **IsPrivileged** | **Boolean** | Indicates whether the application has privileged access. | [optional] [default to $false]
 **WarrantyExpiration** | **String** | The warranty expiration date of the application. | [optional] 
 **Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Additional attributes of the application useful for visibility of governance posture. | [optional] 
@@ -73,7 +76,10 @@ $SlimDiscoveredApplications = Initialize-V2025SlimDiscoveredApplications  -Id nu
  -BusinessUnit Finance `
  -InstallType On Premise `
  -Environment Production `
- -RiskScore ANY `
+ -RiskScore 1 `
+ -IsBusiness false `
+ -TotalSigninsCount 1 `
+ -RiskLevel Low `
  -IsPrivileged false `
  -WarrantyExpiration 2023-09-25T14:07:27.000+0000 `
  -Attributes {features=[IMPORT_PROFILE_UPDATES, IMPORT_USER_SCHEMA, IMPORT_NEW_USERS], identityStack=NOT_SHARED, selfService=false, signOnMode=SAML_2_0}

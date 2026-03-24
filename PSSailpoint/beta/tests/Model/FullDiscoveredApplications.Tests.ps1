@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.Beta' -name 'BetaFullDiscoveredApplications' {
     Context 'BetaFullDiscoveredApplications' {
         It 'Initialize-BetaFullDiscoveredApplications' {
             # a simple test to create an object
-            #$NewObject = Initialize-BetaFullDiscoveredApplications -Id "TEST_VALUE" -Name "TEST_VALUE" -DiscoverySource "TEST_VALUE" -DiscoveredVendor "TEST_VALUE" -Description "TEST_VALUE" -RecommendedConnectors "TEST_VALUE" -DiscoveredAt "TEST_VALUE" -CreatedAt "TEST_VALUE" -Status "TEST_VALUE" -AssociatedSources "TEST_VALUE"
+            #$NewObject = Initialize-BetaFullDiscoveredApplications -Id "TEST_VALUE" -Name "TEST_VALUE" -DiscoverySource "TEST_VALUE" -DiscoveredVendor "TEST_VALUE" -Description "TEST_VALUE" -RecommendedConnectors "TEST_VALUE" -DiscoveredAt "TEST_VALUE" -CreatedAt "TEST_VALUE" -Status "TEST_VALUE" -AssociatedSources "TEST_VALUE" -RiskScore "TEST_VALUE" -IsBusiness "TEST_VALUE" -TotalSigninsCount "TEST_VALUE" -RiskLevel "TEST_VALUE"
             #$NewObject | Should -BeOfType FullDiscoveredApplications
             #$NewObject.property | Should -Be 0
         }

@@ -1745,15 +1745,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/approvals#get-approval
       source: |
         $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval that is to be returned
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get an approval
         
         try {
-            Get-V2024Approval -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024Approval -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024Approval -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024Approval -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Approval"
             Write-Host $_.ErrorDetails
@@ -1764,18 +1763,19 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/approvals#get-approvals
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Mine = $true # Boolean | Returns the list of approvals for the current caller (optional)
+        $Mine = $true # Boolean | Returns the list of approvals for the current caller (optional) (default to $true)
         $RequesterId = "17e633e7d57e481569df76323169deb6a" # String | Returns the list of approvals for a given requester ID (optional)
         $Filters = "filters=status eq PENDING" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
         # Get approvals
         
         try {
-            Get-V2024Approvals -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024Approvals 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024Approvals -XSailPointExperimental $XSailPointExperimental -Mine $Mine -RequesterId $RequesterId -Filters $Filters   
+            # Get-V2024Approvals -Mine $Mine -RequesterId $RequesterId -Filters $Filters -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Approvals"
             Write-Host $_.ErrorDetails
@@ -11256,7 +11256,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#create-domain-dkim
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $DomainAddress = @"
         {
           "domain" : "sailpoint.com"
@@ -11267,10 +11266,10 @@
         
         try {
             $Result = ConvertFrom-V2024JsonToDomainAddress -Json $DomainAddress
-            New-V2024DomainDkim -XSailPointExperimental $XSailPointExperimental -DomainAddress $Result 
+            New-V2024DomainDkim -DomainAddress $Result 
     
             # Below is a request that includes all optional parameters
-            # New-V2024DomainDkim -XSailPointExperimental $XSailPointExperimental -DomainAddress $Result   
+            # New-V2024DomainDkim -DomainAddress $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024DomainDkim"
             Write-Host $_.ErrorDetails
@@ -11281,7 +11280,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#create-notification-template
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $TemplateDto = @"
         {
           "slackTemplate" : {
@@ -11353,10 +11351,10 @@
         
         try {
             $Result = ConvertFrom-V2024JsonToTemplateDto -Json $TemplateDto
-            New-V2024NotificationTemplate -XSailPointExperimental $XSailPointExperimental -TemplateDto $Result 
+            New-V2024NotificationTemplate -TemplateDto $Result 
     
             # Below is a request that includes all optional parameters
-            # New-V2024NotificationTemplate -XSailPointExperimental $XSailPointExperimental -TemplateDto $Result   
+            # New-V2024NotificationTemplate -TemplateDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024NotificationTemplate"
             Write-Host $_.ErrorDetails
@@ -11367,7 +11365,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#create-verified-from-address
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $EmailStatusDto = @"
         {
           "isVerifiedByDomain" : false,
@@ -11382,10 +11379,10 @@
         
         try {
             $Result = ConvertFrom-V2024JsonToEmailStatusDto -Json $EmailStatusDto
-            New-V2024VerifiedFromAddress -XSailPointExperimental $XSailPointExperimental -EmailStatusDto $Result 
+            New-V2024VerifiedFromAddress -EmailStatusDto $Result 
     
             # Below is a request that includes all optional parameters
-            # New-V2024VerifiedFromAddress -XSailPointExperimental $XSailPointExperimental -EmailStatusDto $Result   
+            # New-V2024VerifiedFromAddress -EmailStatusDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024VerifiedFromAddress"
             Write-Host $_.ErrorDetails
@@ -11396,7 +11393,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#delete-notification-templates-in-bulk
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $TemplateBulkDeleteDto = @"{
           "medium" : "EMAIL",
           "locale" : "en",
@@ -11408,10 +11404,10 @@
         
         try {
             $Result = ConvertFrom-V2024JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
-            Remove-V2024NotificationTemplatesInBulk -XSailPointExperimental $XSailPointExperimental -TemplateBulkDeleteDto $Result 
+            Remove-V2024NotificationTemplatesInBulk -TemplateBulkDeleteDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2024NotificationTemplatesInBulk -XSailPointExperimental $XSailPointExperimental -TemplateBulkDeleteDto $Result   
+            # Remove-V2024NotificationTemplatesInBulk -TemplateBulkDeleteDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024NotificationTemplatesInBulk"
             Write-Host $_.ErrorDetails
@@ -11422,16 +11418,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#delete-verified-from-address
       source: |
-        $Id = "MyId" # String | 
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Unique identifier of the verified sender address to delete.
         
         # Delete verified from address
         
         try {
-            Remove-V2024VerifiedFromAddress -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2024VerifiedFromAddress -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2024VerifiedFromAddress -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2024VerifiedFromAddress -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024VerifiedFromAddress"
             Write-Host $_.ErrorDetails
@@ -11442,15 +11437,16 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#get-dkim-attributes
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
         # Get dkim attributes
         
         try {
-            Get-V2024DkimAttributes -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024DkimAttributes 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024DkimAttributes -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024DkimAttributes -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DkimAttributes"
             Write-Host $_.ErrorDetails
@@ -11462,17 +11458,34 @@
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#get-mail-from-attributes
       source: |
         $Identity = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get mail from attributes
         
         try {
-            Get-V2024MailFromAttributes -Identity $Identity -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024MailFromAttributes -Identity $Identity 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024MailFromAttributes -Identity $Identity -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024MailFromAttributes -Identity $Identity   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MailFromAttributes"
+            Write-Host $_.ErrorDetails
+        }
+- path: /notification-preferences/{key}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/notifications#get-notification-preferences
+      source: |
+        
+        # List notification preferences for tenant.
+        
+        try {
+            Get-V2024NotificationPreferences 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024NotificationPreferences   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NotificationPreferences"
             Write-Host $_.ErrorDetails
         }
 - path: /notification-templates/{id}
@@ -11482,15 +11495,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#get-notification-template
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Notification Template
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get notification template by id
         
         try {
-            Get-V2024NotificationTemplate -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024NotificationTemplate -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024NotificationTemplate -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024NotificationTemplate -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NotificationTemplate"
             Write-Host $_.ErrorDetails
@@ -11501,15 +11513,14 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#get-notifications-template-context
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get notification template context
         
         try {
-            Get-V2024NotificationsTemplateContext -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024NotificationsTemplateContext 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024NotificationsTemplateContext -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024NotificationsTemplateContext   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NotificationsTemplateContext"
             Write-Host $_.ErrorDetails
@@ -11520,41 +11531,21 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#list-from-addresses
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "email eq "john.doe@company.com"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional)
+        $Filters = "email eq "john.doe@company.com"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, gt, lt* (optional)
         $Sorters = "email" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
         
         # List from addresses
         
         try {
-            Get-V2024FromAddresses -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024FromAddresses 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024FromAddresses -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+            # Get-V2024FromAddresses -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024FromAddresses"
-            Write-Host $_.ErrorDetails
-        }
-- path: /notification-preferences/{key}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/notifications#list-notification-preferences
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        
-        # List notification preferences for tenant.
-        
-        try {
-            Get-V2024NotificationPreferences -XSailPointExperimental $XSailPointExperimental 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024NotificationPreferences -XSailPointExperimental $XSailPointExperimental   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NotificationPreferences"
             Write-Host $_.ErrorDetails
         }
 - path: /notification-template-defaults
@@ -11563,7 +11554,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#list-notification-template-defaults
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Filters = "key eq "cloud_manual_work_item_summary"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
@@ -11571,10 +11561,10 @@
         # List notification template defaults
         
         try {
-            Get-V2024NotificationTemplateDefaults -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024NotificationTemplateDefaults 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024NotificationTemplateDefaults -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Filters $Filters   
+            # Get-V2024NotificationTemplateDefaults -Limit $Limit -Offset $Offset -Filters $Filters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NotificationTemplateDefaults"
             Write-Host $_.ErrorDetails
@@ -11585,7 +11575,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#list-notification-templates
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Filters = "medium eq "EMAIL"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
@@ -11594,10 +11583,10 @@
         # List notification templates
         
         try {
-            Get-V2024NotificationTemplates -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024NotificationTemplates 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024NotificationTemplates -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters   
+            # Get-V2024NotificationTemplates -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NotificationTemplates"
             Write-Host $_.ErrorDetails
@@ -11608,7 +11597,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#put-mail-from-attributes
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $MailFromAttributesDto = @"
         {
           "identity" : "BobSmith@sailpoint.com",
@@ -11620,10 +11608,10 @@
         
         try {
             $Result = ConvertFrom-V2024JsonToMailFromAttributesDto -Json $MailFromAttributesDto
-            Send-V2024MailFromAttributes -XSailPointExperimental $XSailPointExperimental -MailFromAttributesDto $Result 
+            Send-V2024MailFromAttributes -MailFromAttributesDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-V2024MailFromAttributes -XSailPointExperimental $XSailPointExperimental -MailFromAttributesDto $Result   
+            # Send-V2024MailFromAttributes -MailFromAttributesDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024MailFromAttributes"
             Write-Host $_.ErrorDetails
@@ -11634,7 +11622,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/notifications#send-test-notification
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SendTestNotificationRequestDto = @"
         {
           "carbonCopy" : [ "cc@example.com" ],
@@ -11654,10 +11641,10 @@
         
         try {
             $Result = ConvertFrom-V2024JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
-            Send-V2024TestNotification -XSailPointExperimental $XSailPointExperimental -SendTestNotificationRequestDto $Result 
+            Send-V2024TestNotification -SendTestNotificationRequestDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-V2024TestNotification -XSailPointExperimental $XSailPointExperimental -SendTestNotificationRequestDto $Result   
+            # Send-V2024TestNotification -SendTestNotificationRequestDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024TestNotification"
             Write-Host $_.ErrorDetails

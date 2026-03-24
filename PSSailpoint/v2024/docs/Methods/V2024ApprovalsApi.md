@@ -25,9 +25,6 @@ Method | HTTP request | Description
 
 
 ## get-approval
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-approval)
@@ -36,7 +33,6 @@ Retrieve a single approval for a given approval ID. This endpoint is for generic
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the approval that is to be returned
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**Approval**](../models/approval)
@@ -58,15 +54,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval that is to be returned
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get an approval
 
 try {
-    Get-V2024Approval -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Approval -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Approval -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024Approval -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Approval"
     Write-Host $_.ErrorDetails
@@ -75,9 +70,6 @@ try {
 [[Back to top]](#) 
 
 ## get-approvals
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Retrieve a list of approvals, which can be filtered by requester ID, status, or reference type. "Mine" query parameter can be used and it will return all approvals for the current approver. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals. 
 Absence of all query parameters will will default to mine=true.
 
@@ -86,10 +78,11 @@ Absence of all query parameters will will default to mine=true.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-  Query | Mine | **Boolean** |   (optional) | Returns the list of approvals for the current caller
+  Query | Mine | **Boolean** |   (optional) (default to $true) | Returns the list of approvals for the current caller
   Query | RequesterId | **String** |   (optional) | Returns the list of approvals for a given requester ID
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq*
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**Approval[]**](../models/approval)
@@ -110,18 +103,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Mine = $true # Boolean | Returns the list of approvals for the current caller (optional)
+$Mine = $true # Boolean | Returns the list of approvals for the current caller (optional) (default to $true)
 $RequesterId = "17e633e7d57e481569df76323169deb6a" # String | Returns the list of approvals for a given requester ID (optional)
 $Filters = 'filters=status eq PENDING' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional)
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
 # Get approvals
 
 try {
-    Get-V2024Approvals -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Approvals 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Approvals -XSailPointExperimental $XSailPointExperimental -Mine $Mine -RequesterId $RequesterId -Filters $Filters  
+    # Get-V2024Approvals -Mine $Mine -RequesterId $RequesterId -Filters $Filters -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Approvals"
     Write-Host $_.ErrorDetails

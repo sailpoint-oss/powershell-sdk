@@ -24,10 +24,10 @@ Method | HTTP request | Description
 [**Remove-V2025VerifiedFromAddress**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete verified from address
 [**Get-V2025DkimAttributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get dkim attributes
 [**Get-V2025MailFromAttributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identity}` | Get mail from attributes
+[**Get-V2025NotificationPreferences**](#get-notification-preferences) | **GET** `/notification-preferences/{key}` | List notification preferences for tenant.
 [**Get-V2025NotificationTemplate**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get notification template by id
 [**Get-V2025NotificationsTemplateContext**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get notification template context
 [**Get-V2025FromAddresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List from addresses
-[**Get-V2025NotificationPreferences**](#list-notification-preferences) | **GET** `/notification-preferences/{key}` | List notification preferences for tenant.
 [**Get-V2025NotificationTemplateDefaults**](#list-notification-template-defaults) | **GET** `/notification-template-defaults` | List notification template defaults
 [**Get-V2025NotificationTemplates**](#list-notification-templates) | **GET** `/notification-templates` | List notification templates
 [**Send-V2025MailFromAttributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change mail from domain
@@ -35,9 +35,6 @@ Method | HTTP request | Description
 
 
 ## create-domain-dkim
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-domain-dkim)
@@ -45,7 +42,6 @@ Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | DomainAddress | [**DomainAddress**](../models/domain-address) | True  | 
 
 ### Return type
@@ -68,7 +64,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $DomainAddress = @"{
   "domain" : "sailpoint.com"
 }"@
@@ -77,10 +72,10 @@ $DomainAddress = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToDomainAddress -Json $DomainAddress
-    New-V2025DomainDkim -XSailPointExperimental $XSailPointExperimental -DomainAddress $Result 
+    New-V2025DomainDkim -DomainAddress $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2025DomainDkim -XSailPointExperimental $XSailPointExperimental -DomainAddress $Result  
+    # New-V2025DomainDkim -DomainAddress $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025DomainDkim"
     Write-Host $_.ErrorDetails
@@ -89,9 +84,6 @@ try {
 [[Back to top]](#) 
 
 ## create-notification-template
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This will update notification templates that are available in your tenant. 
 Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.  
 Modify the fields you want to change and submit the POST request when ready.
@@ -102,7 +94,6 @@ Modify the fields you want to change and submit the POST request when ready.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | TemplateDto | [**TemplateDto**](../models/template-dto) | True  | 
 
 ### Return type
@@ -124,7 +115,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $TemplateDto = @"{
   "slackTemplate" : {
     "isSubscription" : false,
@@ -194,10 +184,10 @@ $TemplateDto = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToTemplateDto -Json $TemplateDto
-    New-V2025NotificationTemplate -XSailPointExperimental $XSailPointExperimental -TemplateDto $Result 
+    New-V2025NotificationTemplate -TemplateDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2025NotificationTemplate -XSailPointExperimental $XSailPointExperimental -TemplateDto $Result  
+    # New-V2025NotificationTemplate -TemplateDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025NotificationTemplate"
     Write-Host $_.ErrorDetails
@@ -206,9 +196,6 @@ try {
 [[Back to top]](#) 
 
 ## create-verified-from-address
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Create a new sender email address and initiate verification process.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-verified-from-address)
@@ -216,7 +203,6 @@ Create a new sender email address and initiate verification process.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | EmailStatusDto | [**EmailStatusDto**](../models/email-status-dto) | True  | 
 
 ### Return type
@@ -238,7 +224,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $EmailStatusDto = @"{
   "isVerifiedByDomain" : false,
   "verificationStatus" : "SUCCESS",
@@ -251,10 +236,10 @@ $EmailStatusDto = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToEmailStatusDto -Json $EmailStatusDto
-    New-V2025VerifiedFromAddress -XSailPointExperimental $XSailPointExperimental -EmailStatusDto $Result 
+    New-V2025VerifiedFromAddress -EmailStatusDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2025VerifiedFromAddress -XSailPointExperimental $XSailPointExperimental -EmailStatusDto $Result  
+    # New-V2025VerifiedFromAddress -EmailStatusDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025VerifiedFromAddress"
     Write-Host $_.ErrorDetails
@@ -263,9 +248,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-notification-templates-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This lets you bulk delete templates that you previously created for your site.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-notification-templates-in-bulk)
@@ -273,7 +255,6 @@ This lets you bulk delete templates that you previously created for your site.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | TemplateBulkDeleteDto | [**[]TemplateBulkDeleteDto**](../models/template-bulk-delete-dto) | True  | 
 
 ### Return type
@@ -295,7 +276,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $TemplateBulkDeleteDto = @"{
   "medium" : "EMAIL",
   "locale" : "en",
@@ -307,10 +287,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-V2025JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
-    Remove-V2025NotificationTemplatesInBulk -XSailPointExperimental $XSailPointExperimental -TemplateBulkDeleteDto $Result 
+    Remove-V2025NotificationTemplatesInBulk -TemplateBulkDeleteDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2025NotificationTemplatesInBulk -XSailPointExperimental $XSailPointExperimental -TemplateBulkDeleteDto $Result  
+    # Remove-V2025NotificationTemplatesInBulk -TemplateBulkDeleteDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025NotificationTemplatesInBulk"
     Write-Host $_.ErrorDetails
@@ -319,9 +299,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-verified-from-address
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Delete a verified sender email address
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-verified-from-address)
@@ -329,8 +306,7 @@ Delete a verified sender email address
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+Path   | Id | **String** | True  | Unique identifier of the verified sender address to delete.
 
 ### Return type
  (empty response body)
@@ -352,16 +328,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "MyId" # String | 
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Unique identifier of the verified sender address to delete.
 
 # Delete verified from address
 
 try {
-    Remove-V2025VerifiedFromAddress -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Remove-V2025VerifiedFromAddress -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2025VerifiedFromAddress -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2025VerifiedFromAddress -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025VerifiedFromAddress"
     Write-Host $_.ErrorDetails
@@ -370,9 +345,6 @@ try {
 [[Back to top]](#) 
 
 ## get-dkim-attributes
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS SES identities. Limits retrieval to 100 identities per call.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-dkim-attributes)
@@ -380,7 +352,8 @@ Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**DkimAttributes[]**](../models/dkim-attributes)
@@ -401,15 +374,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
 # Get dkim attributes
 
 try {
-    Get-V2025DkimAttributes -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025DkimAttributes 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025DkimAttributes -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2025DkimAttributes -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025DkimAttributes"
     Write-Host $_.ErrorDetails
@@ -418,9 +392,6 @@ try {
 [[Back to top]](#) 
 
 ## get-mail-from-attributes
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Retrieve MAIL FROM attributes for a given AWS SES identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-mail-from-attributes)
@@ -429,7 +400,6 @@ Retrieve MAIL FROM attributes for a given AWS SES identity.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Identity | **String** | True  | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**MailFromAttributes**](../models/mail-from-attributes)
@@ -451,15 +421,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Identity = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get mail from attributes
 
 try {
-    Get-V2025MailFromAttributes -Identity $Identity -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025MailFromAttributes -Identity $Identity 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025MailFromAttributes -Identity $Identity -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2025MailFromAttributes -Identity $Identity  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025MailFromAttributes"
     Write-Host $_.ErrorDetails
@@ -467,174 +436,14 @@ try {
 ```
 [[Back to top]](#) 
 
-## get-notification-template
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-This gets a template that you have modified for your site by Id.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-notification-template)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | Id of the Notification Template
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-
-### Return type
-[**TemplateDto**](../models/template-dto)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | A template object for your site | TemplateDto
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### Example
-```powershell
-$Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Notification Template
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-
-# Get notification template by id
-
-try {
-    Get-V2025NotificationTemplate -Id $Id -XSailPointExperimental $XSailPointExperimental 
-    
-    # Below is a request that includes all optional parameters
-    # Get-V2025NotificationTemplate -Id $Id -XSailPointExperimental $XSailPointExperimental  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025NotificationTemplate"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## get-notifications-template-context
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called "Global Context" (a.k.a. notification template context). It defines a set of attributes
- that will be available per tenant (organization).
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-notifications-template-context)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-
-### Return type
-[**NotificationTemplateContext**](../models/notification-template-context)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | Notification template context attributes for a specific tenant. | NotificationTemplateContext
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### Example
-```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-
-# Get notification template context
-
-try {
-    Get-V2025NotificationsTemplateContext -XSailPointExperimental $XSailPointExperimental 
-    
-    # Below is a request that includes all optional parameters
-    # Get-V2025NotificationsTemplateContext -XSailPointExperimental $XSailPointExperimental  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025NotificationsTemplateContext"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## list-from-addresses
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Retrieve a list of sender email addresses and their verification statuses
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-from-addresses)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw*
-  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email**
-
-### Return type
-[**EmailStatusDto[]**](../models/email-status-dto)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | List of Email Status | EmailStatusDto[]
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### Example
-```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = 'email eq "john.doe@company.com"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional)
-$Sorters = "email" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
-
-# List from addresses
-
-try {
-    Get-V2025FromAddresses -XSailPointExperimental $XSailPointExperimental 
-    
-    # Below is a request that includes all optional parameters
-    # Get-V2025FromAddresses -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025FromAddresses"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## list-notification-preferences
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
+## get-notification-preferences
 Returns a list of notification preferences for tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-notification-preferences)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-notification-preferences)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**PreferencesDto**](../models/preferences-dto)
@@ -656,15 +465,14 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # List notification preferences for tenant.
 
 try {
-    Get-V2025NotificationPreferences -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025NotificationPreferences 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025NotificationPreferences -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2025NotificationPreferences  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025NotificationPreferences"
     Write-Host $_.ErrorDetails
@@ -672,10 +480,149 @@ try {
 ```
 [[Back to top]](#) 
 
+## get-notification-template
+This gets a template that you have modified for your site by Id.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-notification-template)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Id of the Notification Template
+
+### Return type
+[**TemplateDto**](../models/template-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | A template object for your site | TemplateDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Notification Template
+
+# Get notification template by id
+
+try {
+    Get-V2025NotificationTemplate -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2025NotificationTemplate -Id $Id  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025NotificationTemplate"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-notifications-template-context
+The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called "Global Context" (a.k.a. notification template context). It defines a set of attributes
+ that will be available per tenant (organization).
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-notifications-template-context)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+
+### Return type
+[**NotificationTemplateContext**](../models/notification-template-context)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Notification template context attributes for a specific tenant. | NotificationTemplateContext
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+
+# Get notification template context
+
+try {
+    Get-V2025NotificationsTemplateContext 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2025NotificationsTemplateContext  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025NotificationsTemplateContext"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## list-from-addresses
+Retrieve a list of sender email addresses and their verification statuses
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-from-addresses)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, gt, lt*
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email**
+
+### Return type
+[**EmailStatusDto[]**](../models/email-status-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of Email Status | EmailStatusDto[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$Filters = 'email eq "john.doe@company.com"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, gt, lt* (optional)
+$Sorters = "email" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
+
+# List from addresses
+
+try {
+    Get-V2025FromAddresses 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2025FromAddresses -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025FromAddresses"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## list-notification-template-defaults
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This lists the default templates used for notifications, such as emails from IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-notification-template-defaults)
@@ -683,7 +630,6 @@ This lists the default templates used for notifications, such as emails from Ide
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
@@ -707,7 +653,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'key eq "cloud_manual_work_item_summary"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
@@ -715,10 +660,10 @@ $Filters = 'key eq "cloud_manual_work_item_summary"' # String | Filter results u
 # List notification template defaults
 
 try {
-    Get-V2025NotificationTemplateDefaults -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025NotificationTemplateDefaults 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025NotificationTemplateDefaults -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Filters $Filters  
+    # Get-V2025NotificationTemplateDefaults -Limit $Limit -Offset $Offset -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025NotificationTemplateDefaults"
     Write-Host $_.ErrorDetails
@@ -727,9 +672,6 @@ try {
 [[Back to top]](#) 
 
 ## list-notification-templates
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This lists the templates that you have modified for your site.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-notification-templates)
@@ -737,7 +679,6 @@ This lists the templates that you have modified for your site.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
@@ -762,7 +703,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'medium eq "EMAIL"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
@@ -771,10 +711,10 @@ $Sorters = "key, -name" # String | Sort results using the standard syntax descri
 # List notification templates
 
 try {
-    Get-V2025NotificationTemplates -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025NotificationTemplates 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025NotificationTemplates -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters  
+    # Get-V2025NotificationTemplates -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025NotificationTemplates"
     Write-Host $_.ErrorDetails
@@ -783,9 +723,6 @@ try {
 [[Back to top]](#) 
 
 ## put-mail-from-attributes
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-mail-from-attributes)
@@ -793,7 +730,6 @@ Change the MAIL FROM domain of an AWS SES email identity and provide the MX and 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | MailFromAttributesDto | [**MailFromAttributesDto**](../models/mail-from-attributes-dto) | True  | 
 
 ### Return type
@@ -815,7 +751,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $MailFromAttributesDto = @"{
   "identity" : "BobSmith@sailpoint.com",
   "mailFromDomain" : "example.sailpoint.com"
@@ -825,10 +760,10 @@ $MailFromAttributesDto = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToMailFromAttributesDto -Json $MailFromAttributesDto
-    Send-V2025MailFromAttributes -XSailPointExperimental $XSailPointExperimental -MailFromAttributesDto $Result 
+    Send-V2025MailFromAttributes -MailFromAttributesDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2025MailFromAttributes -XSailPointExperimental $XSailPointExperimental -MailFromAttributesDto $Result  
+    # Send-V2025MailFromAttributes -MailFromAttributesDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025MailFromAttributes"
     Write-Host $_.ErrorDetails
@@ -837,9 +772,6 @@ try {
 [[Back to top]](#) 
 
 ## send-test-notification
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Send a Test Notification
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/send-test-notification)
@@ -847,7 +779,6 @@ Send a Test Notification
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SendTestNotificationRequestDto | [**SendTestNotificationRequestDto**](../models/send-test-notification-request-dto) | True  | 
 
 ### Return type
@@ -870,7 +801,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SendTestNotificationRequestDto = @"{
   "carbonCopy" : [ "cc@example.com" ],
   "context" : {
@@ -888,10 +818,10 @@ $SendTestNotificationRequestDto = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto
-    Send-V2025TestNotification -XSailPointExperimental $XSailPointExperimental -SendTestNotificationRequestDto $Result 
+    Send-V2025TestNotification -SendTestNotificationRequestDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2025TestNotification -XSailPointExperimental $XSailPointExperimental -SendTestNotificationRequestDto $Result  
+    # Send-V2025TestNotification -SendTestNotificationRequestDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025TestNotification"
     Write-Host $_.ErrorDetails

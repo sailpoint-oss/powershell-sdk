@@ -65,7 +65,13 @@ The installation type of the application.
 .PARAMETER Environment
 The environment in which the application operates.
 .PARAMETER RiskScore
-The risk score of the application.
+The risk score of the application ranging from 0-100, 100 being highest risk.
+.PARAMETER IsBusiness
+Indicates whether the application is used for business purposes.
+.PARAMETER TotalSigninsCount
+The total number of sign-in accounts for the application.
+.PARAMETER RiskLevel
+The risk level of the application.
 .PARAMETER IsPrivileged
 Indicates whether the application has privileged access.
 .PARAMETER WarrantyExpiration
@@ -156,8 +162,18 @@ function Initialize-V2025FullDiscoveredApplications {
         [String]
         ${Environment},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [System.Nullable[Int32]]
         ${RiskScore},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsBusiness} = $true,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${TotalSigninsCount},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("High", "Medium", "Low")]
+        [String]
+        ${RiskLevel},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${IsPrivileged} = $false,
@@ -201,6 +217,9 @@ function Initialize-V2025FullDiscoveredApplications {
             "installType" = ${InstallType}
             "environment" = ${Environment}
             "riskScore" = ${RiskScore}
+            "isBusiness" = ${IsBusiness}
+            "totalSigninsCount" = ${TotalSigninsCount}
+            "riskLevel" = ${RiskLevel}
             "isPrivileged" = ${IsPrivileged}
             "warrantyExpiration" = ${WarrantyExpiration}
             "attributes" = ${Attributes}
@@ -240,7 +259,7 @@ function ConvertFrom-V2025JsonToFullDiscoveredApplications {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025FullDiscoveredApplications
-        $AllProperties = ("id", "name", "discoverySource", "discoveredVendor", "description", "recommendedConnectors", "discoveredAt", "createdAt", "status", "associatedSources", "operationalStatus", "discoverySourceCategory", "licenseCount", "isSanctioned", "logo", "appUrl", "groups", "usersCount", "applicationOwner", "itApplicationOwner", "businessCriticality", "dataClassification", "businessUnit", "installType", "environment", "riskScore", "isPrivileged", "warrantyExpiration", "attributes")
+        $AllProperties = ("id", "name", "discoverySource", "discoveredVendor", "description", "recommendedConnectors", "discoveredAt", "createdAt", "status", "associatedSources", "operationalStatus", "discoverySourceCategory", "licenseCount", "isSanctioned", "logo", "appUrl", "groups", "usersCount", "applicationOwner", "itApplicationOwner", "businessCriticality", "dataClassification", "businessUnit", "installType", "environment", "riskScore", "isBusiness", "totalSigninsCount", "riskLevel", "isPrivileged", "warrantyExpiration", "attributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -403,6 +422,24 @@ function ConvertFrom-V2025JsonToFullDiscoveredApplications {
             $RiskScore = $JsonParameters.PSobject.Properties["riskScore"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isBusiness"))) { #optional property not found
+            $IsBusiness = $null
+        } else {
+            $IsBusiness = $JsonParameters.PSobject.Properties["isBusiness"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalSigninsCount"))) { #optional property not found
+            $TotalSigninsCount = $null
+        } else {
+            $TotalSigninsCount = $JsonParameters.PSobject.Properties["totalSigninsCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "riskLevel"))) { #optional property not found
+            $RiskLevel = $null
+        } else {
+            $RiskLevel = $JsonParameters.PSobject.Properties["riskLevel"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "isPrivileged"))) { #optional property not found
             $IsPrivileged = $null
         } else {
@@ -448,6 +485,9 @@ function ConvertFrom-V2025JsonToFullDiscoveredApplications {
             "installType" = ${InstallType}
             "environment" = ${Environment}
             "riskScore" = ${RiskScore}
+            "isBusiness" = ${IsBusiness}
+            "totalSigninsCount" = ${TotalSigninsCount}
+            "riskLevel" = ${RiskLevel}
             "isPrivileged" = ${IsPrivileged}
             "warrantyExpiration" = ${WarrantyExpiration}
             "attributes" = ${Attributes}

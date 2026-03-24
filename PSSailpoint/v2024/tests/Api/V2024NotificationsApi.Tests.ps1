@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
     Context 'New-V2024DomainDkim' {
         It 'Test New-V2024DomainDkim' {
-            #$TestResult = New-V2024DomainDkim -XSailPointExperimental "TEST_VALUE" -DomainAddress "TEST_VALUE"
+            #$TestResult = New-V2024DomainDkim -DomainAddress "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
 
     Context 'New-V2024NotificationTemplate' {
         It 'Test New-V2024NotificationTemplate' {
-            #$TestResult = New-V2024NotificationTemplate -XSailPointExperimental "TEST_VALUE" -TemplateDto "TEST_VALUE"
+            #$TestResult = New-V2024NotificationTemplate -TemplateDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
 
     Context 'New-V2024VerifiedFromAddress' {
         It 'Test New-V2024VerifiedFromAddress' {
-            #$TestResult = New-V2024VerifiedFromAddress -XSailPointExperimental "TEST_VALUE" -EmailStatusDto "TEST_VALUE"
+            #$TestResult = New-V2024VerifiedFromAddress -EmailStatusDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
 
     Context 'Remove-V2024NotificationTemplatesInBulk' {
         It 'Test Remove-V2024NotificationTemplatesInBulk' {
-            #$TestResult = Remove-V2024NotificationTemplatesInBulk -XSailPointExperimental "TEST_VALUE" -TemplateBulkDeleteDto "TEST_VALUE"
+            #$TestResult = Remove-V2024NotificationTemplatesInBulk -TemplateBulkDeleteDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
 
     Context 'Remove-V2024VerifiedFromAddress' {
         It 'Test Remove-V2024VerifiedFromAddress' {
-            #$TestResult = Remove-V2024VerifiedFromAddress -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Remove-V2024VerifiedFromAddress -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
 
     Context 'Get-V2024DkimAttributes' {
         It 'Test Get-V2024DkimAttributes' {
-            #$TestResult = Get-V2024DkimAttributes -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024DkimAttributes -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,31 +56,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
 
     Context 'Get-V2024MailFromAttributes' {
         It 'Test Get-V2024MailFromAttributes' {
-            #$TestResult = Get-V2024MailFromAttributes -Identity "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-V2024NotificationTemplate' {
-        It 'Test Get-V2024NotificationTemplate' {
-            #$TestResult = Get-V2024NotificationTemplate -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-V2024NotificationsTemplateContext' {
-        It 'Test Get-V2024NotificationsTemplateContext' {
-            #$TestResult = Get-V2024NotificationsTemplateContext -XSailPointExperimental "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
-    Context 'Get-V2024FromAddresses' {
-        It 'Test Get-V2024FromAddresses' {
-            #$TestResult = Get-V2024FromAddresses -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-V2024MailFromAttributes -Identity "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +64,31 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
 
     Context 'Get-V2024NotificationPreferences' {
         It 'Test Get-V2024NotificationPreferences' {
-            #$TestResult = Get-V2024NotificationPreferences -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024NotificationPreferences
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2024NotificationTemplate' {
+        It 'Test Get-V2024NotificationTemplate' {
+            #$TestResult = Get-V2024NotificationTemplate -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2024NotificationsTemplateContext' {
+        It 'Test Get-V2024NotificationsTemplateContext' {
+            #$TestResult = Get-V2024NotificationsTemplateContext
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2024FromAddresses' {
+        It 'Test Get-V2024FromAddresses' {
+            #$TestResult = Get-V2024FromAddresses -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -96,7 +96,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
 
     Context 'Get-V2024NotificationTemplateDefaults' {
         It 'Test Get-V2024NotificationTemplateDefaults' {
-            #$TestResult = Get-V2024NotificationTemplateDefaults -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2024NotificationTemplateDefaults -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -104,7 +104,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
 
     Context 'Get-V2024NotificationTemplates' {
         It 'Test Get-V2024NotificationTemplates' {
-            #$TestResult = Get-V2024NotificationTemplates -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-V2024NotificationTemplates -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -112,7 +112,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
 
     Context 'Send-V2024MailFromAttributes' {
         It 'Test Send-V2024MailFromAttributes' {
-            #$TestResult = Send-V2024MailFromAttributes -XSailPointExperimental "TEST_VALUE" -MailFromAttributesDto "TEST_VALUE"
+            #$TestResult = Send-V2024MailFromAttributes -MailFromAttributesDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -120,7 +120,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024NotificationsApi' {
 
     Context 'Send-V2024TestNotification' {
         It 'Test Send-V2024TestNotification' {
-            #$TestResult = Send-V2024TestNotification -XSailPointExperimental "TEST_VALUE" -SendTestNotificationRequestDto "TEST_VALUE"
+            #$TestResult = Send-V2024TestNotification -SendTestNotificationRequestDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

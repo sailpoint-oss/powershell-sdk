@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ApprovalsApi' {
     Context 'Get-V2024Approval' {
         It 'Test Get-V2024Approval' {
-            #$TestResult = Get-V2024Approval -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024Approval -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024ApprovalsApi' {
 
     Context 'Get-V2024Approvals' {
         It 'Test Get-V2024Approvals' {
-            #$TestResult = Get-V2024Approvals -XSailPointExperimental "TEST_VALUE" -Mine "TEST_VALUE" -RequesterId "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2024Approvals -Mine "TEST_VALUE" -RequesterId "TEST_VALUE" -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

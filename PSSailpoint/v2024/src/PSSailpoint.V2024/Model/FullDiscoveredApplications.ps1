@@ -34,6 +34,14 @@ The timestamp when the application was first discovered, in ISO 8601 format.
 The status of an application within the discovery source.  By default this field is set to ""ACTIVE"" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to ""INACTIVE"".
 .PARAMETER AssociatedSources
 List of associated sources related to this discovered application.
+.PARAMETER RiskScore
+The risk score of the application ranging from 0-100, 100 being highest risk.
+.PARAMETER IsBusiness
+Indicates whether the application is used for business purposes.
+.PARAMETER TotalSigninsCount
+The total number of sign-in accounts for the application.
+.PARAMETER RiskLevel
+The risk level of the application.
 .OUTPUTS
 
 FullDiscoveredApplications<PSCustomObject>
@@ -71,7 +79,20 @@ function Initialize-V2024FullDiscoveredApplications {
         ${Status},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${AssociatedSources}
+        ${AssociatedSources},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${RiskScore},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${IsBusiness} = $true,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${TotalSigninsCount},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("High", "Medium", "Low")]
+        [String]
+        ${RiskLevel}
     )
 
     Process {
@@ -90,6 +111,10 @@ function Initialize-V2024FullDiscoveredApplications {
             "createdAt" = ${CreatedAt}
             "status" = ${Status}
             "associatedSources" = ${AssociatedSources}
+            "riskScore" = ${RiskScore}
+            "isBusiness" = ${IsBusiness}
+            "totalSigninsCount" = ${TotalSigninsCount}
+            "riskLevel" = ${RiskLevel}
         }
 
         return $PSO
@@ -126,7 +151,7 @@ function ConvertFrom-V2024JsonToFullDiscoveredApplications {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024FullDiscoveredApplications
-        $AllProperties = ("id", "name", "discoverySource", "discoveredVendor", "description", "recommendedConnectors", "discoveredAt", "createdAt", "status", "associatedSources")
+        $AllProperties = ("id", "name", "discoverySource", "discoveredVendor", "description", "recommendedConnectors", "discoveredAt", "createdAt", "status", "associatedSources", "riskScore", "isBusiness", "totalSigninsCount", "riskLevel")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -193,6 +218,30 @@ function ConvertFrom-V2024JsonToFullDiscoveredApplications {
             $AssociatedSources = $JsonParameters.PSobject.Properties["associatedSources"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "riskScore"))) { #optional property not found
+            $RiskScore = $null
+        } else {
+            $RiskScore = $JsonParameters.PSobject.Properties["riskScore"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isBusiness"))) { #optional property not found
+            $IsBusiness = $null
+        } else {
+            $IsBusiness = $JsonParameters.PSobject.Properties["isBusiness"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "totalSigninsCount"))) { #optional property not found
+            $TotalSigninsCount = $null
+        } else {
+            $TotalSigninsCount = $JsonParameters.PSobject.Properties["totalSigninsCount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "riskLevel"))) { #optional property not found
+            $RiskLevel = $null
+        } else {
+            $RiskLevel = $JsonParameters.PSobject.Properties["riskLevel"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -204,6 +253,10 @@ function ConvertFrom-V2024JsonToFullDiscoveredApplications {
             "createdAt" = ${CreatedAt}
             "status" = ${Status}
             "associatedSources" = ${AssociatedSources}
+            "riskScore" = ${RiskScore}
+            "isBusiness" = ${IsBusiness}
+            "totalSigninsCount" = ${TotalSigninsCount}
+            "riskLevel" = ${RiskLevel}
         }
 
         return $PSO

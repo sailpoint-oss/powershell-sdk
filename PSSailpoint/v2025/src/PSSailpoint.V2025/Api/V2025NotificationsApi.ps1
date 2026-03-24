@@ -14,9 +14,6 @@ Verify domain address via dkim
 
 Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER DomainAddress
 No description available.
 
@@ -32,9 +29,6 @@ function New-V2025DomainDkim {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${DomainAddress},
         [Switch]
@@ -61,11 +55,6 @@ function New-V2025DomainDkim {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/verified-domains'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling createDomainDkim."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$DomainAddress) {
             throw "Error! The required parameter `DomainAddress` missing when calling createDomainDkim."
@@ -115,9 +104,6 @@ Create notification template
 
 This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER TemplateDto
 No description available.
 
@@ -133,9 +119,6 @@ function New-V2025NotificationTemplate {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${TemplateDto},
         [Switch]
@@ -162,11 +145,6 @@ function New-V2025NotificationTemplate {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/notification-templates'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling createNotificationTemplate."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$TemplateDto) {
             throw "Error! The required parameter `TemplateDto` missing when calling createNotificationTemplate."
@@ -216,9 +194,6 @@ Create verified from address
 
 Create a new sender email address and initiate verification process.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER EmailStatusDto
 No description available.
 
@@ -234,9 +209,6 @@ function New-V2025VerifiedFromAddress {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${EmailStatusDto},
         [Switch]
@@ -263,11 +235,6 @@ function New-V2025VerifiedFromAddress {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/verified-from-addresses'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling createVerifiedFromAddress."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$EmailStatusDto) {
             throw "Error! The required parameter `EmailStatusDto` missing when calling createVerifiedFromAddress."
@@ -317,9 +284,6 @@ Bulk delete notification templates
 
 This lets you bulk delete templates that you previously created for your site.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER TemplateBulkDeleteDto
 No description available.
 
@@ -335,9 +299,6 @@ function Remove-V2025NotificationTemplatesInBulk {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${TemplateBulkDeleteDto},
         [Switch]
@@ -364,11 +325,6 @@ function Remove-V2025NotificationTemplatesInBulk {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/notification-templates/bulk-delete'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteNotificationTemplatesInBulk."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$TemplateBulkDeleteDto) {
             throw "Error! The required parameter `TemplateBulkDeleteDto` missing when calling deleteNotificationTemplatesInBulk."
@@ -419,10 +375,7 @@ Delete verified from address
 Delete a verified sender email address
 
 .PARAMETER Id
-No description available.
-
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
+Unique identifier of the verified sender address to delete.
 
 .PARAMETER WithHttpInfo
 
@@ -438,9 +391,6 @@ function Remove-V2025VerifiedFromAddress {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -466,11 +416,6 @@ function Remove-V2025VerifiedFromAddress {
             throw "Error! The required parameter `Id` missing when calling deleteVerifiedFromAddress."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteVerifiedFromAddress."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -503,8 +448,11 @@ Get dkim attributes
 
 Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS SES identities. Limits retrieval to 100 identities per call.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
+.PARAMETER Limit
+Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER WithHttpInfo
 
@@ -518,8 +466,11 @@ function Get-V2025DkimAttributes {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
         [Switch]
         $WithHttpInfo
     )
@@ -542,10 +493,13 @@ function Get-V2025DkimAttributes {
 
         $LocalVarUri = '/verified-domains'
 
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getDkimAttributes."
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
         }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
 
 
 
@@ -581,9 +535,6 @@ Retrieve MAIL FROM attributes for a given AWS SES identity.
 .PARAMETER Identity
 Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -598,9 +549,6 @@ function Get-V2025MailFromAttributes {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Identity},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -627,11 +575,6 @@ function Get-V2025MailFromAttributes {
         }
         $LocalVarUri = $LocalVarUri.replace('{identity}', [System.Web.HTTPUtility]::UrlEncode($Identity))
 
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getMailFromAttributes."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
-
 
 
         $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
@@ -657,6 +600,70 @@ function Get-V2025MailFromAttributes {
 <#
 .SYNOPSIS
 
+List notification preferences for tenant.
+
+.DESCRIPTION
+
+Returns a list of notification preferences for tenant.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+PreferencesDto
+#>
+function Get-V2025NotificationPreferences {
+    [CmdletBinding()]
+    Param (
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2025NotificationPreferences' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/notification-preferences/{key}'
+
+
+
+        $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "PreferencesDto" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Get notification template by id
 
 .DESCRIPTION
@@ -665,9 +672,6 @@ This gets a template that you have modified for your site by Id.
 
 .PARAMETER Id
 Id of the Notification Template
-
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
 
 .PARAMETER WithHttpInfo
 
@@ -683,9 +687,6 @@ function Get-V2025NotificationTemplate {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -711,11 +712,6 @@ function Get-V2025NotificationTemplate {
             throw "Error! The required parameter `Id` missing when calling getNotificationTemplate."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getNotificationTemplate."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -748,9 +744,6 @@ Get notification template context
 
 The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called ""Global Context"" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -762,9 +755,6 @@ NotificationTemplateContext
 function Get-V2025NotificationsTemplateContext {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -786,11 +776,6 @@ function Get-V2025NotificationsTemplateContext {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/notification-template-context'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getNotificationsTemplateContext."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -823,9 +808,6 @@ List from addresses
 
 Retrieve a list of sender email addresses and their verification statuses
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -836,7 +818,7 @@ Offset into the full result set. Usually specified with *limit* to paginate thro
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw*
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, gt, lt*
 
 .PARAMETER Sorters
 Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email**
@@ -853,21 +835,18 @@ function Get-V2025FromAddresses {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
         [Switch]
@@ -891,11 +870,6 @@ function Get-V2025FromAddresses {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/verified-from-addresses'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling listFromAddresses."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Limit) {
             $LocalVarQueryParameters['limit'] = $Limit
@@ -942,89 +916,11 @@ function Get-V2025FromAddresses {
 <#
 .SYNOPSIS
 
-List notification preferences for tenant.
-
-.DESCRIPTION
-
-Returns a list of notification preferences for tenant.
-
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
-.PARAMETER WithHttpInfo
-
-A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
-
-.OUTPUTS
-
-PreferencesDto
-#>
-function Get-V2025NotificationPreferences {
-    [CmdletBinding()]
-    Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Switch]
-        $WithHttpInfo
-    )
-
-    Process {
-        'Calling method: Get-V2025NotificationPreferences' | Write-Debug
-        $PSBoundParameters | Out-DebugParameter | Write-Debug
-
-        $LocalVarAccepts = @()
-        $LocalVarContentTypes = @()
-        $LocalVarQueryParameters = @{}
-        $LocalVarHeaderParameters = @{}
-        $LocalVarFormParameters = @{}
-        $LocalVarPathParameters = @{}
-        $LocalVarCookieParameters = @{}
-        $LocalVarBodyParameter = $null
-
-        # HTTP header 'Accept' (if needed)
-        $LocalVarAccepts = @('application/json')
-
-        $LocalVarUri = '/notification-preferences/{key}'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling listNotificationPreferences."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
-
-
-
-        $LocalVarResult = Invoke-V2025ApiClient -Method 'GET' `
-                                -Uri $LocalVarUri `
-                                -Accepts $LocalVarAccepts `
-                                -ContentTypes $LocalVarContentTypes `
-                                -Body $LocalVarBodyParameter `
-                                -HeaderParameters $LocalVarHeaderParameters `
-                                -QueryParameters $LocalVarQueryParameters `
-                                -FormParameters $LocalVarFormParameters `
-                                -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "PreferencesDto" `
-                                -IsBodyNullable $false
-
-        if ($WithHttpInfo.IsPresent) {
-            return $LocalVarResult
-        } else {
-            return $LocalVarResult["Response"]
-        }
-    }
-}
-
-<#
-.SYNOPSIS
-
 List notification template defaults
 
 .DESCRIPTION
 
 This lists the default templates used for notifications, such as emails from IdentityNow.
-
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
 
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1047,15 +943,12 @@ function Get-V2025NotificationTemplateDefaults {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
         [Switch]
@@ -1079,11 +972,6 @@ function Get-V2025NotificationTemplateDefaults {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/notification-template-defaults'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling listNotificationTemplateDefaults."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Limit) {
             $LocalVarQueryParameters['limit'] = $Limit
@@ -1128,9 +1016,6 @@ List notification templates
 
 This lists the templates that you have modified for your site.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -1155,18 +1040,15 @@ function Get-V2025NotificationTemplates {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
         [Switch]
@@ -1190,11 +1072,6 @@ function Get-V2025NotificationTemplates {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/notification-templates'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling listNotificationTemplates."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Limit) {
             $LocalVarQueryParameters['limit'] = $Limit
@@ -1243,9 +1120,6 @@ Change mail from domain
 
 Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER MailFromAttributesDto
 No description available.
 
@@ -1261,9 +1135,6 @@ function Send-V2025MailFromAttributes {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${MailFromAttributesDto},
         [Switch]
@@ -1290,11 +1161,6 @@ function Send-V2025MailFromAttributes {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/mail-from-attributes'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling putMailFromAttributes."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$MailFromAttributesDto) {
             throw "Error! The required parameter `MailFromAttributesDto` missing when calling putMailFromAttributes."
@@ -1344,9 +1210,6 @@ Send test notification
 
 Send a Test Notification
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER SendTestNotificationRequestDto
 No description available.
 
@@ -1362,9 +1225,6 @@ function Send-V2025TestNotification {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${SendTestNotificationRequestDto},
         [Switch]
@@ -1391,11 +1251,6 @@ function Send-V2025TestNotification {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/send-test-notification'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling sendTestNotification."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$SendTestNotificationRequestDto) {
             throw "Error! The required parameter `SendTestNotificationRequestDto` missing when calling sendTestNotification."

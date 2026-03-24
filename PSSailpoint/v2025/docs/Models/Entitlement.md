@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **CloudGoverned** | **Boolean** | True if the entitlement is cloud governed | [optional] [default to $false]
 **Requestable** | **Boolean** | True if the entitlement is able to be directly requested | [optional] [default to $false]
 **Owner** | [**EntitlementOwner**](entitlement-owner) |  | [optional] 
+**AdditionalOwners** | [**[]AdditionalOwnerRef**](additional-owner-ref) | List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP). | [optional] 
 **ManuallyUpdatedFields** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated. | [optional] 
 **AccessModelMetadata** | [**EntitlementAccessModelMetadata**](entitlement-access-model-metadata) |  | [optional] 
 **Created** | **System.DateTime** | Time when the entitlement was created | [optional] 
@@ -49,6 +50,7 @@ $Entitlement = Initialize-V2025Entitlement  -Id 2c91808874ff91550175097daaec161c
  -CloudGoverned true `
  -Requestable true `
  -Owner null `
+ -AdditionalOwners null `
  -ManuallyUpdatedFields {DISPLAY_NAME=true, DESCRIPTION=true} `
  -AccessModelMetadata null `
  -Created 2020-10-08T18:33:52.029Z `

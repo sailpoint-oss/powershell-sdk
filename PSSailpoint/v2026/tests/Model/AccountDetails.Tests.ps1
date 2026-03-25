@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026AccountDetails' {
     Context 'V2026AccountDetails' {
         It 'Initialize-V2026AccountDetails' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026AccountDetails -AccountId "TEST_VALUE" -AccountName "TEST_VALUE" -AccountNativeIdentity "TEST_VALUE" -AccountUuid "TEST_VALUE" -AccountType "TEST_VALUE" -AccountSubtypeId "TEST_VALUE" -AccountSubtype "TEST_VALUE" -Description "TEST_VALUE" -SourceId "TEST_VALUE" -SourceName "TEST_VALUE" -HasEntitlements "TEST_VALUE" -Disabled "TEST_VALUE" -Locked "TEST_VALUE" -OwnerIdentity "TEST_VALUE"
+            #$NewObject = Initialize-V2026AccountDetails -Id "TEST_VALUE" -Name "TEST_VALUE" -AccountId "TEST_VALUE" -Description "TEST_VALUE" -NativeIdentity "TEST_VALUE" -Uuid "TEST_VALUE" -DisplayName "TEST_VALUE" -Disabled "TEST_VALUE" -Locked "TEST_VALUE" -Uncorrelated "TEST_VALUE" -SystemAccount "TEST_VALUE" -Authoritative "TEST_VALUE" -SupportsPasswordChange "TEST_VALUE" -Attributes "TEST_VALUE" -Application "TEST_VALUE" -Identity "TEST_VALUE" -Schema "TEST_VALUE" -PendingAccessRequestIds "TEST_VALUE" -Features "TEST_VALUE" -Meta "TEST_VALUE"
             #$NewObject | Should -BeOfType AccountDetails
             #$NewObject.property | Should -Be 0
         }

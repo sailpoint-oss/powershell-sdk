@@ -6,9 +6,81 @@
 #
 
 Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026AccessRequestsApi' {
+    Context 'Approve-V2026BulkAccessRequest' {
+        It 'Test Approve-V2026BulkAccessRequest' {
+            #$TestResult = Approve-V2026BulkAccessRequest -BulkApproveAccessRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Suspend-V2026AccessRequest' {
+        It 'Test Suspend-V2026AccessRequest' {
+            #$TestResult = Suspend-V2026AccessRequest -CancelAccessRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Suspend-V2026AccessRequestInBulk' {
+        It 'Test Suspend-V2026AccessRequestInBulk' {
+            #$TestResult = Suspend-V2026AccessRequestInBulk -BulkCancelAccessRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Close-V2026AccessRequest' {
+        It 'Test Close-V2026AccessRequest' {
+            #$TestResult = Close-V2026AccessRequest -CloseAccessRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'New-V2026AccessRequest' {
+        It 'Test New-V2026AccessRequest' {
+            #$TestResult = New-V2026AccessRequest -AccessRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2026AccessRequestConfig' {
         It 'Test Get-V2026AccessRequestConfig' {
             #$TestResult = Get-V2026AccessRequestConfig
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026EntitlementDetailsForIdentity' {
+        It 'Test Get-V2026EntitlementDetailsForIdentity' {
+            #$TestResult = Get-V2026EntitlementDetailsForIdentity -IdentityId "TEST_VALUE" -EntitlementId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026AccessRequestStatus' {
+        It 'Test Get-V2026AccessRequestStatus' {
+            #$TestResult = Get-V2026AccessRequestStatus -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -AssignedTo "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -RequestState "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026AdministratorsAccessRequestStatus' {
+        It 'Test Get-V2026AdministratorsAccessRequestStatus' {
+            #$TestResult = Get-V2026AdministratorsAccessRequestStatus -XSailPointExperimental "TEST_VALUE" -RequestedFor "TEST_VALUE" -RequestedBy "TEST_VALUE" -RegardingIdentity "TEST_VALUE" -AssignedTo "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -RequestState "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-V2026LoadAccountSelections' {
+        It 'Test Invoke-V2026LoadAccountSelections' {
+            #$TestResult = Invoke-V2026LoadAccountSelections -XSailPointExperimental "TEST_VALUE" -AccountsSelectionRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

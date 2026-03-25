@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026AccountActionRequestDtoCorrelatedI
     Context 'V2026AccountActionRequestDtoCorrelatedIdentity' {
         It 'Initialize-V2026AccountActionRequestDtoCorrelatedIdentity' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026AccountActionRequestDtoCorrelatedIdentity -Id "TEST_VALUE" -Name "TEST_VALUE" -Email "TEST_VALUE" -Status "TEST_VALUE"
+            #$NewObject = Initialize-V2026AccountActionRequestDtoCorrelatedIdentity -Type "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE"
             #$NewObject | Should -BeOfType AccountActionRequestDtoCorrelatedIdentity
             #$NewObject.property | Should -Be 0
         }

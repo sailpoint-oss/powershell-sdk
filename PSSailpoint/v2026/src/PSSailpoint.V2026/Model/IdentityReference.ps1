@@ -12,16 +12,14 @@ No summary available.
 
 .DESCRIPTION
 
-Contains detailed information about an identity, including unique identifier, name, email address, and registration status.
+The manager for the identity.
 
+.PARAMETER Type
+No description available.
 .PARAMETER Id
-ID of identity
+Identity id
 .PARAMETER Name
-Name of Identity
-.PARAMETER Email
-mail id of identity
-.PARAMETER Status
-status of identity UNREGISTERED/REGISTERED
+Human-readable display name of identity.
 .OUTPUTS
 
 IdentityReference<PSCustomObject>
@@ -31,17 +29,15 @@ function Initialize-V2026IdentityReference {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ACCOUNT_CORRELATION_CONFIG", "ACCESS_PROFILE", "ACCESS_REQUEST_APPROVAL", "ACCOUNT", "APPLICATION", "CAMPAIGN", "CAMPAIGN_FILTER", "CERTIFICATION", "CLUSTER", "CONNECTOR_SCHEMA", "ENTITLEMENT", "GOVERNANCE_GROUP", "IDENTITY", "IDENTITY_PROFILE", "IDENTITY_REQUEST", "MACHINE_IDENTITY", "LIFECYCLE_STATE", "PASSWORD_POLICY", "ROLE", "RULE", "SOD_POLICY", "SOURCE", "TAG", "TAG_CATEGORY", "TASK_RESULT", "REPORT_RESULT", "SOD_VIOLATION", "ACCOUNT_ACTIVITY", "WORKGROUP")]
+        [PSCustomObject]
+        ${Type},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Email},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Status}
+        ${Name}
     )
 
     Process {
@@ -50,10 +46,9 @@ function Initialize-V2026IdentityReference {
 
 
         $PSO = [PSCustomObject]@{
+            "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
-            "email" = ${Email}
-            "status" = ${Status}
         }
 
         return $PSO
@@ -90,11 +85,17 @@ function ConvertFrom-V2026JsonToIdentityReference {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026IdentityReference
-        $AllProperties = ("id", "name", "email", "status")
+        $AllProperties = ("type", "id", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
+            $Type = $null
+        } else {
+            $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
@@ -109,23 +110,10 @@ function ConvertFrom-V2026JsonToIdentityReference {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "email"))) { #optional property not found
-            $Email = $null
-        } else {
-            $Email = $JsonParameters.PSobject.Properties["email"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "status"))) { #optional property not found
-            $Status = $null
-        } else {
-            $Status = $JsonParameters.PSobject.Properties["status"].value
-        }
-
         $PSO = [PSCustomObject]@{
+            "type" = ${Type}
             "id" = ${Id}
             "name" = ${Name}
-            "email" = ${Email}
-            "status" = ${Status}
         }
 
         return $PSO

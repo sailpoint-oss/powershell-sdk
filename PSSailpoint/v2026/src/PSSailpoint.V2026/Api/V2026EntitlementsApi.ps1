@@ -8,29 +8,20 @@
 <#
 .SYNOPSIS
 
-Get entitlements for an account
+Add metadata to an entitlement.
 
 .DESCRIPTION
 
-This API returns a list of all entitlements associated with the given account ID. The account must exist; if not found, the API returns 404.
+Add single Access Model Metadata to an entitlement.
 
-.PARAMETER AccountId
-The account ID to get entitlements for
+.PARAMETER Id
+The entitlement id.
 
-.PARAMETER Limit
-Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+.PARAMETER AttributeKey
+Technical name of the Attribute.
 
-.PARAMETER Offset
-Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-
-.PARAMETER Count
-If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-
-.PARAMETER SearchAfter
-Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement.
-
-.PARAMETER Sorters
-Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
+.PARAMETER AttributeValue
+Technical name of the Attribute Value.
 
 .PARAMETER WithHttpInfo
 
@@ -38,35 +29,26 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlement[]
+Entitlement
 #>
-function Get-V2026AccountEntitlements {
+function New-V2026AccessModelMetadataForEntitlement {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${AccountId},
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Limit},
+        [String]
+        ${AttributeKey},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Offset},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Boolean]]
-        ${Count},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${SearchAfter},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Sorters},
+        ${AttributeValue},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Get-V2026AccountEntitlements' | Write-Debug
+        'Calling method: New-V2026AccessModelMetadataForEntitlement' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -81,35 +63,23 @@ function Get-V2026AccountEntitlements {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
-        $LocalVarUri = '/entitlements/account/{accountId}/entitlements'
-        if (!$AccountId) {
-            throw "Error! The required parameter `AccountId` missing when calling getAccountEntitlements."
+        $LocalVarUri = '/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling createAccessModelMetadataForEntitlement."
         }
-        $LocalVarUri = $LocalVarUri.replace('{accountId}', [System.Web.HTTPUtility]::UrlEncode($AccountId))
-
-        if ($Limit) {
-            $LocalVarQueryParameters['limit'] = $Limit
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        if (!$AttributeKey) {
+            throw "Error! The required parameter `AttributeKey` missing when calling createAccessModelMetadataForEntitlement."
         }
-
-        if ($Offset) {
-            $LocalVarQueryParameters['offset'] = $Offset
+        $LocalVarUri = $LocalVarUri.replace('{attributeKey}', [System.Web.HTTPUtility]::UrlEncode($AttributeKey))
+        if (!$AttributeValue) {
+            throw "Error! The required parameter `AttributeValue` missing when calling createAccessModelMetadataForEntitlement."
         }
-
-        if ($Count) {
-            $LocalVarQueryParameters['count'] = $Count
-        }
-
-        if ($SearchAfter) {
-            $LocalVarQueryParameters['searchAfter'] = $SearchAfter
-        }
-
-        if ($Sorters) {
-            $LocalVarQueryParameters['sorters'] = $Sorters
-        }
+        $LocalVarUri = $LocalVarUri.replace('{attributeValue}', [System.Web.HTTPUtility]::UrlEncode($AttributeValue))
 
 
 
-        $LocalVarResult = Invoke-V2026ApiClient -Method 'GET' `
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
                                 -ContentTypes $LocalVarContentTypes `
@@ -118,7 +88,7 @@ function Get-V2026AccountEntitlements {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlement[]" `
+                                -ReturnType "Entitlement" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -132,14 +102,14 @@ function Get-V2026AccountEntitlements {
 <#
 .SYNOPSIS
 
-Get an entitlement
+Creates an entitlement
 
 .DESCRIPTION
 
-This API returns an entitlement by its ID.
+This internal endpoint creates an entitlement using the given entitlement payload
 
-.PARAMETER Id
-The entitlement ID
+.PARAMETER EntitlementDTO
+No description available.
 
 .PARAMETER WithHttpInfo
 
@@ -147,20 +117,20 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlement
+EntitlementDTO[]
 #>
-function Get-V2026Entitlement {
+function New-V2026Entitlement {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${Id},
+        [PSCustomObject]
+        ${EntitlementDTO},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Get-V2026Entitlement' | Write-Debug
+        'Calling method: New-V2026Entitlement' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -175,11 +145,196 @@ function Get-V2026Entitlement {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
         $LocalVarUri = '/entitlements/{id}'
+
+        if (!$EntitlementDTO) {
+            throw "Error! The required parameter `EntitlementDTO` missing when calling createEntitlement."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EntitlementDTO -is [array])) {
+            $LocalVarBodyParameter = $EntitlementDTO | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $EntitlementDTO | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EntitlementDTO[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Remove metadata from an entitlement.
+
+.DESCRIPTION
+
+Remove single Access Model Metadata from an entitlement.
+
+.PARAMETER Id
+The entitlement id.
+
+.PARAMETER AttributeKey
+Technical name of the Attribute.
+
+.PARAMETER AttributeValue
+Technical name of the Attribute Value.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+None
+#>
+function Remove-V2026AccessModelMetadataFromEntitlement {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${AttributeKey},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${AttributeValue},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Remove-V2026AccessModelMetadataFromEntitlement' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling getEntitlement."
+            throw "Error! The required parameter `Id` missing when calling deleteAccessModelMetadataFromEntitlement."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+        if (!$AttributeKey) {
+            throw "Error! The required parameter `AttributeKey` missing when calling deleteAccessModelMetadataFromEntitlement."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{attributeKey}', [System.Web.HTTPUtility]::UrlEncode($AttributeKey))
+        if (!$AttributeValue) {
+            throw "Error! The required parameter `AttributeValue` missing when calling deleteAccessModelMetadataFromEntitlement."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{attributeValue}', [System.Web.HTTPUtility]::UrlEncode($AttributeValue))
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'DELETE' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get entitlement request config
+
+.DESCRIPTION
+
+This API returns the entitlement request config for a specified entitlement.
+
+.PARAMETER Id
+Entitlement Id
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EntitlementRequestConfig
+#>
+function Get-V2026EntitlementRequestConfig {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2026EntitlementRequestConfig' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/entitlements/{id}/entitlement-request-config'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getEntitlementRequestConfig."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
 
 
 
@@ -192,7 +347,94 @@ function Get-V2026Entitlement {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlement" `
+                                -ReturnType "EntitlementRequestConfig" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Aggregate entitlements
+
+.DESCRIPTION
+
+Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.  If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
+
+.PARAMETER Id
+Source Id
+
+.PARAMETER CsvFile
+The CSV file containing the source entitlements to aggregate.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+LoadEntitlementTask
+#>
+function Import-V2026EntitlementsBySource {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.IO.FileInfo]
+        ${CsvFile},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Import-V2026EntitlementsBySource' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('multipart/form-data')
+
+        $LocalVarUri = '/entitlements/aggregate/sources/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling importEntitlementsBySource."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if ($CsvFile) {
+            $LocalVarFormParameters['csvFile'] = $CsvFile | Foreach-Object { [System.IO.FileInfo]$executionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($_) }
+        }
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "LoadEntitlementTask" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -478,13 +720,16 @@ Gets a list of entitlements.
 
 .DESCRIPTION
 
-This API returns a list of entitlements. Any authenticated token can call this API.
+This API returns a list of entitlements.  This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).  Any authenticated token can call this API.
+
+.PARAMETER AccountId
+The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s).
 
 .PARAMETER SegmentedForIdentity
-If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.
+If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity.
 
 .PARAMETER ForSegmentIds
-If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs.
+If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
 
 .PARAMETER IncludeUnsegmented
 Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error.
@@ -498,14 +743,11 @@ Max number of results to return. See [V3 API Standard Collection Parameters](htt
 .PARAMETER Count
 If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
-.PARAMETER SearchAfter
-Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement.
-
 .PARAMETER Sorters
 Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
 
 .PARAMETER Filters
-Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*
 
 .PARAMETER WithHttpInfo
 
@@ -520,25 +762,25 @@ function Get-V2026Entitlements {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${SegmentedForIdentity},
+        ${AccountId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${ForSegmentIds},
+        ${SegmentedForIdentity},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ForSegmentIds},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${IncludeUnsegmented},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [System.Nullable[Int32]]
-        ${Offset},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
-        ${Limit},
+        ${Offset},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${SearchAfter},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
@@ -567,6 +809,10 @@ function Get-V2026Entitlements {
 
         $LocalVarUri = '/entitlements'
 
+        if ($AccountId) {
+            $LocalVarQueryParameters['account-id'] = $AccountId
+        }
+
         if ($SegmentedForIdentity) {
             $LocalVarQueryParameters['segmented-for-identity'] = $SegmentedForIdentity
         }
@@ -591,16 +837,137 @@ function Get-V2026Entitlements {
             $LocalVarQueryParameters['count'] = $Count
         }
 
-        if ($SearchAfter) {
-            $LocalVarQueryParameters['searchAfter'] = $SearchAfter
-        }
-
         if ($Sorters) {
             $LocalVarQueryParameters['sorters'] = $Sorters
         }
 
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters
+        }
+
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Entitlement[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get entitlements for an account
+
+.DESCRIPTION
+
+This API returns a list of all entitlements associated with the given account ID. The account must exist; if not found, the API returns 404.
+
+.PARAMETER AccountId
+The account ID to get entitlements for
+
+.PARAMETER Limit
+Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Count
+If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER SearchAfter
+Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement.
+
+.PARAMETER Sorters
+Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Entitlement[]
+#>
+function Get-V2026EntitlementsByAccount {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${AccountId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SearchAfter},
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Sorters},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2026EntitlementsByAccount' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/entitlements/account/{accountId}/entitlements'
+        if (!$AccountId) {
+            throw "Error! The required parameter `AccountId` missing when calling listEntitlementsByAccount."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{accountId}', [System.Web.HTTPUtility]::UrlEncode($AccountId))
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Count) {
+            $LocalVarQueryParameters['count'] = $Count
+        }
+
+        if ($SearchAfter) {
+            $LocalVarQueryParameters['searchAfter'] = $SearchAfter
+        }
+
+        if ($Sorters) {
+            $LocalVarQueryParameters['sorters'] = $Sorters
         }
 
 
@@ -628,16 +995,16 @@ function Get-V2026Entitlements {
 <#
 .SYNOPSIS
 
-Patch an entitlement
+Replace entitlement request config
 
 .DESCRIPTION
 
-This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **segments**, **privilegeOverride/level**, **owner**, **name**, **description**, and **manuallyUpdatedFields**  When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
+This API replaces the entitlement request config for a specified entitlement.
 
 .PARAMETER Id
-ID of the entitlement to patch
+Entitlement ID
 
-.PARAMETER JsonPatchOperation
+.PARAMETER EntitlementRequestConfig
 No description available.
 
 .PARAMETER WithHttpInfo
@@ -646,23 +1013,23 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-Entitlement
+EntitlementRequestConfig
 #>
-function Update-V2026Entitlement {
+function Send-V2026EntitlementRequestConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject[]]
-        ${JsonPatchOperation},
+        [PSCustomObject]
+        ${EntitlementRequestConfig},
         [Switch]
         $WithHttpInfo
     )
 
     Process {
-        'Calling method: Update-V2026Entitlement' | Write-Debug
+        'Calling method: Send-V2026EntitlementRequestConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -678,18 +1045,22 @@ function Update-V2026Entitlement {
         $LocalVarAccepts = @('application/json')
 
         # HTTP header 'Content-Type'
-        $LocalVarContentTypes = @('application/json-patch+json')
+        $LocalVarContentTypes = @('application/json')
 
-        $LocalVarUri = '/entitlements/{id}'
+        $LocalVarUri = '/entitlements/{id}/entitlement-request-config'
         if (!$Id) {
-            throw "Error! The required parameter `Id` missing when calling patchEntitlement."
+            throw "Error! The required parameter `Id` missing when calling putEntitlementRequestConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
-        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
-            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
+        if (!$EntitlementRequestConfig) {
+            throw "Error! The required parameter `EntitlementRequestConfig` missing when calling putEntitlementRequestConfig."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EntitlementRequestConfig -is [array])) {
+            $LocalVarBodyParameter = $EntitlementRequestConfig | ConvertTo-Json -AsArray -Depth 100
         } else {
-            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            $LocalVarBodyParameter = $EntitlementRequestConfig | ForEach-Object {
             # Get array of names of object properties that can be cast to boolean TRUE
             # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
             $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
@@ -701,7 +1072,7 @@ function Update-V2026Entitlement {
 
 
 
-        $LocalVarResult = Invoke-V2026ApiClient -Method 'PATCH' `
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'PUT' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
                                 -ContentTypes $LocalVarContentTypes `
@@ -710,7 +1081,81 @@ function Update-V2026Entitlement {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "Entitlement" `
+                                -ReturnType "EntitlementRequestConfig" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Reset source entitlements
+
+.DESCRIPTION
+
+Remove all entitlements from a specific source. To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
+
+.PARAMETER Id
+ID of source for the entitlement reset
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EntitlementSourceResetBaseReferenceDto
+#>
+function Reset-V2026SourceEntitlements {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Reset-V2026SourceEntitlements' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/entitlements/reset/sources/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling resetSourceEntitlements."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EntitlementSourceResetBaseReferenceDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

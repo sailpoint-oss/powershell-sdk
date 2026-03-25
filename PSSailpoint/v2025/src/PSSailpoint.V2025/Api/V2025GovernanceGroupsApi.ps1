@@ -14,9 +14,6 @@ Create a new governance group.
 
 This API creates a new Governance Group.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WorkgroupDto
 No description available.
 
@@ -32,9 +29,6 @@ function New-V2025Workgroup {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${WorkgroupDto},
         [Switch]
@@ -61,11 +55,6 @@ function New-V2025Workgroup {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/workgroups'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling createWorkgroup."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$WorkgroupDto) {
             throw "Error! The required parameter `WorkgroupDto` missing when calling createWorkgroup."
@@ -119,9 +108,6 @@ This API deletes a Governance Group by its ID.
 .PARAMETER Id
 ID of the Governance Group
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -136,9 +122,6 @@ function Remove-V2025Workgroup {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -164,11 +147,6 @@ function Remove-V2025Workgroup {
             throw "Error! The required parameter `Id` missing when calling deleteWorkgroup."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteWorkgroup."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -205,9 +183,6 @@ This API removes one or more  members from a Governance Group.  A >  **Following
 .PARAMETER WorkgroupId
 ID of the Governance Group.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER IdentityPreviewResponseIdentity
 List of identities to be removed from  a Governance Group members list.
 
@@ -226,9 +201,6 @@ function Remove-V2025WorkgroupMembers {
         [String]
         ${WorkgroupId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${IdentityPreviewResponseIdentity},
         [Switch]
@@ -259,11 +231,6 @@ function Remove-V2025WorkgroupMembers {
             throw "Error! The required parameter `WorkgroupId` missing when calling deleteWorkgroupMembers."
         }
         $LocalVarUri = $LocalVarUri.replace('{workgroupId}', [System.Web.HTTPUtility]::UrlEncode($WorkgroupId))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteWorkgroupMembers."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$IdentityPreviewResponseIdentity) {
             throw "Error! The required parameter `IdentityPreviewResponseIdentity` missing when calling deleteWorkgroupMembers."
@@ -314,9 +281,6 @@ Delete governance group(s)
 
  This API initiates a bulk deletion of one or more Governance Groups.  >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse** list of the response. Governance Group(s) marked as **inUse** can not be deleted.  >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound** list of the response. Governance Groups marked as **notFound** will not be deleted.  >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted** list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.  >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it.   >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WorkgroupBulkDeleteRequest
 No description available.
 
@@ -332,9 +296,6 @@ function Remove-V2025WorkgroupsInBulk {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${WorkgroupBulkDeleteRequest},
         [Switch]
@@ -361,11 +322,6 @@ function Remove-V2025WorkgroupsInBulk {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/workgroups/bulk-delete'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteWorkgroupsInBulk."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$WorkgroupBulkDeleteRequest) {
             throw "Error! The required parameter `WorkgroupBulkDeleteRequest` missing when calling deleteWorkgroupsInBulk."
@@ -419,9 +375,6 @@ This API returns a Governance Groups by its ID.
 .PARAMETER Id
 ID of the Governance Group
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -436,9 +389,6 @@ function Get-V2025Workgroup {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -464,11 +414,6 @@ function Get-V2025Workgroup {
             throw "Error! The required parameter `Id` missing when calling getWorkgroup."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getWorkgroup."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -505,9 +450,6 @@ This API returns list of connections associated with a Governance Group.
 .PARAMETER WorkgroupId
 ID of the Governance Group.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -535,18 +477,15 @@ function Get-V2025Connections {
         [String]
         ${WorkgroupId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
         [Switch]
@@ -574,11 +513,6 @@ function Get-V2025Connections {
             throw "Error! The required parameter `WorkgroupId` missing when calling listConnections."
         }
         $LocalVarUri = $LocalVarUri.replace('{workgroupId}', [System.Web.HTTPUtility]::UrlEncode($WorkgroupId))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling listConnections."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
@@ -631,9 +565,6 @@ This API returns list of members associated with a Governance Group.
 .PARAMETER WorkgroupId
 ID of the Governance Group.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -661,18 +592,15 @@ function Get-V2025WorkgroupMembers {
         [String]
         ${WorkgroupId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
         [Switch]
@@ -700,11 +628,6 @@ function Get-V2025WorkgroupMembers {
             throw "Error! The required parameter `WorkgroupId` missing when calling listWorkgroupMembers."
         }
         $LocalVarUri = $LocalVarUri.replace('{workgroupId}', [System.Web.HTTPUtility]::UrlEncode($WorkgroupId))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling listWorkgroupMembers."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
@@ -754,9 +677,6 @@ List governance groups
 
 This API returns list of Governance Groups
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Offset
 Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -784,21 +704,18 @@ function Get-V2025Workgroups {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
         [Switch]
@@ -822,11 +739,6 @@ function Get-V2025Workgroups {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/workgroups'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling listWorkgroups."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Offset) {
             $LocalVarQueryParameters['offset'] = $Offset
@@ -883,9 +795,6 @@ This API updates an existing governance group by ID. The following fields and ob
 .PARAMETER Id
 ID of the Governance Group
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER JsonPatchOperation
 No description available.
 
@@ -904,9 +813,6 @@ function Update-V2025Workgroup {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${JsonPatchOperation},
         [Switch]
@@ -937,11 +843,6 @@ function Update-V2025Workgroup {
             throw "Error! The required parameter `Id` missing when calling patchWorkgroup."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchWorkgroup."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
             $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
@@ -991,9 +892,6 @@ This API adds one or more members to a Governance Group.  A token with API, ORG_
 .PARAMETER WorkgroupId
 ID of the Governance Group.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER IdentityPreviewResponseIdentity
 List of identities to be added to a Governance Group members list.
 
@@ -1012,9 +910,6 @@ function Update-V2025WorkgroupMembers {
         [String]
         ${WorkgroupId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${IdentityPreviewResponseIdentity},
         [Switch]
@@ -1045,11 +940,6 @@ function Update-V2025WorkgroupMembers {
             throw "Error! The required parameter `WorkgroupId` missing when calling updateWorkgroupMembers."
         }
         $LocalVarUri = $LocalVarUri.replace('{workgroupId}', [System.Web.HTTPUtility]::UrlEncode($WorkgroupId))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling updateWorkgroupMembers."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$IdentityPreviewResponseIdentity) {
             throw "Error! The required parameter `IdentityPreviewResponseIdentity` missing when calling updateWorkgroupMembers."

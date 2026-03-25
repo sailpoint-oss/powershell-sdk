@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026Entitlement' {
     Context 'V2026Entitlement' {
         It 'Initialize-V2026Entitlement' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026Entitlement -Id "TEST_VALUE" -Name "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -SourceSchemaObjectType "TEST_VALUE" -Description "TEST_VALUE" -PrivilegeLevel "TEST_VALUE" -Tags "TEST_VALUE" -CloudGoverned "TEST_VALUE" -Requestable "TEST_VALUE" -Owner "TEST_VALUE" -ManuallyUpdatedFields "TEST_VALUE" -AccessModelMetadata "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Source "TEST_VALUE" -Attributes "TEST_VALUE" -Segments "TEST_VALUE" -DirectPermissions "TEST_VALUE"
+            #$NewObject = Initialize-V2026Entitlement -Id "TEST_VALUE" -Name "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -SourceSchemaObjectType "TEST_VALUE" -Description "TEST_VALUE" -Privileged "TEST_VALUE" -CloudGoverned "TEST_VALUE" -Requestable "TEST_VALUE" -Owner "TEST_VALUE" -AdditionalOwners "TEST_VALUE" -ManuallyUpdatedFields "TEST_VALUE" -AccessModelMetadata "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Source "TEST_VALUE" -Attributes "TEST_VALUE" -Segments "TEST_VALUE" -DirectPermissions "TEST_VALUE"
             #$NewObject | Should -BeOfType Entitlement
             #$NewObject.property | Should -Be 0
         }

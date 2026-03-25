@@ -35,9 +35,6 @@ Method | HTTP request | Description
 
 
 ## create-workgroup
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API creates a new Governance Group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-workgroup)
@@ -45,7 +42,6 @@ This API creates a new Governance Group.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | WorkgroupDto | [**WorkgroupDto**](../models/workgroup-dto) | True  | 
 
 ### Return type
@@ -67,7 +63,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $WorkgroupDto = @"{
   "owner" : {
     "emailAddress" : "support@sailpoint.com",
@@ -89,10 +84,10 @@ $WorkgroupDto = @"{
 
 try {
     $Result = ConvertFrom-V2024JsonToWorkgroupDto -Json $WorkgroupDto
-    New-V2024Workgroup -XSailPointExperimental $XSailPointExperimental -WorkgroupDto $Result 
+    New-V2024Workgroup -WorkgroupDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Workgroup -XSailPointExperimental $XSailPointExperimental -WorkgroupDto $Result  
+    # New-V2024Workgroup -WorkgroupDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Workgroup"
     Write-Host $_.ErrorDetails
@@ -101,9 +96,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-workgroup
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API deletes a Governance Group by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-workgroup)
@@ -112,7 +104,6 @@ This API deletes a Governance Group by its ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Governance Group
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -134,15 +125,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete a governance group
 
 try {
-    Remove-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024Workgroup -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024Workgroup -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Workgroup"
     Write-Host $_.ErrorDetails
@@ -151,9 +141,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-workgroup-members
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API removes one or more  members from a Governance Group.  A
 >  **Following field of Identity is an optional field in the request.**
 
@@ -165,7 +152,6 @@ This API removes one or more  members from a Governance Group.  A
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | WorkgroupId | **String** | True  | ID of the Governance Group.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | IdentityPreviewResponseIdentity | [**[]IdentityPreviewResponseIdentity**](../models/identity-preview-response-identity) | True  | List of identities to be removed from  a Governance Group members list.
 
 ### Return type
@@ -188,7 +174,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $IdentityPreviewResponseIdentity = @""@ # IdentityPreviewResponseIdentity[] | List of identities to be removed from  a Governance Group members list.
  
 
@@ -196,10 +181,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-V2024JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
-    Remove-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result 
+    Remove-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -IdentityPreviewResponseIdentity $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result  
+    # Remove-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -IdentityPreviewResponseIdentity $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024WorkgroupMembers"
     Write-Host $_.ErrorDetails
@@ -208,9 +193,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-workgroups-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 
 This API initiates a bulk deletion of one or more Governance Groups.
 
@@ -229,7 +211,6 @@ This API initiates a bulk deletion of one or more Governance Groups.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | WorkgroupBulkDeleteRequest | [**WorkgroupBulkDeleteRequest**](../models/workgroup-bulk-delete-request) | True  | 
 
 ### Return type
@@ -251,7 +232,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $WorkgroupBulkDeleteRequest = @"{
   "ids" : [ "567a697e-885b-495a-afc5-d55e1c23a302", "c7b0f7b2-1e78-4063-b294-a555333dacd2" ]
 }"@
@@ -260,10 +240,10 @@ $WorkgroupBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-V2024JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
-    Remove-V2024WorkgroupsInBulk -XSailPointExperimental $XSailPointExperimental -WorkgroupBulkDeleteRequest $Result 
+    Remove-V2024WorkgroupsInBulk -WorkgroupBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024WorkgroupsInBulk -XSailPointExperimental $XSailPointExperimental -WorkgroupBulkDeleteRequest $Result  
+    # Remove-V2024WorkgroupsInBulk -WorkgroupBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024WorkgroupsInBulk"
     Write-Host $_.ErrorDetails
@@ -272,9 +252,6 @@ try {
 [[Back to top]](#) 
 
 ## get-workgroup
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API returns a Governance Groups by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workgroup)
@@ -283,7 +260,6 @@ This API returns a Governance Groups by its ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Governance Group
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**WorkgroupDto**](../models/workgroup-dto)
@@ -305,15 +281,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get governance group by id
 
 try {
-    Get-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Workgroup -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024Workgroup -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Workgroup"
     Write-Host $_.ErrorDetails
@@ -322,9 +297,6 @@ try {
 [[Back to top]](#) 
 
 ## list-connections
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API returns list of connections associated with a Governance Group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-connections)
@@ -333,7 +305,6 @@ This API returns list of connections associated with a Governance Group.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | WorkgroupId | **String** | True  | ID of the Governance Group.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 50) | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -359,7 +330,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -368,10 +338,10 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List connections for governance group
 
 try {
-    Get-V2024Connections -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Connections -WorkgroupId $WorkgroupId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Connections -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters  
+    # Get-V2024Connections -WorkgroupId $WorkgroupId -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Connections"
     Write-Host $_.ErrorDetails
@@ -380,9 +350,6 @@ try {
 [[Back to top]](#) 
 
 ## list-workgroup-members
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API returns list of members associated with a Governance Group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workgroup-members)
@@ -391,7 +358,6 @@ This API returns list of members associated with a Governance Group.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | WorkgroupId | **String** | True  | ID of the Governance Group.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 50) | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -417,7 +383,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -426,10 +391,10 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List governance group members
 
 try {
-    Get-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024WorkgroupMembers -WorkgroupId $WorkgroupId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters  
+    # Get-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkgroupMembers"
     Write-Host $_.ErrorDetails
@@ -438,9 +403,6 @@ try {
 [[Back to top]](#) 
 
 ## list-workgroups
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API returns list of Governance Groups
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workgroups)
@@ -448,7 +410,6 @@ This API returns list of Governance Groups
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -474,7 +435,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -484,10 +444,10 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 # List governance groups
 
 try {
-    Get-V2024Workgroups -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024Workgroups 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024Workgroups -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters -Sorters $Sorters  
+    # Get-V2024Workgroups -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Workgroups"
     Write-Host $_.ErrorDetails
@@ -496,9 +456,6 @@ try {
 [[Back to top]](#) 
 
 ## patch-workgroup
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API updates an existing governance group by ID. The following fields and objects are patchable:
 * name
 * description
@@ -510,7 +467,6 @@ This API updates an existing governance group by ID. The following fields and ob
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Governance Group
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) |   (optional) | 
 
 ### Return type
@@ -533,7 +489,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
@@ -544,10 +499,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 # Patch a governance group
 
 try {
-    Update-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Update-V2024Workgroup -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
+    # Update-V2024Workgroup -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Workgroup"
     Write-Host $_.ErrorDetails
@@ -556,9 +511,6 @@ try {
 [[Back to top]](#) 
 
 ## update-workgroup-members
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.
 
 >  **Following field of Identity is an optional field in the request.**
@@ -571,7 +523,6 @@ This API adds one or more members to a Governance Group.  A token with API, ORG_
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | WorkgroupId | **String** | True  | ID of the Governance Group.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | IdentityPreviewResponseIdentity | [**[]IdentityPreviewResponseIdentity**](../models/identity-preview-response-identity) | True  | List of identities to be added to a Governance Group members list.
 
 ### Return type
@@ -594,7 +545,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $IdentityPreviewResponseIdentity = @""@ # IdentityPreviewResponseIdentity[] | List of identities to be added to a Governance Group members list.
  
 
@@ -602,10 +552,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-V2024JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
-    Update-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result 
+    Update-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -IdentityPreviewResponseIdentity $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result  
+    # Update-V2024WorkgroupMembers -WorkgroupId $WorkgroupId -IdentityPreviewResponseIdentity $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024WorkgroupMembers"
     Write-Host $_.ErrorDetails

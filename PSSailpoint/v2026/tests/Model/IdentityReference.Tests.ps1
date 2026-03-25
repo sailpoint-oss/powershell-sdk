@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026IdentityReference' {
     Context 'V2026IdentityReference' {
         It 'Initialize-V2026IdentityReference' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026IdentityReference -Id "TEST_VALUE" -Name "TEST_VALUE" -Email "TEST_VALUE" -Status "TEST_VALUE"
+            #$NewObject = Initialize-V2026IdentityReference -Type "TEST_VALUE" -Id "TEST_VALUE" -Name "TEST_VALUE"
             #$NewObject | Should -BeOfType IdentityReference
             #$NewObject.property | Should -Be 0
         }

@@ -16,19 +16,17 @@ tags: ['SDK', 'Software Development Kit', 'AccountActionRequestDtoCorrelatedIden
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | ID of identity | [optional] 
-**Name** | **String** | Name of Identity | [optional] 
-**Email** | **String** | mail id of identity | [optional] 
-**Status** | **String** | status of identity UNREGISTERED/REGISTERED | [optional] 
+**Type** | [**DtoType**](dto-type) |  | [optional] 
+**Id** | **String** | Identity id | [optional] 
+**Name** | **String** | Human-readable display name of identity. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccountActionRequestDtoCorrelatedIdentity = Initialize-V2026AccountActionRequestDtoCorrelatedIdentity  -Id 117e169acf21f4ae28e8a06198ce7f69 `
- -Name Alfred `
- -Email alfred@testmail.identitysoon.com `
- -Status UNREGISTERED
+$AccountActionRequestDtoCorrelatedIdentity = Initialize-V2026AccountActionRequestDtoCorrelatedIdentity  -Type null `
+ -Id 2c9180a46faadee4016fb4e018c20639 `
+ -Name Thomas Edison
 ```
 
 - Convert the resource to JSON

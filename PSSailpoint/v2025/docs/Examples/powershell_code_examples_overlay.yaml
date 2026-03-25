@@ -7717,7 +7717,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/governance-groups#create-workgroup
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $WorkgroupDto = @"
         {
           "owner" : {
@@ -7741,10 +7740,10 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToWorkgroupDto -Json $WorkgroupDto
-            New-V2025Workgroup -XSailPointExperimental $XSailPointExperimental -WorkgroupDto $Result 
+            New-V2025Workgroup -WorkgroupDto $Result 
     
             # Below is a request that includes all optional parameters
-            # New-V2025Workgroup -XSailPointExperimental $XSailPointExperimental -WorkgroupDto $Result   
+            # New-V2025Workgroup -WorkgroupDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025Workgroup"
             Write-Host $_.ErrorDetails
@@ -7756,15 +7755,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/governance-groups#delete-workgroup
       source: |
         $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete a governance group
         
         try {
-            Remove-V2025Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2025Workgroup -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2025Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2025Workgroup -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025Workgroup"
             Write-Host $_.ErrorDetails
@@ -7776,7 +7774,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/governance-groups#delete-workgroup-members
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentityPreviewResponseIdentity = @""@ 
         
         
@@ -7784,10 +7781,10 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
-            Remove-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result 
+            Remove-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -IdentityPreviewResponseIdentity $Result 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result   
+            # Remove-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -IdentityPreviewResponseIdentity $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025WorkgroupMembers"
             Write-Host $_.ErrorDetails
@@ -7798,7 +7795,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/governance-groups#delete-workgroups-in-bulk
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $WorkgroupBulkDeleteRequest = @"
         {
           "ids" : [ "567a697e-885b-495a-afc5-d55e1c23a302", "c7b0f7b2-1e78-4063-b294-a555333dacd2" ]
@@ -7809,10 +7805,10 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
-            Remove-V2025WorkgroupsInBulk -XSailPointExperimental $XSailPointExperimental -WorkgroupBulkDeleteRequest $Result 
+            Remove-V2025WorkgroupsInBulk -WorkgroupBulkDeleteRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2025WorkgroupsInBulk -XSailPointExperimental $XSailPointExperimental -WorkgroupBulkDeleteRequest $Result   
+            # Remove-V2025WorkgroupsInBulk -WorkgroupBulkDeleteRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025WorkgroupsInBulk"
             Write-Host $_.ErrorDetails
@@ -7824,15 +7820,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/governance-groups#get-workgroup
       source: |
         $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get governance group by id
         
         try {
-            Get-V2025Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025Workgroup -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025Workgroup -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Workgroup"
             Write-Host $_.ErrorDetails
@@ -7844,7 +7839,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/governance-groups#list-connections
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -7853,10 +7847,10 @@
         # List connections for governance group
         
         try {
-            Get-V2025Connections -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025Connections -WorkgroupId $WorkgroupId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025Connections -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters   
+            # Get-V2025Connections -WorkgroupId $WorkgroupId -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Connections"
             Write-Host $_.ErrorDetails
@@ -7868,7 +7862,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/governance-groups#list-workgroup-members
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -7877,10 +7870,10 @@
         # List governance group members
         
         try {
-            Get-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025WorkgroupMembers -WorkgroupId $WorkgroupId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters   
+            # Get-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025WorkgroupMembers"
             Write-Host $_.ErrorDetails
@@ -7891,7 +7884,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/governance-groups#list-workgroups
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -7901,10 +7893,10 @@
         # List governance groups
         
         try {
-            Get-V2025Workgroups -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025Workgroups 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025Workgroups -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters -Sorters $Sorters   
+            # Get-V2025Workgroups -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Workgroups"
             Write-Host $_.ErrorDetails
@@ -7916,7 +7908,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/governance-groups#patch-workgroup
       source: |
         $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",
@@ -7927,10 +7918,10 @@
         # Patch a governance group
         
         try {
-            Update-V2025Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Update-V2025Workgroup -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+            # Update-V2025Workgroup -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025Workgroup"
             Write-Host $_.ErrorDetails
@@ -7942,7 +7933,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/governance-groups#update-workgroup-members
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentityPreviewResponseIdentity = @""@ 
         
         
@@ -7950,10 +7940,10 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
-            Update-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result 
+            Update-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -IdentityPreviewResponseIdentity $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental -IdentityPreviewResponseIdentity $Result   
+            # Update-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -IdentityPreviewResponseIdentity $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025WorkgroupMembers"
             Write-Host $_.ErrorDetails
@@ -20637,7 +20627,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/triggers#complete-trigger-invocation
       source: |
         $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the invocation to complete.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $CompleteInvocation = @"
         {
           "output" : {
@@ -20652,10 +20641,10 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToCompleteInvocation -Json $CompleteInvocation
-            Complete-V2025TriggerInvocation -Id $Id -XSailPointExperimental $XSailPointExperimental -CompleteInvocation $Result 
+            Complete-V2025TriggerInvocation -Id $Id -CompleteInvocation $Result 
     
             # Below is a request that includes all optional parameters
-            # Complete-V2025TriggerInvocation -Id $Id -XSailPointExperimental $XSailPointExperimental -CompleteInvocation $Result   
+            # Complete-V2025TriggerInvocation -Id $Id -CompleteInvocation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-V2025TriggerInvocation"
             Write-Host $_.ErrorDetails
@@ -20666,7 +20655,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/triggers#create-subscription
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SubscriptionPostRequest = @"
         {
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
@@ -20699,10 +20687,10 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
-            New-V2025Subscription -XSailPointExperimental $XSailPointExperimental -SubscriptionPostRequest $Result 
+            New-V2025Subscription -SubscriptionPostRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-V2025Subscription -XSailPointExperimental $XSailPointExperimental -SubscriptionPostRequest $Result   
+            # New-V2025Subscription -SubscriptionPostRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025Subscription"
             Write-Host $_.ErrorDetails
@@ -20714,15 +20702,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/triggers#delete-subscription
       source: |
         $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete a subscription
         
         try {
-            Remove-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2025Subscription -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2025Subscription -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025Subscription"
             Write-Host $_.ErrorDetails
@@ -20733,7 +20720,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/triggers#list-subscriptions
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -20743,10 +20729,10 @@
         # List subscriptions
         
         try {
-            Get-V2025Subscriptions -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025Subscriptions 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025Subscriptions -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+            # Get-V2025Subscriptions -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Subscriptions"
             Write-Host $_.ErrorDetails
@@ -20757,7 +20743,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/triggers#list-trigger-invocation-status
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -20767,10 +20752,10 @@
         # List latest invocation statuses
         
         try {
-            Get-V2025TriggerInvocationStatus -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025TriggerInvocationStatus 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025TriggerInvocationStatus -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+            # Get-V2025TriggerInvocationStatus -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025TriggerInvocationStatus"
             Write-Host $_.ErrorDetails
@@ -20781,7 +20766,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/triggers#list-triggers
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -20791,10 +20775,10 @@
         # List triggers
         
         try {
-            Get-V2025Triggers -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025Triggers 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025Triggers -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+            # Get-V2025Triggers -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Triggers"
             Write-Host $_.ErrorDetails
@@ -20806,7 +20790,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/triggers#patch-subscription
       source: |
         $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription to patch
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SubscriptionPatchRequestInner = @""@ 
         
         
@@ -20814,10 +20797,10 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
-            Update-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPatchRequestInner $Result 
+            Update-V2025Subscription -Id $Id -SubscriptionPatchRequestInner $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPatchRequestInner $Result   
+            # Update-V2025Subscription -Id $Id -SubscriptionPatchRequestInner $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025Subscription"
             Write-Host $_.ErrorDetails
@@ -20828,7 +20811,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/triggers#start-test-trigger-invocation
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $TestInvocation = @"
         {
           "input" : {
@@ -20846,10 +20828,10 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToTestInvocation -Json $TestInvocation
-            Start-V2025TestTriggerInvocation -XSailPointExperimental $XSailPointExperimental -TestInvocation $Result 
+            Start-V2025TestTriggerInvocation -TestInvocation $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-V2025TestTriggerInvocation -XSailPointExperimental $XSailPointExperimental -TestInvocation $Result   
+            # Start-V2025TestTriggerInvocation -TestInvocation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2025TestTriggerInvocation"
             Write-Host $_.ErrorDetails
@@ -20860,7 +20842,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/triggers#test-subscription-filter
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $ValidateFilterInputDto = @"
         {
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
@@ -20874,10 +20855,10 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
-            Test-V2025SubscriptionFilter -XSailPointExperimental $XSailPointExperimental -ValidateFilterInputDto $Result 
+            Test-V2025SubscriptionFilter -ValidateFilterInputDto $Result 
     
             # Below is a request that includes all optional parameters
-            # Test-V2025SubscriptionFilter -XSailPointExperimental $XSailPointExperimental -ValidateFilterInputDto $Result   
+            # Test-V2025SubscriptionFilter -ValidateFilterInputDto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2025SubscriptionFilter"
             Write-Host $_.ErrorDetails
@@ -20889,7 +20870,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/triggers#update-subscription
       source: |
         $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SubscriptionPutRequest = @"
         {
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
@@ -20921,10 +20901,10 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
-            Update-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPutRequest $Result 
+            Update-V2025Subscription -Id $Id -SubscriptionPutRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPutRequest $Result   
+            # Update-V2025Subscription -Id $Id -SubscriptionPutRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025Subscription"
             Write-Host $_.ErrorDetails

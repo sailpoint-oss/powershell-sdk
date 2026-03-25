@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024TriggersApi' {
     Context 'Complete-V2024TriggerInvocation' {
         It 'Test Complete-V2024TriggerInvocation' {
-            #$TestResult = Complete-V2024TriggerInvocation -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -CompleteInvocation "TEST_VALUE"
+            #$TestResult = Complete-V2024TriggerInvocation -Id "TEST_VALUE" -CompleteInvocation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024TriggersApi' {
 
     Context 'New-V2024Subscription' {
         It 'Test New-V2024Subscription' {
-            #$TestResult = New-V2024Subscription -XSailPointExperimental "TEST_VALUE" -SubscriptionPostRequest "TEST_VALUE"
+            #$TestResult = New-V2024Subscription -SubscriptionPostRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024TriggersApi' {
 
     Context 'Remove-V2024Subscription' {
         It 'Test Remove-V2024Subscription' {
-            #$TestResult = Remove-V2024Subscription -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Remove-V2024Subscription -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024TriggersApi' {
 
     Context 'Get-V2024Subscriptions' {
         It 'Test Get-V2024Subscriptions' {
-            #$TestResult = Get-V2024Subscriptions -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-V2024Subscriptions -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024TriggersApi' {
 
     Context 'Get-V2024TriggerInvocationStatus' {
         It 'Test Get-V2024TriggerInvocationStatus' {
-            #$TestResult = Get-V2024TriggerInvocationStatus -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-V2024TriggerInvocationStatus -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024TriggersApi' {
 
     Context 'Get-V2024Triggers' {
         It 'Test Get-V2024Triggers' {
-            #$TestResult = Get-V2024Triggers -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-V2024Triggers -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024TriggersApi' {
 
     Context 'Update-V2024Subscription' {
         It 'Test Update-V2024Subscription' {
-            #$TestResult = Update-V2024Subscription -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SubscriptionPatchRequestInner "TEST_VALUE"
+            #$TestResult = Update-V2024Subscription -Id "TEST_VALUE" -SubscriptionPatchRequestInner "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024TriggersApi' {
 
     Context 'Start-V2024TestTriggerInvocation' {
         It 'Test Start-V2024TestTriggerInvocation' {
-            #$TestResult = Start-V2024TestTriggerInvocation -XSailPointExperimental "TEST_VALUE" -TestInvocation "TEST_VALUE"
+            #$TestResult = Start-V2024TestTriggerInvocation -TestInvocation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024TriggersApi' {
 
     Context 'Test-V2024SubscriptionFilter' {
         It 'Test Test-V2024SubscriptionFilter' {
-            #$TestResult = Test-V2024SubscriptionFilter -XSailPointExperimental "TEST_VALUE" -ValidateFilterInputDto "TEST_VALUE"
+            #$TestResult = Test-V2024SubscriptionFilter -ValidateFilterInputDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024TriggersApi' {
 
     Context 'Update-V2024Subscription' {
         It 'Test Update-V2024Subscription' {
-            #$TestResult = Update-V2024Subscription -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SubscriptionPutRequest "TEST_VALUE"
+            #$TestResult = Update-V2024Subscription -Id "TEST_VALUE" -SubscriptionPutRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

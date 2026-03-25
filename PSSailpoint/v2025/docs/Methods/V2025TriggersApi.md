@@ -60,9 +60,6 @@ Method | HTTP request | Description
 
 
 ## complete-trigger-invocation
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Completes an invocation to a REQUEST_RESPONSE type trigger.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/complete-trigger-invocation)
@@ -71,7 +68,6 @@ Completes an invocation to a REQUEST_RESPONSE type trigger.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the invocation to complete.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | CompleteInvocation | [**CompleteInvocation**](../models/complete-invocation) | True  | 
 
 ### Return type
@@ -94,7 +90,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the invocation to complete.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $CompleteInvocation = @"{
   "output" : {
     "approved" : false
@@ -107,10 +102,10 @@ $CompleteInvocation = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToCompleteInvocation -Json $CompleteInvocation
-    Complete-V2025TriggerInvocation -Id $Id -XSailPointExperimental $XSailPointExperimental -CompleteInvocation $Result 
+    Complete-V2025TriggerInvocation -Id $Id -CompleteInvocation $Result 
     
     # Below is a request that includes all optional parameters
-    # Complete-V2025TriggerInvocation -Id $Id -XSailPointExperimental $XSailPointExperimental -CompleteInvocation $Result  
+    # Complete-V2025TriggerInvocation -Id $Id -CompleteInvocation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-V2025TriggerInvocation"
     Write-Host $_.ErrorDetails
@@ -119,9 +114,6 @@ try {
 [[Back to top]](#) 
 
 ## create-subscription
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required:
 * HTTP subscriptions require httpConfig
 * EventBridge subscriptions require eventBridgeConfig
@@ -131,7 +123,6 @@ This API creates a new subscription to a trigger and defines trigger invocation 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SubscriptionPostRequest | [**SubscriptionPostRequest**](../models/subscription-post-request) | True  | 
 
 ### Return type
@@ -153,7 +144,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SubscriptionPostRequest = @"{
   "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
   "httpConfig" : {
@@ -184,10 +174,10 @@ $SubscriptionPostRequest = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
-    New-V2025Subscription -XSailPointExperimental $XSailPointExperimental -SubscriptionPostRequest $Result 
+    New-V2025Subscription -SubscriptionPostRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2025Subscription -XSailPointExperimental $XSailPointExperimental -SubscriptionPostRequest $Result  
+    # New-V2025Subscription -SubscriptionPostRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025Subscription"
     Write-Host $_.ErrorDetails
@@ -196,9 +186,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-subscription
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Deletes an existing subscription to a trigger.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-subscription)
@@ -207,7 +194,6 @@ Deletes an existing subscription to a trigger.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Subscription ID
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -230,15 +216,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete a subscription
 
 try {
-    Remove-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Remove-V2025Subscription -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2025Subscription -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025Subscription"
     Write-Host $_.ErrorDetails
@@ -247,9 +232,6 @@ try {
 [[Back to top]](#) 
 
 ## list-subscriptions
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Gets a list of all trigger subscriptions.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-subscriptions)
@@ -257,7 +239,6 @@ Gets a list of all trigger subscriptions.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -283,7 +264,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -293,10 +273,10 @@ $Sorters = "triggerName" # String | Sort results using the standard syntax descr
 # List subscriptions
 
 try {
-    Get-V2025Subscriptions -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025Subscriptions 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025Subscriptions -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
+    # Get-V2025Subscriptions -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Subscriptions"
     Write-Host $_.ErrorDetails
@@ -305,9 +285,6 @@ try {
 [[Back to top]](#) 
 
 ## list-trigger-invocation-status
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Gets a list of latest invocation statuses.
 Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours.
 This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
@@ -317,7 +294,6 @@ This endpoint may only fetch up to 2000 invocations, and should not be treated a
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -343,7 +319,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -353,10 +328,10 @@ $Sorters = "created" # String | Sort results using the standard syntax described
 # List latest invocation statuses
 
 try {
-    Get-V2025TriggerInvocationStatus -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025TriggerInvocationStatus 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025TriggerInvocationStatus -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
+    # Get-V2025TriggerInvocationStatus -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025TriggerInvocationStatus"
     Write-Host $_.ErrorDetails
@@ -365,9 +340,6 @@ try {
 [[Back to top]](#) 
 
 ## list-triggers
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Gets a list of triggers that are available in the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-triggers)
@@ -375,7 +347,6 @@ Gets a list of triggers that are available in the tenant.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -401,7 +372,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -411,10 +381,10 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 # List triggers
 
 try {
-    Get-V2025Triggers -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025Triggers 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025Triggers -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
+    # Get-V2025Triggers -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Triggers"
     Write-Host $_.ErrorDetails
@@ -423,9 +393,6 @@ try {
 [[Back to top]](#) 
 
 ## patch-subscription
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:
 
 **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
@@ -436,7 +403,6 @@ This API updates a trigger subscription in IdentityNow, using a set of instructi
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Subscription to patch
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SubscriptionPatchRequestInner | [**[]SubscriptionPatchRequestInner**](../models/subscription-patch-request-inner) | True  | 
 
 ### Return type
@@ -460,7 +426,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription to patch
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $SubscriptionPatchRequestInner = @""@ # SubscriptionPatchRequestInner[] | 
  
 
@@ -468,10 +433,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-V2025JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
-    Update-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPatchRequestInner $Result 
+    Update-V2025Subscription -Id $Id -SubscriptionPatchRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPatchRequestInner $Result  
+    # Update-V2025Subscription -Id $Id -SubscriptionPatchRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025Subscription"
     Write-Host $_.ErrorDetails
@@ -480,9 +445,6 @@ try {
 [[Back to top]](#) 
 
 ## start-test-trigger-invocation
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/start-test-trigger-invocation)
@@ -490,7 +452,6 @@ Initiate a test event for all subscribers of the specified event trigger.  If th
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | TestInvocation | [**TestInvocation**](../models/test-invocation) | True  | 
 
 ### Return type
@@ -513,7 +474,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $TestInvocation = @"{
   "input" : {
     "identityId" : "201327fda1c44704ac01181e963d463c"
@@ -529,10 +489,10 @@ $TestInvocation = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToTestInvocation -Json $TestInvocation
-    Start-V2025TestTriggerInvocation -XSailPointExperimental $XSailPointExperimental -TestInvocation $Result 
+    Start-V2025TestTriggerInvocation -TestInvocation $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2025TestTriggerInvocation -XSailPointExperimental $XSailPointExperimental -TestInvocation $Result  
+    # Start-V2025TestTriggerInvocation -TestInvocation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2025TestTriggerInvocation"
     Write-Host $_.ErrorDetails
@@ -541,9 +501,6 @@ try {
 [[Back to top]](#) 
 
 ## test-subscription-filter
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Validates a JSONPath filter expression against a provided mock input.
 Request requires a security scope of: 
 
@@ -552,7 +509,6 @@ Request requires a security scope of:
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | ValidateFilterInputDto | [**ValidateFilterInputDto**](../models/validate-filter-input-dto) | True  | 
 
 ### Return type
@@ -574,7 +530,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $ValidateFilterInputDto = @"{
   "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
   "input" : {
@@ -586,10 +541,10 @@ $ValidateFilterInputDto = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
-    Test-V2025SubscriptionFilter -XSailPointExperimental $XSailPointExperimental -ValidateFilterInputDto $Result 
+    Test-V2025SubscriptionFilter -ValidateFilterInputDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-V2025SubscriptionFilter -XSailPointExperimental $XSailPointExperimental -ValidateFilterInputDto $Result  
+    # Test-V2025SubscriptionFilter -ValidateFilterInputDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2025SubscriptionFilter"
     Write-Host $_.ErrorDetails
@@ -598,9 +553,6 @@ try {
 [[Back to top]](#) 
 
 ## update-subscription
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing
   Subscription is completely replaced. The following fields are immutable:
 
@@ -618,7 +570,6 @@ This API updates a trigger subscription in IdentityNow, using a full object repr
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Subscription ID
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SubscriptionPutRequest | [**SubscriptionPutRequest**](../models/subscription-put-request) | True  | 
 
 ### Return type
@@ -642,7 +593,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SubscriptionPutRequest = @"{
   "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
   "httpConfig" : {
@@ -672,10 +622,10 @@ $SubscriptionPutRequest = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
-    Update-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPutRequest $Result 
+    Update-V2025Subscription -Id $Id -SubscriptionPutRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2025Subscription -Id $Id -XSailPointExperimental $XSailPointExperimental -SubscriptionPutRequest $Result  
+    # Update-V2025Subscription -Id $Id -SubscriptionPutRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025Subscription"
     Write-Host $_.ErrorDetails

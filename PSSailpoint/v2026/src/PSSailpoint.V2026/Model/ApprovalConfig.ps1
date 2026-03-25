@@ -12,12 +12,30 @@ No summary available.
 
 .DESCRIPTION
 
-No description available.
+Approval config Object
 
-.PARAMETER Approvers
-Approvers must be listed as a comma-separated string, with each entry representing an individual or group authorized to approve account creation or deletion requests.
-.PARAMETER Comments
-Specifies the approval status for an account creation or deletion request. Allowed values are APPROVAL, REJECTION, ALL, and OFF.
+.PARAMETER TenantId
+Tenant ID of the approval configuration.
+.PARAMETER Id
+The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+.PARAMETER Scope
+The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+.PARAMETER ReminderConfig
+No description available.
+.PARAMETER EscalationConfig
+No description available.
+.PARAMETER TimeoutConfig
+No description available.
+.PARAMETER CronTimezone
+No description available.
+.PARAMETER SerialChain
+If the approval request has an approvalCriteria of SERIAL this chain will be used to determine the assignment order.
+.PARAMETER RequiresComment
+Determines whether a comment is required when approving or rejecting the approval request.
+.PARAMETER FallbackApprover
+Configuration for fallback approver. Used if the user cannot be found for whatever reason and escalation config does not exist.
+.PARAMETER AutoApprove
+OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead. DIRECT will cause approval requests to be auto-approved when assigned directly and only to the requester. INDIRECT will auto-approve when the requester appears anywhere in the list of approvers, including in a governance group. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
 .OUTPUTS
 
 ApprovalConfig<PSCustomObject>
@@ -28,11 +46,39 @@ function Initialize-V2026ApprovalConfig {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Approvers},
+        ${TenantId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("APPROVAL", "REJECTION", "ALL", "false")]
         [String]
-        ${Comments}
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Scope},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${ReminderConfig},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${EscalationConfig},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${TimeoutConfig},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${CronTimezone},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${SerialChain},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("APPROVAL", "REJECTION", "ALL", "OFF")]
+        [String]
+        ${RequiresComment},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${FallbackApprover},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("OFF", "DIRECT", "INDIRECT")]
+        [String]
+        ${AutoApprove}
     )
 
     Process {
@@ -41,8 +87,17 @@ function Initialize-V2026ApprovalConfig {
 
 
         $PSO = [PSCustomObject]@{
-            "approvers" = ${Approvers}
-            "comments" = ${Comments}
+            "tenantId" = ${TenantId}
+            "id" = ${Id}
+            "scope" = ${Scope}
+            "reminderConfig" = ${ReminderConfig}
+            "escalationConfig" = ${EscalationConfig}
+            "timeoutConfig" = ${TimeoutConfig}
+            "cronTimezone" = ${CronTimezone}
+            "serialChain" = ${SerialChain}
+            "requiresComment" = ${RequiresComment}
+            "fallbackApprover" = ${FallbackApprover}
+            "autoApprove" = ${AutoApprove}
         }
 
         return $PSO
@@ -79,28 +134,91 @@ function ConvertFrom-V2026JsonToApprovalConfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026ApprovalConfig
-        $AllProperties = ("approvers", "comments")
+        $AllProperties = ("tenantId", "id", "scope", "reminderConfig", "escalationConfig", "timeoutConfig", "cronTimezone", "serialChain", "requiresComment", "fallbackApprover", "autoApprove")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvers"))) { #optional property not found
-            $Approvers = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
+            $TenantId = $null
         } else {
-            $Approvers = $JsonParameters.PSobject.Properties["approvers"].value
+            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "comments"))) { #optional property not found
-            $Comments = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
         } else {
-            $Comments = $JsonParameters.PSobject.Properties["comments"].value
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "scope"))) { #optional property not found
+            $Scope = $null
+        } else {
+            $Scope = $JsonParameters.PSobject.Properties["scope"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "reminderConfig"))) { #optional property not found
+            $ReminderConfig = $null
+        } else {
+            $ReminderConfig = $JsonParameters.PSobject.Properties["reminderConfig"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "escalationConfig"))) { #optional property not found
+            $EscalationConfig = $null
+        } else {
+            $EscalationConfig = $JsonParameters.PSobject.Properties["escalationConfig"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "timeoutConfig"))) { #optional property not found
+            $TimeoutConfig = $null
+        } else {
+            $TimeoutConfig = $JsonParameters.PSobject.Properties["timeoutConfig"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cronTimezone"))) { #optional property not found
+            $CronTimezone = $null
+        } else {
+            $CronTimezone = $JsonParameters.PSobject.Properties["cronTimezone"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "serialChain"))) { #optional property not found
+            $SerialChain = $null
+        } else {
+            $SerialChain = $JsonParameters.PSobject.Properties["serialChain"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "requiresComment"))) { #optional property not found
+            $RequiresComment = $null
+        } else {
+            $RequiresComment = $JsonParameters.PSobject.Properties["requiresComment"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "fallbackApprover"))) { #optional property not found
+            $FallbackApprover = $null
+        } else {
+            $FallbackApprover = $JsonParameters.PSobject.Properties["fallbackApprover"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "autoApprove"))) { #optional property not found
+            $AutoApprove = $null
+        } else {
+            $AutoApprove = $JsonParameters.PSobject.Properties["autoApprove"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "approvers" = ${Approvers}
-            "comments" = ${Comments}
+            "tenantId" = ${TenantId}
+            "id" = ${Id}
+            "scope" = ${Scope}
+            "reminderConfig" = ${ReminderConfig}
+            "escalationConfig" = ${EscalationConfig}
+            "timeoutConfig" = ${TimeoutConfig}
+            "cronTimezone" = ${CronTimezone}
+            "serialChain" = ${SerialChain}
+            "requiresComment" = ${RequiresComment}
+            "fallbackApprover" = ${FallbackApprover}
+            "autoApprove" = ${AutoApprove}
         }
 
         return $PSO

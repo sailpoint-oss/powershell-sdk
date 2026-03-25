@@ -16,8 +16,8 @@ No description available.
 
 .PARAMETER Name
 Name of the Object
-.PARAMETER NativeIdentity
-The native identity associated to the machine identity directly aggregated from a source
+.PARAMETER BusinessApplication
+The business application that the identity represents
 .PARAMETER Description
 Description of machine identity
 .PARAMETER Attributes
@@ -30,6 +30,8 @@ No description available.
 The source id associated to the machine identity
 .PARAMETER Uuid
 The UUID associated to the machine identity directly aggregated from a source
+.PARAMETER NativeIdentity
+The native identity associated to the machine identity directly aggregated from a source
 .OUTPUTS
 
 MachineIdentity<PSCustomObject>
@@ -43,7 +45,7 @@ function Initialize-V2026MachineIdentity {
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${NativeIdentity},
+        ${BusinessApplication},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
@@ -61,15 +63,18 @@ function Initialize-V2026MachineIdentity {
         ${SourceId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Uuid}
+        ${Uuid},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${NativeIdentity}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.V2026 => V2026MachineIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$NativeIdentity) {
-            throw "invalid value for 'NativeIdentity', 'NativeIdentity' cannot be null."
+        if (!$BusinessApplication) {
+            throw "invalid value for 'BusinessApplication', 'BusinessApplication' cannot be null."
         }
 
         if (!$Subtype) {
@@ -79,13 +84,14 @@ function Initialize-V2026MachineIdentity {
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
-            "nativeIdentity" = ${NativeIdentity}
+            "businessApplication" = ${BusinessApplication}
             "description" = ${Description}
             "attributes" = ${Attributes}
             "subtype" = ${Subtype}
             "owners" = ${Owners}
             "sourceId" = ${SourceId}
             "uuid" = ${Uuid}
+            "nativeIdentity" = ${NativeIdentity}
         }
 
         return $PSO
@@ -122,7 +128,7 @@ function ConvertFrom-V2026JsonToMachineIdentity {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026MachineIdentity
-        $AllProperties = ("id", "name", "created", "modified", "nativeIdentity", "description", "attributes", "subtype", "owners", "sourceId", "uuid")
+        $AllProperties = ("id", "name", "created", "modified", "businessApplication", "description", "attributes", "subtype", "owners", "sourceId", "uuid", "nativeIdentity")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -139,10 +145,10 @@ function ConvertFrom-V2026JsonToMachineIdentity {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "nativeIdentity"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'nativeIdentity' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessApplication"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'businessApplication' missing."
         } else {
-            $NativeIdentity = $JsonParameters.PSobject.Properties["nativeIdentity"].value
+            $BusinessApplication = $JsonParameters.PSobject.Properties["businessApplication"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "subtype"))) {
@@ -199,18 +205,25 @@ function ConvertFrom-V2026JsonToMachineIdentity {
             $Uuid = $JsonParameters.PSobject.Properties["uuid"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "nativeIdentity"))) { #optional property not found
+            $NativeIdentity = $null
+        } else {
+            $NativeIdentity = $JsonParameters.PSobject.Properties["nativeIdentity"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
             "created" = ${Created}
             "modified" = ${Modified}
-            "nativeIdentity" = ${NativeIdentity}
+            "businessApplication" = ${BusinessApplication}
             "description" = ${Description}
             "attributes" = ${Attributes}
             "subtype" = ${Subtype}
             "owners" = ${Owners}
             "sourceId" = ${SourceId}
             "uuid" = ${Uuid}
+            "nativeIdentity" = ${NativeIdentity}
         }
 
         return $PSO

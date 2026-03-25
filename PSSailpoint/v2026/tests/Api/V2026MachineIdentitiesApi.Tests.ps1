@@ -38,6 +38,22 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026MachineIdentitiesApi' {
         }
     }
 
+    Context 'Get-V2026MachineIdentityUserEntitlements' {
+        It 'Test Get-V2026MachineIdentityUserEntitlements' {
+            #$TestResult = Get-V2026MachineIdentityUserEntitlements -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Start-V2026MachineIdentityAggregation' {
+        It 'Test Start-V2026MachineIdentityAggregation' {
+            #$TestResult = Start-V2026MachineIdentityAggregation -XSailPointExperimental "TEST_VALUE" -MachineIdentityAggregationRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-V2026MachineIdentity' {
         It 'Test Update-V2026MachineIdentity' {
             #$TestResult = Update-V2026MachineIdentity -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -RequestBody "TEST_VALUE"

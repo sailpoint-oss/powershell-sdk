@@ -1,0 +1,35 @@
+---
+id: v2026-selector-account-match-config
+title: SelectorAccountMatchConfig
+pagination_label: SelectorAccountMatchConfig
+sidebar_label: SelectorAccountMatchConfig
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'SelectorAccountMatchConfig', 'V2026SelectorAccountMatchConfig'] 
+slug: /tools/sdk/powershell/v2026/models/selector-account-match-config
+tags: ['SDK', 'Software Development Kit', 'SelectorAccountMatchConfig', 'V2026SelectorAccountMatchConfig']
+---
+
+
+# SelectorAccountMatchConfig
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**MatchExpression** | [**SelectorAccountMatchConfigMatchExpression**](selector-account-match-config-match-expression) |  | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$SelectorAccountMatchConfig = Initialize-V2026SelectorAccountMatchConfig  -MatchExpression null
+```
+
+- Convert the resource to JSON
+```powershell
+$SelectorAccountMatchConfig | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

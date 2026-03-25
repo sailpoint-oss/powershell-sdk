@@ -14,33 +14,45 @@ No summary available.
 
 No description available.
 
+.PARAMETER Id
+unique id of this object
+.PARAMETER Name
+No description available.
 .PARAMETER AccountId
-ID of account
-.PARAMETER AccountName
-Account name
-.PARAMETER AccountNativeIdentity
-Native identity of account
-.PARAMETER AccountUuid
-UUID associated with account
-.PARAMETER AccountType
-Type of account
-.PARAMETER AccountSubtypeId
-Sub Type ID of account
-.PARAMETER AccountSubtype
-Subtype of account
+No description available.
 .PARAMETER Description
-Account Description
-.PARAMETER SourceId
-ID of source
-.PARAMETER SourceName
-Name of source
-.PARAMETER HasEntitlements
-Indicates entitlements assigned to identity or not
+No description available.
+.PARAMETER NativeIdentity
+No description available.
+.PARAMETER Uuid
+No description available.
+.PARAMETER DisplayName
+No description available.
 .PARAMETER Disabled
-Indicates account is enabled/disabled
+No description available.
 .PARAMETER Locked
-Indicates account locked/unlocked
-.PARAMETER OwnerIdentity
+No description available.
+.PARAMETER Uncorrelated
+No description available.
+.PARAMETER SystemAccount
+No description available.
+.PARAMETER Authoritative
+No description available.
+.PARAMETER SupportsPasswordChange
+No description available.
+.PARAMETER Attributes
+No description available.
+.PARAMETER Application
+No description available.
+.PARAMETER Identity
+No description available.
+.PARAMETER Schema
+No description available.
+.PARAMETER PendingAccessRequestIds
+No description available.
+.PARAMETER Features
+No description available.
+.PARAMETER Meta
 No description available.
 .OUTPUTS
 
@@ -52,46 +64,65 @@ function Initialize-V2026AccountActionRequestDtoAccountDetails {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${Name},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${AccountId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AccountName},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AccountNativeIdentity},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AccountUuid},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AccountType},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AccountSubtypeId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${AccountSubtype},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SourceId},
+        ${NativeIdentity},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${SourceName},
+        ${Uuid},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${DisplayName},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${HasEntitlements} = $false,
+        ${Disabled},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Disabled} = $false,
+        ${Locked},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Locked} = $false,
+        ${Uncorrelated},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${SystemAccount},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${Authoritative},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${SupportsPasswordChange},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${OwnerIdentity}
+        ${Attributes},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Application},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Identity},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Schema},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${PendingAccessRequestIds},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("AUTHENTICATE", "COMPOSITE", "DIRECT_PERMISSIONS", "DISCOVER_SCHEMA", "ENABLE", "MANAGER_LOOKUP", "NO_RANDOM_ACCESS", "PROXY", "SEARCH", "TEMPLATE", "UNLOCK", "UNSTRUCTURED_TARGETS", "SHAREPOINT_TARGET", "PROVISIONING", "GROUP_PROVISIONING", "SYNC_PROVISIONING", "PASSWORD", "CURRENT_PASSWORD", "ACCOUNT_ONLY_REQUEST", "ADDITIONAL_ACCOUNT_REQUEST", "NO_AGGREGATION", "GROUPS_HAVE_MEMBERS", "NO_PERMISSIONS_PROVISIONING", "NO_GROUP_PERMISSIONS_PROVISIONING", "NO_UNSTRUCTURED_TARGETS_PROVISIONING", "NO_DIRECT_PERMISSIONS_PROVISIONING")]
+        [String[]]
+        ${Features},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
+        ${Meta}
     )
 
     Process {
@@ -100,20 +131,26 @@ function Initialize-V2026AccountActionRequestDtoAccountDetails {
 
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "name" = ${Name}
             "accountId" = ${AccountId}
-            "accountName" = ${AccountName}
-            "accountNativeIdentity" = ${AccountNativeIdentity}
-            "accountUuid" = ${AccountUuid}
-            "accountType" = ${AccountType}
-            "accountSubtypeId" = ${AccountSubtypeId}
-            "accountSubtype" = ${AccountSubtype}
             "description" = ${Description}
-            "sourceId" = ${SourceId}
-            "sourceName" = ${SourceName}
-            "hasEntitlements" = ${HasEntitlements}
+            "nativeIdentity" = ${NativeIdentity}
+            "uuid" = ${Uuid}
+            "displayName" = ${DisplayName}
             "disabled" = ${Disabled}
             "locked" = ${Locked}
-            "ownerIdentity" = ${OwnerIdentity}
+            "uncorrelated" = ${Uncorrelated}
+            "systemAccount" = ${SystemAccount}
+            "authoritative" = ${Authoritative}
+            "supportsPasswordChange" = ${SupportsPasswordChange}
+            "attributes" = ${Attributes}
+            "application" = ${Application}
+            "identity" = ${Identity}
+            "schema" = ${Schema}
+            "pendingAccessRequestIds" = ${PendingAccessRequestIds}
+            "features" = ${Features}
+            "meta" = ${Meta}
         }
 
         return $PSO
@@ -150,11 +187,23 @@ function ConvertFrom-V2026JsonToAccountActionRequestDtoAccountDetails {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026AccountActionRequestDtoAccountDetails
-        $AllProperties = ("accountId", "accountName", "accountNativeIdentity", "accountUuid", "accountType", "accountSubtypeId", "accountSubtype", "description", "sourceId", "sourceName", "hasEntitlements", "disabled", "locked", "ownerIdentity")
+        $AllProperties = ("id", "name", "accountId", "description", "nativeIdentity", "uuid", "displayName", "disabled", "locked", "uncorrelated", "systemAccount", "authoritative", "supportsPasswordChange", "attributes", "application", "identity", "schema", "pendingAccessRequestIds", "features", "meta")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
+            $Id = $null
+        } else {
+            $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
+        } else {
+            $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountId"))) { #optional property not found
@@ -163,64 +212,28 @@ function ConvertFrom-V2026JsonToAccountActionRequestDtoAccountDetails {
             $AccountId = $JsonParameters.PSobject.Properties["accountId"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountName"))) { #optional property not found
-            $AccountName = $null
-        } else {
-            $AccountName = $JsonParameters.PSobject.Properties["accountName"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountNativeIdentity"))) { #optional property not found
-            $AccountNativeIdentity = $null
-        } else {
-            $AccountNativeIdentity = $JsonParameters.PSobject.Properties["accountNativeIdentity"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountUuid"))) { #optional property not found
-            $AccountUuid = $null
-        } else {
-            $AccountUuid = $JsonParameters.PSobject.Properties["accountUuid"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountType"))) { #optional property not found
-            $AccountType = $null
-        } else {
-            $AccountType = $JsonParameters.PSobject.Properties["accountType"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountSubtypeId"))) { #optional property not found
-            $AccountSubtypeId = $null
-        } else {
-            $AccountSubtypeId = $JsonParameters.PSobject.Properties["accountSubtypeId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountSubtype"))) { #optional property not found
-            $AccountSubtype = $null
-        } else {
-            $AccountSubtype = $JsonParameters.PSobject.Properties["accountSubtype"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "description"))) { #optional property not found
             $Description = $null
         } else {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceId"))) { #optional property not found
-            $SourceId = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "nativeIdentity"))) { #optional property not found
+            $NativeIdentity = $null
         } else {
-            $SourceId = $JsonParameters.PSobject.Properties["sourceId"].value
+            $NativeIdentity = $JsonParameters.PSobject.Properties["nativeIdentity"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "sourceName"))) { #optional property not found
-            $SourceName = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "uuid"))) { #optional property not found
+            $Uuid = $null
         } else {
-            $SourceName = $JsonParameters.PSobject.Properties["sourceName"].value
+            $Uuid = $JsonParameters.PSobject.Properties["uuid"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "hasEntitlements"))) { #optional property not found
-            $HasEntitlements = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "displayName"))) { #optional property not found
+            $DisplayName = $null
         } else {
-            $HasEntitlements = $JsonParameters.PSobject.Properties["hasEntitlements"].value
+            $DisplayName = $JsonParameters.PSobject.Properties["displayName"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "disabled"))) { #optional property not found
@@ -235,27 +248,93 @@ function ConvertFrom-V2026JsonToAccountActionRequestDtoAccountDetails {
             $Locked = $JsonParameters.PSobject.Properties["locked"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "ownerIdentity"))) { #optional property not found
-            $OwnerIdentity = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "uncorrelated"))) { #optional property not found
+            $Uncorrelated = $null
         } else {
-            $OwnerIdentity = $JsonParameters.PSobject.Properties["ownerIdentity"].value
+            $Uncorrelated = $JsonParameters.PSobject.Properties["uncorrelated"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "systemAccount"))) { #optional property not found
+            $SystemAccount = $null
+        } else {
+            $SystemAccount = $JsonParameters.PSobject.Properties["systemAccount"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "authoritative"))) { #optional property not found
+            $Authoritative = $null
+        } else {
+            $Authoritative = $JsonParameters.PSobject.Properties["authoritative"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "supportsPasswordChange"))) { #optional property not found
+            $SupportsPasswordChange = $null
+        } else {
+            $SupportsPasswordChange = $JsonParameters.PSobject.Properties["supportsPasswordChange"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "attributes"))) { #optional property not found
+            $Attributes = $null
+        } else {
+            $Attributes = $JsonParameters.PSobject.Properties["attributes"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "application"))) { #optional property not found
+            $Application = $null
+        } else {
+            $Application = $JsonParameters.PSobject.Properties["application"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "identity"))) { #optional property not found
+            $Identity = $null
+        } else {
+            $Identity = $JsonParameters.PSobject.Properties["identity"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "schema"))) { #optional property not found
+            $Schema = $null
+        } else {
+            $Schema = $JsonParameters.PSobject.Properties["schema"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "pendingAccessRequestIds"))) { #optional property not found
+            $PendingAccessRequestIds = $null
+        } else {
+            $PendingAccessRequestIds = $JsonParameters.PSobject.Properties["pendingAccessRequestIds"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "features"))) { #optional property not found
+            $Features = $null
+        } else {
+            $Features = $JsonParameters.PSobject.Properties["features"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "meta"))) { #optional property not found
+            $Meta = $null
+        } else {
+            $Meta = $JsonParameters.PSobject.Properties["meta"].value
         }
 
         $PSO = [PSCustomObject]@{
+            "id" = ${Id}
+            "name" = ${Name}
             "accountId" = ${AccountId}
-            "accountName" = ${AccountName}
-            "accountNativeIdentity" = ${AccountNativeIdentity}
-            "accountUuid" = ${AccountUuid}
-            "accountType" = ${AccountType}
-            "accountSubtypeId" = ${AccountSubtypeId}
-            "accountSubtype" = ${AccountSubtype}
             "description" = ${Description}
-            "sourceId" = ${SourceId}
-            "sourceName" = ${SourceName}
-            "hasEntitlements" = ${HasEntitlements}
+            "nativeIdentity" = ${NativeIdentity}
+            "uuid" = ${Uuid}
+            "displayName" = ${DisplayName}
             "disabled" = ${Disabled}
             "locked" = ${Locked}
-            "ownerIdentity" = ${OwnerIdentity}
+            "uncorrelated" = ${Uncorrelated}
+            "systemAccount" = ${SystemAccount}
+            "authoritative" = ${Authoritative}
+            "supportsPasswordChange" = ${SupportsPasswordChange}
+            "attributes" = ${Attributes}
+            "application" = ${Application}
+            "identity" = ${Identity}
+            "schema" = ${Schema}
+            "pendingAccessRequestIds" = ${PendingAccessRequestIds}
+            "features" = ${Features}
+            "meta" = ${Meta}
         }
 
         return $PSO

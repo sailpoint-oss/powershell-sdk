@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024GovernanceGroupsApi' {
     Context 'New-V2024Workgroup' {
         It 'Test New-V2024Workgroup' {
-            #$TestResult = New-V2024Workgroup -XSailPointExperimental "TEST_VALUE" -WorkgroupDto "TEST_VALUE"
+            #$TestResult = New-V2024Workgroup -WorkgroupDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024GovernanceGroupsApi' {
 
     Context 'Remove-V2024Workgroup' {
         It 'Test Remove-V2024Workgroup' {
-            #$TestResult = Remove-V2024Workgroup -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Remove-V2024Workgroup -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024GovernanceGroupsApi' {
 
     Context 'Remove-V2024WorkgroupMembers' {
         It 'Test Remove-V2024WorkgroupMembers' {
-            #$TestResult = Remove-V2024WorkgroupMembers -WorkgroupId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -IdentityPreviewResponseIdentity "TEST_VALUE"
+            #$TestResult = Remove-V2024WorkgroupMembers -WorkgroupId "TEST_VALUE" -IdentityPreviewResponseIdentity "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024GovernanceGroupsApi' {
 
     Context 'Remove-V2024WorkgroupsInBulk' {
         It 'Test Remove-V2024WorkgroupsInBulk' {
-            #$TestResult = Remove-V2024WorkgroupsInBulk -XSailPointExperimental "TEST_VALUE" -WorkgroupBulkDeleteRequest "TEST_VALUE"
+            #$TestResult = Remove-V2024WorkgroupsInBulk -WorkgroupBulkDeleteRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,7 +40,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024GovernanceGroupsApi' {
 
     Context 'Get-V2024Workgroup' {
         It 'Test Get-V2024Workgroup' {
-            #$TestResult = Get-V2024Workgroup -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2024Workgroup -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024GovernanceGroupsApi' {
 
     Context 'Get-V2024Connections' {
         It 'Test Get-V2024Connections' {
-            #$TestResult = Get-V2024Connections -WorkgroupId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-V2024Connections -WorkgroupId "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -56,7 +56,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024GovernanceGroupsApi' {
 
     Context 'Get-V2024WorkgroupMembers' {
         It 'Test Get-V2024WorkgroupMembers' {
-            #$TestResult = Get-V2024WorkgroupMembers -WorkgroupId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-V2024WorkgroupMembers -WorkgroupId "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -64,7 +64,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024GovernanceGroupsApi' {
 
     Context 'Get-V2024Workgroups' {
         It 'Test Get-V2024Workgroups' {
-            #$TestResult = Get-V2024Workgroups -XSailPointExperimental "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-V2024Workgroups -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -72,7 +72,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024GovernanceGroupsApi' {
 
     Context 'Update-V2024Workgroup' {
         It 'Test Update-V2024Workgroup' {
-            #$TestResult = Update-V2024Workgroup -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-V2024Workgroup -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -80,7 +80,7 @@ Describe -tag 'PSSailpoint.V2024' -name 'V2024V2024GovernanceGroupsApi' {
 
     Context 'Update-V2024WorkgroupMembers' {
         It 'Test Update-V2024WorkgroupMembers' {
-            #$TestResult = Update-V2024WorkgroupMembers -WorkgroupId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -IdentityPreviewResponseIdentity "TEST_VALUE"
+            #$TestResult = Update-V2024WorkgroupMembers -WorkgroupId "TEST_VALUE" -IdentityPreviewResponseIdentity "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

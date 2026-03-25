@@ -22,24 +22,16 @@ enum DtoType {
     ACCESS_PROFILE
     # enum value: "ACCESS_REQUEST_APPROVAL"
     ACCESS_REQUEST_APPROVAL
-    # enum value: "ACCESS_REQUEST_CONFIG"
-    ACCESS_REQUEST_CONFIG
     # enum value: "ACCOUNT"
     ACCOUNT
     # enum value: "APPLICATION"
     APPLICATION
-    # enum value: "ATTRIBUTE"
-    ATTRIBUTE
-    # enum value: "AUTH_ORG"
-    AUTH_ORG
     # enum value: "CAMPAIGN"
     CAMPAIGN
     # enum value: "CAMPAIGN_FILTER"
     CAMPAIGN_FILTER
     # enum value: "CERTIFICATION"
     CERTIFICATION
-    # enum value: "CLOUD_ACCESS"
-    CLOUD_ACCESS
     # enum value: "CLUSTER"
     CLUSTER
     # enum value: "CONNECTOR_SCHEMA"
@@ -50,8 +42,6 @@ enum DtoType {
     GOVERNANCE_GROUP
     # enum value: "IDENTITY"
     IDENTITY
-    # enum value: "IDENTITY_OBJECT_CONFIG"
-    IDENTITY_OBJECT_CONFIG
     # enum value: "IDENTITY_PROFILE"
     IDENTITY_PROFILE
     # enum value: "IDENTITY_REQUEST"
@@ -60,30 +50,16 @@ enum DtoType {
     MACHINE_IDENTITY
     # enum value: "LIFECYCLE_STATE"
     LIFECYCLE_STATE
-    # enum value: "NOTIFICATION_TEMPLATE"
-    NOTIFICATION_TEMPLATE
     # enum value: "PASSWORD_POLICY"
     PASSWORD_POLICY
-    # enum value: "PASSWORD_POLICY_CONFIG"
-    PASSWORD_POLICY_CONFIG
-    # enum value: "PASSWORD_SYNC_GROUP"
-    PASSWORD_SYNC_GROUP
-    # enum value: "PUBLIC_IDENTITIES_CONFIG"
-    PUBLIC_IDENTITIES_CONFIG
     # enum value: "ROLE"
     ROLE
     # enum value: "RULE"
     RULE
-    # enum value: "CONNECTOR_RULE"
-    CONNECTOR_RULE
-    # enum value: "SERVICE_DESK_INTEGRATION"
-    SERVICE_DESK_INTEGRATION
     # enum value: "SOD_POLICY"
     SOD_POLICY
     # enum value: "SOURCE"
     SOURCE
-    # enum value: "SYSTEM"
-    SYSTEM
     # enum value: "TAG"
     TAG
     # enum value: "TAG_CATEGORY"
@@ -96,27 +72,7 @@ enum DtoType {
     SOD_VIOLATION
     # enum value: "ACCOUNT_ACTIVITY"
     ACCOUNT_ACTIVITY
-    # enum value: "TRIGGER_SUBSCRIPTION"
-    TRIGGER_SUBSCRIPTION
-    # enum value: "TRANSFORM"
-    TRANSFORM
-    # enum value: "ARM_RISK"
-    ARM_RISK
-    # enum value: "ARM_ACTIVITY"
-    ARM_ACTIVITY
-    # enum value: "SEGMENT"
-    SEGMENT
-    # enum value: "ATTR_SYNC_SOURCE_CONFIG"
-    ATTR_SYNC_SOURCE_CONFIG
-    # enum value: "FORM_DEFINITION"
-    FORM_DEFINITION
-    # enum value: "WORKFLOW"
-    WORKFLOW
     # enum value: "WORKGROUP"
     WORKGROUP
-    # enum value: "DIMENSION"
-    DIMENSION
-    # enum value: "UNKNOWN"
-    UNKNOWN
 }
 

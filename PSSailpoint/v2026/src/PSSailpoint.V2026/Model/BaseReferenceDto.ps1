@@ -12,7 +12,7 @@ No summary available.
 
 .DESCRIPTION
 
-Base object for referencing other DTOs, containing type, id, and name fields for identification and display purposes.
+No description available.
 
 .PARAMETER Type
 No description available.
@@ -29,6 +29,7 @@ function Initialize-V2026BaseReferenceDto {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("ACCOUNT_CORRELATION_CONFIG", "ACCESS_PROFILE", "ACCESS_REQUEST_APPROVAL", "ACCOUNT", "APPLICATION", "CAMPAIGN", "CAMPAIGN_FILTER", "CERTIFICATION", "CLUSTER", "CONNECTOR_SCHEMA", "ENTITLEMENT", "GOVERNANCE_GROUP", "IDENTITY", "IDENTITY_PROFILE", "IDENTITY_REQUEST", "MACHINE_IDENTITY", "LIFECYCLE_STATE", "PASSWORD_POLICY", "ROLE", "RULE", "SOD_POLICY", "SOURCE", "TAG", "TAG_CATEGORY", "TASK_RESULT", "REPORT_RESULT", "SOD_VIOLATION", "ACCOUNT_ACTIVITY", "WORKGROUP")]
         [PSCustomObject]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

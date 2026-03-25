@@ -21,23 +21,15 @@ tags: ['SDK', 'Software Development Kit', 'DtoType', 'V2026DtoType']
 
 * `ACCESS_REQUEST_APPROVAL` (value: `"ACCESS_REQUEST_APPROVAL"`)
 
-* `ACCESS_REQUEST_CONFIG` (value: `"ACCESS_REQUEST_CONFIG"`)
-
 * `ACCOUNT` (value: `"ACCOUNT"`)
 
 * `APPLICATION` (value: `"APPLICATION"`)
-
-* `ATTRIBUTE` (value: `"ATTRIBUTE"`)
-
-* `AUTH_ORG` (value: `"AUTH_ORG"`)
 
 * `CAMPAIGN` (value: `"CAMPAIGN"`)
 
 * `CAMPAIGN_FILTER` (value: `"CAMPAIGN_FILTER"`)
 
 * `CERTIFICATION` (value: `"CERTIFICATION"`)
-
-* `CLOUD_ACCESS` (value: `"CLOUD_ACCESS"`)
 
 * `CLUSTER` (value: `"CLUSTER"`)
 
@@ -49,8 +41,6 @@ tags: ['SDK', 'Software Development Kit', 'DtoType', 'V2026DtoType']
 
 * `IDENTITY` (value: `"IDENTITY"`)
 
-* `IDENTITY_OBJECT_CONFIG` (value: `"IDENTITY_OBJECT_CONFIG"`)
-
 * `IDENTITY_PROFILE` (value: `"IDENTITY_PROFILE"`)
 
 * `IDENTITY_REQUEST` (value: `"IDENTITY_REQUEST"`)
@@ -59,29 +49,15 @@ tags: ['SDK', 'Software Development Kit', 'DtoType', 'V2026DtoType']
 
 * `LIFECYCLE_STATE` (value: `"LIFECYCLE_STATE"`)
 
-* `NOTIFICATION_TEMPLATE` (value: `"NOTIFICATION_TEMPLATE"`)
-
 * `PASSWORD_POLICY` (value: `"PASSWORD_POLICY"`)
-
-* `PASSWORD_POLICY_CONFIG` (value: `"PASSWORD_POLICY_CONFIG"`)
-
-* `PASSWORD_SYNC_GROUP` (value: `"PASSWORD_SYNC_GROUP"`)
-
-* `PUBLIC_IDENTITIES_CONFIG` (value: `"PUBLIC_IDENTITIES_CONFIG"`)
 
 * `ROLE` (value: `"ROLE"`)
 
 * `RULE` (value: `"RULE"`)
 
-* `CONNECTOR_RULE` (value: `"CONNECTOR_RULE"`)
-
-* `SERVICE_DESK_INTEGRATION` (value: `"SERVICE_DESK_INTEGRATION"`)
-
 * `SOD_POLICY` (value: `"SOD_POLICY"`)
 
 * `SOURCE` (value: `"SOURCE"`)
-
-* `SYSTEM` (value: `"SYSTEM"`)
 
 * `TAG` (value: `"TAG"`)
 
@@ -95,27 +71,7 @@ tags: ['SDK', 'Software Development Kit', 'DtoType', 'V2026DtoType']
 
 * `ACCOUNT_ACTIVITY` (value: `"ACCOUNT_ACTIVITY"`)
 
-* `TRIGGER_SUBSCRIPTION` (value: `"TRIGGER_SUBSCRIPTION"`)
-
-* `TRANSFORM` (value: `"TRANSFORM"`)
-
-* `ARM_RISK` (value: `"ARM_RISK"`)
-
-* `ARM_ACTIVITY` (value: `"ARM_ACTIVITY"`)
-
-* `SEGMENT` (value: `"SEGMENT"`)
-
-* `ATTR_SYNC_SOURCE_CONFIG` (value: `"ATTR_SYNC_SOURCE_CONFIG"`)
-
-* `FORM_DEFINITION` (value: `"FORM_DEFINITION"`)
-
-* `WORKFLOW` (value: `"WORKFLOW"`)
-
 * `WORKGROUP` (value: `"WORKGROUP"`)
-
-* `DIMENSION` (value: `"DIMENSION"`)
-
-* `UNKNOWN` (value: `"UNKNOWN"`)
 
 
 [[Back to top]](#) 

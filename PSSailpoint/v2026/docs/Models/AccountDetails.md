@@ -16,39 +16,51 @@ tags: ['SDK', 'Software Development Kit', 'AccountDetails', 'V2026AccountDetails
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** | **String** | ID of account | [optional] 
-**AccountName** | **String** | Account name | [optional] 
-**AccountNativeIdentity** | **String** | Native identity of account | [optional] 
-**AccountUuid** | **String** | UUID associated with account | [optional] 
-**AccountType** | **String** | Type of account | [optional] 
-**AccountSubtypeId** | **String** | Sub Type ID of account | [optional] 
-**AccountSubtype** | **String** | Subtype of account | [optional] 
-**Description** | **String** | Account Description | [optional] 
-**SourceId** | **String** | ID of source | [optional] 
-**SourceName** | **String** | Name of source | [optional] 
-**HasEntitlements** | **Boolean** | Indicates entitlements assigned to identity or not | [optional] [default to $false]
-**Disabled** | **Boolean** | Indicates account is enabled/disabled | [optional] [default to $false]
-**Locked** | **Boolean** | Indicates account locked/unlocked | [optional] [default to $false]
-**OwnerIdentity** | [**AccountDetailsOwnerIdentity**](account-details-owner-identity) |  | [optional] 
+**Id** | **String** | unique id of this object | [optional] 
+**Name** | **String** |  | [optional] 
+**AccountId** | **String** |  | [optional] 
+**Description** | **String** |  | [optional] 
+**NativeIdentity** | **String** |  | [optional] 
+**Uuid** | **String** |  | [optional] 
+**DisplayName** | **String** |  | [optional] 
+**Disabled** | **Boolean** |  | [optional] 
+**Locked** | **Boolean** |  | [optional] 
+**Uncorrelated** | **Boolean** |  | [optional] 
+**SystemAccount** | **Boolean** |  | [optional] 
+**Authoritative** | **Boolean** |  | [optional] 
+**SupportsPasswordChange** | **Boolean** |  | [optional] 
+**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**Application** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**Identity** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**Schema** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**PendingAccessRequestIds** | **[]String** |  | [optional] 
+**Features** | **[]String** |  | [optional] 
+**Meta** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccountDetails = Initialize-V2026AccountDetails  -AccountId 15e169acf21f4ae28e8a06198ce7f699 `
- -AccountName walter.white `
- -AccountNativeIdentity CN=Walter White,OU=BB,OU=org-data-service,DC=TestAutomationAD,DC=local `
- -AccountUuid {3bbeb846-e168-47d2-9e5d-bd46506c9280=null} `
- -AccountType HUMAN `
- -AccountSubtypeId null `
- -AccountSubtype null `
- -Description This is human account for identity walter.white `
- -SourceId ee03924d95034cd088cbd5af068f1772 `
- -SourceName BB AD `
- -HasEntitlements true `
- -Disabled false `
- -Locked false `
- -OwnerIdentity null
+$AccountDetails = Initialize-V2026AccountDetails  -Id 2c91808474683da6017468693c260195 `
+ -Name null `
+ -AccountId 4191808474683da6017468693c260195 `
+ -Description null `
+ -NativeIdentity null `
+ -Uuid null `
+ -DisplayName null `
+ -Disabled null `
+ -Locked null `
+ -Uncorrelated null `
+ -SystemAccount null `
+ -Authoritative null `
+ -SupportsPasswordChange null `
+ -Attributes null `
+ -Application null `
+ -Identity null `
+ -Schema null `
+ -PendingAccessRequestIds null `
+ -Features null `
+ -Meta null
 ```
 
 - Convert the resource to JSON

@@ -1,0 +1,39 @@
+---
+id: v2026-form-owner
+title: FormOwner
+pagination_label: FormOwner
+sidebar_label: FormOwner
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'FormOwner', 'V2026FormOwner'] 
+slug: /tools/sdk/powershell/v2026/models/form-owner
+tags: ['SDK', 'Software Development Kit', 'FormOwner', 'V2026FormOwner']
+---
+
+
+# FormOwner
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Type** |  **Enum** [  "IDENTITY" ] | FormOwnerType value. IDENTITY FormOwnerTypeIdentity | [optional] 
+**Id** | **String** | Unique identifier of the form's owner. | [optional] 
+**Name** | **String** | Name of the form's owner. | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$FormOwner = Initialize-V2026FormOwner  -Type IDENTITY `
+ -Id 2c9180867624cbd7017642d8c8c81f67 `
+ -Name Grant Smith
+```
+
+- Convert the resource to JSON
+```powershell
+$FormOwner | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

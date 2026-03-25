@@ -26,16 +26,16 @@ The value of the entitlement
 The object type of the entitlement from the source schema
 .PARAMETER Description
 The description of the entitlement
-.PARAMETER PrivilegeLevel
-No description available.
-.PARAMETER Tags
-List of tags assigned to the entitlement
+.PARAMETER Privileged
+True if the entitlement is privileged
 .PARAMETER CloudGoverned
 True if the entitlement is cloud governed
 .PARAMETER Requestable
 True if the entitlement is able to be directly requested
 .PARAMETER Owner
 No description available.
+.PARAMETER AdditionalOwners
+List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
 .PARAMETER ManuallyUpdatedFields
 A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
 .PARAMETER AccessModelMetadata
@@ -79,11 +79,8 @@ function Initialize-V2026Entitlement {
         [String]
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
-        ${PrivilegeLevel},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String[]]
-        ${Tags},
+        [System.Nullable[Boolean]]
+        ${Privileged} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${CloudGoverned} = $false,
@@ -93,6 +90,9 @@ function Initialize-V2026Entitlement {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Owner},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${AdditionalOwners},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Collections.Hashtable]
         ${ManuallyUpdatedFields},
@@ -131,11 +131,11 @@ function Initialize-V2026Entitlement {
             "value" = ${Value}
             "sourceSchemaObjectType" = ${SourceSchemaObjectType}
             "description" = ${Description}
-            "privilegeLevel" = ${PrivilegeLevel}
-            "tags" = ${Tags}
+            "privileged" = ${Privileged}
             "cloudGoverned" = ${CloudGoverned}
             "requestable" = ${Requestable}
             "owner" = ${Owner}
+            "additionalOwners" = ${AdditionalOwners}
             "manuallyUpdatedFields" = ${ManuallyUpdatedFields}
             "accessModelMetadata" = ${AccessModelMetadata}
             "created" = ${Created}
@@ -180,7 +180,7 @@ function ConvertFrom-V2026JsonToEntitlement {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026Entitlement
-        $AllProperties = ("id", "name", "attribute", "value", "sourceSchemaObjectType", "description", "privilegeLevel", "tags", "cloudGoverned", "requestable", "owner", "manuallyUpdatedFields", "accessModelMetadata", "created", "modified", "source", "attributes", "segments", "directPermissions")
+        $AllProperties = ("id", "name", "attribute", "value", "sourceSchemaObjectType", "description", "privileged", "cloudGoverned", "requestable", "owner", "additionalOwners", "manuallyUpdatedFields", "accessModelMetadata", "created", "modified", "source", "attributes", "segments", "directPermissions")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -223,16 +223,10 @@ function ConvertFrom-V2026JsonToEntitlement {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "privilegeLevel"))) { #optional property not found
-            $PrivilegeLevel = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "privileged"))) { #optional property not found
+            $Privileged = $null
         } else {
-            $PrivilegeLevel = $JsonParameters.PSobject.Properties["privilegeLevel"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tags"))) { #optional property not found
-            $Tags = $null
-        } else {
-            $Tags = $JsonParameters.PSobject.Properties["tags"].value
+            $Privileged = $JsonParameters.PSobject.Properties["privileged"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "cloudGoverned"))) { #optional property not found
@@ -251,6 +245,12 @@ function ConvertFrom-V2026JsonToEntitlement {
             $Owner = $null
         } else {
             $Owner = $JsonParameters.PSobject.Properties["owner"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "additionalOwners"))) { #optional property not found
+            $AdditionalOwners = $null
+        } else {
+            $AdditionalOwners = $JsonParameters.PSobject.Properties["additionalOwners"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "manuallyUpdatedFields"))) { #optional property not found
@@ -308,11 +308,11 @@ function ConvertFrom-V2026JsonToEntitlement {
             "value" = ${Value}
             "sourceSchemaObjectType" = ${SourceSchemaObjectType}
             "description" = ${Description}
-            "privilegeLevel" = ${PrivilegeLevel}
-            "tags" = ${Tags}
+            "privileged" = ${Privileged}
             "cloudGoverned" = ${CloudGoverned}
             "requestable" = ${Requestable}
             "owner" = ${Owner}
+            "additionalOwners" = ${AdditionalOwners}
             "manuallyUpdatedFields" = ${ManuallyUpdatedFields}
             "accessModelMetadata" = ${AccessModelMetadata}
             "created" = ${Created}

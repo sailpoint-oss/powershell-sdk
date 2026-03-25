@@ -17,80 +17,31 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2026*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2026AccountEntitlements**](#get-account-entitlements) | **GET** `/entitlements/account/{accountId}/entitlements` | Get entitlements for an account
-[**Get-V2026Entitlement**](#get-entitlement) | **GET** `/entitlements/{id}` | Get an entitlement
+[**New-V2026AccessModelMetadataForEntitlement**](#create-access-model-metadata-for-entitlement) | **POST** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add metadata to an entitlement.
+[**New-V2026Entitlement**](#create-entitlement) | **POST** `/entitlements/{id}` | Creates an entitlement
+[**Remove-V2026AccessModelMetadataFromEntitlement**](#delete-access-model-metadata-from-entitlement) | **DELETE** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove metadata from an entitlement.
+[**Get-V2026EntitlementRequestConfig**](#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get entitlement request config
+[**Import-V2026EntitlementsBySource**](#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate entitlements
 [**Get-V2026EntitlementChildren**](#list-entitlement-children) | **GET** `/entitlements/{id}/children` | List of entitlements children
 [**Get-V2026EntitlementParents**](#list-entitlement-parents) | **GET** `/entitlements/{id}/parents` | List of entitlements parents
 [**Get-V2026Entitlements**](#list-entitlements) | **GET** `/entitlements` | Gets a list of entitlements.
-[**Update-V2026Entitlement**](#patch-entitlement) | **PATCH** `/entitlements/{id}` | Patch an entitlement
+[**Get-V2026EntitlementsByAccount**](#list-entitlements-by-account) | **GET** `/entitlements/account/{accountId}/entitlements` | Get entitlements for an account
+[**Send-V2026EntitlementRequestConfig**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace entitlement request config
+[**Reset-V2026SourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{id}` | Reset source entitlements
 [**Update-V2026EntitlementsInBulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
 
 
-## get-account-entitlements
-This API returns a list of all entitlements associated with the given account ID. The account must exist; if not found, the API returns 404.
+## create-access-model-metadata-for-entitlement
+Add single Access Model Metadata to an entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-account-entitlements)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | AccountId | **String** | True  | The account ID to get entitlements for
-  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | SearchAfter | **String** |   (optional) | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement.
-  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
-
-### Return type
-[**Entitlement[]**](../models/entitlement)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | List of entitlements for the account | Entitlement[]
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### Example
-```powershell
-$AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID to get entitlements for
-$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$SearchAfter = "Account Payable,2c91808375d8e80a0175e1f88a575221" # String | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement. (optional)
-$Sorters = "name,id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable** (optional)
-
-# Get entitlements for an account
-
-try {
-    Get-V2026AccountEntitlements -AccountId $AccountId 
-    
-    # Below is a request that includes all optional parameters
-    # Get-V2026AccountEntitlements -AccountId $AccountId -Limit $Limit -Offset $Offset -Count $Count -SearchAfter $SearchAfter -Sorters $Sorters  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026AccountEntitlements"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## get-entitlement
-This API returns an entitlement by its ID.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/create-access-model-metadata-for-entitlement)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The entitlement ID
+Path   | Id | **String** | True  | The entitlement id.
+Path   | AttributeKey | **String** | True  | Technical name of the Attribute.
+Path   | AttributeValue | **String** | True  | Technical name of the Attribute Value.
 
 ### Return type
 [**Entitlement**](../models/entitlement)
@@ -98,7 +49,190 @@ Path   | Id | **String** | True  | The entitlement ID
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An entitlement | Entitlement
+201 | Created | Entitlement
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
+$AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
+$AttributeValue = "public" # String | Technical name of the Attribute Value.
+
+# Add metadata to an entitlement.
+
+try {
+    New-V2026AccessModelMetadataForEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
+    
+    # Below is a request that includes all optional parameters
+    # New-V2026AccessModelMetadataForEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2026AccessModelMetadataForEntitlement"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## create-entitlement
+This internal endpoint creates an entitlement using the given entitlement payload
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/create-entitlement)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | EntitlementDTO | [**EntitlementDTO**](../models/entitlement-dto) | True  | 
+
+### Return type
+[**EntitlementDTO[]**](../models/entitlement-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+201 | Returns the created entitlement DTO object. | EntitlementDTO[]
+400 | * Source is missing * Source schema is missing * Entitlement value is missing and source schema object type is not of the permission type * Attribute is missing  | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$EntitlementDTO = @"{
+  "cloudEligible" : true,
+  "segmentStatus" : "GLOBAL",
+  "idnExceptional" : "PRIVILEGED",
+  "description" : "some entitlement description",
+  "source" : {
+    "id" : "2b86153b97a94abc936c8a11b106aaf8",
+    "type" : "SOURCE",
+    "value" : "accountant"
+  },
+  "uuid" : "6a099125e1614e4c9024bff6c6159f49",
+  "entitlementitlementAggregated" : "true",
+  "segments" : [ "[students]", "[students]" ],
+  "directPermissions" : [ {
+    "rights" : "HereIsRight1",
+    "target" : "SYS.GV_$TRANSACTION"
+  }, {
+    "rights" : "HereIsRight1",
+    "target" : "SYS.GV_$TRANSACTION"
+  } ],
+  "idnServiceApp" : "AppName123",
+  "modified" : "2015-05-28T14:07:17Z",
+  "sourceSchemaObjectType" : "group",
+  "id" : "id12345",
+  "attribute" : "authorizationType",
+  "value" : "CN=Users,dc=sailpoint,dc=com",
+  "owner" : {
+    "name" : "identity 1",
+    "id" : "2a2fdacca5e345f18bf7970cfbb8fec2",
+    "type" : "IDENTITY"
+  },
+  "lastRefresh" : "2022-06-24T16:12:53.389386Z",
+  "created" : "2015-05-28T14:07:17Z",
+  "privileged" : true,
+  "inheritFrom" : [ "[a9ced5a52d284b83a7f5595873d35b4e]", "[a9ced5a52d284b83a7f5595873d35b4e]" ],
+  "name" : "aName",
+  "attributes" : "{cn=Human Resources-bchun2, owner=CN=Fritz.8349b2f31e67,OU=flatfileAD,dc=flatfile,dc=endtoend,dc=com, objectguid=objectguidHuman-Resources-bchun2, description=HR-desc, sysDescriptions={en_US=HR-desc}, entitlementAggregated=true}",
+  "requestable" : true,
+  "isGroup" : true,
+  "cloudGoverned" : true,
+  "hash" : "5c8b309fa18a2c76d7fbee2b9e00dba99e4c82de"
+}"@
+
+# Creates an entitlement
+
+try {
+    $Result = ConvertFrom-V2026JsonToEntitlementDTO -Json $EntitlementDTO
+    New-V2026Entitlement -EntitlementDTO $Result 
+    
+    # Below is a request that includes all optional parameters
+    # New-V2026Entitlement -EntitlementDTO $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2026Entitlement"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## delete-access-model-metadata-from-entitlement
+Remove single Access Model Metadata from an entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/delete-access-model-metadata-from-entitlement)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | The entitlement id.
+Path   | AttributeKey | **String** | True  | Technical name of the Attribute.
+Path   | AttributeValue | **String** | True  | Technical name of the Attribute Value.
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | OK | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
+$AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
+$AttributeValue = "public" # String | Technical name of the Attribute Value.
+
+# Remove metadata from an entitlement.
+
+try {
+    Remove-V2026AccessModelMetadataFromEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-V2026AccessModelMetadataFromEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2026AccessModelMetadataFromEntitlement"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-entitlement-request-config
+This API returns the entitlement request config for a specified entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-entitlement-request-config)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Entitlement Id
+
+### Return type
+[**EntitlementRequestConfig**](../models/entitlement-request-config)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | An Entitlement Request Config | EntitlementRequestConfig
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -112,17 +246,71 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "2c91808874ff91550175097daaec161c" # String | The entitlement ID
+$Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
 
-# Get an entitlement
+# Get entitlement request config
 
 try {
-    Get-V2026Entitlement -Id $Id 
+    Get-V2026EntitlementRequestConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2026Entitlement -Id $Id  
+    # Get-V2026EntitlementRequestConfig -Id $Id  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026Entitlement"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026EntitlementRequestConfig"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## import-entitlements-by-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
+
+If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
+
+If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/import-entitlements-by-source)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Source Id
+   | CsvFile | **System.IO.FileInfo** |   (optional) | The CSV file containing the source entitlements to aggregate.
+
+### Return type
+[**LoadEntitlementTask**](../models/load-entitlement-task)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Aggregate Entitlements Task | LoadEntitlementTask
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
+$CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
+
+# Aggregate entitlements
+
+try {
+    Import-V2026EntitlementsBySource -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Import-V2026EntitlementsBySource -Id $Id -CsvFile $CsvFile  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2026EntitlementsBySource"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -245,22 +433,26 @@ try {
 [[Back to top]](#) 
 
 ## list-entitlements
-This API returns a list of entitlements. Any authenticated token can call this API.
+This API returns a list of entitlements.
+
+This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).
+
+Any authenticated token can call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2026/list-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | SegmentedForIdentity | **String** |   (optional) | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.
-  Query | ForSegmentIds | **String** |   (optional) | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs.
+  Query | AccountId | **String** |   (optional) | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s).
+  Query | SegmentedForIdentity | **String** |   (optional) | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity.
+  Query | ForSegmentIds | **String** |   (optional) | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
   Query | IncludeUnsegmented | **Boolean** |   (optional) (default to $true) | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | SearchAfter | **String** |   (optional) | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement.
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq*
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*
 
 ### Return type
 [**Entitlement[]**](../models/entitlement)
@@ -281,15 +473,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$SegmentedForIdentity = "e554098913544630b5985e9042f5e44b" # String | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. (optional)
-$ForSegmentIds = "041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649" # String | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. (optional)
+$AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). (optional)
+$SegmentedForIdentity = "e554098913544630b5985e9042f5e44b" # String | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
+$ForSegmentIds = "041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649" # String | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional)
 $IncludeUnsegmented = $true # Boolean | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error. (optional) (default to $true)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$SearchAfter = "Account Payable,2c91808375d8e80a0175e1f88a575221" # String | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement. (optional)
-$Sorters = "name,id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable** (optional)
-$Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq* (optional)
+$Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable** (optional)
+$Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in* (optional)
 
 # Gets a list of entitlements.
 
@@ -297,7 +489,7 @@ try {
     Get-V2026Entitlements 
     
     # Below is a request that includes all optional parameters
-    # Get-V2026Entitlements -SegmentedForIdentity $SegmentedForIdentity -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Offset $Offset -Limit $Limit -Count $Count -SearchAfter $SearchAfter -Sorters $Sorters -Filters $Filters  
+    # Get-V2026Entitlements -AccountId $AccountId -SegmentedForIdentity $SegmentedForIdentity -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026Entitlements"
     Write-Host $_.ErrorDetails
@@ -305,28 +497,28 @@ try {
 ```
 [[Back to top]](#) 
 
-## patch-entitlement
-This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+## list-entitlements-by-account
+This API returns a list of all entitlements associated with the given account ID. The account must exist; if not found, the API returns 404.
 
-The following fields are patchable: **requestable**, **segments**, **privilegeOverride/level**, **owner**, **name**, **description**, and **manuallyUpdatedFields**
-
-When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/patch-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-entitlements-by-account)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | ID of the entitlement to patch
- Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) |   (optional) | 
+Path   | AccountId | **String** | True  | The account ID to get entitlements for
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | SearchAfter | **String** |   (optional) | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement.
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
 
 ### Return type
-[**Entitlement**](../models/entitlement)
+[**Entitlement[]**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Responds with the entitlement as updated. | Entitlement
+200 | List of entitlements for the account | Entitlement[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -335,28 +527,149 @@ Code | Description  | Data Type
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-- **Content-Type**: application/json-patch+json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### Example
 ```powershell
-$Id = "2c91808a7813090a017814121e121518" # String | ID of the entitlement to patch
- $JsonPatchOperation = @"{
-  "op" : "replace",
-  "path" : "/description",
-  "value" : "New description"
-}"@ # JsonPatchOperation[] |  (optional)
- 
+$AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID to get entitlements for
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+$SearchAfter = "Account Payable,2c91808375d8e80a0175e1f88a575221" # String | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement. (optional)
+$Sorters = "name,id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable** (optional)
 
-# Patch an entitlement
+# Get entitlements for an account
 
 try {
-    Update-V2026Entitlement -Id $Id 
+    Get-V2026EntitlementsByAccount -AccountId $AccountId 
     
     # Below is a request that includes all optional parameters
-    # Update-V2026Entitlement -Id $Id -JsonPatchOperation $Result  
+    # Get-V2026EntitlementsByAccount -AccountId $AccountId -Limit $Limit -Offset $Offset -Count $Count -SearchAfter $SearchAfter -Sorters $Sorters  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026Entitlement"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026EntitlementsByAccount"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## put-entitlement-request-config
+This API replaces the entitlement request config for a specified entitlement.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/put-entitlement-request-config)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Entitlement ID
+ Body  | EntitlementRequestConfig | [**EntitlementRequestConfig**](../models/entitlement-request-config) | True  | 
+
+### Return type
+[**EntitlementRequestConfig**](../models/entitlement-request-config)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Responds with the entitlement request config as updated. | EntitlementRequestConfig
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "2c91808a7813090a017814121e121518" # String | Entitlement ID
+$EntitlementRequestConfig = @"{
+  "accessRequestConfig" : {
+    "denialCommentRequired" : false,
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "reauthorizationRequired" : false,
+    "requestCommentRequired" : true,
+    "requireEndDate" : true,
+    "maxPermittedAccessDuration" : {
+      "value" : 5,
+      "timeUnit" : "DAYS"
+    }
+  },
+  "revocationRequestConfig" : {
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ]
+  }
+}"@
+
+# Replace entitlement request config
+
+try {
+    $Result = ConvertFrom-V2026JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
+    Send-V2026EntitlementRequestConfig -Id $Id -EntitlementRequestConfig $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Send-V2026EntitlementRequestConfig -Id $Id -EntitlementRequestConfig $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2026EntitlementRequestConfig"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## reset-source-entitlements
+Remove all entitlements from a specific source.
+To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/reset-source-entitlements)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | ID of source for the entitlement reset
+
+### Return type
+[**EntitlementSourceResetBaseReferenceDto**](../models/entitlement-source-reset-base-reference-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Entitlement source reset task result | EntitlementSourceResetBaseReferenceDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
+
+# Reset source entitlements
+
+try {
+    Reset-V2026SourceEntitlements -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Reset-V2026SourceEntitlements -Id $Id  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-V2026SourceEntitlements"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -408,12 +721,12 @@ $EntitlementBulkUpdateRequest = @"{
   "entitlementIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
   "jsonPatch" : [ {
     "op" : "replace",
-    "path" : "/requestable",
+    "path" : "/privileged",
     "value" : false
   }, {
     "op" : "replace",
-    "path" : "/privilegeOverride/level",
-    "value" : "HIGH"
+    "path" : "/requestable",
+    "value" : false
   } ]
 }"@
 

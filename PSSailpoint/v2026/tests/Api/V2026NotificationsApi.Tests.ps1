@@ -6,9 +6,129 @@
 #
 
 Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026NotificationsApi' {
+    Context 'New-V2026DomainDkim' {
+        It 'Test New-V2026DomainDkim' {
+            #$TestResult = New-V2026DomainDkim -DomainAddress "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'New-V2026NotificationTemplate' {
+        It 'Test New-V2026NotificationTemplate' {
+            #$TestResult = New-V2026NotificationTemplate -TemplateDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'New-V2026VerifiedFromAddress' {
+        It 'Test New-V2026VerifiedFromAddress' {
+            #$TestResult = New-V2026VerifiedFromAddress -EmailStatusDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-V2026NotificationTemplatesInBulk' {
+        It 'Test Remove-V2026NotificationTemplatesInBulk' {
+            #$TestResult = Remove-V2026NotificationTemplatesInBulk -TemplateBulkDeleteDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-V2026VerifiedFromAddress' {
+        It 'Test Remove-V2026VerifiedFromAddress' {
+            #$TestResult = Remove-V2026VerifiedFromAddress -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026DkimAttributes' {
+        It 'Test Get-V2026DkimAttributes' {
+            #$TestResult = Get-V2026DkimAttributes -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026MailFromAttributes' {
+        It 'Test Get-V2026MailFromAttributes' {
+            #$TestResult = Get-V2026MailFromAttributes -Identity "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026NotificationPreferences' {
+        It 'Test Get-V2026NotificationPreferences' {
+            #$TestResult = Get-V2026NotificationPreferences
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026NotificationTemplate' {
+        It 'Test Get-V2026NotificationTemplate' {
+            #$TestResult = Get-V2026NotificationTemplate -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2026NotificationTemplateVariables' {
         It 'Test Get-V2026NotificationTemplateVariables' {
             #$TestResult = Get-V2026NotificationTemplateVariables -Key "TEST_VALUE" -Medium "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026NotificationsTemplateContext' {
+        It 'Test Get-V2026NotificationsTemplateContext' {
+            #$TestResult = Get-V2026NotificationsTemplateContext
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026FromAddresses' {
+        It 'Test Get-V2026FromAddresses' {
+            #$TestResult = Get-V2026FromAddresses -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026NotificationTemplateDefaults' {
+        It 'Test Get-V2026NotificationTemplateDefaults' {
+            #$TestResult = Get-V2026NotificationTemplateDefaults -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026NotificationTemplates' {
+        It 'Test Get-V2026NotificationTemplates' {
+            #$TestResult = Get-V2026NotificationTemplates -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-V2026MailFromAttributes' {
+        It 'Test Send-V2026MailFromAttributes' {
+            #$TestResult = Send-V2026MailFromAttributes -MailFromAttributesDto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-V2026TestNotification' {
+        It 'Test Send-V2026TestNotification' {
+            #$TestResult = Send-V2026TestNotification -SendTestNotificationRequestDto "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

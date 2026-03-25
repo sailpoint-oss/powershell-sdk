@@ -6,17 +6,41 @@
 #
 
 Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026EntitlementsApi' {
-    Context 'Get-V2026AccountEntitlements' {
-        It 'Test Get-V2026AccountEntitlements' {
-            #$TestResult = Get-V2026AccountEntitlements -AccountId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -SearchAfter "TEST_VALUE" -Sorters "TEST_VALUE"
+    Context 'New-V2026AccessModelMetadataForEntitlement' {
+        It 'Test New-V2026AccessModelMetadataForEntitlement' {
+            #$TestResult = New-V2026AccessModelMetadataForEntitlement -Id "TEST_VALUE" -AttributeKey "TEST_VALUE" -AttributeValue "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Get-V2026Entitlement' {
-        It 'Test Get-V2026Entitlement' {
-            #$TestResult = Get-V2026Entitlement -Id "TEST_VALUE"
+    Context 'New-V2026Entitlement' {
+        It 'Test New-V2026Entitlement' {
+            #$TestResult = New-V2026Entitlement -EntitlementDTO "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-V2026AccessModelMetadataFromEntitlement' {
+        It 'Test Remove-V2026AccessModelMetadataFromEntitlement' {
+            #$TestResult = Remove-V2026AccessModelMetadataFromEntitlement -Id "TEST_VALUE" -AttributeKey "TEST_VALUE" -AttributeValue "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026EntitlementRequestConfig' {
+        It 'Test Get-V2026EntitlementRequestConfig' {
+            #$TestResult = Get-V2026EntitlementRequestConfig -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Import-V2026EntitlementsBySource' {
+        It 'Test Import-V2026EntitlementsBySource' {
+            #$TestResult = Import-V2026EntitlementsBySource -Id "TEST_VALUE" -CsvFile "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -40,15 +64,31 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026EntitlementsApi' {
 
     Context 'Get-V2026Entitlements' {
         It 'Test Get-V2026Entitlements' {
-            #$TestResult = Get-V2026Entitlements -SegmentedForIdentity "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -SearchAfter "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
+            #$TestResult = Get-V2026Entitlements -AccountId "TEST_VALUE" -SegmentedForIdentity "TEST_VALUE" -ForSegmentIds "TEST_VALUE" -IncludeUnsegmented "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE" -Count "TEST_VALUE" -Sorters "TEST_VALUE" -Filters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
     }
 
-    Context 'Update-V2026Entitlement' {
-        It 'Test Update-V2026Entitlement' {
-            #$TestResult = Update-V2026Entitlement -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+    Context 'Get-V2026EntitlementsByAccount' {
+        It 'Test Get-V2026EntitlementsByAccount' {
+            #$TestResult = Get-V2026EntitlementsByAccount -AccountId "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -SearchAfter "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-V2026EntitlementRequestConfig' {
+        It 'Test Send-V2026EntitlementRequestConfig' {
+            #$TestResult = Send-V2026EntitlementRequestConfig -Id "TEST_VALUE" -EntitlementRequestConfig "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Reset-V2026SourceEntitlements' {
+        It 'Test Reset-V2026SourceEntitlements' {
+            #$TestResult = Reset-V2026SourceEntitlements -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -1488,6 +1488,31 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026AccountAggregationStatus"
             Write-Host $_.ErrorDetails
         }
+- path: /account-requests/account/{accountId}/delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/account-deletion-requests#delete-account-request
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $AccountId = "ef38f94347e94562b5bb8424a56498d8" # String | Account ID.
+        $AccountDeleteRequestInput = @"
+        {
+          "comments" : "Requesting account deletion request"
+        }
+        "@
+        
+        # Delete account
+        
+        try {
+            Remove-V2026AccountRequest -XSailPointExperimental $XSailPointExperimental -AccountId $AccountId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2026AccountRequest -XSailPointExperimental $XSailPointExperimental -AccountId $AccountId -AccountDeleteRequestInput $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2026AccountRequest"
+            Write-Host $_.ErrorDetails
+        }
 - path: /account-requests/deletion
   method: GET
   xCodeSample:
@@ -6958,31 +6983,6 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2026DeclassifyMachineAccountFromSource"
             Write-Host $_.ErrorDetails
         }
-- path: /account-requests/account/{accountId}/delete
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/delete-account#delete-account-request
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $AccountId = "ef38f94347e94562b5bb8424a56498d8" # String | Account ID.
-        $AccountDeleteRequestInput = @"
-        {
-          "comments" : "Requesting account deletion request"
-        }
-        "@
-        
-        # Delete account
-        
-        try {
-            Remove-V2026AccountRequest -XSailPointExperimental $XSailPointExperimental -AccountId $AccountId 
-    
-            # Below is a request that includes all optional parameters
-            # Remove-V2026AccountRequest -XSailPointExperimental $XSailPointExperimental -AccountId $AccountId -AccountDeleteRequestInput $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2026AccountRequest"
-            Write-Host $_.ErrorDetails
-        }
 - path: /roles/{roleId}/dimensions
   method: POST
   xCodeSample:
@@ -8039,53 +8039,6 @@
             # Update-V2026WorkgroupMembers -WorkgroupId $WorkgroupId -IdentityPreviewResponseIdentity $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026WorkgroupMembers"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sources/{sourceId}/approval-config/account-delete
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/human-account-deletion-approval-config#get-account-delete-approval-config
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SourceId = "ha38f94347e94562b5bb8424a56498d8" # String | The Source id
-        
-        # Human Account Deletion Approval Config
-        
-        try {
-            Get-V2026AccountDeleteApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2026AccountDeleteApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026AccountDeleteApprovalConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sources/{sourceId}/approval-config/account-delete
-  method: PATCH
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/human-account-deletion-approval-config#update-account-deletion-approval-config
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SourceId = "00eebcf881994e419d72e757fd30dc0e" # String | Human account source ID.
-        $JsonPatchOperation = @"{
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        }"@ 
-        
-        
-        # Human Account Deletion Approval Config
-        
-        try {
-            $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2026AccountDeletionApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -JsonPatchOperation $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Update-V2026AccountDeletionApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -JsonPatchOperation $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026AccountDeletionApprovalConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /ai-access-request-recommendations/ignored-items
@@ -10993,53 +10946,6 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2026ClassifyMachineAccount"
             Write-Host $_.ErrorDetails
         }
-- path: /sources/{sourceId}/approval-config/machine-account-delete
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/machine-account-deletion-approval-config#get-machine-account-deletion-approval-config-by-source
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SourceId = "gt38f94347e94562b5bb8424a56498d8" # String | source id.
-        
-        # Machine Account Deletion Approval Config
-        
-        try {
-            Get-V2026MachineAccountDeletionApprovalConfigBySource -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2026MachineAccountDeletionApprovalConfigBySource -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026MachineAccountDeletionApprovalConfigBySource"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sources/{sourceId}/approval-config/machine-account-delete
-  method: PATCH
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/machine-account-deletion-approval-config#update-machine-account-deletion-approval-config
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SourceId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account source ID.
-        $JsonPatchOperation = @"{
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        }"@ 
-        
-        
-        # Machine Account Deletion Approval Config
-        
-        try {
-            $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2026MachineAccountDeletionApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -JsonPatchOperation $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Update-V2026MachineAccountDeletionApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -JsonPatchOperation $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountDeletionApprovalConfig"
-            Write-Host $_.ErrorDetails
-        }
 - path: /sources/{sourceId}/machine-account-mappings
   method: POST
   xCodeSample:
@@ -11231,6 +11137,26 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026MachineAccount"
             Write-Host $_.ErrorDetails
         }
+- path: /source-subtypes/{subtypeId}/machine-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#get-machine-account-deletion-sub-type-approval-config
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SubtypeId = "ef38f94347e94562b5bb8424a56498d8" # String | machine subtype id.
+        
+        # Machine Subtype Approval Config
+        
+        try {
+            Get-V2026MachineAccountDeletionSubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026MachineAccountDeletionSubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026MachineAccountDeletionSubTypeApprovalConfig"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/subtypes/{subtypeId}
   method: GET
   xCodeSample:
@@ -11368,6 +11294,33 @@
             # Update-V2026MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccount"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-subtypes/{subtypeId}/machine-config
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#update-machine-account-deletion-by-sub-type-approval-config
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SubtypeId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account subtype ID.
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Machine Subtype Approval Config
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-V2026MachineAccountDeletionBySubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2026MachineAccountDeletionBySubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountDeletionBySubTypeApprovalConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/{sourceId}/machine-classification-config
@@ -11675,53 +11628,6 @@
             # Update-V2026MachineIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineIdentity"
-            Write-Host $_.ErrorDetails
-        }
-- path: /source-subtypes/{subtypeId}/machine-config
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/machine-subtype-approval-config#get-machine-account-deletion-sub-type-approval-config
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SubtypeId = "ef38f94347e94562b5bb8424a56498d8" # String | machine subtype id.
-        
-        # Machine Subtype Approval Config
-        
-        try {
-            Get-V2026MachineAccountDeletionSubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2026MachineAccountDeletionSubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026MachineAccountDeletionSubTypeApprovalConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /source-subtypes/{subtypeId}/machine-config
-  method: PATCH
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/machine-subtype-approval-config#update-machine-account-deletion-by-sub-type-approval-config
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SubtypeId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account subtype ID.
-        $JsonPatchOperation = @"{
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        }"@ 
-        
-        
-        # Machine Subtype Approval Config
-        
-        try {
-            $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2026MachineAccountDeletionBySubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Update-V2026MachineAccountDeletionBySubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountDeletionBySubTypeApprovalConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /managed-clients
@@ -18892,6 +18798,26 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2026SourceSchema"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/{sourceId}/approval-config/account-delete
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/sources#get-account-delete-approval-config
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SourceId = "ha38f94347e94562b5bb8424a56498d8" # String | The Source id
+        
+        # Human Account Deletion Approval Config
+        
+        try {
+            Get-V2026AccountDeleteApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026AccountDeleteApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026AccountDeleteApprovalConfig"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/{id}/schemas/accounts
   method: GET
   xCodeSample:
@@ -18948,6 +18874,26 @@
             # Get-V2026EntitlementsSchema -Id $Id -SchemaName $SchemaName   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026EntitlementsSchema"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/approval-config/machine-account-delete
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/sources#get-machine-account-deletion-approval-config-by-source
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SourceId = "gt38f94347e94562b5bb8424a56498d8" # String | source id.
+        
+        # Machine Account Deletion Approval Config
+        
+        try {
+            Get-V2026MachineAccountDeletionApprovalConfigBySource -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026MachineAccountDeletionApprovalConfigBySource -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026MachineAccountDeletionApprovalConfigBySource"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/{sourceId}/native-change-detection-config
@@ -19813,6 +19759,60 @@
             # Test-V2026SourceConnection -SourceId $SourceId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2026SourceConnection"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/approval-config/account-delete
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/sources#update-account-deletion-approval-config
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SourceId = "00eebcf881994e419d72e757fd30dc0e" # String | Human account source ID.
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Human Account Deletion Approval Config
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-V2026AccountDeletionApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2026AccountDeletionApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026AccountDeletionApprovalConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/approval-config/machine-account-delete
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/sources#update-machine-account-deletion-approval-config
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SourceId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account source ID.
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Machine Account Deletion Approval Config
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-V2026MachineAccountDeletionApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2026MachineAccountDeletionApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountDeletionApprovalConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/{sourceId}/password-policies

@@ -86,6 +86,14 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026SourcesApi' {
         }
     }
 
+    Context 'Get-V2026AccountDeleteApprovalConfig' {
+        It 'Test Get-V2026AccountDeleteApprovalConfig' {
+            #$TestResult = Get-V2026AccountDeleteApprovalConfig -XSailPointExperimental "TEST_VALUE" -SourceId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2026AccountsSchema' {
         It 'Test Get-V2026AccountsSchema' {
             #$TestResult = Get-V2026AccountsSchema -Id "TEST_VALUE"
@@ -105,6 +113,14 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026SourcesApi' {
     Context 'Get-V2026EntitlementsSchema' {
         It 'Test Get-V2026EntitlementsSchema' {
             #$TestResult = Get-V2026EntitlementsSchema -Id "TEST_VALUE" -SchemaName "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026MachineAccountDeletionApprovalConfigBySource' {
+        It 'Test Get-V2026MachineAccountDeletionApprovalConfigBySource' {
+            #$TestResult = Get-V2026MachineAccountDeletionApprovalConfigBySource -XSailPointExperimental "TEST_VALUE" -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -361,6 +377,22 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026SourcesApi' {
     Context 'Test-V2026SourceConnection' {
         It 'Test Test-V2026SourceConnection' {
             #$TestResult = Test-V2026SourceConnection -SourceId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2026AccountDeletionApprovalConfig' {
+        It 'Test Update-V2026AccountDeletionApprovalConfig' {
+            #$TestResult = Update-V2026AccountDeletionApprovalConfig -XSailPointExperimental "TEST_VALUE" -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2026MachineAccountDeletionApprovalConfig' {
+        It 'Test Update-V2026MachineAccountDeletionApprovalConfig' {
+            #$TestResult = Update-V2026MachineAccountDeletionApprovalConfig -XSailPointExperimental "TEST_VALUE" -SourceId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

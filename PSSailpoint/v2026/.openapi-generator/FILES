@@ -1391,8 +1391,6 @@ docs/V2026DataSegmentationApi.md
 docs/V2026DataSegmentationApideveloperSite_code_examples.yaml
 docs/V2026DeclassifySourceApi.md
 docs/V2026DeclassifySourceApideveloperSite_code_examples.yaml
-docs/V2026DeleteAccountApi.md
-docs/V2026DeleteAccountApideveloperSite_code_examples.yaml
 docs/V2026DimensionsApi.md
 docs/V2026DimensionsApideveloperSite_code_examples.yaml
 docs/V2026EntitlementsApi.md
@@ -1401,8 +1399,6 @@ docs/V2026GlobalTenantSecuritySettingsApi.md
 docs/V2026GlobalTenantSecuritySettingsApideveloperSite_code_examples.yaml
 docs/V2026GovernanceGroupsApi.md
 docs/V2026GovernanceGroupsApideveloperSite_code_examples.yaml
-docs/V2026HumanAccountDeletionApprovalConfigApi.md
-docs/V2026HumanAccountDeletionApprovalConfigApideveloperSite_code_examples.yaml
 docs/V2026IAIAccessRequestRecommendationsApi.md
 docs/V2026IAIAccessRequestRecommendationsApideveloperSite_code_examples.yaml
 docs/V2026IAICommonAccessApi.md
@@ -1433,8 +1429,6 @@ docs/V2026MFAConfigurationApi.md
 docs/V2026MFAConfigurationApideveloperSite_code_examples.yaml
 docs/V2026MachineAccountClassifyApi.md
 docs/V2026MachineAccountClassifyApideveloperSite_code_examples.yaml
-docs/V2026MachineAccountDeletionApprovalConfigApi.md
-docs/V2026MachineAccountDeletionApprovalConfigApideveloperSite_code_examples.yaml
 docs/V2026MachineAccountMappingsApi.md
 docs/V2026MachineAccountMappingsApideveloperSite_code_examples.yaml
 docs/V2026MachineAccountsApi.md
@@ -1443,8 +1437,6 @@ docs/V2026MachineClassificationConfigApi.md
 docs/V2026MachineClassificationConfigApideveloperSite_code_examples.yaml
 docs/V2026MachineIdentitiesApi.md
 docs/V2026MachineIdentitiesApideveloperSite_code_examples.yaml
-docs/V2026MachineSubtypeApprovalConfigApi.md
-docs/V2026MachineSubtypeApprovalConfigApideveloperSite_code_examples.yaml
 docs/V2026ManagedClientsApi.md
 docs/V2026ManagedClientsApideveloperSite_code_examples.yaml
 docs/V2026ManagedClusterTypesApi.md
@@ -1624,12 +1616,10 @@ src/PSSailpoint.V2026/Api/V2026CustomUserLevelsApi.ps1
 src/PSSailpoint.V2026/Api/V2026DataAccessSecurityApi.ps1
 src/PSSailpoint.V2026/Api/V2026DataSegmentationApi.ps1
 src/PSSailpoint.V2026/Api/V2026DeclassifySourceApi.ps1
-src/PSSailpoint.V2026/Api/V2026DeleteAccountApi.ps1
 src/PSSailpoint.V2026/Api/V2026DimensionsApi.ps1
 src/PSSailpoint.V2026/Api/V2026EntitlementsApi.ps1
 src/PSSailpoint.V2026/Api/V2026GlobalTenantSecuritySettingsApi.ps1
 src/PSSailpoint.V2026/Api/V2026GovernanceGroupsApi.ps1
-src/PSSailpoint.V2026/Api/V2026HumanAccountDeletionApprovalConfigApi.ps1
 src/PSSailpoint.V2026/Api/V2026IAIAccessRequestRecommendationsApi.ps1
 src/PSSailpoint.V2026/Api/V2026IAICommonAccessApi.ps1
 src/PSSailpoint.V2026/Api/V2026IAIOutliersApi.ps1
@@ -1645,12 +1635,10 @@ src/PSSailpoint.V2026/Api/V2026LaunchersApi.ps1
 src/PSSailpoint.V2026/Api/V2026LifecycleStatesApi.ps1
 src/PSSailpoint.V2026/Api/V2026MFAConfigurationApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineAccountClassifyApi.ps1
-src/PSSailpoint.V2026/Api/V2026MachineAccountDeletionApprovalConfigApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineAccountMappingsApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineAccountsApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineClassificationConfigApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineIdentitiesApi.ps1
-src/PSSailpoint.V2026/Api/V2026MachineSubtypeApprovalConfigApi.ps1
 src/PSSailpoint.V2026/Api/V2026ManagedClientsApi.ps1
 src/PSSailpoint.V2026/Api/V2026ManagedClusterTypesApi.ps1
 src/PSSailpoint.V2026/Api/V2026ManagedClustersApi.ps1
@@ -3112,12 +3100,10 @@ tests/Api/V2026CustomUserLevelsApi.Tests.ps1
 tests/Api/V2026DataAccessSecurityApi.Tests.ps1
 tests/Api/V2026DataSegmentationApi.Tests.ps1
 tests/Api/V2026DeclassifySourceApi.Tests.ps1
-tests/Api/V2026DeleteAccountApi.Tests.ps1
 tests/Api/V2026DimensionsApi.Tests.ps1
 tests/Api/V2026EntitlementsApi.Tests.ps1
 tests/Api/V2026GlobalTenantSecuritySettingsApi.Tests.ps1
 tests/Api/V2026GovernanceGroupsApi.Tests.ps1
-tests/Api/V2026HumanAccountDeletionApprovalConfigApi.Tests.ps1
 tests/Api/V2026IAIAccessRequestRecommendationsApi.Tests.ps1
 tests/Api/V2026IAICommonAccessApi.Tests.ps1
 tests/Api/V2026IAIOutliersApi.Tests.ps1
@@ -3133,12 +3119,10 @@ tests/Api/V2026LaunchersApi.Tests.ps1
 tests/Api/V2026LifecycleStatesApi.Tests.ps1
 tests/Api/V2026MFAConfigurationApi.Tests.ps1
 tests/Api/V2026MachineAccountClassifyApi.Tests.ps1
-tests/Api/V2026MachineAccountDeletionApprovalConfigApi.Tests.ps1
 tests/Api/V2026MachineAccountMappingsApi.Tests.ps1
 tests/Api/V2026MachineAccountsApi.Tests.ps1
 tests/Api/V2026MachineClassificationConfigApi.Tests.ps1
 tests/Api/V2026MachineIdentitiesApi.Tests.ps1
-tests/Api/V2026MachineSubtypeApprovalConfigApi.Tests.ps1
 tests/Api/V2026ManagedClientsApi.Tests.ps1
 tests/Api/V2026ManagedClusterTypesApi.Tests.ps1
 tests/Api/V2026ManagedClustersApi.Tests.ps1

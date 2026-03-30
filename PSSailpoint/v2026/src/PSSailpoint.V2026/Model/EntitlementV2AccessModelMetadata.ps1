@@ -18,10 +18,10 @@ Additional data to classify the entitlement
 No description available.
 .OUTPUTS
 
-EntitlementAccessModelMetadata<PSCustomObject>
+EntitlementV2AccessModelMetadata<PSCustomObject>
 #>
 
-function Initialize-V2026EntitlementAccessModelMetadata {
+function Initialize-V2026EntitlementV2AccessModelMetadata {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-V2026EntitlementAccessModelMetadata {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026EntitlementAccessModelMetadata' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026EntitlementV2AccessModelMetadata' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -45,11 +45,11 @@ function Initialize-V2026EntitlementAccessModelMetadata {
 <#
 .SYNOPSIS
 
-Convert from JSON to EntitlementAccessModelMetadata<PSCustomObject>
+Convert from JSON to EntitlementV2AccessModelMetadata<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to EntitlementAccessModelMetadata<PSCustomObject>
+Convert from JSON to EntitlementV2AccessModelMetadata<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,21 +57,21 @@ Json object
 
 .OUTPUTS
 
-EntitlementAccessModelMetadata<PSCustomObject>
+EntitlementV2AccessModelMetadata<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToEntitlementAccessModelMetadata {
+function ConvertFrom-V2026JsonToEntitlementV2AccessModelMetadata {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026EntitlementAccessModelMetadata' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026EntitlementV2AccessModelMetadata' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026EntitlementAccessModelMetadata
+        # check if Json contains properties not defined in V2026EntitlementV2AccessModelMetadata
         $AllProperties = ("attributes")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

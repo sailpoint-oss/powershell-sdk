@@ -487,9 +487,6 @@ try {
 [[Back to top]](#) 
 
 ## get-access-request-config
-:::caution deprecated 
-This endpoint has been deprecated and may be replaced or removed in future versions of the API.
-:::
 This endpoint returns the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2026/get-access-request-config)
@@ -832,9 +829,6 @@ try {
 [[Back to top]](#) 
 
 ## set-access-request-config
-:::caution deprecated 
-This endpoint has been deprecated and may be replaced or removed in future versions of the API.
-:::
 This endpoint replaces the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2026/set-access-request-config)
@@ -864,22 +858,11 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $AccessRequestConfig = @"{
+  "govGroupVisibilityEnabled" : true,
   "requestOnBehalfOfConfig" : {
     "allowRequestOnBehalfOfEmployeeByManager" : true,
     "allowRequestOnBehalfOfAnyoneByAnyone" : true
   },
-  "approvalReminderAndEscalationConfig" : {
-    "fallbackApproverRef" : {
-      "name" : "Alison Ferguso",
-      "id" : "5168015d32f890ca15812c9180835d2e",
-      "type" : "IDENTITY",
-      "email" : "alison.ferguso@identitysoon.com"
-    },
-    "maxReminders" : 1,
-    "daysUntilEscalation" : 0,
-    "daysBetweenReminders" : 0
-  },
-  "autoApprovalEnabled" : true,
   "entitlementRequestConfig" : {
     "accessRequestConfig" : {
       "denialCommentRequired" : false,

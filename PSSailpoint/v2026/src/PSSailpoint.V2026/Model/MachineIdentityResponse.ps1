@@ -16,8 +16,8 @@ No description available.
 
 .PARAMETER Name
 Name of the Object
-.PARAMETER BusinessApplication
-The business application that the identity represents
+.PARAMETER NativeIdentity
+The native identity associated to the machine identity directly aggregated from a source
 .PARAMETER Description
 Description of machine identity
 .PARAMETER Attributes
@@ -30,8 +30,6 @@ No description available.
 The source id associated to the machine identity
 .PARAMETER Uuid
 The UUID associated to the machine identity directly aggregated from a source
-.PARAMETER NativeIdentity
-The native identity associated to the machine identity directly aggregated from a source
 .PARAMETER ManuallyEdited
 Indicates if the machine identity has been manually edited
 .PARAMETER ManuallyCreated
@@ -55,7 +53,7 @@ function Initialize-V2026MachineIdentityResponse {
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${BusinessApplication},
+        ${NativeIdentity},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Description},
@@ -74,9 +72,6 @@ function Initialize-V2026MachineIdentityResponse {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Uuid},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${NativeIdentity},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${ManuallyEdited} = $false,
@@ -98,8 +93,8 @@ function Initialize-V2026MachineIdentityResponse {
         'Creating PSCustomObject: PSSailpoint.V2026 => V2026MachineIdentityResponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        if (!$BusinessApplication) {
-            throw "invalid value for 'BusinessApplication', 'BusinessApplication' cannot be null."
+        if (!$NativeIdentity) {
+            throw "invalid value for 'NativeIdentity', 'NativeIdentity' cannot be null."
         }
 
         if (!$Subtype) {
@@ -109,14 +104,13 @@ function Initialize-V2026MachineIdentityResponse {
 
         $PSO = [PSCustomObject]@{
             "name" = ${Name}
-            "businessApplication" = ${BusinessApplication}
+            "nativeIdentity" = ${NativeIdentity}
             "description" = ${Description}
             "attributes" = ${Attributes}
             "subtype" = ${Subtype}
             "owners" = ${Owners}
             "sourceId" = ${SourceId}
             "uuid" = ${Uuid}
-            "nativeIdentity" = ${NativeIdentity}
             "manuallyEdited" = ${ManuallyEdited}
             "manuallyCreated" = ${ManuallyCreated}
             "source" = ${Source}
@@ -158,7 +152,7 @@ function ConvertFrom-V2026JsonToMachineIdentityResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026MachineIdentityResponse
-        $AllProperties = ("id", "name", "created", "modified", "businessApplication", "description", "attributes", "subtype", "owners", "sourceId", "uuid", "nativeIdentity", "manuallyEdited", "manuallyCreated", "source", "datasetId", "userEntitlements")
+        $AllProperties = ("id", "name", "created", "modified", "nativeIdentity", "description", "attributes", "subtype", "owners", "sourceId", "uuid", "manuallyEdited", "manuallyCreated", "source", "datasetId", "userEntitlements")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -175,10 +169,10 @@ function ConvertFrom-V2026JsonToMachineIdentityResponse {
             $Name = $JsonParameters.PSobject.Properties["name"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "businessApplication"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'businessApplication' missing."
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "nativeIdentity"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'nativeIdentity' missing."
         } else {
-            $BusinessApplication = $JsonParameters.PSobject.Properties["businessApplication"].value
+            $NativeIdentity = $JsonParameters.PSobject.Properties["nativeIdentity"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "subtype"))) {
@@ -235,12 +229,6 @@ function ConvertFrom-V2026JsonToMachineIdentityResponse {
             $Uuid = $JsonParameters.PSobject.Properties["uuid"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "nativeIdentity"))) { #optional property not found
-            $NativeIdentity = $null
-        } else {
-            $NativeIdentity = $JsonParameters.PSobject.Properties["nativeIdentity"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "manuallyEdited"))) { #optional property not found
             $ManuallyEdited = $null
         } else {
@@ -276,14 +264,13 @@ function ConvertFrom-V2026JsonToMachineIdentityResponse {
             "name" = ${Name}
             "created" = ${Created}
             "modified" = ${Modified}
-            "businessApplication" = ${BusinessApplication}
+            "nativeIdentity" = ${NativeIdentity}
             "description" = ${Description}
             "attributes" = ${Attributes}
             "subtype" = ${Subtype}
             "owners" = ${Owners}
             "sourceId" = ${SourceId}
             "uuid" = ${Uuid}
-            "nativeIdentity" = ${NativeIdentity}
             "manuallyEdited" = ${ManuallyEdited}
             "manuallyCreated" = ${ManuallyCreated}
             "source" = ${Source}

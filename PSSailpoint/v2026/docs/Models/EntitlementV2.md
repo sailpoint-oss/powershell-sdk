@@ -1,16 +1,16 @@
 ---
-id: v2026-entitlement
-title: Entitlement
-pagination_label: Entitlement
-sidebar_label: Entitlement
+id: v2026-entitlement-v2
+title: EntitlementV2
+pagination_label: EntitlementV2
+sidebar_label: EntitlementV2
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlement', 'V2026Entitlement'] 
-slug: /tools/sdk/powershell/v2026/models/entitlement
-tags: ['SDK', 'Software Development Kit', 'Entitlement', 'V2026Entitlement']
+keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementV2', 'V2026EntitlementV2'] 
+slug: /tools/sdk/powershell/v2026/models/entitlement-v2
+tags: ['SDK', 'Software Development Kit', 'EntitlementV2', 'V2026EntitlementV2']
 ---
 
 
-# Entitlement
+# EntitlementV2
 
 ## Properties
 
@@ -22,16 +22,16 @@ Name | Type | Description | Notes
 **Value** | **String** | The value of the entitlement | [optional] 
 **SourceSchemaObjectType** | **String** | The object type of the entitlement from the source schema | [optional] 
 **Description** | **String** | The description of the entitlement | [optional] 
-**Privileged** | **Boolean** | True if the entitlement is privileged | [optional] [default to $false]
+**PrivilegeLevel** | [**EntitlementV2PrivilegeLevel**](entitlement-v2-privilege-level) |  | [optional] 
+**Tags** | **[]String** | List of tags assigned to the entitlement | [optional] 
 **CloudGoverned** | **Boolean** | True if the entitlement is cloud governed | [optional] [default to $false]
 **Requestable** | **Boolean** | True if the entitlement is able to be directly requested | [optional] [default to $false]
 **Owner** | [**EntitlementV2Owner**](entitlement-v2-owner) |  | [optional] 
-**AdditionalOwners** | [**[]AdditionalOwnerRef**](additional-owner-ref) | List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP). | [optional] 
 **ManuallyUpdatedFields** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated. | [optional] 
 **AccessModelMetadata** | [**EntitlementV2AccessModelMetadata**](entitlement-v2-access-model-metadata) |  | [optional] 
 **Created** | **System.DateTime** | Time when the entitlement was created | [optional] 
 **Modified** | **System.DateTime** | Time when the entitlement was last modified | [optional] 
-**Source** | [**EntitlementSource**](entitlement-source) |  | [optional] 
+**Source** | [**EntitlementV2Source**](entitlement-v2-source) |  | [optional] 
 **Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map of free-form key-value pairs from the source system | [optional] 
 **Segments** | **[]String** | List of IDs of segments, if any, to which this Entitlement is assigned. | [optional] 
 **DirectPermissions** | [**[]PermissionDto**](permission-dto) |  | [optional] 
@@ -40,17 +40,17 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Entitlement = Initialize-V2026Entitlement  -Id 2c91808874ff91550175097daaec161c `
- -Name PayrollControls `
+$EntitlementV2 = Initialize-V2026EntitlementV2  -Id 2c91808874ff91550175097daaec161c `
+ -Name Account Payable `
  -Attribute memberOf `
- -Value CN=PayrollControls,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com `
+ -Value CN=Account Payable,OU=Finance,DC=xyz company `
  -SourceSchemaObjectType group `
- -Description Grants the ability to access and manage payroll-related controls and settings within the Corporate Active Directory system. `
- -Privileged true `
+ -Description This entitlement allows users to access the accounts payable module of the organization's financial management system. Users can view, process, and approve invoices, manage vendor relationships, and perform other accounts payable-related tasks. `
+ -PrivilegeLevel null `
+ -Tags [tag1, tag2] `
  -CloudGoverned true `
  -Requestable true `
  -Owner null `
- -AdditionalOwners null `
  -ManuallyUpdatedFields {DISPLAY_NAME=true, DESCRIPTION=true} `
  -AccessModelMetadata null `
  -Created 2020-10-08T18:33:52.029Z `
@@ -63,7 +63,7 @@ $Entitlement = Initialize-V2026Entitlement  -Id 2c91808874ff91550175097daaec161c
 
 - Convert the resource to JSON
 ```powershell
-$Entitlement | ConvertTo-JSON
+$EntitlementV2 | ConvertTo-JSON
 ```
 
 

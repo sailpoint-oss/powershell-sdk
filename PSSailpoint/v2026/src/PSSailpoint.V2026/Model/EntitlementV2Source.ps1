@@ -12,20 +12,20 @@ No summary available.
 
 .DESCRIPTION
 
-Simplified DTO for the owner object of the entitlement
+No description available.
 
 .PARAMETER Id
-The owner id for the entitlement
-.PARAMETER Name
-The owner name for the entitlement
+The source ID
 .PARAMETER Type
-The type of the owner. Initially only type IDENTITY is supported
+The source type, will always be ""SOURCE""
+.PARAMETER Name
+The source name
 .OUTPUTS
 
-OwnerReferenceDto<PSCustomObject>
+EntitlementV2Source<PSCustomObject>
 #>
 
-function Initialize-V2026OwnerReferenceDto {
+function Initialize-V2026EntitlementV2Source {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -33,22 +33,21 @@ function Initialize-V2026OwnerReferenceDto {
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${Name},
+        ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("IDENTITY")]
         [String]
-        ${Type}
+        ${Name}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026OwnerReferenceDto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026EntitlementV2Source' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
-            "name" = ${Name}
             "type" = ${Type}
+            "name" = ${Name}
         }
 
         return $PSO
@@ -58,11 +57,11 @@ function Initialize-V2026OwnerReferenceDto {
 <#
 .SYNOPSIS
 
-Convert from JSON to OwnerReferenceDto<PSCustomObject>
+Convert from JSON to EntitlementV2Source<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to OwnerReferenceDto<PSCustomObject>
+Convert from JSON to EntitlementV2Source<PSCustomObject>
 
 .PARAMETER Json
 
@@ -70,22 +69,22 @@ Json object
 
 .OUTPUTS
 
-OwnerReferenceDto<PSCustomObject>
+EntitlementV2Source<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToOwnerReferenceDto {
+function ConvertFrom-V2026JsonToEntitlementV2Source {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026OwnerReferenceDto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026EntitlementV2Source' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026OwnerReferenceDto
-        $AllProperties = ("id", "name", "type")
+        # check if Json contains properties not defined in V2026EntitlementV2Source
+        $AllProperties = ("id", "type", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -98,22 +97,22 @@ function ConvertFrom-V2026JsonToOwnerReferenceDto {
             $Id = $JsonParameters.PSobject.Properties["id"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
-            $Name = $null
-        } else {
-            $Name = $JsonParameters.PSobject.Properties["name"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) { #optional property not found
             $Type = $null
         } else {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "name"))) { #optional property not found
+            $Name = $null
+        } else {
+            $Name = $JsonParameters.PSobject.Properties["name"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
-            "name" = ${Name}
             "type" = ${Type}
+            "name" = ${Name}
         }
 
         return $PSO

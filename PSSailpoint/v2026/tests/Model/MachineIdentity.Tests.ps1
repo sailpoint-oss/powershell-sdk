@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026MachineIdentity' {
     Context 'V2026MachineIdentity' {
         It 'Initialize-V2026MachineIdentity' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026MachineIdentity -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -BusinessApplication "TEST_VALUE" -Description "TEST_VALUE" -Attributes "TEST_VALUE" -Subtype "TEST_VALUE" -Owners "TEST_VALUE" -SourceId "TEST_VALUE" -Uuid "TEST_VALUE" -NativeIdentity "TEST_VALUE"
+            #$NewObject = Initialize-V2026MachineIdentity -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -NativeIdentity "TEST_VALUE" -Description "TEST_VALUE" -Attributes "TEST_VALUE" -Subtype "TEST_VALUE" -Owners "TEST_VALUE" -SourceId "TEST_VALUE" -Uuid "TEST_VALUE"
             #$NewObject | Should -BeOfType MachineIdentity
             #$NewObject.property | Should -Be 0
         }

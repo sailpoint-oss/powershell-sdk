@@ -1363,22 +1363,11 @@
       source: |
         $AccessRequestConfig = @"
         {
+          "govGroupVisibilityEnabled" : true,
           "requestOnBehalfOfConfig" : {
             "allowRequestOnBehalfOfEmployeeByManager" : true,
             "allowRequestOnBehalfOfAnyoneByAnyone" : true
           },
-          "approvalReminderAndEscalationConfig" : {
-            "fallbackApproverRef" : {
-              "name" : "Alison Ferguso",
-              "id" : "5168015d32f890ca15812c9180835d2e",
-              "type" : "IDENTITY",
-              "email" : "alison.ferguso@identitysoon.com"
-            },
-            "maxReminders" : 1,
-            "daysUntilEscalation" : 0,
-            "daysBetweenReminders" : 0
-          },
-          "autoApprovalEnabled" : true,
           "entitlementRequestConfig" : {
             "accessRequestConfig" : {
               "denialCommentRequired" : false,
@@ -7280,69 +7269,6 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2026AccessModelMetadataForEntitlement"
             Write-Host $_.ErrorDetails
         }
-- path: /entitlements/{id}
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/entitlements#create-entitlement
-      source: |
-        $EntitlementDTO = @"
-        {
-          "cloudEligible" : true,
-          "segmentStatus" : "GLOBAL",
-          "idnExceptional" : "PRIVILEGED",
-          "description" : "some entitlement description",
-          "source" : {
-            "id" : "2b86153b97a94abc936c8a11b106aaf8",
-            "type" : "SOURCE",
-            "value" : "accountant"
-          },
-          "uuid" : "6a099125e1614e4c9024bff6c6159f49",
-          "entitlementitlementAggregated" : "true",
-          "segments" : [ "[students]", "[students]" ],
-          "directPermissions" : [ {
-            "rights" : "HereIsRight1",
-            "target" : "SYS.GV_$TRANSACTION"
-          }, {
-            "rights" : "HereIsRight1",
-            "target" : "SYS.GV_$TRANSACTION"
-          } ],
-          "idnServiceApp" : "AppName123",
-          "modified" : "2015-05-28T14:07:17Z",
-          "sourceSchemaObjectType" : "group",
-          "id" : "id12345",
-          "attribute" : "authorizationType",
-          "value" : "CN=Users,dc=sailpoint,dc=com",
-          "owner" : {
-            "name" : "identity 1",
-            "id" : "2a2fdacca5e345f18bf7970cfbb8fec2",
-            "type" : "IDENTITY"
-          },
-          "lastRefresh" : "2022-06-24T16:12:53.389386Z",
-          "created" : "2015-05-28T14:07:17Z",
-          "privileged" : true,
-          "inheritFrom" : [ "[a9ced5a52d284b83a7f5595873d35b4e]", "[a9ced5a52d284b83a7f5595873d35b4e]" ],
-          "name" : "aName",
-          "attributes" : "{cn=Human Resources-bchun2, owner=CN=Fritz.8349b2f31e67,OU=flatfileAD,dc=flatfile,dc=endtoend,dc=com, objectguid=objectguidHuman-Resources-bchun2, description=HR-desc, sysDescriptions={en_US=HR-desc}, entitlementAggregated=true}",
-          "requestable" : true,
-          "isGroup" : true,
-          "cloudGoverned" : true,
-          "hash" : "5c8b309fa18a2c76d7fbee2b9e00dba99e4c82de"
-        }
-        "@
-        
-        # Creates an entitlement
-        
-        try {
-            $Result = ConvertFrom-V2026JsonToEntitlementDTO -Json $EntitlementDTO
-            New-V2026Entitlement -EntitlementDTO $Result 
-    
-            # Below is a request that includes all optional parameters
-            # New-V2026Entitlement -EntitlementDTO $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2026Entitlement"
-            Write-Host $_.ErrorDetails
-        }
 - path: /entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
   method: DELETE
   xCodeSample:
@@ -7362,6 +7288,25 @@
             # Remove-V2026AccessModelMetadataFromEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2026AccessModelMetadataFromEntitlement"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/entitlements#get-entitlement
+      source: |
+        $Id = "2c91808874ff91550175097daaec161c" # String | The entitlement ID
+        
+        # Get an entitlement
+        
+        try {
+            Get-V2026Entitlement -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026Entitlement -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026Entitlement"
             Write-Host $_.ErrorDetails
         }
 - path: /entitlements/{id}/entitlement-request-config
@@ -7459,15 +7404,15 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/entitlements#list-entitlements
       source: |
-        $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). (optional)
-        $SegmentedForIdentity = "e554098913544630b5985e9042f5e44b" # String | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
-        $ForSegmentIds = "041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649" # String | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional)
+        $SegmentedForIdentity = "e554098913544630b5985e9042f5e44b" # String | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. (optional)
+        $ForSegmentIds = "041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649" # String | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. (optional)
         $IncludeUnsegmented = $true # Boolean | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error. (optional) (default to $true)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable** (optional)
-        $Filters = "attribute eq "memberOf"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in* (optional)
+        $SearchAfter = "Account Payable,2c91808375d8e80a0175e1f88a575221" # String | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement. (optional)
+        $Sorters = "name,id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable** (optional)
+        $Filters = "attribute eq "memberOf"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq* (optional)
         
         # Gets a list of entitlements.
         
@@ -7475,7 +7420,7 @@
             Get-V2026Entitlements 
     
             # Below is a request that includes all optional parameters
-            # Get-V2026Entitlements -AccountId $AccountId -SegmentedForIdentity $SegmentedForIdentity -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters -Filters $Filters   
+            # Get-V2026Entitlements -SegmentedForIdentity $SegmentedForIdentity -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Offset $Offset -Limit $Limit -Count $Count -SearchAfter $SearchAfter -Sorters $Sorters -Filters $Filters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026Entitlements"
             Write-Host $_.ErrorDetails
@@ -7502,6 +7447,31 @@
             # Get-V2026EntitlementsByAccount -AccountId $AccountId -Limit $Limit -Offset $Offset -Count $Count -SearchAfter $SearchAfter -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026EntitlementsByAccount"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/entitlements#patch-entitlement
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | ID of the entitlement to patch
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Patch an entitlement
+        
+        try {
+            Update-V2026Entitlement -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2026Entitlement -Id $Id -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026Entitlement"
             Write-Host $_.ErrorDetails
         }
 - path: /entitlements/{id}/entitlement-request-config
@@ -7584,12 +7554,12 @@
           "entitlementIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
           "jsonPatch" : [ {
             "op" : "replace",
-            "path" : "/privileged",
+            "path" : "/requestable",
             "value" : false
           }, {
             "op" : "replace",
-            "path" : "/requestable",
-            "value" : false
+            "path" : "/privilegeOverride/level",
+            "value" : "HIGH"
           } ]
         }
         "@
@@ -11449,8 +11419,19 @@
         $MachineIdentityRequest = @"
         {
           "sourceId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+          "subtype" : "Application",
           "created" : "2015-05-28T14:07:17Z",
+          "userEntitlements" : [ {
+            "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+            "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+          }, {
+            "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+            "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+          } ],
+          "name" : "aName",
+          "modified" : "2015-05-28T14:07:17Z",
           "description" : "",
+          "attributes" : "{\"Region\":\"EU\"}",
           "owners" : {
             "primaryIdentity" : "{}",
             "secondaryIdentities" : [ {
@@ -11463,21 +11444,9 @@
               "type" : "IDENTITY"
             } ]
           },
+          "id" : "id12345",
           "uuid" : "f5dd23fe-3414-42b7-bb1c-869400ad7a10",
-          "nativeIdentity" : "abc:123:dddd",
-          "subtype" : "Application",
-          "businessApplication" : "ADService",
-          "userEntitlements" : [ {
-            "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
-            "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
-          }, {
-            "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
-            "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
-          } ],
-          "name" : "aName",
-          "modified" : "2015-05-28T14:07:17Z",
-          "attributes" : "{\"Region\":\"EU\"}",
-          "id" : "id12345"
+          "nativeIdentity" : "abc:123:dddd"
         }
         "@
         
@@ -11540,8 +11509,8 @@
       label: SDK_tools/sdk/powershell/v2026/methods/machine-identities#list-machine-identities
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **businessApplication**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **source.name**: *eq, in, sw*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw* (optional)
-        $Sorters = "businessApplication" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **businessApplication, name, owners.primaryIdentity.name, source.name, created, modified** (optional)
+        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **source.name**: *eq, in, sw*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw* (optional)
+        $Sorters = "nativeIdentity" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified** (optional)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -20556,48 +20525,6 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026Tags"
             Write-Host $_.ErrorDetails
         }
-- path: /task-status/pending-tasks
-  method: HEAD
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/task-management#get-pending-task-headers
-      source: |
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        
-        # Retrieve pending task list headers
-        
-        try {
-            Get-V2026PendingTaskHeaders 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2026PendingTaskHeaders -Offset $Offset -Limit $Limit -Count $Count   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026PendingTaskHeaders"
-            Write-Host $_.ErrorDetails
-        }
-- path: /task-status/pending-tasks
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/task-management#get-pending-tasks
-      source: |
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        
-        # Retrieve pending task status list
-        
-        try {
-            Get-V2026PendingTasks 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2026PendingTasks -Offset $Offset -Limit $Limit -Count $Count   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026PendingTasks"
-            Write-Host $_.ErrorDetails
-        }
 - path: /task-status/{id}
   method: GET
   xCodeSample:
@@ -20605,14 +20532,15 @@
       label: SDK_tools/sdk/powershell/v2026/methods/task-management#get-task-status
       source: |
         $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get task status by id
         
         try {
-            Get-V2026TaskStatus -Id $Id 
+            Get-V2026TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-V2026TaskStatus -Id $Id   
+            # Get-V2026TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026TaskStatus"
             Write-Host $_.ErrorDetails
@@ -20627,7 +20555,7 @@
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "completionStatus eq "Success"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in, isnull*  **type**: *eq, in*  **Possible Values:** CLOUD_ACCOUNT_AGGREGATION, CLOUD_GROUP_AGGREGATION, CLOUD_PROCESS_UNCORRELATED_ACCOUNTS, CLOUD_REFRESH_ROLE, SOURCE_APPLICATION_DISCOVERY, AI_AGENT_AGGREGATION, APPLICATION_DISCOVERY, MACHINE_IDENTITY_AGGREGATION, MACHINE_IDENTITY_DELETION, ACCOUNT_DELETION (optional)
+        $Filters = "type eq "CLOUD_ACCOUNT_AGGREGATION" and completionStatus isnull" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in, isnull*  **type**: *eq, in*  **launcher**: *eq, in*  **Possible Values:** CLOUD_ACCOUNT_AGGREGATION, CLOUD_GROUP_AGGREGATION, CLOUD_PROCESS_UNCORRELATED_ACCOUNTS, CLOUD_REFRESH_ROLE, SOURCE_APPLICATION_DISCOVERY, AI_AGENT_AGGREGATION, CLOUD_ENTITLEMENT_IMPORT, CLOUD_UNCORRELATED_REFRESH, CLOUD_IDENTITY_AGGREGATION, CLOUD_ATTRIBUTE_SYNCHRONIZATION, IDENTITY_REFRESH, APPLICATION_DISCOVERY, MACHINE_IDENTITY_AGGREGATION, MACHINE_IDENTITY_DELETION, ACCOUNT_DELETION (optional)
         $Sorters = "-created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional)
         
         # Retrieve task status list
@@ -20648,6 +20576,7 @@
       label: SDK_tools/sdk/powershell/v2026/methods/task-management#update-task-status
       source: |
         $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",
@@ -20659,10 +20588,10 @@
         
         try {
             $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2026TaskStatus -Id $Id -JsonPatchOperation $Result 
+            Update-V2026TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2026TaskStatus -Id $Id -JsonPatchOperation $Result   
+            # Update-V2026TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026TaskStatus"
             Write-Host $_.ErrorDetails

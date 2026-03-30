@@ -22,10 +22,10 @@ The type of object
 The display name of the identity
 .OUTPUTS
 
-EntitlementOwner<PSCustomObject>
+EntitlementV2Owner<PSCustomObject>
 #>
 
-function Initialize-V2026EntitlementOwner {
+function Initialize-V2026EntitlementV2Owner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -41,7 +41,7 @@ function Initialize-V2026EntitlementOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026EntitlementOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026EntitlementV2Owner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -58,11 +58,11 @@ function Initialize-V2026EntitlementOwner {
 <#
 .SYNOPSIS
 
-Convert from JSON to EntitlementOwner<PSCustomObject>
+Convert from JSON to EntitlementV2Owner<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to EntitlementOwner<PSCustomObject>
+Convert from JSON to EntitlementV2Owner<PSCustomObject>
 
 .PARAMETER Json
 
@@ -70,21 +70,21 @@ Json object
 
 .OUTPUTS
 
-EntitlementOwner<PSCustomObject>
+EntitlementV2Owner<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToEntitlementOwner {
+function ConvertFrom-V2026JsonToEntitlementV2Owner {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026EntitlementOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026EntitlementV2Owner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026EntitlementOwner
+        # check if Json contains properties not defined in V2026EntitlementV2Owner
         $AllProperties = ("id", "type", "name")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

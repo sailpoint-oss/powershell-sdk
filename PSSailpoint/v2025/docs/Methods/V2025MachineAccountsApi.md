@@ -134,9 +134,6 @@ try {
 [[Back to top]](#) 
 
 ## get-machine-account
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Use this API to return the details for a single machine account by its ID.  
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-machine-account)
@@ -145,7 +142,6 @@ Use this API to return the details for a single machine account by its ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Machine Account ID.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**MachineAccount**](../models/machine-account)
@@ -168,15 +164,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Machine account details
 
 try {
-    Get-V2025MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025MachineAccount -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2025MachineAccount -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025MachineAccount"
     Write-Host $_.ErrorDetails
@@ -347,9 +342,6 @@ try {
 [[Back to top]](#) 
 
 ## list-machine-accounts
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This returns a list of machine accounts.  
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-machine-accounts)
@@ -357,7 +349,6 @@ This returns a list of machine accounts.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -384,7 +375,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -394,10 +384,10 @@ $Sorters = "id,name" # String | Sort results using the standard syntax described
 # Machine accounts list
 
 try {
-    Get-V2025MachineAccounts -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025MachineAccounts 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025MachineAccounts -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
+    # Get-V2025MachineAccounts -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025MachineAccounts"
     Write-Host $_.ErrorDetails
@@ -464,9 +454,6 @@ try {
 [[Back to top]](#) 
 
 ## update-machine-account
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Use this API to update machine accounts details. 
 
 
@@ -476,7 +463,6 @@ Use this API to update machine accounts details.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Machine Account ID.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | RequestBody | [**[]SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) | True  | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
 
 ### Return type
@@ -500,7 +486,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
  $RequestBody = @"[{op=add, path=/environment, value=test}]"@ # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
  
@@ -509,10 +494,10 @@ $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON 
 
 try {
     $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
-    Update-V2025MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    Update-V2025MachineAccount -Id $Id -RequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2025MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result  
+    # Update-V2025MachineAccount -Id $Id -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025MachineAccount"
     Write-Host $_.ErrorDetails

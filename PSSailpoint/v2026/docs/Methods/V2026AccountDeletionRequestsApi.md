@@ -22,9 +22,6 @@ Method | HTTP request | Description
 
 
 ## delete-account-request
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Initiates an account deletion request for the specified account.
 This method validates the input data, processes the deletion request,
 and generates an asynchronous result containing a tracking ID. 
@@ -35,7 +32,6 @@ and generates an asynchronous result containing a tracking ID.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | AccountId | **String** | True  | Account ID.
  Body  | AccountDeleteRequestInput | [**AccountDeleteRequestInput**](../models/account-delete-request-input) |   (optional) | 
 
@@ -59,7 +55,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $AccountId = "ef38f94347e94562b5bb8424a56498d8" # String | Account ID.
 $AccountDeleteRequestInput = @"{
   "comments" : "Requesting account deletion request"
@@ -68,10 +63,10 @@ $AccountDeleteRequestInput = @"{
 # Delete account
 
 try {
-    Remove-V2026AccountRequest -XSailPointExperimental $XSailPointExperimental -AccountId $AccountId 
+    Remove-V2026AccountRequest -AccountId $AccountId 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2026AccountRequest -XSailPointExperimental $XSailPointExperimental -AccountId $AccountId -AccountDeleteRequestInput $Result  
+    # Remove-V2026AccountRequest -AccountId $AccountId -AccountDeleteRequestInput $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2026AccountRequest"
     Write-Host $_.ErrorDetails
@@ -80,9 +75,6 @@ try {
 [[Back to top]](#) 
 
 ## get-account-deletion-requests
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Retrieves a paginated list of account deletion requests filtered by the provided query parameters. When the "mine" parameter is set to true, the response includes only those deletion requests that were initiated by the currently authenticated user. If "mine" is false or not specified, the endpoint returns all account deletion requests associated with the current tenant, regardless of the initiator. This allows both users and administrators to view relevant deletion requests based on their access level and intent.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2026/get-account-deletion-requests)
@@ -90,7 +82,6 @@ Retrieves a paginated list of account deletion requests filtered by the provided
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -116,7 +107,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -125,10 +115,10 @@ $Mine = $true # Boolean | Determines whether to return only the account deletion
 # List of Account Deletion Requests
 
 try {
-    Get-V2026AccountDeletionRequests -XSailPointExperimental $XSailPointExperimental 
+    Get-V2026AccountDeletionRequests 
     
     # Below is a request that includes all optional parameters
-    # Get-V2026AccountDeletionRequests -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Mine $Mine  
+    # Get-V2026AccountDeletionRequests -Limit $Limit -Offset $Offset -Count $Count -Mine $Mine  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026AccountDeletionRequests"
     Write-Host $_.ErrorDetails

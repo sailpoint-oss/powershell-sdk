@@ -772,9 +772,6 @@ try {
 [[Back to top]](#) 
 
 ## get-account-delete-approval-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 The endpoint retrieves the approval configuration for deleting human accounts from a specified source. It returns details such as whether approval is required, who the approvers are, and any additional approval settings. This helps administrators understand and manage the approval workflow for human account deletions in their organization. The response is provided as an AccountDeleteConfigDto object.
 
 
@@ -783,7 +780,6 @@ The endpoint retrieves the approval configuration for deleting human accounts fr
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | SourceId | **String** | True  | The Source id
 
 ### Return type
@@ -806,16 +802,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SourceId = "ha38f94347e94562b5bb8424a56498d8" # String | The Source id
 
 # Human Account Deletion Approval Config
 
 try {
-    Get-V2026AccountDeleteApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId 
+    Get-V2026AccountDeleteApprovalConfig -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2026AccountDeleteApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId  
+    # Get-V2026AccountDeleteApprovalConfig -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026AccountDeleteApprovalConfig"
     Write-Host $_.ErrorDetails
@@ -967,9 +962,6 @@ try {
 [[Back to top]](#) 
 
 ## get-machine-account-deletion-approval-config-by-source
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Retrieves the machine account deletion approval configuration for a specific source. This endpoint returns details about the approval requirements, approvers, and comment settings that govern the deletion of machine accounts associated with the given source ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2026/get-machine-account-deletion-approval-config-by-source)
@@ -977,7 +969,6 @@ Retrieves the machine account deletion approval configuration for a specific sou
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | SourceId | **String** | True  | source id.
 
 ### Return type
@@ -1000,16 +991,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SourceId = "gt38f94347e94562b5bb8424a56498d8" # String | source id.
 
 # Machine Account Deletion Approval Config
 
 try {
-    Get-V2026MachineAccountDeletionApprovalConfigBySource -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId 
+    Get-V2026MachineAccountDeletionApprovalConfigBySource -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2026MachineAccountDeletionApprovalConfigBySource -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId  
+    # Get-V2026MachineAccountDeletionApprovalConfigBySource -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026MachineAccountDeletionApprovalConfigBySource"
     Write-Host $_.ErrorDetails
@@ -2831,9 +2821,6 @@ try {
 [[Back to top]](#) 
 
 ## update-account-deletion-approval-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Updates the approval configuration for deleting human accounts for a specific source, identified by source ID. This endpoint allows administrators to modify settings such as whether approval is required, who the approvers are, and other approval-related options. The update is performed using a JSON Patch payload, and the response returns the updated AccountDeleteConfigDto object reflecting the new approval workflow configuration.
 
 
@@ -2842,7 +2829,6 @@ Updates the approval configuration for deleting human accounts for a specific so
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | SourceId | **String** | True  | Human account source ID.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the object.
 
@@ -2866,7 +2852,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SourceId = "00eebcf881994e419d72e757fd30dc0e" # String | Human account source ID.
  $JsonPatchOperation = @"{
   "op" : "replace",
@@ -2879,10 +2864,10 @@ $SourceId = "00eebcf881994e419d72e757fd30dc0e" # String | Human account source I
 
 try {
     $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2026AccountDeletionApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -JsonPatchOperation $Result 
+    Update-V2026AccountDeletionApprovalConfig -SourceId $SourceId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2026AccountDeletionApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -JsonPatchOperation $Result  
+    # Update-V2026AccountDeletionApprovalConfig -SourceId $SourceId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026AccountDeletionApprovalConfig"
     Write-Host $_.ErrorDetails
@@ -2891,9 +2876,6 @@ try {
 [[Back to top]](#) 
 
 ## update-machine-account-deletion-approval-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Use this endpoint to update the machine account deletion approval configuration for a specific source.
 The update is performed using a JSON Patch payload, which allows partial modifications to the approval config.
 This operation is typically used to change approval requirements, approvers, or comments settings for machine account deletion.
@@ -2905,7 +2887,6 @@ The endpoint expects the source ID as a path parameter and a valid JSON Patch ar
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | SourceId | **String** | True  | machine account source ID.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the object.
 
@@ -2929,7 +2910,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SourceId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account source ID.
  $JsonPatchOperation = @"{
   "op" : "replace",
@@ -2942,10 +2922,10 @@ $SourceId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account source
 
 try {
     $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2026MachineAccountDeletionApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -JsonPatchOperation $Result 
+    Update-V2026MachineAccountDeletionApprovalConfig -SourceId $SourceId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2026MachineAccountDeletionApprovalConfig -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -JsonPatchOperation $Result  
+    # Update-V2026MachineAccountDeletionApprovalConfig -SourceId $SourceId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountDeletionApprovalConfig"
     Write-Host $_.ErrorDetails

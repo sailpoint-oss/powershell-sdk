@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026AccountDeletionRequestsApi' {
     Context 'Remove-V2026AccountRequest' {
         It 'Test Remove-V2026AccountRequest' {
-            #$TestResult = Remove-V2026AccountRequest -XSailPointExperimental "TEST_VALUE" -AccountId "TEST_VALUE" -AccountDeleteRequestInput "TEST_VALUE"
+            #$TestResult = Remove-V2026AccountRequest -AccountId "TEST_VALUE" -AccountDeleteRequestInput "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026AccountDeletionRequestsApi' {
 
     Context 'Get-V2026AccountDeletionRequests' {
         It 'Test Get-V2026AccountDeletionRequests' {
-            #$TestResult = Get-V2026AccountDeletionRequests -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Mine "TEST_VALUE"
+            #$TestResult = Get-V2026AccountDeletionRequests -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Mine "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

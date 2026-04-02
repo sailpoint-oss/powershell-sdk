@@ -32,7 +32,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026MachineAccountsApi' {
 
     Context 'Get-V2026MachineAccountDeletionSubTypeApprovalConfig' {
         It 'Test Get-V2026MachineAccountDeletionSubTypeApprovalConfig' {
-            #$TestResult = Get-V2026MachineAccountDeletionSubTypeApprovalConfig -XSailPointExperimental "TEST_VALUE" -SubtypeId "TEST_VALUE"
+            #$TestResult = Get-V2026MachineAccountDeletionSubTypeApprovalConfig -SubtypeId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -88,7 +88,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026MachineAccountsApi' {
 
     Context 'Update-V2026MachineAccountDeletionBySubTypeApprovalConfig' {
         It 'Test Update-V2026MachineAccountDeletionBySubTypeApprovalConfig' {
-            #$TestResult = Update-V2026MachineAccountDeletionBySubTypeApprovalConfig -XSailPointExperimental "TEST_VALUE" -SubtypeId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-V2026MachineAccountDeletionBySubTypeApprovalConfig -SubtypeId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

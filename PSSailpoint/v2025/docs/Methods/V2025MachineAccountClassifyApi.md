@@ -17,7 +17,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Send-V2025ClassifyMachineAccount**](#send-classify-machine-account) | **POST** `/accounts/{id}/classify` | Classify a Single Machine Account
+[**Send-V2025ClassifyMachineAccount**](#send-classify-machine-account) | **POST** `/accounts/{id}/classify` | Classify single machine account
 
 
 ## send-classify-machine-account
@@ -54,7 +54,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 $ClassificationMode = "default" # String | Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human. (optional) (default to "default")
 
-# Classify a Single Machine Account
+# Classify single machine account
 
 try {
     Send-V2025ClassifyMachineAccount -Id $Id 

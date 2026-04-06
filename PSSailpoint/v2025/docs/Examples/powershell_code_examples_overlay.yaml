@@ -10842,7 +10842,7 @@
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
         $ClassificationMode = "default" # String | Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human. (optional) (default to "default")
         
-        # Classify a Single Machine Account
+        # Classify single machine account
         
         try {
             Send-V2025ClassifyMachineAccount -Id $Id 
@@ -10967,7 +10967,7 @@
         }
         "@
         
-        # Update Source's Machine Account Mappings
+        # Update source's Machine Account Mappings
         
         try {
             $Result = ConvertFrom-V2025JsonToAttributeMappings -Json $AttributeMappings
@@ -11032,7 +11032,7 @@
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
         
-        # Machine account details
+        # Get machine account details
         
         try {
             Get-V2025MachineAccount -Id $Id 
@@ -11121,7 +11121,7 @@
         $Filters = "hasEntitlements eq true" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le* (optional)
         $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified** (optional)
         
-        # Machine accounts list
+        # List machine accounts
         
         try {
             Get-V2025MachineAccounts 
@@ -11168,7 +11168,7 @@
         $RequestBody = @"[{op=add, path=/environment, value=test}]"@ 
         
         
-        # Update a machine account
+        # Update machine account details
         
         try {
             $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody
@@ -11338,7 +11338,7 @@
         }
         "@
         
-        # Create machine identities
+        # Create machine identity
         
         try {
             $Result = ConvertFrom-V2025JsonToMachineIdentityRequest -Json $MachineIdentityRequest
@@ -11379,7 +11379,7 @@
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
-        # Machine identity details
+        # Get machine identity details
         
         try {
             Get-V2025MachineIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -11451,7 +11451,7 @@
         }
         "@
         
-        # Start Machine Identity (AI Agent) Aggregation
+        # Start machine identity aggregation
         
         try {
             $Result = ConvertFrom-V2025JsonToMachineIdentityAggregationRequest -Json $MachineIdentityAggregationRequest
@@ -11475,7 +11475,7 @@
         $RequestBody = @"[{op=add, path=/attributes/securityRisk, value=medium}]"@ 
         
         
-        # Update a machine identity
+        # Update machine identity details
         
         try {
             $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody

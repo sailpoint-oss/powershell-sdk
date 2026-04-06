@@ -19,13 +19,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2025MachineAccountSubtype**](#create-machine-account-subtype) | **POST** `/sources/{sourceId}/subtypes` | Create subtype
 [**Remove-V2025MachineAccountSubtype**](#delete-machine-account-subtype) | **DELETE** `/sources/{sourceId}/subtypes/{technicalName}` | Delete subtype
-[**Get-V2025MachineAccount**](#get-machine-account) | **GET** `/machine-accounts/{id}` | Machine account details
+[**Get-V2025MachineAccount**](#get-machine-account) | **GET** `/machine-accounts/{id}` | Get machine account details
 [**Get-V2025MachineAccountSubtypeById**](#get-machine-account-subtype-by-id) | **GET** `/sources/subtypes/{subtypeId}` | Retrieve subtype by subtype id
 [**Get-V2025MachineAccountSubtypeByTechnicalName**](#get-machine-account-subtype-by-technical-name) | **GET** `/sources/{sourceId}/subtypes/{technicalName}` | Retrieve subtype by source and technicalName
 [**Get-V2025MachineAccountSubtypes**](#list-machine-account-subtypes) | **GET** `/sources/{sourceId}/subtypes` | Retrieve all subtypes by source
-[**Get-V2025MachineAccounts**](#list-machine-accounts) | **GET** `/machine-accounts` | Machine accounts list
+[**Get-V2025MachineAccounts**](#list-machine-accounts) | **GET** `/machine-accounts` | List machine accounts
 [**Update-V2025MachineAccountSubtype**](#patch-machine-account-subtype) | **PATCH** `/sources/{sourceId}/subtypes/{technicalName}` | Patch subtype
-[**Update-V2025MachineAccount**](#update-machine-account) | **PATCH** `/machine-accounts/{id}` | Update a machine account
+[**Update-V2025MachineAccount**](#update-machine-account) | **PATCH** `/machine-accounts/{id}` | Update machine account details
 
 
 ## create-machine-account-subtype
@@ -165,7 +165,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
 
-# Machine account details
+# Get machine account details
 
 try {
     Get-V2025MachineAccount -Id $Id 
@@ -381,7 +381,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'hasEntitlements eq true' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified** (optional)
 
-# Machine accounts list
+# List machine accounts
 
 try {
     Get-V2025MachineAccounts 
@@ -490,7 +490,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON 
  $RequestBody = @"[{op=add, path=/environment, value=test}]"@ # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
  
 
-# Update a machine account
+# Update machine account details
 
 try {
     $Result = ConvertFrom-V2025JsonToRequestBody -Json $RequestBody

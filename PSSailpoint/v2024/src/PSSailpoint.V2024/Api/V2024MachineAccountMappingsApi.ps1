@@ -279,7 +279,7 @@ function Get-V2024MachineAccountMappings {
 <#
 .SYNOPSIS
 
-Update Source's Machine Account Mappings
+Update source's machine account mappings
 
 .DESCRIPTION
 

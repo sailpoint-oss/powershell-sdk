@@ -17,11 +17,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024MachineIdentity**](#create-machine-identity) | **POST** `/machine-identities` | Create machine identities
+[**New-V2024MachineIdentity**](#create-machine-identity) | **POST** `/machine-identities` | Create machine identity
 [**Remove-V2024MachineIdentity**](#delete-machine-identity) | **DELETE** `/machine-identities/{id}` | Delete machine identity
-[**Get-V2024MachineIdentity**](#get-machine-identity) | **GET** `/machine-identities/{id}` | Machine identity details
+[**Get-V2024MachineIdentity**](#get-machine-identity) | **GET** `/machine-identities/{id}` | Get machine identity details
 [**Get-V2024MachineIdentities**](#list-machine-identities) | **GET** `/machine-identities` | List machine identities
-[**Update-V2024MachineIdentity**](#update-machine-identity) | **PATCH** `/machine-identities/{id}` | Update a machine identity
+[**Update-V2024MachineIdentity**](#update-machine-identity) | **PATCH** `/machine-identities/{id}` | Update machine identity details
 
 
 ## create-machine-identity
@@ -71,7 +71,7 @@ $MachineIdentity = @"{
   "manuallyEdited" : true
 }"@
 
-# Create machine identities
+# Create machine identity
 
 try {
     $Result = ConvertFrom-V2024JsonToMachineIdentity -Json $MachineIdentity
@@ -174,7 +174,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Machine identity details
+# Get machine identity details
 
 try {
     Get-V2024MachineIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -289,7 +289,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON 
  $RequestBody = @"[{op=add, path=/attributes/securityRisk, value=medium}]"@ # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Update a machine identity
+# Update machine identity details
 
 try {
     $Result = ConvertFrom-V2024JsonToRequestBody -Json $RequestBody

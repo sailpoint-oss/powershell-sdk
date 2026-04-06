@@ -216,7 +216,7 @@ function Remove-V2026MachineAccountSubtype {
 <#
 .SYNOPSIS
 
-Machine account details
+Get machine account details
 
 .DESCRIPTION
 
@@ -307,6 +307,9 @@ Machine Subtype Approval Config
 
 This endpoint retrieves the approval configuration for machine account deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account deletion.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER SubtypeId
 machine subtype id.
 
@@ -322,6 +325,9 @@ function Get-V2026MachineAccountDeletionSubTypeApprovalConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${SubtypeId},
         [Switch]
@@ -349,6 +355,11 @@ function Get-V2026MachineAccountDeletionSubTypeApprovalConfig {
             throw "Error! The required parameter `SubtypeId` missing when calling getMachineAccountDeletionSubTypeApprovalConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{subtypeId}', [System.Web.HTTPUtility]::UrlEncode($SubtypeId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getMachineAccountDeletionSubTypeApprovalConfig."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -693,7 +704,7 @@ function Get-V2026MachineAccountSubtypes {
 <#
 .SYNOPSIS
 
-Machine accounts list
+List machine accounts
 
 .DESCRIPTION
 
@@ -940,7 +951,7 @@ function Update-V2026MachineAccountSubtype {
 <#
 .SYNOPSIS
 
-Update a machine account
+Update machine account details
 
 .DESCRIPTION
 
@@ -1058,6 +1069,9 @@ Machine Subtype Approval Config
 
 Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for deleting machine accounts of a particular subtype.
 
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
 .PARAMETER SubtypeId
 machine account subtype ID.
 
@@ -1077,8 +1091,11 @@ function Update-V2026MachineAccountDeletionBySubTypeApprovalConfig {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${SubtypeId},
+        $XSailPointExperimental = "true",
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SubtypeId},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${JsonPatchOperation},
         [Switch]
@@ -1109,6 +1126,11 @@ function Update-V2026MachineAccountDeletionBySubTypeApprovalConfig {
             throw "Error! The required parameter `SubtypeId` missing when calling updateMachineAccountDeletionBySubTypeApprovalConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{subtypeId}', [System.Web.HTTPUtility]::UrlEncode($SubtypeId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling updateMachineAccountDeletionBySubTypeApprovalConfig."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$JsonPatchOperation) {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateMachineAccountDeletionBySubTypeApprovalConfig."

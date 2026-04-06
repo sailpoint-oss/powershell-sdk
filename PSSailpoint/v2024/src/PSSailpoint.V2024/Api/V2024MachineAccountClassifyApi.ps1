@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Classify a Single Machine Account
+Classify single machine account
 
 .DESCRIPTION
 

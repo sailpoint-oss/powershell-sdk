@@ -17,9 +17,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024MachineAccount**](#get-machine-account) | **GET** `/machine-accounts/{id}` | Machine account details
-[**Get-V2024MachineAccounts**](#list-machine-accounts) | **GET** `/machine-accounts` | Machine accounts list
-[**Update-V2024MachineAccount**](#update-machine-account) | **PATCH** `/machine-accounts/{id}` | Update a machine account
+[**Get-V2024MachineAccount**](#get-machine-account) | **GET** `/machine-accounts/{id}` | Get machine account details
+[**Get-V2024MachineAccounts**](#list-machine-accounts) | **GET** `/machine-accounts` | List machine accounts
+[**Update-V2024MachineAccount**](#update-machine-account) | **PATCH** `/machine-accounts/{id}` | Update machine account details
 
 
 ## get-machine-account
@@ -59,7 +59,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Machine account details
+# Get machine account details
 
 try {
     Get-V2024MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -118,7 +118,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'hasEntitlements eq true' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified** (optional)
 
-# Machine accounts list
+# List machine accounts
 
 try {
     Get-V2024MachineAccounts -XSailPointExperimental $XSailPointExperimental 
@@ -174,7 +174,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON 
  $RequestBody = @"[{op=add, path=/environment, value=test}]"@ # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
  
 
-# Update a machine account
+# Update machine account details
 
 try {
     $Result = ConvertFrom-V2024JsonToRequestBody -Json $RequestBody

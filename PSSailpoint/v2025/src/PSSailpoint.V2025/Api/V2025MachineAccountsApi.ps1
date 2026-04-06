@@ -216,7 +216,7 @@ function Remove-V2025MachineAccountSubtype {
 <#
 .SYNOPSIS
 
-Machine account details
+Get machine account details
 
 .DESCRIPTION
 
@@ -608,7 +608,7 @@ function Get-V2025MachineAccountSubtypes {
 <#
 .SYNOPSIS
 
-Machine accounts list
+List machine accounts
 
 .DESCRIPTION
 
@@ -844,7 +844,7 @@ function Update-V2025MachineAccountSubtype {
 <#
 .SYNOPSIS
 
-Update a machine account
+Update machine account details
 
 .DESCRIPTION
 

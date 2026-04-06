@@ -17,13 +17,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2026*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2026MachineIdentity**](#create-machine-identity) | **POST** `/machine-identities` | Create machine identities
+[**New-V2026MachineIdentity**](#create-machine-identity) | **POST** `/machine-identities` | Create machine identity
 [**Remove-V2026MachineIdentity**](#delete-machine-identity) | **DELETE** `/machine-identities/{id}` | Delete machine identity
-[**Get-V2026MachineIdentity**](#get-machine-identity) | **GET** `/machine-identities/{id}` | Machine identity details
+[**Get-V2026MachineIdentity**](#get-machine-identity) | **GET** `/machine-identities/{id}` | Get machine identity details
 [**Get-V2026MachineIdentities**](#list-machine-identities) | **GET** `/machine-identities` | List machine identities
 [**Get-V2026MachineIdentityUserEntitlements**](#list-machine-identity-user-entitlements) | **GET** `/machine-identity-user-entitlements` | List machine identity&#39;s user entitlements
-[**Start-V2026MachineIdentityAggregation**](#start-machine-identity-aggregation) | **POST** `/sources/{sourceId}/aggregate-agents` | Start Machine Identity (AI Agent) Aggregation
-[**Update-V2026MachineIdentity**](#update-machine-identity) | **PATCH** `/machine-identities/{id}` | Update a machine identity
+[**Start-V2026MachineIdentityAggregation**](#start-machine-identity-aggregation) | **POST** `/sources/{sourceId}/aggregate-agents` | Start machine identity aggregation
+[**Update-V2026MachineIdentity**](#update-machine-identity) | **PATCH** `/machine-identities/{id}` | Update machine identity details
 
 
 ## create-machine-identity
@@ -94,7 +94,7 @@ $MachineIdentityRequest = @"{
   "nativeIdentity" : "abc:123:dddd"
 }"@
 
-# Create machine identities
+# Create machine identity
 
 try {
     $Result = ConvertFrom-V2026JsonToMachineIdentityRequest -Json $MachineIdentityRequest
@@ -197,7 +197,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Machine identity details
+# Get machine identity details
 
 try {
     Get-V2026MachineIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -333,7 +333,7 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-Use this API to aggregate machine identities (AI Agents).
+Starts a machine identity (AI Agents) aggregation on the specified source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2026/start-machine-identity-aggregation)
 
@@ -368,7 +368,7 @@ $MachineIdentityAggregationRequest = @"{
   "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ]
 }"@
 
-# Start Machine Identity (AI Agent) Aggregation
+# Start machine identity aggregation
 
 try {
     $Result = ConvertFrom-V2026JsonToMachineIdentityAggregationRequest -Json $MachineIdentityAggregationRequest
@@ -425,7 +425,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON 
  $RequestBody = @"[{op=add, path=/attributes/securityRisk, value=medium}]"@ # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Update a machine identity
+# Update machine identity details
 
 try {
     $Result = ConvertFrom-V2026JsonToRequestBody -Json $RequestBody

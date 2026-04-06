@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Create machine identities
+Create machine identity
 
 .DESCRIPTION
 
@@ -196,7 +196,7 @@ function Remove-V2025MachineIdentity {
 <#
 .SYNOPSIS
 
-Machine identity details
+Get machine identity details
 
 .DESCRIPTION
 
@@ -531,11 +531,11 @@ function Get-V2025MachineIdentityUserEntitlements {
 <#
 .SYNOPSIS
 
-Start Machine Identity (AI Agent) Aggregation
+Start machine identity aggregation
 
 .DESCRIPTION
 
-Use this API to aggregate machine identities (AI Agents).
+Starts a machine identity (AI Agents) aggregation on the specified source.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -632,7 +632,7 @@ function Start-V2025MachineIdentityAggregation {
 <#
 .SYNOPSIS
 
-Update a machine identity
+Update machine identity details
 
 .DESCRIPTION
 

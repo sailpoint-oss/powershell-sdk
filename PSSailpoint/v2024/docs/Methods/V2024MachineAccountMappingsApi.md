@@ -20,7 +20,7 @@ Method | HTTP request | Description
 [**New-V2024MachineAccountMappings**](#create-machine-account-mappings) | **POST** `/sources/{sourceId}/machine-account-mappings` | Create machine account mappings
 [**Remove-V2024MachineAccountMappings**](#delete-machine-account-mappings) | **DELETE** `/sources/{sourceId}/machine-account-mappings` | Delete source&#39;s machine account mappings
 [**Get-V2024MachineAccountMappings**](#list-machine-account-mappings) | **GET** `/sources/{sourceId}/machine-account-mappings` | Machine account mapping for source
-[**Set-V2024MachineAccountMappings**](#set-machine-account-mappings) | **PUT** `/sources/{sourceId}/machine-mappings` | Update Source&#39;s Machine Account Mappings
+[**Set-V2024MachineAccountMappings**](#set-machine-account-mappings) | **PUT** `/sources/{sourceId}/machine-mappings` | Update source&#39;s machine account mappings
 
 
 ## create-machine-account-mappings
@@ -243,7 +243,7 @@ $AttributeMappings = @"{
   }
 }"@
 
-# Update Source's Machine Account Mappings
+# Update source's machine account mappings
 
 try {
     $Result = ConvertFrom-V2024JsonToAttributeMappings -Json $AttributeMappings

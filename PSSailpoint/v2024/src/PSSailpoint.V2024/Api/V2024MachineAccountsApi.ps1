@@ -8,7 +8,7 @@
 <#
 .SYNOPSIS
 
-Machine account details
+Get machine account details
 
 .DESCRIPTION
 
@@ -93,7 +93,7 @@ function Get-V2024MachineAccount {
 <#
 .SYNOPSIS
 
-Machine accounts list
+List machine accounts
 
 .DESCRIPTION
 
@@ -218,7 +218,7 @@ function Get-V2024MachineAccounts {
 <#
 .SYNOPSIS
 
-Update a machine account
+Update machine account details
 
 .DESCRIPTION
 

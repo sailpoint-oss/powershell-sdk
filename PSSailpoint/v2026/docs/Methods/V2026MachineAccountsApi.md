@@ -19,14 +19,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2026MachineAccountSubtype**](#create-machine-account-subtype) | **POST** `/sources/{sourceId}/subtypes` | Create subtype
 [**Remove-V2026MachineAccountSubtype**](#delete-machine-account-subtype) | **DELETE** `/sources/{sourceId}/subtypes/{technicalName}` | Delete subtype
-[**Get-V2026MachineAccount**](#get-machine-account) | **GET** `/machine-accounts/{id}` | Machine account details
+[**Get-V2026MachineAccount**](#get-machine-account) | **GET** `/machine-accounts/{id}` | Get machine account details
 [**Get-V2026MachineAccountDeletionSubTypeApprovalConfig**](#get-machine-account-deletion-sub-type-approval-config) | **GET** `/source-subtypes/{subtypeId}/machine-config` | Machine Subtype Approval Config
 [**Get-V2026MachineAccountSubtypeById**](#get-machine-account-subtype-by-id) | **GET** `/sources/subtypes/{subtypeId}` | Retrieve subtype by subtype id
 [**Get-V2026MachineAccountSubtypeByTechnicalName**](#get-machine-account-subtype-by-technical-name) | **GET** `/sources/{sourceId}/subtypes/{technicalName}` | Retrieve subtype by source and technicalName
 [**Get-V2026MachineAccountSubtypes**](#list-machine-account-subtypes) | **GET** `/sources/{sourceId}/subtypes` | Retrieve all subtypes by source
-[**Get-V2026MachineAccounts**](#list-machine-accounts) | **GET** `/machine-accounts` | Machine accounts list
+[**Get-V2026MachineAccounts**](#list-machine-accounts) | **GET** `/machine-accounts` | List machine accounts
 [**Update-V2026MachineAccountSubtype**](#patch-machine-account-subtype) | **PATCH** `/sources/{sourceId}/subtypes/{technicalName}` | Patch subtype
-[**Update-V2026MachineAccount**](#update-machine-account) | **PATCH** `/machine-accounts/{id}` | Update a machine account
+[**Update-V2026MachineAccount**](#update-machine-account) | **PATCH** `/machine-accounts/{id}` | Update machine account details
 [**Update-V2026MachineAccountDeletionBySubTypeApprovalConfig**](#update-machine-account-deletion-by-sub-type-approval-config) | **PATCH** `/source-subtypes/{subtypeId}/machine-config` | Machine Subtype Approval Config
 
 
@@ -172,7 +172,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Machine account details
+# Get machine account details
 
 try {
     Get-V2026MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -187,6 +187,9 @@ try {
 [[Back to top]](#) 
 
 ## get-machine-account-deletion-sub-type-approval-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This endpoint retrieves the approval configuration for machine account deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account deletion.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2026/get-machine-account-deletion-sub-type-approval-config)
@@ -194,6 +197,7 @@ This endpoint retrieves the approval configuration for machine account deletion 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | SubtypeId | **String** | True  | machine subtype id.
 
 ### Return type
@@ -216,15 +220,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SubtypeId = "ef38f94347e94562b5bb8424a56498d8" # String | machine subtype id.
 
 # Machine Subtype Approval Config
 
 try {
-    Get-V2026MachineAccountDeletionSubTypeApprovalConfig -SubtypeId $SubtypeId 
+    Get-V2026MachineAccountDeletionSubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2026MachineAccountDeletionSubTypeApprovalConfig -SubtypeId $SubtypeId  
+    # Get-V2026MachineAccountDeletionSubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026MachineAccountDeletionSubTypeApprovalConfig"
     Write-Host $_.ErrorDetails
@@ -439,7 +444,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'hasEntitlements eq true' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified** (optional)
 
-# Machine accounts list
+# List machine accounts
 
 try {
     Get-V2026MachineAccounts -XSailPointExperimental $XSailPointExperimental 
@@ -553,7 +558,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON 
  $RequestBody = @"[{op=add, path=/environment, value=test}]"@ # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
  
 
-# Update a machine account
+# Update machine account details
 
 try {
     $Result = ConvertFrom-V2026JsonToRequestBody -Json $RequestBody
@@ -569,6 +574,9 @@ try {
 [[Back to top]](#) 
 
 ## update-machine-account-deletion-by-sub-type-approval-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for deleting machine accounts of a particular subtype.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2026/update-machine-account-deletion-by-sub-type-approval-config)
@@ -576,6 +584,7 @@ Updates the approval configuration for machine account deletion at the specified
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 Path   | SubtypeId | **String** | True  | machine account subtype ID.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the object.
 
@@ -599,6 +608,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SubtypeId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account subtype ID.
  $JsonPatchOperation = @"{
   "op" : "replace",
@@ -611,10 +621,10 @@ $SubtypeId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account subty
 
 try {
     $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2026MachineAccountDeletionBySubTypeApprovalConfig -SubtypeId $SubtypeId -JsonPatchOperation $Result 
+    Update-V2026MachineAccountDeletionBySubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2026MachineAccountDeletionBySubTypeApprovalConfig -SubtypeId $SubtypeId -JsonPatchOperation $Result  
+    # Update-V2026MachineAccountDeletionBySubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountDeletionBySubTypeApprovalConfig"
     Write-Host $_.ErrorDetails

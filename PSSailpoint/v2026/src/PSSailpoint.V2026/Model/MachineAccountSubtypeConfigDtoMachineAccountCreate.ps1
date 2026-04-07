@@ -17,19 +17,23 @@ Configuration options for machine account creation, including whether creation i
 .PARAMETER AccountCreateEnabled
 Specifies if the creation of machine accounts is allowed for this subtype.
 .PARAMETER ApprovalRequired
-Specifies if approval is needed before a machine account can be created for this subtype.
+Specifies if approval is required for machine account creation requests for this subtype.
 .PARAMETER FormId
-formId
+Id of the form linked to subtype.
 .PARAMETER EntitlementId
-Configuration details specifying who can approve machine account creation requests and the types of comments allowed during the approval process.
+Id of the system created entitlement entitlement upon enabling account creation for this subtype.
+.PARAMETER PasswordSetting
+This is required before enabling the account creation to true. Default value will be null.
+.PARAMETER PasswordAttribute
+Name of the account attribute from the source's schema or new custom attribute to use when password settings is enabled.
 .PARAMETER ApprovalConfig
 No description available.
 .OUTPUTS
 
-MachineAccountSubTypeConfigDtoMachineAccountCreate<PSCustomObject>
+MachineAccountSubtypeConfigDtoMachineAccountCreate<PSCustomObject>
 #>
 
-function Initialize-V2026MachineAccountSubTypeConfigDtoMachineAccountCreate {
+function Initialize-V2026MachineAccountSubtypeConfigDtoMachineAccountCreate {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -45,12 +49,19 @@ function Initialize-V2026MachineAccountSubTypeConfigDtoMachineAccountCreate {
         [String]
         ${EntitlementId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("DO_NOT_SET_PASSWORD", "SET_TO_EXISTING_ATTRIBUTE", "SET_TO_NEW_ATTRIBUTE")]
+        [String]
+        ${PasswordSetting},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${PasswordAttribute},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ApprovalConfig}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026MachineAccountSubTypeConfigDtoMachineAccountCreate' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026MachineAccountSubtypeConfigDtoMachineAccountCreate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -59,6 +70,8 @@ function Initialize-V2026MachineAccountSubTypeConfigDtoMachineAccountCreate {
             "approvalRequired" = ${ApprovalRequired}
             "formId" = ${FormId}
             "entitlementId" = ${EntitlementId}
+            "passwordSetting" = ${PasswordSetting}
+            "passwordAttribute" = ${PasswordAttribute}
             "approvalConfig" = ${ApprovalConfig}
         }
 
@@ -69,11 +82,11 @@ function Initialize-V2026MachineAccountSubTypeConfigDtoMachineAccountCreate {
 <#
 .SYNOPSIS
 
-Convert from JSON to MachineAccountSubTypeConfigDtoMachineAccountCreate<PSCustomObject>
+Convert from JSON to MachineAccountSubtypeConfigDtoMachineAccountCreate<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to MachineAccountSubTypeConfigDtoMachineAccountCreate<PSCustomObject>
+Convert from JSON to MachineAccountSubtypeConfigDtoMachineAccountCreate<PSCustomObject>
 
 .PARAMETER Json
 
@@ -81,22 +94,22 @@ Json object
 
 .OUTPUTS
 
-MachineAccountSubTypeConfigDtoMachineAccountCreate<PSCustomObject>
+MachineAccountSubtypeConfigDtoMachineAccountCreate<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToMachineAccountSubTypeConfigDtoMachineAccountCreate {
+function ConvertFrom-V2026JsonToMachineAccountSubtypeConfigDtoMachineAccountCreate {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026MachineAccountSubTypeConfigDtoMachineAccountCreate' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026MachineAccountSubtypeConfigDtoMachineAccountCreate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026MachineAccountSubTypeConfigDtoMachineAccountCreate
-        $AllProperties = ("accountCreateEnabled", "approvalRequired", "formId", "entitlementId", "approvalConfig")
+        # check if Json contains properties not defined in V2026MachineAccountSubtypeConfigDtoMachineAccountCreate
+        $AllProperties = ("accountCreateEnabled", "approvalRequired", "formId", "entitlementId", "passwordSetting", "passwordAttribute", "approvalConfig")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -127,6 +140,18 @@ function ConvertFrom-V2026JsonToMachineAccountSubTypeConfigDtoMachineAccountCrea
             $EntitlementId = $JsonParameters.PSobject.Properties["entitlementId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "passwordSetting"))) { #optional property not found
+            $PasswordSetting = $null
+        } else {
+            $PasswordSetting = $JsonParameters.PSobject.Properties["passwordSetting"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "passwordAttribute"))) { #optional property not found
+            $PasswordAttribute = $null
+        } else {
+            $PasswordAttribute = $JsonParameters.PSobject.Properties["passwordAttribute"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvalConfig"))) { #optional property not found
             $ApprovalConfig = $null
         } else {
@@ -138,6 +163,8 @@ function ConvertFrom-V2026JsonToMachineAccountSubTypeConfigDtoMachineAccountCrea
             "approvalRequired" = ${ApprovalRequired}
             "formId" = ${FormId}
             "entitlementId" = ${EntitlementId}
+            "passwordSetting" = ${PasswordSetting}
+            "passwordAttribute" = ${PasswordAttribute}
             "approvalConfig" = ${ApprovalConfig}
         }
 

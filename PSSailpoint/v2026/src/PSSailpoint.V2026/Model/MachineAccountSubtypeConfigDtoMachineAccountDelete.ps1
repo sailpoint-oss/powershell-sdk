@@ -20,10 +20,10 @@ Indicates whether approval is required for an account deletion request.
 No description available.
 .OUTPUTS
 
-MachineAccountSubTypeConfigDtoMachineAccountDelete<PSCustomObject>
+MachineAccountSubtypeConfigDtoMachineAccountDelete<PSCustomObject>
 #>
 
-function Initialize-V2026MachineAccountSubTypeConfigDtoMachineAccountDelete {
+function Initialize-V2026MachineAccountSubtypeConfigDtoMachineAccountDelete {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -35,7 +35,7 @@ function Initialize-V2026MachineAccountSubTypeConfigDtoMachineAccountDelete {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026MachineAccountSubTypeConfigDtoMachineAccountDelete' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026MachineAccountSubtypeConfigDtoMachineAccountDelete' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -51,11 +51,11 @@ function Initialize-V2026MachineAccountSubTypeConfigDtoMachineAccountDelete {
 <#
 .SYNOPSIS
 
-Convert from JSON to MachineAccountSubTypeConfigDtoMachineAccountDelete<PSCustomObject>
+Convert from JSON to MachineAccountSubtypeConfigDtoMachineAccountDelete<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to MachineAccountSubTypeConfigDtoMachineAccountDelete<PSCustomObject>
+Convert from JSON to MachineAccountSubtypeConfigDtoMachineAccountDelete<PSCustomObject>
 
 .PARAMETER Json
 
@@ -63,21 +63,21 @@ Json object
 
 .OUTPUTS
 
-MachineAccountSubTypeConfigDtoMachineAccountDelete<PSCustomObject>
+MachineAccountSubtypeConfigDtoMachineAccountDelete<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToMachineAccountSubTypeConfigDtoMachineAccountDelete {
+function ConvertFrom-V2026JsonToMachineAccountSubtypeConfigDtoMachineAccountDelete {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026MachineAccountSubTypeConfigDtoMachineAccountDelete' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026MachineAccountSubtypeConfigDtoMachineAccountDelete' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026MachineAccountSubTypeConfigDtoMachineAccountDelete
+        # check if Json contains properties not defined in V2026MachineAccountSubtypeConfigDtoMachineAccountDelete
         $AllProperties = ("approvalRequired", "approvalConfig")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

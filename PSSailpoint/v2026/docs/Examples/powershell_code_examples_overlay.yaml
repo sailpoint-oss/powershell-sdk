@@ -10914,6 +10914,82 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2026ClassifyMachineAccount"
             Write-Host $_.ErrorDetails
         }
+- path: /account-requests/machine-account-create
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-account-creation-request#create-machine-account-request
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MachineAccountCreateRequestInput = @"
+        {
+          "formId" : "f5dd23fe-3414-42b7-bb1c-869400ad7a10",
+          "entitlementIds" : [ "6d28b7c1620c49c6b6d5cbf81eb4b5fa", "2c91808a7624751a01762f19d67c220e" ],
+          "environment" : "Dev",
+          "description" : "Requesting machine account for tracking the inventory.",
+          "machineIdentityId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+          "ownerIdentityId" : "18104e7e499b4e23882d6323344ab6bc",
+          "userInput" : {
+            "target" : "AD Source",
+            "description" : "Inventory tracking"
+          },
+          "subtypeId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+        }
+        "@
+        
+        # Submit Machine Account Creation Request
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToMachineAccountCreateRequestInput -Json $MachineAccountCreateRequestInput
+            New-V2026MachineAccountRequest -XSailPointExperimental $XSailPointExperimental -MachineAccountCreateRequestInput $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2026MachineAccountRequest -XSailPointExperimental $XSailPointExperimental -MachineAccountCreateRequestInput $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2026MachineAccountRequest"
+            Write-Host $_.ErrorDetails
+        }
+- path: /account-requests/machine-account-create/{accountRequestId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-account-creation-request#get-create-machine-account-request
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $AccountRequestId = "gt38f94347e94562b5bb8424a56498d8" # String | Account Request ID
+        
+        # Get Machine Account Creation Request
+        
+        try {
+            Get-V2026CreateMachineAccountRequest -XSailPointExperimental $XSailPointExperimental -AccountRequestId $AccountRequestId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026CreateMachineAccountRequest -XSailPointExperimental $XSailPointExperimental -AccountRequestId $AccountRequestId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026CreateMachineAccountRequest"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-subtypes/machine-account-create-access
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-account-creation-request#get-machine-account-create-access-info
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+        $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+        
+        # Machine Account Create Access
+        
+        try {
+            Get-V2026MachineAccountCreateAccessInfo -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026MachineAccountCreateAccessInfo -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026MachineAccountCreateAccessInfo"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/{sourceId}/machine-account-mappings
   method: POST
   xCodeSample:
@@ -11040,6 +11116,67 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2026MachineAccountMappings"
             Write-Host $_.ErrorDetails
         }
+- path: /source-subtypes/{subtypeId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-account-subtypes#delete-machine-account-subtype
+      source: |
+        $SubtypeId = "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa" # String | The ID of the subtype.
+        
+        # Delete subtype by ID
+        
+        try {
+            Remove-V2026MachineAccountSubtype -SubtypeId $SubtypeId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2026MachineAccountSubtype -SubtypeId $SubtypeId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2026MachineAccountSubtype"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-subtypes/{subtypeId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-account-subtypes#get-source-subtype-by-id
+      source: |
+        $SubtypeId = "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa" # String | The ID of the subtype.
+        
+        # Get subtype by ID
+        
+        try {
+            Get-V2026SourceSubtypeById -SubtypeId $SubtypeId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026SourceSubtypeById -SubtypeId $SubtypeId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceSubtypeById"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-subtypes/{subtypeId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-account-subtypes#patch-machine-account-subtype
+      source: |
+        $SubtypeId = "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa" # String | The ID of the subtype.
+        $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        $RequestBody = @"[{op=replace, path=/displayName, value=Test New DisplayName}]"@ 
+        
+        
+        # Patch subtype by ID
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToRequestBody -Json $RequestBody
+            Update-V2026MachineAccountSubtype -SubtypeId $SubtypeId -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2026MachineAccountSubtype -SubtypeId $SubtypeId -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountSubtype"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/{sourceId}/subtypes
   method: POST
   xCodeSample:
@@ -11068,7 +11205,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#delete-machine-account-subtype
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#delete-machine-account-subtype-by-technical-name
       source: |
         $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
         $TechnicalName = "foo" # String | The technical name of the subtype.
@@ -11077,12 +11214,12 @@
         # Delete subtype
         
         try {
-            Remove-V2026MachineAccountSubtype -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2026MachineAccountSubtypeByTechnicalName -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2026MachineAccountSubtype -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2026MachineAccountSubtypeByTechnicalName -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2026MachineAccountSubtype"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2026MachineAccountSubtypeByTechnicalName"
             Write-Host $_.ErrorDetails
         }
 - path: /machine-accounts/{id}
@@ -11109,7 +11246,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#get-machine-account-deletion-sub-type-approval-config
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#get-machine-account-subtype-approval-config
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SubtypeId = "ef38f94347e94562b5bb8424a56498d8" # String | machine subtype id.
@@ -11117,12 +11254,12 @@
         # Machine Subtype Approval Config
         
         try {
-            Get-V2026MachineAccountDeletionSubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId 
+            Get-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2026MachineAccountDeletionSubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId   
+            # Get-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026MachineAccountDeletionSubTypeApprovalConfig"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026MachineAccountSubtypeApprovalConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/subtypes/{subtypeId}
@@ -11215,11 +11352,34 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026MachineAccounts"
             Write-Host $_.ErrorDetails
         }
+- path: /source-subtypes/bulk-retrieve
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#load-bulk-source-subtypes
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody = "38453251-6be2-5f8f-df93-5ce19e295838" # String[] | 
+        $RequestBody = @""@ 
+        
+        
+        # Bulk Retrieve of Source Subtypes
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToRequestBody -Json $RequestBody
+            Invoke-V2026LoadBulkSourceSubtypes -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-V2026LoadBulkSourceSubtypes -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2026LoadBulkSourceSubtypes"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/{sourceId}/subtypes/{technicalName}
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#patch-machine-account-subtype
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#patch-machine-account-subtype-by-technical-name
       source: |
         $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
         $TechnicalName = "foo" # String | The technical name of the subtype.
@@ -11232,12 +11392,12 @@
         
         try {
             $Result = ConvertFrom-V2026JsonToRequestBody -Json $RequestBody
-            Update-V2026MachineAccountSubtype -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+            Update-V2026MachineAccountSubtypeByTechnicalName -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2026MachineAccountSubtype -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+            # Update-V2026MachineAccountSubtypeByTechnicalName -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountSubtype"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountSubtypeByTechnicalName"
             Write-Host $_.ErrorDetails
         }
 - path: /machine-accounts/{id}
@@ -11268,7 +11428,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#update-machine-account-deletion-by-sub-type-approval-config
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#update-machine-account-subtype-approval-config
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SubtypeId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account subtype ID.
@@ -11283,12 +11443,12 @@
         
         try {
             $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2026MachineAccountDeletionBySubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result 
+            Update-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2026MachineAccountDeletionBySubTypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result   
+            # Update-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountDeletionBySubTypeApprovalConfig"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountSubtypeApprovalConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/{sourceId}/machine-classification-config
@@ -18693,7 +18853,7 @@
       label: SDK_tools/sdk/powershell/v2026/methods/sources#delete-provisioning-policy
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
-        $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+        $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
         
         # Delete provisioning policy by usagetype
         
@@ -18887,7 +19047,7 @@
       label: SDK_tools/sdk/powershell/v2026/methods/sources#get-provisioning-policy
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
-        $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+        $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
         
         # Get provisioning policy by usagetype
         
@@ -19247,6 +19407,8 @@
       label: SDK_tools/sdk/powershell/v2026/methods/sources#list-provisioning-policies
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
+        $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+        $Limit = 250 # Int64 | Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
         
         # Lists provisioningpolicies
         
@@ -19254,7 +19416,7 @@
             Get-V2026ProvisioningPolicies -SourceId $SourceId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2026ProvisioningPolicies -SourceId $SourceId   
+            # Get-V2026ProvisioningPolicies -SourceId $SourceId -Offset $Offset -Limit $Limit   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026ProvisioningPolicies"
             Write-Host $_.ErrorDetails
@@ -19383,7 +19545,7 @@
       label: SDK_tools/sdk/powershell/v2026/methods/sources#put-provisioning-policy
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
-        $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+        $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
         $ProvisioningPolicyDto = @"
         {
           "name" : "example provisioning policy for inactive identities",
@@ -19868,7 +20030,7 @@
       label: SDK_tools/sdk/powershell/v2026/methods/sources#update-provisioning-policy
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-        $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
+        $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",

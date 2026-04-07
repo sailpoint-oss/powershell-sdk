@@ -22,10 +22,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-MachineAccountSubTypeConfigDto<PSCustomObject>
+MachineAccountSubtypeConfigDto<PSCustomObject>
 #>
 
-function Initialize-V2026MachineAccountSubTypeConfigDto {
+function Initialize-V2026MachineAccountSubtypeConfigDto {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -40,7 +40,7 @@ function Initialize-V2026MachineAccountSubTypeConfigDto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026MachineAccountSubTypeConfigDto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026MachineAccountSubtypeConfigDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -57,11 +57,11 @@ function Initialize-V2026MachineAccountSubTypeConfigDto {
 <#
 .SYNOPSIS
 
-Convert from JSON to MachineAccountSubTypeConfigDto<PSCustomObject>
+Convert from JSON to MachineAccountSubtypeConfigDto<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to MachineAccountSubTypeConfigDto<PSCustomObject>
+Convert from JSON to MachineAccountSubtypeConfigDto<PSCustomObject>
 
 .PARAMETER Json
 
@@ -69,21 +69,21 @@ Json object
 
 .OUTPUTS
 
-MachineAccountSubTypeConfigDto<PSCustomObject>
+MachineAccountSubtypeConfigDto<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToMachineAccountSubTypeConfigDto {
+function ConvertFrom-V2026JsonToMachineAccountSubtypeConfigDto {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026MachineAccountSubTypeConfigDto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026MachineAccountSubtypeConfigDto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026MachineAccountSubTypeConfigDto
+        # check if Json contains properties not defined in V2026MachineAccountSubtypeConfigDto
         $AllProperties = ("subtypeId", "machineAccountCreate", "machineAccountDelete")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

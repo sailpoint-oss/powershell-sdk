@@ -31,7 +31,7 @@ function Initialize-V2026AccountRequestPhase {
         [String]
         ${Name},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("PENDING", "CANCELLED", "APPROVED", "REJECTED", "PASSED", "FAILED")]
+        [ValidateSet("PENDING", "CANCELLED", "APPROVED", "REJECTED", "PASSED", "FAILED", "NOT_STARTED")]
         [PSCustomObject]
         ${State}
     )

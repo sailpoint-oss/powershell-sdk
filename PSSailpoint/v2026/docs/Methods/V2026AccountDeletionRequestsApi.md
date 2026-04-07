@@ -36,12 +36,12 @@ Path   | AccountId | **String** | True  | Account ID.
  Body  | AccountDeleteRequestInput | [**AccountDeleteRequestInput**](../models/account-delete-request-input) |   (optional) | 
 
 ### Return type
-[**AccountDeleteAsyncResult**](../models/account-delete-async-result)
+[**AccountRequestAsyncResult**](../models/account-request-async-result)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-202 | Account deletion request details. | AccountDeleteAsyncResult
+202 | Account deletion request details. | AccountRequestAsyncResult
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto

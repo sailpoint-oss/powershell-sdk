@@ -40,7 +40,7 @@ function Initialize-V2026ApprovalDetails {
         [System.Nullable[Int64]]
         ${SerialOrder},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("PENDING", "CANCELLED", "APPROVED", "REJECTED", "PASSED", "FAILED")]
+        [ValidateSet("PENDING", "CANCELLED", "APPROVED", "REJECTED", "PASSED", "FAILED", "NOT_STARTED")]
         [PSCustomObject]
         ${Status}
     )

@@ -121,7 +121,6 @@ docs/AccountCorrelatedIdentity.md
 docs/AccountCorrelatedSource.md
 docs/AccountCreated.md
 docs/AccountCreatedEvent.md
-docs/AccountDeleteAsyncResult.md
 docs/AccountDeleteConfigDto.md
 docs/AccountDeleteRequestInput.md
 docs/AccountDeleted.md
@@ -131,6 +130,9 @@ docs/AccountInfoDto.md
 docs/AccountInfoRef.md
 docs/AccountItemRef.md
 docs/AccountRequest.md
+docs/AccountRequestAsyncResult.md
+docs/AccountRequestDetailsDto.md
+docs/AccountRequestDetailsDtoRequester.md
 docs/AccountRequestInfo.md
 docs/AccountRequestPhase.md
 docs/AccountRequestPhaseState.md
@@ -713,9 +715,12 @@ docs/Lookup.md
 docs/LookupStep.md
 docs/Lower.md
 docs/MachineAccount.md
-docs/MachineAccountSubTypeConfigDto.md
-docs/MachineAccountSubTypeConfigDtoMachineAccountCreate.md
-docs/MachineAccountSubTypeConfigDtoMachineAccountDelete.md
+docs/MachineAccountCreateAccessDto.md
+docs/MachineAccountCreateAccessDtoSubtypesInner.md
+docs/MachineAccountCreateRequestInput.md
+docs/MachineAccountSubtypeConfigDto.md
+docs/MachineAccountSubtypeConfigDtoMachineAccountCreate.md
+docs/MachineAccountSubtypeConfigDtoMachineAccountDelete.md
 docs/MachineClassificationConfig.md
 docs/MachineClassificationCriteriaLevel1.md
 docs/MachineClassificationCriteriaLevel2.md
@@ -747,6 +752,7 @@ docs/MachineIdentityUserEntitlementResponse.md
 docs/MachineIdentityUserEntitlementResponseEntitlement.md
 docs/MachineIdentityUserEntitlementResponseSource.md
 docs/MachineIdentityUserEntitlements.md
+docs/MachineSubtypeApprovalConfig.md
 docs/MailFromAttributes.md
 docs/MailFromAttributesDto.md
 docs/ManagedClient.md
@@ -1212,6 +1218,8 @@ docs/SourcePasswordPoliciesInner.md
 docs/SourceSchedule.md
 docs/SourceSchemasInner.md
 docs/SourceSubtype.md
+docs/SourceSubtypeWithSource.md
+docs/SourceSubtypeWithSourceSource.md
 docs/SourceSyncJob.md
 docs/SourceSyncPayload.md
 docs/SourceUpdated.md
@@ -1429,8 +1437,12 @@ docs/V2026MFAConfigurationApi.md
 docs/V2026MFAConfigurationApideveloperSite_code_examples.yaml
 docs/V2026MachineAccountClassifyApi.md
 docs/V2026MachineAccountClassifyApideveloperSite_code_examples.yaml
+docs/V2026MachineAccountCreationRequestApi.md
+docs/V2026MachineAccountCreationRequestApideveloperSite_code_examples.yaml
 docs/V2026MachineAccountMappingsApi.md
 docs/V2026MachineAccountMappingsApideveloperSite_code_examples.yaml
+docs/V2026MachineAccountSubtypesApi.md
+docs/V2026MachineAccountSubtypesApideveloperSite_code_examples.yaml
 docs/V2026MachineAccountsApi.md
 docs/V2026MachineAccountsApideveloperSite_code_examples.yaml
 docs/V2026MachineClassificationConfigApi.md
@@ -1635,7 +1647,9 @@ src/PSSailpoint.V2026/Api/V2026LaunchersApi.ps1
 src/PSSailpoint.V2026/Api/V2026LifecycleStatesApi.ps1
 src/PSSailpoint.V2026/Api/V2026MFAConfigurationApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineAccountClassifyApi.ps1
+src/PSSailpoint.V2026/Api/V2026MachineAccountCreationRequestApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineAccountMappingsApi.ps1
+src/PSSailpoint.V2026/Api/V2026MachineAccountSubtypesApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineAccountsApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineClassificationConfigApi.ps1
 src/PSSailpoint.V2026/Api/V2026MachineIdentitiesApi.ps1
@@ -1807,7 +1821,6 @@ src/PSSailpoint.V2026/Model/AccountCorrelatedIdentity.ps1
 src/PSSailpoint.V2026/Model/AccountCorrelatedSource.ps1
 src/PSSailpoint.V2026/Model/AccountCreated.ps1
 src/PSSailpoint.V2026/Model/AccountCreatedEvent.ps1
-src/PSSailpoint.V2026/Model/AccountDeleteAsyncResult.ps1
 src/PSSailpoint.V2026/Model/AccountDeleteConfigDto.ps1
 src/PSSailpoint.V2026/Model/AccountDeleteRequestInput.ps1
 src/PSSailpoint.V2026/Model/AccountDeleted.ps1
@@ -1817,6 +1830,9 @@ src/PSSailpoint.V2026/Model/AccountInfoDto.ps1
 src/PSSailpoint.V2026/Model/AccountInfoRef.ps1
 src/PSSailpoint.V2026/Model/AccountItemRef.ps1
 src/PSSailpoint.V2026/Model/AccountRequest.ps1
+src/PSSailpoint.V2026/Model/AccountRequestAsyncResult.ps1
+src/PSSailpoint.V2026/Model/AccountRequestDetailsDto.ps1
+src/PSSailpoint.V2026/Model/AccountRequestDetailsDtoRequester.ps1
 src/PSSailpoint.V2026/Model/AccountRequestInfo.ps1
 src/PSSailpoint.V2026/Model/AccountRequestPhase.ps1
 src/PSSailpoint.V2026/Model/AccountRequestPhaseState.ps1
@@ -2396,9 +2412,12 @@ src/PSSailpoint.V2026/Model/Lookup.ps1
 src/PSSailpoint.V2026/Model/LookupStep.ps1
 src/PSSailpoint.V2026/Model/Lower.ps1
 src/PSSailpoint.V2026/Model/MachineAccount.ps1
-src/PSSailpoint.V2026/Model/MachineAccountSubTypeConfigDto.ps1
-src/PSSailpoint.V2026/Model/MachineAccountSubTypeConfigDtoMachineAccountCreate.ps1
-src/PSSailpoint.V2026/Model/MachineAccountSubTypeConfigDtoMachineAccountDelete.ps1
+src/PSSailpoint.V2026/Model/MachineAccountCreateAccessDto.ps1
+src/PSSailpoint.V2026/Model/MachineAccountCreateAccessDtoSubtypesInner.ps1
+src/PSSailpoint.V2026/Model/MachineAccountCreateRequestInput.ps1
+src/PSSailpoint.V2026/Model/MachineAccountSubtypeConfigDto.ps1
+src/PSSailpoint.V2026/Model/MachineAccountSubtypeConfigDtoMachineAccountCreate.ps1
+src/PSSailpoint.V2026/Model/MachineAccountSubtypeConfigDtoMachineAccountDelete.ps1
 src/PSSailpoint.V2026/Model/MachineClassificationConfig.ps1
 src/PSSailpoint.V2026/Model/MachineClassificationCriteriaLevel1.ps1
 src/PSSailpoint.V2026/Model/MachineClassificationCriteriaLevel2.ps1
@@ -2430,6 +2449,7 @@ src/PSSailpoint.V2026/Model/MachineIdentityUserEntitlementResponse.ps1
 src/PSSailpoint.V2026/Model/MachineIdentityUserEntitlementResponseEntitlement.ps1
 src/PSSailpoint.V2026/Model/MachineIdentityUserEntitlementResponseSource.ps1
 src/PSSailpoint.V2026/Model/MachineIdentityUserEntitlements.ps1
+src/PSSailpoint.V2026/Model/MachineSubtypeApprovalConfig.ps1
 src/PSSailpoint.V2026/Model/MailFromAttributes.ps1
 src/PSSailpoint.V2026/Model/MailFromAttributesDto.ps1
 src/PSSailpoint.V2026/Model/ManagedClient.ps1
@@ -2897,6 +2917,8 @@ src/PSSailpoint.V2026/Model/SourcePasswordPoliciesInner.ps1
 src/PSSailpoint.V2026/Model/SourceSchedule.ps1
 src/PSSailpoint.V2026/Model/SourceSchemasInner.ps1
 src/PSSailpoint.V2026/Model/SourceSubtype.ps1
+src/PSSailpoint.V2026/Model/SourceSubtypeWithSource.ps1
+src/PSSailpoint.V2026/Model/SourceSubtypeWithSourceSource.ps1
 src/PSSailpoint.V2026/Model/SourceSyncJob.ps1
 src/PSSailpoint.V2026/Model/SourceSyncPayload.ps1
 src/PSSailpoint.V2026/Model/SourceUpdated.ps1
@@ -3119,7 +3141,9 @@ tests/Api/V2026LaunchersApi.Tests.ps1
 tests/Api/V2026LifecycleStatesApi.Tests.ps1
 tests/Api/V2026MFAConfigurationApi.Tests.ps1
 tests/Api/V2026MachineAccountClassifyApi.Tests.ps1
+tests/Api/V2026MachineAccountCreationRequestApi.Tests.ps1
 tests/Api/V2026MachineAccountMappingsApi.Tests.ps1
+tests/Api/V2026MachineAccountSubtypesApi.Tests.ps1
 tests/Api/V2026MachineAccountsApi.Tests.ps1
 tests/Api/V2026MachineClassificationConfigApi.Tests.ps1
 tests/Api/V2026MachineIdentitiesApi.Tests.ps1
@@ -3290,7 +3314,6 @@ tests/Model/AccountCorrelatedIdentity.Tests.ps1
 tests/Model/AccountCorrelatedSource.Tests.ps1
 tests/Model/AccountCreated.Tests.ps1
 tests/Model/AccountCreatedEvent.Tests.ps1
-tests/Model/AccountDeleteAsyncResult.Tests.ps1
 tests/Model/AccountDeleteConfigDto.Tests.ps1
 tests/Model/AccountDeleteRequestInput.Tests.ps1
 tests/Model/AccountDeleted.Tests.ps1
@@ -3300,6 +3323,9 @@ tests/Model/AccountInfoDto.Tests.ps1
 tests/Model/AccountInfoRef.Tests.ps1
 tests/Model/AccountItemRef.Tests.ps1
 tests/Model/AccountRequest.Tests.ps1
+tests/Model/AccountRequestAsyncResult.Tests.ps1
+tests/Model/AccountRequestDetailsDto.Tests.ps1
+tests/Model/AccountRequestDetailsDtoRequester.Tests.ps1
 tests/Model/AccountRequestInfo.Tests.ps1
 tests/Model/AccountRequestPhase.Tests.ps1
 tests/Model/AccountRequestPhaseState.Tests.ps1
@@ -3879,9 +3905,12 @@ tests/Model/Lookup.Tests.ps1
 tests/Model/LookupStep.Tests.ps1
 tests/Model/Lower.Tests.ps1
 tests/Model/MachineAccount.Tests.ps1
-tests/Model/MachineAccountSubTypeConfigDto.Tests.ps1
-tests/Model/MachineAccountSubTypeConfigDtoMachineAccountCreate.Tests.ps1
-tests/Model/MachineAccountSubTypeConfigDtoMachineAccountDelete.Tests.ps1
+tests/Model/MachineAccountCreateAccessDto.Tests.ps1
+tests/Model/MachineAccountCreateAccessDtoSubtypesInner.Tests.ps1
+tests/Model/MachineAccountCreateRequestInput.Tests.ps1
+tests/Model/MachineAccountSubtypeConfigDto.Tests.ps1
+tests/Model/MachineAccountSubtypeConfigDtoMachineAccountCreate.Tests.ps1
+tests/Model/MachineAccountSubtypeConfigDtoMachineAccountDelete.Tests.ps1
 tests/Model/MachineClassificationConfig.Tests.ps1
 tests/Model/MachineClassificationCriteriaLevel1.Tests.ps1
 tests/Model/MachineClassificationCriteriaLevel2.Tests.ps1
@@ -3913,6 +3942,7 @@ tests/Model/MachineIdentityUserEntitlementResponse.Tests.ps1
 tests/Model/MachineIdentityUserEntitlementResponseEntitlement.Tests.ps1
 tests/Model/MachineIdentityUserEntitlementResponseSource.Tests.ps1
 tests/Model/MachineIdentityUserEntitlements.Tests.ps1
+tests/Model/MachineSubtypeApprovalConfig.Tests.ps1
 tests/Model/MailFromAttributes.Tests.ps1
 tests/Model/MailFromAttributesDto.Tests.ps1
 tests/Model/ManagedClient.Tests.ps1
@@ -4380,6 +4410,8 @@ tests/Model/SourcePasswordPoliciesInner.Tests.ps1
 tests/Model/SourceSchedule.Tests.ps1
 tests/Model/SourceSchemasInner.Tests.ps1
 tests/Model/SourceSubtype.Tests.ps1
+tests/Model/SourceSubtypeWithSource.Tests.ps1
+tests/Model/SourceSubtypeWithSourceSource.Tests.ps1
 tests/Model/SourceSyncJob.Tests.ps1
 tests/Model/SourceSyncPayload.Tests.ps1
 tests/Model/SourceUpdated.Tests.ps1

@@ -26,7 +26,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-AccountDeleteAsyncResult
+AccountRequestAsyncResult
 #>
 function Remove-V2026AccountRequest {
     [CmdletBinding()]
@@ -90,7 +90,7 @@ function Remove-V2026AccountRequest {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "AccountDeleteAsyncResult" `
+                                -ReturnType "AccountRequestAsyncResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

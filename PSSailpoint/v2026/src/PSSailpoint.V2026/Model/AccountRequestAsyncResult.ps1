@@ -12,16 +12,16 @@ No summary available.
 
 .DESCRIPTION
 
-Asynchronous response containing a unique tracking ID for the account deletion request
+Asynchronous response containing a unique tracking ID for the account request
 
 .PARAMETER AccountRequestId
-Id of the deletion request
+Id of the account request
 .OUTPUTS
 
-AccountDeleteAsyncResult<PSCustomObject>
+AccountRequestAsyncResult<PSCustomObject>
 #>
 
-function Initialize-V2026AccountDeleteAsyncResult {
+function Initialize-V2026AccountRequestAsyncResult {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-V2026AccountDeleteAsyncResult {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026AccountDeleteAsyncResult' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026AccountRequestAsyncResult' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AccountRequestId) {
@@ -49,11 +49,11 @@ function Initialize-V2026AccountDeleteAsyncResult {
 <#
 .SYNOPSIS
 
-Convert from JSON to AccountDeleteAsyncResult<PSCustomObject>
+Convert from JSON to AccountRequestAsyncResult<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to AccountDeleteAsyncResult<PSCustomObject>
+Convert from JSON to AccountRequestAsyncResult<PSCustomObject>
 
 .PARAMETER Json
 
@@ -61,21 +61,21 @@ Json object
 
 .OUTPUTS
 
-AccountDeleteAsyncResult<PSCustomObject>
+AccountRequestAsyncResult<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToAccountDeleteAsyncResult {
+function ConvertFrom-V2026JsonToAccountRequestAsyncResult {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026AccountDeleteAsyncResult' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026AccountRequestAsyncResult' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026AccountDeleteAsyncResult
+        # check if Json contains properties not defined in V2026AccountRequestAsyncResult
         $AllProperties = ("accountRequestId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

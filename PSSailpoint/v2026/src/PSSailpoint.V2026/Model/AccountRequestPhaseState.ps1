@@ -28,5 +28,7 @@ enum AccountRequestPhaseState {
     PASSED
     # enum value: "FAILED"
     FAILED
+    # enum value: "NOT_STARTED"
+    NOT_STARTED
 }
 

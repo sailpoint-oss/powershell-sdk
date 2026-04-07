@@ -143,7 +143,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 None
 #>
-function Remove-V2026MachineAccountSubtype {
+function Remove-V2026MachineAccountSubtypeByTechnicalName {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -160,7 +160,7 @@ function Remove-V2026MachineAccountSubtype {
     )
 
     Process {
-        'Calling method: Remove-V2026MachineAccountSubtype' | Write-Debug
+        'Calling method: Remove-V2026MachineAccountSubtypeByTechnicalName' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -177,16 +177,16 @@ function Remove-V2026MachineAccountSubtype {
 
         $LocalVarUri = '/sources/{sourceId}/subtypes/{technicalName}'
         if (!$SourceId) {
-            throw "Error! The required parameter `SourceId` missing when calling deleteMachineAccountSubtype."
+            throw "Error! The required parameter `SourceId` missing when calling deleteMachineAccountSubtypeByTechnicalName."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
         if (!$TechnicalName) {
-            throw "Error! The required parameter `TechnicalName` missing when calling deleteMachineAccountSubtype."
+            throw "Error! The required parameter `TechnicalName` missing when calling deleteMachineAccountSubtypeByTechnicalName."
         }
         $LocalVarUri = $LocalVarUri.replace('{technicalName}', [System.Web.HTTPUtility]::UrlEncode($TechnicalName))
 
         if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteMachineAccountSubtype."
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteMachineAccountSubtypeByTechnicalName."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
@@ -305,7 +305,7 @@ Machine Subtype Approval Config
 
 .DESCRIPTION
 
-This endpoint retrieves the approval configuration for machine account deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account deletion.
+This endpoint retrieves the approval configuration for machine account creation and deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account creation and deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for creating and deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account creation and deletion.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -319,9 +319,9 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-MachineAccountSubTypeConfigDto
+MachineAccountSubtypeConfigDto
 #>
-function Get-V2026MachineAccountDeletionSubTypeApprovalConfig {
+function Get-V2026MachineAccountSubtypeApprovalConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -335,7 +335,7 @@ function Get-V2026MachineAccountDeletionSubTypeApprovalConfig {
     )
 
     Process {
-        'Calling method: Get-V2026MachineAccountDeletionSubTypeApprovalConfig' | Write-Debug
+        'Calling method: Get-V2026MachineAccountSubtypeApprovalConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -352,12 +352,12 @@ function Get-V2026MachineAccountDeletionSubTypeApprovalConfig {
 
         $LocalVarUri = '/source-subtypes/{subtypeId}/machine-config'
         if (!$SubtypeId) {
-            throw "Error! The required parameter `SubtypeId` missing when calling getMachineAccountDeletionSubTypeApprovalConfig."
+            throw "Error! The required parameter `SubtypeId` missing when calling getMachineAccountSubtypeApprovalConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{subtypeId}', [System.Web.HTTPUtility]::UrlEncode($SubtypeId))
 
         if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getMachineAccountDeletionSubTypeApprovalConfig."
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getMachineAccountSubtypeApprovalConfig."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
@@ -372,7 +372,7 @@ function Get-V2026MachineAccountDeletionSubTypeApprovalConfig {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "MachineAccountSubTypeConfigDto" `
+                                -ReturnType "MachineAccountSubtypeConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -829,6 +829,108 @@ function Get-V2026MachineAccounts {
 <#
 .SYNOPSIS
 
+Bulk Retrieve of Source Subtypes
+
+.DESCRIPTION
+
+This endpoint retrieves the subtypes for given subtypeIds.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER RequestBody
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+SourceSubtypeWithSource[]
+#>
+function Invoke-V2026LoadBulkSourceSubtypes {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String[]]
+        ${RequestBody},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Invoke-V2026LoadBulkSourceSubtypes' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/source-subtypes/bulk-retrieve'
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling loadBulkSourceSubtypes."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if (!$RequestBody) {
+            throw "Error! The required parameter `RequestBody` missing when calling loadBulkSourceSubtypes."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
+            $LocalVarBodyParameter = $RequestBody | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $RequestBody | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "SourceSubtypeWithSource[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Patch subtype
 
 .DESCRIPTION
@@ -855,7 +957,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 SourceSubtype
 #>
-function Update-V2026MachineAccountSubtype {
+function Update-V2026MachineAccountSubtypeByTechnicalName {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -875,7 +977,7 @@ function Update-V2026MachineAccountSubtype {
     )
 
     Process {
-        'Calling method: Update-V2026MachineAccountSubtype' | Write-Debug
+        'Calling method: Update-V2026MachineAccountSubtypeByTechnicalName' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -895,21 +997,21 @@ function Update-V2026MachineAccountSubtype {
 
         $LocalVarUri = '/sources/{sourceId}/subtypes/{technicalName}'
         if (!$SourceId) {
-            throw "Error! The required parameter `SourceId` missing when calling patchMachineAccountSubtype."
+            throw "Error! The required parameter `SourceId` missing when calling patchMachineAccountSubtypeByTechnicalName."
         }
         $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
         if (!$TechnicalName) {
-            throw "Error! The required parameter `TechnicalName` missing when calling patchMachineAccountSubtype."
+            throw "Error! The required parameter `TechnicalName` missing when calling patchMachineAccountSubtypeByTechnicalName."
         }
         $LocalVarUri = $LocalVarUri.replace('{technicalName}', [System.Web.HTTPUtility]::UrlEncode($TechnicalName))
 
         if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchMachineAccountSubtype."
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchMachineAccountSubtypeByTechnicalName."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$RequestBody) {
-            throw "Error! The required parameter `RequestBody` missing when calling patchMachineAccountSubtype."
+            throw "Error! The required parameter `RequestBody` missing when calling patchMachineAccountSubtypeByTechnicalName."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($RequestBody -is [array])) {
@@ -1067,7 +1169,7 @@ Machine Subtype Approval Config
 
 .DESCRIPTION
 
-Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for deleting machine accounts of a particular subtype.
+Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account creation and deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for creating and deleting machine accounts of a particular subtype.
 
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
@@ -1084,9 +1186,9 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-MachineAccountSubTypeConfigDto
+MachineAccountSubtypeConfigDto
 #>
-function Update-V2026MachineAccountDeletionBySubTypeApprovalConfig {
+function Update-V2026MachineAccountSubtypeApprovalConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
@@ -1103,7 +1205,7 @@ function Update-V2026MachineAccountDeletionBySubTypeApprovalConfig {
     )
 
     Process {
-        'Calling method: Update-V2026MachineAccountDeletionBySubTypeApprovalConfig' | Write-Debug
+        'Calling method: Update-V2026MachineAccountSubtypeApprovalConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $LocalVarAccepts = @()
@@ -1123,17 +1225,17 @@ function Update-V2026MachineAccountDeletionBySubTypeApprovalConfig {
 
         $LocalVarUri = '/source-subtypes/{subtypeId}/machine-config'
         if (!$SubtypeId) {
-            throw "Error! The required parameter `SubtypeId` missing when calling updateMachineAccountDeletionBySubTypeApprovalConfig."
+            throw "Error! The required parameter `SubtypeId` missing when calling updateMachineAccountSubtypeApprovalConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{subtypeId}', [System.Web.HTTPUtility]::UrlEncode($SubtypeId))
 
         if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling updateMachineAccountDeletionBySubTypeApprovalConfig."
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling updateMachineAccountSubtypeApprovalConfig."
         }
         $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$JsonPatchOperation) {
-            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateMachineAccountDeletionBySubTypeApprovalConfig."
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling updateMachineAccountSubtypeApprovalConfig."
         }
 
         if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
@@ -1160,7 +1262,7 @@ function Update-V2026MachineAccountDeletionBySubTypeApprovalConfig {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "MachineAccountSubTypeConfigDto" `
+                                -ReturnType "MachineAccountSubtypeConfigDto" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

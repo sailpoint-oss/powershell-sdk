@@ -81,7 +81,20 @@ jobs:
           git commit -m "Update PowerShell SDK docs: ${{ github.run_id }}"
           git remote set-url origin https://${{ secrets.DEVREL_SERVICE_TOKEN }}@github.com/sailpoint-oss/developer.sailpoint.com.git
           
-          git push origin main
+          # Rebase on latest remote main before pushing to avoid
+          # non-fast-forward failures when another workflow has pushed
+          # to developer.sailpoint.com in the meantime.
+          MAX_RETRIES=3
+          for i in $(seq 1 $MAX_RETRIES); do
+            git fetch origin main
+            git rebase origin/main && git push origin main && break
+            echo "Push attempt $i failed, retrying..."
+            if [ "$i" -eq "$MAX_RETRIES" ]; then
+              echo "Failed after $MAX_RETRIES attempts"
+              exit 1
+            fi
+            sleep 5
+          done
 
   publish-failure:
     name: Notify on failure

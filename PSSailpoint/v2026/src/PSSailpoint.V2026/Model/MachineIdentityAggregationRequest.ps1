@@ -16,6 +16,8 @@ No description available.
 
 .PARAMETER DatasetIds
 List of dataset Ids to aggregate machine identities
+.PARAMETER DisableOptimization
+Flag to disable optimization for the aggregation. Defaults to false when not provided. When set to true, it disables aggregation optimizations and may increase processing time.
 .OUTPUTS
 
 MachineIdentityAggregationRequest<PSCustomObject>
@@ -26,7 +28,10 @@ function Initialize-V2026MachineIdentityAggregationRequest {
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${DatasetIds}
+        ${DatasetIds},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${DisableOptimization} = $false
     )
 
     Process {
@@ -40,6 +45,7 @@ function Initialize-V2026MachineIdentityAggregationRequest {
 
         $PSO = [PSCustomObject]@{
             "datasetIds" = ${DatasetIds}
+            "disableOptimization" = ${DisableOptimization}
         }
 
         return $PSO
@@ -76,7 +82,7 @@ function ConvertFrom-V2026JsonToMachineIdentityAggregationRequest {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026MachineIdentityAggregationRequest
-        $AllProperties = ("datasetIds")
+        $AllProperties = ("datasetIds", "disableOptimization")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -93,8 +99,15 @@ function ConvertFrom-V2026JsonToMachineIdentityAggregationRequest {
             $DatasetIds = $JsonParameters.PSobject.Properties["datasetIds"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "disableOptimization"))) { #optional property not found
+            $DisableOptimization = $null
+        } else {
+            $DisableOptimization = $JsonParameters.PSobject.Properties["disableOptimization"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "datasetIds" = ${DatasetIds}
+            "disableOptimization" = ${DisableOptimization}
         }
 
         return $PSO

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026MachineIdentityAggregationRequest'
     Context 'V2026MachineIdentityAggregationRequest' {
         It 'Initialize-V2026MachineIdentityAggregationRequest' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026MachineIdentityAggregationRequest -DatasetIds "TEST_VALUE"
+            #$NewObject = Initialize-V2026MachineIdentityAggregationRequest -DatasetIds "TEST_VALUE" -DisableOptimization "TEST_VALUE"
             #$NewObject | Should -BeOfType MachineIdentityAggregationRequest
             #$NewObject.property | Should -Be 0
         }

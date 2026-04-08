@@ -366,7 +366,8 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $MachineIdentityAggregationRequest = @"{
-  "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ]
+  "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ],
+  "disableOptimization" : false
 }"@
 
 # Start machine identity aggregation

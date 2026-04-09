@@ -3,6 +3,7 @@ id: methods
 title: Methods
 pagination_label: Methods
 sidebar_label: Methods
+sidebar_key: v2026-powershell-methods
 sidebar_position: 3
 sidebar_class_name: methods
 keywords: ['powershell', 'PowerShell', 'sdk', 'methods'] 

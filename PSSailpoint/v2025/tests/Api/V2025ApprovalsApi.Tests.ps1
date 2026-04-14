@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025ApprovalsApi' {
 
     Context 'Get-V2025Approvals' {
         It 'Test Get-V2025Approvals' {
-            #$TestResult = Get-V2025Approvals -Mine "TEST_VALUE" -RequesterId "TEST_VALUE" -RequesteeId "TEST_VALUE" -ApproverId "TEST_VALUE" -Count "TEST_VALUE" -CountOnly "TEST_VALUE" -IncludeComments "TEST_VALUE" -IncludeApprovers "TEST_VALUE" -IncludeBatchInfo "TEST_VALUE" -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult = Get-V2025Approvals -Mine "TEST_VALUE" -RequesterId "TEST_VALUE" -RequesteeId "TEST_VALUE" -ApproverId "TEST_VALUE" -Count "TEST_VALUE" -CountOnly "TEST_VALUE" -IncludeComments "TEST_VALUE" -IncludeApprovers "TEST_VALUE" -IncludeReassignmentHistory "TEST_VALUE" -IncludeBatchInfo "TEST_VALUE" -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

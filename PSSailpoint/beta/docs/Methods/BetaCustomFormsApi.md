@@ -1080,6 +1080,8 @@ No parameters required.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Offset | **Int64** |   (optional) (default to 0) | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+  Query | Limit | **Int64** |   (optional) (default to 50) | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
 
 ### Return type
 [**FormInstanceResponse[]**](../models/form-instance-response)
@@ -1100,6 +1102,8 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+$Limit = 50 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 50)
 
 # List form instances by tenant.
 
@@ -1107,7 +1111,7 @@ try {
     Search-BetaFormInstancesByTenant 
     
     # Below is a request that includes all optional parameters
-    # Search-BetaFormInstancesByTenant  
+    # Search-BetaFormInstancesByTenant -Offset $Offset -Limit $Limit  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-BetaFormInstancesByTenant"
     Write-Host $_.ErrorDetails

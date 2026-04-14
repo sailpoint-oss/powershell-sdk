@@ -197,6 +197,7 @@ docs/ApprovalApprovalCriteriaRejection.md
 docs/ApprovalApproveRequest.md
 docs/ApprovalAttributesRequest.md
 docs/ApprovalBatch.md
+docs/ApprovalCancelRequest.md
 docs/ApprovalComment.md
 docs/ApprovalComment1.md
 docs/ApprovalComment2.md
@@ -1897,6 +1898,7 @@ src/PSSailpoint.V2026/Model/ApprovalApprovalCriteriaRejection.ps1
 src/PSSailpoint.V2026/Model/ApprovalApproveRequest.ps1
 src/PSSailpoint.V2026/Model/ApprovalAttributesRequest.ps1
 src/PSSailpoint.V2026/Model/ApprovalBatch.ps1
+src/PSSailpoint.V2026/Model/ApprovalCancelRequest.ps1
 src/PSSailpoint.V2026/Model/ApprovalComment.ps1
 src/PSSailpoint.V2026/Model/ApprovalComment1.ps1
 src/PSSailpoint.V2026/Model/ApprovalComment2.ps1
@@ -3390,6 +3392,7 @@ tests/Model/ApprovalApprovalCriteriaRejection.Tests.ps1
 tests/Model/ApprovalApproveRequest.Tests.ps1
 tests/Model/ApprovalAttributesRequest.Tests.ps1
 tests/Model/ApprovalBatch.Tests.ps1
+tests/Model/ApprovalCancelRequest.Tests.ps1
 tests/Model/ApprovalComment.Tests.ps1
 tests/Model/ApprovalComment1.Tests.ps1
 tests/Model/ApprovalComment2.Tests.ps1

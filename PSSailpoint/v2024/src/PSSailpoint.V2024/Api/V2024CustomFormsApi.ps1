@@ -1374,6 +1374,12 @@ List form instances by tenant.
 
 Returns a list of form instances for the tenant. Optionally filter by form definition ID.
 
+.PARAMETER Offset
+Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+
+.PARAMETER Limit
+Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+
 .PARAMETER Filters
 Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq*
 
@@ -1389,6 +1395,12 @@ function Search-V2024FormInstancesByTenant {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int64]]
+        ${Offset},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int64]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
         [Switch]
@@ -1412,6 +1424,14 @@ function Search-V2024FormInstancesByTenant {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/form-instances'
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
 
         if ($Filters) {
             $LocalVarQueryParameters['filters'] = $Filters

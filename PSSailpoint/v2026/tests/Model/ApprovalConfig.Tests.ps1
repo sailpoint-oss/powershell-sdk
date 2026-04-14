@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026ApprovalConfig' {
     Context 'V2026ApprovalConfig' {
         It 'Initialize-V2026ApprovalConfig' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026ApprovalConfig -TenantId "TEST_VALUE" -Id "TEST_VALUE" -Scope "TEST_VALUE" -ReminderConfig "TEST_VALUE" -EscalationConfig "TEST_VALUE" -TimeoutConfig "TEST_VALUE" -CronTimezone "TEST_VALUE" -SerialChain "TEST_VALUE" -RequiresComment "TEST_VALUE" -FallbackApprover "TEST_VALUE" -AutoApprove "TEST_VALUE"
+            #$NewObject = Initialize-V2026ApprovalConfig -ReminderConfig "TEST_VALUE" -EscalationConfig "TEST_VALUE" -TimeoutConfig "TEST_VALUE" -CronTimezone "TEST_VALUE" -SerialChain "TEST_VALUE" -RequiresComment "TEST_VALUE" -FallbackApprover "TEST_VALUE" -MachineIdentityManagerAssignment "TEST_VALUE" -CircumventApprovalProcess "TEST_VALUE" -AutoApprove "TEST_VALUE"
             #$NewObject | Should -BeOfType ApprovalConfig
             #$NewObject.property | Should -Be 0
         }

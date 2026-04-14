@@ -14,12 +14,6 @@ No summary available.
 
 Approval config Object
 
-.PARAMETER TenantId
-Tenant ID of the approval configuration.
-.PARAMETER Id
-The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-.PARAMETER Scope
-The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 .PARAMETER ReminderConfig
 No description available.
 .PARAMETER EscalationConfig
@@ -34,6 +28,10 @@ If the approval request has an approvalCriteria of SERIAL this chain will be use
 Determines whether a comment is required when approving or rejecting the approval request.
 .PARAMETER FallbackApprover
 Configuration for fallback approver. Used if the user cannot be found for whatever reason and escalation config does not exist.
+.PARAMETER MachineIdentityManagerAssignment
+Specifies how to treat the identity type ""MANAGER_OF"" when the requestee is a machine identity.
+.PARAMETER CircumventApprovalProcess
+When true, all approvals will be created with the status ""PASSED"".
 .PARAMETER AutoApprove
 OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead. DIRECT will cause approval requests to be auto-approved when assigned directly and only to the requester. INDIRECT will auto-approve when the requester appears anywhere in the list of approvers, including in a governance group. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
 .OUTPUTS
@@ -44,15 +42,6 @@ ApprovalConfig<PSCustomObject>
 function Initialize-V2025ApprovalConfig {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${TenantId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Id},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${Scope},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${ReminderConfig},
@@ -76,6 +65,13 @@ function Initialize-V2025ApprovalConfig {
         [PSCustomObject]
         ${FallbackApprover},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("MANAGER_OF_REQUESTER", "MACHINE_IDENTITY_OWNER", "MANAGER_OF_MACHINE_IDENTITY_OWNER", "REQUESTED_TARGET_OWNER", "MANAGER_OF_REQUESTED_TARGET_OWNER", "ACCOUNT_OWNER", "MANAGER_OF_ACCOUNT_OWNER")]
+        [String]
+        ${MachineIdentityManagerAssignment} = "MACHINE_IDENTITY_OWNER",
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${CircumventApprovalProcess} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("OFF", "DIRECT", "INDIRECT")]
         [String]
         ${AutoApprove}
@@ -87,9 +83,6 @@ function Initialize-V2025ApprovalConfig {
 
 
         $PSO = [PSCustomObject]@{
-            "tenantId" = ${TenantId}
-            "id" = ${Id}
-            "scope" = ${Scope}
             "reminderConfig" = ${ReminderConfig}
             "escalationConfig" = ${EscalationConfig}
             "timeoutConfig" = ${TimeoutConfig}
@@ -97,6 +90,8 @@ function Initialize-V2025ApprovalConfig {
             "serialChain" = ${SerialChain}
             "requiresComment" = ${RequiresComment}
             "fallbackApprover" = ${FallbackApprover}
+            "machineIdentityManagerAssignment" = ${MachineIdentityManagerAssignment}
+            "circumventApprovalProcess" = ${CircumventApprovalProcess}
             "autoApprove" = ${AutoApprove}
         }
 
@@ -134,29 +129,11 @@ function ConvertFrom-V2025JsonToApprovalConfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025ApprovalConfig
-        $AllProperties = ("tenantId", "id", "scope", "reminderConfig", "escalationConfig", "timeoutConfig", "cronTimezone", "serialChain", "requiresComment", "fallbackApprover", "autoApprove")
+        $AllProperties = ("reminderConfig", "escalationConfig", "timeoutConfig", "cronTimezone", "serialChain", "requiresComment", "fallbackApprover", "machineIdentityManagerAssignment", "circumventApprovalProcess", "autoApprove")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "tenantId"))) { #optional property not found
-            $TenantId = $null
-        } else {
-            $TenantId = $JsonParameters.PSobject.Properties["tenantId"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "id"))) { #optional property not found
-            $Id = $null
-        } else {
-            $Id = $JsonParameters.PSobject.Properties["id"].value
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "scope"))) { #optional property not found
-            $Scope = $null
-        } else {
-            $Scope = $JsonParameters.PSobject.Properties["scope"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "reminderConfig"))) { #optional property not found
@@ -201,6 +178,18 @@ function ConvertFrom-V2025JsonToApprovalConfig {
             $FallbackApprover = $JsonParameters.PSobject.Properties["fallbackApprover"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "machineIdentityManagerAssignment"))) { #optional property not found
+            $MachineIdentityManagerAssignment = $null
+        } else {
+            $MachineIdentityManagerAssignment = $JsonParameters.PSobject.Properties["machineIdentityManagerAssignment"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "circumventApprovalProcess"))) { #optional property not found
+            $CircumventApprovalProcess = $null
+        } else {
+            $CircumventApprovalProcess = $JsonParameters.PSobject.Properties["circumventApprovalProcess"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "autoApprove"))) { #optional property not found
             $AutoApprove = $null
         } else {
@@ -208,9 +197,6 @@ function ConvertFrom-V2025JsonToApprovalConfig {
         }
 
         $PSO = [PSCustomObject]@{
-            "tenantId" = ${TenantId}
-            "id" = ${Id}
-            "scope" = ${Scope}
             "reminderConfig" = ${ReminderConfig}
             "escalationConfig" = ${EscalationConfig}
             "timeoutConfig" = ${TimeoutConfig}
@@ -218,6 +204,8 @@ function ConvertFrom-V2025JsonToApprovalConfig {
             "serialChain" = ${SerialChain}
             "requiresComment" = ${RequiresComment}
             "fallbackApprover" = ${FallbackApprover}
+            "machineIdentityManagerAssignment" = ${MachineIdentityManagerAssignment}
+            "circumventApprovalProcess" = ${CircumventApprovalProcess}
             "autoApprove" = ${AutoApprove}
         }
 

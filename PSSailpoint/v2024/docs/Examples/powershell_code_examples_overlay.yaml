@@ -5094,6 +5094,8 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/custom-forms#search-form-instances-by-tenant
       source: |
+        $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+        $Limit = 50 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 50)
         $Filters = "formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional)
         
         # List form instances by tenant.
@@ -5102,7 +5104,7 @@
             Search-V2024FormInstancesByTenant 
     
             # Below is a request that includes all optional parameters
-            # Search-V2024FormInstancesByTenant -Filters $Filters   
+            # Search-V2024FormInstancesByTenant -Offset $Offset -Limit $Limit -Filters $Filters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024FormInstancesByTenant"
             Write-Host $_.ErrorDetails

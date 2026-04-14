@@ -12,10 +12,10 @@ Post Approvals Approve
 
 .DESCRIPTION
 
-Currently this endpoint only supports Entitlement Description Approvals. Approves a specified approval request on behalf of the caller. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. The approval request must be in a state that allows it to be approved. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
+Approves a specified approval request on behalf of the caller. The approval request must be in a state that allows it to be approved. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
 
 .PARAMETER Id
-Approval ID that correlates to an existing approval request that a user wants to approve
+Approval ID that correlates to an existing approval request that a user wants to approve.
 
 .PARAMETER ApprovalApproveRequest
 No description available.
@@ -198,7 +198,7 @@ Post Bulk Cancel Approvals
 
 .DESCRIPTION
 
-Bulk cancels specified approval requests on behalf of the caller
+Bulk cancels specified approval requests on behalf of the caller.  Note: To bulk cancel access request approvals, please use the following: /access-requests/bulk-cancel
 
 .PARAMETER BulkCancelRequestDTO
 No description available.
@@ -291,10 +291,10 @@ Delete Approval Configuration
 Deletes an approval configuration. Configurations at the APPROVAL_REQUEST scope cannot be deleted.
 
 .PARAMETER Id
-The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 
 .PARAMETER Scope
-The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 
 .PARAMETER WithHttpInfo
 
@@ -373,7 +373,7 @@ Get an approval
 
 .DESCRIPTION
 
-Currently this endpoint only supports Entitlement Description Approvals. Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
+Fetches an approval request by it's approval ID. For lookups by access request ID please use the following: /generic-approvals?filters=referenceType+eq+""accessRequestId""+and+referenceId+eq+""12345678901234567890123456789012""
 
 .PARAMETER Id
 ID of the approval that is to be returned
@@ -447,7 +447,7 @@ Get approvals
 
 .DESCRIPTION
 
-Currently this endpoint only supports Entitlement Description Approvals. Get a list of approvals. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals.  Absence of all query parameters for non admins will will default to mine=true. Admin will default to mine=false. Absence of all query parameters for admins will return all approvals in the org.
+Gets a list of approvals. For lookups by access request ID please use the following: /generic-approvals?filters=referenceType+eq+""accessRequestId""+and+referenceId+eq+""12345678901234567890123456789012"" Absence of all query parameters for non admins will will default to mine=true. Admin will default to mine=false. Absence of all query parameters for admins will return all approvals in the org.
 
 .PARAMETER Mine
 Returns the list of approvals for the current caller. Defaults to false if admin, true otherwise.
@@ -472,6 +472,9 @@ If set to true in the query, the approval requests returned will include comment
 
 .PARAMETER IncludeApprovers
 If set to true in the query, the approval requests returned will include approvers.
+
+.PARAMETER IncludeReassignmentHistory
+If set to true in the query, the approval requests returned will include reassignment history.
 
 .PARAMETER IncludeBatchInfo
 If set to true in the query, the approval requests returned will include batch information.
@@ -522,14 +525,17 @@ function Get-V2025Approvals {
         ${IncludeApprovers},
         [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
-        ${IncludeBatchInfo},
+        ${IncludeReassignmentHistory},
         [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${IncludeBatchInfo},
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
         [Switch]
@@ -586,6 +592,10 @@ function Get-V2025Approvals {
             $LocalVarQueryParameters['include-approvers'] = $IncludeApprovers
         }
 
+        if ($IncludeReassignmentHistory) {
+            $LocalVarQueryParameters['include-reassignment-history'] = $IncludeReassignmentHistory
+        }
+
         if ($IncludeBatchInfo) {
             $LocalVarQueryParameters['include-batch-info'] = $IncludeBatchInfo
         }
@@ -634,7 +644,7 @@ Get Approval Config
 Retrieves a singular approval configuration that matches the given ID
 
 .PARAMETER Id
-The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", (tenantID)]
+The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", ""ACCOUNT_CREATE_APPROVAL_REQUEST"", ""ACCOUNT_DELETE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST"", (tenantID)]
 
 .PARAMETER WithHttpInfo
 
@@ -798,10 +808,10 @@ Put Approval Config
 Upserts a singular approval configuration that matches the given configID and configScope.  For example to update the approval configurations for all Access Request Approvals please use: '/generic-approvals/config/ACCESS_REQUEST_APPROVAL/APPROVAL_TYPE'
 
 .PARAMETER Id
-The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 
 .PARAMETER Scope
-The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 
 .PARAMETER ApprovalConfig
 No description available.
@@ -906,7 +916,7 @@ Post Approvals Reject
 
 .DESCRIPTION
 
-Currently this endpoint only supports Entitlement Description Approvals. Rejects a specified approval request on behalf of the caller. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
+Rejects a specified approval request on behalf of the caller. This endpoint does not support access request IDs. If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user and approved.
 
 .PARAMETER Id
 Approval ID that correlates to an existing approval request that a user wants to reject.
@@ -1092,7 +1102,7 @@ Post Approvals Attributes
 
 .DESCRIPTION
 
-Currently this endpoint only supports Entitlement Description Approvals. Allows for the edit/addition/removal of the key/value pair additional attributes map for an existing approval request.
+Allows for the edit/addition/removal of the key/value pair additional attributes map for an existing approval request. This endpoint does not support access request IDs.
 
 .PARAMETER Id
 Approval ID that correlates to an existing approval request that a user wants to change the attributes of.
@@ -1192,7 +1202,7 @@ Post Approvals Comments
 
 .DESCRIPTION
 
-Currently this endpoint only supports Entitlement Description Approvals. Adds comments to a specified approval request.
+Adds comments to a specified approval request. This endpoint does not support access request IDs.
 
 .PARAMETER Id
 Approval ID that correlates to an existing approval request that a user wants to add a comment to.
@@ -1292,7 +1302,7 @@ Post Approvals Reassign
 
 .DESCRIPTION
 
-Currently this endpoint only supports Entitlement Description Approvals. Reassigns an approval request to another identity resulting in that identity being added as an authorized approver.
+Reassigns an approval request to another identity resulting in that identity being added as an authorized approver. This endpoint does not support access request IDs.
 
 .PARAMETER Id
 Approval ID that correlates to an existing approval request that a user wants to reassign.

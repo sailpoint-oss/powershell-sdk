@@ -2051,7 +2051,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/approvals#approve-approval
       source: |
-        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to approve
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to approve.
         $ApprovalApproveRequest = @"
         {
           "comment" : "comment",
@@ -2128,14 +2128,38 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2026Approval"
             Write-Host $_.ErrorDetails
         }
+- path: /generic-approvals/{id}/cancel
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/approvals#cancel-approval-by-id
+      source: |
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval request to cancel.
+        $ApprovalCancelRequest = @"
+        {
+          "comment" : "Cancelled by administrator"
+        }
+        "@
+        
+        # Post Approval Cancel
+        
+        try {
+            Suspend-V2026ApprovalById -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Suspend-V2026ApprovalById -Id $Id -ApprovalCancelRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2026ApprovalById"
+            Write-Host $_.ErrorDetails
+        }
 - path: /generic-approvals/config/{id}/{scope}
   method: DELETE
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/approvals#delete-approval-config-request
       source: |
-        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-        $Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+        $Id = "ACCESS_REQUEST_APPROVAL" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+        $Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
         
         # Delete Approval Configuration
         
@@ -2181,8 +2205,9 @@
         $CountOnly = $true # Boolean | Adds X-Total-Count to the header to give the amount of total approvals returned from the query. Only returns the count and no approval objects. (optional) (default to $false)
         $IncludeComments = $true # Boolean | If set to true in the query, the approval requests returned will include comments. (optional) (default to $false)
         $IncludeApprovers = $true # Boolean | If set to true in the query, the approval requests returned will include approvers. (optional) (default to $false)
+        $IncludeReassignmentHistory = $true # Boolean | If set to true in the query, the approval requests returned will include reassignment history. (optional) (default to $false)
         $IncludeBatchInfo = $true # Boolean | If set to true in the query, the approval requests returned will include batch information. (optional) (default to $false)
-        $Filters = "filters=status eq PENDING" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **approvalId**: *eq, ne, in, co, sw*  **tenantId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le* (optional)
+        $Filters = "filters=status eq "PENDING" and type eq "ACCESS_REQUEST_APPROVAL"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **approvalId**: *eq, ne, in, co, sw*  **tenantId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le* (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
@@ -2192,7 +2217,7 @@
             Get-V2026Approvals 
     
             # Below is a request that includes all optional parameters
-            # Get-V2026Approvals -Mine $Mine -RequesterId $RequesterId -RequesteeId $RequesteeId -ApproverId $ApproverId -Count $Count -CountOnly $CountOnly -IncludeComments $IncludeComments -IncludeApprovers $IncludeApprovers -IncludeBatchInfo $IncludeBatchInfo -Filters $Filters -Limit $Limit -Offset $Offset   
+            # Get-V2026Approvals -Mine $Mine -RequesterId $RequesterId -RequesteeId $RequesteeId -ApproverId $ApproverId -Count $Count -CountOnly $CountOnly -IncludeComments $IncludeComments -IncludeApprovers $IncludeApprovers -IncludeReassignmentHistory $IncludeReassignmentHistory -IncludeBatchInfo $IncludeBatchInfo -Filters $Filters -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026Approvals"
             Write-Host $_.ErrorDetails
@@ -2203,7 +2228,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/approvals#get-approvals-config
       source: |
-        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", (tenantID)]
+        $Id = "12345678901234567890123456789012" # String | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", ""ACCOUNT_CREATE_APPROVAL_REQUEST"", ""ACCOUNT_DELETE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST"", (tenantID)]
         
         # Get Approval Config
         
@@ -2249,8 +2274,8 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/approvals#put-approvals-config
       source: |
-        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-        $Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+        $Id = "ACCESS_REQUEST_APPROVAL" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+        $Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
         $ApprovalConfig = @"
         {
           "timeoutConfig" : {
@@ -2296,8 +2321,7 @@
             "maxReminders" : 5,
             "enabled" : false
           },
-          "scope" : "DOMAIN_OBJECT",
-          "tenantId" : "d3c10266-1a31-4acc-b01e-44a3d1c56615",
+          "circumventApprovalProcess" : false,
           "escalationConfig" : {
             "escalationCronSchedule" : "*/5 * * * *",
             "escalationChain" : [ {
@@ -2314,7 +2338,6 @@
             "daysUntilFirstEscalation" : 2,
             "enabled" : true
           },
-          "id" : "5804e7d6-e04b-400f-9fb8-dff894419a2f",
           "serialChain" : [ {
             "tier" : 1,
             "chainId" : "23dc206e-2a9e-4f98-93db-8d6e342cca18",
@@ -2326,7 +2349,8 @@
             "identityType" : "IDENTITY",
             "identityId" : "2c9180858090ea8801809a0465e829da"
           } ],
-          "autoApprove" : "false"
+          "machineIdentityManagerAssignment" : "MACHINE_IDENTITY_OWNER",
+          "autoApprove" : "OFF"
         }
         "@
         
@@ -5845,6 +5869,8 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/custom-forms#search-form-instances-by-tenant
       source: |
+        $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+        $Limit = 50 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 50)
         $Filters = "formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional)
         
         # List form instances by tenant.
@@ -5853,7 +5879,7 @@
             Search-V2026FormInstancesByTenant 
     
             # Below is a request that includes all optional parameters
-            # Search-V2026FormInstancesByTenant -Filters $Filters   
+            # Search-V2026FormInstancesByTenant -Offset $Offset -Limit $Limit -Filters $Filters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2026FormInstancesByTenant"
             Write-Host $_.ErrorDetails
@@ -20689,15 +20715,14 @@
       label: SDK_tools/sdk/powershell/v2026/methods/task-management#get-task-status
       source: |
         $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get task status by id
         
         try {
-            Get-V2026TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2026TaskStatus -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2026TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2026TaskStatus -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026TaskStatus"
             Write-Host $_.ErrorDetails
@@ -20708,7 +20733,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/task-management#get-task-status-list
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -20718,10 +20742,10 @@
         # Retrieve task status list
         
         try {
-            Get-V2026TaskStatusList -XSailPointExperimental $XSailPointExperimental 
+            Get-V2026TaskStatusList 
     
             # Below is a request that includes all optional parameters
-            # Get-V2026TaskStatusList -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+            # Get-V2026TaskStatusList -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026TaskStatusList"
             Write-Host $_.ErrorDetails
@@ -20733,7 +20757,6 @@
       label: SDK_tools/sdk/powershell/v2026/methods/task-management#update-task-status
       source: |
         $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",
@@ -20745,10 +20768,10 @@
         
         try {
             $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2026TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+            Update-V2026TaskStatus -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2026TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+            # Update-V2026TaskStatus -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026TaskStatus"
             Write-Host $_.ErrorDetails

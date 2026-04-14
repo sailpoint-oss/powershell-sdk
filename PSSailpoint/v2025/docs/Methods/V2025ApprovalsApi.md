@@ -37,8 +37,7 @@ Method | HTTP request | Description
 
 
 ## approve-approval
-Currently this endpoint only supports Entitlement Description Approvals.
-Approves a specified approval request on behalf of the caller. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. The approval request must be in a state that allows it to be approved.
+Approves a specified approval request on behalf of the caller. The approval request must be in a state that allows it to be approved. This endpoint does not support access request IDs.
 If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-approval)
@@ -46,7 +45,7 @@ If called by an admin and the admin is not listed as an approver, the approval r
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | Approval ID that correlates to an existing approval request that a user wants to approve
+Path   | Id | **String** | True  | Approval ID that correlates to an existing approval request that a user wants to approve.
  Body  | ApprovalApproveRequest | [**ApprovalApproveRequest**](../models/approval-approve-request) |   (optional) | 
 
 ### Return type
@@ -69,7 +68,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to approve
+$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to approve.
 $ApprovalApproveRequest = @"{
   "comment" : "comment",
   "additionalAttributes" : {
@@ -148,7 +147,9 @@ try {
 [[Back to top]](#) 
 
 ## cancel-approval
-Bulk cancels specified approval requests on behalf of the caller
+Bulk cancels specified approval requests on behalf of the caller. 
+Note: To bulk cancel access request approvals, please use the following:
+/access-requests/bulk-cancel
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/cancel-approval)
 
@@ -206,8 +207,8 @@ Configurations at the APPROVAL_REQUEST scope cannot be deleted.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-Path   | Scope | **String** | True  | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+Path   | Id | **String** | True  | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+Path   | Scope | **String** | True  | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 
 ### Return type
  (empty response body)
@@ -229,8 +230,8 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-$Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+$Id = "ACCESS_REQUEST_APPROVAL" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+$Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 
 # Delete Approval Configuration
 
@@ -247,8 +248,8 @@ try {
 [[Back to top]](#) 
 
 ## get-approval
-Currently this endpoint only supports Entitlement Description Approvals.
-Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
+Fetches an approval request by it's approval ID. For lookups by access request ID please use the following:
+/generic-approvals?filters=referenceType+eq+"accessRequestId"+and+referenceId+eq+"12345678901234567890123456789012"
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-approval)
 
@@ -293,8 +294,8 @@ try {
 [[Back to top]](#) 
 
 ## get-approvals
-Currently this endpoint only supports Entitlement Description Approvals.
-Get a list of approvals. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. 
+Gets a list of approvals. For lookups by access request ID please use the following:
+/generic-approvals?filters=referenceType+eq+"accessRequestId"+and+referenceId+eq+"12345678901234567890123456789012"
 Absence of all query parameters for non admins will will default to mine=true. Admin will default to mine=false.
 Absence of all query parameters for admins will return all approvals in the org.
 
@@ -311,6 +312,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | CountOnly | **Boolean** |   (optional) (default to $false) | Adds X-Total-Count to the header to give the amount of total approvals returned from the query. Only returns the count and no approval objects.
   Query | IncludeComments | **Boolean** |   (optional) (default to $false) | If set to true in the query, the approval requests returned will include comments.
   Query | IncludeApprovers | **Boolean** |   (optional) (default to $false) | If set to true in the query, the approval requests returned will include approvers.
+  Query | IncludeReassignmentHistory | **Boolean** |   (optional) (default to $false) | If set to true in the query, the approval requests returned will include reassignment history.
   Query | IncludeBatchInfo | **Boolean** |   (optional) (default to $false) | If set to true in the query, the approval requests returned will include batch information.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **approvalId**: *eq, ne, in, co, sw*  **tenantId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -343,8 +345,9 @@ $Count = $true # Boolean | Adds X-Total-Count to the header to give the amount o
 $CountOnly = $true # Boolean | Adds X-Total-Count to the header to give the amount of total approvals returned from the query. Only returns the count and no approval objects. (optional) (default to $false)
 $IncludeComments = $true # Boolean | If set to true in the query, the approval requests returned will include comments. (optional) (default to $false)
 $IncludeApprovers = $true # Boolean | If set to true in the query, the approval requests returned will include approvers. (optional) (default to $false)
+$IncludeReassignmentHistory = $true # Boolean | If set to true in the query, the approval requests returned will include reassignment history. (optional) (default to $false)
 $IncludeBatchInfo = $true # Boolean | If set to true in the query, the approval requests returned will include batch information. (optional) (default to $false)
-$Filters = 'filters=status eq PENDING' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **approvalId**: *eq, ne, in, co, sw*  **tenantId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le* (optional)
+$Filters = 'filters=status eq "PENDING" and type eq "ACCESS_REQUEST_APPROVAL"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **approvalId**: *eq, ne, in, co, sw*  **tenantId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le* (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
@@ -354,7 +357,7 @@ try {
     Get-V2025Approvals 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025Approvals -Mine $Mine -RequesterId $RequesterId -RequesteeId $RequesteeId -ApproverId $ApproverId -Count $Count -CountOnly $CountOnly -IncludeComments $IncludeComments -IncludeApprovers $IncludeApprovers -IncludeBatchInfo $IncludeBatchInfo -Filters $Filters -Limit $Limit -Offset $Offset  
+    # Get-V2025Approvals -Mine $Mine -RequesterId $RequesterId -RequesteeId $RequesteeId -ApproverId $ApproverId -Count $Count -CountOnly $CountOnly -IncludeComments $IncludeComments -IncludeApprovers $IncludeApprovers -IncludeReassignmentHistory $IncludeReassignmentHistory -IncludeBatchInfo $IncludeBatchInfo -Filters $Filters -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Approvals"
     Write-Host $_.ErrorDetails
@@ -370,7 +373,7 @@ Retrieves a singular approval configuration that matches the given ID
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", (tenantID)]
+Path   | Id | **String** | True  | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", ""ACCOUNT_CREATE_APPROVAL_REQUEST"", ""ACCOUNT_DELETE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST"", (tenantID)]
 
 ### Return type
 [**ApprovalConfig**](../models/approval-config)
@@ -391,7 +394,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", (tenantID)]
+$Id = "12345678901234567890123456789012" # String | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", ""ACCOUNT_CREATE_APPROVAL_REQUEST"", ""ACCOUNT_DELETE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST"", (tenantID)]
 
 # Get Approval Config
 
@@ -468,8 +471,8 @@ For example to update the approval configurations for all Access Request Approva
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-Path   | Scope | **String** | True  | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+Path   | Id | **String** | True  | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+Path   | Scope | **String** | True  | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
  Body  | ApprovalConfig | [**ApprovalConfig**](../models/approval-config) | True  | 
 
 ### Return type
@@ -492,8 +495,8 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-$Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+$Id = "ACCESS_REQUEST_APPROVAL" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+$Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
 $ApprovalConfig = @"{
   "timeoutConfig" : {
     "daysUntilTimeout" : 2,
@@ -538,8 +541,7 @@ $ApprovalConfig = @"{
     "maxReminders" : 5,
     "enabled" : false
   },
-  "scope" : "DOMAIN_OBJECT",
-  "tenantId" : "d3c10266-1a31-4acc-b01e-44a3d1c56615",
+  "circumventApprovalProcess" : false,
   "escalationConfig" : {
     "escalationCronSchedule" : "*/5 * * * *",
     "escalationChain" : [ {
@@ -556,7 +558,6 @@ $ApprovalConfig = @"{
     "daysUntilFirstEscalation" : 2,
     "enabled" : true
   },
-  "id" : "5804e7d6-e04b-400f-9fb8-dff894419a2f",
   "serialChain" : [ {
     "tier" : 1,
     "chainId" : "23dc206e-2a9e-4f98-93db-8d6e342cca18",
@@ -568,7 +569,8 @@ $ApprovalConfig = @"{
     "identityType" : "IDENTITY",
     "identityId" : "2c9180858090ea8801809a0465e829da"
   } ],
-  "autoApprove" : "false"
+  "machineIdentityManagerAssignment" : "MACHINE_IDENTITY_OWNER",
+  "autoApprove" : "OFF"
 }"@
 
 # Put Approval Config
@@ -587,9 +589,8 @@ try {
 [[Back to top]](#) 
 
 ## reject-approval
-Currently this endpoint only supports Entitlement Description Approvals.
-Rejects a specified approval request on behalf of the caller.
-If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user.
+Rejects a specified approval request on behalf of the caller. This endpoint does not support access request IDs.
+If called by an admin and the admin is not listed as an approver, the approval request will be reassigned from a random approver to the admin user and approved.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-approval)
 
@@ -689,8 +690,7 @@ try {
 [[Back to top]](#) 
 
 ## update-approvals-attributes
-Currently this endpoint only supports Entitlement Description Approvals.
-Allows for the edit/addition/removal of the key/value pair additional attributes map for an existing approval request.
+Allows for the edit/addition/removal of the key/value pair additional attributes map for an existing approval request. This endpoint does not support access request IDs.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-approvals-attributes)
 
@@ -747,8 +747,7 @@ try {
 [[Back to top]](#) 
 
 ## update-approvals-comments
-Currently this endpoint only supports Entitlement Description Approvals.
-Adds comments to a specified approval request.
+Adds comments to a specified approval request. This endpoint does not support access request IDs.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-approvals-comments)
 
@@ -799,8 +798,7 @@ try {
 [[Back to top]](#) 
 
 ## update-approvals-reassign
-Currently this endpoint only supports Entitlement Description Approvals.
-Reassigns an approval request to another identity resulting in that identity being added as an authorized approver.
+Reassigns an approval request to another identity resulting in that identity being added as an authorized approver. This endpoint does not support access request IDs.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-approvals-reassign)
 

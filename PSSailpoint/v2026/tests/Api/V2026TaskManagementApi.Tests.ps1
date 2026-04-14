@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026TaskManagementApi' {
     Context 'Get-V2026TaskStatus' {
         It 'Test Get-V2026TaskStatus' {
-            #$TestResult = Get-V2026TaskStatus -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2026TaskStatus -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026TaskManagementApi' {
 
     Context 'Get-V2026TaskStatusList' {
         It 'Test Get-V2026TaskStatusList' {
-            #$TestResult = Get-V2026TaskStatusList -XSailPointExperimental "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
+            #$TestResult = Get-V2026TaskStatusList -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +24,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026TaskManagementApi' {
 
     Context 'Update-V2026TaskStatus' {
         It 'Test Update-V2026TaskStatus' {
-            #$TestResult = Update-V2026TaskStatus -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-V2026TaskStatus -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -30,6 +30,14 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026ApprovalsApi' {
         }
     }
 
+    Context 'Suspend-V2026ApprovalById' {
+        It 'Test Suspend-V2026ApprovalById' {
+            #$TestResult = Suspend-V2026ApprovalById -Id "TEST_VALUE" -ApprovalCancelRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-V2026ApprovalConfigRequest' {
         It 'Test Remove-V2026ApprovalConfigRequest' {
             #$TestResult = Remove-V2026ApprovalConfigRequest -Id "TEST_VALUE" -Scope "TEST_VALUE"
@@ -48,7 +56,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026ApprovalsApi' {
 
     Context 'Get-V2026Approvals' {
         It 'Test Get-V2026Approvals' {
-            #$TestResult = Get-V2026Approvals -Mine "TEST_VALUE" -RequesterId "TEST_VALUE" -RequesteeId "TEST_VALUE" -ApproverId "TEST_VALUE" -Count "TEST_VALUE" -CountOnly "TEST_VALUE" -IncludeComments "TEST_VALUE" -IncludeApprovers "TEST_VALUE" -IncludeBatchInfo "TEST_VALUE" -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult = Get-V2026Approvals -Mine "TEST_VALUE" -RequesterId "TEST_VALUE" -RequesteeId "TEST_VALUE" -ApproverId "TEST_VALUE" -Count "TEST_VALUE" -CountOnly "TEST_VALUE" -IncludeComments "TEST_VALUE" -IncludeApprovers "TEST_VALUE" -IncludeReassignmentHistory "TEST_VALUE" -IncludeBatchInfo "TEST_VALUE" -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'MachineSubtypeApprovalConfig', 'V2026
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Approvers** | **String** | Comma separated string of approvers.  Following are the options for approver types: manager, sourceOwner, accountOwner, workgroup:{workgroupId} (Governance group).  Approval request will be assigned based on the order of the approvers passed.  Multiple workgroups(governance groups) can be selected as an approver.  >**Note:** accountOwner approver type is only for machine account delete approval settings. | [optional] 
+**Approvers** | **String** | Comma separated string of approvers.  Following are the options for approver types: manager, sourceOwner, accountOwner, workgroup:[workgroupId] (Governance group).  Approval request will be assigned based on the order of the approvers passed.  Multiple workgroups(governance groups) can be selected as an approver.  >**Note:** accountOwner approver type is only for machine account delete approval settings. | [optional] 
 **Comments** | **String** | Comment configurations for the approval request.  Following are the options for comments: ALL, OFF, APPROVAL, REJECT. | [optional] 
 
 ## Examples

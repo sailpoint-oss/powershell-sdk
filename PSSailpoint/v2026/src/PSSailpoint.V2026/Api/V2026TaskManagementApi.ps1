@@ -17,9 +17,6 @@ Get task status by task ID. Types of tasks include account and entitlement aggre
 .PARAMETER Id
 Task ID.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER WithHttpInfo
 
 A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
@@ -34,9 +31,6 @@ function Get-V2026TaskStatus {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Id},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -62,11 +56,6 @@ function Get-V2026TaskStatus {
             throw "Error! The required parameter `Id` missing when calling getTaskStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getTaskStatus."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -100,9 +89,6 @@ Retrieve task status list
 
 Use this endpoint to get a list of statuses for **all** tasks, including completed, in-progress, terminated, and errored tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks. Data for tasks older than 90 days will not be returned. For a list of **in-progress** tasks, apply the isnull filter to the Completion Status field. 
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER Limit
 Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -130,21 +116,18 @@ function Get-V2026TaskStatusList {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Offset},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Boolean]]
         ${Count},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Filters},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${Sorters},
         [Switch]
@@ -168,11 +151,6 @@ function Get-V2026TaskStatusList {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/task-status'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getTaskStatusList."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if ($Limit) {
             $LocalVarQueryParameters['limit'] = $Limit
@@ -229,9 +207,6 @@ Update a current task status by task ID. Use this API to clear a pending task by
 .PARAMETER Id
 Task ID.
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER JsonPatchOperation
 The JSONPatch payload used to update the object.
 
@@ -250,9 +225,6 @@ function Update-V2026TaskStatus {
         [String]
         ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${JsonPatchOperation},
         [Switch]
@@ -283,11 +255,6 @@ function Update-V2026TaskStatus {
             throw "Error! The required parameter `Id` missing when calling updateTaskStatus."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling updateTaskStatus."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$JsonPatchOperation) {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling updateTaskStatus."

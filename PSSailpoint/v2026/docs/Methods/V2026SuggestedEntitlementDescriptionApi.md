@@ -20,6 +20,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2026*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**New-V2026AutoWriteSettings**](#create-auto-write-settings) | **POST** `/suggested-entitlement-descriptions/auto-write-settings` | Create auto-write settings for SED
+[**Get-V2026AutoWriteSettings**](#get-auto-write-settings) | **GET** `/suggested-entitlement-descriptions/auto-write-settings` | Get auto-write settings for SED
 [**Get-V2026SedBatchStats**](#get-sed-batch-stats) | **GET** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit sed batch stats request
 [**Get-V2026SedBatches**](#get-sed-batches) | **GET** `/suggested-entitlement-description-batches` | List Sed Batch Record
 [**Get-V2026Seds**](#list-seds) | **GET** `/suggested-entitlement-descriptions` | List suggested entitlement descriptions
@@ -27,7 +29,103 @@ Method | HTTP request | Description
 [**Submit-V2026SedApproval**](#submit-sed-approval) | **POST** `/suggested-entitlement-description-approvals` | Submit bulk approval request
 [**Submit-V2026SedAssignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit sed assignment request
 [**Submit-V2026SedBatchRequest**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit sed batch request
+[**Update-V2026AutoWriteSettings**](#update-auto-write-settings) | **PATCH** `/suggested-entitlement-descriptions/auto-write-settings` | Update auto-write settings for SED
 
+
+## create-auto-write-settings
+Create the initial auto-write settings for a tenant. Returns 409 Conflict if settings already exist. Use PATCH to update existing settings.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/create-auto-write-settings)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | AutoWriteSetting | [**AutoWriteSetting**](../models/auto-write-setting) | True  | Auto-write settings to create
+
+### Return type
+[**AutoWriteSettingResponse**](../models/auto-write-setting-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+201 | Auto-write settings created successfully | AutoWriteSettingResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+409 | Conflict - Indicates that the request could not be processed because of conflict in the current state of the resource. | 
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json, schema
+
+### Example
+```powershell
+$AutoWriteSetting = @"{
+  "excludedSourceIds" : [ "2c91808a7813090a017814552e526350" ],
+  "includedSourceIds" : [ "2c91808a7813090a017814552e526349", "2c91808a7813090a017814552e52634a" ],
+  "enabled" : true
+}"@
+
+# Create auto-write settings for SED
+
+try {
+    $Result = ConvertFrom-V2026JsonToAutoWriteSetting -Json $AutoWriteSetting
+    New-V2026AutoWriteSettings -AutoWriteSetting $Result 
+    
+    # Below is a request that includes all optional parameters
+    # New-V2026AutoWriteSettings -AutoWriteSetting $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2026AutoWriteSettings"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-auto-write-settings
+Get the current auto-write configuration for the tenant, including the enabled state and source include/exclude lists.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-auto-write-settings)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+
+### Return type
+[**AutoWriteSettingResponse**](../models/auto-write-setting-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Current auto-write settings | AutoWriteSettingResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+
+# Get auto-write settings for SED
+
+try {
+    Get-V2026AutoWriteSettings 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2026AutoWriteSettings  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026AutoWriteSettings"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
 
 ## get-sed-batch-stats
 'Submit Sed Batch Stats Request.
@@ -435,6 +533,58 @@ try {
     # Submit-V2026SedBatchRequest -SedBatchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2026SedBatchRequest"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-auto-write-settings
+Partially update the auto-write settings for a tenant using JSON Patch operations. Only the "replace" operation is supported. Returns 404 if no settings exist yet - use POST to create them first.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/update-auto-write-settings)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | AutoWriteSettingPatch | [**[]AutoWriteSettingPatch**](../models/auto-write-setting-patch) | True  | Patch operations for auto-write settings
+
+### Return type
+[**AutoWriteSettingResponse**](../models/auto-write-setting-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Updated auto-write settings | AutoWriteSettingResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+### Example
+```powershell
+ $AutoWriteSettingPatch = @"{
+  "op" : "replace",
+  "path" : "/enabled",
+  "value" : true
+}"@ # AutoWriteSettingPatch[] | Patch operations for auto-write settings
+ 
+
+# Update auto-write settings for SED
+
+try {
+    $Result = ConvertFrom-V2026JsonToAutoWriteSettingPatch -Json $AutoWriteSettingPatch
+    Update-V2026AutoWriteSettings -AutoWriteSettingPatch $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-V2026AutoWriteSettings -AutoWriteSettingPatch $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026AutoWriteSettings"
     Write-Host $_.ErrorDetails
 }
 ```

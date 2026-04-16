@@ -6,6 +6,22 @@
 #
 
 Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026SuggestedEntitlementDescriptionApi' {
+    Context 'New-V2026AutoWriteSettings' {
+        It 'Test New-V2026AutoWriteSettings' {
+            #$TestResult = New-V2026AutoWriteSettings -AutoWriteSetting "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026AutoWriteSettings' {
+        It 'Test Get-V2026AutoWriteSettings' {
+            #$TestResult = Get-V2026AutoWriteSettings
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2026SedBatchStats' {
         It 'Test Get-V2026SedBatchStats' {
             #$TestResult = Get-V2026SedBatchStats -BatchId "TEST_VALUE"
@@ -57,6 +73,14 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026SuggestedEntitlementDescripti
     Context 'Submit-V2026SedBatchRequest' {
         It 'Test Submit-V2026SedBatchRequest' {
             #$TestResult = Submit-V2026SedBatchRequest -SedBatchRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2026AutoWriteSettings' {
+        It 'Test Update-V2026AutoWriteSettings' {
+            #$TestResult = Update-V2026AutoWriteSettings -AutoWriteSettingPatch "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

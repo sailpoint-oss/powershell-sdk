@@ -20207,6 +20207,50 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026SourceSchema"
             Write-Host $_.ErrorDetails
         }
+- path: /suggested-entitlement-descriptions/auto-write-settings
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/suggested-entitlement-description#create-auto-write-settings
+      source: |
+        $AutoWriteSetting = @"
+        {
+          "excludedSourceIds" : [ "2c91808a7813090a017814552e526350" ],
+          "includedSourceIds" : [ "2c91808a7813090a017814552e526349", "2c91808a7813090a017814552e52634a" ],
+          "enabled" : true
+        }
+        "@
+        
+        # Create auto-write settings for SED
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToAutoWriteSetting -Json $AutoWriteSetting
+            New-V2026AutoWriteSettings -AutoWriteSetting $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2026AutoWriteSettings -AutoWriteSetting $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2026AutoWriteSettings"
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-descriptions/auto-write-settings
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/suggested-entitlement-description#get-auto-write-settings
+      source: |
+        
+        # Get auto-write settings for SED
+        
+        try {
+            Get-V2026AutoWriteSettings 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026AutoWriteSettings   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026AutoWriteSettings"
+            Write-Host $_.ErrorDetails
+        }
 - path: /suggested-entitlement-description-batches/{batchId}/stats
   method: GET
   xCodeSample:
@@ -20397,6 +20441,31 @@
             # Submit-V2026SedBatchRequest -SedBatchRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2026SedBatchRequest"
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-descriptions/auto-write-settings
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/suggested-entitlement-description#update-auto-write-settings
+      source: |
+        $AutoWriteSettingPatch = @"{
+          "op" : "replace",
+          "path" : "/enabled",
+          "value" : true
+        }"@ 
+        
+        
+        # Update auto-write settings for SED
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToAutoWriteSettingPatch -Json $AutoWriteSettingPatch
+            Update-V2026AutoWriteSettings -AutoWriteSettingPatch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2026AutoWriteSettings -AutoWriteSettingPatch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026AutoWriteSettings"
             Write-Host $_.ErrorDetails
         }
 - path: /tagged-objects/{type}/{id}

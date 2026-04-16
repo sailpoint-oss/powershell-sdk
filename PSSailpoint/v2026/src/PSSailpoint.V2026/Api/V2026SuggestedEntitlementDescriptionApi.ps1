@@ -8,6 +8,174 @@
 <#
 .SYNOPSIS
 
+Create auto-write settings for SED
+
+.DESCRIPTION
+
+Create the initial auto-write settings for a tenant. Returns 409 Conflict if settings already exist. Use PATCH to update existing settings.
+
+.PARAMETER AutoWriteSetting
+Auto-write settings to create
+
+.PARAMETER ReturnType
+
+Select the return type (optional): application/json, schema
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+AutoWriteSettingResponse
+#>
+function New-V2026AutoWriteSettings {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${AutoWriteSetting},
+        [String]
+        [ValidateSet("application/json", "schema")]
+        $ReturnType,
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: New-V2026AutoWriteSettings' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json', 'schema')
+
+        if ($ReturnType) {
+            # use the return type (MIME) provided by the user
+            $LocalVarAccepts = @($ReturnType)
+        }
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/suggested-entitlement-descriptions/auto-write-settings'
+
+        if (!$AutoWriteSetting) {
+            throw "Error! The required parameter `AutoWriteSetting` missing when calling createAutoWriteSettings."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AutoWriteSetting -is [array])) {
+            $LocalVarBodyParameter = $AutoWriteSetting | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $AutoWriteSetting | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "AutoWriteSettingResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get auto-write settings for SED
+
+.DESCRIPTION
+
+Get the current auto-write configuration for the tenant, including the enabled state and source include/exclude lists.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+AutoWriteSettingResponse
+#>
+function Get-V2026AutoWriteSettings {
+    [CmdletBinding()]
+    Param (
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2026AutoWriteSettings' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/suggested-entitlement-descriptions/auto-write-settings'
+
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "AutoWriteSettingResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Submit sed batch stats request
 
 .DESCRIPTION
@@ -700,6 +868,97 @@ function Submit-V2026SedBatchRequest {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "SedBatchResponse" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Update auto-write settings for SED
+
+.DESCRIPTION
+
+Partially update the auto-write settings for a tenant using JSON Patch operations. Only the ""replace"" operation is supported. Returns 404 if no settings exist yet - use POST to create them first.
+
+.PARAMETER AutoWriteSettingPatch
+Patch operations for auto-write settings
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+AutoWriteSettingResponse
+#>
+function Update-V2026AutoWriteSettings {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${AutoWriteSettingPatch},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-V2026AutoWriteSettings' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json-patch+json')
+
+        $LocalVarUri = '/suggested-entitlement-descriptions/auto-write-settings'
+
+        if (!$AutoWriteSettingPatch) {
+            throw "Error! The required parameter `AutoWriteSettingPatch` missing when calling updateAutoWriteSettings."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($AutoWriteSettingPatch -is [array])) {
+            $LocalVarBodyParameter = $AutoWriteSettingPatch | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $AutoWriteSettingPatch | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "AutoWriteSettingResponse" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

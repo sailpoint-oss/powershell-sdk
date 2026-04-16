@@ -265,6 +265,10 @@ docs/AuthUser.md
 docs/AuthUserLevelsIdentityCount.md
 docs/AuthUserSlimResponse.md
 docs/AuthorizationScheme.md
+docs/AutoWriteSetting.md
+docs/AutoWriteSettingPatch.md
+docs/AutoWriteSettingPatchValue.md
+docs/AutoWriteSettingResponse.md
 docs/BackupOptions.md
 docs/BackupOptions1.md
 docs/BackupResponse.md
@@ -1966,6 +1970,10 @@ src/PSSailpoint.V2026/Model/AuthUser.ps1
 src/PSSailpoint.V2026/Model/AuthUserLevelsIdentityCount.ps1
 src/PSSailpoint.V2026/Model/AuthUserSlimResponse.ps1
 src/PSSailpoint.V2026/Model/AuthorizationScheme.ps1
+src/PSSailpoint.V2026/Model/AutoWriteSetting.ps1
+src/PSSailpoint.V2026/Model/AutoWriteSettingPatch.ps1
+src/PSSailpoint.V2026/Model/AutoWriteSettingPatchValue.ps1
+src/PSSailpoint.V2026/Model/AutoWriteSettingResponse.ps1
 src/PSSailpoint.V2026/Model/BackupOptions.ps1
 src/PSSailpoint.V2026/Model/BackupOptions1.ps1
 src/PSSailpoint.V2026/Model/BackupResponse.ps1
@@ -3460,6 +3468,10 @@ tests/Model/AuthUser.Tests.ps1
 tests/Model/AuthUserLevelsIdentityCount.Tests.ps1
 tests/Model/AuthUserSlimResponse.Tests.ps1
 tests/Model/AuthorizationScheme.Tests.ps1
+tests/Model/AutoWriteSetting.Tests.ps1
+tests/Model/AutoWriteSettingPatch.Tests.ps1
+tests/Model/AutoWriteSettingPatchValue.Tests.ps1
+tests/Model/AutoWriteSettingResponse.Tests.ps1
 tests/Model/BackupOptions.Tests.ps1
 tests/Model/BackupOptions1.Tests.ps1
 tests/Model/BackupResponse.Tests.ps1

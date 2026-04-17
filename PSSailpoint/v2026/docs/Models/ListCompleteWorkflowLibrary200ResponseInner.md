@@ -45,7 +45,7 @@ $ListCompleteWorkflowLibrary200ResponseInner = Initialize-V2026ListCompleteWorkf
  -VersionNumber null `
  -IsSimulationEnabled null `
  -IsDynamicSchema false `
- -OutputSchema null `
+ -OutputSchema {} `
  -InputExample {changes=[{attribute=department, newValue=marketing, oldValue=sales}, {attribute=manager, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}}, {attribute=email, newValue=john.doe@gmail.com, oldValue=john.doe@hotmail.com}], identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}}
 ```
 

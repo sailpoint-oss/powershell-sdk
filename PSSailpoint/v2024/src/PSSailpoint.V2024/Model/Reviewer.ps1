@@ -19,7 +19,7 @@ The id of the reviewer.
 .PARAMETER Name
 The name of the reviewer.
 .PARAMETER Email
-The email of the reviewing identity.
+The email of the reviewing identity. This is only applicable to reviewers of the `IDENTITY` type.
 .PARAMETER Type
 The type of the reviewing identity.
 .PARAMETER Created
@@ -44,7 +44,7 @@ function Initialize-V2024Reviewer {
         [String]
         ${Email},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("IDENTITY")]
+        [ValidateSet("IDENTITY", "GOVERNANCE_GROUP")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

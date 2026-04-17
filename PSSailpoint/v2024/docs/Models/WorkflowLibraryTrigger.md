@@ -17,10 +17,10 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryTrigger', 'V2024Workfl
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Trigger ID. This is a static namespaced ID for the trigger. | [optional] 
-**Type** |  **Enum** [  "EVENT",    "SCHEDULED",    "EXTERNAL" ] | Trigger type | [optional] 
-**Deprecated** | **Boolean** |  | [optional] 
-**DeprecatedBy** | **System.DateTime** |  | [optional] 
-**IsSimulationEnabled** | **Boolean** |  | [optional] 
+**Type** |  **Enum** [  "EVENT",    "SCHEDULED",    "EXTERNAL",    "AccessRequestTrigger" ] | Trigger type | [optional] 
+**Deprecated** | **Boolean** | Whether the trigger is deprecated. | [optional] [default to $false]
+**DeprecatedBy** | **System.DateTime** | Date the trigger was deprecated, if applicable. | [optional] 
+**IsSimulationEnabled** | **Boolean** | Whether the trigger can be simulated. | [optional] [default to $false]
 **OutputSchema** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Example output schema | [optional] 
 **Name** | **String** | Trigger Name | [optional] 
 **Description** | **String** | Trigger Description | [optional] 
@@ -34,10 +34,10 @@ Name | Type | Description | Notes
 ```powershell
 $WorkflowLibraryTrigger = Initialize-V2024WorkflowLibraryTrigger  -Id idn:identity-attributes-changed `
  -Type EVENT `
- -Deprecated null `
- -DeprecatedBy null `
- -IsSimulationEnabled null `
- -OutputSchema null `
+ -Deprecated false `
+ -DeprecatedBy 2023-01-01T00:00Z `
+ -IsSimulationEnabled false `
+ -OutputSchema {} `
  -Name Identity Attributes Changed `
  -Description One or more identity attributes changed. `
  -IsDynamicSchema false `

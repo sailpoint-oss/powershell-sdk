@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | The id of the reviewer. | [optional] 
 **Name** | **String** | The name of the reviewer. | [optional] 
-**Email** | **String** | The email of the reviewing identity. | [optional] 
-**Type** |  **Enum** [  "IDENTITY" ] | The type of the reviewing identity. | [optional] 
+**Email** | **String** | The email of the reviewing identity. This is only applicable to reviewers of the `IDENTITY` type. | [optional] 
+**Type** |  **Enum** [  "IDENTITY",    "GOVERNANCE_GROUP" ] | The type of the reviewing identity. | [optional] 
 **Created** | **System.DateTime** | The created date of the reviewing identity. | [optional] 
 **Modified** | **System.DateTime** | The modified date of the reviewing identity. | [optional] 
 

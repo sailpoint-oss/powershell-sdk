@@ -47,7 +47,7 @@ function Initialize-BetaCampaignReference {
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("MANAGER", "SOURCE_OWNER", "SEARCH")]
+        [ValidateSet("MANAGER", "SOURCE_OWNER", "SEARCH", "ROLE_COMPOSITION", "MACHINE_ACCOUNT")]
         [String]
         ${CampaignType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

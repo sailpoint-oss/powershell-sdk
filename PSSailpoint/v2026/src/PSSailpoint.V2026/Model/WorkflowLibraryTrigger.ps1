@@ -19,11 +19,11 @@ Trigger ID. This is a static namespaced ID for the trigger.
 .PARAMETER Type
 Trigger type
 .PARAMETER Deprecated
-No description available.
+Whether the trigger is deprecated.
 .PARAMETER DeprecatedBy
-No description available.
+Date the trigger was deprecated, if applicable.
 .PARAMETER IsSimulationEnabled
-No description available.
+Whether the trigger can be simulated.
 .PARAMETER OutputSchema
 Example output schema
 .PARAMETER Name
@@ -48,18 +48,18 @@ function Initialize-V2026WorkflowLibraryTrigger {
         [String]
         ${Id},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("EVENT", "SCHEDULED", "EXTERNAL")]
+        [ValidateSet("EVENT", "SCHEDULED", "EXTERNAL", "AccessRequestTrigger")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${Deprecated},
+        ${Deprecated} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${DeprecatedBy},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IsSimulationEnabled},
+        ${IsSimulationEnabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${OutputSchema},

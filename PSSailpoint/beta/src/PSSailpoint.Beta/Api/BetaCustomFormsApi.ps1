@@ -792,7 +792,7 @@ Returns a form instance.
 
 .DESCRIPTION
 
-Parameter `{formInstanceID}` should match a form instance ID.
+Parameter `{formInstanceID}` should match a form instance ID.  Only the assigned recipient (`recipients[].id` when `type` is `IDENTITY`) may call this.
 
 .PARAMETER FormInstanceID
 Form instance ID
@@ -1144,7 +1144,7 @@ Patch a form instance.
 
 .DESCRIPTION
 
-Parameter `{formInstanceID}` should match a form instance ID.
+Parameter `{formInstanceID}` should match a form instance ID.  Only the assigned recipient (`recipients[].id` when `type` is `IDENTITY`) may call this.
 
 .PARAMETER FormInstanceID
 Form instance ID

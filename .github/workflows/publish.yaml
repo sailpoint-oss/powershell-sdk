@@ -42,6 +42,15 @@ jobs:
               -Path './PSSailpoint/v2026/src/PSSailpoint.V2026' `
               -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
               -Verbose -Force
+          Publish-Module `
+              -Path './PSSailpoint/nerm/src/PSSailpoint.NERM' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force
+
+          Publish-Module `
+              -Path './PSSailpoint/nermV2025/src/PSSailpoint.NERMV2025' `
+              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+              -Verbose -Force
 
           Start-Sleep -Seconds 60
 
@@ -50,6 +59,8 @@ jobs:
           Install-Module -Name 'PSSailpoint.V2024' -Force
           Install-Module -Name 'PSSailpoint.V2025' -Force
           Install-Module -Name 'PSSailpoint.V2026' -Force
+          Install-Module -Name 'PSSailpoint.NERM' -Force
+          Install-Module -Name 'PSSailpoint.NERMV2025' -Force
 
           Publish-Module `
               -Path './PSSailpoint' `

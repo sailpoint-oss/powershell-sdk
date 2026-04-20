@@ -35,12 +35,22 @@ function Invoke-{{{apiNamePrefix}}}ApiClient {
     $PSBoundParameters | Out-DebugParameter | Write-Debug
 
     $Configuration = Get-DefaultConfiguration
+    {{#nerm}}
+    {{#apiVersion}}
+    $RequestUri = $Configuration["NermBaseUrl"] + "{{{apiVersion}}}" + $Uri
+    {{/apiVersion}}
+    {{^apiVersion}}
+    $RequestUri = $Configuration["NermBaseUrl"] + $Uri
+    {{/apiVersion}}
+    {{/nerm}}
+    {{^nerm}}
     {{#apiVersion}}
     $RequestUri = $Configuration["BaseUrl"] + "{{{apiVersion}}}" + $Uri
     {{/apiVersion}}
     {{^apiVersion}}
     $RequestUri = $Configuration["BaseUrl"] + $Uri
     {{/apiVersion}}
+    {{/nerm}}
 
     Write-Debug "Calling Endpoint: $RequestUri"
 

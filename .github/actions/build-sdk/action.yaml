@@ -133,7 +133,7 @@ runs:
         Import-Module -Name '.\PSSailpoint\v2024\src\PSSailpoint.V2024' -Verbose
         Import-Module -Name '.\PSSailpoint\v2025\src\PSSailpoint.V2025' -Verbose
         Import-Module -Name '.\PSSailpoint\v2026\src\PSSailpoint.V2026' -Verbose
-        Import-Module -Name '.\PSSailpoint\nerm\src\PSSailpoint.Nerm' -Verbose
+        Import-Module -Name '.\PSSailpoint\nerm\src\PSSailpoint.NERM' -Verbose
         Import-Module -Name '.\PSSailpoint\nermV2025\src\PSSailpoint.NERMV2025' -Verbose
         . .\PSSailpoint\Configuration.ps1
         . .\PSSailpoint\Pagination.ps1

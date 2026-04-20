@@ -32,7 +32,7 @@ function Get-DefaultConfiguration {
         $Configuration["BaseUrl"] = $Configuration.BaseUrl + "/"
     }
 
-    if (!($Configuration.NermBaseUrl[-1] -eq "/")) {
+    if ($null -ne $Configuration.NermBaseUrl -and !($Configuration.NermBaseUrl[-1] -eq "/")) {
         $Configuration["NermBaseUrl"] = $Configuration.NermBaseUrl + "/"
     }
     

@@ -671,9 +671,12 @@ docs/InviteIdentitiesRequest.md
 docs/Invocation.md
 docs/InvocationStatus.md
 docs/InvocationStatusType.md
+docs/JITActivationConfigResponse.md
 docs/JITConfiguration.md
 docs/JWK.md
 docs/JWKS.md
+docs/JitAccessOperationRequest.md
+docs/JitAccessOperationRequestValue.md
 docs/JsonPatch.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationRoleMining.md
@@ -1434,6 +1437,8 @@ docs/V2026IdentityHistoryApi.md
 docs/V2026IdentityHistoryApideveloperSite_code_examples.yaml
 docs/V2026IdentityProfilesApi.md
 docs/V2026IdentityProfilesApideveloperSite_code_examples.yaml
+docs/V2026JITAccessApi.md
+docs/V2026JITAccessApideveloperSite_code_examples.yaml
 docs/V2026LaunchersApi.md
 docs/V2026LaunchersApideveloperSite_code_examples.yaml
 docs/V2026LifecycleStatesApi.md
@@ -1648,6 +1653,7 @@ src/PSSailpoint.V2026/Api/V2026IdentitiesApi.ps1
 src/PSSailpoint.V2026/Api/V2026IdentityAttributesApi.ps1
 src/PSSailpoint.V2026/Api/V2026IdentityHistoryApi.ps1
 src/PSSailpoint.V2026/Api/V2026IdentityProfilesApi.ps1
+src/PSSailpoint.V2026/Api/V2026JITAccessApi.ps1
 src/PSSailpoint.V2026/Api/V2026LaunchersApi.ps1
 src/PSSailpoint.V2026/Api/V2026LifecycleStatesApi.ps1
 src/PSSailpoint.V2026/Api/V2026MFAConfigurationApi.ps1
@@ -2373,9 +2379,12 @@ src/PSSailpoint.V2026/Model/InviteIdentitiesRequest.ps1
 src/PSSailpoint.V2026/Model/Invocation.ps1
 src/PSSailpoint.V2026/Model/InvocationStatus.ps1
 src/PSSailpoint.V2026/Model/InvocationStatusType.ps1
+src/PSSailpoint.V2026/Model/JITActivationConfigResponse.ps1
 src/PSSailpoint.V2026/Model/JITConfiguration.ps1
 src/PSSailpoint.V2026/Model/JWK.ps1
 src/PSSailpoint.V2026/Model/JWKS.ps1
+src/PSSailpoint.V2026/Model/JitAccessOperationRequest.ps1
+src/PSSailpoint.V2026/Model/JitAccessOperationRequestValue.ps1
 src/PSSailpoint.V2026/Model/JsonPatch.ps1
 src/PSSailpoint.V2026/Model/JsonPatchOperation.ps1
 src/PSSailpoint.V2026/Model/JsonPatchOperationRoleMining.ps1
@@ -3147,6 +3156,7 @@ tests/Api/V2026IdentitiesApi.Tests.ps1
 tests/Api/V2026IdentityAttributesApi.Tests.ps1
 tests/Api/V2026IdentityHistoryApi.Tests.ps1
 tests/Api/V2026IdentityProfilesApi.Tests.ps1
+tests/Api/V2026JITAccessApi.Tests.ps1
 tests/Api/V2026LaunchersApi.Tests.ps1
 tests/Api/V2026LifecycleStatesApi.Tests.ps1
 tests/Api/V2026MFAConfigurationApi.Tests.ps1
@@ -3871,9 +3881,12 @@ tests/Model/InviteIdentitiesRequest.Tests.ps1
 tests/Model/Invocation.Tests.ps1
 tests/Model/InvocationStatus.Tests.ps1
 tests/Model/InvocationStatusType.Tests.ps1
+tests/Model/JITActivationConfigResponse.Tests.ps1
 tests/Model/JITConfiguration.Tests.ps1
 tests/Model/JWK.Tests.ps1
 tests/Model/JWKS.Tests.ps1
+tests/Model/JitAccessOperationRequest.Tests.ps1
+tests/Model/JitAccessOperationRequestValue.Tests.ps1
 tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationRoleMining.Tests.ps1

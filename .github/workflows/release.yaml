@@ -134,6 +134,8 @@ jobs:
           yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2024-config.yaml
           yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2025-config.yaml
           yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2026-config.yaml
+          yq -i ".packageVersion = \"$VERSION\"" sdk-resources/nerm-config.yaml
+          yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2025-nerm-config.yaml
 
       - name: Update Build.ps1 ModuleVersion
         shell: bash

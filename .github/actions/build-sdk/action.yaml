@@ -89,6 +89,28 @@ runs:
           --config sdk-resources/v2026-config.yaml
         node sdk-resources/postscript.js ./PSSailpoint/v2026
 
+    - name: Build NERM SDK
+      shell: bash
+      run: |
+        rm -rf ./PSSailpoint/nerm
+        java -jar openapi-generator-cli.jar generate \
+          -i ${{ inputs.api-specs-path }}/nerm/openapi.yaml \
+          -g powershell -o PSSailpoint/nerm \
+          --global-property skipFormModel=false,apiDocs=true,modelDocs=true \
+          --config sdk-resources/nerm-config.yaml
+        node sdk-resources/postscript.js ./PSSailpoint/nerm
+
+    - name: Build NERM V2025 SDK
+      shell: bash
+      run: |
+        rm -rf ./PSSailpoint/nermV2025
+        java -jar openapi-generator-cli.jar generate \
+          -i ${{ inputs.api-specs-path }}/nerm/v2025/v2025.yaml \
+          -g powershell -o PSSailpoint/nermV2025 \
+          --global-property skipFormModel=false,apiDocs=true,modelDocs=true \
+          --config sdk-resources/v2025-nerm-config.yaml
+        node sdk-resources/postscript.js ./PSSailpoint/nermV2025
+
     - name: Run Build Scripts
       shell: pwsh
       run: |
@@ -99,6 +121,8 @@ runs:
         ./PSSailpoint/v2024/Build.ps1
         ./PSSailpoint/v2025/Build.ps1
         ./PSSailpoint/v2026/Build.ps1
+        ./PSSailpoint/nerm/Build.ps1
+        ./PSSailpoint/nermV2025/Build.ps1
 
     - name: Import Modules and Run Tests
       shell: pwsh
@@ -109,6 +133,8 @@ runs:
         Import-Module -Name '.\PSSailpoint\v2024\src\PSSailpoint.V2024' -Verbose
         Import-Module -Name '.\PSSailpoint\v2025\src\PSSailpoint.V2025' -Verbose
         Import-Module -Name '.\PSSailpoint\v2026\src\PSSailpoint.V2026' -Verbose
+        Import-Module -Name '.\PSSailpoint\nerm\src\PSSailpoint.NERM' -Verbose
+        Import-Module -Name '.\PSSailpoint\nermV2025\src\PSSailpoint.NERMV2025' -Verbose
         . .\PSSailpoint\Configuration.ps1
         . .\PSSailpoint\Pagination.ps1
         if ("${{ inputs.skip-tests }}" -ne "true") {

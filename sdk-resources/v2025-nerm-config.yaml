@@ -1,0 +1,21 @@
+templateDir: ./sdk-resources/resources
+packageName: PSSailpoint.NERMV2025
+packageVersion: 1.7.54
+apiNamePrefix: NERMV2025
+companyName: SailPoint Technologies
+packageGuid: 41E95BF1-63CF-4C7C-95BF-4AD8BCB9A71C
+commonVerbs: Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select
+discardReadOnly: true
+subModuleName: NERMV2025
+nerm: true
+functionPrefix: NERMV2025
+files:
+  developerSite_code_examples.mustache:
+    templateType: APIDocs
+    destinationFilename: developerSite_code_examples.yaml
+  docs_methods_index.mustache:
+    templateType: SupportingFiles
+    destinationFilename: docs/Methods/Index.md
+  docs_models_index.mustache:
+    templateType: SupportingFiles
+    destinationFilename: Index.md

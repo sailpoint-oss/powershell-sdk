@@ -32,6 +32,10 @@ function Get-DefaultConfiguration {
         $Configuration["BaseUrl"] = $Configuration.BaseUrl + "/"
     }
 
+    if ($null -ne $Configuration.NermBaseUrl -and !($Configuration.NermBaseUrl[-1] -eq "/")) {
+        $Configuration["NermBaseUrl"] = $Configuration.NermBaseUrl + "/"
+    }
+    
     $Configuration["TokenUrl"] = $Configuration.BaseUrl + "oauth/token"
 
     if (!$Configuration.containsKey("Token")) {
@@ -132,6 +136,7 @@ function Set-DefaultConfiguration {
     [CmdletBinding()]
     Param(
         [string]$BaseUrl,
+        [string]$NermBaseUrl,
         [string]$Token,
         [AllowNull()]
         [Nullable[DateTime]]$TokenExpiration,
@@ -160,6 +165,16 @@ function Set-DefaultConfiguration {
                 throw "Invalid URL '$($BaseUrl)' cannot be used in the base URL."
             }
             $Script:Configuration["BaseUrl"] = $BaseUrl
+        }
+
+
+        If ($NermBaseUrl) {
+            # validate URL
+            $URL = $NermBaseUrl -as [System.URI]
+            if (!($null -ne $URL.AbsoluteURI -and $URL.Scheme -match '[http|https]')) {
+                throw "Invalid URL '$($NermBaseUrl)' cannot be used in the NERM base URL."
+            }
+            $Script:Configuration["NermBaseUrl"] = $NermBaseUrl
         }
 
         If ($Token) {
@@ -305,6 +320,11 @@ function Get-EnvConfig {
     if ($null -ne $ENV:SAIL_CLIENT_SECRET) {
         $Configuration["ClientSecret"] = $ENV:SAIL_CLIENT_SECRET
     }
+
+    if ($null -ne $ENV:SAIL_NERM_BASE_URL) {
+        $Configuration["NermBaseUrl"] = $ENV:SAIL_NERM_BASE_URL
+    }
+
     
     return $Configuration
 }
@@ -319,7 +339,7 @@ function Get-LocalConfig {
     $Configuration["ClientId"] = $LocalConfiguration.ClientId
     $Configuration["ClientSecret"] = $LocalConfiguration.ClientSecret
     $Configuration["BaseUrl"] = $LocalConfiguration.BaseUrl
-
+    $Configuration["NermBaseUrl"] = $LocalConfiguration.NermBaseUrl
     return $Configuration
 }
 
@@ -327,6 +347,7 @@ function Get-Config {
     $Script:Configuration["ClientId"] = $null
     $Script:Configuration["ClientSecret"] = $null
     $Script:Configuration["BaseUrl"] = $null
+    $Script:Configuration["NermBaseUrl"] = $null
 
 
     $EnvConfiguration = Get-EnvConfig

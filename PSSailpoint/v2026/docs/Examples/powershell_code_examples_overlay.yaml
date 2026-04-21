@@ -10451,6 +10451,51 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026IdentityProfile"
             Write-Host $_.ErrorDetails
         }
+- path: /jit-activation-config/{configType}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/jit-access#get-jit-activation-config
+      source: |
+        $ConfigType = "policy" # String | Configuration kind to read. Only **policy** (JIT activation policy) is supported today. 
+        
+        # Get JIT activation policy configuration
+        
+        try {
+            Get-V2026JitActivationConfig -ConfigType $ConfigType 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026JitActivationConfig -ConfigType $ConfigType   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026JitActivationConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /jit-activation-config/{configType}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/jit-access#patch-jit-activation-config
+      source: |
+        $ConfigType = "policy" # String | Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
+        $JitAccessOperationRequest = @"{
+          "op" : "replace",
+          "path" : "/maxActivationPeriodMins",
+          "value" : 60
+        }"@ 
+        
+        
+        # Update JIT activation policy configuration
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToJitAccessOperationRequest -Json $JitAccessOperationRequest
+            Update-V2026JitActivationConfig -ConfigType $ConfigType -JitAccessOperationRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2026JitActivationConfig -ConfigType $ConfigType -JitAccessOperationRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026JitActivationConfig"
+            Write-Host $_.ErrorDetails
+        }
 - path: /launchers
   method: POST
   xCodeSample:

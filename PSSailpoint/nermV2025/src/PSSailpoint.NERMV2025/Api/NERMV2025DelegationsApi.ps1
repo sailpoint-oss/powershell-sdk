@@ -107,6 +107,8 @@ function Invoke-NERMV2025DelegationsGet {
             $LocalVarQueryParameters['include'] = $Include
         }
 
+
+
         $LocalVarResult = Invoke-NERMV2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -179,6 +181,8 @@ function Invoke-NERMV2025DelegationsIdDelete {
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
+
+
         $LocalVarResult = Invoke-NERMV2025ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -250,6 +254,8 @@ function Invoke-NERMV2025DelegationsIdGet {
             throw "Error! The required parameter `Id` missing when calling delegationsIdGet."
         }
         $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+
 
         $LocalVarResult = Invoke-NERMV2025ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -349,6 +355,8 @@ function Invoke-NERMV2025DelegationsIdPatch {
             }
         }
 
+
+
         $LocalVarResult = Invoke-NERMV2025ApiClient -Method 'PATCH' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -436,6 +444,8 @@ function Invoke-NERMV2025DelegationsPost {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
+
 
         $LocalVarResult = Invoke-NERMV2025ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `

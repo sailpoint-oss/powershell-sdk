@@ -1,6 +1,6 @@
 templateDir: ./sdk-resources/resources
 packageName: PSSailpoint.NERM
-packageVersion: 1.7.54
+packageVersion: 1.7.55
 apiNamePrefix: NERM
 companyName: SailPoint Technologies
 packageGuid: DA15D2A5-9C05-455C-94AC-43A7B29472FF

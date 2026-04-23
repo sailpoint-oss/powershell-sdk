@@ -1044,6 +1044,8 @@ docs/RoleMiningSessionScope.md
 docs/RoleMiningSessionScopingMethod.md
 docs/RoleMiningSessionState.md
 docs/RoleMiningSessionStatus.md
+docs/RolePropagationConfigInput.md
+docs/RolePropagationConfigResponse.md
 docs/RolePropagationOngoingResponse.md
 docs/RolePropagationOngoingResponseRolePropagationDetails.md
 docs/RolePropagationResponse.md
@@ -2704,6 +2706,8 @@ src/PSSailpoint.V2025/Model/RoleMiningSessionScope.ps1
 src/PSSailpoint.V2025/Model/RoleMiningSessionScopingMethod.ps1
 src/PSSailpoint.V2025/Model/RoleMiningSessionState.ps1
 src/PSSailpoint.V2025/Model/RoleMiningSessionStatus.ps1
+src/PSSailpoint.V2025/Model/RolePropagationConfigInput.ps1
+src/PSSailpoint.V2025/Model/RolePropagationConfigResponse.ps1
 src/PSSailpoint.V2025/Model/RolePropagationOngoingResponse.ps1
 src/PSSailpoint.V2025/Model/RolePropagationOngoingResponseRolePropagationDetails.ps1
 src/PSSailpoint.V2025/Model/RolePropagationResponse.ps1
@@ -4164,6 +4168,8 @@ tests/Model/RoleMiningSessionScope.Tests.ps1
 tests/Model/RoleMiningSessionScopingMethod.Tests.ps1
 tests/Model/RoleMiningSessionState.Tests.ps1
 tests/Model/RoleMiningSessionStatus.Tests.ps1
+tests/Model/RolePropagationConfigInput.Tests.ps1
+tests/Model/RolePropagationConfigResponse.Tests.ps1
 tests/Model/RolePropagationOngoingResponse.Tests.ps1
 tests/Model/RolePropagationOngoingResponseRolePropagationDetails.Tests.ps1
 tests/Model/RolePropagationResponse.Tests.ps1

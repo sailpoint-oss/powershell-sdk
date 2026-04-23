@@ -15049,6 +15049,25 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025OngoingRolePropagation"
             Write-Host $_.ErrorDetails
         }
+- path: /role-propagation-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/role-propagation#get-role-propagation-config
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get Role Change Propagation Configuration
+        
+        try {
+            Get-V2025RolePropagationConfig -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025RolePropagationConfig -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025RolePropagationConfig"
+            Write-Host $_.ErrorDetails
+        }
 - path: /role-propagation/{rolePropagationId}/status
   method: GET
   xCodeSample:
@@ -15067,6 +15086,29 @@
             # Get-V2025RolePropagationStatus -XSailPointExperimental $XSailPointExperimental -RolePropagationId $RolePropagationId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025RolePropagationStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /role-propagation-config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/role-propagation#set-role-propagation-config
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RolePropagationConfigInput = @"
+        
+        "@
+        
+        # Update Role Change Propagation Configuration
+        
+        try {
+            $Result = ConvertFrom-V2025JsonToRolePropagationConfigInput -Json $RolePropagationConfigInput
+            Set-V2025RolePropagationConfig -XSailPointExperimental $XSailPointExperimental -RolePropagationConfigInput $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-V2025RolePropagationConfig -XSailPointExperimental $XSailPointExperimental -RolePropagationConfigInput $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2025RolePropagationConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /role-propagation

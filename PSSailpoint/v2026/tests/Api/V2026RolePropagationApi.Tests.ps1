@@ -22,9 +22,25 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026RolePropagationApi' {
         }
     }
 
+    Context 'Get-V2026RolePropagationConfig' {
+        It 'Test Get-V2026RolePropagationConfig' {
+            #$TestResult = Get-V2026RolePropagationConfig -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2026RolePropagationStatus' {
         It 'Test Get-V2026RolePropagationStatus' {
             #$TestResult = Get-V2026RolePropagationStatus -XSailPointExperimental "TEST_VALUE" -RolePropagationId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Set-V2026RolePropagationConfig' {
+        It 'Test Set-V2026RolePropagationConfig' {
+            #$TestResult = Set-V2026RolePropagationConfig -XSailPointExperimental "TEST_VALUE" -RolePropagationConfigInput "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -23,7 +23,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Suspend-V2025RolePropagation**](#cancel-role-propagation) | **POST** `/role-propagation/terminate` | Terminate Role Propagation process
 [**Get-V2025OngoingRolePropagation**](#get-ongoing-role-propagation) | **GET** `/role-propagation/is-running` | Get ongoing Role Propagation process
+[**Get-V2025RolePropagationConfig**](#get-role-propagation-config) | **GET** `/role-propagation-config` | Get Role Change Propagation Configuration
 [**Get-V2025RolePropagationStatus**](#get-role-propagation-status) | **GET** `/role-propagation/{rolePropagationId}/status` | Get status of Role-Propagation process
+[**Set-V2025RolePropagationConfig**](#set-role-propagation-config) | **PUT** `/role-propagation-config` | Update Role Change Propagation Configuration
 [**Start-V2025RolePropagation**](#start-role-propagation) | **POST** `/role-propagation` | Initiate Role Propagation process
 
 
@@ -123,6 +125,54 @@ try {
 ```
 [[Back to top]](#) 
 
+## get-role-propagation-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint fetches the Role Change Propagation Configuration for the tenant
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-propagation-config)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**RolePropagationConfigResponse**](../models/role-propagation-config-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Role Change Propagation configuration for the tenant. | RolePropagationConfigResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Get Role Change Propagation Configuration
+
+try {
+    Get-V2025RolePropagationConfig -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2025RolePropagationConfig -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025RolePropagationConfig"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## get-role-propagation-status
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
@@ -175,6 +225,57 @@ try {
     # Get-V2025RolePropagationStatus -XSailPointExperimental $XSailPointExperimental -RolePropagationId $RolePropagationId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025RolePropagationStatus"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## set-role-propagation-config
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This endpoint enables or disables the Role Change Propagation Process for the tenant
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/set-role-propagation-config)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | RolePropagationConfigInput | [**RolePropagationConfigInput**](../models/role-propagation-config-input) | True  | 
+
+### Return type
+[**RolePropagationConfigResponse**](../models/role-propagation-config-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Role Change Propagation configuration for the tenant is successfully updated. | RolePropagationConfigResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$RolePropagationConfigInput = @""@
+
+# Update Role Change Propagation Configuration
+
+try {
+    $Result = ConvertFrom-V2025JsonToRolePropagationConfigInput -Json $RolePropagationConfigInput
+    Set-V2025RolePropagationConfig -XSailPointExperimental $XSailPointExperimental -RolePropagationConfigInput $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Set-V2025RolePropagationConfig -XSailPointExperimental $XSailPointExperimental -RolePropagationConfigInput $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2025RolePropagationConfig"
     Write-Host $_.ErrorDetails
 }
 ```

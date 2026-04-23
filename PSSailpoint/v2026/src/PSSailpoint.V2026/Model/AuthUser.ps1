@@ -110,7 +110,7 @@ function Initialize-V2026AuthUser {
         [System.Nullable[System.DateTime]]
         ${LastUnlockTimestamp},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("CERT_ADMIN", "CLOUD_GOV_ADMIN", "CLOUD_GOV_USER", "HELPDESK", "ORG_ADMIN", "POLICY_ADMIN", "REPORT_ADMIN", "ROLE_ADMIN", "ROLE_SUBADMIN", "SAAS_MANAGEMENT_ADMIN", "SAAS_MANAGEMENT_READER", "SOURCE_ADMIN", "SOURCE_SUBADMIN", "das:ui-administrator", "das:ui-compliance_manager", "das:ui-auditor", "das:ui-data-scope", "sp:aic-dashboard-read", "sp:aic-dashboard-write", "sp:ui-config-hub-admin", "sp:ui-config-hub-backup-admin", "sp:ui-config-hub-read")]
+        [ValidateSet("CERT_ADMIN", "CLOUD_GOV_ADMIN", "CLOUD_GOV_USER", "HELPDESK", "INTERNAL", "ORG_ADMIN", "POLICY_ADMIN", "REPORT_ADMIN", "ROLE_ADMIN", "ROLE_SUBADMIN", "SAAS_MANAGEMENT_ADMIN", "SAAS_MANAGEMENT_READER", "SOURCE_ADMIN", "SOURCE_SUBADMIN", "das:ui-administrator", "das:ui-compliance_manager", "das:ui-auditor", "das:ui-data-scope", "sp:aic-dashboard-read", "sp:aic-dashboard-write", "sp:ui-config-hub-admin", "sp:ui-config-hub-backup-admin", "sp:ui-config-hub-read")]
         [String[]]
         ${Capabilities}
     )

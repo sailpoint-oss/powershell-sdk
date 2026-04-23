@@ -10496,6 +10496,80 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026JitActivationConfig"
             Write-Host $_.ErrorDetails
         }
+- path: /jit-activations/activate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/jit-activations#start-activate-workflow
+      source: |
+        $JitActivationActivateRequest = @"
+        {
+          "activationPeriodMins" : 120,
+          "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
+        }
+        "@
+        
+        # Start JIT activation workflow
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToJitActivationActivateRequest -Json $JitActivationActivateRequest
+            Start-V2026ActivateWorkflow -JitActivationActivateRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-V2026ActivateWorkflow -JitActivationActivateRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2026ActivateWorkflow"
+            Write-Host $_.ErrorDetails
+        }
+- path: /jit-activations/deactivate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/jit-activations#start-deactivate-workflow
+      source: |
+        $JitActivationDeactivateRequest = @"
+        {
+          "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
+        }
+        "@
+        
+        # Deactivate JIT activation workflow
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToJitActivationDeactivateRequest -Json $JitActivationDeactivateRequest
+            Start-V2026DeactivateWorkflow -JitActivationDeactivateRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-V2026DeactivateWorkflow -JitActivationDeactivateRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2026DeactivateWorkflow"
+            Write-Host $_.ErrorDetails
+        }
+- path: /jit-activations/extend
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/jit-activations#start-extend-workflow
+      source: |
+        $JitActivationExtendRequest = @"
+        {
+          "activationPeriodExtensionMins" : 120,
+          "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
+        }
+        "@
+        
+        # Extend JIT activation workflow
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToJitActivationExtendRequest -Json $JitActivationExtendRequest
+            Start-V2026ExtendWorkflow -JitActivationExtendRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-V2026ExtendWorkflow -JitActivationExtendRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2026ExtendWorkflow"
+            Write-Host $_.ErrorDetails
+        }
 - path: /launchers
   method: POST
   xCodeSample:
@@ -15409,6 +15483,25 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026OngoingRolePropagation"
             Write-Host $_.ErrorDetails
         }
+- path: /role-propagation-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/role-propagation#get-role-propagation-config
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get Role Change Propagation Configuration
+        
+        try {
+            Get-V2026RolePropagationConfig -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026RolePropagationConfig -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026RolePropagationConfig"
+            Write-Host $_.ErrorDetails
+        }
 - path: /role-propagation/{rolePropagationId}/status
   method: GET
   xCodeSample:
@@ -15427,6 +15520,29 @@
             # Get-V2026RolePropagationStatus -XSailPointExperimental $XSailPointExperimental -RolePropagationId $RolePropagationId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026RolePropagationStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /role-propagation-config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/role-propagation#set-role-propagation-config
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RolePropagationConfigInput = @"
+        
+        "@
+        
+        # Update Role Change Propagation Configuration
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToRolePropagationConfigInput -Json $RolePropagationConfigInput
+            Set-V2026RolePropagationConfig -XSailPointExperimental $XSailPointExperimental -RolePropagationConfigInput $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-V2026RolePropagationConfig -XSailPointExperimental $XSailPointExperimental -RolePropagationConfigInput $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2026RolePropagationConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /role-propagation

@@ -170,6 +170,7 @@ docs/AccountsExportReportArguments.md
 docs/AccountsSelectionRequest.md
 docs/AccountsSelectionResponse.md
 docs/ActivateCampaignOptions.md
+docs/ActivationWorkflowStatus.md
 docs/ActivityConfigurationSettings.md
 docs/ActivityIdentity.md
 docs/ActivityInsights.md
@@ -677,6 +678,12 @@ docs/JWK.md
 docs/JWKS.md
 docs/JitAccessOperationRequest.md
 docs/JitAccessOperationRequestValue.md
+docs/JitActivationActivateRequest.md
+docs/JitActivationActivateResponse.md
+docs/JitActivationDeactivateRequest.md
+docs/JitActivationDeactivateResponse.md
+docs/JitActivationExtendRequest.md
+docs/JitActivationExtendResponse.md
 docs/JsonPatch.md
 docs/JsonPatchOperation.md
 docs/JsonPatchOperationRoleMining.md
@@ -1077,6 +1084,8 @@ docs/RoleMiningSessionScope.md
 docs/RoleMiningSessionScopingMethod.md
 docs/RoleMiningSessionState.md
 docs/RoleMiningSessionStatus.md
+docs/RolePropagationConfigInput.md
+docs/RolePropagationConfigResponse.md
 docs/RolePropagationOngoingResponse.md
 docs/RolePropagationOngoingResponseRolePropagationDetails.md
 docs/RolePropagationResponse.md
@@ -1439,6 +1448,8 @@ docs/V2026IdentityProfilesApi.md
 docs/V2026IdentityProfilesApideveloperSite_code_examples.yaml
 docs/V2026JITAccessApi.md
 docs/V2026JITAccessApideveloperSite_code_examples.yaml
+docs/V2026JITActivationsApi.md
+docs/V2026JITActivationsApideveloperSite_code_examples.yaml
 docs/V2026LaunchersApi.md
 docs/V2026LaunchersApideveloperSite_code_examples.yaml
 docs/V2026LifecycleStatesApi.md
@@ -1654,6 +1665,7 @@ src/PSSailpoint.V2026/Api/V2026IdentityAttributesApi.ps1
 src/PSSailpoint.V2026/Api/V2026IdentityHistoryApi.ps1
 src/PSSailpoint.V2026/Api/V2026IdentityProfilesApi.ps1
 src/PSSailpoint.V2026/Api/V2026JITAccessApi.ps1
+src/PSSailpoint.V2026/Api/V2026JITActivationsApi.ps1
 src/PSSailpoint.V2026/Api/V2026LaunchersApi.ps1
 src/PSSailpoint.V2026/Api/V2026LifecycleStatesApi.ps1
 src/PSSailpoint.V2026/Api/V2026MFAConfigurationApi.ps1
@@ -1881,6 +1893,7 @@ src/PSSailpoint.V2026/Model/AccountsExportReportArguments.ps1
 src/PSSailpoint.V2026/Model/AccountsSelectionRequest.ps1
 src/PSSailpoint.V2026/Model/AccountsSelectionResponse.ps1
 src/PSSailpoint.V2026/Model/ActivateCampaignOptions.ps1
+src/PSSailpoint.V2026/Model/ActivationWorkflowStatus.ps1
 src/PSSailpoint.V2026/Model/ActivityConfigurationSettings.ps1
 src/PSSailpoint.V2026/Model/ActivityIdentity.ps1
 src/PSSailpoint.V2026/Model/ActivityInsights.ps1
@@ -2385,6 +2398,12 @@ src/PSSailpoint.V2026/Model/JWK.ps1
 src/PSSailpoint.V2026/Model/JWKS.ps1
 src/PSSailpoint.V2026/Model/JitAccessOperationRequest.ps1
 src/PSSailpoint.V2026/Model/JitAccessOperationRequestValue.ps1
+src/PSSailpoint.V2026/Model/JitActivationActivateRequest.ps1
+src/PSSailpoint.V2026/Model/JitActivationActivateResponse.ps1
+src/PSSailpoint.V2026/Model/JitActivationDeactivateRequest.ps1
+src/PSSailpoint.V2026/Model/JitActivationDeactivateResponse.ps1
+src/PSSailpoint.V2026/Model/JitActivationExtendRequest.ps1
+src/PSSailpoint.V2026/Model/JitActivationExtendResponse.ps1
 src/PSSailpoint.V2026/Model/JsonPatch.ps1
 src/PSSailpoint.V2026/Model/JsonPatchOperation.ps1
 src/PSSailpoint.V2026/Model/JsonPatchOperationRoleMining.ps1
@@ -2787,6 +2806,8 @@ src/PSSailpoint.V2026/Model/RoleMiningSessionScope.ps1
 src/PSSailpoint.V2026/Model/RoleMiningSessionScopingMethod.ps1
 src/PSSailpoint.V2026/Model/RoleMiningSessionState.ps1
 src/PSSailpoint.V2026/Model/RoleMiningSessionStatus.ps1
+src/PSSailpoint.V2026/Model/RolePropagationConfigInput.ps1
+src/PSSailpoint.V2026/Model/RolePropagationConfigResponse.ps1
 src/PSSailpoint.V2026/Model/RolePropagationOngoingResponse.ps1
 src/PSSailpoint.V2026/Model/RolePropagationOngoingResponseRolePropagationDetails.ps1
 src/PSSailpoint.V2026/Model/RolePropagationResponse.ps1
@@ -3157,6 +3178,7 @@ tests/Api/V2026IdentityAttributesApi.Tests.ps1
 tests/Api/V2026IdentityHistoryApi.Tests.ps1
 tests/Api/V2026IdentityProfilesApi.Tests.ps1
 tests/Api/V2026JITAccessApi.Tests.ps1
+tests/Api/V2026JITActivationsApi.Tests.ps1
 tests/Api/V2026LaunchersApi.Tests.ps1
 tests/Api/V2026LifecycleStatesApi.Tests.ps1
 tests/Api/V2026MFAConfigurationApi.Tests.ps1
@@ -3383,6 +3405,7 @@ tests/Model/AccountsExportReportArguments.Tests.ps1
 tests/Model/AccountsSelectionRequest.Tests.ps1
 tests/Model/AccountsSelectionResponse.Tests.ps1
 tests/Model/ActivateCampaignOptions.Tests.ps1
+tests/Model/ActivationWorkflowStatus.Tests.ps1
 tests/Model/ActivityConfigurationSettings.Tests.ps1
 tests/Model/ActivityIdentity.Tests.ps1
 tests/Model/ActivityInsights.Tests.ps1
@@ -3887,6 +3910,12 @@ tests/Model/JWK.Tests.ps1
 tests/Model/JWKS.Tests.ps1
 tests/Model/JitAccessOperationRequest.Tests.ps1
 tests/Model/JitAccessOperationRequestValue.Tests.ps1
+tests/Model/JitActivationActivateRequest.Tests.ps1
+tests/Model/JitActivationActivateResponse.Tests.ps1
+tests/Model/JitActivationDeactivateRequest.Tests.ps1
+tests/Model/JitActivationDeactivateResponse.Tests.ps1
+tests/Model/JitActivationExtendRequest.Tests.ps1
+tests/Model/JitActivationExtendResponse.Tests.ps1
 tests/Model/JsonPatch.Tests.ps1
 tests/Model/JsonPatchOperation.Tests.ps1
 tests/Model/JsonPatchOperationRoleMining.Tests.ps1
@@ -4289,6 +4318,8 @@ tests/Model/RoleMiningSessionScope.Tests.ps1
 tests/Model/RoleMiningSessionScopingMethod.Tests.ps1
 tests/Model/RoleMiningSessionState.Tests.ps1
 tests/Model/RoleMiningSessionStatus.Tests.ps1
+tests/Model/RolePropagationConfigInput.Tests.ps1
+tests/Model/RolePropagationConfigResponse.Tests.ps1
 tests/Model/RolePropagationOngoingResponse.Tests.ps1
 tests/Model/RolePropagationOngoingResponseRolePropagationDetails.Tests.ps1
 tests/Model/RolePropagationResponse.Tests.ps1

@@ -1422,6 +1422,9 @@ function Start-V2025SodPolicy {
         # HTTP header 'Accept' (if needed)
         $LocalVarAccepts = @('application/json')
 
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+        
         $LocalVarUri = '/sod-policies/{id}/violation-report/run'
         if (!$Id) {
             throw "Error! The required parameter `Id` missing when calling startSodPolicy."

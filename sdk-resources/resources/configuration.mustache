@@ -132,7 +132,7 @@ function Set-{{{apiNamePrefix}}}Configuration {
         If ($BaseUrl) {
             # validate URL
             $URL = $BaseUrl -as [System.URI]
-            if (!($null -ne $URL.AbsoluteURI -and $URL.Scheme -match '[http|https]')) {
+            if (!($null -ne $URL.AbsoluteURI -and $URL.Scheme -match '^https?$')) {
                 throw "Invalid URL '$($BaseUrl)' cannot be used in the base URL."
             }
             $Script:Configuration["BaseUrl"] = $BaseUrl

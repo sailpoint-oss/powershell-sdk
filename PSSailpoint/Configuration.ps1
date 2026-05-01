@@ -161,7 +161,7 @@ function Set-DefaultConfiguration {
         If ($BaseUrl) {
             # validate URL
             $URL = $BaseUrl -as [System.URI]
-            if (!($null -ne $URL.AbsoluteURI -and $URL.Scheme -match '[http|https]')) {
+            if (!($null -ne $URL.AbsoluteURI -and $URL.Scheme -match '^https?$')) {
                 throw "Invalid URL '$($BaseUrl)' cannot be used in the base URL."
             }
             $Script:Configuration["BaseUrl"] = $BaseUrl
@@ -197,15 +197,15 @@ function Set-DefaultConfiguration {
             $Script:Configuration['ClientSecret'] = $ClientSecret
         }
 
-        If ($RetryIntervalSeconds) {
+        If ($PSBoundParameters.ContainsKey('RetryIntervalSeconds')) {
             $Script:Configuration['RetryIntervalSeconds'] = $RetryIntervalSeconds
         }
 
-        If ($MaximumRetryCount) {
+        If ($PSBoundParameters.ContainsKey('MaximumRetryCount')) {
             $Script:Configuration['MaximumRetryCount'] = $MaximumRetryCount
         }
 
-        If ($Experimental) {
+        If ($PSBoundParameters.ContainsKey('Experimental')) {
             $Script:Configuration['Experimental'] = $Experimental
         }
 
@@ -222,7 +222,7 @@ function Set-DefaultConfiguration {
                 throw "Incorrect Proxy type '$($Proxy.GetType().FullName)'. Must be System.Net.WebProxy or System.Net.SystemWebProxy or System.Net.WebRequest+WebProxyWrapperOpaque."
             }
             $Script:Configuration['Proxy'] = $Proxy
-        } else {
+        } elseif ($PSBoundParameters.ContainsKey('Proxy')) {
             $Script:Configuration['Proxy'] = $null
         }
 
@@ -360,5 +360,5 @@ function Get-Config {
         return $LocalConfig
     }
 
-    return $Configuration
+    return $Script:Configuration
 }

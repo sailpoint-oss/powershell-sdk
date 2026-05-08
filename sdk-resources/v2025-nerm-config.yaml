@@ -1,6 +1,6 @@
 templateDir: ./sdk-resources/resources
 packageName: PSSailpoint.NERMV2025
-packageVersion: 1.7.65
+packageVersion: 1.7.66
 apiNamePrefix: NERMV2025
 companyName: SailPoint Technologies
 packageGuid: 41E95BF1-63CF-4C7C-95BF-4AD8BCB9A71C

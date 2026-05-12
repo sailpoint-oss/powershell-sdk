@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.NERM - the PowerShell module for NERM API'
 
-    ModuleVersion = '1.7.67'
+    ModuleVersion = '1.7.68'
 
     RootModule = 'PSSailpoint.NERM.psm1'
     Guid = 'DA15D2A5-9C05-455C-94AC-43A7B29472FF' # Has to be static, otherwise each new build will be considered different module

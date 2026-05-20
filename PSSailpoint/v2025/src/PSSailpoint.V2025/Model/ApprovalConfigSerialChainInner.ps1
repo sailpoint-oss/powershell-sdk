@@ -14,14 +14,12 @@ No summary available.
 
 No description available.
 
-.PARAMETER ChainId
-ID of the serial chain.
 .PARAMETER Tier
 Starting at 1 defines the order in which the identities will get assigned
 .PARAMETER IdentityId
-Identity ID in the serial chain.
+Optional Identity ID of the type of identity defined in the 'identityType' field.
 .PARAMETER IdentityType
-Type of identity in the serial chain.
+Type of identityId in the serial chain.
 .OUTPUTS
 
 ApprovalConfigSerialChainInner<PSCustomObject>
@@ -31,15 +29,13 @@ function Initialize-V2025ApprovalConfigSerialChainInner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ChainId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${Tier},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("IDENTITY", "GOVERNANCE_GROUP", "MANAGER_OF", "ACCOUNT_OWNER", "MACHINE_ACCOUNT_OWNER", "MACHINE_IDENTITY_OWNER", "MANAGER_OF_REQUESTED_TARGET_OWNER", "MANAGER_OF_MACHINE_IDENTITY_OWNER", "MANAGER_OF_ACCOUNT_OWNER", "MANAGER_OF_MACHINE_ACCOUNT_OWNER", "MANAGER_OF_REQUESTER", "MANAGER_OF_REQUESTER_OWNER", "MANAGER_OF_OWNER", "ACCESS_PROFILE_OWNER", "APPLICATION_OWNER", "ENTITLEMENT_OWNER", "ROLE_OWNER", "SOURCE_OWNER", "REQUESTED_TARGET_OWNER", "ACCESS_PROFILE_PRIMARY_OWNER", "APPLICATION_PRIMARY_OWNER", "ENTITLEMENT_PRIMARY_OWNER", "ROLE_PRIMARY_OWNER", "SOURCE_PRIMARY_OWNER", "REQUESTED_TARGET_PRIMARY_OWNER", "ACCESS_PROFILE_SECONDARY_OWNER_GROUP", "APPLICATION_SECONDARY_OWNER_GROUP", "ENTITLEMENT_SECONDARY_OWNER_GROUP", "ROLE_SECONDARY_OWNER_GROUP", "SOURCE_SECONDARY_OWNER_GROUP", "REQUESTED_TARGET_SECONDARY_OWNER_GROUP", "ACCESS_PROFILE_ALL_OWNER_GROUP", "APPLICATION_ALL_OWNER_GROUP", "ENTITLEMENT_ALL_OWNER_GROUP", "ROLE_ALL_OWNER_GROUP", "SOURCE_ALL_OWNER_GROUP", "REQUESTED_TARGET_ALL_OWNER_GROUP")]
         [String]
         ${IdentityType}
     )
@@ -50,7 +46,6 @@ function Initialize-V2025ApprovalConfigSerialChainInner {
 
 
         $PSO = [PSCustomObject]@{
-            "chainId" = ${ChainId}
             "tier" = ${Tier}
             "identityId" = ${IdentityId}
             "identityType" = ${IdentityType}
@@ -90,17 +85,11 @@ function ConvertFrom-V2025JsonToApprovalConfigSerialChainInner {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025ApprovalConfigSerialChainInner
-        $AllProperties = ("chainId", "tier", "identityId", "identityType")
+        $AllProperties = ("tier", "identityId", "identityType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "chainId"))) { #optional property not found
-            $ChainId = $null
-        } else {
-            $ChainId = $JsonParameters.PSobject.Properties["chainId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "tier"))) { #optional property not found
@@ -122,7 +111,6 @@ function ConvertFrom-V2025JsonToApprovalConfigSerialChainInner {
         }
 
         $PSO = [PSCustomObject]@{
-            "chainId" = ${ChainId}
             "tier" = ${Tier}
             "identityId" = ${IdentityId}
             "identityType" = ${IdentityType}

@@ -20,17 +20,78 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2026*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Approve-V2026BulkEntitlementRecommendations**](#approve-bulk-entitlement-recommendations) | **POST** `/entitlement-recommendations/bulk-approve` | Bulk approve entitlement recommendations
 [**New-V2026AutoWriteSettings**](#create-auto-write-settings) | **POST** `/suggested-entitlement-descriptions/auto-write-settings` | Create auto-write settings for SED
 [**Get-V2026AutoWriteSettings**](#get-auto-write-settings) | **GET** `/suggested-entitlement-descriptions/auto-write-settings` | Get auto-write settings for SED
 [**Get-V2026SedBatchStats**](#get-sed-batch-stats) | **GET** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit sed batch stats request
 [**Get-V2026SedBatches**](#get-sed-batches) | **GET** `/suggested-entitlement-description-batches` | List Sed Batch Record
+[**Get-V2026PendingEntitlementRecommendationApprovals**](#list-pending-entitlement-recommendation-approvals) | **GET** `/entitlement-recommendations/pending-approvals` | List pending entitlement recommendation approvals
+[**Get-V2026PrivilegedEntitlementRecommendations**](#list-privileged-entitlement-recommendations) | **GET** `/privileged-recommendations` | List privileged entitlement recommendations
 [**Get-V2026Seds**](#list-seds) | **GET** `/suggested-entitlement-descriptions` | List suggested entitlement descriptions
+[**Update-V2026EntitlementRecommendation**](#patch-entitlement-recommendation) | **PATCH** `/entitlement-recommendations/{id}` | Update an entitlement recommendation
 [**Update-V2026Sed**](#patch-sed) | **PATCH** `/suggested-entitlement-descriptions` | Patch suggested entitlement description
+[**Submit-V2026EntitlementRecommendationsAssignment**](#submit-entitlement-recommendations-assignment) | **POST** `/entitlement-recommendations/assign` | Assign entitlement recommendations for review
 [**Submit-V2026SedApproval**](#submit-sed-approval) | **POST** `/suggested-entitlement-description-approvals` | Submit bulk approval request
 [**Submit-V2026SedAssignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit sed assignment request
 [**Submit-V2026SedBatchRequest**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit sed batch request
 [**Update-V2026AutoWriteSettings**](#update-auto-write-settings) | **PATCH** `/suggested-entitlement-descriptions/auto-write-settings` | Update auto-write settings for SED
 
+
+## approve-bulk-entitlement-recommendations
+Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/approve-bulk-entitlement-recommendations)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | BulkApproveEntitlementRecommendationRequest | [**BulkApproveEntitlementRecommendationRequest**](../models/bulk-approve-entitlement-recommendation-request) | True  | The list of recommendation items to approve.
+
+### Return type
+[**BulkApproveEntitlementRecommendationResult[]**](../models/bulk-approve-entitlement-recommendation-result)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Per-item approval results. | BulkApproveEntitlementRecommendationResult[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$BulkApproveEntitlementRecommendationRequest = @"{
+  "items" : [ {
+    "id" : "79db50d4-723c-4aa0-a824-83c2205d82d1",
+    "recordType" : "SED",
+    "description" : "Provides access and permissions related to the Delinea Secret Server Cloud system."
+  }, {
+    "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "recordType" : "privilege",
+    "privilegeLevel" : "high"
+  } ]
+}"@
+
+# Bulk approve entitlement recommendations
+
+try {
+    $Result = ConvertFrom-V2026JsonToBulkApproveEntitlementRecommendationRequest -Json $BulkApproveEntitlementRecommendationRequest
+    Approve-V2026BulkEntitlementRecommendations -BulkApproveEntitlementRecommendationRequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Approve-V2026BulkEntitlementRecommendations -BulkApproveEntitlementRecommendationRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2026BulkEntitlementRecommendations"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
 
 ## create-auto-write-settings
 Create the initial auto-write settings for a tenant. Returns 409 Conflict if settings already exist. Use PATCH to update existing settings.
@@ -232,6 +293,100 @@ try {
 ```
 [[Back to top]](#) 
 
+## list-pending-entitlement-recommendation-approvals
+Returns a list of entitlement recommendations (SED and/or privilege) that are currently awaiting review or approval. Each record includes the recommendation type, entitlement details, and any AI-generated suggestions.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-pending-entitlement-recommendation-approvals)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+### Return type
+[**EntitlementRecommendationRecord[]**](../models/entitlement-recommendation-record)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | A list of pending entitlement recommendation records. | EntitlementRecommendationRecord[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+
+# List pending entitlement recommendation approvals
+
+try {
+    Get-V2026PendingEntitlementRecommendationApprovals 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2026PendingEntitlementRecommendationApprovals -Offset $Offset -Limit $Limit  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026PendingEntitlementRecommendationApprovals"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## list-privileged-entitlement-recommendations
+Returns a list of privileged entitlement recommendation groups. Each group aggregates individual entitlement instances that share the same entitlement name and connector type, along with a recommendation score and instance count.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/list-privileged-entitlement-recommendations)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+### Return type
+[**PrivilegedRecommendationGroup[]**](../models/privileged-recommendation-group)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | A list of privileged recommendation groups. | PrivilegedRecommendationGroup[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+
+# List privileged entitlement recommendations
+
+try {
+    Get-V2026PrivilegedEntitlementRecommendations 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2026PrivilegedEntitlementRecommendations -Offset $Offset -Limit $Limit  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026PrivilegedEntitlementRecommendations"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## list-seds
 List of Suggested Entitlement Descriptions (SED)
 
@@ -306,6 +461,60 @@ try {
 ```
 [[Back to top]](#) 
 
+## patch-entitlement-recommendation
+Partially update a single entitlement recommendation record by its ID. Use this endpoint to update the status, description, or privilege level of a specific SED or privilege recommendation.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/patch-entitlement-recommendation)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | The unique identifier of the entitlement recommendation to update.
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The patch operations to apply to the entitlement recommendation record.
+
+### Return type
+[**EntitlementRecommendationRecord**](../models/entitlement-recommendation-record)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The updated entitlement recommendation record. | EntitlementRecommendationRecord
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "79db50d4-723c-4aa0-a824-83c2205d82d1" # String | The unique identifier of the entitlement recommendation to update.
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | The patch operations to apply to the entitlement recommendation record.
+ 
+
+# Update an entitlement recommendation
+
+try {
+    $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-V2026EntitlementRecommendation -Id $Id -JsonPatchOperation $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-V2026EntitlementRecommendation -Id $Id -JsonPatchOperation $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026EntitlementRecommendation"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## patch-sed
 Patch Suggested Entitlement Description
 
@@ -355,6 +564,58 @@ try {
     # Update-V2026Sed -Id $Id -SedPatch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026Sed"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## submit-entitlement-recommendations-assignment
+Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/submit-entitlement-recommendations-assignment)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | EntitlementRecommendationAssignRequest | [**EntitlementRecommendationAssignRequest**](../models/entitlement-recommendation-assign-request) | True  | The recommendation IDs and the target assignee.
+
+### Return type
+[**EntitlementRecommendationAssignResult**](../models/entitlement-recommendation-assign-result)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Assignment queued successfully. Returns the batch ID for tracking. | EntitlementRecommendationAssignResult
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$EntitlementRecommendationAssignRequest = @"{
+  "assignee" : {
+    "type" : "IDENTITY",
+    "value" : "2c91808a7f3b2e8a017f3c3e5f6d0099"
+  },
+  "items" : [ "79db50d4-723c-4aa0-a824-83c2205d82d1", "a1b2c3d4-e5f6-7890-abcd-ef1234567890" ]
+}"@
+
+# Assign entitlement recommendations for review
+
+try {
+    $Result = ConvertFrom-V2026JsonToEntitlementRecommendationAssignRequest -Json $EntitlementRecommendationAssignRequest
+    Submit-V2026EntitlementRecommendationsAssignment -EntitlementRecommendationAssignRequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Submit-V2026EntitlementRecommendationsAssignment -EntitlementRecommendationAssignRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2026EntitlementRecommendationsAssignment"
     Write-Host $_.ErrorDetails
 }
 ```

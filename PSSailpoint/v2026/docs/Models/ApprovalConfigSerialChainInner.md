@@ -16,17 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalConfigSerialChainInner', 'V20
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChainId** | **String** | ID of the serial chain. | [optional] 
 **Tier** | **Int64** | Starting at 1 defines the order in which the identities will get assigned | [optional] 
-**IdentityId** | **String** | Identity ID in the serial chain. | [optional] 
-**IdentityType** | **String** | Type of identity in the serial chain. | [optional] 
+**IdentityId** | **String** | Optional Identity ID of the type of identity defined in the 'identityType' field. | [optional] 
+**IdentityType** |  **Enum** [  "IDENTITY",    "GOVERNANCE_GROUP",    "MANAGER_OF",    "ACCOUNT_OWNER",    "MACHINE_ACCOUNT_OWNER",    "MACHINE_IDENTITY_OWNER",    "MANAGER_OF_REQUESTED_TARGET_OWNER",    "MANAGER_OF_MACHINE_IDENTITY_OWNER",    "MANAGER_OF_ACCOUNT_OWNER",    "MANAGER_OF_MACHINE_ACCOUNT_OWNER",    "MANAGER_OF_REQUESTER",    "MANAGER_OF_REQUESTER_OWNER",    "MANAGER_OF_OWNER",    "ACCESS_PROFILE_OWNER",    "APPLICATION_OWNER",    "ENTITLEMENT_OWNER",    "ROLE_OWNER",    "SOURCE_OWNER",    "REQUESTED_TARGET_OWNER",    "ACCESS_PROFILE_PRIMARY_OWNER",    "APPLICATION_PRIMARY_OWNER",    "ENTITLEMENT_PRIMARY_OWNER",    "ROLE_PRIMARY_OWNER",    "SOURCE_PRIMARY_OWNER",    "REQUESTED_TARGET_PRIMARY_OWNER",    "ACCESS_PROFILE_SECONDARY_OWNER_GROUP",    "APPLICATION_SECONDARY_OWNER_GROUP",    "ENTITLEMENT_SECONDARY_OWNER_GROUP",    "ROLE_SECONDARY_OWNER_GROUP",    "SOURCE_SECONDARY_OWNER_GROUP",    "REQUESTED_TARGET_SECONDARY_OWNER_GROUP",    "ACCESS_PROFILE_ALL_OWNER_GROUP",    "APPLICATION_ALL_OWNER_GROUP",    "ENTITLEMENT_ALL_OWNER_GROUP",    "ROLE_ALL_OWNER_GROUP",    "SOURCE_ALL_OWNER_GROUP",    "REQUESTED_TARGET_ALL_OWNER_GROUP" ] | Type of identityId in the serial chain. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$ApprovalConfigSerialChainInner = Initialize-V2026ApprovalConfigSerialChainInner  -ChainId 23dc206e-2a9e-4f98-93db-8d6e342cca18 `
- -Tier 1 `
+$ApprovalConfigSerialChainInner = Initialize-V2026ApprovalConfigSerialChainInner  -Tier 1 `
  -IdentityId 2c9180858090ea8801809a0465e829da `
  -IdentityType IDENTITY
 ```

@@ -8,7 +8,7 @@
 Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025TenantContextApi' {
     Context 'Get-V2025TenantContext' {
         It 'Test Get-V2025TenantContext' {
-            #$TestResult = Get-V2025TenantContext -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2025TenantContext
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +16,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025TenantContextApi' {
 
     Context 'Update-V2025TenantContext' {
         It 'Test Update-V2025TenantContext' {
-            #$TestResult = Update-V2025TenantContext -XSailPointExperimental "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult = Update-V2025TenantContext -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

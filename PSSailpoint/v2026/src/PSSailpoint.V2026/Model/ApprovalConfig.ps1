@@ -27,7 +27,7 @@ If the approval request has an approvalCriteria of SERIAL this chain will be use
 .PARAMETER RequiresComment
 Determines whether a comment is required when approving or rejecting the approval request.
 .PARAMETER FallbackApprover
-Configuration for fallback approver. Used if the user cannot be found for whatever reason and escalation config does not exist.
+No description available.
 .PARAMETER MachineIdentityManagerAssignment
 Specifies how to treat the identity type ""MANAGER_OF"" when the requestee is a machine identity.
 .PARAMETER CircumventApprovalProcess
@@ -67,7 +67,7 @@ function Initialize-V2026ApprovalConfig {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet("MANAGER_OF_REQUESTER", "MACHINE_IDENTITY_OWNER", "MANAGER_OF_MACHINE_IDENTITY_OWNER", "REQUESTED_TARGET_OWNER", "MANAGER_OF_REQUESTED_TARGET_OWNER", "ACCOUNT_OWNER", "MANAGER_OF_ACCOUNT_OWNER")]
         [String]
-        ${MachineIdentityManagerAssignment} = "MACHINE_IDENTITY_OWNER",
+        ${MachineIdentityManagerAssignment} = "MANAGER_OF_REQUESTER",
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
         ${CircumventApprovalProcess} = $false,

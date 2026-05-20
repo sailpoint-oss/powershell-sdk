@@ -1210,6 +1210,7 @@ Access request to any entitlements in the source should follow this configuratio
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | The Source id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
@@ -1231,15 +1232,16 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get source entitlement request configuration
 
 try {
-    Get-V2025SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025SourceEntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2025SourceEntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025SourceEntitlementRequestConfig"
     Write-Host $_.ErrorDetails
@@ -3006,6 +3008,7 @@ Access request to any entitlements in the source should follow this configuratio
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | The Source id
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SourceEntitlementRequestConfig | [**SourceEntitlementRequestConfig**](../models/source-entitlement-request-config) | True  | 
 
@@ -3028,6 +3031,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SourceEntitlementRequestConfig = @"{
   "accessRequestConfig" : {
@@ -3062,10 +3066,10 @@ $SourceEntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-V2025JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-    Update-V2025SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result 
+    Update-V2025SourceEntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2025SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result  
+    # Update-V2025SourceEntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025SourceEntitlementRequestConfig"
     Write-Host $_.ErrorDetails

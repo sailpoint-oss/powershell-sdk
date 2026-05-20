@@ -8,6 +8,97 @@
 <#
 .SYNOPSIS
 
+Bulk approve entitlement recommendations
+
+.DESCRIPTION
+
+Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
+
+.PARAMETER BulkApproveEntitlementRecommendationRequest
+The list of recommendation items to approve.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+BulkApproveEntitlementRecommendationResult[]
+#>
+function Approve-V2026BulkEntitlementRecommendations {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${BulkApproveEntitlementRecommendationRequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Approve-V2026BulkEntitlementRecommendations' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/entitlement-recommendations/bulk-approve'
+
+        if (!$BulkApproveEntitlementRecommendationRequest) {
+            throw "Error! The required parameter `BulkApproveEntitlementRecommendationRequest` missing when calling approveBulkEntitlementRecommendations."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($BulkApproveEntitlementRecommendationRequest -is [array])) {
+            $LocalVarBodyParameter = $BulkApproveEntitlementRecommendationRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $BulkApproveEntitlementRecommendationRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "BulkApproveEntitlementRecommendationResult[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Create auto-write settings for SED
 
 .DESCRIPTION
@@ -366,6 +457,176 @@ function Get-V2026SedBatches {
 <#
 .SYNOPSIS
 
+List pending entitlement recommendation approvals
+
+.DESCRIPTION
+
+Returns a list of entitlement recommendations (SED and/or privilege) that are currently awaiting review or approval. Each record includes the recommendation type, entitlement details, and any AI-generated suggestions.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Limit
+Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EntitlementRecommendationRecord[]
+#>
+function Get-V2026PendingEntitlementRecommendationApprovals {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2026PendingEntitlementRecommendationApprovals' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/entitlement-recommendations/pending-approvals'
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EntitlementRecommendationRecord[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+List privileged entitlement recommendations
+
+.DESCRIPTION
+
+Returns a list of privileged entitlement recommendation groups. Each group aggregates individual entitlement instances that share the same entitlement name and connector type, along with a recommendation score and instance count.
+
+.PARAMETER Offset
+Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER Limit
+Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+PrivilegedRecommendationGroup[]
+#>
+function Get-V2026PrivilegedEntitlementRecommendations {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2026PrivilegedEntitlementRecommendations' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/privileged-recommendations'
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "PrivilegedRecommendationGroup[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 List suggested entitlement descriptions
 
 .DESCRIPTION
@@ -511,6 +772,107 @@ function Get-V2026Seds {
 <#
 .SYNOPSIS
 
+Update an entitlement recommendation
+
+.DESCRIPTION
+
+Partially update a single entitlement recommendation record by its ID. Use this endpoint to update the status, description, or privilege level of a specific SED or privilege recommendation.
+
+.PARAMETER Id
+The unique identifier of the entitlement recommendation to update.
+
+.PARAMETER JsonPatchOperation
+The patch operations to apply to the entitlement recommendation record.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EntitlementRecommendationRecord
+#>
+function Update-V2026EntitlementRecommendation {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${JsonPatchOperation},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-V2026EntitlementRecommendation' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json-patch+json')
+
+        $LocalVarUri = '/entitlement-recommendations/{id}'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling patchEntitlementRecommendation."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$JsonPatchOperation) {
+            throw "Error! The required parameter `JsonPatchOperation` missing when calling patchEntitlementRecommendation."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($JsonPatchOperation -is [array])) {
+            $LocalVarBodyParameter = $JsonPatchOperation | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $JsonPatchOperation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EntitlementRecommendationRecord" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Patch suggested entitlement description
 
 .DESCRIPTION
@@ -599,6 +961,97 @@ function Update-V2026Sed {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "Sed" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Assign entitlement recommendations for review
+
+.DESCRIPTION
+
+Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
+
+.PARAMETER EntitlementRecommendationAssignRequest
+The recommendation IDs and the target assignee.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+EntitlementRecommendationAssignResult
+#>
+function Submit-V2026EntitlementRecommendationsAssignment {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${EntitlementRecommendationAssignRequest},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Submit-V2026EntitlementRecommendationsAssignment' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/entitlement-recommendations/assign'
+
+        if (!$EntitlementRecommendationAssignRequest) {
+            throw "Error! The required parameter `EntitlementRecommendationAssignRequest` missing when calling submitEntitlementRecommendationsAssignment."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($EntitlementRecommendationAssignRequest -is [array])) {
+            $LocalVarBodyParameter = $EntitlementRecommendationAssignRequest | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $EntitlementRecommendationAssignRequest | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "EntitlementRecommendationAssignResult" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

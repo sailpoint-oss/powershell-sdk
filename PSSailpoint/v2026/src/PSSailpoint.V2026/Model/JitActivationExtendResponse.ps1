@@ -16,6 +16,8 @@ No description available.
 
 .PARAMETER Id
 Workflow or business identifier for this activation.
+.PARAMETER ActivationId
+Persistent activation record identifier for this JIT activation.
 .PARAMETER ConnectionId
 Entitlement connection identifier for the activation.
 .PARAMETER ActivationPeriodExtensionMins
@@ -35,6 +37,9 @@ function Initialize-V2026JitActivationExtendResponse {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${Id},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${ActivationId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ConnectionId},
@@ -58,6 +63,10 @@ function Initialize-V2026JitActivationExtendResponse {
             throw "invalid value for 'Id', 'Id' cannot be null."
         }
 
+        if (!$ActivationId) {
+            throw "invalid value for 'ActivationId', 'ActivationId' cannot be null."
+        }
+
         if (!$ConnectionId) {
             throw "invalid value for 'ConnectionId', 'ConnectionId' cannot be null."
         }
@@ -77,6 +86,7 @@ function Initialize-V2026JitActivationExtendResponse {
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
+            "activationId" = ${ActivationId}
             "connectionId" = ${ConnectionId}
             "activationPeriodExtensionMins" = ${ActivationPeriodExtensionMins}
             "status" = ${Status}
@@ -117,7 +127,7 @@ function ConvertFrom-V2026JsonToJitActivationExtendResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026JitActivationExtendResponse
-        $AllProperties = ("id", "connectionId", "activationPeriodExtensionMins", "status", "startTime")
+        $AllProperties = ("id", "activationId", "connectionId", "activationPeriodExtensionMins", "status", "startTime")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -132,6 +142,12 @@ function ConvertFrom-V2026JsonToJitActivationExtendResponse {
             throw "Error! JSON cannot be serialized due to the required property 'id' missing."
         } else {
             $Id = $JsonParameters.PSobject.Properties["id"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "activationId"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'activationId' missing."
+        } else {
+            $ActivationId = $JsonParameters.PSobject.Properties["activationId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "connectionId"))) {
@@ -160,6 +176,7 @@ function ConvertFrom-V2026JsonToJitActivationExtendResponse {
 
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
+            "activationId" = ${ActivationId}
             "connectionId" = ${ConnectionId}
             "activationPeriodExtensionMins" = ${ActivationPeriodExtensionMins}
             "status" = ${Status}

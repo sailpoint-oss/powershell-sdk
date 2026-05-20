@@ -17,7 +17,7 @@ Approval Identity Object
 .PARAMETER Email
 Email address.
 .PARAMETER IdentityID
-Identity ID.
+Identity ID of the type of identity defined in the 'type' field.
 .PARAMETER Members
 List of members of a governance group. Will be omitted if the identity is not a governance group.
 .PARAMETER Name
@@ -27,7 +27,7 @@ List of owned items. For example, will show the items in which a ROLE_OWNER owns
 .PARAMETER SerialOrder
 The serial step of the identity in the approval. For example serialOrder 1 is the first identity to action in an approval request chain. Parallel approvals are set to 0.
 .PARAMETER Type
-Type of identity.
+Type of identityID.
 .OUTPUTS
 
 ApprovalIdentity<PSCustomObject>
@@ -55,7 +55,7 @@ function Initialize-V2026ApprovalIdentity {
         [System.Nullable[Int64]]
         ${SerialOrder},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("IDENTITY", "MANAGER_OF", "GOVERNANCE_GROUP", "SOURCE_OWNER", "ROLE_OWNER", "ACCESS_PROFILE_OWNER", "ENTITLEMENT_OWNER", "APPLICATION_OWNER")]
+        [ValidateSet("IDENTITY", "GOVERNANCE_GROUP", "MANAGER_OF", "ACCOUNT_OWNER", "MACHINE_ACCOUNT_OWNER", "MACHINE_IDENTITY_OWNER", "MANAGER_OF_REQUESTED_TARGET_OWNER", "MANAGER_OF_MACHINE_IDENTITY_OWNER", "MANAGER_OF_ACCOUNT_OWNER", "MANAGER_OF_MACHINE_ACCOUNT_OWNER", "MANAGER_OF_REQUESTER", "MANAGER_OF_REQUESTER_OWNER", "MANAGER_OF_OWNER", "ACCESS_PROFILE_OWNER", "APPLICATION_OWNER", "ENTITLEMENT_OWNER", "ROLE_OWNER", "SOURCE_OWNER", "REQUESTED_TARGET_OWNER", "ACCESS_PROFILE_PRIMARY_OWNER", "APPLICATION_PRIMARY_OWNER", "ENTITLEMENT_PRIMARY_OWNER", "ROLE_PRIMARY_OWNER", "SOURCE_PRIMARY_OWNER", "REQUESTED_TARGET_PRIMARY_OWNER", "ACCESS_PROFILE_SECONDARY_OWNER_GROUP", "APPLICATION_SECONDARY_OWNER_GROUP", "ENTITLEMENT_SECONDARY_OWNER_GROUP", "ROLE_SECONDARY_OWNER_GROUP", "SOURCE_SECONDARY_OWNER_GROUP", "REQUESTED_TARGET_SECONDARY_OWNER_GROUP", "ACCESS_PROFILE_ALL_OWNER_GROUP", "APPLICATION_ALL_OWNER_GROUP", "ENTITLEMENT_ALL_OWNER_GROUP", "ROLE_ALL_OWNER_GROUP", "SOURCE_ALL_OWNER_GROUP", "REQUESTED_TARGET_ALL_OWNER_GROUP")]
         [String]
         ${Type}
     )

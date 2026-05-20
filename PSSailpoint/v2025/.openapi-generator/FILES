@@ -193,6 +193,7 @@ docs/ApprovalConfig.md
 docs/ApprovalConfigCronTimezone.md
 docs/ApprovalConfigEscalationConfig.md
 docs/ApprovalConfigEscalationConfigEscalationChainInner.md
+docs/ApprovalConfigFallbackApprover.md
 docs/ApprovalConfigReminderConfig.md
 docs/ApprovalConfigSerialChainInner.md
 docs/ApprovalConfigTimeoutConfig.md
@@ -486,9 +487,7 @@ docs/EntityCreatedByDTO.md
 docs/Error.md
 docs/ErrorMessage.md
 docs/ErrorMessageDto.md
-docs/ErrorMessageDto1.md
 docs/ErrorResponseDto.md
-docs/ErrorResponseDto1.md
 docs/EvaluateResponse.md
 docs/Event.md
 docs/EventActor.md
@@ -1856,6 +1855,7 @@ src/PSSailpoint.V2025/Model/ApprovalConfig.ps1
 src/PSSailpoint.V2025/Model/ApprovalConfigCronTimezone.ps1
 src/PSSailpoint.V2025/Model/ApprovalConfigEscalationConfig.ps1
 src/PSSailpoint.V2025/Model/ApprovalConfigEscalationConfigEscalationChainInner.ps1
+src/PSSailpoint.V2025/Model/ApprovalConfigFallbackApprover.ps1
 src/PSSailpoint.V2025/Model/ApprovalConfigReminderConfig.ps1
 src/PSSailpoint.V2025/Model/ApprovalConfigSerialChainInner.ps1
 src/PSSailpoint.V2025/Model/ApprovalConfigTimeoutConfig.ps1
@@ -2148,9 +2148,7 @@ src/PSSailpoint.V2025/Model/EntitlementSummary.ps1
 src/PSSailpoint.V2025/Model/EntityCreatedByDTO.ps1
 src/PSSailpoint.V2025/Model/ErrorMessage.ps1
 src/PSSailpoint.V2025/Model/ErrorMessageDto.ps1
-src/PSSailpoint.V2025/Model/ErrorMessageDto1.ps1
 src/PSSailpoint.V2025/Model/ErrorResponseDto.ps1
-src/PSSailpoint.V2025/Model/ErrorResponseDto1.ps1
 src/PSSailpoint.V2025/Model/EvaluateResponse.ps1
 src/PSSailpoint.V2025/Model/EventActor.ps1
 src/PSSailpoint.V2025/Model/EventAttributes.ps1
@@ -3318,6 +3316,7 @@ tests/Model/ApprovalConfig.Tests.ps1
 tests/Model/ApprovalConfigCronTimezone.Tests.ps1
 tests/Model/ApprovalConfigEscalationConfig.Tests.ps1
 tests/Model/ApprovalConfigEscalationConfigEscalationChainInner.Tests.ps1
+tests/Model/ApprovalConfigFallbackApprover.Tests.ps1
 tests/Model/ApprovalConfigReminderConfig.Tests.ps1
 tests/Model/ApprovalConfigSerialChainInner.Tests.ps1
 tests/Model/ApprovalConfigTimeoutConfig.Tests.ps1
@@ -3610,9 +3609,7 @@ tests/Model/EntitlementSummary.Tests.ps1
 tests/Model/EntityCreatedByDTO.Tests.ps1
 tests/Model/ErrorMessage.Tests.ps1
 tests/Model/ErrorMessageDto.Tests.ps1
-tests/Model/ErrorMessageDto1.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
-tests/Model/ErrorResponseDto1.Tests.ps1
 tests/Model/EvaluateResponse.Tests.ps1
 tests/Model/EventActor.Tests.ps1
 tests/Model/EventAttributes.Tests.ps1

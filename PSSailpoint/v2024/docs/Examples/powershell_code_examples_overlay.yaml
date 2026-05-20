@@ -16289,15 +16289,16 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/sources#get-source-entitlement-request-config
       source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get source entitlement request configuration
         
         try {
-            Get-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024SourceEntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024SourceEntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceEntitlementRequestConfig"
             Write-Host $_.ErrorDetails
@@ -17151,6 +17152,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/sources#update-source-entitlement-request-config
       source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SourceEntitlementRequestConfig = @"
         {
@@ -17187,10 +17189,10 @@
         
         try {
             $Result = ConvertFrom-V2024JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-            Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result 
+            Update-V2024SourceEntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result   
+            # Update-V2024SourceEntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceEntitlementRequestConfig"
             Write-Host $_.ErrorDetails
@@ -17884,15 +17886,14 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/tenant-context#get-tenant-context
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Retrieve tenant context
         
         try {
-            Get-V2024TenantContext -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024TenantContext 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024TenantContext -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024TenantContext   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024TenantContext"
             Write-Host $_.ErrorDetails
@@ -17903,7 +17904,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/tenant-context#patch-tenant-context
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"
         {
           "op" : "replace",
@@ -17916,10 +17916,10 @@
         
         try {
             $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2024TenantContext -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+            Update-V2024TenantContext -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2024TenantContext -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+            # Update-V2024TenantContext -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024TenantContext"
             Write-Host $_.ErrorDetails

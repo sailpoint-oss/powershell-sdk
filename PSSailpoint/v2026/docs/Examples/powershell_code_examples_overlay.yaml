@@ -2197,7 +2197,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/approvals#get-approvals
       source: |
-        $Mine = $true # Boolean | Returns the list of approvals for the current caller. Defaults to false if admin, true otherwise. (optional) (default to $false)
+        $Mine = $true # Boolean | Determines whether to return the list of approvals assigned to the current caller or all approvals in the org. Defaults to false if admin, true otherwise (which is the equivalent of 'approverId=${your_identity_id}'). (optional) (default to $false)
         $RequesterId = "17e633e7d57e481569df76323169deb6a" # String | Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin. (optional)
         $RequesteeId = "27e6334g757e481569df76323169db9sc" # String | Returns the list of approvals for a given requesteeId ID. Must match the calling user's identity ID unless they are an admin. (optional)
         $ApproverId = "37e6334g557e481569df7g2d3169db9sb" # String | Returns the list of approvals for a given approverId ID. Must match the calling user's identity ID unless they are an admin. (optional)
@@ -2207,7 +2207,7 @@
         $IncludeApprovers = $true # Boolean | If set to true in the query, the approval requests returned will include approvers. (optional) (default to $false)
         $IncludeReassignmentHistory = $true # Boolean | If set to true in the query, the approval requests returned will include reassignment history. (optional) (default to $false)
         $IncludeBatchInfo = $true # Boolean | If set to true in the query, the approval requests returned will include batch information. (optional) (default to $false)
-        $Filters = "filters=status eq "PENDING" and type eq "ACCESS_REQUEST_APPROVAL"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **approvalId**: *eq, ne, in, co, sw*  **tenantId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le* (optional)
+        $Filters = "filters=status eq "PENDING" and type eq "ACCESS_REQUEST_APPROVAL"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetName**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **approvalId**: *eq, ne, in, co, sw*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw* (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
@@ -2289,31 +2289,8 @@
             "location" : "America/New_York"
           },
           "fallbackApprover" : {
-            "identityID" : "17e633e7d57e481569df76323169deb6a",
-            "members" : [ {
-              "name" : "Bob Neil",
-              "id" : "17e633e7d57e481569df76323169deb6a",
-              "type" : "IDENTITY",
-              "email" : "mail@mail.com"
-            }, {
-              "name" : "Bob Neil",
-              "id" : "17e633e7d57e481569df76323169deb6a",
-              "type" : "IDENTITY",
-              "email" : "mail@mail.com"
-            } ],
-            "name" : "Jim Bob",
-            "ownerOf" : [ {
-              "name" : "Access Request App",
-              "id" : "string",
-              "type" : "APPLICATION"
-            }, {
-              "name" : "Access Request App",
-              "id" : "string",
-              "type" : "APPLICATION"
-            } ],
-            "serialOrder" : 0,
-            "type" : "IDENTITY",
-            "email" : "mail@mail.com"
+            "identityID" : "fdfda352157d4cc79bb749953131b457",
+            "type" : "MANAGER_OF"
           },
           "reminderConfig" : {
             "reminderCronSchedule" : "1 1 1 1 1",
@@ -2326,12 +2303,10 @@
             "escalationCronSchedule" : "*/5 * * * *",
             "escalationChain" : [ {
               "tier" : 1,
-              "chainId" : "ef85d1a8-41ef-433a-8153-0b1f59e7b26a",
               "identityType" : "IDENTITY",
               "identityId" : "fdfda352157d4cc79bb749953131b457"
             }, {
               "tier" : 1,
-              "chainId" : "ef85d1a8-41ef-433a-8153-0b1f59e7b26a",
               "identityType" : "IDENTITY",
               "identityId" : "fdfda352157d4cc79bb749953131b457"
             } ],
@@ -2340,12 +2315,10 @@
           },
           "serialChain" : [ {
             "tier" : 1,
-            "chainId" : "23dc206e-2a9e-4f98-93db-8d6e342cca18",
             "identityType" : "IDENTITY",
             "identityId" : "2c9180858090ea8801809a0465e829da"
           }, {
             "tier" : 1,
-            "chainId" : "23dc206e-2a9e-4f98-93db-8d6e342cca18",
             "identityType" : "IDENTITY",
             "identityId" : "2c9180858090ea8801809a0465e829da"
           } ],
@@ -19332,15 +19305,16 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/sources#get-source-entitlement-request-config
       source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get source entitlement request configuration
         
         try {
-            Get-V2026SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental 
+            Get-V2026SourceEntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-V2026SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2026SourceEntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceEntitlementRequestConfig"
             Write-Host $_.ErrorDetails
@@ -20270,6 +20244,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/sources#update-source-entitlement-request-config
       source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SourceEntitlementRequestConfig = @"
         {
@@ -20306,10 +20281,10 @@
         
         try {
             $Result = ConvertFrom-V2026JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-            Update-V2026SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result 
+            Update-V2026SourceEntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2026SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result   
+            # Update-V2026SourceEntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026SourceEntitlementRequestConfig"
             Write-Host $_.ErrorDetails
@@ -20366,6 +20341,38 @@
             # Update-V2026SourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026SourceSchema"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlement-recommendations/bulk-approve
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/suggested-entitlement-description#approve-bulk-entitlement-recommendations
+      source: |
+        $BulkApproveEntitlementRecommendationRequest = @"
+        {
+          "items" : [ {
+            "id" : "79db50d4-723c-4aa0-a824-83c2205d82d1",
+            "recordType" : "SED",
+            "description" : "Provides access and permissions related to the Delinea Secret Server Cloud system."
+          }, {
+            "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+            "recordType" : "privilege",
+            "privilegeLevel" : "high"
+          } ]
+        }
+        "@
+        
+        # Bulk approve entitlement recommendations
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToBulkApproveEntitlementRecommendationRequest -Json $BulkApproveEntitlementRecommendationRequest
+            Approve-V2026BulkEntitlementRecommendations -BulkApproveEntitlementRecommendationRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Approve-V2026BulkEntitlementRecommendations -BulkApproveEntitlementRecommendationRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-V2026BulkEntitlementRecommendations"
             Write-Host $_.ErrorDetails
         }
 - path: /suggested-entitlement-descriptions/auto-write-settings
@@ -20454,6 +20461,46 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SedBatches"
             Write-Host $_.ErrorDetails
         }
+- path: /entitlement-recommendations/pending-approvals
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/suggested-entitlement-description#list-pending-entitlement-recommendation-approvals
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # List pending entitlement recommendation approvals
+        
+        try {
+            Get-V2026PendingEntitlementRecommendationApprovals 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026PendingEntitlementRecommendationApprovals -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026PendingEntitlementRecommendationApprovals"
+            Write-Host $_.ErrorDetails
+        }
+- path: /privileged-recommendations
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/suggested-entitlement-description#list-privileged-entitlement-recommendations
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # List privileged entitlement recommendations
+        
+        try {
+            Get-V2026PrivilegedEntitlementRecommendations 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026PrivilegedEntitlementRecommendations -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026PrivilegedEntitlementRecommendations"
+            Write-Host $_.ErrorDetails
+        }
 - path: /suggested-entitlement-descriptions
   method: GET
   xCodeSample:
@@ -20480,6 +20527,32 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026Seds"
             Write-Host $_.ErrorDetails
         }
+- path: /entitlement-recommendations/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/suggested-entitlement-description#patch-entitlement-recommendation
+      source: |
+        $Id = "79db50d4-723c-4aa0-a824-83c2205d82d1" # String | The unique identifier of the entitlement recommendation to update.
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Update an entitlement recommendation
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-V2026EntitlementRecommendation -Id $Id -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2026EntitlementRecommendation -Id $Id -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026EntitlementRecommendation"
+            Write-Host $_.ErrorDetails
+        }
 - path: /suggested-entitlement-descriptions
   method: PATCH
   xCodeSample:
@@ -20504,6 +20577,34 @@
             # Update-V2026Sed -Id $Id -SedPatch $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026Sed"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlement-recommendations/assign
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/suggested-entitlement-description#submit-entitlement-recommendations-assignment
+      source: |
+        $EntitlementRecommendationAssignRequest = @"
+        {
+          "assignee" : {
+            "type" : "IDENTITY",
+            "value" : "2c91808a7f3b2e8a017f3c3e5f6d0099"
+          },
+          "items" : [ "79db50d4-723c-4aa0-a824-83c2205d82d1", "a1b2c3d4-e5f6-7890-abcd-ef1234567890" ]
+        }
+        "@
+        
+        # Assign entitlement recommendations for review
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToEntitlementRecommendationAssignRequest -Json $EntitlementRecommendationAssignRequest
+            Submit-V2026EntitlementRecommendationsAssignment -EntitlementRecommendationAssignRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-V2026EntitlementRecommendationsAssignment -EntitlementRecommendationAssignRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2026EntitlementRecommendationsAssignment"
             Write-Host $_.ErrorDetails
         }
 - path: /suggested-entitlement-description-approvals
@@ -21030,15 +21131,14 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/tenant-context#get-tenant-context
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Retrieve tenant context
         
         try {
-            Get-V2026TenantContext -XSailPointExperimental $XSailPointExperimental 
+            Get-V2026TenantContext 
     
             # Below is a request that includes all optional parameters
-            # Get-V2026TenantContext -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2026TenantContext   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026TenantContext"
             Write-Host $_.ErrorDetails
@@ -21049,7 +21149,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/tenant-context#patch-tenant-context
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"
         {
           "op" : "replace",
@@ -21062,10 +21161,10 @@
         
         try {
             $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2026TenantContext -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+            Update-V2026TenantContext -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2026TenantContext -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+            # Update-V2026TenantContext -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026TenantContext"
             Write-Host $_.ErrorDetails

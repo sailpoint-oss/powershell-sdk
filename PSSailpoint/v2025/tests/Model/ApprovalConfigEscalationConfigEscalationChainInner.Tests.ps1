@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025ApprovalConfigEscalationConfigEsca
     Context 'V2025ApprovalConfigEscalationConfigEscalationChainInner' {
         It 'Initialize-V2025ApprovalConfigEscalationConfigEscalationChainInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025ApprovalConfigEscalationConfigEscalationChainInner -ChainId "TEST_VALUE" -Tier "TEST_VALUE" -IdentityId "TEST_VALUE" -IdentityType "TEST_VALUE"
+            #$NewObject = Initialize-V2025ApprovalConfigEscalationConfigEscalationChainInner -Tier "TEST_VALUE" -IdentityId "TEST_VALUE" -IdentityType "TEST_VALUE"
             #$NewObject | Should -BeOfType ApprovalConfigEscalationConfigEscalationChainInner
             #$NewObject.property | Should -Be 0
         }

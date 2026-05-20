@@ -12,10 +12,7 @@ Retrieve tenant context
 
 .DESCRIPTION
 
-Returns a list of key-value pairs representing the current state of the tenant's context. 
-
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
+Returns all key-value pairs representing the current state of the tenant's context. Each tenant is limited to a maximum of 100 key-value pairs. 
 
 .PARAMETER WithHttpInfo
 
@@ -28,9 +25,6 @@ GetTenantContext200ResponseInner[]
 function Get-V2026TenantContext {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
         [Switch]
         $WithHttpInfo
     )
@@ -52,11 +46,6 @@ function Get-V2026TenantContext {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/tenant-context'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling getTenantContext."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
 
 
@@ -90,9 +79,6 @@ Update tenant context
 
 Allows the user to make incremental updates to tenant context records using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  This endpoint is specifically designed to modify the `/Key/*` field, supporting operations such as `add`, `remove`, or `replace` to manage key-value pairs.   Note that each tenant is limited to a maximum of 100 key-value pairs. 
 
-.PARAMETER XSailPointExperimental
-Use this header to enable this experimental API.
-
 .PARAMETER JsonPatchOperation
 No description available.
 
@@ -108,9 +94,6 @@ function Update-V2026TenantContext {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        $XSailPointExperimental = "true",
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${JsonPatchOperation},
         [Switch]
@@ -137,11 +120,6 @@ function Update-V2026TenantContext {
         $LocalVarContentTypes = @('application/json-patch+json')
 
         $LocalVarUri = '/tenant-context'
-
-        if (!$XSailPointExperimental) {
-            throw "Error! The required parameter `XSailPointExperimental` missing when calling patchTenantContext."
-        }
-        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         if (!$JsonPatchOperation) {
             throw "Error! The required parameter `JsonPatchOperation` missing when calling patchTenantContext."

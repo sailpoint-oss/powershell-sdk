@@ -14,14 +14,12 @@ No summary available.
 
 No description available.
 
-.PARAMETER ChainId
-ID of the escalation chain.
 .PARAMETER Tier
 Starting at 1 defines the order in which the identities will get assigned
 .PARAMETER IdentityId
-Identity ID in the escalation chain.
+Optional Identity ID of the type of identity defined in the 'identityType' field.
 .PARAMETER IdentityType
-Type of identity in the escalation chain.
+Type of identityId in the escalation chain.
 .OUTPUTS
 
 ApprovalConfigEscalationConfigEscalationChainInner<PSCustomObject>
@@ -31,15 +29,13 @@ function Initialize-V2025ApprovalConfigEscalationConfigEscalationChainInner {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ChainId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int64]]
         ${Tier},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${IdentityId},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("IDENTITY", "MANAGER_OF", "ACCOUNT_OWNER", "MACHINE_ACCOUNT_OWNER", "MACHINE_IDENTITY_OWNER", "MANAGER_OF_REQUESTED_TARGET_OWNER", "MANAGER_OF_MACHINE_IDENTITY_OWNER", "MANAGER_OF_ACCOUNT_OWNER", "MANAGER_OF_MACHINE_ACCOUNT_OWNER", "MANAGER_OF_REQUESTER", "MANAGER_OF_REQUESTER_OWNER", "MANAGER_OF_OWNER", "ACCESS_PROFILE_OWNER", "APPLICATION_OWNER", "ENTITLEMENT_OWNER", "ROLE_OWNER", "SOURCE_OWNER", "ACCESS_PROFILE_PRIMARY_OWNER", "APPLICATION_PRIMARY_OWNER", "ENTITLEMENT_PRIMARY_OWNER", "ROLE_PRIMARY_OWNER", "SOURCE_PRIMARY_OWNER")]
         [String]
         ${IdentityType}
     )
@@ -50,7 +46,6 @@ function Initialize-V2025ApprovalConfigEscalationConfigEscalationChainInner {
 
 
         $PSO = [PSCustomObject]@{
-            "chainId" = ${ChainId}
             "tier" = ${Tier}
             "identityId" = ${IdentityId}
             "identityType" = ${IdentityType}
@@ -90,17 +85,11 @@ function ConvertFrom-V2025JsonToApprovalConfigEscalationConfigEscalationChainInn
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025ApprovalConfigEscalationConfigEscalationChainInner
-        $AllProperties = ("chainId", "tier", "identityId", "identityType")
+        $AllProperties = ("tier", "identityId", "identityType")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
-        }
-
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "chainId"))) { #optional property not found
-            $ChainId = $null
-        } else {
-            $ChainId = $JsonParameters.PSobject.Properties["chainId"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "tier"))) { #optional property not found
@@ -122,7 +111,6 @@ function ConvertFrom-V2025JsonToApprovalConfigEscalationConfigEscalationChainInn
         }
 
         $PSO = [PSCustomObject]@{
-            "chainId" = ${ChainId}
             "tier" = ${Tier}
             "identityId" = ${IdentityId}
             "identityType" = ${IdentityType}

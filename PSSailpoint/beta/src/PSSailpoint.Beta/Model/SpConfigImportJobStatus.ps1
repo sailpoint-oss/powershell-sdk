@@ -50,7 +50,7 @@ function Initialize-BetaSpConfigImportJobStatus {
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.DateTime]
+        [System.Nullable[System.DateTime]]
         ${Expiration},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.DateTime]
@@ -80,10 +80,6 @@ function Initialize-BetaSpConfigImportJobStatus {
 
         if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
-        if (!$Expiration) {
-            throw "invalid value for 'Expiration', 'Expiration' cannot be null."
         }
 
         if (!$Created) {
@@ -169,12 +165,6 @@ function ConvertFrom-BetaJsonToSpConfigImportJobStatus {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "expiration"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'expiration' missing."
-        } else {
-            $Expiration = $JsonParameters.PSobject.Properties["expiration"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "created"))) {
             throw "Error! JSON cannot be serialized due to the required property 'created' missing."
         } else {
@@ -185,6 +175,12 @@ function ConvertFrom-BetaJsonToSpConfigImportJobStatus {
             throw "Error! JSON cannot be serialized due to the required property 'modified' missing."
         } else {
             $Modified = $JsonParameters.PSobject.Properties["modified"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "expiration"))) { #optional property not found
+            $Expiration = $null
+        } else {
+            $Expiration = $JsonParameters.PSobject.Properties["expiration"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "message"))) { #optional property not found

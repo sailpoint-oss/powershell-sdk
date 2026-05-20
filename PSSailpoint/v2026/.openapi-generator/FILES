@@ -207,6 +207,7 @@ docs/ApprovalConfig.md
 docs/ApprovalConfigCronTimezone.md
 docs/ApprovalConfigEscalationConfig.md
 docs/ApprovalConfigEscalationConfigEscalationChainInner.md
+docs/ApprovalConfigFallbackApprover.md
 docs/ApprovalConfigReminderConfig.md
 docs/ApprovalConfigSerialChainInner.md
 docs/ApprovalConfigTimeoutConfig.md
@@ -297,6 +298,9 @@ docs/BucketAggregation.md
 docs/BucketType.md
 docs/BulkAddTaggedObject.md
 docs/BulkApproveAccessRequest.md
+docs/BulkApproveEntitlementRecommendationItem.md
+docs/BulkApproveEntitlementRecommendationRequest.md
+docs/BulkApproveEntitlementRecommendationResult.md
 docs/BulkApproveRequestDTO.md
 docs/BulkCancelAccessRequest.md
 docs/BulkCancelRequestDTO.md
@@ -496,6 +500,12 @@ docs/EntitlementDocumentAllOfManuallyUpdatedFields.md
 docs/EntitlementDocumentAllOfPermissions.md
 docs/EntitlementDocumentAllOfSource.md
 docs/EntitlementPrivilegeLevel.md
+docs/EntitlementRecommendationAssignRequest.md
+docs/EntitlementRecommendationAssignResult.md
+docs/EntitlementRecommendationAssignee.md
+docs/EntitlementRecommendationAssigneeOneOf.md
+docs/EntitlementRecommendationAssigneeOneOf1.md
+docs/EntitlementRecommendationRecord.md
 docs/EntitlementRef.md
 docs/EntitlementRequestConfig.md
 docs/EntitlementRevocationRequestConfig.md
@@ -511,9 +521,7 @@ docs/EntityCreatedByDTO.md
 docs/Error.md
 docs/ErrorMessage.md
 docs/ErrorMessageDto.md
-docs/ErrorMessageDto1.md
 docs/ErrorResponseDto.md
-docs/ErrorResponseDto1.md
 docs/EvaluateResponse.md
 docs/Event.md
 docs/EventActor.md
@@ -911,6 +919,8 @@ docs/PrivilegeCriteriaConfigDTO.md
 docs/PrivilegeCriteriaDTO.md
 docs/PrivilegeCriteriaDTOGroupsInner.md
 docs/PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner.md
+docs/PrivilegedRecommendationGroup.md
+docs/PrivilegedRecommendationInstance.md
 docs/ProcessIdentitiesRequest.md
 docs/ProcessingDetails.md
 docs/Product.md
@@ -1930,6 +1940,7 @@ src/PSSailpoint.V2026/Model/ApprovalConfig.ps1
 src/PSSailpoint.V2026/Model/ApprovalConfigCronTimezone.ps1
 src/PSSailpoint.V2026/Model/ApprovalConfigEscalationConfig.ps1
 src/PSSailpoint.V2026/Model/ApprovalConfigEscalationConfigEscalationChainInner.ps1
+src/PSSailpoint.V2026/Model/ApprovalConfigFallbackApprover.ps1
 src/PSSailpoint.V2026/Model/ApprovalConfigReminderConfig.ps1
 src/PSSailpoint.V2026/Model/ApprovalConfigSerialChainInner.ps1
 src/PSSailpoint.V2026/Model/ApprovalConfigTimeoutConfig.ps1
@@ -2020,6 +2031,9 @@ src/PSSailpoint.V2026/Model/BucketAggregation.ps1
 src/PSSailpoint.V2026/Model/BucketType.ps1
 src/PSSailpoint.V2026/Model/BulkAddTaggedObject.ps1
 src/PSSailpoint.V2026/Model/BulkApproveAccessRequest.ps1
+src/PSSailpoint.V2026/Model/BulkApproveEntitlementRecommendationItem.ps1
+src/PSSailpoint.V2026/Model/BulkApproveEntitlementRecommendationRequest.ps1
+src/PSSailpoint.V2026/Model/BulkApproveEntitlementRecommendationResult.ps1
 src/PSSailpoint.V2026/Model/BulkApproveRequestDTO.ps1
 src/PSSailpoint.V2026/Model/BulkCancelAccessRequest.ps1
 src/PSSailpoint.V2026/Model/BulkCancelRequestDTO.ps1
@@ -2219,6 +2233,12 @@ src/PSSailpoint.V2026/Model/EntitlementDocumentAllOfManuallyUpdatedFields.ps1
 src/PSSailpoint.V2026/Model/EntitlementDocumentAllOfPermissions.ps1
 src/PSSailpoint.V2026/Model/EntitlementDocumentAllOfSource.ps1
 src/PSSailpoint.V2026/Model/EntitlementPrivilegeLevel.ps1
+src/PSSailpoint.V2026/Model/EntitlementRecommendationAssignRequest.ps1
+src/PSSailpoint.V2026/Model/EntitlementRecommendationAssignResult.ps1
+src/PSSailpoint.V2026/Model/EntitlementRecommendationAssignee.ps1
+src/PSSailpoint.V2026/Model/EntitlementRecommendationAssigneeOneOf.ps1
+src/PSSailpoint.V2026/Model/EntitlementRecommendationAssigneeOneOf1.ps1
+src/PSSailpoint.V2026/Model/EntitlementRecommendationRecord.ps1
 src/PSSailpoint.V2026/Model/EntitlementRef.ps1
 src/PSSailpoint.V2026/Model/EntitlementRequestConfig.ps1
 src/PSSailpoint.V2026/Model/EntitlementRevocationRequestConfig.ps1
@@ -2233,9 +2253,7 @@ src/PSSailpoint.V2026/Model/EntitlementV2Source.ps1
 src/PSSailpoint.V2026/Model/EntityCreatedByDTO.ps1
 src/PSSailpoint.V2026/Model/ErrorMessage.ps1
 src/PSSailpoint.V2026/Model/ErrorMessageDto.ps1
-src/PSSailpoint.V2026/Model/ErrorMessageDto1.ps1
 src/PSSailpoint.V2026/Model/ErrorResponseDto.ps1
-src/PSSailpoint.V2026/Model/ErrorResponseDto1.ps1
 src/PSSailpoint.V2026/Model/EvaluateResponse.ps1
 src/PSSailpoint.V2026/Model/EventActor.ps1
 src/PSSailpoint.V2026/Model/EventAttributes.ps1
@@ -2633,6 +2651,8 @@ src/PSSailpoint.V2026/Model/PrivilegeCriteriaConfigDTO.ps1
 src/PSSailpoint.V2026/Model/PrivilegeCriteriaDTO.ps1
 src/PSSailpoint.V2026/Model/PrivilegeCriteriaDTOGroupsInner.ps1
 src/PSSailpoint.V2026/Model/PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner.ps1
+src/PSSailpoint.V2026/Model/PrivilegedRecommendationGroup.ps1
+src/PSSailpoint.V2026/Model/PrivilegedRecommendationInstance.ps1
 src/PSSailpoint.V2026/Model/ProcessIdentitiesRequest.ps1
 src/PSSailpoint.V2026/Model/ProcessingDetails.ps1
 src/PSSailpoint.V2026/Model/Product.ps1
@@ -3442,6 +3462,7 @@ tests/Model/ApprovalConfig.Tests.ps1
 tests/Model/ApprovalConfigCronTimezone.Tests.ps1
 tests/Model/ApprovalConfigEscalationConfig.Tests.ps1
 tests/Model/ApprovalConfigEscalationConfigEscalationChainInner.Tests.ps1
+tests/Model/ApprovalConfigFallbackApprover.Tests.ps1
 tests/Model/ApprovalConfigReminderConfig.Tests.ps1
 tests/Model/ApprovalConfigSerialChainInner.Tests.ps1
 tests/Model/ApprovalConfigTimeoutConfig.Tests.ps1
@@ -3532,6 +3553,9 @@ tests/Model/BucketAggregation.Tests.ps1
 tests/Model/BucketType.Tests.ps1
 tests/Model/BulkAddTaggedObject.Tests.ps1
 tests/Model/BulkApproveAccessRequest.Tests.ps1
+tests/Model/BulkApproveEntitlementRecommendationItem.Tests.ps1
+tests/Model/BulkApproveEntitlementRecommendationRequest.Tests.ps1
+tests/Model/BulkApproveEntitlementRecommendationResult.Tests.ps1
 tests/Model/BulkApproveRequestDTO.Tests.ps1
 tests/Model/BulkCancelAccessRequest.Tests.ps1
 tests/Model/BulkCancelRequestDTO.Tests.ps1
@@ -3731,6 +3755,12 @@ tests/Model/EntitlementDocumentAllOfManuallyUpdatedFields.Tests.ps1
 tests/Model/EntitlementDocumentAllOfPermissions.Tests.ps1
 tests/Model/EntitlementDocumentAllOfSource.Tests.ps1
 tests/Model/EntitlementPrivilegeLevel.Tests.ps1
+tests/Model/EntitlementRecommendationAssignRequest.Tests.ps1
+tests/Model/EntitlementRecommendationAssignResult.Tests.ps1
+tests/Model/EntitlementRecommendationAssignee.Tests.ps1
+tests/Model/EntitlementRecommendationAssigneeOneOf.Tests.ps1
+tests/Model/EntitlementRecommendationAssigneeOneOf1.Tests.ps1
+tests/Model/EntitlementRecommendationRecord.Tests.ps1
 tests/Model/EntitlementRef.Tests.ps1
 tests/Model/EntitlementRequestConfig.Tests.ps1
 tests/Model/EntitlementRevocationRequestConfig.Tests.ps1
@@ -3745,9 +3775,7 @@ tests/Model/EntitlementV2Source.Tests.ps1
 tests/Model/EntityCreatedByDTO.Tests.ps1
 tests/Model/ErrorMessage.Tests.ps1
 tests/Model/ErrorMessageDto.Tests.ps1
-tests/Model/ErrorMessageDto1.Tests.ps1
 tests/Model/ErrorResponseDto.Tests.ps1
-tests/Model/ErrorResponseDto1.Tests.ps1
 tests/Model/EvaluateResponse.Tests.ps1
 tests/Model/EventActor.Tests.ps1
 tests/Model/EventAttributes.Tests.ps1
@@ -4145,6 +4173,8 @@ tests/Model/PrivilegeCriteriaConfigDTO.Tests.ps1
 tests/Model/PrivilegeCriteriaDTO.Tests.ps1
 tests/Model/PrivilegeCriteriaDTOGroupsInner.Tests.ps1
 tests/Model/PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner.Tests.ps1
+tests/Model/PrivilegedRecommendationGroup.Tests.ps1
+tests/Model/PrivilegedRecommendationInstance.Tests.ps1
 tests/Model/ProcessIdentitiesRequest.Tests.ps1
 tests/Model/ProcessingDetails.Tests.ps1
 tests/Model/Product.Tests.ps1

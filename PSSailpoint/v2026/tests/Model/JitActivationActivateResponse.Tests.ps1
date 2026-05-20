@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026JitActivationActivateResponse' {
     Context 'V2026JitActivationActivateResponse' {
         It 'Initialize-V2026JitActivationActivateResponse' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026JitActivationActivateResponse -Id "TEST_VALUE" -ConnectionId "TEST_VALUE" -ActivationPeriodMins "TEST_VALUE" -Status "TEST_VALUE" -StartTime "TEST_VALUE"
+            #$NewObject = Initialize-V2026JitActivationActivateResponse -Id "TEST_VALUE" -ActivationId "TEST_VALUE" -ConnectionId "TEST_VALUE" -ActivationPeriodMins "TEST_VALUE" -Status "TEST_VALUE" -StartTime "TEST_VALUE"
             #$NewObject | Should -BeOfType JitActivationActivateResponse
             #$NewObject.property | Should -Be 0
         }

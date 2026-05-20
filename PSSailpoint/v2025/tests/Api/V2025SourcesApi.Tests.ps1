@@ -160,7 +160,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025SourcesApi' {
 
     Context 'Get-V2025SourceEntitlementRequestConfig' {
         It 'Test Get-V2025SourceEntitlementRequestConfig' {
-            #$TestResult = Get-V2025SourceEntitlementRequestConfig -XSailPointExperimental "TEST_VALUE"
+            #$TestResult = Get-V2025SourceEntitlementRequestConfig -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -400,7 +400,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025V2025SourcesApi' {
 
     Context 'Update-V2025SourceEntitlementRequestConfig' {
         It 'Test Update-V2025SourceEntitlementRequestConfig' {
-            #$TestResult = Update-V2025SourceEntitlementRequestConfig -XSailPointExperimental "TEST_VALUE" -SourceEntitlementRequestConfig "TEST_VALUE"
+            #$TestResult = Update-V2025SourceEntitlementRequestConfig -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -SourceEntitlementRequestConfig "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -17,6 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'JitActivationActivateResponse', 'V202
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Workflow or business identifier for this activation. | [required]
+**ActivationId** | **String** | Persistent activation record identifier for this JIT activation. | [required]
 **ConnectionId** | **String** | Entitlement connection identifier for the activation. | [required]
 **ActivationPeriodMins** | **Int32** | Activation duration in minutes for this workflow. | [required]
 **Status** | [**ActivationWorkflowStatus**](activation-workflow-status) |  | [required]
@@ -27,6 +28,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $JitActivationActivateResponse = Initialize-V2026JitActivationActivateResponse  -Id jit-activation-abc123 `
+ -ActivationId 8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d `
  -ConnectionId 757fb803-9024-5861-e510-83a56e4c5bd3 `
  -ActivationPeriodMins 120 `
  -Status null `

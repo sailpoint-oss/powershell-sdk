@@ -1781,6 +1781,9 @@ Get source entitlement request configuration
 
 This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
 
+.PARAMETER Id
+The Source id
+
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
@@ -1796,6 +1799,9 @@ function Get-V2026SourceEntitlementRequestConfig {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         $XSailPointExperimental = "true",
         [Switch]
@@ -1819,6 +1825,10 @@ function Get-V2026SourceEntitlementRequestConfig {
         $LocalVarAccepts = @('application/json')
 
         $LocalVarUri = '/sources/{id}/entitlement-request-config'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getSourceEntitlementRequestConfig."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$XSailPointExperimental) {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling getSourceEntitlementRequestConfig."
@@ -4810,6 +4820,9 @@ Update source entitlement request configuration
 
 This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
 
+.PARAMETER Id
+The Source id
+
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
@@ -4829,8 +4842,11 @@ function Update-V2026SourceEntitlementRequestConfig {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        $XSailPointExperimental = "true",
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${SourceEntitlementRequestConfig},
         [Switch]
@@ -4857,6 +4873,10 @@ function Update-V2026SourceEntitlementRequestConfig {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/sources/{id}/entitlement-request-config'
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling updateSourceEntitlementRequestConfig."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
 
         if (!$XSailPointExperimental) {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling updateSourceEntitlementRequestConfig."

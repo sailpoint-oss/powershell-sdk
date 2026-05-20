@@ -24,10 +24,8 @@ Method | HTTP request | Description
 
 
 ## get-tenant-context
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Returns a list of key-value pairs representing the current state of the tenant's context.
+Returns all key-value pairs representing the current state of the tenant's context.
+Each tenant is limited to a maximum of 100 key-value pairs.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant-context)
@@ -35,7 +33,6 @@ Returns a list of key-value pairs representing the current state of the tenant's
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**GetTenantContext200ResponseInner[]**](../models/get-tenant-context200-response-inner)
@@ -56,15 +53,14 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Retrieve tenant context
 
 try {
-    Get-V2024TenantContext -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TenantContext 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024TenantContext -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024TenantContext  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024TenantContext"
     Write-Host $_.ErrorDetails
@@ -73,9 +69,6 @@ try {
 [[Back to top]](#) 
 
 ## patch-tenant-context
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Allows the user to make incremental updates to tenant context records using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 This endpoint is specifically designed to modify the `/Key/*` field, supporting operations such as `add`, `remove`, or `replace` to manage key-value pairs. 
@@ -88,7 +81,6 @@ Note that each tenant is limited to a maximum of 100 key-value pairs.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
@@ -111,7 +103,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
@@ -122,10 +113,10 @@ $JsonPatchOperation = @"{
 
 try {
     $Result = ConvertFrom-V2024JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024TenantContext -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    Update-V2024TenantContext -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024TenantContext -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
+    # Update-V2024TenantContext -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024TenantContext"
     Write-Host $_.ErrorDetails

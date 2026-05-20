@@ -84,7 +84,7 @@ function Initialize-BetaTaskStatus {
         [System.DateTime]
         ${Created},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.DateTime]
+        [System.Nullable[System.DateTime]]
         ${Modified},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
@@ -142,10 +142,6 @@ function Initialize-BetaTaskStatus {
 
         if (!$Created) {
             throw "invalid value for 'Created', 'Created' cannot be null."
-        }
-
-        if (!$Modified) {
-            throw "invalid value for 'Modified', 'Modified' cannot be null."
         }
 
         if (!$Messages) {

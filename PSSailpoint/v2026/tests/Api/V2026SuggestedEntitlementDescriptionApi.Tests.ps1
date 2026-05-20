@@ -6,6 +6,14 @@
 #
 
 Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026SuggestedEntitlementDescriptionApi' {
+    Context 'Approve-V2026BulkEntitlementRecommendations' {
+        It 'Test Approve-V2026BulkEntitlementRecommendations' {
+            #$TestResult = Approve-V2026BulkEntitlementRecommendations -BulkApproveEntitlementRecommendationRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-V2026AutoWriteSettings' {
         It 'Test New-V2026AutoWriteSettings' {
             #$TestResult = New-V2026AutoWriteSettings -AutoWriteSetting "TEST_VALUE"
@@ -38,6 +46,22 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026SuggestedEntitlementDescripti
         }
     }
 
+    Context 'Get-V2026PendingEntitlementRecommendationApprovals' {
+        It 'Test Get-V2026PendingEntitlementRecommendationApprovals' {
+            #$TestResult = Get-V2026PendingEntitlementRecommendationApprovals -Offset "TEST_VALUE" -Limit "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026PrivilegedEntitlementRecommendations' {
+        It 'Test Get-V2026PrivilegedEntitlementRecommendations' {
+            #$TestResult = Get-V2026PrivilegedEntitlementRecommendations -Offset "TEST_VALUE" -Limit "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2026Seds' {
         It 'Test Get-V2026Seds' {
             #$TestResult = Get-V2026Seds -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -CountOnly "TEST_VALUE" -RequestedByAnyone "TEST_VALUE" -ShowPendingStatusOnly "TEST_VALUE"
@@ -46,9 +70,25 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026SuggestedEntitlementDescripti
         }
     }
 
+    Context 'Update-V2026EntitlementRecommendation' {
+        It 'Test Update-V2026EntitlementRecommendation' {
+            #$TestResult = Update-V2026EntitlementRecommendation -Id "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-V2026Sed' {
         It 'Test Update-V2026Sed' {
             #$TestResult = Update-V2026Sed -Id "TEST_VALUE" -SedPatch "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Submit-V2026EntitlementRecommendationsAssignment' {
+        It 'Test Submit-V2026EntitlementRecommendationsAssignment' {
+            #$TestResult = Submit-V2026EntitlementRecommendationsAssignment -EntitlementRecommendationAssignRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2025' -name 'V2025ListIdentitySnapshotAccessItems200
     Context 'V2025ListIdentitySnapshotAccessItems200ResponseInner' {
         It 'Initialize-V2025ListIdentitySnapshotAccessItems200ResponseInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2025ListIdentitySnapshotAccessItems200ResponseInner -Id "TEST_VALUE" -AccessType "TEST_VALUE" -DisplayName "TEST_VALUE" -SourceName "TEST_VALUE" -EntitlementCount "TEST_VALUE" -Description "TEST_VALUE" -SourceId "TEST_VALUE" -AppRefs "TEST_VALUE" -RemoveDate "TEST_VALUE" -Standalone "TEST_VALUE" -Revocable "TEST_VALUE" -NativeIdentity "TEST_VALUE" -AppRoleId "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -Type "TEST_VALUE" -Privileged "TEST_VALUE" -CloudGoverned "TEST_VALUE"
+            #$NewObject = Initialize-V2025ListIdentitySnapshotAccessItems200ResponseInner -Id "TEST_VALUE" -AccessType "TEST_VALUE" -DisplayName "TEST_VALUE" -SourceName "TEST_VALUE" -EntitlementCount "TEST_VALUE" -Description "TEST_VALUE" -SourceId "TEST_VALUE" -AppRefs "TEST_VALUE" -StartDate "TEST_VALUE" -RemoveDate "TEST_VALUE" -Standalone "TEST_VALUE" -Revocable "TEST_VALUE" -NativeIdentity "TEST_VALUE" -AppRoleId "TEST_VALUE" -Attribute "TEST_VALUE" -Value "TEST_VALUE" -Type "TEST_VALUE" -Privileged "TEST_VALUE" -CloudGoverned "TEST_VALUE"
             #$NewObject | Should -BeOfType ListIdentitySnapshotAccessItems200ResponseInner
             #$NewObject.property | Should -Be 0
         }

@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **Description** | **String** | the description for the role | [optional] 
 **SourceId** | **String** | the id of the source | [optional] 
 **AppRefs** | [**[]AccessItemAccessProfileResponseAppRefsInner**](access-item-access-profile-response-app-refs-inner) | the list of app ids associated with the access profile | [required]
+**StartDate** | **String** | the date the access profile will be assigned to the specified identity, in case requested with a future start date | [optional] 
 **RemoveDate** | **String** | the date the role is no longer assigned to the specified identity | [optional] 
 **Standalone** | **Boolean** | indicates whether the entitlement is standalone | [required]
 **Revocable** | **Boolean** | indicates whether the role is revocable | [required]
@@ -47,6 +48,7 @@ $ListIdentitySnapshotAccessItems200ResponseInner = Initialize-BetaListIdentitySn
  -Description Role - Workday/Citizenship access `
  -SourceId 2793o32dwd `
  -AppRefs [{cloudAppId=8c190e6787aa4ed9a90bd9d5344523fb, cloudAppName=Sample App}, {cloudAppId=2c91808a77ff216301782327a50f09bf, cloudAppName=Another App}] `
+ -StartDate 2024-07-01T05:00:00.00Z `
  -RemoveDate 2024-07-01T06:00:00.00Z `
  -Standalone true `
  -Revocable true `

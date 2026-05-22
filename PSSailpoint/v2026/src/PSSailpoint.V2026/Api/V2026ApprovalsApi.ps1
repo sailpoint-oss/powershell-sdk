@@ -543,10 +543,10 @@ Get approvals
 
 .DESCRIPTION
 
-Gets a list of approvals.  One of the following query parameters should be present: 'mine', 'approverId', 'requesterId', 'requesteeId'.  The absence of all query parameters for non admins will default to mine=true (which is the equivalent of 'approverId=${your_identity_id}')  while admins will default to mine=false (which will show all approvals in the org).  For lookups by access request ID please use the following:  '/generic-approvals?mine=false&filters=referenceType+eq+""accessRequestId""+and+referenceId+eq+""12345678901234567890123456789012""'
+Gets a list of approvals.  One of the following query parameters should be present: 'mine', 'approverId', 'requesterId', 'requesteeId'.  The absence of all query parameters for non admins will default to mine=true (which is the equivalent of 'approverId=[your_identity_id]')  while admins will default to mine=false (which will show all approvals in the org).  For lookups by access request ID please use the following:  '/generic-approvals?mine=false&filters=referenceType+eq+""accessRequestId""+and+referenceId+eq+""12345678901234567890123456789012""'
 
 .PARAMETER Mine
-Determines whether to return the list of approvals assigned to the current caller or all approvals in the org. Defaults to false if admin, true otherwise (which is the equivalent of 'approverId=${your_identity_id}').
+Determines whether to return the list of approvals assigned to the current caller or all approvals in the org. Defaults to false if admin, true otherwise (which is the equivalent of 'approverId=[your_identity_id]').
 
 .PARAMETER RequesterId
 Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin.

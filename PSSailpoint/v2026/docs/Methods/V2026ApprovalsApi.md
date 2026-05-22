@@ -351,7 +351,7 @@ Gets a list of approvals.
 
 One of the following query parameters should be present: 'mine', 'approverId', 'requesterId', 'requesteeId'.
 
-The absence of all query parameters for non admins will default to mine=true (which is the equivalent of 'approverId=${your_identity_id}') 
+The absence of all query parameters for non admins will default to mine=true (which is the equivalent of 'approverId=[your_identity_id]') 
 while admins will default to mine=false (which will show all approvals in the org).
 
 For lookups by access request ID please use the following:
@@ -363,7 +363,7 @@ For lookups by access request ID please use the following:
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | Mine | **Boolean** |   (optional) (default to $false) | Determines whether to return the list of approvals assigned to the current caller or all approvals in the org. Defaults to false if admin, true otherwise (which is the equivalent of 'approverId=${your_identity_id}').
+  Query | Mine | **Boolean** |   (optional) (default to $false) | Determines whether to return the list of approvals assigned to the current caller or all approvals in the org. Defaults to false if admin, true otherwise (which is the equivalent of 'approverId=[your_identity_id]').
   Query | RequesterId | **String** |   (optional) | Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin.
   Query | RequesteeId | **String** |   (optional) | Returns the list of approvals for a given requesteeId ID. Must match the calling user's identity ID unless they are an admin.
   Query | ApproverId | **String** |   (optional) | Returns the list of approvals for a given approverId ID. Must match the calling user's identity ID unless they are an admin.
@@ -396,7 +396,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Mine = $true # Boolean | Determines whether to return the list of approvals assigned to the current caller or all approvals in the org. Defaults to false if admin, true otherwise (which is the equivalent of 'approverId=${your_identity_id}'). (optional) (default to $false)
+$Mine = $true # Boolean | Determines whether to return the list of approvals assigned to the current caller or all approvals in the org. Defaults to false if admin, true otherwise (which is the equivalent of 'approverId=[your_identity_id]'). (optional) (default to $false)
 $RequesterId = "17e633e7d57e481569df76323169deb6a" # String | Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin. (optional)
 $RequesteeId = "27e6334g757e481569df76323169db9sc" # String | Returns the list of approvals for a given requesteeId ID. Must match the calling user's identity ID unless they are an admin. (optional)
 $ApproverId = "37e6334g557e481569df7g2d3169db9sb" # String | Returns the list of approvals for a given approverId ID. Must match the calling user's identity ID unless they are an admin. (optional)

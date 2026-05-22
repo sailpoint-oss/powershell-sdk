@@ -30,6 +30,8 @@ the description for the access profile
 the id of the source
 .PARAMETER AppRefs
 the list of app ids associated with the access profile
+.PARAMETER StartDate
+the date the access profile will be assigned to the specified identity, in case requested with a future start date
 .PARAMETER RemoveDate
 the date the access profile is no longer assigned to the specified identity
 .PARAMETER Standalone
@@ -70,6 +72,9 @@ function Initialize-BetaAccessItemAccessProfileResponse {
         ${AppRefs},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${StartDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${RemoveDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
@@ -101,6 +106,7 @@ function Initialize-BetaAccessItemAccessProfileResponse {
             "description" = ${Description}
             "sourceId" = ${SourceId}
             "appRefs" = ${AppRefs}
+            "startDate" = ${StartDate}
             "removeDate" = ${RemoveDate}
             "standalone" = ${Standalone}
             "revocable" = ${Revocable}
@@ -140,7 +146,7 @@ function ConvertFrom-BetaJsonToAccessItemAccessProfileResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaAccessItemAccessProfileResponse
-        $AllProperties = ("id", "accessType", "displayName", "sourceName", "entitlementCount", "description", "sourceId", "appRefs", "removeDate", "standalone", "revocable")
+        $AllProperties = ("id", "accessType", "displayName", "sourceName", "entitlementCount", "description", "sourceId", "appRefs", "startDate", "removeDate", "standalone", "revocable")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -211,6 +217,12 @@ function ConvertFrom-BetaJsonToAccessItemAccessProfileResponse {
             $SourceId = $JsonParameters.PSobject.Properties["sourceId"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "startDate"))) { #optional property not found
+            $StartDate = $null
+        } else {
+            $StartDate = $JsonParameters.PSobject.Properties["startDate"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "removeDate"))) { #optional property not found
             $RemoveDate = $null
         } else {
@@ -226,6 +238,7 @@ function ConvertFrom-BetaJsonToAccessItemAccessProfileResponse {
             "description" = ${Description}
             "sourceId" = ${SourceId}
             "appRefs" = ${AppRefs}
+            "startDate" = ${StartDate}
             "removeDate" = ${RemoveDate}
             "standalone" = ${Standalone}
             "revocable" = ${Revocable}

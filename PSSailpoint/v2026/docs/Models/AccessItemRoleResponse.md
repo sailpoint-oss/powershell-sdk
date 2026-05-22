@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **DisplayName** | **String** | the role display name | [optional] 
 **SourceName** | **String** | the associated source name if it exists | [optional] 
 **Description** | **String** | the description for the role | [optional] 
+**StartDate** | **String** | the date the access profile will be assigned to the specified identity, in case requested with a future start date | [optional] 
 **RemoveDate** | **String** | the date the role is no longer assigned to the specified identity | [optional] 
 **Revocable** | **Boolean** | indicates whether the role is revocable | [required]
 
@@ -33,6 +34,7 @@ $AccessItemRoleResponse = Initialize-V2026AccessItemRoleResponse  -Id 2c91808776
  -DisplayName sample `
  -SourceName Source Name `
  -Description Role - Workday/Citizenship access `
+ -StartDate 2024-07-01T05:00:00.00Z `
  -RemoveDate 2024-07-01T06:00:00.00Z `
  -Revocable true
 ```

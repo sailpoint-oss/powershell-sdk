@@ -24,6 +24,8 @@ the role display name
 the associated source name if it exists
 .PARAMETER Description
 the description for the role
+.PARAMETER StartDate
+the date the access profile will be assigned to the specified identity, in case requested with a future start date
 .PARAMETER RemoveDate
 the date the role is no longer assigned to the specified identity
 .PARAMETER Revocable
@@ -53,6 +55,9 @@ function Initialize-V2024AccessItemRoleResponse {
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
+        ${StartDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
         ${RemoveDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [Boolean]
@@ -74,6 +79,7 @@ function Initialize-V2024AccessItemRoleResponse {
             "displayName" = ${DisplayName}
             "sourceName" = ${SourceName}
             "description" = ${Description}
+            "startDate" = ${StartDate}
             "removeDate" = ${RemoveDate}
             "revocable" = ${Revocable}
         }
@@ -112,7 +118,7 @@ function ConvertFrom-V2024JsonToAccessItemRoleResponse {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024AccessItemRoleResponse
-        $AllProperties = ("id", "accessType", "displayName", "sourceName", "description", "removeDate", "revocable")
+        $AllProperties = ("id", "accessType", "displayName", "sourceName", "description", "startDate", "removeDate", "revocable")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -159,6 +165,12 @@ function ConvertFrom-V2024JsonToAccessItemRoleResponse {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "startDate"))) { #optional property not found
+            $StartDate = $null
+        } else {
+            $StartDate = $JsonParameters.PSobject.Properties["startDate"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "removeDate"))) { #optional property not found
             $RemoveDate = $null
         } else {
@@ -171,6 +183,7 @@ function ConvertFrom-V2024JsonToAccessItemRoleResponse {
             "displayName" = ${DisplayName}
             "sourceName" = ${SourceName}
             "description" = ${Description}
+            "startDate" = ${StartDate}
             "removeDate" = ${RemoveDate}
             "revocable" = ${Revocable}
         }

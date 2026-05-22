@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **CloudGoverned** | **Boolean** | indicates whether the entitlement is cloud governed | [required]
 **EntitlementCount** | **Int32** | the number of entitlements the account will create | [required]
 **AppRefs** | [**[]AccessItemAccessProfileResponseAppRefsInner**](access-item-access-profile-response-app-refs-inner) | the list of app ids associated with the access profile | [required]
+**StartDate** | **String** | the date the access profile will be assigned to the specified identity, in case requested with a future start date | [optional] 
 **RemoveDate** | **String** | the date the role is no longer assigned to the specified identity | [optional] 
 **Revocable** | **Boolean** | indicates whether the role is revocable | [required]
 **NativeIdentity** | **String** | the native identifier used to uniquely identify an acccount | [required]
@@ -53,6 +54,7 @@ $AccessItemAssociatedAccessItem = Initialize-V2024AccessItemAssociatedAccessItem
  -CloudGoverned true `
  -EntitlementCount 12 `
  -AppRefs [{cloudAppId=8c190e6787aa4ed9a90bd9d5344523fb, cloudAppName=Sample App}, {cloudAppId=2c91808a77ff216301782327a50f09bf, cloudAppName=Another App}] `
+ -StartDate 2024-07-01T05:00:00.00Z `
  -RemoveDate 2024-07-01T06:00:00.00Z `
  -Revocable true `
  -NativeIdentity dr.arden.ogahn.d `

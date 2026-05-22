@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026AccessItemRoleResponse' {
     Context 'V2026AccessItemRoleResponse' {
         It 'Initialize-V2026AccessItemRoleResponse' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026AccessItemRoleResponse -Id "TEST_VALUE" -AccessType "TEST_VALUE" -DisplayName "TEST_VALUE" -SourceName "TEST_VALUE" -Description "TEST_VALUE" -RemoveDate "TEST_VALUE" -Revocable "TEST_VALUE"
+            #$NewObject = Initialize-V2026AccessItemRoleResponse -Id "TEST_VALUE" -AccessType "TEST_VALUE" -DisplayName "TEST_VALUE" -SourceName "TEST_VALUE" -Description "TEST_VALUE" -StartDate "TEST_VALUE" -RemoveDate "TEST_VALUE" -Revocable "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessItemRoleResponse
             #$NewObject.property | Should -Be 0
         }

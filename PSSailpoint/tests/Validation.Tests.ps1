@@ -21,7 +21,7 @@ Describe 'V3' {
                 "identities"
             ],
             "query": {
-                "query": "*",
+                "query": "*"
             },
             "sort": ["-name"]
         }
@@ -46,7 +46,7 @@ Describe 'V3' {
 
 Describe 'Beta' {
     It 'Returns results for Get-BetaAccounts' {
-        $Response = Get-Accounts -WithHttpInfo
+        $Response = Get-BetaAccounts -WithHttpInfo
         
         $Response.Response | Should -Not -BeNullOrEmpty
         $Response.StatusCode | Should -Be 200

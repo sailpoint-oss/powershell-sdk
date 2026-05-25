@@ -10424,6 +10424,66 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026IdentityProfile"
             Write-Host $_.ErrorDetails
         }
+- path: /intelligence/identities/{identityID}/access
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/intelligence-package#get-intel-identity-access
+      source: |
+        $IdentityID = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence Package sub-resources.
+        
+        # Accounts merged with privileged data
+        
+        try {
+            Get-V2026IntelIdentityAccess -IdentityID $IdentityID 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026IntelIdentityAccess -IdentityID $IdentityID   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026IntelIdentityAccess"
+            Write-Host $_.ErrorDetails
+        }
+- path: /intelligence/identities/{identityID}/access-history
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/intelligence-package#get-intel-identity-access-history
+      source: |
+        $IdentityID = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence Package sub-resources.
+        $Limit = 100 # Int32 | Maximum number of historical events to return in this page of results. (optional)
+        $Offset = 0 # Int32 | Zero-based index of the first event row to return for pagination. (optional)
+        $Count = $false # Boolean | When true, the service may include total count metadata alongside the result list. (optional) (default to $false)
+        
+        # Return identity access-history events
+        
+        try {
+            Get-V2026IntelIdentityAccessHistory -IdentityID $IdentityID 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026IntelIdentityAccessHistory -IdentityID $IdentityID -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026IntelIdentityAccessHistory"
+            Write-Host $_.ErrorDetails
+        }
+- path: /intelligence/identities
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/intelligence-package#search-intel-identities
+      source: |
+        $Filters = "id eq "00000000-0000-0000-0000-000000000000"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
+        
+        # Resolve one identity by filter
+        
+        try {
+            Search-V2026IntelIdentities -Filters $Filters 
+    
+            # Below is a request that includes all optional parameters
+            # Search-V2026IntelIdentities -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2026IntelIdentities"
+            Write-Host $_.ErrorDetails
+        }
 - path: /jit-activation-config/{configType}
   method: GET
   xCodeSample:
@@ -11832,6 +11892,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2026/methods/machine-identities#start-machine-identity-aggregation
       source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $MachineIdentityAggregationRequest = @"
         {
@@ -11844,10 +11905,10 @@
         
         try {
             $Result = ConvertFrom-V2026JsonToMachineIdentityAggregationRequest -Json $MachineIdentityAggregationRequest
-            Start-V2026MachineIdentityAggregation -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result 
+            Start-V2026MachineIdentityAggregation -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-V2026MachineIdentityAggregation -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result   
+            # Start-V2026MachineIdentityAggregation -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2026MachineIdentityAggregation"
             Write-Host $_.ErrorDetails

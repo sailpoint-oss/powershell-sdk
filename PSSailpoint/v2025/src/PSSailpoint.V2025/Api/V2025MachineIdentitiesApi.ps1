@@ -537,6 +537,9 @@ Start machine identity aggregation
 
 Starts a machine identity (AI Agents) aggregation on the specified source.
 
+.PARAMETER SourceId
+Source ID.
+
 .PARAMETER XSailPointExperimental
 Use this header to enable this experimental API.
 
@@ -556,8 +559,11 @@ function Start-V2025MachineIdentityAggregation {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        $XSailPointExperimental = "true",
+        ${SourceId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${MachineIdentityAggregationRequest},
         [Switch]
@@ -584,6 +590,10 @@ function Start-V2025MachineIdentityAggregation {
         $LocalVarContentTypes = @('application/json')
 
         $LocalVarUri = '/sources/{sourceId}/aggregate-agents'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling startMachineIdentityAggregation."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
 
         if (!$XSailPointExperimental) {
             throw "Error! The required parameter `XSailPointExperimental` missing when calling startMachineIdentityAggregation."

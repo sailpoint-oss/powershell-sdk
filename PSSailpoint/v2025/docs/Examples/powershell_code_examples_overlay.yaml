@@ -11419,6 +11419,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/machine-identities#start-machine-identity-aggregation
       source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $MachineIdentityAggregationRequest = @"
         {
@@ -11431,10 +11432,10 @@
         
         try {
             $Result = ConvertFrom-V2025JsonToMachineIdentityAggregationRequest -Json $MachineIdentityAggregationRequest
-            Start-V2025MachineIdentityAggregation -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result 
+            Start-V2025MachineIdentityAggregation -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-V2025MachineIdentityAggregation -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result   
+            # Start-V2025MachineIdentityAggregation -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2025MachineIdentityAggregation"
             Write-Host $_.ErrorDetails

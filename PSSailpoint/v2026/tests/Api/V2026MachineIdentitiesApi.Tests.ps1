@@ -48,7 +48,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026MachineIdentitiesApi' {
 
     Context 'Start-V2026MachineIdentityAggregation' {
         It 'Test Start-V2026MachineIdentityAggregation' {
-            #$TestResult = Start-V2026MachineIdentityAggregation -XSailPointExperimental "TEST_VALUE" -MachineIdentityAggregationRequest "TEST_VALUE"
+            #$TestResult = Start-V2026MachineIdentityAggregation -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -MachineIdentityAggregationRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

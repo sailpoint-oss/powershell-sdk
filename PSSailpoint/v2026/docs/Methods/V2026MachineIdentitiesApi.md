@@ -340,6 +340,7 @@ Starts a machine identity (AI Agents) aggregation on the specified source.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | MachineIdentityAggregationRequest | [**MachineIdentityAggregationRequest**](../models/machine-identity-aggregation-request) | True  | 
 
@@ -363,6 +364,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $MachineIdentityAggregationRequest = @"{
   "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ],
@@ -373,10 +375,10 @@ $MachineIdentityAggregationRequest = @"{
 
 try {
     $Result = ConvertFrom-V2026JsonToMachineIdentityAggregationRequest -Json $MachineIdentityAggregationRequest
-    Start-V2026MachineIdentityAggregation -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result 
+    Start-V2026MachineIdentityAggregation -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2026MachineIdentityAggregation -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result  
+    # Start-V2026MachineIdentityAggregation -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -MachineIdentityAggregationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2026MachineIdentityAggregation"
     Write-Host $_.ErrorDetails

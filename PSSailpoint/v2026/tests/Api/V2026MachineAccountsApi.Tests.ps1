@@ -22,6 +22,22 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026MachineAccountsApi' {
         }
     }
 
+    Context 'Disable-V2026MachineAccountsInBulk' {
+        It 'Test Disable-V2026MachineAccountsInBulk' {
+            #$TestResult = Disable-V2026MachineAccountsInBulk -XSailPointExperimental "TEST_VALUE" -MisBulkRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Enable-V2026MachineAccountsInBulk' {
+        It 'Test Enable-V2026MachineAccountsInBulk' {
+            #$TestResult = Enable-V2026MachineAccountsInBulk -XSailPointExperimental "TEST_VALUE" -MisBulkRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2026MachineAccount' {
         It 'Test Get-V2026MachineAccount' {
             #$TestResult = Get-V2026MachineAccount -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
@@ -86,6 +102,14 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026MachineAccountsApi' {
         }
     }
 
+    Context 'Invoke-V2026ReloadMachineAccountsInBulk' {
+        It 'Test Invoke-V2026ReloadMachineAccountsInBulk' {
+            #$TestResult = Invoke-V2026ReloadMachineAccountsInBulk -XSailPointExperimental "TEST_VALUE" -MisBulkRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Update-V2026MachineAccount' {
         It 'Test Update-V2026MachineAccount' {
             #$TestResult = Update-V2026MachineAccount -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -RequestBody "TEST_VALUE"
@@ -97,6 +121,14 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026MachineAccountsApi' {
     Context 'Update-V2026MachineAccountSubtypeApprovalConfig' {
         It 'Test Update-V2026MachineAccountSubtypeApprovalConfig' {
             #$TestResult = Update-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental "TEST_VALUE" -SubtypeId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2026MachineAccountsInBulk' {
+        It 'Test Update-V2026MachineAccountsInBulk' {
+            #$TestResult = Update-V2026MachineAccountsInBulk -XSailPointExperimental "TEST_VALUE" -MisBulkUpdateRequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

@@ -830,6 +830,9 @@ docs/MetricType.md
 docs/MfaConfigTestResponse.md
 docs/MfaDuoConfig.md
 docs/MfaOktaConfig.md
+docs/MisBulkRequest.md
+docs/MisBulkResponse.md
+docs/MisBulkUpdateRequest.md
 docs/MultiHostIntegrationTemplateType.md
 docs/MultiHostIntegrations.md
 docs/MultiHostIntegrationsAccountsFile.md
@@ -2579,6 +2582,9 @@ src/PSSailpoint.V2026/Model/MetricType.ps1
 src/PSSailpoint.V2026/Model/MfaConfigTestResponse.ps1
 src/PSSailpoint.V2026/Model/MfaDuoConfig.ps1
 src/PSSailpoint.V2026/Model/MfaOktaConfig.ps1
+src/PSSailpoint.V2026/Model/MisBulkRequest.ps1
+src/PSSailpoint.V2026/Model/MisBulkResponse.ps1
+src/PSSailpoint.V2026/Model/MisBulkUpdateRequest.ps1
 src/PSSailpoint.V2026/Model/ModelError.ps1
 src/PSSailpoint.V2026/Model/ModelEvent.ps1
 src/PSSailpoint.V2026/Model/ModelFilter.ps1
@@ -4119,6 +4125,9 @@ tests/Model/MetricType.Tests.ps1
 tests/Model/MfaConfigTestResponse.Tests.ps1
 tests/Model/MfaDuoConfig.Tests.ps1
 tests/Model/MfaOktaConfig.Tests.ps1
+tests/Model/MisBulkRequest.Tests.ps1
+tests/Model/MisBulkResponse.Tests.ps1
+tests/Model/MisBulkUpdateRequest.Tests.ps1
 tests/Model/ModelError.Tests.ps1
 tests/Model/ModelEvent.Tests.ps1
 tests/Model/ModelFilter.Tests.ps1

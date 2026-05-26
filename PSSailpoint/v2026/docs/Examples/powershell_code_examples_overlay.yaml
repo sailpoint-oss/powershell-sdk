@@ -11400,6 +11400,56 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2026MachineAccountSubtypeByTechnicalName"
             Write-Host $_.ErrorDetails
         }
+- path: /machine-accounts/bulk-disable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#disable-machine-accounts-in-bulk
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MisBulkRequest = @"
+        {
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c91808a7813090a017814121919ecca" ]
+        }
+        "@
+        
+        # Bulk disable machine accounts
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToMisBulkRequest -Json $MisBulkRequest
+            Disable-V2026MachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Disable-V2026MachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-V2026MachineAccountsInBulk"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/bulk-enable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#enable-machine-accounts-in-bulk
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MisBulkRequest = @"
+        {
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c91808a7813090a017814121919ecca" ]
+        }
+        "@
+        
+        # Bulk enable machine accounts
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToMisBulkRequest -Json $MisBulkRequest
+            Enable-V2026MachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Enable-V2026MachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-V2026MachineAccountsInBulk"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-accounts/{id}
   method: GET
   xCodeSample:
@@ -11578,6 +11628,31 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountSubtypeByTechnicalName"
             Write-Host $_.ErrorDetails
         }
+- path: /machine-accounts/bulk-reload
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#reload-machine-accounts-in-bulk
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MisBulkRequest = @"
+        {
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c91808a7813090a017814121919ecca" ]
+        }
+        "@
+        
+        # Bulk reload machine accounts
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToMisBulkRequest -Json $MisBulkRequest
+            Invoke-V2026ReloadMachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-V2026ReloadMachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2026ReloadMachineAccountsInBulk"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-accounts/{id}
   method: PATCH
   xCodeSample:
@@ -11627,6 +11702,36 @@
             # Update-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountSubtypeApprovalConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/bulk-update
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/machine-accounts#update-machine-accounts-in-bulk
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $MisBulkUpdateRequest = @"
+        {
+          "ids" : [ "ef38f94347e94562b5bb8424a56397d8" ],
+          "jsonPatch" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "Updated description"
+          } ]
+        }
+        "@
+        
+        # Bulk update machine accounts
+        
+        try {
+            $Result = ConvertFrom-V2026JsonToMisBulkUpdateRequest -Json $MisBulkUpdateRequest
+            Update-V2026MachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkUpdateRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2026MachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkUpdateRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountsInBulk"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/{sourceId}/machine-classification-config

@@ -944,6 +944,8 @@ docs/PrivilegedRecommendationInstance.md
 docs/ProcessIdentitiesRequest.md
 docs/ProcessingDetails.md
 docs/Product.md
+docs/PromptInsight.md
+docs/PromptInsightsMetrics.md
 docs/ProvisioningCompleted.md
 docs/ProvisioningCompletedAccountRequestsInner.md
 docs/ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner.md
@@ -1536,6 +1538,8 @@ docs/V2026PrivilegeCriteriaApi.md
 docs/V2026PrivilegeCriteriaApideveloperSite_code_examples.yaml
 docs/V2026PrivilegeCriteriaConfigurationApi.md
 docs/V2026PrivilegeCriteriaConfigurationApideveloperSite_code_examples.yaml
+docs/V2026PromptInsightsApi.md
+docs/V2026PromptInsightsApideveloperSite_code_examples.yaml
 docs/V2026PublicIdentitiesApi.md
 docs/V2026PublicIdentitiesApideveloperSite_code_examples.yaml
 docs/V2026PublicIdentitiesConfigApi.md
@@ -1726,6 +1730,7 @@ src/PSSailpoint.V2026/Api/V2026PasswordSyncGroupsApi.ps1
 src/PSSailpoint.V2026/Api/V2026PersonalAccessTokensApi.ps1
 src/PSSailpoint.V2026/Api/V2026PrivilegeCriteriaApi.ps1
 src/PSSailpoint.V2026/Api/V2026PrivilegeCriteriaConfigurationApi.ps1
+src/PSSailpoint.V2026/Api/V2026PromptInsightsApi.ps1
 src/PSSailpoint.V2026/Api/V2026PublicIdentitiesApi.ps1
 src/PSSailpoint.V2026/Api/V2026PublicIdentitiesConfigApi.ps1
 src/PSSailpoint.V2026/Api/V2026ReportsDataExtractionApi.ps1
@@ -2699,6 +2704,8 @@ src/PSSailpoint.V2026/Model/PrivilegedRecommendationInstance.ps1
 src/PSSailpoint.V2026/Model/ProcessIdentitiesRequest.ps1
 src/PSSailpoint.V2026/Model/ProcessingDetails.ps1
 src/PSSailpoint.V2026/Model/Product.ps1
+src/PSSailpoint.V2026/Model/PromptInsight.ps1
+src/PSSailpoint.V2026/Model/PromptInsightsMetrics.ps1
 src/PSSailpoint.V2026/Model/ProvisioningCompleted.ps1
 src/PSSailpoint.V2026/Model/ProvisioningCompletedAccountRequestsInner.ps1
 src/PSSailpoint.V2026/Model/ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner.ps1
@@ -3270,6 +3277,7 @@ tests/Api/V2026PasswordSyncGroupsApi.Tests.ps1
 tests/Api/V2026PersonalAccessTokensApi.Tests.ps1
 tests/Api/V2026PrivilegeCriteriaApi.Tests.ps1
 tests/Api/V2026PrivilegeCriteriaConfigurationApi.Tests.ps1
+tests/Api/V2026PromptInsightsApi.Tests.ps1
 tests/Api/V2026PublicIdentitiesApi.Tests.ps1
 tests/Api/V2026PublicIdentitiesConfigApi.Tests.ps1
 tests/Api/V2026ReportsDataExtractionApi.Tests.ps1
@@ -4242,6 +4250,8 @@ tests/Model/PrivilegedRecommendationInstance.Tests.ps1
 tests/Model/ProcessIdentitiesRequest.Tests.ps1
 tests/Model/ProcessingDetails.Tests.ps1
 tests/Model/Product.Tests.ps1
+tests/Model/PromptInsight.Tests.ps1
+tests/Model/PromptInsightsMetrics.Tests.ps1
 tests/Model/ProvisioningCompleted.Tests.ps1
 tests/Model/ProvisioningCompletedAccountRequestsInner.Tests.ps1
 tests/Model/ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner.Tests.ps1

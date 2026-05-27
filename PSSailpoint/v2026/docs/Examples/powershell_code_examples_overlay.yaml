@@ -15192,6 +15192,47 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026PrivilegeCriteriaConfig"
             Write-Host $_.ErrorDetails
         }
+- path: /prompt-insights/metrics
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/prompt-insights#get-prompt-insights-metrics
+      source: |
+        $Interval = "-1h" # String | Relative lookback window for metrics aggregation.
+        
+        # Get prompt insights metrics
+        
+        try {
+            Get-V2026PromptInsightsMetrics -Interval $Interval 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026PromptInsightsMetrics -Interval $Interval   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026PromptInsightsMetrics"
+            Write-Host $_.ErrorDetails
+        }
+- path: /prompt-insights
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/prompt-insights#list-prompt-insights
+      source: |
+        $Interval = "-1h" # String | Relative lookback window for prompt insights.
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Filters = "policyDecision eq "REDACTED" and severity eq "CRITICAL"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **policyDecision**: *eq*  **category**: *eq*  **severity**: *eq*  **user**: *eq, sw, co*  **agent**: *eq, sw, co*  **reason**: *eq, sw, co*  **rule**: *eq, sw, co*  **policy**: *eq, sw, co* (optional)
+        
+        # List prompt insights
+        
+        try {
+            Get-V2026PromptInsights -Interval $Interval 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026PromptInsights -Interval $Interval -Limit $Limit -Offset $Offset -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026PromptInsights"
+            Write-Host $_.ErrorDetails
+        }
 - path: /public-identities
   method: GET
   xCodeSample:

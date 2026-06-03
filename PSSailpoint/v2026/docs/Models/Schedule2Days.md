@@ -16,15 +16,17 @@ tags: ['SDK', 'Software Development Kit', 'Schedule2Days', 'V2026Schedule2Days']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | **String** | The application id | [optional] 
-**AccountMatchConfig** | [**SelectorAccountMatchConfig**](selector-account-match-config) |  | [optional] 
+**Type** | [**SelectorType**](selector-type) |  | [required]
+**Values** | **[]String** | The selected values.  | [required]
+**Interval** | **Int32** | The selected interval for RANGE selectors.  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Schedule2Days = Initialize-V2026Schedule2Days  -ApplicationId 2c91808874ff91550175097daaec161c" `
- -AccountMatchConfig null
+$Schedule2Days = Initialize-V2026Schedule2Days  -Type null `
+ -Values [MON, WED] `
+ -Interval 3
 ```
 
 - Convert the resource to JSON

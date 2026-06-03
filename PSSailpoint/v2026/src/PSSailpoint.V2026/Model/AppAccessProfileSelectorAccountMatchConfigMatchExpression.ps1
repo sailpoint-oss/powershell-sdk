@@ -20,10 +20,10 @@ No description available.
 If it is AND operators for match terms
 .OUTPUTS
 
-SelectorAccountMatchConfigMatchExpression<PSCustomObject>
+AppAccessProfileSelectorAccountMatchConfigMatchExpression<PSCustomObject>
 #>
 
-function Initialize-V2026SelectorAccountMatchConfigMatchExpression {
+function Initialize-V2026AppAccessProfileSelectorAccountMatchConfigMatchExpression {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -35,7 +35,7 @@ function Initialize-V2026SelectorAccountMatchConfigMatchExpression {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026SelectorAccountMatchConfigMatchExpression' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026AppAccessProfileSelectorAccountMatchConfigMatchExpression' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -51,11 +51,11 @@ function Initialize-V2026SelectorAccountMatchConfigMatchExpression {
 <#
 .SYNOPSIS
 
-Convert from JSON to SelectorAccountMatchConfigMatchExpression<PSCustomObject>
+Convert from JSON to AppAccessProfileSelectorAccountMatchConfigMatchExpression<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SelectorAccountMatchConfigMatchExpression<PSCustomObject>
+Convert from JSON to AppAccessProfileSelectorAccountMatchConfigMatchExpression<PSCustomObject>
 
 .PARAMETER Json
 
@@ -63,21 +63,21 @@ Json object
 
 .OUTPUTS
 
-SelectorAccountMatchConfigMatchExpression<PSCustomObject>
+AppAccessProfileSelectorAccountMatchConfigMatchExpression<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToSelectorAccountMatchConfigMatchExpression {
+function ConvertFrom-V2026JsonToAppAccessProfileSelectorAccountMatchConfigMatchExpression {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026SelectorAccountMatchConfigMatchExpression' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026AppAccessProfileSelectorAccountMatchConfigMatchExpression' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026SelectorAccountMatchConfigMatchExpression
+        # check if Json contains properties not defined in V2026AppAccessProfileSelectorAccountMatchConfigMatchExpression
         $AllProperties = ("matchTerms", "and")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

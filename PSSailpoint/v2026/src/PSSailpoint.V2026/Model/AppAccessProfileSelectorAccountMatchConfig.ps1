@@ -18,10 +18,10 @@ No description available.
 No description available.
 .OUTPUTS
 
-SelectorAccountMatchConfig<PSCustomObject>
+AppAccessProfileSelectorAccountMatchConfig<PSCustomObject>
 #>
 
-function Initialize-V2026SelectorAccountMatchConfig {
+function Initialize-V2026AppAccessProfileSelectorAccountMatchConfig {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-V2026SelectorAccountMatchConfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026SelectorAccountMatchConfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026AppAccessProfileSelectorAccountMatchConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -45,11 +45,11 @@ function Initialize-V2026SelectorAccountMatchConfig {
 <#
 .SYNOPSIS
 
-Convert from JSON to SelectorAccountMatchConfig<PSCustomObject>
+Convert from JSON to AppAccessProfileSelectorAccountMatchConfig<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to SelectorAccountMatchConfig<PSCustomObject>
+Convert from JSON to AppAccessProfileSelectorAccountMatchConfig<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,21 +57,21 @@ Json object
 
 .OUTPUTS
 
-SelectorAccountMatchConfig<PSCustomObject>
+AppAccessProfileSelectorAccountMatchConfig<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToSelectorAccountMatchConfig {
+function ConvertFrom-V2026JsonToAppAccessProfileSelectorAccountMatchConfig {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026SelectorAccountMatchConfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026AppAccessProfileSelectorAccountMatchConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026SelectorAccountMatchConfig
+        # check if Json contains properties not defined in V2026AppAccessProfileSelectorAccountMatchConfig
         $AllProperties = ("matchExpression")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

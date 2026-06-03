@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileDetailsAccountSelector',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Selectors** | [**[]Selector**](selector) |  | [optional] 
+**Selectors** | [**[]AppAccessProfileSelector**](app-access-profile-selector) |  | [optional] 
 
 ## Examples
 

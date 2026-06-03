@@ -19,8 +19,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2026MachineAccountSubtype**](#create-machine-account-subtype) | **POST** `/sources/{sourceId}/subtypes` | Create subtype
 [**Remove-V2026MachineAccountSubtypeByTechnicalName**](#delete-machine-account-subtype-by-technical-name) | **DELETE** `/sources/{sourceId}/subtypes/{technicalName}` | Delete subtype
-[**Disable-V2026MachineAccountsInBulk**](#disable-machine-accounts-in-bulk) | **POST** `/machine-accounts/bulk-disable` | Bulk disable machine accounts
-[**Enable-V2026MachineAccountsInBulk**](#enable-machine-accounts-in-bulk) | **POST** `/machine-accounts/bulk-enable` | Bulk enable machine accounts
 [**Get-V2026MachineAccount**](#get-machine-account) | **GET** `/machine-accounts/{id}` | Get machine account details
 [**Get-V2026MachineAccountSubtypeApprovalConfig**](#get-machine-account-subtype-approval-config) | **GET** `/source-subtypes/{subtypeId}/machine-config` | Machine Subtype Approval Config
 [**Get-V2026MachineAccountSubtypeById**](#get-machine-account-subtype-by-id) | **GET** `/sources/subtypes/{subtypeId}` | Retrieve subtype by subtype id
@@ -29,10 +27,8 @@ Method | HTTP request | Description
 [**Get-V2026MachineAccounts**](#list-machine-accounts) | **GET** `/machine-accounts` | List machine accounts
 [**Invoke-V2026LoadBulkSourceSubtypes**](#load-bulk-source-subtypes) | **POST** `/source-subtypes/bulk-retrieve` | Bulk Retrieve of Source Subtypes
 [**Update-V2026MachineAccountSubtypeByTechnicalName**](#patch-machine-account-subtype-by-technical-name) | **PATCH** `/sources/{sourceId}/subtypes/{technicalName}` | Patch subtype
-[**Invoke-V2026ReloadMachineAccountsInBulk**](#reload-machine-accounts-in-bulk) | **POST** `/machine-accounts/bulk-reload` | Bulk reload machine accounts
 [**Update-V2026MachineAccount**](#update-machine-account) | **PATCH** `/machine-accounts/{id}` | Update machine account details
 [**Update-V2026MachineAccountSubtypeApprovalConfig**](#update-machine-account-subtype-approval-config) | **PATCH** `/source-subtypes/{subtypeId}/machine-config` | Machine Subtype Approval Config
-[**Update-V2026MachineAccountsInBulk**](#update-machine-accounts-in-bulk) | **POST** `/machine-accounts/bulk-update` | Bulk update machine accounts
 
 
 ## create-machine-account-subtype
@@ -135,120 +131,6 @@ try {
     # Remove-V2026MachineAccountSubtypeByTechnicalName -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2026MachineAccountSubtypeByTechnicalName"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## disable-machine-accounts-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Submits an asynchronous request to disable up to 100 machine accounts.
-
-The response returns HTTP 202 Accepted with an **accountRequestId** task identifier. Use the account request APIs to track completion.
-
-Callers without the **idn:mis-account:disable** right may still disable accounts they own. Non-owned IDs are excluded from the task.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/disable-machine-accounts-in-bulk)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | MisBulkRequest | [**MisBulkRequest**](../models/mis-bulk-request) | True  | 
-
-### Return type
-[**AccountRequestAsyncResult**](../models/account-request-async-result)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-202 | Bulk disable request accepted. | AccountRequestAsyncResult
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$MisBulkRequest = @"{
-  "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c91808a7813090a017814121919ecca" ]
-}"@
-
-# Bulk disable machine accounts
-
-try {
-    $Result = ConvertFrom-V2026JsonToMisBulkRequest -Json $MisBulkRequest
-    Disable-V2026MachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkRequest $Result 
-    
-    # Below is a request that includes all optional parameters
-    # Disable-V2026MachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkRequest $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-V2026MachineAccountsInBulk"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## enable-machine-accounts-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Submits an asynchronous request to enable up to 100 machine accounts.
-
-The response returns HTTP 202 Accepted with an **accountRequestId** task identifier. Use the account request APIs to track completion.
-
-Callers without the **idn:mis-account:enable** right may still enable accounts they own. Non-owned IDs are excluded from the task.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/enable-machine-accounts-in-bulk)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | MisBulkRequest | [**MisBulkRequest**](../models/mis-bulk-request) | True  | 
-
-### Return type
-[**AccountRequestAsyncResult**](../models/account-request-async-result)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-202 | Bulk enable request accepted. | AccountRequestAsyncResult
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$MisBulkRequest = @"{
-  "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c91808a7813090a017814121919ecca" ]
-}"@
-
-# Bulk enable machine accounts
-
-try {
-    $Result = ConvertFrom-V2026JsonToMisBulkRequest -Json $MisBulkRequest
-    Enable-V2026MachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkRequest $Result 
-    
-    # Below is a request that includes all optional parameters
-    # Enable-V2026MachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkRequest $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-V2026MachineAccountsInBulk"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -689,63 +571,6 @@ try {
 ```
 [[Back to top]](#) 
 
-## reload-machine-accounts-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Queues a reload for up to 100 machine accounts in one request.
-
-The response uses HTTP 207 Multi-Status. Each array element reports the result for one requested ID in its **status** field.
-
-Callers without the **idn:mis-account:reload** right may still reload accounts they own.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/reload-machine-accounts-in-bulk)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | MisBulkRequest | [**MisBulkRequest**](../models/mis-bulk-request) | True  | 
-
-### Return type
-[**MisBulkResponse[]**](../models/mis-bulk-response)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-207 | Per-account bulk reload results. | MisBulkResponse[]
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$MisBulkRequest = @"{
-  "ids" : [ "ef38f94347e94562b5bb8424a56397d8", "2c91808a7813090a017814121919ecca" ]
-}"@
-
-# Bulk reload machine accounts
-
-try {
-    $Result = ConvertFrom-V2026JsonToMisBulkRequest -Json $MisBulkRequest
-    Invoke-V2026ReloadMachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkRequest $Result 
-    
-    # Below is a request that includes all optional parameters
-    # Invoke-V2026ReloadMachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkRequest $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2026ReloadMachineAccountsInBulk"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
 ## update-machine-account
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
@@ -857,70 +682,6 @@ try {
     # Update-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountSubtypeApprovalConfig"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## update-machine-accounts-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Applies the same JSON Patch document to up to 100 machine accounts in one request.
-
-The response uses HTTP 207 Multi-Status. Each array element reports the result for one requested ID in its **status** field (for example, 200 for success, 404 if the account was not found or is not accessible to the caller, 409 for a duplicate ID in the batch).
-
-Callers without the **idn:mis-account:update** right may still update accounts they own. IDs the caller cannot operate on are reported as not found or failed in the per-row results.
-
-Patchable fields include **description**, **subtype**, **environment**, **machineIdentity**, **ownerIdentity**, and **manuallyEdited** only.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/update-machine-accounts-in-bulk)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | MisBulkUpdateRequest | [**MisBulkUpdateRequest**](../models/mis-bulk-update-request) | True  | 
-
-### Return type
-[**MisBulkResponse[]**](../models/mis-bulk-response)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-207 | Per-account bulk update results. | MisBulkResponse[]
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$MisBulkUpdateRequest = @"{
-  "ids" : [ "ef38f94347e94562b5bb8424a56397d8" ],
-  "jsonPatch" : [ {
-    "op" : "replace",
-    "path" : "/description",
-    "value" : "Updated description"
-  } ]
-}"@
-
-# Bulk update machine accounts
-
-try {
-    $Result = ConvertFrom-V2026JsonToMisBulkUpdateRequest -Json $MisBulkUpdateRequest
-    Update-V2026MachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkUpdateRequest $Result 
-    
-    # Below is a request that includes all optional parameters
-    # Update-V2026MachineAccountsInBulk -XSailPointExperimental $XSailPointExperimental -MisBulkUpdateRequest $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountsInBulk"
     Write-Host $_.ErrorDetails
 }
 ```

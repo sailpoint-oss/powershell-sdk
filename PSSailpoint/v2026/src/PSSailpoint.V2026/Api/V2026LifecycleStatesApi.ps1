@@ -471,7 +471,6 @@ function Set-V2026LifecycleState {
 
 
 
-
         $LocalVarResult = Invoke-V2026ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `

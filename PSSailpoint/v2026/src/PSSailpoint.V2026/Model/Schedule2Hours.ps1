@@ -14,10 +14,12 @@ No summary available.
 
 No description available.
 
-.PARAMETER ApplicationId
-The application id
-.PARAMETER AccountMatchConfig
+.PARAMETER Type
 No description available.
+.PARAMETER Values
+The selected values. 
+.PARAMETER Interval
+The selected interval for RANGE selectors. 
 .OUTPUTS
 
 Schedule2Hours<PSCustomObject>
@@ -27,21 +29,34 @@ function Initialize-V2026Schedule2Hours {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${ApplicationId},
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [ValidateSet("LIST", "RANGE")]
         [PSCustomObject]
-        ${AccountMatchConfig}
+        ${Type},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String[]]
+        ${Values},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Int32]]
+        ${Interval}
     )
 
     Process {
         'Creating PSCustomObject: PSSailpoint.V2026 => V2026Schedule2Hours' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
+        if (!$Type) {
+            throw "invalid value for 'Type', 'Type' cannot be null."
+        }
+
+        if (!$Values) {
+            throw "invalid value for 'Values', 'Values' cannot be null."
+        }
+
 
         $PSO = [PSCustomObject]@{
-            "applicationId" = ${ApplicationId}
-            "accountMatchConfig" = ${AccountMatchConfig}
+            "type" = ${Type}
+            "values" = ${Values}
+            "interval" = ${Interval}
         }
 
         return $PSO
@@ -78,28 +93,39 @@ function ConvertFrom-V2026JsonToSchedule2Hours {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026Schedule2Hours
-        $AllProperties = ("applicationId", "accountMatchConfig")
+        $AllProperties = ("type", "values", "interval")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "applicationId"))) { #optional property not found
-            $ApplicationId = $null
-        } else {
-            $ApplicationId = $JsonParameters.PSobject.Properties["applicationId"].value
+        If ([string]::IsNullOrEmpty($Json) -or $Json -eq "{}") { # empty json
+            throw "Error! Empty JSON cannot be serialized due to the required property 'type' missing."
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "accountMatchConfig"))) { #optional property not found
-            $AccountMatchConfig = $null
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "type"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'type' missing."
         } else {
-            $AccountMatchConfig = $JsonParameters.PSobject.Properties["accountMatchConfig"].value
+            $Type = $JsonParameters.PSobject.Properties["type"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "values"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'values' missing."
+        } else {
+            $Values = $JsonParameters.PSobject.Properties["values"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "interval"))) { #optional property not found
+            $Interval = $null
+        } else {
+            $Interval = $JsonParameters.PSobject.Properties["interval"].value
         }
 
         $PSO = [PSCustomObject]@{
-            "applicationId" = ${ApplicationId}
-            "accountMatchConfig" = ${AccountMatchConfig}
+            "type" = ${Type}
+            "values" = ${Values}
+            "interval" = ${Interval}
         }
 
         return $PSO

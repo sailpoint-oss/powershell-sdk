@@ -16,15 +16,17 @@ tags: ['SDK', 'Software Development Kit', 'Selector', 'V2026Selector']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | **String** | The application id | [optional] 
-**AccountMatchConfig** | [**SelectorAccountMatchConfig**](selector-account-match-config) |  | [optional] 
+**Type** | [**SelectorType**](selector-type) |  | [required]
+**Values** | **[]String** | The selected values.  | [required]
+**Interval** | **Int32** | The selected interval for RANGE selectors.  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Selector = Initialize-V2026Selector  -ApplicationId 2c91808874ff91550175097daaec161c" `
- -AccountMatchConfig null
+$Selector = Initialize-V2026Selector  -Type null `
+ -Values [MON, WED] `
+ -Interval 3
 ```
 
 - Convert the resource to JSON

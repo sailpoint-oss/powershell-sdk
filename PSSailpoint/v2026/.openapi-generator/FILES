@@ -181,6 +181,9 @@ docs/AggregationResult.md
 docs/AggregationType.md
 docs/Aggregations.md
 docs/App.md
+docs/AppAccessProfileSelector.md
+docs/AppAccessProfileSelectorAccountMatchConfig.md
+docs/AppAccessProfileSelectorAccountMatchConfigMatchExpression.md
 docs/AppAccountDetails.md
 docs/AppAccountDetailsSourceAccount.md
 docs/AppAllOfAccount.md
@@ -1193,8 +1196,7 @@ docs/SedPatch.md
 docs/Segment.md
 docs/SegmentVisibilityCriteria.md
 docs/Selector.md
-docs/SelectorAccountMatchConfig.md
-docs/SelectorAccountMatchConfigMatchExpression.md
+docs/SelectorType.md
 docs/SelfImportExportDto.md
 docs/SendAccountVerificationRequest.md
 docs/SendClassifyMachineAccount200Response.md
@@ -1942,6 +1944,9 @@ src/PSSailpoint.V2026/Model/AggregationResult.ps1
 src/PSSailpoint.V2026/Model/AggregationType.ps1
 src/PSSailpoint.V2026/Model/Aggregations.ps1
 src/PSSailpoint.V2026/Model/App.ps1
+src/PSSailpoint.V2026/Model/AppAccessProfileSelector.ps1
+src/PSSailpoint.V2026/Model/AppAccessProfileSelectorAccountMatchConfig.ps1
+src/PSSailpoint.V2026/Model/AppAccessProfileSelectorAccountMatchConfigMatchExpression.ps1
 src/PSSailpoint.V2026/Model/AppAccountDetails.ps1
 src/PSSailpoint.V2026/Model/AppAccountDetailsSourceAccount.ps1
 src/PSSailpoint.V2026/Model/AppAllOfAccount.ps1
@@ -2953,8 +2958,7 @@ src/PSSailpoint.V2026/Model/SedPatch.ps1
 src/PSSailpoint.V2026/Model/Segment.ps1
 src/PSSailpoint.V2026/Model/SegmentVisibilityCriteria.ps1
 src/PSSailpoint.V2026/Model/Selector.ps1
-src/PSSailpoint.V2026/Model/SelectorAccountMatchConfig.ps1
-src/PSSailpoint.V2026/Model/SelectorAccountMatchConfigMatchExpression.ps1
+src/PSSailpoint.V2026/Model/SelectorType.ps1
 src/PSSailpoint.V2026/Model/SelfImportExportDto.ps1
 src/PSSailpoint.V2026/Model/SendAccountVerificationRequest.ps1
 src/PSSailpoint.V2026/Model/SendClassifyMachineAccount200Response.ps1
@@ -3488,6 +3492,9 @@ tests/Model/AggregationResult.Tests.ps1
 tests/Model/AggregationType.Tests.ps1
 tests/Model/Aggregations.Tests.ps1
 tests/Model/App.Tests.ps1
+tests/Model/AppAccessProfileSelector.Tests.ps1
+tests/Model/AppAccessProfileSelectorAccountMatchConfig.Tests.ps1
+tests/Model/AppAccessProfileSelectorAccountMatchConfigMatchExpression.Tests.ps1
 tests/Model/AppAccountDetails.Tests.ps1
 tests/Model/AppAccountDetailsSourceAccount.Tests.ps1
 tests/Model/AppAllOfAccount.Tests.ps1
@@ -4499,8 +4506,7 @@ tests/Model/SedPatch.Tests.ps1
 tests/Model/Segment.Tests.ps1
 tests/Model/SegmentVisibilityCriteria.Tests.ps1
 tests/Model/Selector.Tests.ps1
-tests/Model/SelectorAccountMatchConfig.Tests.ps1
-tests/Model/SelectorAccountMatchConfigMatchExpression.Tests.ps1
+tests/Model/SelectorType.Tests.ps1
 tests/Model/SelfImportExportDto.Tests.ps1
 tests/Model/SendAccountVerificationRequest.Tests.ps1
 tests/Model/SendClassifyMachineAccount200Response.Tests.ps1

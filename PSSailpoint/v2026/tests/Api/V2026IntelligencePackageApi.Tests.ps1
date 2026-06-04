@@ -22,6 +22,22 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026IntelligencePackageApi' {
         }
     }
 
+    Context 'Get-V2026IntelIdentityRisk' {
+        It 'Test Get-V2026IntelIdentityRisk' {
+            #$TestResult = Get-V2026IntelIdentityRisk -IdentityID "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026IntelIdentityRiskOutliers' {
+        It 'Test Get-V2026IntelIdentityRiskOutliers' {
+            #$TestResult = Get-V2026IntelIdentityRiskOutliers -IdentityID "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Search-V2026IntelIdentities' {
         It 'Test Search-V2026IntelIdentities' {
             #$TestResult = Search-V2026IntelIdentities -Filters "TEST_VALUE"

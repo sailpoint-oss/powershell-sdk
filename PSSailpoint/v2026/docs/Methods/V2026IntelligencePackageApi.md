@@ -13,7 +13,7 @@ tags: ['SDK', 'Software Development Kit', 'IntelligencePackage', 'V2026Intellige
   Read-only HTTP API that returns the Intelligence Package (identity context)
 for SecOps enrichment use cases (SIEM/SOAR connectors, MCP, browser
 extension). Backed by Atlas internal-REST calls to MICE, Shelby List Accounts,
-SDS Search, and identity-history.
+SDS Search, IDA-outliers, and identity-history.
  
   
 
@@ -23,6 +23,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-V2026IntelIdentityAccess**](#get-intel-identity-access) | **GET** `/intelligence/identities/{identityID}/access` | Accounts merged with privileged data
 [**Get-V2026IntelIdentityAccessHistory**](#get-intel-identity-access-history) | **GET** `/intelligence/identities/{identityID}/access-history` | Return identity access-history events
+[**Get-V2026IntelIdentityRisk**](#get-intel-identity-risk) | **GET** `/intelligence/identities/{identityID}/risk` | Identity risk snapshot
+[**Get-V2026IntelIdentityRiskOutliers**](#get-intel-identity-risk-outliers) | **GET** `/intelligence/identities/{identityID}/risk/outliers` | Risk outliers continuation paging
 [**Search-V2026IntelIdentities**](#search-intel-identities) | **GET** `/intelligence/identities` | Resolve one identity by filter
 
 
@@ -128,6 +130,109 @@ try {
     # Get-V2026IntelIdentityAccessHistory -IdentityID $IdentityID -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026IntelIdentityAccessHistory"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-intel-identity-risk
+Risk snapshot envelope for the identity. The service resolves the first matching
+outlier for identityID and returns one page of access-items plus an optional
+continuation link for additional pages.
+
+Clients should continue paging using _links.outliers.href when provided.
+Requires tenant license idn:response-and-remediation.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-intel-identity-risk)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | IdentityID | **String** | True  | Non-empty identity id path segment for Intelligence Package sub-resources.
+
+### Return type
+[**IntelIdentityRiskBody**](../models/intel-identity-risk-body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Risk envelope with first page and optional continuation link. | IntelIdentityRiskBody
+400 | Invalid path parameter. | ErrorBody
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal or upstream server failure. | ErrorBody
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$IdentityID = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence Package sub-resources.
+
+# Identity risk snapshot
+
+try {
+    Get-V2026IntelIdentityRisk -IdentityID $IdentityID 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2026IntelIdentityRisk -IdentityID $IdentityID  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026IntelIdentityRisk"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-intel-identity-risk-outliers
+Continuation endpoint for risk outlier access-items. Returns one page based on
+the supplied limit and offset values and includes an optional continuation link
+when more rows remain. Requires tenant license idn:response-and-remediation.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-intel-identity-risk-outliers)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | IdentityID | **String** | True  | Non-empty identity id path segment for Intelligence Package sub-resources.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Maximum number of outlier rows to return for this page.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Zero-based row index for the first returned outlier item.
+
+### Return type
+[**IntelIdentityRiskBody**](../models/intel-identity-risk-body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | One page of outlier items plus optional continuation link. | IntelIdentityRiskBody
+400 | Invalid path or query parameters. | ErrorBody
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal or upstream server failure. | ErrorBody
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$IdentityID = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence Package sub-resources.
+$Limit = 250 # Int32 | Maximum number of outlier rows to return for this page. (optional) (default to 250)
+$Offset = 0 # Int32 | Zero-based row index for the first returned outlier item. (optional) (default to 0)
+
+# Risk outliers continuation paging
+
+try {
+    Get-V2026IntelIdentityRiskOutliers -IdentityID $IdentityID 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2026IntelIdentityRiskOutliers -IdentityID $IdentityID -Limit $Limit -Offset $Offset  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026IntelIdentityRiskOutliers"
     Write-Host $_.ErrorDetails
 }
 ```

@@ -16,6 +16,8 @@ No description available.
 
 .PARAMETER Access
 Hyperlink to the Intelligence Package access document for this identity.
+.PARAMETER Risk
+Hyperlink to the Intelligence Package risk document for this identity.
 .PARAMETER AccessHistory
 Hyperlink to the Intelligence Package access history document for this identity.
 .OUTPUTS
@@ -31,6 +33,9 @@ function Initialize-V2026IntelIdentityLinks {
         ${Access},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
+        ${Risk},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject]
         ${AccessHistory}
     )
 
@@ -42,6 +47,10 @@ function Initialize-V2026IntelIdentityLinks {
             throw "invalid value for 'Access', 'Access' cannot be null."
         }
 
+        if (!$Risk) {
+            throw "invalid value for 'Risk', 'Risk' cannot be null."
+        }
+
         if (!$AccessHistory) {
             throw "invalid value for 'AccessHistory', 'AccessHistory' cannot be null."
         }
@@ -49,6 +58,7 @@ function Initialize-V2026IntelIdentityLinks {
 
         $PSO = [PSCustomObject]@{
             "access" = ${Access}
+            "risk" = ${Risk}
             "accessHistory" = ${AccessHistory}
         }
 
@@ -86,7 +96,7 @@ function ConvertFrom-V2026JsonToIntelIdentityLinks {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026IntelIdentityLinks
-        $AllProperties = ("access", "accessHistory")
+        $AllProperties = ("access", "risk", "accessHistory")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -103,6 +113,12 @@ function ConvertFrom-V2026JsonToIntelIdentityLinks {
             $Access = $JsonParameters.PSobject.Properties["access"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "risk"))) {
+            throw "Error! JSON cannot be serialized due to the required property 'risk' missing."
+        } else {
+            $Risk = $JsonParameters.PSobject.Properties["risk"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "accessHistory"))) {
             throw "Error! JSON cannot be serialized due to the required property 'accessHistory' missing."
         } else {
@@ -111,6 +127,7 @@ function ConvertFrom-V2026JsonToIntelIdentityLinks {
 
         $PSO = [PSCustomObject]@{
             "access" = ${Access}
+            "risk" = ${Risk}
             "accessHistory" = ${AccessHistory}
         }
 

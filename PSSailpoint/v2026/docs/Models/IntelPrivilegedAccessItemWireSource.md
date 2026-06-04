@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IntelPrivilegedAccessItemWireSource = Initialize-V2026IntelPrivilegedAccessItemWireSource  -Name Workday `
+$IntelPrivilegedAccessItemWireSource = Initialize-V2026IntelPrivilegedAccessItemWireSource  -Name Example HR Source `
  -Id src-2
 ```
 

@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IntelIdentityAccessBody = Initialize-V2026IntelIdentityAccessBody  -Accounts [{id=acc-1, name=pat.example, source={id=src-1, name=Active Directory}, disabled=false, locked=false, uncorrelated=false, authoritative=false, systemAccount=false, isMachine=false, hasEntitlements=true, manuallyCorrelated=false, connectionType=direct, nativeIdentity=CN=pat,OU=users, created=2026-01-01T00:00:00Z, modified=2026-05-01T00:00:00Z}] `
- -PrivilegedAccessItems [{privileged=true, displayName=Absence_Administrator, name=Absence_Administrator, standalone=true, id=ent-1, source={name=Workday, id=src-2}, attribute=USER_BASED_SECURITY_GROUPS, type=ENTITLEMENT, value=Absence_Administrator}]
+$IntelIdentityAccessBody = Initialize-V2026IntelIdentityAccessBody  -Accounts [{id=acc-1, name=example.user, source={id=src-1, name=Example Directory}, disabled=false, locked=false, uncorrelated=false, authoritative=false, systemAccount=false, isMachine=false, hasEntitlements=true, manuallyCorrelated=false, connectionType=direct, nativeIdentity=CN=example.user,OU=users, created=2026-01-01T00:00:00Z, modified=2026-05-01T00:00:00Z}] `
+ -PrivilegedAccessItems [{privileged=true, displayName=Example_Admin_Access, name=Example_Admin_Access, standalone=true, id=ent-1, source={name=Example HR Source, id=src-2}, attribute=EXAMPLE_PERMISSION_GROUPS, type=ENTITLEMENT, value=Example_Admin_Access}]
 ```
 
 - Convert the resource to JSON

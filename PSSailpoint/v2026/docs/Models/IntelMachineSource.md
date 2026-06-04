@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IntelMachineSource = Initialize-V2026IntelMachineSource  -Id 2c9180835d2e5168015d32f890301e89 `
- -Name Active Directory `
+ -Name Example Directory `
  -Type LDAP
 ```
 

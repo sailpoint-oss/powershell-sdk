@@ -17,6 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'IntelIdentityLinks', 'V2026IntelIdent
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Access** | [**IntelHref**](intel-href) | Hyperlink to the Intelligence Package access document for this identity. | [required]
+**Risk** | [**IntelHref**](intel-href) | Hyperlink to the Intelligence Package risk document for this identity. | [required]
 **AccessHistory** | [**IntelHref**](intel-href) | Hyperlink to the Intelligence Package access history document for this identity. | [required]
 
 ## Examples
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IntelIdentityLinks = Initialize-V2026IntelIdentityLinks  -Access null `
+ -Risk null `
  -AccessHistory null
 ```
 

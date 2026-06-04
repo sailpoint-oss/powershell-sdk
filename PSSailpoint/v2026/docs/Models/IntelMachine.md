@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IntelMachine = Initialize-V2026IntelMachine  -BusinessApplication Payroll Bot `
- -NativeIdentity DEMO_AGENT1 `
+ -NativeIdentity example-agent-1 `
  -Uuid 3fa85f64-5717-4562-b3fc-2c963f66afa6 `
  -SourceId 8433902684054f09ae024c06cf5091c1 `
  -Source null `

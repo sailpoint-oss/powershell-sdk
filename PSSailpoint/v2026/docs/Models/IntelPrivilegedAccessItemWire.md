@@ -31,14 +31,14 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IntelPrivilegedAccessItemWire = Initialize-V2026IntelPrivilegedAccessItemWire  -Privileged true `
- -DisplayName Absence_Administrator `
- -Name Absence_Administrator `
+ -DisplayName Example_Admin_Access `
+ -Name Example_Admin_Access `
  -Standalone true `
  -Id ent-1 `
  -Source null `
- -Attribute USER_BASED_SECURITY_GROUPS `
+ -Attribute EXAMPLE_PERMISSION_GROUPS `
  -Type ENTITLEMENT `
- -Value Absence_Administrator
+ -Value Example_Admin_Access
 ```
 
 - Convert the resource to JSON

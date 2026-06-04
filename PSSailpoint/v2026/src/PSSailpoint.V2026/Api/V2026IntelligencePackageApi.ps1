@@ -188,6 +188,176 @@ function Get-V2026IntelIdentityAccessHistory {
 <#
 .SYNOPSIS
 
+Identity risk snapshot
+
+.DESCRIPTION
+
+Risk snapshot envelope for the identity. The service resolves the first matching outlier for identityID and returns one page of access-items plus an optional continuation link for additional pages.  Clients should continue paging using _links.outliers.href when provided. Requires tenant license idn:response-and-remediation. 
+
+.PARAMETER IdentityID
+Non-empty identity id path segment for Intelligence Package sub-resources.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+IntelIdentityRiskBody
+#>
+function Get-V2026IntelIdentityRisk {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${IdentityID},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2026IntelIdentityRisk' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/intelligence/identities/{identityID}/risk'
+        if (!$IdentityID) {
+            throw "Error! The required parameter `IdentityID` missing when calling getIntelIdentityRisk."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{identityID}', [System.Web.HTTPUtility]::UrlEncode($IdentityID))
+
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "IntelIdentityRiskBody" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Risk outliers continuation paging
+
+.DESCRIPTION
+
+Continuation endpoint for risk outlier access-items. Returns one page based on the supplied limit and offset values and includes an optional continuation link when more rows remain. Requires tenant license idn:response-and-remediation. 
+
+.PARAMETER IdentityID
+Non-empty identity id path segment for Intelligence Package sub-resources.
+
+.PARAMETER Limit
+Maximum number of outlier rows to return for this page.
+
+.PARAMETER Offset
+Zero-based row index for the first returned outlier item.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+IntelIdentityRiskBody
+#>
+function Get-V2026IntelIdentityRiskOutliers {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${IdentityID},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-V2026IntelIdentityRiskOutliers' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/intelligence/identities/{identityID}/risk/outliers'
+        if (!$IdentityID) {
+            throw "Error! The required parameter `IdentityID` missing when calling getIntelIdentityRiskOutliers."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{identityID}', [System.Web.HTTPUtility]::UrlEncode($IdentityID))
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+
+
+
+        $LocalVarResult = Invoke-V2026ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "IntelIdentityRiskBody" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Resolve one identity by filter
 
 .DESCRIPTION

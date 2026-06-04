@@ -10465,6 +10465,46 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026IntelIdentityAccessHistory"
             Write-Host $_.ErrorDetails
         }
+- path: /intelligence/identities/{identityID}/risk
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/intelligence-package#get-intel-identity-risk
+      source: |
+        $IdentityID = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence Package sub-resources.
+        
+        # Identity risk snapshot
+        
+        try {
+            Get-V2026IntelIdentityRisk -IdentityID $IdentityID 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026IntelIdentityRisk -IdentityID $IdentityID   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026IntelIdentityRisk"
+            Write-Host $_.ErrorDetails
+        }
+- path: /intelligence/identities/{identityID}/risk/outliers
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/intelligence-package#get-intel-identity-risk-outliers
+      source: |
+        $IdentityID = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence Package sub-resources.
+        $Limit = 250 # Int32 | Maximum number of outlier rows to return for this page. (optional) (default to 250)
+        $Offset = 0 # Int32 | Zero-based row index for the first returned outlier item. (optional) (default to 0)
+        
+        # Risk outliers continuation paging
+        
+        try {
+            Get-V2026IntelIdentityRiskOutliers -IdentityID $IdentityID 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026IntelIdentityRiskOutliers -IdentityID $IdentityID -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026IntelIdentityRiskOutliers"
+            Write-Host $_.ErrorDetails
+        }
 - path: /intelligence/identities
   method: GET
   xCodeSample:

@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026Role' {
     Context 'V2026Role' {
         It 'Initialize-V2026Role' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026Role -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Description "TEST_VALUE" -Owner "TEST_VALUE" -AdditionalOwners "TEST_VALUE" -AccessProfiles "TEST_VALUE" -Entitlements "TEST_VALUE" -Membership "TEST_VALUE" -LegacyMembershipInfo "TEST_VALUE" -Enabled "TEST_VALUE" -Requestable "TEST_VALUE" -AccessRequestConfig "TEST_VALUE" -RevocationRequestConfig "TEST_VALUE" -Segments "TEST_VALUE" -Dimensional "TEST_VALUE" -DimensionRefs "TEST_VALUE" -AccessModelMetadata "TEST_VALUE"
+            #$NewObject = Initialize-V2026Role -Id "TEST_VALUE" -Name "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Description "TEST_VALUE" -Owner "TEST_VALUE" -AdditionalOwners "TEST_VALUE" -AccessProfiles "TEST_VALUE" -Entitlements "TEST_VALUE" -Membership "TEST_VALUE" -LegacyMembershipInfo "TEST_VALUE" -Enabled "TEST_VALUE" -Requestable "TEST_VALUE" -AccessRequestConfig "TEST_VALUE" -RevocationRequestConfig "TEST_VALUE" -Segments "TEST_VALUE" -Dimensional "TEST_VALUE" -DimensionRefs "TEST_VALUE" -AccessModelMetadata "TEST_VALUE" -PrivilegeLevel "TEST_VALUE"
             #$NewObject | Should -BeOfType Role
             #$NewObject.property | Should -Be 0
         }

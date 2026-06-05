@@ -48,6 +48,8 @@ Whether the Role is dimensional.
 List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional.
 .PARAMETER AccessModelMetadata
 No description available.
+.PARAMETER PrivilegeLevel
+The privilege level of the role, if applicable.
 .OUTPUTS
 
 Role<PSCustomObject>
@@ -106,7 +108,10 @@ function Initialize-BetaRole {
         ${DimensionRefs},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${AccessModelMetadata}
+        ${AccessModelMetadata},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${PrivilegeLevel}
     )
 
     Process {
@@ -144,6 +149,7 @@ function Initialize-BetaRole {
             "dimensional" = ${Dimensional}
             "dimensionRefs" = ${DimensionRefs}
             "accessModelMetadata" = ${AccessModelMetadata}
+            "privilegeLevel" = ${PrivilegeLevel}
         }
 
         return $PSO
@@ -180,7 +186,7 @@ function ConvertFrom-BetaJsonToRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRole
-        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "additionalOwners", "accessProfiles", "entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments", "dimensional", "dimensionRefs", "accessModelMetadata")
+        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "additionalOwners", "accessProfiles", "entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments", "dimensional", "dimensionRefs", "accessModelMetadata", "privilegeLevel")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -305,6 +311,12 @@ function ConvertFrom-BetaJsonToRole {
             $AccessModelMetadata = $JsonParameters.PSobject.Properties["accessModelMetadata"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "privilegeLevel"))) { #optional property not found
+            $PrivilegeLevel = $null
+        } else {
+            $PrivilegeLevel = $JsonParameters.PSobject.Properties["privilegeLevel"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -325,6 +337,7 @@ function ConvertFrom-BetaJsonToRole {
             "dimensional" = ${Dimensional}
             "dimensionRefs" = ${DimensionRefs}
             "accessModelMetadata" = ${AccessModelMetadata}
+            "privilegeLevel" = ${PrivilegeLevel}
         }
 
         return $PSO

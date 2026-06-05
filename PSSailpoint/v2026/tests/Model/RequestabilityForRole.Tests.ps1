@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026RequestabilityForRole' {
     Context 'V2026RequestabilityForRole' {
         It 'Initialize-V2026RequestabilityForRole' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026RequestabilityForRole -CommentsRequired "TEST_VALUE" -DenialCommentsRequired "TEST_VALUE" -ReauthorizationRequired "TEST_VALUE" -RequireEndDate "TEST_VALUE" -MaxPermittedAccessDuration "TEST_VALUE" -ApprovalSchemes "TEST_VALUE" -DimensionSchema "TEST_VALUE"
+            #$NewObject = Initialize-V2026RequestabilityForRole -CommentsRequired "TEST_VALUE" -DenialCommentsRequired "TEST_VALUE" -ReauthorizationRequired "TEST_VALUE" -RequireEndDate "TEST_VALUE" -MaxPermittedAccessDuration "TEST_VALUE" -ApprovalSchemes "TEST_VALUE" -DimensionSchema "TEST_VALUE" -FormDefinitionId "TEST_VALUE"
             #$NewObject | Should -BeOfType RequestabilityForRole
             #$NewObject.property | Should -Be 0
         }

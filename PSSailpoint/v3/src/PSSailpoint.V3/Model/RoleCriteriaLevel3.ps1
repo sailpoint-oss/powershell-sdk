@@ -19,7 +19,7 @@ No description available.
 .PARAMETER Key
 No description available.
 .PARAMETER StringValue
-String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
+String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, DOES_NOT_CONTAIN, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
 .OUTPUTS
 
 RoleCriteriaLevel3<PSCustomObject>
@@ -29,7 +29,7 @@ function Initialize-RoleCriteriaLevel3 {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("EQUALS", "NOT_EQUALS", "CONTAINS", "STARTS_WITH", "ENDS_WITH", "AND", "OR")]
+        [ValidateSet("EQUALS", "NOT_EQUALS", "CONTAINS", "DOES_NOT_CONTAIN", "STARTS_WITH", "ENDS_WITH", "GREATER_THAN", "LESS_THAN", "GREATER_THAN_EQUALS", "LESS_THAN_EQUALS", "AND", "OR")]
         [PSCustomObject]
         ${Operation},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

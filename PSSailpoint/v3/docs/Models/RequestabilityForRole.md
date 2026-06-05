@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **RequireEndDate** | **Boolean** | Indicates whether the requester of the containing object must provide access end date. | [optional] [default to $false]
 **MaxPermittedAccessDuration** | [**AccessDuration**](access-duration) |  | [optional] 
 **ApprovalSchemes** | [**[]ApprovalSchemeForRole**](approval-scheme-for-role) | List describing the steps in approving the request | [optional] 
+**FormDefinitionId** | **String** | The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process. | [optional] 
 
 ## Examples
 
@@ -32,7 +33,8 @@ $RequestabilityForRole = Initialize-RequestabilityForRole  -CommentsRequired tru
  -ReauthorizationRequired true `
  -RequireEndDate true `
  -MaxPermittedAccessDuration null `
- -ApprovalSchemes null
+ -ApprovalSchemes null `
+ -FormDefinitionId 78258e80-e9e2-4e1a-a11f-ce0b7c62f25d
 ```
 
 - Convert the resource to JSON

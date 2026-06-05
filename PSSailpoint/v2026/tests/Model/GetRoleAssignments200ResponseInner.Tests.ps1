@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026GetRoleAssignments200ResponseInner
     Context 'V2026GetRoleAssignments200ResponseInner' {
         It 'Initialize-V2026GetRoleAssignments200ResponseInner' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026GetRoleAssignments200ResponseInner -Id "TEST_VALUE" -Role "TEST_VALUE" -AddedDate "TEST_VALUE" -RemoveDate "TEST_VALUE" -Comments "TEST_VALUE" -AssignmentSource "TEST_VALUE" -Assigner "TEST_VALUE" -AssignedDimensions "TEST_VALUE" -AssignmentContext "TEST_VALUE" -AccountTargets "TEST_VALUE"
+            #$NewObject = Initialize-V2026GetRoleAssignments200ResponseInner -Id "TEST_VALUE" -Role "TEST_VALUE" -AddedDate "TEST_VALUE" -StartDate "TEST_VALUE" -RemoveDate "TEST_VALUE" -Comments "TEST_VALUE" -AssignmentSource "TEST_VALUE" -Assigner "TEST_VALUE" -AssignedDimensions "TEST_VALUE" -AssignmentContext "TEST_VALUE" -AccountTargets "TEST_VALUE"
             #$NewObject | Should -BeOfType GetRoleAssignments200ResponseInner
             #$NewObject.property | Should -Be 0
         }

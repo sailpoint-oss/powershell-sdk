@@ -30,6 +30,8 @@ Dimensions assigned related to this role
 No description available.
 .PARAMETER AccountTargets
 No description available.
+.PARAMETER StartDate
+Date when assignment will be active, if access was requested with a future start date. If null, assignment is active immediately
 .PARAMETER RemoveDate
 Date that the assignment will be removed
 .PARAMETER AddedDate
@@ -68,6 +70,9 @@ function Initialize-BetaRoleAssignmentDto {
         ${AccountTargets},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
+        ${StartDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
         ${RemoveDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
@@ -88,6 +93,7 @@ function Initialize-BetaRoleAssignmentDto {
             "assignedDimensions" = ${AssignedDimensions}
             "assignmentContext" = ${AssignmentContext}
             "accountTargets" = ${AccountTargets}
+            "startDate" = ${StartDate}
             "removeDate" = ${RemoveDate}
             "addedDate" = ${AddedDate}
         }
@@ -126,7 +132,7 @@ function ConvertFrom-BetaJsonToRoleAssignmentDto {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in BetaRoleAssignmentDto
-        $AllProperties = ("id", "role", "comments", "assignmentSource", "assigner", "assignedDimensions", "assignmentContext", "accountTargets", "removeDate", "addedDate")
+        $AllProperties = ("id", "role", "comments", "assignmentSource", "assigner", "assignedDimensions", "assignmentContext", "accountTargets", "startDate", "removeDate", "addedDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -181,6 +187,12 @@ function ConvertFrom-BetaJsonToRoleAssignmentDto {
             $AccountTargets = $JsonParameters.PSobject.Properties["accountTargets"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "startDate"))) { #optional property not found
+            $StartDate = $null
+        } else {
+            $StartDate = $JsonParameters.PSobject.Properties["startDate"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "removeDate"))) { #optional property not found
             $RemoveDate = $null
         } else {
@@ -202,6 +214,7 @@ function ConvertFrom-BetaJsonToRoleAssignmentDto {
             "assignedDimensions" = ${AssignedDimensions}
             "assignmentContext" = ${AssignmentContext}
             "accountTargets" = ${AccountTargets}
+            "startDate" = ${StartDate}
             "removeDate" = ${RemoveDate}
             "addedDate" = ${AddedDate}
         }

@@ -20,6 +20,8 @@ Assignment Id
 No description available.
 .PARAMETER AddedDate
 Date that the assignment was added
+.PARAMETER StartDate
+Date when assignment will be active, if requested with a future date. If null, assignment is active immediately
 .PARAMETER RemoveDate
 Date that the assignment will be removed
 .OUTPUTS
@@ -41,6 +43,9 @@ function Initialize-V2024RoleAssignmentRef {
         ${AddedDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
+        ${StartDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
         ${RemoveDate}
     )
 
@@ -53,6 +58,7 @@ function Initialize-V2024RoleAssignmentRef {
             "id" = ${Id}
             "role" = ${Role}
             "addedDate" = ${AddedDate}
+            "startDate" = ${StartDate}
             "removeDate" = ${RemoveDate}
         }
 
@@ -90,7 +96,7 @@ function ConvertFrom-V2024JsonToRoleAssignmentRef {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2024RoleAssignmentRef
-        $AllProperties = ("id", "role", "addedDate", "removeDate")
+        $AllProperties = ("id", "role", "addedDate", "startDate", "removeDate")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -115,6 +121,12 @@ function ConvertFrom-V2024JsonToRoleAssignmentRef {
             $AddedDate = $JsonParameters.PSobject.Properties["addedDate"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "startDate"))) { #optional property not found
+            $StartDate = $null
+        } else {
+            $StartDate = $JsonParameters.PSobject.Properties["startDate"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "removeDate"))) { #optional property not found
             $RemoveDate = $null
         } else {
@@ -125,6 +137,7 @@ function ConvertFrom-V2024JsonToRoleAssignmentRef {
             "id" = ${Id}
             "role" = ${Role}
             "addedDate" = ${AddedDate}
+            "startDate" = ${StartDate}
             "removeDate" = ${RemoveDate}
         }
 

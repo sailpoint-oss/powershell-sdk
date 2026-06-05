@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **Dimensional** | **Boolean** | Whether the Role is dimensional. | [optional] [default to $false]
 **DimensionRefs** | [**[]DimensionRef**](dimension-ref) | List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional. | [optional] 
 **AccessModelMetadata** | [**AttributeDTOList**](attribute-dto-list) |  | [optional] 
+**PrivilegeLevel** | **String** | The privilege level of the role, if applicable. | [optional] 
 
 ## Examples
 
@@ -58,7 +59,8 @@ $Role = Initialize-V2025Role  -Id 2c918086749d78830174a1a40e121518 `
  -Segments [f7b1b8a3-5fed-4fd4-ad29-82014e137e19, 29cb6c06-1da8-43ea-8be4-b3125f248f2a] `
  -Dimensional null `
  -DimensionRefs null `
- -AccessModelMetadata null
+ -AccessModelMetadata null `
+ -PrivilegeLevel High
 ```
 
 - Convert the resource to JSON

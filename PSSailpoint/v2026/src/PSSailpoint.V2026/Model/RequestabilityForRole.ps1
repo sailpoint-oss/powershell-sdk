@@ -28,6 +28,8 @@ No description available.
 List describing the steps in approving the request
 .PARAMETER DimensionSchema
 No description available.
+.PARAMETER FormDefinitionId
+The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process.
 .OUTPUTS
 
 RequestabilityForRole<PSCustomObject>
@@ -56,7 +58,10 @@ function Initialize-V2026RequestabilityForRole {
         ${ApprovalSchemes},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${DimensionSchema}
+        ${DimensionSchema},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${FormDefinitionId}
     )
 
     Process {
@@ -72,6 +77,7 @@ function Initialize-V2026RequestabilityForRole {
             "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
             "approvalSchemes" = ${ApprovalSchemes}
             "dimensionSchema" = ${DimensionSchema}
+            "formDefinitionId" = ${FormDefinitionId}
         }
 
         return $PSO
@@ -108,7 +114,7 @@ function ConvertFrom-V2026JsonToRequestabilityForRole {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026RequestabilityForRole
-        $AllProperties = ("commentsRequired", "denialCommentsRequired", "reauthorizationRequired", "requireEndDate", "maxPermittedAccessDuration", "approvalSchemes", "dimensionSchema")
+        $AllProperties = ("commentsRequired", "denialCommentsRequired", "reauthorizationRequired", "requireEndDate", "maxPermittedAccessDuration", "approvalSchemes", "dimensionSchema", "formDefinitionId")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -157,6 +163,12 @@ function ConvertFrom-V2026JsonToRequestabilityForRole {
             $DimensionSchema = $JsonParameters.PSobject.Properties["dimensionSchema"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "formDefinitionId"))) { #optional property not found
+            $FormDefinitionId = $null
+        } else {
+            $FormDefinitionId = $JsonParameters.PSobject.Properties["formDefinitionId"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "commentsRequired" = ${CommentsRequired}
             "denialCommentsRequired" = ${DenialCommentsRequired}
@@ -165,6 +177,7 @@ function ConvertFrom-V2026JsonToRequestabilityForRole {
             "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
             "approvalSchemes" = ${ApprovalSchemes}
             "dimensionSchema" = ${DimensionSchema}
+            "formDefinitionId" = ${FormDefinitionId}
         }
 
         return $PSO

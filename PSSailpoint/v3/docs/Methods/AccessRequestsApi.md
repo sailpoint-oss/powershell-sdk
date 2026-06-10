@@ -115,6 +115,8 @@ __GRANT_ACCESS__
 * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.  
 * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others.
 * Roles, access profiles and entitlements can be requested.
+* You can specify a `startDate` to set or alter a sunrise date-time on an assignment. The startDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunrise date and its yet to be provisioned, you can also submit a request without a `startDate` to request immediate provisioning after approval.
+* If a `startDate` is specified, then the requested role, access profile, or entitlement will be provisioned on that date and time.
 * You can specify a `removeDate` to set or alter a sunset date-time on an assignment. The removeDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunset date, you can also submit a request without a `removeDate` to request removal of the sunset date and time.
 * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
 * Now supports an alternate field 'requestedForWithRequestedItems' for users to specify account selections while requesting items where they have more than one account on the source.
@@ -132,6 +134,7 @@ __REVOKE_ACCESS__
 * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
 * Roles, access profiles, and entitlements can be requested for revocation.
 * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
+* You cannot specify a 'startDate' in a REVOKE_ACCESS request, as startDate is only applicable for GRANT_ACCESS requests to indicate when the access should be provisioned, and it does not make sense in the context of revoking access.
 * You can specify a `removeDate` to add or alter a sunset date and time on an assignment. The `removeDate` must be a future date-time, in the UTC timezone. If the user already has the access assigned with a sunset date and time, the removeDate must be a date-time earlier than the existing sunset date and time. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
 * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields. These fields should be used within the 'requestedItems' section for the revoke requests. 
@@ -181,6 +184,7 @@ $AccessRequest = @"{
     "id" : "2c9180835d2e5168015d32f890ca1581",
     "type" : "ACCESS_PROFILE",
     "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
     "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
   }, {
     "clientMetadata" : {
@@ -192,6 +196,7 @@ $AccessRequest = @"{
     "id" : "2c9180835d2e5168015d32f890ca1581",
     "type" : "ACCESS_PROFILE",
     "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
     "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
   } ],
   "requestedForWithRequestedItems" : [ {
@@ -223,7 +228,8 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE"
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z"
     }, {
       "clientMetadata" : {
         "requestedAppName" : "test-app",
@@ -251,7 +257,8 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE"
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z"
     } ]
   }, {
     "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -282,7 +289,8 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE"
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z"
     }, {
       "clientMetadata" : {
         "requestedAppName" : "test-app",
@@ -310,7 +318,8 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE"
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z"
     } ]
   } ]
 }"@
@@ -393,7 +402,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return.
   Query | Offset | **Int32** |   (optional) | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne*
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, in, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne*
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name**
   Query | RequestState | **String** |   (optional) | Filter the results by the state of the request. The only valid value is *EXECUTING*.
 
@@ -423,7 +432,7 @@ $AssignedTo = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results b
 $Count = $false # Boolean | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to $false)
 $Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
 $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
-$Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne* (optional)
+$Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, in, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne* (optional)
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 

@@ -821,6 +821,7 @@
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE",
             "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
             "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
@@ -832,6 +833,7 @@
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE",
             "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
             "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           } ],
           "requestedForWithRequestedItems" : [ {
@@ -863,7 +865,8 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE"
+              "type" : "ACCESS_PROFILE",
+              "startDate" : "2020-06-12T21:22:23Z"
             }, {
               "clientMetadata" : {
                 "requestedAppName" : "test-app",
@@ -891,7 +894,8 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE"
+              "type" : "ACCESS_PROFILE",
+              "startDate" : "2020-06-12T21:22:23Z"
             } ]
           }, {
             "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -922,7 +926,8 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE"
+              "type" : "ACCESS_PROFILE",
+              "startDate" : "2020-06-12T21:22:23Z"
             }, {
               "clientMetadata" : {
                 "requestedAppName" : "test-app",
@@ -950,7 +955,8 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE"
+              "type" : "ACCESS_PROFILE",
+              "startDate" : "2020-06-12T21:22:23Z"
             } ]
           } ]
         }
@@ -1049,7 +1055,7 @@
         $Count = $false # Boolean | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to $false)
         $Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
         $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
-        $Filters = "accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
+        $Filters = "accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in, eq, ne, ge, gt, le, lt, sw*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
         $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** (optional)
         $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
         
@@ -1089,6 +1095,7 @@
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE",
             "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
             "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
@@ -1100,6 +1107,7 @@
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE",
             "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
             "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
@@ -1111,6 +1119,7 @@
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE",
             "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
             "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
@@ -1122,6 +1131,7 @@
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE",
             "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
             "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
@@ -1133,6 +1143,7 @@
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE",
             "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "startDate" : "2020-06-12T21:22:23Z",
             "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           } ]
         }

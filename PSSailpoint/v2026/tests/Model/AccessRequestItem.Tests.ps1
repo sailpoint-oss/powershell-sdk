@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026AccessRequestItem' {
     Context 'V2026AccessRequestItem' {
         It 'Initialize-V2026AccessRequestItem' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026AccessRequestItem -Type "TEST_VALUE" -Id "TEST_VALUE" -Comment "TEST_VALUE" -ClientMetadata "TEST_VALUE" -RemoveDate "TEST_VALUE" -AssignmentId "TEST_VALUE" -NativeIdentity "TEST_VALUE"
+            #$NewObject = Initialize-V2026AccessRequestItem -Type "TEST_VALUE" -Id "TEST_VALUE" -Comment "TEST_VALUE" -ClientMetadata "TEST_VALUE" -StartDate "TEST_VALUE" -RemoveDate "TEST_VALUE" -AssignmentId "TEST_VALUE" -NativeIdentity "TEST_VALUE"
             #$NewObject | Should -BeOfType AccessRequestItem
             #$NewObject.property | Should -Be 0
         }

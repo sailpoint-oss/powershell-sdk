@@ -22,6 +22,8 @@ ID of Role, Access Profile or Entitlement being requested.
 Comment provided by requester. * Comment is required when the request is of type Revoke Access. 
 .PARAMETER ClientMetadata
 Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities and /access-request-status.
+.PARAMETER StartDate
+The date and time the role or access profile or entitlement is/will be provisioned to the specified identity. Also known as the sunrise date. * Specify a date-time in the future. * This date-time can be used to indicate date-time when access item will be provisioned on the identity account. A GRANT_ACCESS request can use startDate to specify when to schedule provisioning of access item for an identity/account & a MODIFY_ACCESS request can use startDate to change the provisioning date-time of already assigned access item. But REVOKE_ACCESS request can not have startDate field. You can change the sunrise date in requests for yourself or others you are authorized to request for. * If the startDate is in the past, then the provisioning will be processed as soon as possible, but no guarantees can be made about when the provisioning will occur. If the startDate is in the future, then the provisioning will be scheduled to occur on that date and time. If no startDate is provided, then the provisioning will be processed as soon as possible. 
 .PARAMETER RemoveDate
 The date and time the role or access profile or entitlement is no longer assigned to the specified identity. Also known as the expiration date. * Specify a date-time in the future. * The current SLA for the deprovisioning is 24 hours. * This date-time can be used to change the duration of an existing access item assignment for the specified identity. A GRANT_ACCESS request can extend duration or even remove an expiration date, and either a  GRANT_ACCESS or REVOKE_ACCESS request can reduce duration or add an expiration date where one has not previously been present. You can change the expiration date in requests for yourself or others you are authorized to request for. 
 .PARAMETER AssignmentId
@@ -51,6 +53,9 @@ function Initialize-V2026AccessRequestItem {
         ${ClientMetadata},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
+        ${StartDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
         ${RemoveDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -78,6 +83,7 @@ function Initialize-V2026AccessRequestItem {
             "id" = ${Id}
             "comment" = ${Comment}
             "clientMetadata" = ${ClientMetadata}
+            "startDate" = ${StartDate}
             "removeDate" = ${RemoveDate}
             "assignmentId" = ${AssignmentId}
             "nativeIdentity" = ${NativeIdentity}
@@ -117,7 +123,7 @@ function ConvertFrom-V2026JsonToAccessRequestItem {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026AccessRequestItem
-        $AllProperties = ("type", "id", "comment", "clientMetadata", "removeDate", "assignmentId", "nativeIdentity")
+        $AllProperties = ("type", "id", "comment", "clientMetadata", "startDate", "removeDate", "assignmentId", "nativeIdentity")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -152,6 +158,12 @@ function ConvertFrom-V2026JsonToAccessRequestItem {
             $ClientMetadata = $JsonParameters.PSobject.Properties["clientMetadata"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "startDate"))) { #optional property not found
+            $StartDate = $null
+        } else {
+            $StartDate = $JsonParameters.PSobject.Properties["startDate"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "removeDate"))) { #optional property not found
             $RemoveDate = $null
         } else {
@@ -175,6 +187,7 @@ function ConvertFrom-V2026JsonToAccessRequestItem {
             "id" = ${Id}
             "comment" = ${Comment}
             "clientMetadata" = ${ClientMetadata}
+            "startDate" = ${StartDate}
             "removeDate" = ${RemoveDate}
             "assignmentId" = ${AssignmentId}
             "nativeIdentity" = ${NativeIdentity}

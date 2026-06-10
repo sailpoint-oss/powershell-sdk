@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **PreApprovalTriggerDetails** | [**RequestedItemStatusPreApprovalTriggerDetails**](requested-item-status-pre-approval-trigger-details) |  | [optional] 
 **AccessRequestPhases** | [**[]AccessRequestPhases**](access-request-phases) | A list of Phases that the Access Request has gone through in order, to help determine the status of the request. | [optional] 
 **Description** | **String** | Description associated to the requested object. | [optional] 
+**StartDate** | **System.DateTime** | When the role access is scheduled for provisioning. | [optional] 
 **RemoveDate** | **System.DateTime** | When the role access is scheduled for removal. | [optional] 
 **Cancelable** | **Boolean** | True if the request can be canceled. | [optional] [default to $false]
 **AccessRequestId** | **String** | This is the account activity id. | [optional] 
@@ -69,6 +70,7 @@ $RequestedItemStatus = Initialize-RequestedItemStatus  -Id 2c9180926cbfbddd016cb
  -PreApprovalTriggerDetails null `
  -AccessRequestPhases null `
  -Description This is the Engineering role that engineers are granted. `
+ -StartDate 2019-10-21T00:00Z `
  -RemoveDate 2019-10-23T00:00Z `
  -Cancelable true `
  -AccessRequestId 2b838de9-db9b-abcf-e646-d4f274ad4238 `

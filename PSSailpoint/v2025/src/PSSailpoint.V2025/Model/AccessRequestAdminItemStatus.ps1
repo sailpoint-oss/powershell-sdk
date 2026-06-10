@@ -54,6 +54,8 @@ No description available.
 A list of Phases that the Access Request has gone through in order, to help determine the status of the request.
 .PARAMETER Description
 Description associated to the requested object.
+.PARAMETER StartDate
+When the role access is scheduled for provisioning.
 .PARAMETER RemoveDate
 When the role access is scheduled for removal.
 .PARAMETER Cancelable
@@ -137,6 +139,9 @@ function Initialize-V2025AccessRequestAdminItemStatus {
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
+        ${StartDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
         ${RemoveDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
@@ -178,6 +183,7 @@ function Initialize-V2025AccessRequestAdminItemStatus {
             "preApprovalTriggerDetails" = ${PreApprovalTriggerDetails}
             "accessRequestPhases" = ${AccessRequestPhases}
             "description" = ${Description}
+            "startDate" = ${StartDate}
             "removeDate" = ${RemoveDate}
             "cancelable" = ${Cancelable}
             "reauthorizationRequired" = ${ReauthorizationRequired}
@@ -219,7 +225,7 @@ function ConvertFrom-V2025JsonToAccessRequestAdminItemStatus {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025AccessRequestAdminItemStatus
-        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "removeDate", "cancelable", "reauthorizationRequired", "accessRequestId", "clientMetadata")
+        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "reauthorizationRequired", "accessRequestId", "clientMetadata")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -346,6 +352,12 @@ function ConvertFrom-V2025JsonToAccessRequestAdminItemStatus {
             $Description = $JsonParameters.PSobject.Properties["description"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "startDate"))) { #optional property not found
+            $StartDate = $null
+        } else {
+            $StartDate = $JsonParameters.PSobject.Properties["startDate"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "removeDate"))) { #optional property not found
             $RemoveDate = $null
         } else {
@@ -397,6 +409,7 @@ function ConvertFrom-V2025JsonToAccessRequestAdminItemStatus {
             "preApprovalTriggerDetails" = ${PreApprovalTriggerDetails}
             "accessRequestPhases" = ${AccessRequestPhases}
             "description" = ${Description}
+            "startDate" = ${StartDate}
             "removeDate" = ${RemoveDate}
             "cancelable" = ${Cancelable}
             "reauthorizationRequired" = ${ReauthorizationRequired}

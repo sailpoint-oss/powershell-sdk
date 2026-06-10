@@ -1,0 +1,364 @@
+- path: /sources/v1/{sourceId}/subtypes
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#create-machine-account-subtype-v1
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $CreateMachineAccountSubtypeV1Request = @"
+        {"technicalName":"foo","displayName":"Mr Foo","description":"fighters","type":"MACHINE"}
+        "@
+        
+        # Create subtype
+        
+        try {
+            $Result = ConvertFrom-JsonToCreateMachineAccountSubtypeV1Request -Json $CreateMachineAccountSubtypeV1Request
+            New-MachineAccountSubtypeV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -CreateMachineAccountSubtypeV1Request $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-MachineAccountSubtypeV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -CreateMachineAccountSubtypeV1Request $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineAccountSubtypeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/subtypes/{technicalName}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#delete-machine-account-subtype-by-technical-name-v1
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
+        $TechnicalName = "foo" # String | The technical name of the subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete subtype
+        
+        try {
+            Remove-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineAccountSubtypeByTechnicalNameV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/bulk-disable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#disable-machine-accounts-in-bulk-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Misbulkrequest = @"
+        
+        "@
+        
+        # Bulk disable machine accounts
+        
+        try {
+            $Result = ConvertFrom-JsonToMisbulkrequest -Json $Misbulkrequest
+            Disable-MachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -Misbulkrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Disable-MachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -Misbulkrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-MachineAccountsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/bulk-enable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#enable-machine-accounts-in-bulk-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Misbulkrequest = @"
+        
+        "@
+        
+        # Bulk enable machine accounts
+        
+        try {
+            $Result = ConvertFrom-JsonToMisbulkrequest -Json $Misbulkrequest
+            Enable-MachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -Misbulkrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Enable-MachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -Misbulkrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-MachineAccountsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-subtypes/v1/{subtypeId}/machine-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#get-machine-account-subtype-approval-config-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SubtypeId = "ef38f94347e94562b5bb8424a56498d8" # String | machine subtype id.
+        
+        # Machine Subtype Approval Config
+        
+        try {
+            Get-MachineAccountSubtypeApprovalConfigV1 -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountSubtypeApprovalConfigV1 -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountSubtypeApprovalConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/subtypes/{subtypeId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#get-machine-account-subtype-by-id-v1
+      source: |
+        $SubtypeId = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the machine account subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Retrieve subtype by subtype id
+        
+        try {
+            Get-MachineAccountSubtypeByIdV1 -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountSubtypeByIdV1 -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountSubtypeByIdV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/subtypes/{technicalName}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#get-machine-account-subtype-by-technical-name-v1
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
+        $TechnicalName = "foo" # String | The technical name of the subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Retrieve subtype by source and technicalName
+        
+        try {
+            Get-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountSubtypeByTechnicalNameV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#get-machine-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get machine account details
+        
+        try {
+            Get-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/subtypes
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#list-machine-account-subtypes-v1
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "displayName eq "sail"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional)
+        $Sorters = "displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Retrieve all subtypes by source
+        
+        try {
+            Get-MachineAccountSubtypesV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountSubtypesV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountSubtypesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#list-machine-accounts-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "hasEntitlements eq true" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le* (optional)
+        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified** (optional)
+        
+        # List machine accounts
+        
+        try {
+            Get-MachineAccountsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-subtypes/v1/bulk-retrieve
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#load-bulk-source-subtypes-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody = "38453251-6be2-5f8f-df93-5ce19e295838" # String[] | 
+        $RequestBody = @""@ 
+        
+        
+        # Bulk Retrieve of Source Subtypes
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Invoke-LoadBulkSourceSubtypesV1 -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-LoadBulkSourceSubtypesV1 -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-LoadBulkSourceSubtypesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/subtypes/{technicalName}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#patch-machine-account-subtype-by-technical-name-v1
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
+        $TechnicalName = "foo" # String | The technical name of the subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        $RequestBody = @"[{"op":"replace","path":"/displayName","value":"Test New DisplayName"}]"@ 
+        
+        
+        # Patch subtype
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Update-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-MachineAccountSubtypeByTechnicalNameV1 -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineAccountSubtypeByTechnicalNameV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/bulk-reload
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#reload-machine-accounts-in-bulk-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Misbulkrequest = @"
+        
+        "@
+        
+        # Bulk reload machine accounts
+        
+        try {
+            $Result = ConvertFrom-JsonToMisbulkrequest -Json $Misbulkrequest
+            Invoke-ReloadMachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -Misbulkrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-ReloadMachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -Misbulkrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReloadMachineAccountsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-subtypes/v1/{subtypeId}/machine-config
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#update-machine-account-subtype-approval-config-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SubtypeId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account subtype ID.
+        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
+$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | The JSONPatch payload used to update the object.
+        $Jsonpatchoperation = @""@ 
+        
+        
+        # Machine Subtype Approval Config
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-MachineAccountSubtypeApprovalConfigV1 -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-MachineAccountSubtypeApprovalConfigV1 -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineAccountSubtypeApprovalConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#update-machine-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Account ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
+        $RequestBody = @"[{"op":"add","path":"/environment","value":"test"}]"@ 
+        
+        
+        # Update machine account details
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Update-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-MachineAccountV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineAccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-accounts/v1/bulk-update
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsv1/methods/machine-accounts#update-machine-accounts-in-bulk-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Misbulkupdaterequest = @"
+        
+        "@
+        
+        # Bulk update machine accounts
+        
+        try {
+            $Result = ConvertFrom-JsonToMisbulkupdaterequest -Json $Misbulkupdaterequest
+            Update-MachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -Misbulkupdaterequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-MachineAccountsInBulkV1 -XSailPointExperimental $XSailPointExperimental -Misbulkupdaterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineAccountsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }

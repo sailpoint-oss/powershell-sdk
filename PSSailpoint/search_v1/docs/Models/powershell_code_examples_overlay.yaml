@@ -1,0 +1,92 @@
+- path: /search/v1/aggregate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/searchv1/methods/search#search-aggregate-v1
+      source: |
+        $Search = @"
+        
+        "@
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Perform a search query aggregation
+        
+        try {
+            $Result = ConvertFrom-JsonToSearch -Json $Search
+            Search-AggregateV1 -Search $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Search-AggregateV1 -Search $Result -Offset $Offset -Limit $Limit -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-AggregateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /search/v1/count
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/searchv1/methods/search#search-count-v1
+      source: |
+        $Search = @"
+        
+        "@
+        
+        # Count documents satisfying a query
+        
+        try {
+            $Result = ConvertFrom-JsonToSearch -Json $Search
+            Search-CountV1 -Search $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Search-CountV1 -Search $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-CountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /search/v1/{index}/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/searchv1/methods/search#search-get-v1
+      source: |
+        $Index = "accessprofiles" # String | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+        $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+        
+        # Get a document by id
+        
+        try {
+            Search-GetV1 -Index $Index -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Search-GetV1 -Index $Index -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-GetV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /search/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/searchv1/methods/search#search-post-v1
+      source: |
+        $Search = @"
+        
+        "@
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 10000 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Perform search
+        
+        try {
+            $Result = ConvertFrom-JsonToSearch -Json $Search
+            Search-PostV1 -Search $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Search-PostV1 -Search $Result -Offset $Offset -Limit $Limit -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-PostV1"
+            Write-Host $_.ErrorDetails
+        }

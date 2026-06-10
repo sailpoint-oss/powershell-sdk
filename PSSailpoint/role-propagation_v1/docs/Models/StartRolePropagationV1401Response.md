@@ -1,0 +1,35 @@
+---
+id: start-role-propagation-v1401-response
+title: StartRolePropagationV1401Response
+pagination_label: StartRolePropagationV1401Response
+sidebar_label: StartRolePropagationV1401Response
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'StartRolePropagationV1401Response', 'StartRolePropagationV1401Response'] 
+slug: /tools/sdk/powershell/rolepropagationv1/models/start-role-propagation-v1401-response
+tags: ['SDK', 'Software Development Kit', 'StartRolePropagationV1401Response', 'StartRolePropagationV1401Response']
+---
+
+
+# StartRolePropagationV1401Response
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$StartRolePropagationV1401Response = Initialize-StartRolePropagationV1401Response  -VarError JWT validation failed: JWT is expired
+```
+
+- Convert the resource to JSON
+```powershell
+$StartRolePropagationV1401Response | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

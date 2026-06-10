@@ -1,0 +1,62 @@
+- path: /password-org-config/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passwordconfigurationv1/methods/password-configuration#create-password-org-config-v1
+      source: |
+        $Passwordorgconfig = @"
+        {"customInstructionsEnabled":true,"digitTokenEnabled":true,"digitTokenDurationMinutes":12,"digitTokenLength":9}
+        "@
+        
+        # Create password org config
+        
+        try {
+            $Result = ConvertFrom-JsonToPasswordorgconfig -Json $Passwordorgconfig
+            New-PasswordOrgConfigV1 -Passwordorgconfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-PasswordOrgConfigV1 -Passwordorgconfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PasswordOrgConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /password-org-config/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passwordconfigurationv1/methods/password-configuration#get-password-org-config-v1
+      source: |
+        
+        # Get password org config
+        
+        try {
+            Get-PasswordOrgConfigV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PasswordOrgConfigV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PasswordOrgConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /password-org-config/v1
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passwordconfigurationv1/methods/password-configuration#put-password-org-config-v1
+      source: |
+        $Passwordorgconfig = @"
+        {"digitTokenEnabled":true,"digitTokenDurationMinutes":12}
+        "@
+        
+        # Update password org config
+        
+        try {
+            $Result = ConvertFrom-JsonToPasswordorgconfig -Json $Passwordorgconfig
+            Send-PasswordOrgConfigV1 -Passwordorgconfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-PasswordOrgConfigV1 -Passwordorgconfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-PasswordOrgConfigV1"
+            Write-Host $_.ErrorDetails
+        }

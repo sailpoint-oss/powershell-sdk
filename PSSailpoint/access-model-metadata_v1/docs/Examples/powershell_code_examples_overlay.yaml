@@ -1,0 +1,242 @@
+- path: /access-model-metadata/v1/attributes
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#create-access-model-metadata-attribute-v1
+      source: |
+        $Attributedto = @"
+        
+        "@
+        
+        # Create access model metadata attribute
+        
+        try {
+            $Result = ConvertFrom-JsonToAttributedto -Json $Attributedto
+            New-AccessModelMetadataAttributeV1 -Attributedto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-AccessModelMetadataAttributeV1 -Attributedto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessModelMetadataAttributeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/v1/attributes/{key}/values
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#create-access-model-metadata-attribute-value-v1
+      source: |
+        $Key = "iscPrivacy" # String | Technical name of the Attribute.
+        $Attributevaluedto = @"
+        
+        "@
+        
+        # Create access model metadata value
+        
+        try {
+            $Result = ConvertFrom-JsonToAttributevaluedto -Json $Attributevaluedto
+            New-AccessModelMetadataAttributeValueV1 -Key $Key -Attributevaluedto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-AccessModelMetadataAttributeValueV1 -Key $Key -Attributevaluedto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessModelMetadataAttributeValueV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/v1/attributes/{key}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#get-access-model-metadata-attribute-v1
+      source: |
+        $Key = "iscPrivacy" # String | Technical name of the Attribute.
+        
+        # Get access model metadata attribute
+        
+        try {
+            Get-AccessModelMetadataAttributeV1 -Key $Key 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessModelMetadataAttributeV1 -Key $Key   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessModelMetadataAttributeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/v1/attributes/{key}/values/{value}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#get-access-model-metadata-attribute-value-v1
+      source: |
+        $Key = "iscPrivacy" # String | Technical name of the Attribute.
+        $Value = "public" # String | Technical name of the Attribute value.
+        
+        # Get access model metadata value
+        
+        try {
+            Get-AccessModelMetadataAttributeValueV1 -Key $Key -Value $Value 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessModelMetadataAttributeValueV1 -Key $Key -Value $Value   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessModelMetadataAttributeValueV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/v1/attributes
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#list-access-model-metadata-attribute-v1
+      source: |
+        $Filters = "name eq "Privacy"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
+        $Sorters = "name,-key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List access model metadata attributes
+        
+        try {
+            Get-AccessModelMetadataAttributeV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessModelMetadataAttributeV1 -Filters $Filters -Sorters $Sorters -Limit $Limit -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessModelMetadataAttributeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/v1/attributes/{key}/values
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#list-access-model-metadata-attribute-value-v1
+      source: |
+        $Key = "iscPrivacy" # String | Technical name of the Attribute.
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List access model metadata values
+        
+        try {
+            Get-AccessModelMetadataAttributeValueV1 -Key $Key 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessModelMetadataAttributeValueV1 -Key $Key -Limit $Limit -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessModelMetadataAttributeValueV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/v1/attributes/{key}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#update-access-model-metadata-attribute-v1
+      source: |
+        $Key = "iscPrivacy" # String | Technical name of the Attribute.
+        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
+$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | JSON Patch array to apply
+        $Jsonpatchoperation = @""@ 
+        
+        
+        # Update access model metadata attribute
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-AccessModelMetadataAttributeV1 -Key $Key -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AccessModelMetadataAttributeV1 -Key $Key -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessModelMetadataAttributeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/v1/attributes/{key}/values/{value}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#update-access-model-metadata-attribute-value-v1
+      source: |
+        $Key = "iscPrivacy" # String | Technical name of the Attribute.
+        $Value = "public" # String | Technical name of the Attribute value.
+        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
+$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | JSON Patch array to apply
+        $Jsonpatchoperation = @""@ 
+        
+        
+        # Update access model metadata value
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-AccessModelMetadataAttributeValueV1 -Key $Key -Value $Value -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AccessModelMetadataAttributeValueV1 -Key $Key -Value $Value -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessModelMetadataAttributeValueV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/v1/bulk-update/filter
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#update-access-model-metadata-by-filter-v1
+      source: |
+        $Entitlementattributebulkupdatefilterrequest = @"
+        
+        "@
+        
+        # Metadata Attribute update by filter
+        
+        try {
+            $Result = ConvertFrom-JsonToEntitlementattributebulkupdatefilterrequest -Json $Entitlementattributebulkupdatefilterrequest
+            Update-AccessModelMetadataByFilterV1 -Entitlementattributebulkupdatefilterrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AccessModelMetadataByFilterV1 -Entitlementattributebulkupdatefilterrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessModelMetadataByFilterV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/v1/bulk-update/ids
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#update-access-model-metadata-by-ids-v1
+      source: |
+        $Entitlementattributebulkupdateidsrequest = @"
+        
+        "@
+        
+        # Metadata Attribute update by ids
+        
+        try {
+            $Result = ConvertFrom-JsonToEntitlementattributebulkupdateidsrequest -Json $Entitlementattributebulkupdateidsrequest
+            Update-AccessModelMetadataByIdsV1 -Entitlementattributebulkupdateidsrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AccessModelMetadataByIdsV1 -Entitlementattributebulkupdateidsrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessModelMetadataByIdsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/v1/bulk-update/query
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#update-access-model-metadata-by-query-v1
+      source: |
+        $Entitlementattributebulkupdatequeryrequest = @"
+        
+        "@
+        
+        # Metadata Attribute update by query
+        
+        try {
+            $Result = ConvertFrom-JsonToEntitlementattributebulkupdatequeryrequest -Json $Entitlementattributebulkupdatequeryrequest
+            Update-AccessModelMetadataByQueryV1 -Entitlementattributebulkupdatequeryrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AccessModelMetadataByQueryV1 -Entitlementattributebulkupdatequeryrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessModelMetadataByQueryV1"
+            Write-Host $_.ErrorDetails
+        }

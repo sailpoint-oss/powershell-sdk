@@ -1,0 +1,43 @@
+- path: /jit-activation-config/v1/{configType}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/jitaccessv1/methods/jit-access#get-jit-activation-config-v1
+      source: |
+        $ConfigType = "policy" # String | Configuration kind to read. Only **policy** (JIT activation policy) is supported today. 
+        
+        # Get JIT activation policy configuration
+        
+        try {
+            Get-JitActivationConfigV1 -ConfigType $ConfigType 
+    
+            # Below is a request that includes all optional parameters
+            # Get-JitActivationConfigV1 -ConfigType $ConfigType   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-JitActivationConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /jit-activation-config/v1/{configType}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/jitaccessv1/methods/jit-access#patch-jit-activation-config-v1
+      source: |
+        $ConfigType = "policy" # String | Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
+        $JitaccessoperationrequestValue = Initialize-JitaccessoperationrequestValue 
+$Jitaccessoperationrequest = Initialize-Jitaccessoperationrequest -Op "replace" -Path "/entitlementIds" -Value $JitaccessoperationrequestValue# Jitaccessoperationrequest[] | 
+        $Jitaccessoperationrequest = @""@ 
+        
+        
+        # Update JIT activation policy configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToJitaccessoperationrequest -Json $Jitaccessoperationrequest
+            Update-JitActivationConfigV1 -ConfigType $ConfigType -Jitaccessoperationrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-JitActivationConfigV1 -ConfigType $ConfigType -Jitaccessoperationrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-JitActivationConfigV1"
+            Write-Host $_.ErrorDetails
+        }

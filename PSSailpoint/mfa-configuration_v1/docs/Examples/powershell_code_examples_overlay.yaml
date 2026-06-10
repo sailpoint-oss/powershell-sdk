@@ -1,0 +1,140 @@
+- path: /mfa/v1/duo-web/config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#get-mfa-duo-config-v1
+      source: |
+        
+        # Configuration of duo mfa method
+        
+        try {
+            Get-MFADuoConfigV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MFADuoConfigV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MFADuoConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/v1/kba/config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#get-mfa-kba-config-v1
+      source: |
+        $AllLanguages = $false # Boolean | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false (optional)
+        
+        # Configuration of kba mfa method
+        
+        try {
+            Get-MFAKbaConfigV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MFAKbaConfigV1 -AllLanguages $AllLanguages   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MFAKbaConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/v1/okta-verify/config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#get-mfa-okta-config-v1
+      source: |
+        
+        # Configuration of okta mfa method
+        
+        try {
+            Get-MFAOktaConfigV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MFAOktaConfigV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MFAOktaConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/v1/duo-web/config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#set-mfa-duo-config-v1
+      source: |
+        $Mfaduoconfig = @"
+        {"mfaMethod":"duo-web","enabled":true,"host":"www.example.com","accessKey":"qw123Y3QlA5UqocYpdU3rEkzrK2D497y","identityAttribute":"email","configProperties":{"skey":"12q3WERlcUHWJmiMqyCXI3uOF7EaDJTbdeOp6E2B","ikey":"Q123WE45R6TY7890ZXCV"}}
+        "@
+        
+        # Set duo mfa configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToMfaduoconfig -Json $Mfaduoconfig
+            Set-MFADuoConfigV1 -Mfaduoconfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-MFADuoConfigV1 -Mfaduoconfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MFADuoConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/v1/kba/config/answers
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#set-mfakba-config-v1
+      source: |
+        $Kbaanswerrequestitem = Initialize-Kbaanswerrequestitem -Id "c54fee53-2d63-4fc5-9259-3e93b9994135" -Answer "Your answer"# Kbaanswerrequestitem[] | 
+        $Kbaanswerrequestitem = @"[{"id":"173423","answer":"822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34"},{"id":"c54fee53-2d63-4fc5-9259-3e93b9994135","answer":"9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"}]"@ 
+        
+        
+        # Set mfa kba configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToKbaanswerrequestitem -Json $Kbaanswerrequestitem
+            Set-MFAKBAConfigV1 -Kbaanswerrequestitem $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-MFAKBAConfigV1 -Kbaanswerrequestitem $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MFAKBAConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/v1/okta-verify/config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#set-mfa-okta-config-v1
+      source: |
+        $Mfaoktaconfig = @"
+        {"mfaMethod":"okta-verify","enabled":true,"host":"www.example.com","accessKey":"dk778Y3QlA5UqocYpdU3rEkzrK2D497y","identityAttribute":"email"}
+        "@
+        
+        # Set okta mfa configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToMfaoktaconfig -Json $Mfaoktaconfig
+            Set-MFAOktaConfigV1 -Mfaoktaconfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-MFAOktaConfigV1 -Mfaoktaconfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MFAOktaConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/v1/{method}/test
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#test-mfa-config-v1
+      source: |
+        $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
+        
+        # Mfa method's test configuration
+        
+        try {
+            Test-MFAConfigV1 -Method $Method 
+    
+            # Below is a request that includes all optional parameters
+            # Test-MFAConfigV1 -Method $Method   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-MFAConfigV1"
+            Write-Host $_.ErrorDetails
+        }

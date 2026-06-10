@@ -1,0 +1,154 @@
+- path: /sim-integrations/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#create-sim-integration-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Simintegrationdetails = @"
+        
+        "@
+        
+        # Create new sim integration
+        
+        try {
+            $Result = ConvertFrom-JsonToSimintegrationdetails -Json $Simintegrationdetails
+            New-SIMIntegrationV1 -XSailPointExperimental $XSailPointExperimental -Simintegrationdetails $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-SIMIntegrationV1 -XSailPointExperimental $XSailPointExperimental -Simintegrationdetails $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SIMIntegrationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#delete-sim-integration-v1
+      source: |
+        $Id = "12345" # String | The id of the integration to delete.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete a sim integration
+        
+        try {
+            Remove-SIMIntegrationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-SIMIntegrationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SIMIntegrationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#get-sim-integration-v1
+      source: |
+        $Id = "12345" # String | The id of the integration.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get a sim integration details.
+        
+        try {
+            Get-SIMIntegrationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SIMIntegrationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SIMIntegrationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#get-sim-integrations-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # List the existing sim integrations.
+        
+        try {
+            Get-SIMIntegrationsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SIMIntegrationsV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SIMIntegrationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/v1/{id}/beforeProvisioningRule
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#patch-before-provisioning-rule-v1
+      source: |
+        $Id = "12345" # String | SIM integration id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Jsonpatch = @"
+        
+        "@
+        
+        # Patch a sim beforeprovisioningrule attribute.
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatch -Json $Jsonpatch
+            Update-BeforeProvisioningRuleV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-BeforeProvisioningRuleV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BeforeProvisioningRuleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#patch-sim-attributes-v1
+      source: |
+        $Id = "12345" # String | SIM integration id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Jsonpatch = @"
+        
+        "@
+        
+        # Patch a sim attribute.
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatch -Json $Jsonpatch
+            Update-SIMAttributesV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-SIMAttributesV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SIMAttributesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#put-sim-integration-v1
+      source: |
+        $Id = "12345" # String | The id of the integration.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Simintegrationdetails = @"
+        
+        "@
+        
+        # Update an existing sim integration
+        
+        try {
+            $Result = ConvertFrom-JsonToSimintegrationdetails -Json $Simintegrationdetails
+            Send-SIMIntegrationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Simintegrationdetails $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-SIMIntegrationV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Simintegrationdetails $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SIMIntegrationV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,435 @@
+- path: /das/v1/tasks/cancel/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#cancel-task-v1
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the task to cancel.
+        
+        # Cancel a DAS task.
+        
+        try {
+            Suspend-TaskV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Suspend-TaskV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-TaskV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/applications
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#create-application-v1
+      source: |
+        $Basecreateapplicationrequest = @"
+        
+        "@
+        
+        # Create application
+        
+        try {
+            $Result = ConvertFrom-JsonToBasecreateapplicationrequest -Json $Basecreateapplicationrequest
+            New-ApplicationV1 -Basecreateapplicationrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ApplicationV1 -Basecreateapplicationrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ApplicationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/tasks/schedules
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#create-schedule-v1
+      source: |
+        $Createschedulerequest = @"
+        
+        "@
+        
+        # Create a new schedule.
+        
+        try {
+            $Result = ConvertFrom-JsonToCreateschedulerequest -Json $Createschedulerequest
+            New-ScheduleV1 -Createschedulerequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ScheduleV1 -Createschedulerequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/owners/assign
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#das-v1-owners-assign-post
+      source: |
+        $Assignresourceownerrequest = @"
+        
+        "@
+        
+        # Assign owner to application resource.
+        
+        try {
+            $Result = ConvertFrom-JsonToAssignresourceownerrequest -Json $Assignresourceownerrequest
+            Invoke-DasV1OwnersAssignPost -Assignresourceownerrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-DasV1OwnersAssignPost -Assignresourceownerrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-DasV1OwnersAssignPost"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/owners/{ownerIdentityId}/resources
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#das-v1-owners-owner-identity-id-resources-get
+      source: |
+        $OwnerIdentityId = "a3f1c2d4-5678-4e9b-8c2d-123456789abc" # String | Unique identifier for the owner. This should be a UUID representing the owner's identity.
+        $Limit = 250 # Int32 | Not applicable for this endpoint. Do not use. (optional) (default to 250)
+        $Offset = 0 # Int32 | Not applicable for this endpoint. Do not use. (optional) (default to 0)
+        
+        # List resources for owner.
+        
+        try {
+            Invoke-DasV1OwnersOwnerIdentityIdResourcesGet -OwnerIdentityId $OwnerIdentityId 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-DasV1OwnersOwnerIdentityIdResourcesGet -OwnerIdentityId $OwnerIdentityId -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-DasV1OwnersOwnerIdentityIdResourcesGet"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/owners/reelect
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#das-v1-owners-reelect-post
+      source: |
+        $Reelectrequest = @"
+        
+        "@
+        
+        # Re-elect resource owner.
+        
+        try {
+            $Result = ConvertFrom-JsonToReelectrequest -Json $Reelectrequest
+            Invoke-DasV1OwnersReelectPost -Reelectrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-DasV1OwnersReelectPost -Reelectrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-DasV1OwnersReelectPost"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/owners/resources/{resourceId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#das-v1-owners-resources-resource-id-get
+      source: |
+        $ResourceId = 101 # Int64 | Unique identifier for the resource.
+        $Limit = 250 # Int32 | Not applicable for this endpoint. Do not use. (optional) (default to 250)
+        $Offset = 0 # Int32 | Not applicable for this endpoint. Do not use. (optional) (default to 0)
+        
+        # List owners for resource.
+        
+        try {
+            Invoke-DasV1OwnersResourcesResourceIdGet -ResourceId $ResourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-DasV1OwnersResourcesResourceIdGet -ResourceId $ResourceId -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-DasV1OwnersResourcesResourceIdGet"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/owners/{sourceIdentityId}/reassign/{destinationIdentityId}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#das-v1-owners-source-identity-id-reassign-destination-identity-id-post
+      source: |
+        $SourceIdentityId = "a3f1c2d4-5678-4e9b-8c2d-123456789abc" # String | Unique identifier for the source owner. This should be a UUID representing the identity to reassign from.
+        $DestinationIdentityId = "b4e2d3c5-6789-4f0a-9d3e-234567890bcd" # String | Unique identifier for the destination owner. This should be a UUID representing the identity to reassign to.
+        
+        # Reassign resource owner.
+        
+        try {
+            Invoke-DasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost -SourceIdentityId $SourceIdentityId -DestinationIdentityId $DestinationIdentityId 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-DasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost -SourceIdentityId $SourceIdentityId -DestinationIdentityId $DestinationIdentityId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-DasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/applications/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#delete-application-v1
+      source: |
+        $Id = 12345 # Int64 | The unique identifier of the application to delete.
+        
+        # Delete an application by identifier.
+        
+        try {
+            Remove-ApplicationV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ApplicationV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ApplicationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/tasks/schedules/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#delete-schedule-v1
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the schedule to delete.
+        
+        # Delete a DAS schedule.
+        
+        try {
+            Remove-ScheduleV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ScheduleV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/tasks/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#delete-task-v1
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the task to delete.
+        
+        # Delete a DAS task.
+        
+        try {
+            Remove-TaskV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-TaskV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-TaskV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/applications/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-application-v1
+      source: |
+        $Id = 12345 # Int64 | The unique identifier of the application to retrieve.
+        
+        # Retrieve application details by identifier.
+        
+        try {
+            Get-ApplicationV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ApplicationV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ApplicationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/applications
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-applications-v1
+      source: |
+        $Filters = "AppType eq 'ActiveDirectory' and Statuses eq 'Passed'" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **appIds**: *eq, in*  **tagIds**: *eq, in*  **statuses**: *eq, in*  **groupCodes**: *eq, in*  **virtualAppId**: *eq*  **appName**: *eq*  **supportsValidation**: *eq*  Supported composite operators are *and, or* (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Search applications in DAS.
+        
+        try {
+            Get-ApplicationsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ApplicationsV1 -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ApplicationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/owners/applications/{appId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-owners-v1
+      source: |
+        $AppId = 2001 # Int64 | The unique identifier of the application for which to retrieve owners.
+        $Limit = 250 # Int32 | Not applicable for this endpoint. Do not use. (optional) (default to 250)
+        $Offset = 0 # Int32 | Not applicable for this endpoint. Do not use. (optional) (default to 0)
+        
+        # Retrieve owners per application.
+        
+        try {
+            Get-OwnersV1 -AppId $AppId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-OwnersV1 -AppId $AppId -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OwnersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/tasks/schedules/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-schedule-v1
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the schedule to retrieve.
+        
+        # Get a DAS schedule.
+        
+        try {
+            Get-ScheduleV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ScheduleV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/tasks/schedules
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-schedules-v1
+      source: |
+        $Filters = "ScheduleType eq "Daily" and startTime eq 1762237200" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **scheduleTaskIds**: *eq, in*  **taskTypeName**: *eq, in*  **status**: *eq*  **applicationId**: *eq*  **fullName**: *eq*  **nameSubString**: *eq*  **scheduleType**: *eq*  Supported composite operators are *and, or* (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List all schedules.
+        
+        try {
+            Get-SchedulesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SchedulesV1 -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SchedulesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/tasks/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-task-v1
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the task to retrieve.
+        
+        # Get a DAS task.
+        
+        try {
+            Get-TaskV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-TaskV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TaskV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/tasks
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-tasks-v1
+      source: |
+        $Filters = "TaskTypeName eq "DataClassification and EndBeforeTime eq 1762240800" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **taskIds**: *eq, in*  **statuses**: *eq, in*  **taskTypeName**: *eq, in*  **taskName**: *eq*  **endBeforeTime**: *eq*  Supported composite operators are *and, or*  Example: taskTypeName eq ""DataSync"" and endBeforeTime eq 1762240800 (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Lists all DAS tasks.
+        
+        try {
+            Get-TasksV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-TasksV1 -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TasksV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/applications/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#put-application-v1
+      source: |
+        $Id = 12345 # Int64 | The unique identifier of the application to update.
+        $Basecreateapplicationrequest = @"
+        
+        "@
+        
+        # Update application by identifier.
+        
+        try {
+            $Result = ConvertFrom-JsonToBasecreateapplicationrequest -Json $Basecreateapplicationrequest
+            Send-ApplicationV1 -Id $Id -Basecreateapplicationrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ApplicationV1 -Id $Id -Basecreateapplicationrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ApplicationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/tasks/schedules/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#put-schedule-v1
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the schedule to update.
+        $Updateschedulerequest = @"
+        
+        "@
+        
+        # Update a schedule.
+        
+        try {
+            $Result = ConvertFrom-JsonToUpdateschedulerequest -Json $Updateschedulerequest
+            Send-ScheduleV1 -Id $Id -Updateschedulerequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ScheduleV1 -Id $Id -Updateschedulerequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/v1/tasks/rerun/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#start-task-rerun-v1
+      source: |
+        $Id = 1001 # Int64 | The unique identifier of the task to rerun.
+        
+        # Rerun a DAS task.
+        
+        try {
+            Start-TaskRerunV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Start-TaskRerunV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-TaskRerunV1"
+            Write-Host $_.ErrorDetails
+        }

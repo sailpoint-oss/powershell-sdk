@@ -1,0 +1,109 @@
+- path: /brandings/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/brandingv1/methods/branding#create-branding-item-v1
+      source: |
+        $Name = "MyName" # String | name of branding item
+        $ProductName = "MyProductName" # String | product name
+        $ActionButtonColor = "MyActionButtonColor" # String | hex value of color for action button (optional)
+        $ActiveLinkColor = "MyActiveLinkColor" # String | hex value of color for link (optional)
+        $NavigationColor = "MyNavigationColor" # String | hex value of color for navigation bar (optional)
+        $EmailFromAddress = "MyEmailFromAddress" # String | email from address (optional)
+        $LoginInformationalMessage = "MyLoginInformationalMessage" # String | login information message (optional)
+        $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
+        
+        # Create a branding item
+        
+        try {
+            New-BrandingItemV1 -Name $Name -ProductName $ProductName 
+    
+            # Below is a request that includes all optional parameters
+            # New-BrandingItemV1 -Name $Name -ProductName $ProductName -ActionButtonColor $ActionButtonColor -ActiveLinkColor $ActiveLinkColor -NavigationColor $NavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BrandingItemV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /brandings/v1/{name}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/brandingv1/methods/branding#delete-branding-v1
+      source: |
+        $Name = "default" # String | The name of the branding item to be deleted
+        
+        # Delete a branding item
+        
+        try {
+            Remove-BrandingV1 -Name $Name 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-BrandingV1 -Name $Name   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BrandingV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /brandings/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/brandingv1/methods/branding#get-branding-list-v1
+      source: |
+        
+        # List of branding items
+        
+        try {
+            Get-BrandingListV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BrandingListV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BrandingListV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /brandings/v1/{name}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/brandingv1/methods/branding#get-branding-v1
+      source: |
+        $Name = "default" # String | The name of the branding item to be retrieved
+        
+        # Get a branding item
+        
+        try {
+            Get-BrandingV1 -Name $Name 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BrandingV1 -Name $Name   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BrandingV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /brandings/v1/{name}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/brandingv1/methods/branding#set-branding-item-v1
+      source: |
+        $Name = "default" # String | The name of the branding item to be retrieved
+        $Name2 = "Name_example" # String | name of branding item
+        $ProductName = "MyProductName" # String | product name
+        $ActionButtonColor = "MyActionButtonColor" # String | hex value of color for action button (optional)
+        $ActiveLinkColor = "MyActiveLinkColor" # String | hex value of color for link (optional)
+        $NavigationColor = "MyNavigationColor" # String | hex value of color for navigation bar (optional)
+        $EmailFromAddress = "MyEmailFromAddress" # String | email from address (optional)
+        $LoginInformationalMessage = "MyLoginInformationalMessage" # String | login information message (optional)
+        $FileStandard =  # System.IO.FileInfo | png file with logo (optional)
+        
+        # Update a branding item
+        
+        try {
+            Set-BrandingItemV1 -Name $Name -Name2 $Name2 -ProductName $ProductName 
+    
+            # Below is a request that includes all optional parameters
+            # Set-BrandingItemV1 -Name $Name -Name2 $Name2 -ProductName $ProductName -ActionButtonColor $ActionButtonColor -ActiveLinkColor $ActiveLinkColor -NavigationColor $NavigationColor -EmailFromAddress $EmailFromAddress -LoginInformationalMessage $LoginInformationalMessage -FileStandard $FileStandard   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BrandingItemV1"
+            Write-Host $_.ErrorDetails
+        }

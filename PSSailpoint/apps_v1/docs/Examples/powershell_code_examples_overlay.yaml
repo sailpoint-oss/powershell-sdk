@@ -1,0 +1,321 @@
+- path: /source-apps/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#create-source-app-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Sourceappcreatedto = @"
+        {"name":"new app name","description":"app description","matchAllAccounts":true,"accountSource":{"id":"edcb0951812949d085b60cd8bf35bc78"}}
+        "@
+        
+        # Create source app
+        
+        try {
+            $Result = ConvertFrom-JsonToSourceappcreatedto -Json $Sourceappcreatedto
+            New-SourceAppV1 -XSailPointExperimental $XSailPointExperimental -Sourceappcreatedto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-SourceAppV1 -XSailPointExperimental $XSailPointExperimental -Sourceappcreatedto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourceAppV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-apps/v1/{id}/access-profiles/bulk-remove
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#delete-access-profiles-from-source-app-by-bulk-v1
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody = "MyRequestBody" # String[] | List of access profile IDs for removal
+        $RequestBody = @"["c9575abb5e3a4e3db82b2f989a738aa2","c9dc28e148a24d65b3ccb5fb8ca5ddd9"]"@ 
+        
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # Bulk remove access profiles from the specified source app
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Remove-AccessProfilesFromSourceAppByBulkV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-AccessProfilesFromSourceAppByBulkV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessProfilesFromSourceAppByBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-apps/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#delete-source-app-v1
+      source: |
+        $Id = "2c9180835d191a86015d28455b4a2329" # String | source app ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete source app by id
+        
+        try {
+            Remove-SourceAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-SourceAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SourceAppV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-apps/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#get-source-app-v1
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get source app by id
+        
+        try {
+            Get-SourceAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SourceAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceAppV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-apps/v1/{id}/access-profiles
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-access-profiles-for-source-app-v1
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Filters = "name eq "developer access profile"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le* (optional)
+        
+        # List access profiles for the specified source app
+        
+        try {
+            Get-AccessProfilesForSourceAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessProfilesForSourceAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessProfilesForSourceAppV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-apps/v1/all
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-all-source-app-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id** (optional)
+        $Filters = "enabled eq true" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, ge, le*  **owner.id**: *eq, in*  **enabled**: *eq* (optional)
+        
+        # List all source apps
+        
+        try {
+            Get-AllSourceAppV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AllSourceAppV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Count $Count -Offset $Offset -Sorters $Sorters -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AllSourceAppV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /user-apps/v1/all
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-all-user-apps-v1
+      source: |
+        $Filters = "name eq "user app name"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerId**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq*
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List all user apps
+        
+        try {
+            Get-AllUserAppsV1 -Filters $Filters -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AllUserAppsV1 -Filters $Filters -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Count $Count -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AllUserAppsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-apps/v1/assigned
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-assigned-source-app-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, accountSource.id** (optional)
+        $Filters = "name eq "source app name"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **accountSource.id**: *eq, in* (optional)
+        
+        # List assigned source apps
+        
+        try {
+            Get-AssignedSourceAppV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AssignedSourceAppV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Count $Count -Offset $Offset -Sorters $Sorters -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AssignedSourceAppV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /user-apps/v1/{id}/available-accounts
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-available-accounts-for-user-app-v1
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | ID of the user app
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List available accounts for user app
+        
+        try {
+            Get-AvailableAccountsForUserAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AvailableAccountsForUserAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AvailableAccountsForUserAppV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-apps/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-available-source-apps-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, owner.id, accountSource.id** (optional)
+        $Filters = "name eq "source app name"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **accountSource.id**: *eq, in* (optional)
+        
+        # List available source apps
+        
+        try {
+            Get-AvailableSourceAppsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AvailableSourceAppsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Count $Count -Offset $Offset -Sorters $Sorters -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AvailableSourceAppsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /user-apps/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-owned-user-apps-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Filters = "name eq "user app name"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq* (optional)
+        
+        # List owned user apps
+        
+        try {
+            Get-OwnedUserAppsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-OwnedUserAppsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Count $Count -Offset $Offset -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OwnedUserAppsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-apps/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#patch-source-app-v1
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app to patch
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
+$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] |  (optional)
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/enabled","value":true},{"op":"replace","path":"/matchAllAccounts","value":true}]"@ 
+        
+        
+        # Patch source app by id
+        
+        try {
+            Update-SourceAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Update-SourceAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SourceAppV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /user-apps/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#patch-user-app-v1
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | ID of the user app to patch
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
+$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] |  (optional)
+        $Jsonpatchoperation = @""@ 
+        
+        
+        # Patch user app by id
+        
+        try {
+            Update-UserAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Update-UserAppV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-UserAppV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-apps/v1/bulk-update
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/appsv1/methods/apps#update-source-apps-in-bulk-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Sourceappbulkupdaterequest = @"
+        
+        "@
+        
+        # Bulk update source apps
+        
+        try {
+            Update-SourceAppsInBulkV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Update-SourceAppsInBulkV1 -XSailPointExperimental $XSailPointExperimental -Sourceappbulkupdaterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SourceAppsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }

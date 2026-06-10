@@ -1,0 +1,35 @@
+---
+id: get-branding-list-v1429-response
+title: GetBrandingListV1429Response
+pagination_label: GetBrandingListV1429Response
+sidebar_label: GetBrandingListV1429Response
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'GetBrandingListV1429Response', 'GetBrandingListV1429Response'] 
+slug: /tools/sdk/powershell/brandingv1/models/get-branding-list-v1429-response
+tags: ['SDK', 'Software Development Kit', 'GetBrandingListV1429Response', 'GetBrandingListV1429Response']
+---
+
+
+# GetBrandingListV1429Response
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Message** | [**AnyType**](any-type) | A message describing the error | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$GetBrandingListV1429Response = Initialize-GetBrandingListV1429Response  -Message  Rate Limit Exceeded 
+```
+
+- Convert the resource to JSON
+```powershell
+$GetBrandingListV1429Response | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

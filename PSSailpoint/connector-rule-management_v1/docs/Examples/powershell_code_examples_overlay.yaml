@@ -1,0 +1,125 @@
+- path: /connector-rules/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectorrulemanagementv1/methods/connector-rule-management#create-connector-rule-v1
+      source: |
+        $Connectorrulecreaterequest = @"
+        
+        "@
+        
+        # Create connector rule
+        
+        try {
+            $Result = ConvertFrom-JsonToConnectorrulecreaterequest -Json $Connectorrulecreaterequest
+            New-ConnectorRuleV1 -Connectorrulecreaterequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ConnectorRuleV1 -Connectorrulecreaterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ConnectorRuleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-rules/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectorrulemanagementv1/methods/connector-rule-management#delete-connector-rule-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to delete.
+        
+        # Delete connector rule
+        
+        try {
+            Remove-ConnectorRuleV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ConnectorRuleV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ConnectorRuleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-rules/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectorrulemanagementv1/methods/connector-rule-management#get-connector-rule-list-v1
+      source: |
+        $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List connector rules
+        
+        try {
+            Get-ConnectorRuleListV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ConnectorRuleListV1 -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ConnectorRuleListV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-rules/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectorrulemanagementv1/methods/connector-rule-management#get-connector-rule-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to get.
+        
+        # Get connector rule
+        
+        try {
+            Get-ConnectorRuleV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ConnectorRuleV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ConnectorRuleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-rules/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectorrulemanagementv1/methods/connector-rule-management#put-connector-rule-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to update.
+        $Connectorruleupdaterequest = @"
+        
+        "@
+        
+        # Update connector rule
+        
+        try {
+            Send-ConnectorRuleV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ConnectorRuleV1 -Id $Id -Connectorruleupdaterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ConnectorRuleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-rules/v1/validate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectorrulemanagementv1/methods/connector-rule-management#test-connector-rule-v1
+      source: |
+        $Sourcecode = @"
+        
+        "@
+        
+        # Validate connector rule
+        
+        try {
+            $Result = ConvertFrom-JsonToSourcecode -Json $Sourcecode
+            Test-ConnectorRuleV1 -Sourcecode $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Test-ConnectorRuleV1 -Sourcecode $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-ConnectorRuleV1"
+            Write-Host $_.ErrorDetails
+        }

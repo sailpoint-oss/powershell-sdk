@@ -1,0 +1,262 @@
+- path: /work-items/v1/{id}/approve/{approvalItemId}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#approve-approval-item-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
+        
+        # Approve an approval item
+        
+        try {
+            Approve-ApprovalItemV1 -Id $Id -ApprovalItemId $ApprovalItemId 
+    
+            # Below is a request that includes all optional parameters
+            # Approve-ApprovalItemV1 -Id $Id -ApprovalItemId $ApprovalItemId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-ApprovalItemV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/v1/bulk-approve/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#approve-approval-items-in-bulk-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        
+        # Bulk approve approval items
+        
+        try {
+            Approve-ApprovalItemsInBulkV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Approve-ApprovalItemsInBulkV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-ApprovalItemsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/v1/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#complete-work-item-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $Body = "MyBody" # String | Body is the request payload to create form definition request (optional)
+        
+        # Complete a work item
+        
+        try {
+            Complete-WorkItemV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Complete-WorkItemV1 -Id $Id -Body $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-WorkItemV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/v1/{id}/forward
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#forward-work-item-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $Workitemforward = @"
+        
+        "@
+        
+        # Forward a work item
+        
+        try {
+            $Result = ConvertFrom-JsonToWorkitemforward -Json $Workitemforward
+            Invoke-ForwardWorkItemV1 -Id $Id -Workitemforward $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-ForwardWorkItemV1 -Id $Id -Workitemforward $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ForwardWorkItemV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/v1/completed
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#get-completed-work-items-v1
+      source: |
+        $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Completed work items
+        
+        try {
+            Get-CompletedWorkItemsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CompletedWorkItemsV1 -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CompletedWorkItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/v1/completed/count
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#get-count-completed-work-items-v1
+      source: |
+        $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
+        
+        # Count completed work items
+        
+        try {
+            Get-CountCompletedWorkItemsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CountCompletedWorkItemsV1 -OwnerId $OwnerId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CountCompletedWorkItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/v1/count
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#get-count-work-items-v1
+      source: |
+        $OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item owner. (optional)
+        
+        # Count work items
+        
+        try {
+            Get-CountWorkItemsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CountWorkItemsV1 -OwnerId $OwnerId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CountWorkItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#get-work-item-v1
+      source: |
+        $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item.
+        
+        # Get a work item
+        
+        try {
+            Get-WorkItemV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkItemV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkItemV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/v1/summary
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#get-work-items-summary-v1
+      source: |
+        $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
+        
+        # Work items summary
+        
+        try {
+            Get-WorkItemsSummaryV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkItemsSummaryV1 -OwnerId $OwnerId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkItemsSummaryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#list-work-items-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
+        
+        # List work items
+        
+        try {
+            Get-WorkItemsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkItemsV1 -Limit $Limit -Offset $Offset -Count $Count -OwnerId $OwnerId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/v1/{id}/reject/{approvalItemId}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#reject-approval-item-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
+        
+        # Reject an approval item
+        
+        try {
+            Deny-ApprovalItemV1 -Id $Id -ApprovalItemId $ApprovalItemId 
+    
+            # Below is a request that includes all optional parameters
+            # Deny-ApprovalItemV1 -Id $Id -ApprovalItemId $ApprovalItemId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-ApprovalItemV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/v1/bulk-reject/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#reject-approval-items-in-bulk-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        
+        # Bulk reject approval items
+        
+        try {
+            Deny-ApprovalItemsInBulkV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Deny-ApprovalItemsInBulkV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-ApprovalItemsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/v1/{id}/submit-account-selection
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#submit-account-selection-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Selection Data map, keyed on fieldName
+        
+        # Submit account selections
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Submit-AccountSelectionV1 -Id $Id -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-AccountSelectionV1 -Id $Id -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-AccountSelectionV1"
+            Write-Host $_.ErrorDetails
+        }

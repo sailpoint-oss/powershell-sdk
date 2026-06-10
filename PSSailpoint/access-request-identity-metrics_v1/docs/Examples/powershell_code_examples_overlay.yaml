@@ -1,0 +1,21 @@
+- path: /access-request-identity-metrics/v1/{identityId}/requested-objects/{requestedObjectId}/type/{type}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessrequestidentitymetricsv1/methods/access-request-identity-metrics#get-access-request-identity-metrics-v1
+      source: |
+        $IdentityId = "7025c863-c270-4ba6-beea-edf3cb091573" # String | Manager's identity ID.
+        $RequestedObjectId = "2db501be-f0fb-4cc5-a695-334133c52891" # String | Requested access item's ID.
+        $Type = "ENTITLEMENT" # String | Requested access item's type.
+        
+        # Return access request identity metrics
+        
+        try {
+            Get-AccessRequestIdentityMetricsV1 -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessRequestIdentityMetricsV1 -IdentityId $IdentityId -RequestedObjectId $RequestedObjectId -Type $Type   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessRequestIdentityMetricsV1"
+            Write-Host $_.ErrorDetails
+        }

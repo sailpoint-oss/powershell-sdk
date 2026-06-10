@@ -1,0 +1,86 @@
+- path: /sources/v1/{sourceId}/machine-account-mappings
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountmappingsv1/methods/machine-account-mappings#create-machine-account-mappings-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $Attributemappings = @"
+        
+        "@
+        
+        # Create machine account mappings
+        
+        try {
+            $Result = ConvertFrom-JsonToAttributemappings -Json $Attributemappings
+            New-MachineAccountMappingsV1 -SourceId $SourceId -Attributemappings $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-MachineAccountMappingsV1 -SourceId $SourceId -Attributemappings $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineAccountMappingsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/machine-account-mappings
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountmappingsv1/methods/machine-account-mappings#delete-machine-account-mappings-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | source ID.
+        
+        # Delete source's machine account mappings
+        
+        try {
+            Remove-MachineAccountMappingsV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-MachineAccountMappingsV1 -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineAccountMappingsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/machine-account-mappings
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountmappingsv1/methods/machine-account-mappings#list-machine-account-mappings-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Machine account mapping for source
+        
+        try {
+            Get-MachineAccountMappingsV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountMappingsV1 -SourceId $SourceId -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountMappingsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/machine-mappings
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountmappingsv1/methods/machine-account-mappings#set-machine-account-mappings-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $Attributemappings = @"
+        
+        "@
+        
+        # Update source's machine account mappings
+        
+        try {
+            $Result = ConvertFrom-JsonToAttributemappings -Json $Attributemappings
+            Set-MachineAccountMappingsV1 -SourceId $SourceId -Attributemappings $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-MachineAccountMappingsV1 -SourceId $SourceId -Attributemappings $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MachineAccountMappingsV1"
+            Write-Host $_.ErrorDetails
+        }

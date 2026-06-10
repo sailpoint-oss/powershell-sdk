@@ -1,0 +1,206 @@
+- path: /outliers/v1/export
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#export-outliers-zip-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
+        
+        # Iai identity outliers export
+        
+        try {
+            Export-OutliersZipV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Export-OutliersZipV1 -XSailPointExperimental $XSailPointExperimental -Type $Type   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-OutliersZipV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /outlier-summaries/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#get-identity-outlier-snapshots-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
+        $Filters = "snapshotDate ge "2022-02-07T20:13:29.356648026Z"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **snapshotDate**: *ge, le* (optional)
+        $Sorters = "snapshotDate" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **snapshotDate** (optional)
+        
+        # Iai identity outliers summary
+        
+        try {
+            Get-IdentityOutlierSnapshotsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityOutlierSnapshotsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Type $Type -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityOutlierSnapshotsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /outliers/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#get-identity-outliers-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
+        $Filters = "attributes.displayName sw "John" and certStatus eq "false"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **attributes**: *eq, sw, co, in*  **firstDetectionDate**: *ge, le*  **certStatus**: *eq*  **ignored**: *eq*  **score**: *ge, le* (optional)
+        $Sorters = "attributes.displayName,firstDetectionDate,-score" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **firstDetectionDate, attributes, score** (optional)
+        
+        # Iai get identity outliers
+        
+        try {
+            Get-IdentityOutliersV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityOutliersV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Type $Type -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityOutliersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /outlier-summaries/v1/latest
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#get-latest-identity-outlier-snapshots-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
+        
+        # Iai identity outliers latest summary
+        
+        try {
+            Get-LatestIdentityOutlierSnapshotsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-LatestIdentityOutlierSnapshotsV1 -XSailPointExperimental $XSailPointExperimental -Type $Type   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-LatestIdentityOutlierSnapshotsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /outlier-feature-summaries/v1/{outlierFeatureId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#get-outlier-contributing-feature-summary-v1
+      source: |
+        $OutlierFeatureId = "04654b66-7561-4090-94f9-abee0722a1af" # String | Contributing feature id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get identity outlier contibuting feature summary
+        
+        try {
+            Get-OutlierContributingFeatureSummaryV1 -OutlierFeatureId $OutlierFeatureId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-OutlierContributingFeatureSummaryV1 -OutlierFeatureId $OutlierFeatureId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OutlierContributingFeatureSummaryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /outliers/v1/{outlierId}/contributing-features
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#get-peer-group-outliers-contributing-features-v1
+      source: |
+        $OutlierId = "2c918085842e69ae018432d22ccb212f" # String | The outlier id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $IncludeTranslationMessages = "include-translation-messages=" # String | Whether or not to include translation messages object in returned response (optional)
+        $Sorters = "importance" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **importance** (optional)
+        
+        # Get identity outlier's contibuting features
+        
+        try {
+            Get-PeerGroupOutliersContributingFeaturesV1 -OutlierId $OutlierId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PeerGroupOutliersContributingFeaturesV1 -OutlierId $OutlierId -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -IncludeTranslationMessages $IncludeTranslationMessages -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PeerGroupOutliersContributingFeaturesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /outliers/v1/ignore
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#ignore-identity-outliers-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody = "MyRequestBody" # String[] | 
+        $RequestBody = @""@ 
+        
+        
+        # Iai identity outliers ignore
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Invoke-IgnoreIdentityOutliersV1 -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-IgnoreIdentityOutliersV1 -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-IgnoreIdentityOutliersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /outliers/v1/{outlierId}/feature-details/{contributingFeatureName}/access-items
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#list-outliers-contributing-feature-access-items-v1
+      source: |
+        $OutlierId = "2c918085842e69ae018432d22ccb212f" # String | The outlier id
+        $ContributingFeatureName = "radical_entitlement_count" # String | The name of contributing feature
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $AccessType = "ENTITLEMENT" # String | The type of access item for the identity outlier contributing feature. If not provided, it returns all. (optional)
+        $Sorters = "displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional)
+        
+        # Gets a list of access items associated with each identity outlier contributing feature
+        
+        try {
+            Get-OutliersContributingFeatureAccessItemsV1 -OutlierId $OutlierId -ContributingFeatureName $ContributingFeatureName -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-OutliersContributingFeatureAccessItemsV1 -OutlierId $OutlierId -ContributingFeatureName $ContributingFeatureName -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -AccessType $AccessType -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OutliersContributingFeatureAccessItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /outliers/v1/unignore
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#un-ignore-identity-outliers-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody = "MyRequestBody" # String[] | 
+        $RequestBody = @""@ 
+        
+        
+        # Iai identity outliers unignore
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Invoke-UnIgnoreIdentityOutliersV1 -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-UnIgnoreIdentityOutliersV1 -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-UnIgnoreIdentityOutliersV1"
+            Write-Host $_.ErrorDetails
+        }

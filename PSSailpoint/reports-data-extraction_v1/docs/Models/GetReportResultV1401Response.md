@@ -1,0 +1,35 @@
+---
+id: get-report-result-v1401-response
+title: GetReportResultV1401Response
+pagination_label: GetReportResultV1401Response
+sidebar_label: GetReportResultV1401Response
+sidebar_class_name: powershellsdk
+keywords: ['powershell', 'PowerShell', 'sdk', 'GetReportResultV1401Response', 'GetReportResultV1401Response'] 
+slug: /tools/sdk/powershell/reportsdataextractionv1/models/get-report-result-v1401-response
+tags: ['SDK', 'Software Development Kit', 'GetReportResultV1401Response', 'GetReportResultV1401Response']
+---
+
+
+# GetReportResultV1401Response
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$GetReportResultV1401Response = Initialize-GetReportResultV1401Response  -VarError JWT validation failed: JWT is expired
+```
+
+- Convert the resource to JSON
+```powershell
+$GetReportResultV1401Response | ConvertTo-JSON
+```
+
+
+[[Back to top]](#) 
+

@@ -1,0 +1,60 @@
+- path: /intelligence/v1/identities/{identityID}/access-history
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligencepackagev1/methods/intelligence-package#get-intel-identity-access-history-v1
+      source: |
+        $IdentityID = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence Package sub-resources.
+        $Limit = 100 # Int32 | Maximum number of historical events to return in this page of results. (optional)
+        $Offset = 0 # Int32 | Zero-based index of the first event row to return for pagination. (optional)
+        $Count = $false # Boolean | When true, the service may include total count metadata alongside the result list. (optional) (default to $false)
+        
+        # Return identity access-history events
+        
+        try {
+            Get-IntelIdentityAccessHistoryV1 -IdentityID $IdentityID 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IntelIdentityAccessHistoryV1 -IdentityID $IdentityID -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityAccessHistoryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /intelligence/v1/identities/{identityID}/access
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligencepackagev1/methods/intelligence-package#get-intel-identity-access-v1
+      source: |
+        $IdentityID = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence Package sub-resources.
+        
+        # Accounts merged with privileged data
+        
+        try {
+            Get-IntelIdentityAccessV1 -IdentityID $IdentityID 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IntelIdentityAccessV1 -IdentityID $IdentityID   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityAccessV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /intelligence/v1/identities
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligencepackagev1/methods/intelligence-package#search-intel-identities-v1
+      source: |
+        $Filters = "id eq "00000000-0000-0000-0000-000000000000"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
+        
+        # Resolve one identity by filter
+        
+        try {
+            Search-IntelIdentitiesV1 -Filters $Filters 
+    
+            # Below is a request that includes all optional parameters
+            # Search-IntelIdentitiesV1 -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-IntelIdentitiesV1"
+            Write-Host $_.ErrorDetails
+        }

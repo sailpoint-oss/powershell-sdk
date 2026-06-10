@@ -1,0 +1,61 @@
+- path: /sources/v1/{sourceId}/machine-classification-config
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineclassificationconfigv1/methods/machine-classification-config#delete-machine-classification-config-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        
+        # Delete source's classification config
+        
+        try {
+            Remove-MachineClassificationConfigV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-MachineClassificationConfigV1 -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineClassificationConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/machine-classification-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineclassificationconfigv1/methods/machine-classification-config#get-machine-classification-config-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
+        
+        # Machine classification config for source
+        
+        try {
+            Get-MachineClassificationConfigV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineClassificationConfigV1 -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineClassificationConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/machine-classification-config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineclassificationconfigv1/methods/machine-classification-config#set-machine-classification-config-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $Machineclassificationconfig = @"
+        
+        "@
+        
+        # Update source's classification config
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineclassificationconfig -Json $Machineclassificationconfig
+            Set-MachineClassificationConfigV1 -SourceId $SourceId -Machineclassificationconfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-MachineClassificationConfigV1 -SourceId $SourceId -Machineclassificationconfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-MachineClassificationConfigV1"
+            Write-Host $_.ErrorDetails
+        }

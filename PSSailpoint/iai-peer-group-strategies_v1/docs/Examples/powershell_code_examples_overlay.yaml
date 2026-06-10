@@ -1,0 +1,23 @@
+- path: /peer-group-strategies/v1/{strategy}/identity-outliers
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaipeergroupstrategiesv1/methods/iai-peer-group-strategies#get-peer-group-outliers-v1
+      source: |
+        $Strategy = "entitlement" # String | The strategy used to create peer groups. Currently, 'entitlement' is supported.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Identity outliers list
+        
+        try {
+            Get-PeerGroupOutliersV1 -Strategy $Strategy -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PeerGroupOutliersV1 -Strategy $Strategy -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PeerGroupOutliersV1"
+            Write-Host $_.ErrorDetails
+        }

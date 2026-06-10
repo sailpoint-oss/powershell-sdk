@@ -1,0 +1,40 @@
+- path: /public-identities-config/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/publicidentitiesconfigv1/methods/public-identities-config#get-public-identity-config-v1
+      source: |
+        
+        # Get the public identities configuration
+        
+        try {
+            Get-PublicIdentityConfigV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PublicIdentityConfigV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PublicIdentityConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /public-identities-config/v1
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/publicidentitiesconfigv1/methods/public-identities-config#update-public-identity-config-v1
+      source: |
+        $Publicidentityconfig = @"
+        
+        "@
+        
+        # Update the public identities configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToPublicidentityconfig -Json $Publicidentityconfig
+            Update-PublicIdentityConfigV1 -Publicidentityconfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-PublicIdentityConfigV1 -Publicidentityconfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PublicIdentityConfigV1"
+            Write-Host $_.ErrorDetails
+        }

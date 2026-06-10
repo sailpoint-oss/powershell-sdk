@@ -1,0 +1,175 @@
+- path: /tagged-objects/v1/{type}/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#delete-tagged-object-v1
+      source: |
+        $Type = "ACCESS_PROFILE" # String | The type of object to delete tags from.
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object to delete tags from.
+        
+        # Delete object tags
+        
+        try {
+            Remove-TaggedObjectV1 -Type $Type -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-TaggedObjectV1 -Type $Type -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-TaggedObjectV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects/v1/bulk-remove
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#delete-tags-to-many-object-v1
+      source: |
+        $Bulkremovetaggedobject = @"
+        
+        "@
+        
+        # Remove tags from multiple objects
+        
+        try {
+            $Result = ConvertFrom-JsonToBulkremovetaggedobject -Json $Bulkremovetaggedobject
+            Remove-TagsToManyObjectV1 -Bulkremovetaggedobject $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-TagsToManyObjectV1 -Bulkremovetaggedobject $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-TagsToManyObjectV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects/v1/{type}/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#get-tagged-object-v1
+      source: |
+        $Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
+        
+        # Get tagged object
+        
+        try {
+            Get-TaggedObjectV1 -Type $Type -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-TaggedObjectV1 -Type $Type -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TaggedObjectV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects/v1/{type}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#list-tagged-objects-by-type-v1
+      source: |
+        $Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "objectRef.id eq "2c91808568c529c60168cca6f90c1313"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq* (optional)
+        
+        # List tagged objects by type
+        
+        try {
+            Get-TaggedObjectsByTypeV1 -Type $Type 
+    
+            # Below is a request that includes all optional parameters
+            # Get-TaggedObjectsByTypeV1 -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TaggedObjectsByTypeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#list-tagged-objects-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "tagName eq "BU_FINANCE"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in* (optional)
+        
+        # List tagged objects
+        
+        try {
+            Get-TaggedObjectsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-TaggedObjectsV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TaggedObjectsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects/v1/{type}/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#put-tagged-object-v1
+      source: |
+        $Type = "ACCESS_PROFILE" # String | The type of tagged object to update.
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to update.
+        $Taggedobject = @"
+        
+        "@
+        
+        # Update tagged object
+        
+        try {
+            $Result = ConvertFrom-JsonToTaggedobject -Json $Taggedobject
+            Send-TaggedObjectV1 -Type $Type -Id $Id -Taggedobject $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-TaggedObjectV1 -Type $Type -Id $Id -Taggedobject $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-TaggedObjectV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#set-tag-to-object-v1
+      source: |
+        $Taggedobject = @"
+        
+        "@
+        
+        # Add tag to object
+        
+        try {
+            $Result = ConvertFrom-JsonToTaggedobject -Json $Taggedobject
+            Set-TagToObjectV1 -Taggedobject $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-TagToObjectV1 -Taggedobject $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-TagToObjectV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tagged-objects/v1/bulk-add
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#set-tags-to-many-objects-v1
+      source: |
+        $Bulkaddtaggedobject = @"
+        
+        "@
+        
+        # Tag multiple objects
+        
+        try {
+            $Result = ConvertFrom-JsonToBulkaddtaggedobject -Json $Bulkaddtaggedobject
+            Set-TagsToManyObjectsV1 -Bulkaddtaggedobject $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-TagsToManyObjectsV1 -Bulkaddtaggedobject $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-TagsToManyObjectsV1"
+            Write-Host $_.ErrorDetails
+        }

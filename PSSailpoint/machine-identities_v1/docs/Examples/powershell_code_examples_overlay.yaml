@@ -1,0 +1,159 @@
+- path: /machine-identities/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#create-machine-identity-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Machineidentityrequest = @"
+        
+        "@
+        
+        # Create machine identity
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineidentityrequest -Json $Machineidentityrequest
+            New-MachineIdentityV1 -XSailPointExperimental $XSailPointExperimental -Machineidentityrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-MachineIdentityV1 -XSailPointExperimental $XSailPointExperimental -Machineidentityrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineIdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-identities/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#delete-machine-identity-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete machine identity
+        
+        try {
+            Remove-MachineIdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-MachineIdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineIdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-identities/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#get-machine-identity-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get machine identity details
+        
+        try {
+            Get-MachineIdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineIdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-identities/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#list-machine-identities-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **source.name**: *eq, in, sw*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw* (optional)
+        $Sorters = "nativeIdentity" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified** (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List machine identities
+        
+        try {
+            Get-MachineIdentitiesV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineIdentitiesV1 -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentitiesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-identity-user-entitlements/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#list-machine-identity-user-entitlements-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "machineIdentityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **machineIdentityId**: *eq, in*  **machineIdentityName**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **source.id**: *eq, in*  **source.name**: *eq, in, sw* (optional)
+        $Sorters = "machineIdentityName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **machineIdentityName, entitlement.name, source.name** (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List machine identity's user entitlements
+        
+        try {
+            Get-MachineIdentityUserEntitlementsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineIdentityUserEntitlementsV1 -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentityUserEntitlementsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/aggregate-agents
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#start-machine-identity-aggregation-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Machineidentityaggregationrequest = @"
+        
+        "@
+        
+        # Start machine identity aggregation
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineidentityaggregationrequest -Json $Machineidentityaggregationrequest
+            Start-MachineIdentityAggregationV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Machineidentityaggregationrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-MachineIdentityAggregationV1 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Machineidentityaggregationrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-MachineIdentityAggregationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-identities/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#update-machine-identity-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        $RequestBody = @"[{"op":"add","path":"/attributes/securityRisk","value":"medium"}]"@ 
+        
+        
+        # Update machine identity details
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Update-MachineIdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-MachineIdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineIdentityV1"
+            Write-Host $_.ErrorDetails
+        }

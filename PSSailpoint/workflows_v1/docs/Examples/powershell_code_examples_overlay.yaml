@@ -1,0 +1,389 @@
+- path: /workflow-executions/v1/{id}/cancel
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#cancel-workflow-execution-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution ID
+        
+        # Cancel workflow execution by id
+        
+        try {
+            Suspend-WorkflowExecutionV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Suspend-WorkflowExecutionV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-WorkflowExecutionV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/v1/execute/external/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#create-external-execute-workflow-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        $CreateExternalExecuteWorkflowV1Request = @"
+        
+        "@
+        
+        # Execute workflow via external trigger
+        
+        try {
+            New-ExternalExecuteWorkflowV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # New-ExternalExecuteWorkflowV1 -Id $Id -CreateExternalExecuteWorkflowV1Request $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ExternalExecuteWorkflowV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/v1/{id}/external/oauth-clients
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#create-workflow-external-trigger-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        
+        # Generate external trigger oauth client
+        
+        try {
+            New-WorkflowExternalTriggerV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # New-WorkflowExternalTriggerV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-WorkflowExternalTriggerV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#create-workflow-v1
+      source: |
+        $CreateWorkflowV1Request = @"
+        {"name":"Send Email","owner":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"},"description":"Send an email to the identity who's attributes changed.","definition":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}},"enabled":false,"trigger":{"type":"EVENT","attributes":{"id":"idn:identity-attributes-changed","filter":"$.changes[?(@.attribute == 'manager')]"}}}
+        "@
+        
+        # Create workflow
+        
+        try {
+            $Result = ConvertFrom-JsonToCreateWorkflowV1Request -Json $CreateWorkflowV1Request
+            New-WorkflowV1 -CreateWorkflowV1Request $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-WorkflowV1 -CreateWorkflowV1Request $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-WorkflowV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#delete-workflow-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
+        
+        # Delete workflow by id
+        
+        try {
+            Remove-WorkflowV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-WorkflowV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-WorkflowV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-executions/v1/{id}/history
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#get-workflow-execution-history-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
+        
+        # Get workflow execution history
+        
+        try {
+            Get-WorkflowExecutionHistoryV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkflowExecutionHistoryV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowExecutionHistoryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-executions/v1/{id}/history-v2
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#get-workflow-execution-history-v2
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
+        
+        # Get updated workflow execution history
+        
+        try {
+            Get-WorkflowExecutionHistoryV2 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkflowExecutionHistoryV2 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowExecutionHistoryV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-executions/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#get-workflow-execution-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
+        
+        # Get workflow execution
+        
+        try {
+            Get-WorkflowExecutionV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkflowExecutionV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowExecutionV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/v1/{id}/executions
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#get-workflow-executions-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow ID.
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Filters = "status eq "Failed"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq* (optional)
+        
+        # List workflow executions
+        
+        try {
+            Get-WorkflowExecutionsV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkflowExecutionsV1 -Id $Id -Limit $Limit -Offset $Offset -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowExecutionsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#get-workflow-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        
+        # Get workflow by id
+        
+        try {
+            Get-WorkflowV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkflowV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-library/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#list-complete-workflow-library-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List complete workflow library
+        
+        try {
+            Get-CompleteWorkflowLibraryV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CompleteWorkflowLibraryV1 -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CompleteWorkflowLibraryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-library/v1/actions
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#list-workflow-library-actions-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Filters = "id eq "sp:create-campaign"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
+        
+        # List workflow library actions
+        
+        try {
+            Get-WorkflowLibraryActionsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkflowLibraryActionsV1 -Limit $Limit -Offset $Offset -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowLibraryActionsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-library/v1/operators
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#list-workflow-library-operators-v1
+      source: |
+        
+        # List workflow library operators
+        
+        try {
+            Get-WorkflowLibraryOperatorsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkflowLibraryOperatorsV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowLibraryOperatorsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-library/v1/triggers
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#list-workflow-library-triggers-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Filters = "id eq "idn:identity-attributes-changed"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **type**: *eq* (optional)
+        
+        # List workflow library triggers
+        
+        try {
+            Get-WorkflowLibraryTriggersV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkflowLibraryTriggersV1 -Limit $Limit -Offset $Offset -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowLibraryTriggersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#list-workflows-v1
+      source: |
+        
+        # List workflows
+        
+        try {
+            Get-WorkflowsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkflowsV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#patch-workflow-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
+        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
+$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | 
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":"Send Email"},{"op":"replace","path":"/owner","value":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"}},{"op":"replace","path":"/description","value":"Send an email to the identity who's attributes changed."},{"op":"replace","path":"/enabled","value":false},{"op":"replace","path":"/definition","value":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}}},{"op":"replace","path":"/trigger","value":{"type":"EVENT","attributes":{"id":"idn:identity-attributes-changed"}}}]"@ 
+        
+        
+        # Patch workflow
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-WorkflowV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-WorkflowV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-WorkflowV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#put-workflow-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
+        $Workflowbody = @"
+        
+        "@
+        
+        # Update workflow
+        
+        try {
+            $Result = ConvertFrom-JsonToWorkflowbody -Json $Workflowbody
+            Send-WorkflowV1 -Id $Id -Workflowbody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-WorkflowV1 -Id $Id -Workflowbody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-WorkflowV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/v1/execute/external/{id}/test
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#test-external-execute-workflow-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        $TestExternalExecuteWorkflowV1Request = @"
+        
+        "@
+        
+        # Test workflow via external trigger
+        
+        try {
+            Test-ExternalExecuteWorkflowV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Test-ExternalExecuteWorkflowV1 -Id $Id -TestExternalExecuteWorkflowV1Request $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-ExternalExecuteWorkflowV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/v1/{id}/test
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#test-workflow-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        $TestWorkflowV1Request = @"
+        {"input":{"identity":{"id":"ee769173319b41d19ccec6cea52f237b","name":"john.doe","type":"IDENTITY"},"changes":[{"attribute":"department","oldValue":"sales","newValue":"marketing"},{"attribute":"manager","oldValue":{"id":"ee769173319b41d19ccec6c235423237b","name":"nice.guy","type":"IDENTITY"},"newValue":{"id":"ee769173319b41d19ccec6c235423236c","name":"mean.guy","type":"IDENTITY"}},{"attribute":"email","oldValue":"john.doe@hotmail.com","newValue":"john.doe@gmail.com"}]}}
+        "@
+        
+        # Test workflow by id
+        
+        try {
+            $Result = ConvertFrom-JsonToTestWorkflowV1Request -Json $TestWorkflowV1Request
+            Test-WorkflowV1 -Id $Id -TestWorkflowV1Request $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Test-WorkflowV1 -Id $Id -TestWorkflowV1Request $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-WorkflowV1"
+            Write-Host $_.ErrorDetails
+        }

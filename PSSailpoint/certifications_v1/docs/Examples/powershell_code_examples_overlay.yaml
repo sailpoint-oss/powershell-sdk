@@ -1,0 +1,249 @@
+- path: /certification-tasks/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#get-certification-task-v1
+      source: |
+        $Id = "63b32151-26c0-42f4-9299-8898dc1c9daa" # String | The task ID
+        
+        # Certification task by id
+        
+        try {
+            Get-CertificationTaskV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CertificationTaskV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CertificationTaskV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certifications/v1/{certificationId}/access-review-items/{itemId}/permissions
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#get-identity-certification-item-permissions-v1
+      source: |
+        $CertificationId = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
+        $ItemId = "2c91808671bcbab40171bd945d961227" # String | The certification item ID
+        $Filters = "target eq "SYS.OBJAUTH2"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **target**: *eq, sw*  **rights**: *ca*  Supported composite operators: *and, or*  All field values (second filter operands) are case-insensitive for this API.  Only a single *and* or *or* composite filter operator may be used. It must also be used between a target filter and a rights filter, not between 2 filters for the same field.  For example, the following is valid: `?filters=rights+ca+(%22CREATE%22)+and+target+eq+%22SYS.OBJAUTH2%22`  The following is invalid: 1?filters=rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)1 (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Permissions for entitlement certification item
+        
+        try {
+            Get-IdentityCertificationItemPermissionsV1 -CertificationId $CertificationId -ItemId $ItemId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityCertificationItemPermissionsV1 -CertificationId $CertificationId -ItemId $ItemId -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityCertificationItemPermissionsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certifications/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#get-identity-certification-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification id
+        
+        # Identity certification by id
+        
+        try {
+            Get-IdentityCertificationV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityCertificationV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityCertificationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certification-tasks/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#get-pending-certification-tasks-v1
+      source: |
+        $ReviewerIdentity = "Ada.1de82e55078344" # String | The ID of reviewer identity. *me* indicates the current user. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "type eq "ADMIN_REASSIGN"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, in*  **type**: *eq, in* (optional)
+        
+        # List of pending certification tasks
+        
+        try {
+            Get-PendingCertificationTasksV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PendingCertificationTasksV1 -ReviewerIdentity $ReviewerIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PendingCertificationTasksV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certifications/v1/{id}/reviewers
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#list-certification-reviewers-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "name eq "Bob"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **email**: *eq, sw* (optional)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email** (optional)
+        
+        # List of reviewers for certification
+        
+        try {
+            Get-CertificationReviewersV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CertificationReviewersV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CertificationReviewersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certifications/v1/{id}/access-review-items
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#list-identity-access-review-items-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **type**: *eq*  **access.type**: *eq*  **completed**: *eq, ne*  **identitySummary.id**: *eq, in*  **identitySummary.name**: *eq, sw*  **access.id**: *eq, in*  **access.name**: *eq, sw*  **entitlement.sourceName**: *eq, sw*  **accessProfile.sourceName**: *eq, sw* (optional)
+        $Sorters = "access.name,-accessProfile.sourceName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitySummary.name, access.name, access.type, entitlement.sourceName, accessProfile.sourceName** (optional)
+        $Entitlements = "identityEntitlement" # String | Filter results to view access review items that pertain to any of the specified comma-separated entitlement IDs.  An error will occur if this param is used with **access-profiles** or **roles** as only one of these query params can be used at a time. (optional)
+        $AccessProfiles = "accessProfile1" # String | Filter results to view access review items that pertain to any of the specified comma-separated access-profle IDs.  An error will occur if this param is used with **entitlements** or **roles** as only one of these query params can be used at a time. (optional)
+        $Roles = "userRole" # String | Filter results to view access review items that pertain to any of the specified comma-separated role IDs.  An error will occur if this param is used with **entitlements** or **access-profiles** as only one of these query params can be used at a time. (optional)
+        
+        # List of access review items
+        
+        try {
+            Get-IdentityAccessReviewItemsV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityAccessReviewItemsV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -Entitlements $Entitlements -AccessProfiles $AccessProfiles -Roles $Roles   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityAccessReviewItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certifications/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#list-identity-certifications-v1
+      source: |
+        $ReviewerIdentity = "me" # String | Reviewer's identity. *me* indicates the current user. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **campaign.id**: *eq, in*  **phase**: *eq*  **completed**: *eq* (optional)
+        $Sorters = "name,due" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, due, signed** (optional)
+        
+        # List identity campaign certifications
+        
+        try {
+            Get-IdentityCertificationsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityCertificationsV1 -ReviewerIdentity $ReviewerIdentity -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityCertificationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certifications/v1/{id}/decide
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#make-identity-decision-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campaign certification on which to make decisions
+        $Reviewrecommendation = Initialize-Reviewrecommendation -Recommendation "MyRecommendation" -Reasons "MyReasons" -Timestamp (Get-Date)
+$Reviewdecision = Initialize-Reviewdecision -Id "ef38f94347e94562b5bb8424a56397d8" -Decision "APPROVE" -ProposedEndDate (Get-Date) -Bulk $true -Recommendation $Reviewrecommendation -Comments "This user no longer needs access to this source"# Reviewdecision[] | A non-empty array of decisions to be made.
+        $Reviewdecision = @"[{"id":"ef38f94347e94562b5bb8424a56396b5","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source."},{"id":"ef38f94347e94562b5bb8424a56397d8","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source too."}]"@ 
+        
+        
+        # Decide on a certification item
+        
+        try {
+            $Result = ConvertFrom-JsonToReviewdecision -Json $Reviewdecision
+            Select-IdentityDecisionV1 -Id $Id -Reviewdecision $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Select-IdentityDecisionV1 -Id $Id -Reviewdecision $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Select-IdentityDecisionV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certifications/v1/{id}/reassign
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#reassign-identity-certifications-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
+        $Reviewreassign = @"
+        
+        "@
+        
+        # Reassign identities or items
+        
+        try {
+            $Result = ConvertFrom-JsonToReviewreassign -Json $Reviewreassign
+            Invoke-ReassignIdentityCertificationsV1 -Id $Id -Reviewreassign $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-ReassignIdentityCertificationsV1 -Id $Id -Reviewreassign $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ReassignIdentityCertificationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certifications/v1/{id}/sign-off
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#sign-off-identity-certification-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
+        
+        # Finalize identity certification decisions
+        
+        try {
+            Invoke-SignOffIdentityCertificationV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-SignOffIdentityCertificationV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-SignOffIdentityCertificationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certifications/v1/{id}/reassign-async
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#submit-reassign-certs-async-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
+        $Reviewreassign = @"
+        
+        "@
+        
+        # Reassign certifications asynchronously
+        
+        try {
+            $Result = ConvertFrom-JsonToReviewreassign -Json $Reviewreassign
+            Submit-ReassignCertsAsyncV1 -Id $Id -Reviewreassign $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-ReassignCertsAsyncV1 -Id $Id -Reviewreassign $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-ReassignCertsAsyncV1"
+            Write-Host $_.ErrorDetails
+        }

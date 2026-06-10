@@ -1,0 +1,103 @@
+- path: /oauth-clients/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/oauthclientsv1/methods/o-auth-clients#create-oauth-client-v1
+      source: |
+        $Createoauthclientrequest = @"
+        
+        "@
+        
+        # Create oauth client
+        
+        try {
+            $Result = ConvertFrom-JsonToCreateoauthclientrequest -Json $Createoauthclientrequest
+            New-OauthClientV1 -Createoauthclientrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-OauthClientV1 -Createoauthclientrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-OauthClientV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /oauth-clients/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/oauthclientsv1/methods/o-auth-clients#delete-oauth-client-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
+        
+        # Delete oauth client
+        
+        try {
+            Remove-OauthClientV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-OauthClientV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-OauthClientV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /oauth-clients/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/oauthclientsv1/methods/o-auth-clients#get-oauth-client-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
+        
+        # Get oauth client
+        
+        try {
+            Get-OauthClientV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-OauthClientV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OauthClientV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /oauth-clients/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/oauthclientsv1/methods/o-auth-clients#list-oauth-clients-v1
+      source: |
+        $Filters = "lastUsed le 2023-02-05T10:59:27.214Z" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
+        
+        # List oauth clients
+        
+        try {
+            Get-OauthClientsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-OauthClientsV1 -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OauthClientsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /oauth-clients/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/oauthclientsv1/methods/o-auth-clients#patch-oauth-client-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
+        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
+$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/strongAuthSupported","value":true},{"op":"replace","path":"/businessName","value":"acme-solar"}]"@ 
+        
+        
+        # Patch oauth client
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-OauthClientV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-OauthClientV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-OauthClientV1"
+            Write-Host $_.ErrorDetails
+        }

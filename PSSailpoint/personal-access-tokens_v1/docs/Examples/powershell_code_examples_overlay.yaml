@@ -1,0 +1,85 @@
+- path: /personal-access-tokens/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/personalaccesstokensv1/methods/personal-access-tokens#create-personal-access-token-v1
+      source: |
+        $Createpersonalaccesstokenrequest = @"
+        
+        "@
+        
+        # Create personal access token
+        
+        try {
+            $Result = ConvertFrom-JsonToCreatepersonalaccesstokenrequest -Json $Createpersonalaccesstokenrequest
+            New-PersonalAccessTokenV1 -Createpersonalaccesstokenrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-PersonalAccessTokenV1 -Createpersonalaccesstokenrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PersonalAccessTokenV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /personal-access-tokens/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/personalaccesstokensv1/methods/personal-access-tokens#delete-personal-access-token-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The personal access token id
+        
+        # Delete personal access token
+        
+        try {
+            Remove-PersonalAccessTokenV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-PersonalAccessTokenV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-PersonalAccessTokenV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /personal-access-tokens/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/personalaccesstokensv1/methods/personal-access-tokens#list-personal-access-tokens-v1
+      source: |
+        $OwnerId = "2c9180867b50d088017b554662fb281e" # String | The identity ID of the owner whose personal access tokens should be listed.  If ""me"", the caller should have the following right: 'idn:my-personal-access-tokens:read' If an actual owner ID or if the `owner-id` parameter is omitted in the request,  the caller should have the following right: 'idn:all-personal-access-tokens:read'.  If the caller has the following right, then managed personal access tokens associated with `owner-id`  will be retrieved: 'idn:managed-personal-access-tokens:read' (optional)
+        $Filters = "lastUsed le 2023-02-05T10:59:27.214Z" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
+        
+        # List personal access tokens
+        
+        try {
+            Get-PersonalAccessTokensV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PersonalAccessTokensV1 -OwnerId $OwnerId -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PersonalAccessTokensV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /personal-access-tokens/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/personalaccesstokensv1/methods/personal-access-tokens#patch-personal-access-token-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The Personal Access Token id
+        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
+$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between `expirationDate` and `userAwareTokenNeverExpires`. 
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":"New name"},{"op":"replace","path":"/scope","value":["sp:scopes:all"]},{"op":"replace","path":"/expirationDate","value":"2027-12-31T23:59:59.999Z"}]"@ 
+        
+        
+        # Patch personal access token
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-PersonalAccessTokenV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-PersonalAccessTokenV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PersonalAccessTokenV1"
+            Write-Host $_.ErrorDetails
+        }

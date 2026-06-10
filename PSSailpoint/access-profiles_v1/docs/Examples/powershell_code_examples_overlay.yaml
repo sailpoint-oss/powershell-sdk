@@ -1,0 +1,179 @@
+- path: /access-profiles/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#create-access-profile-v1
+      source: |
+        $Accessprofile = @"
+        
+        "@
+        
+        # Create access profile
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessprofile -Json $Accessprofile
+            New-AccessProfileV1 -Accessprofile $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-AccessProfileV1 -Accessprofile $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessProfileV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#delete-access-profile-v1
+      source: |
+        $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to delete
+        
+        # Delete the specified access profile
+        
+        try {
+            Remove-AccessProfileV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-AccessProfileV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessProfileV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/v1/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#delete-access-profiles-in-bulk-v1
+      source: |
+        $Accessprofilebulkdeleterequest = @"
+        {"bestEffortOnly":true,"accessProfileIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}
+        "@
+        
+        # Delete access profile(s)
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessprofilebulkdeleterequest -Json $Accessprofilebulkdeleterequest
+            Remove-AccessProfilesInBulkV1 -Accessprofilebulkdeleterequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-AccessProfilesInBulkV1 -Accessprofilebulkdeleterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessProfilesInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/v1/{id}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#get-access-profile-entitlements-v1
+      source: |
+        $Id = "2c91808a7813090a017814121919ecca" # String | ID of the access profile containing the entitlements.
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "attribute eq "memberOf"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.  (optional)
+        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
+        
+        # List access profile's entitlements
+        
+        try {
+            Get-AccessProfileEntitlementsV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessProfileEntitlementsV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessProfileEntitlementsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#get-access-profile-v1
+      source: |
+        $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Access Profile
+        
+        # Get an access profile
+        
+        try {
+            Get-AccessProfileV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessProfileV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessProfileV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#list-access-profiles-v1
+      source: |
+        $ForSubadmin = "8c190e6787aa4ed9a90bd9d5344523fb" # String | Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity's ID.  If you specify an identity that isn't a subadmin, the API returns a 400 Bad Request error. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "name eq "SailPoint Support"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.  (optional)
+        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+        $ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
+        $IncludeUnsegmented = $false # Boolean | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error. (optional) (default to $true)
+        
+        # List access profiles
+        
+        try {
+            Get-AccessProfilesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessProfilesV1 -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessProfilesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#patch-access-profile-v1
+      source: |
+        $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to patch
+        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
+$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | 
+        $Jsonpatchoperation = @"[{"op":"add","path":"/entitlements","value":[{"id":"2c9180857725c14301772a93bb77242d","type":"ENTITLEMENT","name":"AD User Group"}]}]"@ 
+        
+        
+        # Patch a specified access profile
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-AccessProfileV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AccessProfileV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfileV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-profiles/v1/bulk-update-requestable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#update-access-profiles-in-bulk-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $AccessprofilebulkupdaterequestInner = Initialize-AccessprofilebulkupdaterequestInner -Id "464ae7bf-791e-49fd-b746-06a2e4a8" -Requestable $false# AccessprofilebulkupdaterequestInner[] | 
+        $AccessprofilebulkupdaterequestInner = @"[{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]"@ 
+        
+        
+        # Update access profile(s) requestable field.
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessprofilebulkupdaterequestInner -Json $AccessprofilebulkupdaterequestInner
+            Update-AccessProfilesInBulkV1 -XSailPointExperimental $XSailPointExperimental -AccessprofilebulkupdaterequestInner $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AccessProfilesInBulkV1 -XSailPointExperimental $XSailPointExperimental -AccessprofilebulkupdaterequestInner $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccessProfilesInBulkV1"
+            Write-Host $_.ErrorDetails
+        }

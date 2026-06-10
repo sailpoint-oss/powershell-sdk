@@ -1,0 +1,250 @@
+- path: /access-request-approvals/v1/bulk-approve
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessrequestsv1/methods/access-requests#approve-bulk-access-request-v1
+      source: |
+        $Bulkapproveaccessrequest = @"
+        {"accessRequestIds":["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],"comment":"I approve these request items"}
+        "@
+        
+        # Bulk approve access request
+        
+        try {
+            $Result = ConvertFrom-JsonToBulkapproveaccessrequest -Json $Bulkapproveaccessrequest
+            Approve-BulkAccessRequestV1 -Bulkapproveaccessrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Approve-BulkAccessRequestV1 -Bulkapproveaccessrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BulkAccessRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-requests/v1/bulk-cancel
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessrequestsv1/methods/access-requests#cancel-access-request-in-bulk-v1
+      source: |
+        $Bulkcancelaccessrequest = @"
+        {"accessRequestIds":["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],"comment":"I requested this role by mistake."}
+        "@
+        
+        # Bulk cancel access request
+        
+        try {
+            $Result = ConvertFrom-JsonToBulkcancelaccessrequest -Json $Bulkcancelaccessrequest
+            Suspend-AccessRequestInBulkV1 -Bulkcancelaccessrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Suspend-AccessRequestInBulkV1 -Bulkcancelaccessrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-AccessRequestInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-requests/v1/cancel
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessrequestsv1/methods/access-requests#cancel-access-request-v1
+      source: |
+        $Cancelaccessrequest = @"
+        {"accountActivityId":"2c91808568c529c60168cca6f90c1313","comment":"I requested this role by mistake."}
+        "@
+        
+        # Cancel access request
+        
+        try {
+            $Result = ConvertFrom-JsonToCancelaccessrequest -Json $Cancelaccessrequest
+            Suspend-AccessRequestV1 -Cancelaccessrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Suspend-AccessRequestV1 -Cancelaccessrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-AccessRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-requests/v1/close
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessrequestsv1/methods/access-requests#close-access-request-v1
+      source: |
+        $Closeaccessrequest = @"
+        {"accessRequestIds":["2c90ad2a70ace7d50170acf22ca90010"],"executionStatus":"Terminated","completionStatus":"Failure","message":"The IdentityNow Administrator manually closed this request."}
+        "@
+        
+        # Close access request
+        
+        try {
+            $Result = ConvertFrom-JsonToCloseaccessrequest -Json $Closeaccessrequest
+            Close-AccessRequestV1 -Closeaccessrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Close-AccessRequestV1 -Closeaccessrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Close-AccessRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-requests/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessrequestsv1/methods/access-requests#create-access-request-v1
+      source: |
+        $Accessrequest = @"
+        
+        "@
+        
+        # Submit access request
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessrequest -Json $Accessrequest
+            New-AccessRequestV1 -Accessrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-AccessRequestV1 -Accessrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-request-config/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessrequestsv1/methods/access-requests#get-access-request-config-v1
+      source: |
+        
+        # Get access request configuration
+        
+        try {
+            Get-AccessRequestConfigV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessRequestConfigV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessRequestConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /revocable-objects/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessrequestsv1/methods/access-requests#get-entitlement-details-for-identity-v1
+      source: |
+        $IdentityId = "7025c863c2704ba6beeaedf3cb091573" # String | The identity ID.
+        $EntitlementId = "ef38f94347e94562b5bb8424a56397d8" # String | The entitlement ID
+        
+        # Identity entitlement details
+        
+        try {
+            Get-EntitlementDetailsForIdentityV1 -IdentityId $IdentityId -EntitlementId $EntitlementId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-EntitlementDetailsForIdentityV1 -IdentityId $IdentityId -EntitlementId $EntitlementId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-EntitlementDetailsForIdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-request-status/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessrequestsv1/methods/access-requests#list-access-request-status-v1
+      source: |
+        $RequestedFor = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
+        $RequestedBy = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
+        $RegardingIdentity = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional)
+        $AssignedTo = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the specified identity who is the owner of the Identity Request Work Item. *me* indicates the current user. (optional)
+        $Count = $false # Boolean | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to $false)
+        $Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
+        $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
+        $Filters = "accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne* (optional)
+        $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
+        $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
+        
+        # Access request status
+        
+        try {
+            Get-AccessRequestStatusV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessRequestStatusV1 -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -AssignedTo $AssignedTo -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters -RequestState $RequestState   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessRequestStatusV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-request-administration/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessrequestsv1/methods/access-requests#list-administrators-access-request-status-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestedFor = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
+        $RequestedBy = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
+        $RegardingIdentity = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional)
+        $AssignedTo = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the specified identity who is the owner of the Identity Request Work Item. *me* indicates the current user. (optional)
+        $Count = $false # Boolean | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to $false)
+        $Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
+        $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
+        $Filters = "accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
+        $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** (optional)
+        $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
+        
+        # Access request status for administrators
+        
+        try {
+            Get-AdministratorsAccessRequestStatusV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AdministratorsAccessRequestStatusV1 -XSailPointExperimental $XSailPointExperimental -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -AssignedTo $AssignedTo -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters -RequestState $RequestState   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AdministratorsAccessRequestStatusV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-requests/v1/accounts-selection
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessrequestsv1/methods/access-requests#load-account-selections-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Accountsselectionrequest = @"
+        
+        "@
+        
+        # Get accounts selections for identity
+        
+        try {
+            $Result = ConvertFrom-JsonToAccountsselectionrequest -Json $Accountsselectionrequest
+            Invoke-LoadAccountSelectionsV1 -XSailPointExperimental $XSailPointExperimental -Accountsselectionrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-LoadAccountSelectionsV1 -XSailPointExperimental $XSailPointExperimental -Accountsselectionrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-LoadAccountSelectionsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-request-config/v1
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accessrequestsv1/methods/access-requests#set-access-request-config-v1
+      source: |
+        $Accessrequestconfig = @"
+        
+        "@
+        
+        # Update access request configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessrequestconfig -Json $Accessrequestconfig
+            Set-AccessRequestConfigV1 -Accessrequestconfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-AccessRequestConfigV1 -Accessrequestconfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestConfigV1"
+            Write-Host $_.ErrorDetails
+        }

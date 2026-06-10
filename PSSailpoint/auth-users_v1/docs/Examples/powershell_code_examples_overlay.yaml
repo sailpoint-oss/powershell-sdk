@@ -1,0 +1,43 @@
+- path: /auth-users/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/authusersv1/methods/auth-users#get-auth-user-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
+        
+        # Auth user details
+        
+        try {
+            Get-AuthUserV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AuthUserV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AuthUserV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /auth-users/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/authusersv1/methods/auth-users#patch-auth-user-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
+        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
+$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/capabilities","value":["ORG_ADMIN"]}]"@ 
+        
+        
+        # Auth user update
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-AuthUserV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AuthUserV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthUserV1"
+            Write-Host $_.ErrorDetails
+        }

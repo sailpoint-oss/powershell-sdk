@@ -1,0 +1,105 @@
+- path: /transforms/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/transformsv1/methods/transforms#create-transform-v1
+      source: |
+        $Transform = @"
+        {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM dd yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}
+        "@
+        
+        # Create transform
+        
+        try {
+            $Result = ConvertFrom-JsonToTransform -Json $Transform
+            New-TransformV1 -Transform $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-TransformV1 -Transform $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-TransformV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /transforms/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/transformsv1/methods/transforms#delete-transform-v1
+      source: |
+        $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to delete
+        
+        # Delete a transform
+        
+        try {
+            Remove-TransformV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-TransformV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-TransformV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /transforms/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/transformsv1/methods/transforms#get-transform-v1
+      source: |
+        $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retrieve
+        
+        # Transform by id
+        
+        try {
+            Get-TransformV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-TransformV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TransformV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /transforms/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/transformsv1/methods/transforms#list-transforms-v1
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Name = "ExampleTransformName123" # String | Name of the transform to retrieve from the list. (optional)
+        $Filters = "name eq "Uppercase"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **internal**: *eq*  **name**: *eq, sw* (optional)
+        
+        # List transforms
+        
+        try {
+            Get-TransformsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-TransformsV1 -Offset $Offset -Limit $Limit -Count $Count -Name $Name -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TransformsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /transforms/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/transformsv1/methods/transforms#update-transform-v1
+      source: |
+        $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to update
+        $Transform = @"
+        {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM-dd-yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}
+        "@
+        
+        # Update a transform
+        
+        try {
+            Update-TransformV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Update-TransformV1 -Id $Id -Transform $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-TransformV1"
+            Write-Host $_.ErrorDetails
+        }

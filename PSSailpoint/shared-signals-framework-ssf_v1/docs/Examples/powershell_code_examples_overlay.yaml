@@ -1,0 +1,203 @@
+- path: /ssf/v1/streams
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#create-stream-v1
+      source: |
+        $Createstreamrequest = @"
+        {"delivery":{"method":"urn:ietf:rfc:8935","endpoint_url":"https://receiver.example.com/ssf/events"},"events_requested":["https://schemas.openid.net/secevent/caep/event-type/session-revoked"],"description":"Production event stream for session revocation notifications"}
+        "@
+        
+        # Create stream
+        
+        try {
+            $Result = ConvertFrom-JsonToCreatestreamrequest -Json $Createstreamrequest
+            New-StreamV1 -Createstreamrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-StreamV1 -Createstreamrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-StreamV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/v1/streams
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#delete-stream-v1
+      source: |
+        $StreamId = "550e8400-e29b-41d4-a716-446655440000" # String | ID of the stream to delete. Required; omitted or empty returns 400.
+        
+        # Delete stream
+        
+        try {
+            Remove-StreamV1 -StreamId $StreamId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-StreamV1 -StreamId $StreamId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-StreamV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/v1/jwks
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#get-jwks-data-v1
+      source: |
+        
+        # Get JWKS
+        
+        try {
+            Get-JWKSDataV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-JWKSDataV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-JWKSDataV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /.well-known/v1/ssf-configuration
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#get-ssf-configuration-v1
+      source: |
+        
+        # Get SSF configuration
+        
+        try {
+            Get-SSFConfigurationV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SSFConfigurationV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SSFConfigurationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/v1/streams/status
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#get-stream-status-v1
+      source: |
+        $StreamId = "550e8400-e29b-41d4-a716-446655440000" # String | ID of the stream whose status to retrieve.
+        
+        # Get stream status
+        
+        try {
+            Get-StreamStatusV1 -StreamId $StreamId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-StreamStatusV1 -StreamId $StreamId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-StreamStatusV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/v1/streams
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#get-stream-v1
+      source: |
+        $StreamId = "550e8400-e29b-41d4-a716-446655440000" # String | If provided, returns that stream; otherwise returns list of all streams. (optional)
+        
+        # Get stream(s)
+        
+        try {
+            Get-StreamV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-StreamV1 -StreamId $StreamId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-StreamV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/v1/streams/verify
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#send-stream-verification-v1
+      source: |
+        $Verificationrequest = @"
+        {"stream_id":"550e8400-e29b-41d4-a716-446655440000","state":"verification-challenge-state-123"}
+        "@
+        
+        # Verify stream
+        
+        try {
+            $Result = ConvertFrom-JsonToVerificationrequest -Json $Verificationrequest
+            Send-StreamVerificationV1 -Verificationrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-StreamVerificationV1 -Verificationrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-StreamVerificationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/v1/streams
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#set-stream-configuration-v1
+      source: |
+        $Replacestreamconfigurationrequest = @"
+        {"stream_id":"550e8400-e29b-41d4-a716-446655440000","delivery":{"method":"urn:ietf:rfc:8935","endpoint_url":"https://receiver.example.com/ssf/events"},"events_requested":["https://schemas.openid.net/secevent/caep/event-type/session-revoked"],"description":"Replaced stream configuration for production event delivery"}
+        "@
+        
+        # Replace stream configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToReplacestreamconfigurationrequest -Json $Replacestreamconfigurationrequest
+            Set-StreamConfigurationV1 -Replacestreamconfigurationrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-StreamConfigurationV1 -Replacestreamconfigurationrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-StreamConfigurationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/v1/streams
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#update-stream-configuration-v1
+      source: |
+        $Updatestreamconfigurationrequest = @"
+        {"stream_id":"550e8400-e29b-41d4-a716-446655440000","description":"Updated production event stream configuration"}
+        "@
+        
+        # Update stream configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToUpdatestreamconfigurationrequest -Json $Updatestreamconfigurationrequest
+            Update-StreamConfigurationV1 -Updatestreamconfigurationrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-StreamConfigurationV1 -Updatestreamconfigurationrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-StreamConfigurationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ssf/v1/streams/status
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#update-stream-status-v1
+      source: |
+        $Updatestreamstatusrequest = @"
+        {"stream_id":"550e8400-e29b-41d4-a716-446655440000","status":"paused","reason":"manually paused"}
+        "@
+        
+        # Update stream status
+        
+        try {
+            $Result = ConvertFrom-JsonToUpdatestreamstatusrequest -Json $Updatestreamstatusrequest
+            Update-StreamStatusV1 -Updatestreamstatusrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-StreamStatusV1 -Updatestreamstatusrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-StreamStatusV1"
+            Write-Host $_.ErrorDetails
+        }

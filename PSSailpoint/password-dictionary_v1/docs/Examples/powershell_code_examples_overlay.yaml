@@ -1,0 +1,37 @@
+- path: /password-dictionary/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passworddictionaryv1/methods/password-dictionary#get-password-dictionary-v1
+      source: |
+        
+        # Get password dictionary
+        
+        try {
+            Get-PasswordDictionaryV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PasswordDictionaryV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PasswordDictionaryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /password-dictionary/v1
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passworddictionaryv1/methods/password-dictionary#put-password-dictionary-v1
+      source: |
+        $File =  # System.IO.FileInfo |  (optional)
+        
+        # Update password dictionary
+        
+        try {
+            Send-PasswordDictionaryV1 
+    
+            # Below is a request that includes all optional parameters
+            # Send-PasswordDictionaryV1 -File $File   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-PasswordDictionaryV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,254 @@
+- path: /identities/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#delete-identity-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete identity
+        
+        try {
+            Remove-IdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-IdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-IdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/v1/{identityId}/ownership
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#get-identity-ownership-details-v1
+      source: |
+        $IdentityId = "ff8081814d2a8036014d701f3fbf53fa" # String | Identity ID.
+        
+        # Get ownership details
+        
+        try {
+            Get-IdentityOwnershipDetailsV1 -IdentityId $IdentityId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityOwnershipDetailsV1 -IdentityId $IdentityId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityOwnershipDetailsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#get-identity-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
+        
+        # Identity details
+        
+        try {
+            Get-IdentityV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/v1/{identityId}/role-assignments/{assignmentId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#get-role-assignment-v1
+      source: |
+        $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
+        $AssignmentId = "1cbb0705b38c4226b1334eadd8874086" # String | Assignment Id
+        
+        # Role assignment details
+        
+        try {
+            Get-RoleAssignmentV1 -IdentityId $IdentityId -AssignmentId $AssignmentId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-RoleAssignmentV1 -IdentityId $IdentityId -AssignmentId $AssignmentId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-RoleAssignmentV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/v1/{identityId}/role-assignments
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#get-role-assignments-v1
+      source: |
+        $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id to get the role assignments for
+        $RoleId = "e7697a1e96d04db1ac7b0f4544915d2c" # String | Role Id to filter the role assignments with (optional)
+        $RoleName = "Engineer" # String | Role name to filter the role assignments with (optional)
+        
+        # List role assignments
+        
+        try {
+            Get-RoleAssignmentsV1 -IdentityId $IdentityId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-RoleAssignmentsV1 -IdentityId $IdentityId -RoleId $RoleId -RoleName $RoleName   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-RoleAssignmentsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/identities/{id}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#list-entitlements-by-identity-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List of entitlements by identity.
+        
+        try {
+            Get-EntitlementsByIdentityV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-EntitlementsByIdentityV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-EntitlementsByIdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#list-identities-v1
+      source: |
+        $Filters = "id eq "6c9079b270a266a60170a2779fcb0006" or correlated eq false" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional)
+        $Sorters = "name,-cloudStatus" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional)
+        $DefaultFilter = "CORRELATED_ONLY" # String | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to "CORRELATED_ONLY")
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List identities
+        
+        try {
+            Get-IdentitiesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentitiesV1 -Filters $Filters -Sorters $Sorters -DefaultFilter $DefaultFilter -Count $Count -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentitiesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/v1/{id}/reset
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#reset-identity-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
+        
+        # Reset an identity
+        
+        try {
+            Reset-IdentityV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Reset-IdentityV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-IdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/v1/{id}/verification/account/send
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#send-identity-verification-account-token-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
+        $Sendaccountverificationrequest = @"
+        
+        "@
+        
+        # Send password reset email
+        
+        try {
+            $Result = ConvertFrom-JsonToSendaccountverificationrequest -Json $Sendaccountverificationrequest
+            Send-IdentityVerificationAccountTokenV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Sendaccountverificationrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-IdentityVerificationAccountTokenV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Sendaccountverificationrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-IdentityVerificationAccountTokenV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/v1/invite
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#start-identities-invite-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Inviteidentitiesrequest = @"
+        
+        "@
+        
+        # Invite identities to register
+        
+        try {
+            $Result = ConvertFrom-JsonToInviteidentitiesrequest -Json $Inviteidentitiesrequest
+            Start-IdentitiesInviteV1 -XSailPointExperimental $XSailPointExperimental -Inviteidentitiesrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-IdentitiesInviteV1 -XSailPointExperimental $XSailPointExperimental -Inviteidentitiesrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-IdentitiesInviteV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/v1/process
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#start-identity-processing-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Processidentitiesrequest = @"
+        
+        "@
+        
+        # Process a list of identityids
+        
+        try {
+            $Result = ConvertFrom-JsonToProcessidentitiesrequest -Json $Processidentitiesrequest
+            Start-IdentityProcessingV1 -XSailPointExperimental $XSailPointExperimental -Processidentitiesrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-IdentityProcessingV1 -XSailPointExperimental $XSailPointExperimental -Processidentitiesrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-IdentityProcessingV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities/v1/{identityId}/synchronize-attributes
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#synchronize-attributes-for-identity-v1
+      source: |
+        $IdentityId = "MyIdentityId" # String | The Identity id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Attribute synchronization for single identity.
+        
+        try {
+            Sync-hronizeAttributesForIdentityV1 -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Sync-hronizeAttributesForIdentityV1 -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Sync-hronizeAttributesForIdentityV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,192 @@
+- path: /reassignment-configurations/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#create-reassignment-configuration-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Configurationitemrequest = @"
+        
+        "@
+        
+        # Create a reassignment configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToConfigurationitemrequest -Json $Configurationitemrequest
+            New-ReassignmentConfigurationV1 -XSailPointExperimental $XSailPointExperimental -Configurationitemrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ReassignmentConfigurationV1 -XSailPointExperimental $XSailPointExperimental -Configurationitemrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ReassignmentConfigurationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/v1/{identityId}/{configType}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#delete-reassignment-configuration-v1
+      source: |
+        $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
+        $ConfigType = "ACCESS_REQUESTS" # Configtypeenum | 
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete reassignment configuration
+        
+        try {
+            Remove-ReassignmentConfigurationV1 -IdentityId $IdentityId -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ReassignmentConfigurationV1 -IdentityId $IdentityId -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ReassignmentConfigurationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/v1/{identityId}/evaluate/{configType}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#get-evaluate-reassignment-configuration-v1
+      source: |
+        $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
+        $ConfigType = "ACCESS_REQUESTS" # Configtypeenum | Reassignment work type
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $ExclusionFilters = "MyExclusionFilters" # String[] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
+        
+        $ExclusionFilters = @"SELF_REVIEW_DELEGATION"@
+        
+        # Evaluate reassignment configuration
+        
+        try {
+            Get-EvaluateReassignmentConfigurationV1 -IdentityId $IdentityId -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-EvaluateReassignmentConfigurationV1 -IdentityId $IdentityId -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental -ExclusionFilters $ExclusionFilters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-EvaluateReassignmentConfigurationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/v1/types
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#get-reassignment-config-types-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # List reassignment config types
+        
+        try {
+            Get-ReassignmentConfigTypesV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ReassignmentConfigTypesV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ReassignmentConfigTypesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/v1/{identityId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#get-reassignment-configuration-v1
+      source: |
+        $IdentityId = "2c91808781a71ddb0181b9090b5c504f" # String | unique identity id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get reassignment configuration
+        
+        try {
+            Get-ReassignmentConfigurationV1 -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ReassignmentConfigurationV1 -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ReassignmentConfigurationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/v1/tenant-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#get-tenant-config-configuration-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get tenant-wide reassignment configuration settings
+        
+        try {
+            Get-TenantConfigConfigurationV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-TenantConfigConfigurationV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TenantConfigConfigurationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#list-reassignment-configurations-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # List reassignment configurations
+        
+        try {
+            Get-ReassignmentConfigurationsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ReassignmentConfigurationsV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ReassignmentConfigurationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/v1/{identityId}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#put-reassignment-config-v1
+      source: |
+        $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Configurationitemrequest = @"
+        
+        "@
+        
+        # Update reassignment configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToConfigurationitemrequest -Json $Configurationitemrequest
+            Send-ReassignmentConfigV1 -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -Configurationitemrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ReassignmentConfigV1 -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -Configurationitemrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ReassignmentConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/v1/tenant-config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#put-tenant-configuration-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Tenantconfigurationrequest = @"
+        
+        "@
+        
+        # Update tenant-wide reassignment configuration settings
+        
+        try {
+            $Result = ConvertFrom-JsonToTenantconfigurationrequest -Json $Tenantconfigurationrequest
+            Send-TenantConfigurationV1 -XSailPointExperimental $XSailPointExperimental -Tenantconfigurationrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-TenantConfigurationV1 -XSailPointExperimental $XSailPointExperimental -Tenantconfigurationrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-TenantConfigurationV1"
+            Write-Host $_.ErrorDetails
+        }

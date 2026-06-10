@@ -1,0 +1,61 @@
+- path: /source-subtypes/v1/{subtypeId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsubtypesv1/methods/machine-account-subtypes#delete-machine-account-subtype-v1
+      source: |
+        $SubtypeId = "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa" # String | The ID of the subtype.
+        
+        # Delete subtype by ID
+        
+        try {
+            Remove-MachineAccountSubtypeV1 -SubtypeId $SubtypeId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-MachineAccountSubtypeV1 -SubtypeId $SubtypeId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineAccountSubtypeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-subtypes/v1/{subtypeId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsubtypesv1/methods/machine-account-subtypes#get-source-subtype-by-id-v1
+      source: |
+        $SubtypeId = "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa" # String | The ID of the subtype.
+        
+        # Get subtype by ID
+        
+        try {
+            Get-SourceSubtypeByIdV1 -SubtypeId $SubtypeId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SourceSubtypeByIdV1 -SubtypeId $SubtypeId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourceSubtypeByIdV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-subtypes/v1/{subtypeId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountsubtypesv1/methods/machine-account-subtypes#patch-machine-account-subtype-v1
+      source: |
+        $SubtypeId = "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa" # String | The ID of the subtype.
+        $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        $RequestBody = @"[{"op":"replace","path":"/displayName","value":"Test New DisplayName"}]"@ 
+        
+        
+        # Patch subtype by ID
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Update-MachineAccountSubtypeV1 -SubtypeId $SubtypeId -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-MachineAccountSubtypeV1 -SubtypeId $SubtypeId -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineAccountSubtypeV1"
+            Write-Host $_.ErrorDetails
+        }

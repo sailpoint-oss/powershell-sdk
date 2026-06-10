@@ -1,0 +1,233 @@
+- path: /ai-access-request-recommendations/v1/ignored-items
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#add-access-request-recommendations-ignored-item-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Accessrequestrecommendationactionitemdto = @"
+        
+        "@
+        
+        # Ignore access request recommendation
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessrequestrecommendationactionitemdto -Json $Accessrequestrecommendationactionitemdto
+            Add-AccessRequestRecommendationsIgnoredItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Add-AccessRequestRecommendationsIgnoredItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-AccessRequestRecommendationsIgnoredItemV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/v1/requested-items
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#add-access-request-recommendations-requested-item-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Accessrequestrecommendationactionitemdto = @"
+        
+        "@
+        
+        # Accept access request recommendation
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessrequestrecommendationactionitemdto -Json $Accessrequestrecommendationactionitemdto
+            Add-AccessRequestRecommendationsRequestedItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Add-AccessRequestRecommendationsRequestedItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-AccessRequestRecommendationsRequestedItemV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/v1/viewed-items
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#add-access-request-recommendations-viewed-item-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Accessrequestrecommendationactionitemdto = @"
+        
+        "@
+        
+        # Mark viewed access request recommendations
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessrequestrecommendationactionitemdto -Json $Accessrequestrecommendationactionitemdto
+            Add-AccessRequestRecommendationsViewedItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Add-AccessRequestRecommendationsViewedItemV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-AccessRequestRecommendationsViewedItemV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/v1/viewed-items/bulk-create
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#add-access-request-recommendations-viewed-items-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Accessrequestrecommendationitem = Initialize-Accessrequestrecommendationitem -Id "2c9180835d2e5168015d32f890ca1581" -Type "ACCESS_PROFILE"
+$Accessrequestrecommendationactionitemdto = Initialize-Accessrequestrecommendationactionitemdto -IdentityId "2c91808570313110017040b06f344ec9" -Access $Accessrequestrecommendationitem# Accessrequestrecommendationactionitemdto[] | The recommended access items that were viewed for an identity.
+        $Accessrequestrecommendationactionitemdto = @""@ 
+        
+        
+        # Bulk mark viewed access request recommendations
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessrequestrecommendationactionitemdto -Json $Accessrequestrecommendationactionitemdto
+            Add-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Add-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationactionitemdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-AccessRequestRecommendationsViewedItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/v1/config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#get-access-request-recommendations-config-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get access request recommendations config
+        
+        try {
+            Get-AccessRequestRecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessRequestRecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessRequestRecommendationsConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/v1/ignored-items
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#get-access-request-recommendations-ignored-items-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "identityId eq "2c9180846b0a0583016b299f210c1314"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional)
+        $Sorters = "access.id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
+        
+        # List ignored access request recommendations
+        
+        try {
+            Get-AccessRequestRecommendationsIgnoredItemsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessRequestRecommendationsIgnoredItemsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessRequestRecommendationsIgnoredItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/v1/requested-items
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#get-access-request-recommendations-requested-items-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "access.id eq "2c9180846b0a0583016b299f210c1314"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional)
+        $Sorters = "access.id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
+        
+        # List accepted access request recommendations
+        
+        try {
+            Get-AccessRequestRecommendationsRequestedItemsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessRequestRecommendationsRequestedItemsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessRequestRecommendationsRequestedItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#get-access-request-recommendations-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $IdentityId = "2c91808570313110017040b06f344ec9" # String | Get access request recommendations for an identityId. *me* indicates the current user. (optional) (default to "me")
+        $Limit = 15 # Int32 | Max number of results to return. (optional) (default to 15)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $IncludeTranslationMessages = $false # Boolean | If *true* it will populate a list of translation messages in the response. (optional) (default to $false)
+        $Filters = "access.name co "admin"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.name**: *co*  **access.type**: *eq, in*  **access.description**: *co, eq, in* (optional)
+        $Sorters = "access.name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. (optional)
+        
+        # Identity access request recommendations
+        
+        try {
+            Get-AccessRequestRecommendationsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessRequestRecommendationsV1 -XSailPointExperimental $XSailPointExperimental -IdentityId $IdentityId -Limit $Limit -Offset $Offset -Count $Count -IncludeTranslationMessages $IncludeTranslationMessages -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessRequestRecommendationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/v1/viewed-items
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#get-access-request-recommendations-viewed-items-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "access.id eq "2c9180846b0a0583016b299f210c1314"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional)
+        $Sorters = "access.id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
+        
+        # List viewed access request recommendations
+        
+        try {
+            Get-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccessRequestRecommendationsViewedItemsV1 -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessRequestRecommendationsViewedItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ai-access-request-recommendations/v1/config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#set-access-request-recommendations-config-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Accessrequestrecommendationconfigdto = @"
+        
+        "@
+        
+        # Update access request recommendations config
+        
+        try {
+            $Result = ConvertFrom-JsonToAccessrequestrecommendationconfigdto -Json $Accessrequestrecommendationconfigdto
+            Set-AccessRequestRecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationconfigdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-AccessRequestRecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -Accessrequestrecommendationconfigdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestRecommendationsConfigV1"
+            Write-Host $_.ErrorDetails
+        }

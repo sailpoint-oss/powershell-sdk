@@ -9,7 +9,7 @@ const getAllFiles = async (dirPath, arrayOfFiles = []) => {
     if (stat.isDirectory()) {
       await getAllFiles(fullPath, arrayOfFiles); // Recurse into directories
     } else {
-      arrayOfFiles.push(path.join(__dirname.replace('sdk-resources', ''), fullPath));
+      arrayOfFiles.push(path.resolve(fullPath));
     }
   }
   return arrayOfFiles;
@@ -136,6 +136,82 @@ const processDirectory = async (srcDir) => {
 };
 
 
+
+/**
+ * Remove duplicate parameter declarations from a PowerShell Param() block.
+ *
+ * Some generated model files declare the same parameter name twice (e.g. ${Type}
+ * appears once for the normal `type` field and again for the `_type` discriminator).
+ * PowerShell throws "Duplicate parameter" at parse time, so we must remove the
+ * second (and any further) declaration of each duplicated name, including its
+ * preceding [Parameter], [ValidateSet], and type annotation lines.
+ *
+ * Returns the fixed string, or null if no duplicates were found.
+ */
+function removeDuplicateParameters(content) {
+  const lines = content.split('\n');
+  let inParamBlock = false;
+  let parenDepth = 0;
+
+  // Collect the line indices of all "${Name}" or "${Name}," lines inside Param()
+  const paramLineIndices = [];
+  const paramNames = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    if (!inParamBlock && /^\s+Param\s*\(/.test(line)) {
+      inParamBlock = true;
+      parenDepth = (line.match(/\(/g) || []).length - (line.match(/\)/g) || []).length;
+      continue;
+    }
+
+    if (inParamBlock) {
+      parenDepth += (line.match(/\(/g) || []).length - (line.match(/\)/g) || []).length;
+      if (parenDepth <= 0) { inParamBlock = false; continue; }
+
+      const nameMatch = line.match(/^\s+\$\{(\w+)\},?\s*$/);
+      if (nameMatch) {
+        paramLineIndices.push(i);
+        paramNames.push(nameMatch[1]);
+      }
+    }
+  }
+
+  // Identify which line indices are duplicates (keep first, remove rest)
+  const seen = new Set();
+  const duplicateNameLines = new Set();
+  for (let i = 0; i < paramNames.length; i++) {
+    if (seen.has(paramNames[i])) {
+      duplicateNameLines.add(paramLineIndices[i]);
+    } else {
+      seen.add(paramNames[i]);
+    }
+  }
+
+  if (duplicateNameLines.size === 0) return null;
+
+  // For each duplicate name line, also collect its preceding attribute/type lines
+  const linesToRemove = new Set(duplicateNameLines);
+  for (const dupIdx of duplicateNameLines) {
+    let j = dupIdx - 1;
+    while (j >= 0) {
+      const prev = lines[j];
+      // Stop when we hit the previous parameter's name line
+      if (/^\s+\$\{/.test(prev)) break;
+      // Remove [Attribute], type annotation, and blank lines belonging to this block
+      if (/^\s+\[/.test(prev) || prev.trim() === '') {
+        linesToRemove.add(j);
+        j--;
+      } else {
+        break;
+      }
+    }
+  }
+
+  const newLines = lines.filter((_, i) => !linesToRemove.has(i));
+  return newLines.join('\n');
+}
 
 const fixFiles = async function (myArray) {
   for (const file of myArray) {
@@ -265,6 +341,15 @@ const fixFiles = async function (myArray) {
     // Write changes back to file if any modification was made
     if (madeChange) {
       await fs.writeFile(absolutePath, rawDataArra.join("\n"));
+    }
+
+    // General fix: remove duplicate Param() parameter declarations (any .ps1 file)
+    if (file.endsWith('.ps1')) {
+      const currentContent = madeChange ? rawDataArra.join("\n") : await fs.readFile(absolutePath, 'utf-8');
+      const fixed = removeDuplicateParameters(currentContent);
+      if (fixed !== null) {
+        await fs.writeFile(absolutePath, fixed);
+      }
     }
   }
 }

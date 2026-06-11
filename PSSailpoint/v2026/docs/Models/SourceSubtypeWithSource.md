@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | Last modified timestamp. | [optional] 
 **Type** | **String** | Type of the subtype. Either MACHINE OR null. | [optional] 
 **Source** | [**SourceSubtypeWithSourceSource**](source-subtype-with-source-source) |  | [optional] 
+**SystemManaged** | **Boolean** | Indicates if the subtype is managed by the system. | [optional] [default to $false]
 
 ## Examples
 
@@ -38,7 +39,8 @@ $SourceSubtypeWithSource = Initialize-V2026SourceSubtypeWithSource  -Id 38453251
  -Created 2025-07-28T16:13:42.801300Z `
  -Modified 2025-07-28T16:13:42.750850Z `
  -Type MACHINE `
- -Source null
+ -Source null `
+ -SystemManaged true
 ```
 
 - Convert the resource to JSON

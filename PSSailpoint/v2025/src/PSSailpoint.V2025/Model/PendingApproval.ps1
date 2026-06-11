@@ -52,6 +52,12 @@ The date the role or access profile or entitlement is no longer assigned to the 
 If true, then the request is to change the remove date or sunset date.
 .PARAMETER CurrentRemoveDate
 The remove date or sunset date that was assigned at the time of the request.
+.PARAMETER StartDate
+The date the role or access profile or entitlement is/will assigned to the specified identity.
+.PARAMETER StartUpdateRequested
+If true, then the request is to change the start date or sunrise date.
+.PARAMETER CurrentStartDate
+The start date or sunrise date that was assigned at the time of the request.
 .PARAMETER SodViolationContext
 No description available.
 .PARAMETER ClientMetadata
@@ -130,6 +136,15 @@ function Initialize-V2025PendingApproval {
         [System.Nullable[System.DateTime]]
         ${CurrentRemoveDate},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${StartDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${StartUpdateRequested} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[System.DateTime]]
+        ${CurrentStartDate},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${SodViolationContext},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -171,6 +186,9 @@ function Initialize-V2025PendingApproval {
             "removeDate" = ${RemoveDate}
             "removeDateUpdateRequested" = ${RemoveDateUpdateRequested}
             "currentRemoveDate" = ${CurrentRemoveDate}
+            "startDate" = ${StartDate}
+            "startUpdateRequested" = ${StartUpdateRequested}
+            "currentStartDate" = ${CurrentStartDate}
             "sodViolationContext" = ${SodViolationContext}
             "clientMetadata" = ${ClientMetadata}
             "requestedAccounts" = ${RequestedAccounts}
@@ -212,7 +230,7 @@ function ConvertFrom-V2025JsonToPendingApproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2025PendingApproval
-        $AllProperties = ("id", "accessRequestId", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "sodViolationContext", "clientMetadata", "requestedAccounts", "privilegeLevel", "maxPermittedAccessDuration")
+        $AllProperties = ("id", "accessRequestId", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "owner", "requestedObject", "requesterComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "actionInProcess", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "startDate", "startUpdateRequested", "currentStartDate", "sodViolationContext", "clientMetadata", "requestedAccounts", "privilegeLevel", "maxPermittedAccessDuration")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -333,6 +351,24 @@ function ConvertFrom-V2025JsonToPendingApproval {
             $CurrentRemoveDate = $JsonParameters.PSobject.Properties["currentRemoveDate"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "startDate"))) { #optional property not found
+            $StartDate = $null
+        } else {
+            $StartDate = $JsonParameters.PSobject.Properties["startDate"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "startUpdateRequested"))) { #optional property not found
+            $StartUpdateRequested = $null
+        } else {
+            $StartUpdateRequested = $JsonParameters.PSobject.Properties["startUpdateRequested"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "currentStartDate"))) { #optional property not found
+            $CurrentStartDate = $null
+        } else {
+            $CurrentStartDate = $JsonParameters.PSobject.Properties["currentStartDate"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "sodViolationContext"))) { #optional property not found
             $SodViolationContext = $null
         } else {
@@ -383,6 +419,9 @@ function ConvertFrom-V2025JsonToPendingApproval {
             "removeDate" = ${RemoveDate}
             "removeDateUpdateRequested" = ${RemoveDateUpdateRequested}
             "currentRemoveDate" = ${CurrentRemoveDate}
+            "startDate" = ${StartDate}
+            "startUpdateRequested" = ${StartUpdateRequested}
+            "currentStartDate" = ${CurrentStartDate}
             "sodViolationContext" = ${SodViolationContext}
             "clientMetadata" = ${ClientMetadata}
             "requestedAccounts" = ${RequestedAccounts}

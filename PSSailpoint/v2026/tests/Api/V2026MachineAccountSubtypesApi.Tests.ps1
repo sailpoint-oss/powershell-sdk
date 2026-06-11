@@ -6,9 +6,25 @@
 #
 
 Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026MachineAccountSubtypesApi' {
+    Context 'New-V2026SourceSubtype' {
+        It 'Test New-V2026SourceSubtype' {
+            #$TestResult = New-V2026SourceSubtype -XSailPointExperimental "TEST_VALUE" -CreateSourceSubtypeRequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-V2026MachineAccountSubtype' {
         It 'Test Remove-V2026MachineAccountSubtype' {
-            #$TestResult = Remove-V2026MachineAccountSubtype -SubtypeId "TEST_VALUE"
+            #$TestResult = Remove-V2026MachineAccountSubtype -SubtypeId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026MachineAccountSubtypeApprovalConfig' {
+        It 'Test Get-V2026MachineAccountSubtypeApprovalConfig' {
+            #$TestResult = Get-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental "TEST_VALUE" -SubtypeId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -16,7 +32,23 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026MachineAccountSubtypesApi' {
 
     Context 'Get-V2026SourceSubtypeById' {
         It 'Test Get-V2026SourceSubtypeById' {
-            #$TestResult = Get-V2026SourceSubtypeById -SubtypeId "TEST_VALUE"
+            #$TestResult = Get-V2026SourceSubtypeById -SubtypeId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026SourceSubtypes' {
+        It 'Test Get-V2026SourceSubtypes' {
+            #$TestResult = Get-V2026SourceSubtypes -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Invoke-V2026LoadBulkSourceSubtypes' {
+        It 'Test Invoke-V2026LoadBulkSourceSubtypes' {
+            #$TestResult = Invoke-V2026LoadBulkSourceSubtypes -XSailPointExperimental "TEST_VALUE" -RequestBody "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -24,7 +56,15 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026MachineAccountSubtypesApi' {
 
     Context 'Update-V2026MachineAccountSubtype' {
         It 'Test Update-V2026MachineAccountSubtype' {
-            #$TestResult = Update-V2026MachineAccountSubtype -SubtypeId "TEST_VALUE" -RequestBody "TEST_VALUE"
+            #$TestResult = Update-V2026MachineAccountSubtype -SubtypeId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -RequestBody "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-V2026MachineAccountSubtypeApprovalConfig' {
+        It 'Test Update-V2026MachineAccountSubtypeApprovalConfig' {
+            #$TestResult = Update-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental "TEST_VALUE" -SubtypeId "TEST_VALUE" -JsonPatchOperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

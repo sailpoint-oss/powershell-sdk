@@ -437,6 +437,7 @@ docs/CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner.md
 docs/CreateSavedSearchRequest.md
 docs/CreateScheduleRequest.md
 docs/CreateScheduledSearchRequest.md
+docs/CreateSourceSubtypeRequest.md
 docs/CreateStreamDeliveryRequest.md
 docs/CreateStreamRequest.md
 docs/CreateUploadedConfigurationRequest.md
@@ -2203,6 +2204,7 @@ src/PSSailpoint.V2026/Model/CreatePrivilegeCriteriaRequestGroupsInnerCriteriaIte
 src/PSSailpoint.V2026/Model/CreateSavedSearchRequest.ps1
 src/PSSailpoint.V2026/Model/CreateScheduleRequest.ps1
 src/PSSailpoint.V2026/Model/CreateScheduledSearchRequest.ps1
+src/PSSailpoint.V2026/Model/CreateSourceSubtypeRequest.ps1
 src/PSSailpoint.V2026/Model/CreateStreamDeliveryRequest.ps1
 src/PSSailpoint.V2026/Model/CreateStreamRequest.ps1
 src/PSSailpoint.V2026/Model/CreateUploadedConfigurationRequest.ps1
@@ -3754,6 +3756,7 @@ tests/Model/CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner.Tests.ps
 tests/Model/CreateSavedSearchRequest.Tests.ps1
 tests/Model/CreateScheduleRequest.Tests.ps1
 tests/Model/CreateScheduledSearchRequest.Tests.ps1
+tests/Model/CreateSourceSubtypeRequest.Tests.ps1
 tests/Model/CreateStreamDeliveryRequest.Tests.ps1
 tests/Model/CreateStreamRequest.Tests.ps1
 tests/Model/CreateUploadedConfigurationRequest.Tests.ps1

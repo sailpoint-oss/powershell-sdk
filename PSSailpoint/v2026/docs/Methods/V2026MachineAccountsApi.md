@@ -20,18 +20,18 @@ Method | HTTP request | Description
 [**New-V2026MachineAccountSubtype**](#create-machine-account-subtype) | **POST** `/sources/{sourceId}/subtypes` | Create subtype
 [**Remove-V2026MachineAccountSubtypeByTechnicalName**](#delete-machine-account-subtype-by-technical-name) | **DELETE** `/sources/{sourceId}/subtypes/{technicalName}` | Delete subtype
 [**Get-V2026MachineAccount**](#get-machine-account) | **GET** `/machine-accounts/{id}` | Get machine account details
-[**Get-V2026MachineAccountSubtypeApprovalConfig**](#get-machine-account-subtype-approval-config) | **GET** `/source-subtypes/{subtypeId}/machine-config` | Machine Subtype Approval Config
 [**Get-V2026MachineAccountSubtypeById**](#get-machine-account-subtype-by-id) | **GET** `/sources/subtypes/{subtypeId}` | Retrieve subtype by subtype id
 [**Get-V2026MachineAccountSubtypeByTechnicalName**](#get-machine-account-subtype-by-technical-name) | **GET** `/sources/{sourceId}/subtypes/{technicalName}` | Retrieve subtype by source and technicalName
 [**Get-V2026MachineAccountSubtypes**](#list-machine-account-subtypes) | **GET** `/sources/{sourceId}/subtypes` | Retrieve all subtypes by source
 [**Get-V2026MachineAccounts**](#list-machine-accounts) | **GET** `/machine-accounts` | List machine accounts
-[**Invoke-V2026LoadBulkSourceSubtypes**](#load-bulk-source-subtypes) | **POST** `/source-subtypes/bulk-retrieve` | Bulk Retrieve of Source Subtypes
 [**Update-V2026MachineAccountSubtypeByTechnicalName**](#patch-machine-account-subtype-by-technical-name) | **PATCH** `/sources/{sourceId}/subtypes/{technicalName}` | Patch subtype
 [**Update-V2026MachineAccount**](#update-machine-account) | **PATCH** `/machine-accounts/{id}` | Update machine account details
-[**Update-V2026MachineAccountSubtypeApprovalConfig**](#update-machine-account-subtype-approval-config) | **PATCH** `/source-subtypes/{subtypeId}/machine-config` | Machine Subtype Approval Config
 
 
 ## create-machine-account-subtype
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -85,6 +85,9 @@ try {
 [[Back to top]](#) 
 
 ## delete-machine-account-subtype-by-technical-name
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -187,58 +190,10 @@ try {
 ```
 [[Back to top]](#) 
 
-## get-machine-account-subtype-approval-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-This endpoint retrieves the approval configuration for machine account creation and deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account creation and deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for creating and deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account creation and deletion.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-machine-account-subtype-approval-config)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-Path   | SubtypeId | **String** | True  | machine subtype id.
-
-### Return type
-[**MachineAccountSubtypeConfigDto**](../models/machine-account-subtype-config-dto)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | Responds with a MachineAccountSubtypeConfigDto for machine account creation and deletion approval config by subtypeId. | MachineAccountSubtypeConfigDto
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### Example
-```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$SubtypeId = "ef38f94347e94562b5bb8424a56498d8" # String | machine subtype id.
-
-# Machine Subtype Approval Config
-
-try {
-    Get-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId 
-    
-    # Below is a request that includes all optional parameters
-    # Get-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026MachineAccountSubtypeApprovalConfig"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
 ## get-machine-account-subtype-by-id
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -289,6 +244,9 @@ try {
 [[Back to top]](#) 
 
 ## get-machine-account-subtype-by-technical-name
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -341,6 +299,9 @@ try {
 [[Back to top]](#) 
 
 ## list-machine-account-subtypes
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -459,61 +420,10 @@ try {
 ```
 [[Back to top]](#) 
 
-## load-bulk-source-subtypes
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-This endpoint retrieves the subtypes for given subtypeIds.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/load-bulk-source-subtypes)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | RequestBody | **[]String** | True  | 
-
-### Return type
-[**SourceSubtypeWithSource[]**](../models/source-subtype-with-source)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | List of source subtypes. | SourceSubtypeWithSource[]
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$RequestBody = "38453251-6be2-5f8f-df93-5ce19e295838" # String[] | 
- $RequestBody = @""@ # String[] | 
- 
-
-# Bulk Retrieve of Source Subtypes
-
-try {
-    $Result = ConvertFrom-V2026JsonToRequestBody -Json $RequestBody
-    Invoke-V2026LoadBulkSourceSubtypes -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
-    
-    # Below is a request that includes all optional parameters
-    # Invoke-V2026LoadBulkSourceSubtypes -XSailPointExperimental $XSailPointExperimental -RequestBody $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2026LoadBulkSourceSubtypes"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
 ## patch-machine-account-subtype-by-technical-name
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
@@ -623,65 +533,6 @@ try {
     # Update-V2026MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccount"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## update-machine-account-subtype-approval-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account creation and deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for creating and deleting machine accounts of a particular subtype.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2026/update-machine-account-subtype-approval-config)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-Path   | SubtypeId | **String** | True  | machine account subtype ID.
- Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the object.
-
-### Return type
-[**MachineAccountSubtypeConfigDto**](../models/machine-account-subtype-config-dto)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | This response indicates the PATCH operation succeeded and the API returns the updated MachineAccountSubtypeConfigDto object. | MachineAccountSubtypeConfigDto
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json-patch+json
-- **Accept**: application/json
-
-### Example
-```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$SubtypeId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account subtype ID.
- $JsonPatchOperation = @"{
-  "op" : "replace",
-  "path" : "/description",
-  "value" : "New description"
-}"@ # JsonPatchOperation[] | The JSONPatch payload used to update the object.
- 
-
-# Machine Subtype Approval Config
-
-try {
-    $Result = ConvertFrom-V2026JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result 
-    
-    # Below is a request that includes all optional parameters
-    # Update-V2026MachineAccountSubtypeApprovalConfig -XSailPointExperimental $XSailPointExperimental -SubtypeId $SubtypeId -JsonPatchOperation $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2026MachineAccountSubtypeApprovalConfig"
     Write-Host $_.ErrorDetails
 }
 ```

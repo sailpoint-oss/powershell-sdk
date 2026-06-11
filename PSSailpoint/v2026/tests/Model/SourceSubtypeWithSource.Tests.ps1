@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026SourceSubtypeWithSource' {
     Context 'V2026SourceSubtypeWithSource' {
         It 'Initialize-V2026SourceSubtypeWithSource' {
             # a simple test to create an object
-            #$NewObject = Initialize-V2026SourceSubtypeWithSource -Id "TEST_VALUE" -SourceId "TEST_VALUE" -TechnicalName "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Type "TEST_VALUE" -Source "TEST_VALUE"
+            #$NewObject = Initialize-V2026SourceSubtypeWithSource -Id "TEST_VALUE" -SourceId "TEST_VALUE" -TechnicalName "TEST_VALUE" -DisplayName "TEST_VALUE" -Description "TEST_VALUE" -Created "TEST_VALUE" -Modified "TEST_VALUE" -Type "TEST_VALUE" -Source "TEST_VALUE" -SystemManaged "TEST_VALUE"
             #$NewObject | Should -BeOfType SourceSubtypeWithSource
             #$NewObject.property | Should -Be 0
         }

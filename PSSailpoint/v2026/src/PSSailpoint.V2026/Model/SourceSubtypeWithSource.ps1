@@ -30,6 +30,8 @@ Last modified timestamp.
 Type of the subtype. Either MACHINE OR null.
 .PARAMETER Source
 No description available.
+.PARAMETER SystemManaged
+Indicates if the subtype is managed by the system.
 .OUTPUTS
 
 SourceSubtypeWithSource<PSCustomObject>
@@ -61,7 +63,10 @@ function Initialize-V2026SourceSubtypeWithSource {
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Source}
+        ${Source},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${SystemManaged} = $false
     )
 
     Process {
@@ -78,6 +83,7 @@ function Initialize-V2026SourceSubtypeWithSource {
             "modified" = ${Modified}
             "type" = ${Type}
             "source" = ${Source}
+            "systemManaged" = ${SystemManaged}
         }
 
         return $PSO
@@ -114,7 +120,7 @@ function ConvertFrom-V2026JsonToSourceSubtypeWithSource {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in V2026SourceSubtypeWithSource
-        $AllProperties = ("id", "sourceId", "technicalName", "displayName", "description", "created", "modified", "type", "source")
+        $AllProperties = ("id", "sourceId", "technicalName", "displayName", "description", "created", "modified", "type", "source", "systemManaged")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -175,6 +181,12 @@ function ConvertFrom-V2026JsonToSourceSubtypeWithSource {
             $Source = $JsonParameters.PSobject.Properties["source"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "systemManaged"))) { #optional property not found
+            $SystemManaged = $null
+        } else {
+            $SystemManaged = $JsonParameters.PSobject.Properties["systemManaged"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "sourceId" = ${SourceId}
@@ -185,6 +197,7 @@ function ConvertFrom-V2026JsonToSourceSubtypeWithSource {
             "modified" = ${Modified}
             "type" = ${Type}
             "source" = ${Source}
+            "systemManaged" = ${SystemManaged}
         }
 
         return $PSO

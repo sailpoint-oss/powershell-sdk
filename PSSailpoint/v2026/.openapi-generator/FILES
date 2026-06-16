@@ -499,6 +499,12 @@ docs/EntitlementAttributeBulkUpdateFilterRequest.md
 docs/EntitlementAttributeBulkUpdateIdsRequest.md
 docs/EntitlementAttributeBulkUpdateQueryRequest.md
 docs/EntitlementBulkUpdateRequest.md
+docs/EntitlementConnection.md
+docs/EntitlementConnectionBulkUpdateItem.md
+docs/EntitlementConnectionBulkUpdateResultItem.md
+docs/EntitlementConnectionSearchHit.md
+docs/EntitlementConnectionSearchHitEntitlement.md
+docs/EntitlementConnectionSearchHitEntitlementPrivilegeLevel.md
 docs/EntitlementDocument.md
 docs/EntitlementDocumentAllOfManuallyUpdatedFields.md
 docs/EntitlementDocumentAllOfPermissions.md
@@ -717,6 +723,7 @@ docs/LifecyclestateDeleted.md
 docs/ListCampaignFilters200Response.md
 docs/ListCompleteWorkflowLibrary200ResponseInner.md
 docs/ListDeploys200Response.md
+docs/ListEntitlementConnections412Response.md
 docs/ListFormDefinitionsByTenantResponse.md
 docs/ListFormElementDataByElementIDResponse.md
 docs/ListFormInstancesByTenantResponse.md
@@ -1352,7 +1359,6 @@ docs/TypeAheadQuery.md
 docs/TypedReference.md
 docs/UUIDGenerator.md
 docs/UncorrelatedAccountsReportArguments.md
-docs/UpdateAccessProfilesInBulk412Response.md
 docs/UpdateDetail.md
 docs/UpdateMultiHostSourcesRequestInner.md
 docs/UpdateMultiHostSourcesRequestInnerValue.md
@@ -1436,6 +1442,8 @@ docs/V2026DeclassifySourceApi.md
 docs/V2026DeclassifySourceApideveloperSite_code_examples.yaml
 docs/V2026DimensionsApi.md
 docs/V2026DimensionsApideveloperSite_code_examples.yaml
+docs/V2026EntitlementConnectionsApi.md
+docs/V2026EntitlementConnectionsApideveloperSite_code_examples.yaml
 docs/V2026EntitlementsApi.md
 docs/V2026EntitlementsApideveloperSite_code_examples.yaml
 docs/V2026GlobalTenantSecuritySettingsApi.md
@@ -1670,6 +1678,7 @@ src/PSSailpoint.V2026/Api/V2026DataAccessSecurityApi.ps1
 src/PSSailpoint.V2026/Api/V2026DataSegmentationApi.ps1
 src/PSSailpoint.V2026/Api/V2026DeclassifySourceApi.ps1
 src/PSSailpoint.V2026/Api/V2026DimensionsApi.ps1
+src/PSSailpoint.V2026/Api/V2026EntitlementConnectionsApi.ps1
 src/PSSailpoint.V2026/Api/V2026EntitlementsApi.ps1
 src/PSSailpoint.V2026/Api/V2026GlobalTenantSecuritySettingsApi.ps1
 src/PSSailpoint.V2026/Api/V2026GovernanceGroupsApi.ps1
@@ -2243,6 +2252,12 @@ src/PSSailpoint.V2026/Model/EntitlementAttributeBulkUpdateFilterRequest.ps1
 src/PSSailpoint.V2026/Model/EntitlementAttributeBulkUpdateIdsRequest.ps1
 src/PSSailpoint.V2026/Model/EntitlementAttributeBulkUpdateQueryRequest.ps1
 src/PSSailpoint.V2026/Model/EntitlementBulkUpdateRequest.ps1
+src/PSSailpoint.V2026/Model/EntitlementConnection.ps1
+src/PSSailpoint.V2026/Model/EntitlementConnectionBulkUpdateItem.ps1
+src/PSSailpoint.V2026/Model/EntitlementConnectionBulkUpdateResultItem.ps1
+src/PSSailpoint.V2026/Model/EntitlementConnectionSearchHit.ps1
+src/PSSailpoint.V2026/Model/EntitlementConnectionSearchHitEntitlement.ps1
+src/PSSailpoint.V2026/Model/EntitlementConnectionSearchHitEntitlementPrivilegeLevel.ps1
 src/PSSailpoint.V2026/Model/EntitlementDocument.ps1
 src/PSSailpoint.V2026/Model/EntitlementDocumentAllOfManuallyUpdatedFields.ps1
 src/PSSailpoint.V2026/Model/EntitlementDocumentAllOfPermissions.ps1
@@ -2458,6 +2473,7 @@ src/PSSailpoint.V2026/Model/LifecyclestateDeleted.ps1
 src/PSSailpoint.V2026/Model/ListCampaignFilters200Response.ps1
 src/PSSailpoint.V2026/Model/ListCompleteWorkflowLibrary200ResponseInner.ps1
 src/PSSailpoint.V2026/Model/ListDeploys200Response.ps1
+src/PSSailpoint.V2026/Model/ListEntitlementConnections412Response.ps1
 src/PSSailpoint.V2026/Model/ListFormDefinitionsByTenantResponse.ps1
 src/PSSailpoint.V2026/Model/ListFormElementDataByElementIDResponse.ps1
 src/PSSailpoint.V2026/Model/ListFormInstancesByTenantResponse.ps1
@@ -3095,7 +3111,6 @@ src/PSSailpoint.V2026/Model/TypeAheadQuery.ps1
 src/PSSailpoint.V2026/Model/TypedReference.ps1
 src/PSSailpoint.V2026/Model/UUIDGenerator.ps1
 src/PSSailpoint.V2026/Model/UncorrelatedAccountsReportArguments.ps1
-src/PSSailpoint.V2026/Model/UpdateAccessProfilesInBulk412Response.ps1
 src/PSSailpoint.V2026/Model/UpdateDetail.ps1
 src/PSSailpoint.V2026/Model/UpdateMultiHostSourcesRequestInner.ps1
 src/PSSailpoint.V2026/Model/UpdateMultiHostSourcesRequestInnerValue.ps1
@@ -3202,6 +3217,7 @@ tests/Api/V2026DataAccessSecurityApi.Tests.ps1
 tests/Api/V2026DataSegmentationApi.Tests.ps1
 tests/Api/V2026DeclassifySourceApi.Tests.ps1
 tests/Api/V2026DimensionsApi.Tests.ps1
+tests/Api/V2026EntitlementConnectionsApi.Tests.ps1
 tests/Api/V2026EntitlementsApi.Tests.ps1
 tests/Api/V2026GlobalTenantSecuritySettingsApi.Tests.ps1
 tests/Api/V2026GovernanceGroupsApi.Tests.ps1
@@ -3774,6 +3790,12 @@ tests/Model/EntitlementAttributeBulkUpdateFilterRequest.Tests.ps1
 tests/Model/EntitlementAttributeBulkUpdateIdsRequest.Tests.ps1
 tests/Model/EntitlementAttributeBulkUpdateQueryRequest.Tests.ps1
 tests/Model/EntitlementBulkUpdateRequest.Tests.ps1
+tests/Model/EntitlementConnection.Tests.ps1
+tests/Model/EntitlementConnectionBulkUpdateItem.Tests.ps1
+tests/Model/EntitlementConnectionBulkUpdateResultItem.Tests.ps1
+tests/Model/EntitlementConnectionSearchHit.Tests.ps1
+tests/Model/EntitlementConnectionSearchHitEntitlement.Tests.ps1
+tests/Model/EntitlementConnectionSearchHitEntitlementPrivilegeLevel.Tests.ps1
 tests/Model/EntitlementDocument.Tests.ps1
 tests/Model/EntitlementDocumentAllOfManuallyUpdatedFields.Tests.ps1
 tests/Model/EntitlementDocumentAllOfPermissions.Tests.ps1
@@ -3989,6 +4011,7 @@ tests/Model/LifecyclestateDeleted.Tests.ps1
 tests/Model/ListCampaignFilters200Response.Tests.ps1
 tests/Model/ListCompleteWorkflowLibrary200ResponseInner.Tests.ps1
 tests/Model/ListDeploys200Response.Tests.ps1
+tests/Model/ListEntitlementConnections412Response.Tests.ps1
 tests/Model/ListFormDefinitionsByTenantResponse.Tests.ps1
 tests/Model/ListFormElementDataByElementIDResponse.Tests.ps1
 tests/Model/ListFormInstancesByTenantResponse.Tests.ps1
@@ -4626,7 +4649,6 @@ tests/Model/TypeAheadQuery.Tests.ps1
 tests/Model/TypedReference.Tests.ps1
 tests/Model/UUIDGenerator.Tests.ps1
 tests/Model/UncorrelatedAccountsReportArguments.Tests.ps1
-tests/Model/UpdateAccessProfilesInBulk412Response.Tests.ps1
 tests/Model/UpdateDetail.Tests.ps1
 tests/Model/UpdateMultiHostSourcesRequestInner.Tests.ps1
 tests/Model/UpdateMultiHostSourcesRequestInnerValue.Tests.ps1

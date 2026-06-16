@@ -604,7 +604,7 @@ Code | Description  | Data Type
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-412 | Precondition Failed - Returned in response if API/Feature not enabled for an organization. | UpdateAccessProfilesInBulk412Response
+412 | Precondition Failed - Returned in response if API/Feature not enabled for an organization. | ListEntitlementConnections412Response
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 

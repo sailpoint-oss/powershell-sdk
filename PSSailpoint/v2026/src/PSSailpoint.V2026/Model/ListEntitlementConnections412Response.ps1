@@ -18,10 +18,10 @@ No description available.
 A message describing the error
 .OUTPUTS
 
-UpdateAccessProfilesInBulk412Response<PSCustomObject>
+ListEntitlementConnections412Response<PSCustomObject>
 #>
 
-function Initialize-V2026UpdateAccessProfilesInBulk412Response {
+function Initialize-V2026ListEntitlementConnections412Response {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -30,7 +30,7 @@ function Initialize-V2026UpdateAccessProfilesInBulk412Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026UpdateAccessProfilesInBulk412Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.V2026 => V2026ListEntitlementConnections412Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -45,11 +45,11 @@ function Initialize-V2026UpdateAccessProfilesInBulk412Response {
 <#
 .SYNOPSIS
 
-Convert from JSON to UpdateAccessProfilesInBulk412Response<PSCustomObject>
+Convert from JSON to ListEntitlementConnections412Response<PSCustomObject>
 
 .DESCRIPTION
 
-Convert from JSON to UpdateAccessProfilesInBulk412Response<PSCustomObject>
+Convert from JSON to ListEntitlementConnections412Response<PSCustomObject>
 
 .PARAMETER Json
 
@@ -57,21 +57,21 @@ Json object
 
 .OUTPUTS
 
-UpdateAccessProfilesInBulk412Response<PSCustomObject>
+ListEntitlementConnections412Response<PSCustomObject>
 #>
-function ConvertFrom-V2026JsonToUpdateAccessProfilesInBulk412Response {
+function ConvertFrom-V2026JsonToListEntitlementConnections412Response {
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026UpdateAccessProfilesInBulk412Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026ListEntitlementConnections412Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-        # check if Json contains properties not defined in V2026UpdateAccessProfilesInBulk412Response
+        # check if Json contains properties not defined in V2026ListEntitlementConnections412Response
         $AllProperties = ("message")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

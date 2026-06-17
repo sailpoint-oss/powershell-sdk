@@ -75,6 +75,7 @@ function New-BetaIdentityProfile {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -146,6 +147,7 @@ function Remove-BetaIdentityProfile {
             throw "Error! The required parameter `IdentityProfileId` missing when calling deleteIdentityProfile."
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
+
 
 
 
@@ -236,6 +238,7 @@ function Remove-BetaIdentityProfiles {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -427,6 +430,7 @@ function Get-BetaDefaultIdentityAttributeConfig {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -498,6 +502,7 @@ function Get-BetaIdentityProfile {
             throw "Error! The required parameter `IdentityProfileId` missing when calling getIdentityProfile."
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
+
 
 
 
@@ -705,6 +710,7 @@ function Get-BetaIdentityProfiles {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -795,6 +801,7 @@ function Show-BetaGenerateIdentityPreview {
 
 
 
+
         $LocalVarResult = Invoke-BetaApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -866,6 +873,7 @@ function Sync-BetaIdentityProfile {
             throw "Error! The required parameter `IdentityProfileId` missing when calling syncIdentityProfile."
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
+
 
 
 
@@ -966,6 +974,7 @@ function Update-BetaIdentityProfile {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

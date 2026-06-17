@@ -12,7 +12,7 @@ Create identity profile
 
 .DESCRIPTION
 
-Creates an identity profile.    
+Creates an identity profile.
 
 .PARAMETER IdentityProfile
 No description available.
@@ -72,6 +72,7 @@ function New-IdentityProfile {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -146,6 +147,7 @@ function Remove-IdentityProfile {
             throw "Error! The required parameter `IdentityProfileId` missing when calling deleteIdentityProfile."
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
+
 
 
 
@@ -236,6 +238,7 @@ function Remove-IdentityProfiles {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -425,6 +428,7 @@ function Get-DefaultIdentityAttributeConfig {
             throw "Error! The required parameter `IdentityProfileId` missing when calling getDefaultIdentityAttributeConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
+
 
 
 
@@ -798,6 +802,7 @@ function Show-IdentityPreview {
 
 
 
+
         $LocalVarResult = Invoke-ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -869,6 +874,7 @@ function Sync-IdentityProfile {
             throw "Error! The required parameter `IdentityProfileId` missing when calling syncIdentityProfile."
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
+
 
 
 
@@ -969,6 +975,7 @@ function Update-IdentityProfile {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

@@ -75,6 +75,7 @@ function New-V2024IdentityProfile {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -146,6 +147,7 @@ function Remove-V2024IdentityProfile {
             throw "Error! The required parameter `IdentityProfileId` missing when calling deleteIdentityProfile."
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
+
 
 
 
@@ -236,6 +238,7 @@ function Remove-V2024IdentityProfiles {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 
@@ -444,6 +447,7 @@ function New-V2024IdentityPreview {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -515,6 +519,7 @@ function Get-V2024DefaultIdentityAttributeConfig {
             throw "Error! The required parameter `IdentityProfileId` missing when calling getDefaultIdentityAttributeConfig."
         }
         $LocalVarUri = $LocalVarUri.replace('{identity-profile-id}', [System.Web.HTTPUtility]::UrlEncode($IdentityProfileId))
+
 
 
 
@@ -872,6 +877,7 @@ function Sync-V2024IdentityProfile {
 
 
 
+
         $LocalVarResult = Invoke-V2024ApiClient -Method 'POST' `
                                 -Uri $LocalVarUri `
                                 -Accepts $LocalVarAccepts `
@@ -969,6 +975,7 @@ function Update-V2024IdentityProfile {
             $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
             }
         }
+
 
 
 

@@ -174,6 +174,22 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026SourcesApi' {
         }
     }
 
+    Context 'Get-V2026SourceDataset' {
+        It 'Test Get-V2026SourceDataset' {
+            #$TestResult = Get-V2026SourceDataset -SourceId "TEST_VALUE" -DatasetId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026SourceDatasets' {
+        It 'Test Get-V2026SourceDatasets' {
+            #$TestResult = Get-V2026SourceDatasets -SourceId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-V2026SourceEntitlementRequestConfig' {
         It 'Test Get-V2026SourceEntitlementRequestConfig' {
             #$TestResult = Get-V2026SourceEntitlementRequestConfig -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
@@ -185,6 +201,22 @@ Describe -tag 'PSSailpoint.V2026' -name 'V2026V2026SourcesApi' {
     Context 'Get-V2026SourceHealth' {
         It 'Test Get-V2026SourceHealth' {
             #$TestResult = Get-V2026SourceHealth -SourceId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026SourceResource' {
+        It 'Test Get-V2026SourceResource' {
+            #$TestResult = Get-V2026SourceResource -SourceId "TEST_VALUE" -ResourceId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-V2026SourceResources' {
+        It 'Test Get-V2026SourceResources' {
+            #$TestResult = Get-V2026SourceResources -SourceId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

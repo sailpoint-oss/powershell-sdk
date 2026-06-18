@@ -19434,6 +19434,45 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceConnections"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/{sourceId}/datasets/{datasetId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/sources#get-source-dataset
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+        
+        # Get source dataset by id
+        
+        try {
+            Get-V2026SourceDataset -SourceId $SourceId -DatasetId $DatasetId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026SourceDataset -SourceId $SourceId -DatasetId $DatasetId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceDataset"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/datasets
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/sources#get-source-datasets
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        
+        # List datasets on source
+        
+        try {
+            Get-V2026SourceDatasets -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026SourceDatasets -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceDatasets"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/{id}/entitlement-request-config
   method: GET
   xCodeSample:
@@ -19471,6 +19510,45 @@
             # Get-V2026SourceHealth -SourceId $SourceId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceHealth"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/resources/{resourceId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/sources#get-source-resource
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        $ResourceId = "account" # String | Resource ID (CIS schema object type for the source).
+        
+        # Get source resource by id
+        
+        try {
+            Get-V2026SourceResource -SourceId $SourceId -ResourceId $ResourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026SourceResource -SourceId $SourceId -ResourceId $ResourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceResource"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/resources
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2026/methods/sources#get-source-resources
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+        
+        # List resources for a source
+        
+        try {
+            Get-V2026SourceResources -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2026SourceResources -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceResources"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/{sourceId}/schedules/{scheduleType}

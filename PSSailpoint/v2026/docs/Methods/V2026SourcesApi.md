@@ -95,8 +95,12 @@ Method | HTTP request | Description
 [**Get-V2026SourceAttrSyncConfig**](#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute sync config
 [**Get-V2026SourceConfig**](#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language-translations
 [**Get-V2026SourceConnections**](#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get source connections by id
+[**Get-V2026SourceDataset**](#get-source-dataset) | **GET** `/sources/{sourceId}/datasets/{datasetId}` | Get source dataset by id
+[**Get-V2026SourceDatasets**](#get-source-datasets) | **GET** `/sources/{sourceId}/datasets` | List datasets on source
 [**Get-V2026SourceEntitlementRequestConfig**](#get-source-entitlement-request-config) | **GET** `/sources/{id}/entitlement-request-config` | Get source entitlement request configuration
 [**Get-V2026SourceHealth**](#get-source-health) | **GET** `/sources/{sourceId}/source-health` | Fetches source health by id
+[**Get-V2026SourceResource**](#get-source-resource) | **GET** `/sources/{sourceId}/resources/{resourceId}` | Get source resource by id
+[**Get-V2026SourceResources**](#get-source-resources) | **GET** `/sources/{sourceId}/resources` | List resources for a source
 [**Get-V2026SourceSchedule**](#get-source-schedule) | **GET** `/sources/{sourceId}/schedules/{scheduleType}` | Get source schedule by type
 [**Get-V2026SourceSchedules**](#get-source-schedules) | **GET** `/sources/{sourceId}/schedules` | List schedules on source
 [**Get-V2026SourceSchema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get source schema by id
@@ -1292,6 +1296,102 @@ try {
 ```
 [[Back to top]](#) 
 
+## get-source-dataset
+Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC).
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-source-dataset)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | DatasetId | **String** | True  | Dataset ID.
+
+### Return type
+[**SourceDataset**](../models/source-dataset)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The requested dataset was successfully retrieved. | SourceDataset
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$DatasetId = "cmdb-servicenow:applications" # String | Dataset ID.
+
+# Get source dataset by id
+
+try {
+    Get-V2026SourceDataset -SourceId $SourceId -DatasetId $DatasetId 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2026SourceDataset -SourceId $SourceId -DatasetId $DatasetId  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceDataset"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-source-datasets
+Use this API to list datasets for the specified source in Identity Security Cloud (ISC).
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-source-datasets)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+
+### Return type
+[**SourceDataset[]**](../models/source-dataset)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The datasets were successfully retrieved. | SourceDataset[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+
+# List datasets on source
+
+try {
+    Get-V2026SourceDatasets -SourceId $SourceId 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2026SourceDatasets -SourceId $SourceId  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceDatasets"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## get-source-entitlement-request-config
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
@@ -1387,6 +1487,103 @@ try {
     # Get-V2026SourceHealth -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceHealth"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-source-resource
+Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC).
+The response includes the full CIS schema for the resource.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-source-resource)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+Path   | ResourceId | **String** | True  | Resource ID (CIS schema object type for the source).
+
+### Return type
+[**SourceDatasetResource**](../models/source-dataset-resource)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The requested source resource was successfully retrieved. | SourceDatasetResource
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+$ResourceId = "account" # String | Resource ID (CIS schema object type for the source).
+
+# Get source resource by id
+
+try {
+    Get-V2026SourceResource -SourceId $SourceId -ResourceId $ResourceId 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2026SourceResource -SourceId $SourceId -ResourceId $ResourceId  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceResource"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-source-resources
+Use this API to list resources defined on the specified source in Identity Security Cloud (ISC).
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2026/get-source-resources)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+
+### Return type
+[**SourceDatasetResource[]**](../models/source-dataset-resource)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The source resources were successfully retrieved. | SourceDatasetResource[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfig401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfig429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+
+# List resources for a source
+
+try {
+    Get-V2026SourceResources -SourceId $SourceId 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2026SourceResources -SourceId $SourceId  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2026SourceResources"
     Write-Host $_.ErrorDetails
 }
 ```

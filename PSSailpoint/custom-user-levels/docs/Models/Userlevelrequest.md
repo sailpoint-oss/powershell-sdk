@@ -5,7 +5,7 @@ pagination_label: Userlevelrequest
 sidebar_label: Userlevelrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Userlevelrequest', 'Userlevelrequest'] 
-slug: /tools/sdk/powershell/customuserlevelsv1/models/userlevelrequest
+slug: /tools/sdk/powershell/customuserlevels/models/userlevelrequest
 tags: ['SDK', 'Software Development Kit', 'Userlevelrequest', 'Userlevelrequest']
 ---
 

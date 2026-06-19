@@ -30,7 +30,7 @@ function Initialize-Uuidgenerator {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Uuidgenerator' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Uuidgenerator' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToUuidgenerator {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Uuidgenerator' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Uuidgenerator' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

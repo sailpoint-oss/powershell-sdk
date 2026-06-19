@@ -65,7 +65,7 @@ function Initialize-Transmittermetadata {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsfV1 => Transmittermetadata' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsf => Transmittermetadata' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToTransmittermetadata {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsfV1 => Transmittermetadata' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsf => Transmittermetadata' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -56,7 +56,7 @@ function Initialize-Manualworkitemdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Manualworkitemdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Manualworkitemdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -97,7 +97,7 @@ function ConvertFrom-JsonToManualworkitemdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Manualworkitemdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Manualworkitemdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

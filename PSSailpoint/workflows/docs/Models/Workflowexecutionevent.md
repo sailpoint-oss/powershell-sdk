@@ -5,7 +5,7 @@ pagination_label: Workflowexecutionevent
 sidebar_label: Workflowexecutionevent
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workflowexecutionevent', 'Workflowexecutionevent'] 
-slug: /tools/sdk/powershell/workflowsv1/models/workflowexecutionevent
+slug: /tools/sdk/powershell/workflows/models/workflowexecutionevent
 tags: ['SDK', 'Software Development Kit', 'Workflowexecutionevent', 'Workflowexecutionevent']
 ---
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** |  **Enum** [  "WorkflowExecutionScheduled",    "WorkflowExecutionStarted",    "WorkflowExecutionCompleted",    "WorkflowExecutionFailed",    "WorkflowTaskScheduled",    "WorkflowTaskStarted",    "WorkflowTaskCompleted",    "WorkflowTaskFailed",    "ActivityTaskScheduled",    "ActivityTaskStarted",    "ActivityTaskCompleted",    "ActivityTaskFailed",    "StartChildWorkflowExecutionInitiated",    "ChildWorkflowExecutionStarted",    "ChildWorkflowExecutionCompleted",    "ChildWorkflowExecutionFailed" ] | The type of event | [optional] 
 **Timestamp** | **System.DateTime** | The date-time when the event occurred | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Additional attributes associated with the event | [optional] 
+**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Additional attributes associated with the event | [optional] 
 
 ## Examples
 

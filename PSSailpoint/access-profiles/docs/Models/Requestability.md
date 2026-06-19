@@ -5,7 +5,7 @@ pagination_label: Requestability
 sidebar_label: Requestability
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Requestability', 'Requestability'] 
-slug: /tools/sdk/powershell/accessprofilesv1/models/requestability
+slug: /tools/sdk/powershell/accessprofiles/models/requestability
 tags: ['SDK', 'Software Development Kit', 'Requestability', 'Requestability']
 ---
 

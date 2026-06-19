@@ -5,7 +5,7 @@ pagination_label: ViolationownerassignmentconfigOwnerRef
 sidebar_label: ViolationownerassignmentconfigOwnerRef
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ViolationownerassignmentconfigOwnerRef', 'ViolationownerassignmentconfigOwnerRef'] 
-slug: /tools/sdk/powershell/sodpoliciesv1/models/violationownerassignmentconfig-owner-ref
+slug: /tools/sdk/powershell/sodpolicies/models/violationownerassignmentconfig-owner-ref
 tags: ['SDK', 'Software Development Kit', 'ViolationownerassignmentconfigOwnerRef', 'ViolationownerassignmentconfigOwnerRef']
 ---
 

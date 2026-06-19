@@ -5,7 +5,7 @@ pagination_label: TemplateslackCustomFields
 sidebar_label: TemplateslackCustomFields
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateslackCustomFields', 'TemplateslackCustomFields'] 
-slug: /tools/sdk/powershell/notificationsv1/models/templateslack-custom-fields
+slug: /tools/sdk/powershell/notifications/models/templateslack-custom-fields
 tags: ['SDK', 'Software Development Kit', 'TemplateslackCustomFields', 'TemplateslackCustomFields']
 ---
 

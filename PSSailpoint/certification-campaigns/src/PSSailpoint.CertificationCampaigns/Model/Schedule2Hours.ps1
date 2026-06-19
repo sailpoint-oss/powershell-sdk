@@ -41,7 +41,7 @@ function Initialize-Schedule2Hours {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Schedule2Hours' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaigns => Schedule2Hours' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -87,7 +87,7 @@ function ConvertFrom-JsonToSchedule2Hours {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Schedule2Hours' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaigns => Schedule2Hours' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

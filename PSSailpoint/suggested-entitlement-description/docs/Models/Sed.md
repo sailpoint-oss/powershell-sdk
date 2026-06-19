@@ -5,7 +5,7 @@ pagination_label: Sed
 sidebar_label: Sed
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sed', 'Sed'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/sed
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/sed
 tags: ['SDK', 'Software Development Kit', 'Sed', 'Sed']
 ---
 

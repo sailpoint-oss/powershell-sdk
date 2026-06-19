@@ -30,7 +30,7 @@ function Initialize-SegmentVisibilityCriteria {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SegmentsV1 => SegmentVisibilityCriteria' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Segments => SegmentVisibilityCriteria' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToSegmentVisibilityCriteria {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SegmentsV1 => SegmentVisibilityCriteria' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Segments => SegmentVisibilityCriteria' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

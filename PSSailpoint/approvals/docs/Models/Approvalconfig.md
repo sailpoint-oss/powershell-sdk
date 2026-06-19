@@ -5,7 +5,7 @@ pagination_label: Approvalconfig
 sidebar_label: Approvalconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalconfig', 'Approvalconfig'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalconfig
+slug: /tools/sdk/powershell/approvals/models/approvalconfig
 tags: ['SDK', 'Software Development Kit', 'Approvalconfig', 'Approvalconfig']
 ---
 

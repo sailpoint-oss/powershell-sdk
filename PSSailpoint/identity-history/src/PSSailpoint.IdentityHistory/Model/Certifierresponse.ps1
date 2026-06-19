@@ -35,7 +35,7 @@ function Initialize-Certifierresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Certifierresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Certifierresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToCertifierresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Certifierresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Certifierresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

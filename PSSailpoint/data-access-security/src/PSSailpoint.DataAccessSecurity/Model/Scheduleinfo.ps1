@@ -100,7 +100,7 @@ function Initialize-Scheduleinfo {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Scheduleinfo' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => Scheduleinfo' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -150,7 +150,7 @@ function ConvertFrom-JsonToScheduleinfo {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Scheduleinfo' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => Scheduleinfo' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

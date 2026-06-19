@@ -5,7 +5,7 @@ pagination_label: Identitycertified
 sidebar_label: Identitycertified
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitycertified', 'Identitycertified'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/identitycertified
+slug: /tools/sdk/powershell/identityhistory/models/identitycertified
 tags: ['SDK', 'Software Development Kit', 'Identitycertified', 'Identitycertified']
 ---
 

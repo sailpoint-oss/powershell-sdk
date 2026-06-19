@@ -40,7 +40,7 @@ function Initialize-Argument {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConnectorRuleManagementV1 => Argument' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConnectorRuleManagement => Argument' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -82,7 +82,7 @@ function ConvertFrom-JsonToArgument {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorRuleManagementV1 => Argument' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorRuleManagement => Argument' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

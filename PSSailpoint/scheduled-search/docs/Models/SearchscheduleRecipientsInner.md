@@ -5,7 +5,7 @@ pagination_label: SearchscheduleRecipientsInner
 sidebar_label: SearchscheduleRecipientsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SearchscheduleRecipientsInner', 'SearchscheduleRecipientsInner'] 
-slug: /tools/sdk/powershell/scheduledsearchv1/models/searchschedule-recipients-inner
+slug: /tools/sdk/powershell/scheduledsearch/models/searchschedule-recipients-inner
 tags: ['SDK', 'Software Development Kit', 'SearchscheduleRecipientsInner', 'SearchscheduleRecipientsInner']
 ---
 

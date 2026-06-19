@@ -5,7 +5,7 @@ pagination_label: ApprovalidentityOwnerOfInner
 sidebar_label: ApprovalidentityOwnerOfInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalidentityOwnerOfInner', 'ApprovalidentityOwnerOfInner'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalidentity-owner-of-inner
+slug: /tools/sdk/powershell/approvals/models/approvalidentity-owner-of-inner
 tags: ['SDK', 'Software Development Kit', 'ApprovalidentityOwnerOfInner', 'ApprovalidentityOwnerOfInner']
 ---
 

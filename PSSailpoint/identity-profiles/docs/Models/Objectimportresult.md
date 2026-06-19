@@ -5,7 +5,7 @@ pagination_label: Objectimportresult
 sidebar_label: Objectimportresult
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Objectimportresult', 'Objectimportresult'] 
-slug: /tools/sdk/powershell/identityprofilesv1/models/objectimportresult
+slug: /tools/sdk/powershell/identityprofiles/models/objectimportresult
 tags: ['SDK', 'Software Development Kit', 'Objectimportresult', 'Objectimportresult']
 ---
 

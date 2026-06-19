@@ -85,7 +85,7 @@ function Initialize-Accessitementitlementresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessitementitlementresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Accessitementitlementresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Attribute) {
@@ -144,7 +144,7 @@ function ConvertFrom-JsonToAccessitementitlementresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessitementitlementresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Accessitementitlementresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

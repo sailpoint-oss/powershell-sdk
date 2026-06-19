@@ -35,7 +35,7 @@ function Initialize-Kbaanswerrequestitem {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MfaConfigurationV1 => Kbaanswerrequestitem' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MfaConfiguration => Kbaanswerrequestitem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToKbaanswerrequestitem {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfigurationV1 => Kbaanswerrequestitem' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfiguration => Kbaanswerrequestitem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

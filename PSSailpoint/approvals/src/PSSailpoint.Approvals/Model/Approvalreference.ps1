@@ -50,7 +50,7 @@ function Initialize-Approvalreference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalreference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => Approvalreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToApprovalreference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalreference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => Approvalreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

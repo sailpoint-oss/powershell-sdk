@@ -66,7 +66,7 @@ function Initialize-Createforminstancerequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Createforminstancerequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Createforminstancerequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$CreatedBy) {
@@ -125,7 +125,7 @@ function ConvertFrom-JsonToCreateforminstancerequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Createforminstancerequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Createforminstancerequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

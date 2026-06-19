@@ -5,7 +5,7 @@ pagination_label: ScheduledactionpayloadContent
 sidebar_label: ScheduledactionpayloadContent
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ScheduledactionpayloadContent', 'ScheduledactionpayloadContent'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/scheduledactionpayload-content
+slug: /tools/sdk/powershell/configurationhub/models/scheduledactionpayload-content
 tags: ['SDK', 'Software Development Kit', 'ScheduledactionpayloadContent', 'ScheduledactionpayloadContent']
 ---
 

@@ -70,7 +70,7 @@ function Initialize-Sedbatchrecord {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SuggestedEntitlementDescriptionV1 => Sedbatchrecord' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SuggestedEntitlementDescription => Sedbatchrecord' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -114,7 +114,7 @@ function ConvertFrom-JsonToSedbatchrecord {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SuggestedEntitlementDescriptionV1 => Sedbatchrecord' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SuggestedEntitlementDescription => Sedbatchrecord' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

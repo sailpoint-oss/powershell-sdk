@@ -90,7 +90,7 @@ function Initialize-Accessprofile {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfilesV1 => Accessprofile' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => Accessprofile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -146,7 +146,7 @@ function ConvertFrom-JsonToAccessprofile {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfilesV1 => Accessprofile' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => Accessprofile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: ImportSpConfigV1Request
 sidebar_label: ImportSpConfigV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ImportSpConfigV1Request', 'ImportSpConfigV1Request'] 
-slug: /tools/sdk/powershell/spconfigv1/models/import-sp-config-v1-request
+slug: /tools/sdk/powershell/spconfig/models/import-sp-config-v1-request
 tags: ['SDK', 'Software Development Kit', 'ImportSpConfigV1Request', 'ImportSpConfigV1Request']
 ---
 

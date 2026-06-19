@@ -5,7 +5,7 @@ pagination_label: RolePropagation
 sidebar_label: RolePropagation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RolePropagation', 'RolePropagation'] 
-slug: /tools/sdk/powershell/rolepropagationv1/methods/role-propagation
+slug: /tools/sdk/powershell/rolepropagation/methods/role-propagation
 tags: ['SDK', 'Software Development Kit', 'RolePropagation', 'RolePropagation']
 ---
 

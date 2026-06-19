@@ -5,7 +5,7 @@ pagination_label: AccountAllOfIdentity
 sidebar_label: AccountAllOfIdentity
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAllOfIdentity', 'AccountAllOfIdentity'] 
-slug: /tools/sdk/powershell/accountsv1/models/account-all-of-identity
+slug: /tools/sdk/powershell/accounts/models/account-all-of-identity
 tags: ['SDK', 'Software Development Kit', 'AccountAllOfIdentity', 'AccountAllOfIdentity']
 ---
 

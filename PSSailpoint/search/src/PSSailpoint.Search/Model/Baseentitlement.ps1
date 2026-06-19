@@ -65,7 +65,7 @@ function Initialize-Baseentitlement {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Baseentitlement' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Baseentitlement' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToBaseentitlement {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Baseentitlement' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Baseentitlement' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Machineidentityaggregationrequest
 sidebar_label: Machineidentityaggregationrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Machineidentityaggregationrequest', 'Machineidentityaggregationrequest'] 
-slug: /tools/sdk/powershell/machineidentitiesv1/models/machineidentityaggregationrequest
+slug: /tools/sdk/powershell/machineidentities/models/machineidentityaggregationrequest
 tags: ['SDK', 'Software Development Kit', 'Machineidentityaggregationrequest', 'Machineidentityaggregationrequest']
 ---
 

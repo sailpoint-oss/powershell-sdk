@@ -70,7 +70,7 @@ function Initialize-Reviewablerole {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => Reviewablerole' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => Reviewablerole' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -114,7 +114,7 @@ function ConvertFrom-JsonToReviewablerole {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => Reviewablerole' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => Reviewablerole' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

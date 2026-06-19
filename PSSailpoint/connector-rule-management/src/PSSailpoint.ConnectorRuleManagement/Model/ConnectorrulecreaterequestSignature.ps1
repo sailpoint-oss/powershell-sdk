@@ -35,7 +35,7 @@ function Initialize-ConnectorrulecreaterequestSignature {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConnectorRuleManagementV1 => ConnectorrulecreaterequestSignature' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConnectorRuleManagement => ConnectorrulecreaterequestSignature' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$VarInput) {
@@ -76,7 +76,7 @@ function ConvertFrom-JsonToConnectorrulecreaterequestSignature {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorRuleManagementV1 => ConnectorrulecreaterequestSignature' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorRuleManagement => ConnectorrulecreaterequestSignature' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

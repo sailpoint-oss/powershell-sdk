@@ -35,7 +35,7 @@ function Initialize-Static {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Static' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Static' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Values) {
@@ -76,7 +76,7 @@ function ConvertFrom-JsonToStatic {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Static' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Static' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

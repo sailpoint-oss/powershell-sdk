@@ -40,7 +40,7 @@ function Initialize-IdentitydocumentAllOfManager {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => IdentitydocumentAllOfManager' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => IdentitydocumentAllOfManager' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToIdentitydocumentAllOfManager {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => IdentitydocumentAllOfManager' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => IdentitydocumentAllOfManager' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

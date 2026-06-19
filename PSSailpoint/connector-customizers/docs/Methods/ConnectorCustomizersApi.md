@@ -5,7 +5,7 @@ pagination_label: ConnectorCustomizers
 sidebar_label: ConnectorCustomizers
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorCustomizers', 'ConnectorCustomizers'] 
-slug: /tools/sdk/powershell/connectorcustomizersv1/methods/connector-customizers
+slug: /tools/sdk/powershell/connectorcustomizers/methods/connector-customizers
 tags: ['SDK', 'Software Development Kit', 'ConnectorCustomizers', 'ConnectorCustomizers']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Campaign2AllOfSourceOwnerCampaignInfo
 sidebar_label: Campaign2AllOfSourceOwnerCampaignInfo
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaign2AllOfSourceOwnerCampaignInfo', 'Campaign2AllOfSourceOwnerCampaignInfo'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/campaign2-all-of-source-owner-campaign-info
+slug: /tools/sdk/powershell/certificationcampaigns/models/campaign2-all-of-source-owner-campaign-info
 tags: ['SDK', 'Software Development Kit', 'Campaign2AllOfSourceOwnerCampaignInfo', 'Campaign2AllOfSourceOwnerCampaignInfo']
 ---
 

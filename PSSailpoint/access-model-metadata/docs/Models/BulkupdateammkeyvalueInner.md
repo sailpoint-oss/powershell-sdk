@@ -5,7 +5,7 @@ pagination_label: BulkupdateammkeyvalueInner
 sidebar_label: BulkupdateammkeyvalueInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'BulkupdateammkeyvalueInner', 'BulkupdateammkeyvalueInner'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/bulkupdateammkeyvalue-inner
+slug: /tools/sdk/powershell/accessmodelmetadata/models/bulkupdateammkeyvalue-inner
 tags: ['SDK', 'Software Development Kit', 'BulkupdateammkeyvalueInner', 'BulkupdateammkeyvalueInner']
 ---
 

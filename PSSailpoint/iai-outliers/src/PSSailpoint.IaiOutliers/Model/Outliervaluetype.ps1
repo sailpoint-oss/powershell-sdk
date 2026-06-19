@@ -36,7 +36,7 @@ function Initialize-Outliervaluetype {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiOutliersV1 => Outliervaluetype' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiOutliers => Outliervaluetype' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($Ordinal -and $Ordinal -gt 1) {
@@ -81,7 +81,7 @@ function ConvertFrom-JsonToOutliervaluetype {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiOutliersV1 => Outliervaluetype' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiOutliers => Outliervaluetype' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

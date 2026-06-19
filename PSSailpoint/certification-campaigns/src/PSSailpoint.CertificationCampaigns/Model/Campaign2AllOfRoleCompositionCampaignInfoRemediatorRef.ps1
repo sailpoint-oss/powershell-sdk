@@ -36,7 +36,7 @@ function Initialize-Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaigns => Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -81,7 +81,7 @@ function ConvertFrom-JsonToCampaign2AllOfRoleCompositionCampaignInfoRemediatorRe
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaigns => Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

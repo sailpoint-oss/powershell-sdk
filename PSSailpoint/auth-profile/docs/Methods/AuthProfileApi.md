@@ -5,7 +5,7 @@ pagination_label: AuthProfile
 sidebar_label: AuthProfile
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AuthProfile', 'AuthProfile'] 
-slug: /tools/sdk/powershell/authprofilev1/methods/auth-profile
+slug: /tools/sdk/powershell/authprofile/methods/auth-profile
 tags: ['SDK', 'Software Development Kit', 'AuthProfile', 'AuthProfile']
 ---
 
@@ -164,8 +164,6 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | 
  $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | 
  
 

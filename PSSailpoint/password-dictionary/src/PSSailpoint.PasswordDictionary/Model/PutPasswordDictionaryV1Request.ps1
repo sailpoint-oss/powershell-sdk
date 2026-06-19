@@ -30,7 +30,7 @@ function Initialize-PutPasswordDictionaryV1Request {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PasswordDictionaryV1 => PutPasswordDictionaryV1Request' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PasswordDictionary => PutPasswordDictionaryV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToPutPasswordDictionaryV1Request {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PasswordDictionaryV1 => PutPasswordDictionaryV1Request' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PasswordDictionary => PutPasswordDictionaryV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

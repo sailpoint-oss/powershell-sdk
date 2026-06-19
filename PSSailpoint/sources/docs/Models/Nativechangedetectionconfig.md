@@ -5,7 +5,7 @@ pagination_label: Nativechangedetectionconfig
 sidebar_label: Nativechangedetectionconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Nativechangedetectionconfig', 'Nativechangedetectionconfig'] 
-slug: /tools/sdk/powershell/sourcesv1/models/nativechangedetectionconfig
+slug: /tools/sdk/powershell/sources/models/nativechangedetectionconfig
 tags: ['SDK', 'Software Development Kit', 'Nativechangedetectionconfig', 'Nativechangedetectionconfig']
 ---
 

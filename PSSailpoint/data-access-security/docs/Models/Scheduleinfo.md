@@ -5,7 +5,7 @@ pagination_label: Scheduleinfo
 sidebar_label: Scheduleinfo
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Scheduleinfo', 'Scheduleinfo'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/scheduleinfo
+slug: /tools/sdk/powershell/dataaccesssecurity/models/scheduleinfo
 tags: ['SDK', 'Software Development Kit', 'Scheduleinfo', 'Scheduleinfo']
 ---
 

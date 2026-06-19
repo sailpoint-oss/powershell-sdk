@@ -5,7 +5,7 @@ pagination_label: MachineIdentityResponseUserEntitlements
 sidebar_label: MachineIdentityResponseUserEntitlements
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineIdentityResponseUserEntitlements', 'MachineIdentityResponseUserEntitlements'] 
-slug: /tools/sdk/powershell/machineidentitiesv1/models/machine-identity-response-user-entitlements
+slug: /tools/sdk/powershell/machineidentities/models/machine-identity-response-user-entitlements
 tags: ['SDK', 'Software Development Kit', 'MachineIdentityResponseUserEntitlements', 'MachineIdentityResponseUserEntitlements']
 ---
 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **SourceId** | **String** | The source ID of the entitlement | [optional] 
 **EntitlementId** | **String** | The ID of the entitlement | [optional] 
 **DisplayName** | **String** | The display name of the entitlement | [optional] 
-**Source** | [**SystemCollectionsHashtable**](system-collections-hashtable) | The source of the entitlement | [optional] 
+**Source** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The source of the entitlement | [optional] 
 
 ## Examples
 

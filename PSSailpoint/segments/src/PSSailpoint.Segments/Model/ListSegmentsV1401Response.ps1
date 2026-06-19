@@ -30,7 +30,7 @@ function Initialize-ListSegmentsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SegmentsV1 => ListSegmentsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Segments => ListSegmentsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListSegmentsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SegmentsV1 => ListSegmentsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Segments => ListSegmentsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

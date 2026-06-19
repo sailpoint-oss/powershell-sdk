@@ -5,7 +5,7 @@ pagination_label: Provisioningpolicydto
 sidebar_label: Provisioningpolicydto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Provisioningpolicydto', 'Provisioningpolicydto'] 
-slug: /tools/sdk/powershell/sourcesv1/models/provisioningpolicydto
+slug: /tools/sdk/powershell/sources/models/provisioningpolicydto
 tags: ['SDK', 'Software Development Kit', 'Provisioningpolicydto', 'Provisioningpolicydto']
 ---
 

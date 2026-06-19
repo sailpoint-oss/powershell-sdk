@@ -5,7 +5,7 @@ pagination_label: IdentityprofileAllOfAuthoritativeSource
 sidebar_label: IdentityprofileAllOfAuthoritativeSource
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityprofileAllOfAuthoritativeSource', 'IdentityprofileAllOfAuthoritativeSource'] 
-slug: /tools/sdk/powershell/identityprofilesv1/models/identityprofile-all-of-authoritative-source
+slug: /tools/sdk/powershell/identityprofiles/models/identityprofile-all-of-authoritative-source
 tags: ['SDK', 'Software Development Kit', 'IdentityprofileAllOfAuthoritativeSource', 'IdentityprofileAllOfAuthoritativeSource']
 ---
 

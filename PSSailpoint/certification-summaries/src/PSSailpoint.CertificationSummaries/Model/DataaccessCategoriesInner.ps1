@@ -35,7 +35,7 @@ function Initialize-DataaccessCategoriesInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationSummariesV1 => DataaccessCategoriesInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationSummaries => DataaccessCategoriesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToDataaccessCategoriesInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationSummariesV1 => DataaccessCategoriesInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationSummaries => DataaccessCategoriesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

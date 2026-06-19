@@ -45,7 +45,7 @@ function Initialize-Datemath {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Datemath' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Datemath' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Expression) {
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToDatemath {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Datemath' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Datemath' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

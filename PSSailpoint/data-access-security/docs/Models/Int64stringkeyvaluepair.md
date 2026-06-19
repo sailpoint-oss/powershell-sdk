@@ -5,7 +5,7 @@ pagination_label: Int64stringkeyvaluepair
 sidebar_label: Int64stringkeyvaluepair
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Int64stringkeyvaluepair', 'Int64stringkeyvaluepair'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/int64stringkeyvaluepair
+slug: /tools/sdk/powershell/dataaccesssecurity/models/int64stringkeyvaluepair
 tags: ['SDK', 'Software Development Kit', 'Int64stringkeyvaluepair', 'Int64stringkeyvaluepair']
 ---
 

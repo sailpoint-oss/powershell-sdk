@@ -35,7 +35,7 @@ function Initialize-AccessprofiledocumentAllOfSource {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => AccessprofiledocumentAllOfSource' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => AccessprofiledocumentAllOfSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAccessprofiledocumentAllOfSource {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => AccessprofiledocumentAllOfSource' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => AccessprofiledocumentAllOfSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

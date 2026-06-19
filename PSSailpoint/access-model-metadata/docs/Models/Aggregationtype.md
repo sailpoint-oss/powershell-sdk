@@ -5,7 +5,7 @@ pagination_label: Aggregationtype
 sidebar_label: Aggregationtype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Aggregationtype', 'Aggregationtype'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/aggregationtype
+slug: /tools/sdk/powershell/accessmodelmetadata/models/aggregationtype
 tags: ['SDK', 'Software Development Kit', 'Aggregationtype', 'Aggregationtype']
 ---
 

@@ -35,7 +35,7 @@ function Initialize-Accesscriteria {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodPoliciesV1 => Accesscriteria' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodPolicies => Accesscriteria' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$CriteriaList -and $CriteriaList.length -gt 50) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToAccesscriteria {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodPoliciesV1 => Accesscriteria' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodPolicies => Accesscriteria' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

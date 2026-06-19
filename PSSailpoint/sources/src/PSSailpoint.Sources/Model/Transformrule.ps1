@@ -35,7 +35,7 @@ function Initialize-Transformrule {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Transformrule' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Transformrule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -76,7 +76,7 @@ function ConvertFrom-JsonToTransformrule {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Transformrule' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Transformrule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

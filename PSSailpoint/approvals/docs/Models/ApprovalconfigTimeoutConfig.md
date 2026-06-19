@@ -5,7 +5,7 @@ pagination_label: ApprovalconfigTimeoutConfig
 sidebar_label: ApprovalconfigTimeoutConfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalconfigTimeoutConfig', 'ApprovalconfigTimeoutConfig'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalconfig-timeout-config
+slug: /tools/sdk/powershell/approvals/models/approvalconfig-timeout-config
 tags: ['SDK', 'Software Development Kit', 'ApprovalconfigTimeoutConfig', 'ApprovalconfigTimeoutConfig']
 ---
 

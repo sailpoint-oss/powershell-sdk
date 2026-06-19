@@ -51,7 +51,7 @@ function Initialize-Mailfromattributes {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => Mailfromattributes' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => Mailfromattributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToMailfromattributes {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => Mailfromattributes' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => Mailfromattributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

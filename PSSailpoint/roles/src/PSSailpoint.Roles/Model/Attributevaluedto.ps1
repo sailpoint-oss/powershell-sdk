@@ -40,7 +40,7 @@ function Initialize-Attributevaluedto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Attributevaluedto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Attributevaluedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToAttributevaluedto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Attributevaluedto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Attributevaluedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

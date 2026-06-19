@@ -30,7 +30,7 @@ function Initialize-Dimensionschema {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Dimensionschema' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Dimensionschema' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToDimensionschema {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Dimensionschema' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Dimensionschema' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

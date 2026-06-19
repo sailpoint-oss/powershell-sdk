@@ -40,7 +40,7 @@ function Initialize-Reelectrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Reelectrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => Reelectrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToReelectrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Reelectrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => Reelectrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

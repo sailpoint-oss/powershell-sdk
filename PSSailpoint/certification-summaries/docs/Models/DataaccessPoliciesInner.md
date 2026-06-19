@@ -5,7 +5,7 @@ pagination_label: DataaccessPoliciesInner
 sidebar_label: DataaccessPoliciesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'DataaccessPoliciesInner', 'DataaccessPoliciesInner'] 
-slug: /tools/sdk/powershell/certificationsummariesv1/models/dataaccess-policies-inner
+slug: /tools/sdk/powershell/certificationsummaries/models/dataaccess-policies-inner
 tags: ['SDK', 'Software Development Kit', 'DataaccessPoliciesInner', 'DataaccessPoliciesInner']
 ---
 

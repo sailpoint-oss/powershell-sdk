@@ -5,7 +5,7 @@ pagination_label: Formdefinitiondynamicschemaresponse
 sidebar_label: Formdefinitiondynamicschemaresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Formdefinitiondynamicschemaresponse', 'Formdefinitiondynamicschemaresponse'] 
-slug: /tools/sdk/powershell/customformsv1/models/formdefinitiondynamicschemaresponse
+slug: /tools/sdk/powershell/customforms/models/formdefinitiondynamicschemaresponse
 tags: ['SDK', 'Software Development Kit', 'Formdefinitiondynamicschemaresponse', 'Formdefinitiondynamicschemaresponse']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Formdefinitiondynamicschemaresponse',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OutputSchema** | [**map[string]AnyType**](any-type) | OutputSchema holds a JSON schema generated dynamically | [optional] 
+**OutputSchema** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | OutputSchema holds a JSON schema generated dynamically | [optional] 
 
 ## Examples
 

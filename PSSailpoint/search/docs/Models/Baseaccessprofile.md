@@ -5,7 +5,7 @@ pagination_label: Baseaccessprofile
 sidebar_label: Baseaccessprofile
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Baseaccessprofile', 'Baseaccessprofile'] 
-slug: /tools/sdk/powershell/searchv1/models/baseaccessprofile
+slug: /tools/sdk/powershell/search/models/baseaccessprofile
 tags: ['SDK', 'Software Development Kit', 'Baseaccessprofile', 'Baseaccessprofile']
 ---
 

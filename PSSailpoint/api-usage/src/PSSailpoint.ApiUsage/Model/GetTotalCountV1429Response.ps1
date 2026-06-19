@@ -30,7 +30,7 @@ function Initialize-GetTotalCountV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApiUsageV1 => GetTotalCountV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ApiUsage => GetTotalCountV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetTotalCountV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApiUsageV1 => GetTotalCountV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ApiUsage => GetTotalCountV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

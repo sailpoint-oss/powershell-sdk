@@ -5,7 +5,7 @@ pagination_label: OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
 sidebar_label: OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'OutlierfeaturesummaryOutlierFeatureDisplayValuesInner', 'OutlierfeaturesummaryOutlierFeatureDisplayValuesInner'] 
-slug: /tools/sdk/powershell/iaioutliersv1/models/outlierfeaturesummary-outlier-feature-display-values-inner
+slug: /tools/sdk/powershell/iaioutliers/models/outlierfeaturesummary-outlier-feature-display-values-inner
 tags: ['SDK', 'Software Development Kit', 'OutlierfeaturesummaryOutlierFeatureDisplayValuesInner', 'OutlierfeaturesummaryOutlierFeatureDisplayValuesInner']
 ---
 

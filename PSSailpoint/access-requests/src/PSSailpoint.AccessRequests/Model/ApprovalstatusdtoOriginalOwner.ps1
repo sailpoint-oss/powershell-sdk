@@ -41,7 +41,7 @@ function Initialize-ApprovalstatusdtoOriginalOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => ApprovalstatusdtoOriginalOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => ApprovalstatusdtoOriginalOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToApprovalstatusdtoOriginalOwner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => ApprovalstatusdtoOriginalOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => ApprovalstatusdtoOriginalOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

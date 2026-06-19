@@ -46,7 +46,7 @@ function Initialize-Accountsselectionrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Accountsselectionrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Accountsselectionrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$RequestedFor) {
@@ -101,7 +101,7 @@ function ConvertFrom-JsonToAccountsselectionrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Accountsselectionrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Accountsselectionrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

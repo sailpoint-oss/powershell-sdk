@@ -41,7 +41,7 @@ function Initialize-ScheduleMonths {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ScheduledSearchV1 => ScheduleMonths' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ScheduledSearch => ScheduleMonths' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -87,7 +87,7 @@ function ConvertFrom-JsonToScheduleMonths {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ScheduledSearchV1 => ScheduleMonths' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ScheduledSearch => ScheduleMonths' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

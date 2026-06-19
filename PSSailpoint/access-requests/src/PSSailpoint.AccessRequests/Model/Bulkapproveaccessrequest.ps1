@@ -35,7 +35,7 @@ function Initialize-Bulkapproveaccessrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Bulkapproveaccessrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Bulkapproveaccessrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$ApprovalIds) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToBulkapproveaccessrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Bulkapproveaccessrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Bulkapproveaccessrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

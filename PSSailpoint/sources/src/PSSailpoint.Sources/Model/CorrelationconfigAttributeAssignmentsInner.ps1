@@ -62,7 +62,7 @@ function Initialize-CorrelationconfigAttributeAssignmentsInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => CorrelationconfigAttributeAssignmentsInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => CorrelationconfigAttributeAssignmentsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -104,7 +104,7 @@ function ConvertFrom-JsonToCorrelationconfigAttributeAssignmentsInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => CorrelationconfigAttributeAssignmentsInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => CorrelationconfigAttributeAssignmentsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

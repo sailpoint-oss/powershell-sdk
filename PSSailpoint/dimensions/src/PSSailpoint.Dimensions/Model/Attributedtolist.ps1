@@ -30,7 +30,7 @@ function Initialize-Attributedtolist {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DimensionsV1 => Attributedtolist' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Dimensions => Attributedtolist' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToAttributedtolist {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DimensionsV1 => Attributedtolist' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Dimensions => Attributedtolist' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

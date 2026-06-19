@@ -5,7 +5,7 @@ pagination_label: Attributechange
 sidebar_label: Attributechange
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Attributechange', 'Attributechange'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/attributechange
+slug: /tools/sdk/powershell/identityhistory/models/attributechange
 tags: ['SDK', 'Software Development Kit', 'Attributechange', 'Attributechange']
 ---
 

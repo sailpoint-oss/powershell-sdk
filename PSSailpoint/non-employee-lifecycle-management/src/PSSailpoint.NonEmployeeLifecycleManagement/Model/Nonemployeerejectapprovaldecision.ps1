@@ -30,7 +30,7 @@ function Initialize-Nonemployeerejectapprovaldecision {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => Nonemployeerejectapprovaldecision' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => Nonemployeerejectapprovaldecision' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Comment) {
@@ -74,7 +74,7 @@ function ConvertFrom-JsonToNonemployeerejectapprovaldecision {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => Nonemployeerejectapprovaldecision' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => Nonemployeerejectapprovaldecision' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

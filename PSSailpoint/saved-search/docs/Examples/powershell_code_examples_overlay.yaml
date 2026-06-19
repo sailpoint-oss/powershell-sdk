@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/savedsearchv1/methods/saved-search#create-saved-search-v1
+      label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#create-saved-search-v1
       source: |
         $CreateSavedSearchV1Request = @"
         
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/savedsearchv1/methods/saved-search#delete-saved-search-v1
+      label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#delete-saved-search-v1
       source: |
         $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
         
@@ -43,7 +43,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/savedsearchv1/methods/saved-search#execute-saved-search-v1
+      label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#execute-saved-search-v1
       source: |
         $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
         $Searcharguments = @"
@@ -66,7 +66,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/savedsearchv1/methods/saved-search#get-saved-search-v1
+      label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#get-saved-search-v1
       source: |
         $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
         
@@ -85,7 +85,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/savedsearchv1/methods/saved-search#list-saved-searches-v1
+      label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#list-saved-searches-v1
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -107,7 +107,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/savedsearchv1/methods/saved-search#put-saved-search-v1
+      label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#put-saved-search-v1
       source: |
         $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
         $Savedsearch = @"

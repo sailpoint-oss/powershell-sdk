@@ -5,7 +5,7 @@ pagination_label: Jitactivationextendresponse
 sidebar_label: Jitactivationextendresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Jitactivationextendresponse', 'Jitactivationextendresponse'] 
-slug: /tools/sdk/powershell/jitactivationsv1/models/jitactivationextendresponse
+slug: /tools/sdk/powershell/jitactivations/models/jitactivationextendresponse
 tags: ['SDK', 'Software Development Kit', 'Jitactivationextendresponse', 'Jitactivationextendresponse']
 ---
 

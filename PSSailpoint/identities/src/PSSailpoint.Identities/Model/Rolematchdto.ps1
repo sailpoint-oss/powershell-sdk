@@ -35,7 +35,7 @@ function Initialize-Rolematchdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Rolematchdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Rolematchdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToRolematchdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Rolematchdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Rolematchdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

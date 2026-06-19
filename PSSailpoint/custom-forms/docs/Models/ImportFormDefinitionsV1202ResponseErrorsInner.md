@@ -5,7 +5,7 @@ pagination_label: ImportFormDefinitionsV1202ResponseErrorsInner
 sidebar_label: ImportFormDefinitionsV1202ResponseErrorsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ImportFormDefinitionsV1202ResponseErrorsInner', 'ImportFormDefinitionsV1202ResponseErrorsInner'] 
-slug: /tools/sdk/powershell/customformsv1/models/import-form-definitions-v1202-response-errors-inner
+slug: /tools/sdk/powershell/customforms/models/import-form-definitions-v1202-response-errors-inner
 tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsV1202ResponseErrorsInner', 'ImportFormDefinitionsV1202ResponseErrorsInner']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsV1202ResponseErr
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Detail** | [**map[string]SystemCollectionsHashtable**](system-collections-hashtable) |  | [optional] 
+**Detail** | [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
 **Key** | **String** |  | [optional] 
 **Text** | **String** |  | [optional] 
 

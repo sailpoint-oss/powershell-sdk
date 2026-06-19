@@ -55,7 +55,7 @@ function Initialize-Requestability {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DimensionsV1 => Requestability' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Dimensions => Requestability' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToRequestability {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DimensionsV1 => Requestability' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Dimensions => Requestability' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

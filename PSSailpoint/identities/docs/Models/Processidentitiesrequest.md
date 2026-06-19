@@ -5,7 +5,7 @@ pagination_label: Processidentitiesrequest
 sidebar_label: Processidentitiesrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Processidentitiesrequest', 'Processidentitiesrequest'] 
-slug: /tools/sdk/powershell/identitiesv1/models/processidentitiesrequest
+slug: /tools/sdk/powershell/identities/models/processidentitiesrequest
 tags: ['SDK', 'Software Development Kit', 'Processidentitiesrequest', 'Processidentitiesrequest']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Sodrecipient
 sidebar_label: Sodrecipient
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sodrecipient', 'Sodrecipient'] 
-slug: /tools/sdk/powershell/sodpoliciesv1/models/sodrecipient
+slug: /tools/sdk/powershell/sodpolicies/models/sodrecipient
 tags: ['SDK', 'Software Development Kit', 'Sodrecipient', 'Sodrecipient']
 ---
 

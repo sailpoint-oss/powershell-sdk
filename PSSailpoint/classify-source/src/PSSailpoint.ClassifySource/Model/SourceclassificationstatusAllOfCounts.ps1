@@ -40,7 +40,7 @@ function Initialize-SourceclassificationstatusAllOfCounts {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ClassifySourceV1 => SourceclassificationstatusAllOfCounts' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ClassifySource => SourceclassificationstatusAllOfCounts' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$EXPECTED) {
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToSourceclassificationstatusAllOfCounts {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ClassifySourceV1 => SourceclassificationstatusAllOfCounts' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ClassifySource => SourceclassificationstatusAllOfCounts' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

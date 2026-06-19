@@ -5,7 +5,7 @@ pagination_label: Machineclassificationcriteriaoperation
 sidebar_label: Machineclassificationcriteriaoperation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Machineclassificationcriteriaoperation', 'Machineclassificationcriteriaoperation'] 
-slug: /tools/sdk/powershell/machineclassificationconfigv1/models/machineclassificationcriteriaoperation
+slug: /tools/sdk/powershell/machineclassificationconfig/models/machineclassificationcriteriaoperation
 tags: ['SDK', 'Software Development Kit', 'Machineclassificationcriteriaoperation', 'Machineclassificationcriteriaoperation']
 ---
 

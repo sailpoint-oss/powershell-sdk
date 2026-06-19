@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#create-provisioning-policy-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#create-provisioning-policy-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
         $Provisioningpolicydto = @"
@@ -25,7 +25,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#create-source-schedule-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#create-source-schedule-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         $Schedule3 = @"
@@ -48,7 +48,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#create-source-schema-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#create-source-schema-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         $Schema = @"
@@ -71,7 +71,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#create-source-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#create-source-v1
       source: |
         $Source = @"
         
@@ -94,7 +94,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#delete-accounts-async-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#delete-accounts-async-v1
       source: |
         $Id = "ebbf35756e1140699ce52b233121384a" # String | The source id
         
@@ -113,7 +113,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#delete-native-change-detection-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#delete-native-change-detection-config-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
         
@@ -132,7 +132,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#delete-provisioning-policy-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#delete-provisioning-policy-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $UsageType = "CREATE" # Usagetype | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
@@ -152,7 +152,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#delete-source-schedule-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#delete-source-schedule-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
@@ -172,7 +172,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#delete-source-schema-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#delete-source-schema-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
@@ -192,7 +192,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#delete-source-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#delete-source-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         
@@ -211,7 +211,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-account-delete-approval-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-account-delete-approval-config-v1
       source: |
         $SourceId = "ha38f94347e94562b5bb8424a56498d8" # String | The Source id
         
@@ -230,7 +230,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-accounts-schema-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-accounts-schema-v1
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         
@@ -249,7 +249,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-correlation-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-correlation-config-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
         
@@ -268,7 +268,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-entitlements-schema-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-entitlements-schema-v1
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
@@ -288,7 +288,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-machine-account-deletion-approval-config-by-source-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-machine-account-deletion-approval-config-by-source-v1
       source: |
         $SourceId = "gt38f94347e94562b5bb8424a56498d8" # String | source id.
         
@@ -307,7 +307,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-native-change-detection-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-native-change-detection-config-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
         
@@ -326,7 +326,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-provisioning-policy-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-provisioning-policy-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $UsageType = "CREATE" # Usagetype | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
@@ -346,7 +346,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-source-attr-sync-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-attr-sync-config-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -366,7 +366,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-source-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-config-v1
       source: |
         $Id = "cef3ee201db947c5912551015ba0c679" # String | The Source id
         $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
@@ -386,7 +386,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-source-connections-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-connections-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         
@@ -405,7 +405,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-source-entitlement-request-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-entitlement-request-config-v1
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -425,7 +425,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-source-health-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-health-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         
@@ -444,7 +444,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-source-schedule-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-schedule-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
@@ -464,7 +464,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-source-schedules-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-schedules-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         
@@ -483,7 +483,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-source-schema-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-schema-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
@@ -503,7 +503,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-source-schemas-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-schemas-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         $IncludeTypes = "group" # String | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional)
@@ -524,7 +524,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#get-source-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-source-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         
@@ -543,7 +543,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#import-accounts-schema-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#import-accounts-schema-v1
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $File =  # System.IO.FileInfo |  (optional)
@@ -563,7 +563,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#import-accounts-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#import-accounts-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
         $File =  # System.IO.FileInfo | The CSV file containing the source accounts to aggregate. (optional)
@@ -584,7 +584,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#import-connector-file-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#import-connector-file-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         $File =  # System.IO.FileInfo |  (optional)
@@ -604,7 +604,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#import-entitlements-schema-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#import-entitlements-schema-v1
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $SchemaName = "?schemaName=group" # String | Name of entitlement schema (optional)
@@ -625,7 +625,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#import-entitlements-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#import-entitlements-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
         $File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
@@ -645,7 +645,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#import-uncorrelated-accounts-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#import-uncorrelated-accounts-v1
       source: |
         $Id = "75dbec1ebe154d5785da27b95e1dd5d7" # String | Source Id
         $File =  # System.IO.FileInfo |  (optional)
@@ -665,7 +665,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#list-password-policy-holders-on-source-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#list-password-policy-holders-on-source-v1
       source: |
         $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -687,7 +687,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#list-provisioning-policies-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#list-provisioning-policies-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
         $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
@@ -708,7 +708,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#list-sources-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#list-sources-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -733,7 +733,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#ping-cluster-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#ping-cluster-v1
       source: |
         $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
         
@@ -752,7 +752,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#put-correlation-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#put-correlation-config-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
         $Correlationconfig = @"
@@ -775,7 +775,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#put-native-change-detection-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#put-native-change-detection-config-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
         $Nativechangedetectionconfig = @"
@@ -798,7 +798,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#put-provisioning-policy-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#put-provisioning-policy-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
         $UsageType = "CREATE" # Usagetype | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
@@ -822,7 +822,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#put-source-attr-sync-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#put-source-attr-sync-config-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -846,7 +846,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#put-source-schema-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#put-source-schema-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
@@ -870,7 +870,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#put-source-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#put-source-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
         $Source = @"
@@ -893,7 +893,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#search-resource-objects-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#search-resource-objects-v1
       source: |
         $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
         $Resourceobjectsrequest = @"
@@ -916,7 +916,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#sync-attributes-for-source-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#sync-attributes-for-source-v1
       source: |
         $Id = "MyId" # String | The Source id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -936,7 +936,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#test-source-configuration-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#test-source-configuration-v1
       source: |
         $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
         
@@ -955,7 +955,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#test-source-connection-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#test-source-connection-v1
       source: |
         $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source.
         
@@ -974,11 +974,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#update-account-deletion-approval-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#update-account-deletion-approval-config-v1
       source: |
         $SourceId = "00eebcf881994e419d72e757fd30dc0e" # String | Human account source ID.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | The JSONPatch payload used to update the object.
         $Jsonpatchoperation = @""@ 
         
         
@@ -998,11 +996,9 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#update-machine-account-deletion-approval-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#update-machine-account-deletion-approval-config-v1
       source: |
         $SourceId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account source ID.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | The JSONPatch payload used to update the object.
         $Jsonpatchoperation = @""@ 
         
         
@@ -1022,10 +1018,9 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#update-password-policy-holders-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#update-password-policy-holders-v1
       source: |
         $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
-        $PasswordpolicyholdersdtoInner = Initialize-PasswordpolicyholdersdtoInner -PolicyId "2c91808e7d976f3b017d9f5ceae440c8" -PolicyName "PasswordPolicy Example" -Selectors# PasswordpolicyholdersdtoInner[] | 
         $PasswordpolicyholdersdtoInner = @""@ 
         
         
@@ -1045,11 +1040,9 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#update-provisioning-policies-in-bulk-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#update-provisioning-policies-in-bulk-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-        $Fielddetailsdto = Initialize-Fielddetailsdto -Name "userName" -Transform  -Attributes  -IsRequired $false -Type "string" -IsMultiValued $false
-$Provisioningpolicydto = Initialize-Provisioningpolicydto -Name "example provisioning policy for inactive identities" -Description "this provisioning policy creates access based on an identity going inactive" -UsageType "CREATE" -Fields $Fielddetailsdto# Provisioningpolicydto[] | 
         $Provisioningpolicydto = @""@ 
         
         
@@ -1069,12 +1062,10 @@ $Provisioningpolicydto = Initialize-Provisioningpolicydto -Name "example provisi
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#update-provisioning-policy-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#update-provisioning-policy-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         $UsageType = "CREATE" # Usagetype | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | The JSONPatch payload used to update the schema.
         $Jsonpatchoperation = @"[{"op":"add","path":"/fields/0","value":{"name":"email","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}}]"@ 
         
         
@@ -1094,7 +1085,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#update-source-entitlement-request-config-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#update-source-entitlement-request-config-v1
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -1118,12 +1109,10 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#update-source-schedule-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#update-source-schedule-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | The JSONPatch payload used to update the schedule.
         $Jsonpatchoperation = @"[{"op":"replace","path":"/cronExpression","value":"0 0 6 * * ?"}]"@ 
         
         
@@ -1143,12 +1132,10 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#update-source-schema-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#update-source-schema-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
         $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | The JSONPatch payload used to update the schema.
         $Jsonpatchoperation = @"[{"op":"add","path":"/attributes/-","value":{"name":"location","type":"STRING","schema":null,"description":"Employee location","isMulti":false,"isEntitlement":false,"isGroup":false}}]"@ 
         
         
@@ -1168,11 +1155,9 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourcesv1/methods/sources#update-source-v1
+      label: SDK_tools/sdk/powershell/sources/methods/sources#update-source-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
         $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"new description"}]"@ 
         
         

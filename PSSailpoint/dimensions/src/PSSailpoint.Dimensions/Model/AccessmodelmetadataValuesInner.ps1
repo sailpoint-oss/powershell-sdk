@@ -40,7 +40,7 @@ function Initialize-AccessmodelmetadataValuesInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DimensionsV1 => AccessmodelmetadataValuesInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Dimensions => AccessmodelmetadataValuesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToAccessmodelmetadataValuesInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DimensionsV1 => AccessmodelmetadataValuesInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Dimensions => AccessmodelmetadataValuesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

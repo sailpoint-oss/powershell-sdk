@@ -30,7 +30,7 @@ function Initialize-Identitysnapshotsummaryresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Identitysnapshotsummaryresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Identitysnapshotsummaryresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToIdentitysnapshotsummaryresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Identitysnapshotsummaryresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Identitysnapshotsummaryresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

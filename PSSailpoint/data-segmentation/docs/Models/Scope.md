@@ -5,7 +5,7 @@ pagination_label: Scope
 sidebar_label: Scope
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Scope', 'Scope'] 
-slug: /tools/sdk/powershell/datasegmentationv1/models/scope
+slug: /tools/sdk/powershell/datasegmentation/models/scope
 tags: ['SDK', 'Software Development Kit', 'Scope', 'Scope']
 ---
 

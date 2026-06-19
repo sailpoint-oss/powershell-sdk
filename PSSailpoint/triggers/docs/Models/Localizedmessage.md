@@ -5,7 +5,7 @@ pagination_label: Localizedmessage
 sidebar_label: Localizedmessage
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Localizedmessage', 'Localizedmessage'] 
-slug: /tools/sdk/powershell/triggersv1/models/localizedmessage
+slug: /tools/sdk/powershell/triggers/models/localizedmessage
 tags: ['SDK', 'Software Development Kit', 'Localizedmessage', 'Localizedmessage']
 ---
 

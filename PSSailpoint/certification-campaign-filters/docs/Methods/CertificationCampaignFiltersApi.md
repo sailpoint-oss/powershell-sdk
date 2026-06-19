@@ -5,7 +5,7 @@ pagination_label: CertificationCampaignFilters
 sidebar_label: CertificationCampaignFilters
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CertificationCampaignFilters', 'CertificationCampaignFilters'] 
-slug: /tools/sdk/powershell/certificationcampaignfiltersv1/methods/certification-campaign-filters
+slug: /tools/sdk/powershell/certificationcampaignfilters/methods/certification-campaign-filters
 tags: ['SDK', 'Software Development Kit', 'CertificationCampaignFilters', 'CertificationCampaignFilters']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Privilegedrecommendationgroup
 sidebar_label: Privilegedrecommendationgroup
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Privilegedrecommendationgroup', 'Privilegedrecommendationgroup'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/privilegedrecommendationgroup
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/privilegedrecommendationgroup
 tags: ['SDK', 'Software Development Kit', 'Privilegedrecommendationgroup', 'Privilegedrecommendationgroup']
 ---
 

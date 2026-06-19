@@ -55,7 +55,7 @@ function Initialize-Matchterm {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AppsV1 => Matchterm' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Apps => Matchterm' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToMatchterm {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AppsV1 => Matchterm' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Apps => Matchterm' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

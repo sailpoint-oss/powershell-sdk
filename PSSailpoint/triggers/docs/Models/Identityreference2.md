@@ -5,7 +5,7 @@ pagination_label: Identityreference2
 sidebar_label: Identityreference2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityreference2', 'Identityreference2'] 
-slug: /tools/sdk/powershell/triggersv1/models/identityreference2
+slug: /tools/sdk/powershell/triggers/models/identityreference2
 tags: ['SDK', 'Software Development Kit', 'Identityreference2', 'Identityreference2']
 ---
 

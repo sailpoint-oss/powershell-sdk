@@ -5,7 +5,7 @@ pagination_label: Objectmappingresponse
 sidebar_label: Objectmappingresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Objectmappingresponse', 'Objectmappingresponse'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/objectmappingresponse
+slug: /tools/sdk/powershell/configurationhub/models/objectmappingresponse
 tags: ['SDK', 'Software Development Kit', 'Objectmappingresponse', 'Objectmappingresponse']
 ---
 

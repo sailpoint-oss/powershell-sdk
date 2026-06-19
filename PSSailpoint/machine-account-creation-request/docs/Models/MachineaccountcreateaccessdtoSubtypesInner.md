@@ -5,7 +5,7 @@ pagination_label: MachineaccountcreateaccessdtoSubtypesInner
 sidebar_label: MachineaccountcreateaccessdtoSubtypesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineaccountcreateaccessdtoSubtypesInner', 'MachineaccountcreateaccessdtoSubtypesInner'] 
-slug: /tools/sdk/powershell/machineaccountcreationrequestv1/models/machineaccountcreateaccessdto-subtypes-inner
+slug: /tools/sdk/powershell/machineaccountcreationrequest/models/machineaccountcreateaccessdto-subtypes-inner
 tags: ['SDK', 'Software Development Kit', 'MachineaccountcreateaccessdtoSubtypesInner', 'MachineaccountcreateaccessdtoSubtypesInner']
 ---
 

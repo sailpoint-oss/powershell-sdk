@@ -30,7 +30,7 @@ function Initialize-GetConnectorRuleListV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConnectorRuleManagementV1 => GetConnectorRuleListV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConnectorRuleManagement => GetConnectorRuleListV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetConnectorRuleListV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorRuleManagementV1 => GetConnectorRuleListV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorRuleManagement => GetConnectorRuleListV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

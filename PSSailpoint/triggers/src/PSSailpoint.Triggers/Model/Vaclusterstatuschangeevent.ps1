@@ -51,7 +51,7 @@ function Initialize-Vaclusterstatuschangeevent {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Vaclusterstatuschangeevent' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Vaclusterstatuschangeevent' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Created) {
@@ -111,7 +111,7 @@ function ConvertFrom-JsonToVaclusterstatuschangeevent {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Vaclusterstatuschangeevent' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Vaclusterstatuschangeevent' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

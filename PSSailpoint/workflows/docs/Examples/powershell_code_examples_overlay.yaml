@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#cancel-workflow-execution-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#cancel-workflow-execution-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution ID
         
@@ -21,7 +21,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#create-external-execute-workflow-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#create-external-execute-workflow-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
         $CreateExternalExecuteWorkflowV1Request = @"
@@ -43,7 +43,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#create-workflow-external-trigger-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#create-workflow-external-trigger-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
         
@@ -62,7 +62,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#create-workflow-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#create-workflow-v1
       source: |
         $CreateWorkflowV1Request = @"
         {"name":"Send Email","owner":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"},"description":"Send an email to the identity who's attributes changed.","definition":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}},"enabled":false,"trigger":{"type":"EVENT","attributes":{"id":"idn:identity-attributes-changed","filter":"$.changes[?(@.attribute == 'manager')]"}}}
@@ -84,7 +84,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#delete-workflow-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#delete-workflow-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
         
@@ -103,7 +103,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#get-workflow-execution-history-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#get-workflow-execution-history-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
         
@@ -122,7 +122,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#get-workflow-execution-history-v2
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#get-workflow-execution-history-v2
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
         
@@ -141,7 +141,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#get-workflow-execution-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#get-workflow-execution-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
         
@@ -160,7 +160,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#get-workflow-executions-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#get-workflow-executions-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow ID.
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -182,7 +182,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#get-workflow-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#get-workflow-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
         
@@ -201,7 +201,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#list-complete-workflow-library-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#list-complete-workflow-library-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -221,7 +221,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#list-workflow-library-actions-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#list-workflow-library-actions-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -242,7 +242,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#list-workflow-library-operators-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#list-workflow-library-operators-v1
       source: |
         
         # List workflow library operators
@@ -260,7 +260,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#list-workflow-library-triggers-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#list-workflow-library-triggers-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -281,7 +281,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#list-workflows-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#list-workflows-v1
       source: |
         
         # List workflows
@@ -299,11 +299,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#patch-workflow-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#patch-workflow-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | 
         $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":"Send Email"},{"op":"replace","path":"/owner","value":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"}},{"op":"replace","path":"/description","value":"Send an email to the identity who's attributes changed."},{"op":"replace","path":"/enabled","value":false},{"op":"replace","path":"/definition","value":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}}},{"op":"replace","path":"/trigger","value":{"type":"EVENT","attributes":{"id":"idn:identity-attributes-changed"}}}]"@ 
         
         
@@ -323,7 +321,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#put-workflow-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#put-workflow-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
         $Workflowbody = @"
@@ -346,7 +344,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#test-external-execute-workflow-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#test-external-execute-workflow-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
         $TestExternalExecuteWorkflowV1Request = @"
@@ -368,7 +366,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workflowsv1/methods/workflows#test-workflow-v1
+      label: SDK_tools/sdk/powershell/workflows/methods/workflows#test-workflow-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
         $TestWorkflowV1Request = @"

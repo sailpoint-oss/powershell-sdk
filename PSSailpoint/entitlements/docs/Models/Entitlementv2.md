@@ -5,7 +5,7 @@ pagination_label: Entitlementv2
 sidebar_label: Entitlementv2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlementv2', 'Entitlementv2'] 
-slug: /tools/sdk/powershell/entitlementsv1/models/entitlementv2
+slug: /tools/sdk/powershell/entitlements/models/entitlementv2
 tags: ['SDK', 'Software Development Kit', 'Entitlementv2', 'Entitlementv2']
 ---
 
@@ -27,12 +27,12 @@ Name | Type | Description | Notes
 **CloudGoverned** | **Boolean** | True if the entitlement is cloud governed | [optional] [default to $false]
 **Requestable** | **Boolean** | True if the entitlement is able to be directly requested | [optional] [default to $false]
 **Owner** | [**Entitlementv2Owner**](entitlementv2-owner) |  | [optional] 
-**ManuallyUpdatedFields** | [**map[string]AnyType**](any-type) | A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated. | [optional] 
+**ManuallyUpdatedFields** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated. | [optional] 
 **AccessModelMetadata** | [**Entitlementv2AccessModelMetadata**](entitlementv2-access-model-metadata) |  | [optional] 
 **Created** | **System.DateTime** | Time when the entitlement was created | [optional] 
 **Modified** | **System.DateTime** | Time when the entitlement was last modified | [optional] 
 **Source** | [**Entitlementv2Source**](entitlementv2-source) |  | [optional] 
-**Attributes** | [**map[string]AnyType**](any-type) | A map of free-form key-value pairs from the source system | [optional] 
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map of free-form key-value pairs from the source system | [optional] 
 **Segments** | **[]String** | List of IDs of segments, if any, to which this Entitlement is assigned. | [optional] 
 **DirectPermissions** | [**[]Permissiondto**](permissiondto) |  | [optional] 
 

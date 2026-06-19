@@ -72,7 +72,7 @@ function Initialize-Approvalstatusdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Approvalstatusdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Approvalstatusdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -116,7 +116,7 @@ function ConvertFrom-JsonToApprovalstatusdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Approvalstatusdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Approvalstatusdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

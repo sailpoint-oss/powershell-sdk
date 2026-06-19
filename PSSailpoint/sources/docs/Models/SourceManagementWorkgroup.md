@@ -5,7 +5,7 @@ pagination_label: SourceManagementWorkgroup
 sidebar_label: SourceManagementWorkgroup
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SourceManagementWorkgroup', 'SourceManagementWorkgroup'] 
-slug: /tools/sdk/powershell/sourcesv1/models/source-management-workgroup
+slug: /tools/sdk/powershell/sources/models/source-management-workgroup
 tags: ['SDK', 'Software Development Kit', 'SourceManagementWorkgroup', 'SourceManagementWorkgroup']
 ---
 

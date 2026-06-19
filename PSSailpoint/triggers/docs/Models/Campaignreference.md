@@ -5,7 +5,7 @@ pagination_label: Campaignreference
 sidebar_label: Campaignreference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaignreference', 'Campaignreference'] 
-slug: /tools/sdk/powershell/triggersv1/models/campaignreference
+slug: /tools/sdk/powershell/triggers/models/campaignreference
 tags: ['SDK', 'Software Development Kit', 'Campaignreference', 'Campaignreference']
 ---
 

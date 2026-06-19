@@ -5,7 +5,7 @@ pagination_label: Mfaconfigtestresponse
 sidebar_label: Mfaconfigtestresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Mfaconfigtestresponse', 'Mfaconfigtestresponse'] 
-slug: /tools/sdk/powershell/mfaconfigurationv1/models/mfaconfigtestresponse
+slug: /tools/sdk/powershell/mfaconfiguration/models/mfaconfigtestresponse
 tags: ['SDK', 'Software Development Kit', 'Mfaconfigtestresponse', 'Mfaconfigtestresponse']
 ---
 

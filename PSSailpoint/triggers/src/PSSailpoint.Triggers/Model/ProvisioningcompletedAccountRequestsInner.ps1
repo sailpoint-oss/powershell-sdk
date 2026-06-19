@@ -61,7 +61,7 @@ function Initialize-ProvisioningcompletedAccountRequestsInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => ProvisioningcompletedAccountRequestsInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => ProvisioningcompletedAccountRequestsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Source) {
@@ -119,7 +119,7 @@ function ConvertFrom-JsonToProvisioningcompletedAccountRequestsInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => ProvisioningcompletedAccountRequestsInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => ProvisioningcompletedAccountRequestsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

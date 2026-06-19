@@ -5,7 +5,7 @@ pagination_label: AccountactionrequestdtoCorrelatedIdentity
 sidebar_label: AccountactionrequestdtoCorrelatedIdentity
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountactionrequestdtoCorrelatedIdentity', 'AccountactionrequestdtoCorrelatedIdentity'] 
-slug: /tools/sdk/powershell/accountdeletionrequestsv1/models/accountactionrequestdto-correlated-identity
+slug: /tools/sdk/powershell/accountdeletionrequests/models/accountactionrequestdto-correlated-identity
 tags: ['SDK', 'Software Development Kit', 'AccountactionrequestdtoCorrelatedIdentity', 'AccountactionrequestdtoCorrelatedIdentity']
 ---
 

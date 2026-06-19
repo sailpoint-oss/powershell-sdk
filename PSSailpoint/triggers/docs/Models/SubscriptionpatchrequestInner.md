@@ -5,7 +5,7 @@ pagination_label: SubscriptionpatchrequestInner
 sidebar_label: SubscriptionpatchrequestInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SubscriptionpatchrequestInner', 'SubscriptionpatchrequestInner'] 
-slug: /tools/sdk/powershell/triggersv1/models/subscriptionpatchrequest-inner
+slug: /tools/sdk/powershell/triggers/models/subscriptionpatchrequest-inner
 tags: ['SDK', 'Software Development Kit', 'SubscriptionpatchrequestInner', 'SubscriptionpatchrequestInner']
 ---
 

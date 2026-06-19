@@ -5,7 +5,7 @@ pagination_label: GetPasswordSyncGroupsV1401Response
 sidebar_label: GetPasswordSyncGroupsV1401Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetPasswordSyncGroupsV1401Response', 'GetPasswordSyncGroupsV1401Response'] 
-slug: /tools/sdk/powershell/passwordsyncgroupsv1/models/get-password-sync-groups-v1401-response
+slug: /tools/sdk/powershell/passwordsyncgroups/models/get-password-sync-groups-v1401-response
 tags: ['SDK', 'Software Development Kit', 'GetPasswordSyncGroupsV1401Response', 'GetPasswordSyncGroupsV1401Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetPasswordSyncGroupsV1401Response', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**VarError** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

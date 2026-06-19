@@ -30,7 +30,7 @@ function Initialize-GetReportResultV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => GetReportResultV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ReportsDataExtraction => GetReportResultV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetReportResultV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => GetReportResultV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtraction => GetReportResultV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

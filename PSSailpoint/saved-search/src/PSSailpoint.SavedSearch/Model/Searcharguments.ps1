@@ -40,7 +40,7 @@ function Initialize-Searcharguments {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SavedSearchV1 => Searcharguments' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SavedSearch => Searcharguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToSearcharguments {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearchV1 => Searcharguments' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearch => Searcharguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

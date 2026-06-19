@@ -30,7 +30,7 @@ function Initialize-SetIconV1Request {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IconsV1 => SetIconV1Request' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Icons => SetIconV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Image) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToSetIconV1Request {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IconsV1 => SetIconV1Request' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Icons => SetIconV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

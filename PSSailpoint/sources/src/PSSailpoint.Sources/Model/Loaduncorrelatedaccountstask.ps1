@@ -35,7 +35,7 @@ function Initialize-Loaduncorrelatedaccountstask {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Loaduncorrelatedaccountstask' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Loaduncorrelatedaccountstask' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToLoaduncorrelatedaccountstask {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Loaduncorrelatedaccountstask' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Loaduncorrelatedaccountstask' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

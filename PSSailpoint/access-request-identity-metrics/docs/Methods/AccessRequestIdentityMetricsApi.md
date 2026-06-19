@@ -5,7 +5,7 @@ pagination_label: AccessRequestIdentityMetrics
 sidebar_label: AccessRequestIdentityMetrics
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestIdentityMetrics', 'AccessRequestIdentityMetrics'] 
-slug: /tools/sdk/powershell/accessrequestidentitymetricsv1/methods/access-request-identity-metrics
+slug: /tools/sdk/powershell/accessrequestidentitymetrics/methods/access-request-identity-metrics
 tags: ['SDK', 'Software Development Kit', 'AccessRequestIdentityMetrics', 'AccessRequestIdentityMetrics']
 ---
 
@@ -37,7 +37,7 @@ Path   | RequestedObjectId | **String** | True  | Requested access item's ID.
 Path   | Type | **String** | True  | Requested access item's type.
 
 ### Return type
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
 Code | Description  | Data Type

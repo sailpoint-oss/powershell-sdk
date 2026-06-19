@@ -101,7 +101,7 @@ function Initialize-Forminstanceresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Forminstanceresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Forminstanceresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -151,7 +151,7 @@ function ConvertFrom-JsonToForminstanceresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Forminstanceresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Forminstanceresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

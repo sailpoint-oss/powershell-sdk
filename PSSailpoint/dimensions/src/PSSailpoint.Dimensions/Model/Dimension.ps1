@@ -65,7 +65,7 @@ function Initialize-Dimension {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DimensionsV1 => Dimension' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Dimensions => Dimension' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -116,7 +116,7 @@ function ConvertFrom-JsonToDimension {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DimensionsV1 => Dimension' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Dimensions => Dimension' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

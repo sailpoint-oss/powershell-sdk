@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#create-sim-integration-v1
+      label: SDK_tools/sdk/powershell/simintegrations/methods/sim-integrations#create-sim-integration-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Simintegrationdetails = @"
@@ -25,7 +25,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#delete-sim-integration-v1
+      label: SDK_tools/sdk/powershell/simintegrations/methods/sim-integrations#delete-sim-integration-v1
       source: |
         $Id = "12345" # String | The id of the integration to delete.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -45,7 +45,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#get-sim-integration-v1
+      label: SDK_tools/sdk/powershell/simintegrations/methods/sim-integrations#get-sim-integration-v1
       source: |
         $Id = "12345" # String | The id of the integration.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -65,7 +65,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#get-sim-integrations-v1
+      label: SDK_tools/sdk/powershell/simintegrations/methods/sim-integrations#get-sim-integrations-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
@@ -84,7 +84,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#patch-before-provisioning-rule-v1
+      label: SDK_tools/sdk/powershell/simintegrations/methods/sim-integrations#patch-before-provisioning-rule-v1
       source: |
         $Id = "12345" # String | SIM integration id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -108,7 +108,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#patch-sim-attributes-v1
+      label: SDK_tools/sdk/powershell/simintegrations/methods/sim-integrations#patch-sim-attributes-v1
       source: |
         $Id = "12345" # String | SIM integration id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -132,7 +132,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/simintegrationsv1/methods/sim-integrations#put-sim-integration-v1
+      label: SDK_tools/sdk/powershell/simintegrations/methods/sim-integrations#put-sim-integration-v1
       source: |
         $Id = "12345" # String | The id of the integration.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")

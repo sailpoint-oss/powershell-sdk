@@ -5,7 +5,7 @@ pagination_label: Localeorigin
 sidebar_label: Localeorigin
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Localeorigin', 'Localeorigin'] 
-slug: /tools/sdk/powershell/sodpoliciesv1/models/localeorigin
+slug: /tools/sdk/powershell/sodpolicies/models/localeorigin
 tags: ['SDK', 'Software Development Kit', 'Localeorigin', 'Localeorigin']
 ---
 

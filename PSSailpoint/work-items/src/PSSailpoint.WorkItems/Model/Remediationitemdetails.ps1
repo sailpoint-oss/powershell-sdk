@@ -70,7 +70,7 @@ function Initialize-Remediationitemdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkItemsV1 => Remediationitemdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkItems => Remediationitemdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -114,7 +114,7 @@ function ConvertFrom-JsonToRemediationitemdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkItemsV1 => Remediationitemdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkItems => Remediationitemdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

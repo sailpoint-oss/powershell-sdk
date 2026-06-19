@@ -40,7 +40,7 @@ function Initialize-Sedbatchrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SuggestedEntitlementDescriptionV1 => Sedbatchrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SuggestedEntitlementDescription => Sedbatchrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Entitlements -and $Entitlements.length -lt 1) {
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToSedbatchrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SuggestedEntitlementDescriptionV1 => Sedbatchrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SuggestedEntitlementDescription => Sedbatchrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

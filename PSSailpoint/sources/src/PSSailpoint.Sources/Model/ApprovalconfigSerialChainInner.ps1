@@ -41,7 +41,7 @@ function Initialize-ApprovalconfigSerialChainInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => ApprovalconfigSerialChainInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => ApprovalconfigSerialChainInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToApprovalconfigSerialChainInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => ApprovalconfigSerialChainInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => ApprovalconfigSerialChainInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

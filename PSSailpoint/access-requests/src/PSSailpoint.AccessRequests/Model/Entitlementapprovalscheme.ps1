@@ -36,7 +36,7 @@ function Initialize-Entitlementapprovalscheme {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Entitlementapprovalscheme' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Entitlementapprovalscheme' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToEntitlementapprovalscheme {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Entitlementapprovalscheme' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Entitlementapprovalscheme' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

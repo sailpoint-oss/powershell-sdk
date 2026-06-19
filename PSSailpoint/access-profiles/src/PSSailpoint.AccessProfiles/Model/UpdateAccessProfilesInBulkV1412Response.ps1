@@ -30,7 +30,7 @@ function Initialize-UpdateAccessProfilesInBulkV1412Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfilesV1 => UpdateAccessProfilesInBulkV1412Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => UpdateAccessProfilesInBulkV1412Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToUpdateAccessProfilesInBulkV1412Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfilesV1 => UpdateAccessProfilesInBulkV1412Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => UpdateAccessProfilesInBulkV1412Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

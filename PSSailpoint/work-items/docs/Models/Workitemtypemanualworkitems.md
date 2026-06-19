@@ -5,7 +5,7 @@ pagination_label: Workitemtypemanualworkitems
 sidebar_label: Workitemtypemanualworkitems
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workitemtypemanualworkitems', 'Workitemtypemanualworkitems'] 
-slug: /tools/sdk/powershell/workitemsv1/models/workitemtypemanualworkitems
+slug: /tools/sdk/powershell/workitems/models/workitemtypemanualworkitems
 tags: ['SDK', 'Software Development Kit', 'Workitemtypemanualworkitems', 'Workitemtypemanualworkitems']
 ---
 

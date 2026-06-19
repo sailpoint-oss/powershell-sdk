@@ -41,7 +41,7 @@ function Initialize-Workflowmodifiedby {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkflowsV1 => Workflowmodifiedby' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Workflows => Workflowmodifiedby' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToWorkflowmodifiedby {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkflowsV1 => Workflowmodifiedby' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Workflows => Workflowmodifiedby' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

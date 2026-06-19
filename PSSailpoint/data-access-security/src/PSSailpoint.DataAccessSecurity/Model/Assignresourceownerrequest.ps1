@@ -40,7 +40,7 @@ function Initialize-Assignresourceownerrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Assignresourceownerrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => Assignresourceownerrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToAssignresourceownerrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Assignresourceownerrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => Assignresourceownerrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

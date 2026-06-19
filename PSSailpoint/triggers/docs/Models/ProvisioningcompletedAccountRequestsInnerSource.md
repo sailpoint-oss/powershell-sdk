@@ -5,7 +5,7 @@ pagination_label: ProvisioningcompletedAccountRequestsInnerSource
 sidebar_label: ProvisioningcompletedAccountRequestsInnerSource
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningcompletedAccountRequestsInnerSource', 'ProvisioningcompletedAccountRequestsInnerSource'] 
-slug: /tools/sdk/powershell/triggersv1/models/provisioningcompleted-account-requests-inner-source
+slug: /tools/sdk/powershell/triggers/models/provisioningcompleted-account-requests-inner-source
 tags: ['SDK', 'Software Development Kit', 'ProvisioningcompletedAccountRequestsInnerSource', 'ProvisioningcompletedAccountRequestsInnerSource']
 ---
 

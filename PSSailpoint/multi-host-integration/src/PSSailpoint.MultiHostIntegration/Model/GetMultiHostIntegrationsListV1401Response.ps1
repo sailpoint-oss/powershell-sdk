@@ -30,7 +30,7 @@ function Initialize-GetMultiHostIntegrationsListV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => GetMultiHostIntegrationsListV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MultiHostIntegration => GetMultiHostIntegrationsListV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetMultiHostIntegrationsListV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => GetMultiHostIntegrationsListV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegration => GetMultiHostIntegrationsListV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

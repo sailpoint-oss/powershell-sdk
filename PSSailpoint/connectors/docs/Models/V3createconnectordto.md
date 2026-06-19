@@ -5,7 +5,7 @@ pagination_label: V3createconnectordto
 sidebar_label: V3createconnectordto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'V3createconnectordto', 'V3createconnectordto'] 
-slug: /tools/sdk/powershell/connectorsv1/models/v3createconnectordto
+slug: /tools/sdk/powershell/connectors/models/v3createconnectordto
 tags: ['SDK', 'Software Development Kit', 'V3createconnectordto', 'V3createconnectordto']
 ---
 

@@ -56,7 +56,7 @@ function Initialize-Workflowlibraryformfields {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkflowsV1 => Workflowlibraryformfields' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Workflows => Workflowlibraryformfields' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -97,7 +97,7 @@ function ConvertFrom-JsonToWorkflowlibraryformfields {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkflowsV1 => Workflowlibraryformfields' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Workflows => Workflowlibraryformfields' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

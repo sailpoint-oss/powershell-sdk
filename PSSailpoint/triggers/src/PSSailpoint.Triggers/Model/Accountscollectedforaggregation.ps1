@@ -61,7 +61,7 @@ function Initialize-Accountscollectedforaggregation {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Accountscollectedforaggregation' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Accountscollectedforaggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Source) {
@@ -123,7 +123,7 @@ function ConvertFrom-JsonToAccountscollectedforaggregation {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Accountscollectedforaggregation' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Accountscollectedforaggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

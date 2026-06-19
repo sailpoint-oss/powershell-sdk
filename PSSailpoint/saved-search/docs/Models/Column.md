@@ -5,7 +5,7 @@ pagination_label: Column
 sidebar_label: Column
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Column', 'Column'] 
-slug: /tools/sdk/powershell/savedsearchv1/models/column
+slug: /tools/sdk/powershell/savedsearch/models/column
 tags: ['SDK', 'Software Development Kit', 'Column', 'Column']
 ---
 

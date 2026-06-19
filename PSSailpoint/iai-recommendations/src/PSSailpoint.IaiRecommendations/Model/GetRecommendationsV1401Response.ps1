@@ -30,7 +30,7 @@ function Initialize-GetRecommendationsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRecommendationsV1 => GetRecommendationsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRecommendations => GetRecommendationsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetRecommendationsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRecommendationsV1 => GetRecommendationsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRecommendations => GetRecommendationsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -66,7 +66,7 @@ function Initialize-Trigger {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Trigger' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Trigger' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -129,7 +129,7 @@ function ConvertFrom-JsonToTrigger {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Trigger' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Trigger' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

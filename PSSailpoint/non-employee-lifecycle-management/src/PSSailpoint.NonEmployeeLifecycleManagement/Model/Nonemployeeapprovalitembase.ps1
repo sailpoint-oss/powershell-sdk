@@ -66,7 +66,7 @@ function Initialize-Nonemployeeapprovalitembase {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => Nonemployeeapprovalitembase' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => Nonemployeeapprovalitembase' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -109,7 +109,7 @@ function ConvertFrom-JsonToNonemployeeapprovalitembase {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => Nonemployeeapprovalitembase' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => Nonemployeeapprovalitembase' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

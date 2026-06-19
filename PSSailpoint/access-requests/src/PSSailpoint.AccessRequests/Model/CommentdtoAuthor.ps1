@@ -41,7 +41,7 @@ function Initialize-CommentdtoAuthor {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => CommentdtoAuthor' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => CommentdtoAuthor' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToCommentdtoAuthor {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => CommentdtoAuthor' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => CommentdtoAuthor' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

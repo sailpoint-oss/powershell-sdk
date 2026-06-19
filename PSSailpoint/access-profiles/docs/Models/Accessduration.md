@@ -5,7 +5,7 @@ pagination_label: Accessduration
 sidebar_label: Accessduration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessduration', 'Accessduration'] 
-slug: /tools/sdk/powershell/accessprofilesv1/models/accessduration
+slug: /tools/sdk/powershell/accessprofiles/models/accessduration
 tags: ['SDK', 'Software Development Kit', 'Accessduration', 'Accessduration']
 ---
 

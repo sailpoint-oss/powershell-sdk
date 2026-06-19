@@ -5,7 +5,7 @@ pagination_label: ClassifySource
 sidebar_label: ClassifySource
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ClassifySource', 'ClassifySource'] 
-slug: /tools/sdk/powershell/classifysourcev1/methods/classify-source
+slug: /tools/sdk/powershell/classifysource/methods/classify-source
 tags: ['SDK', 'Software Development Kit', 'ClassifySource', 'ClassifySource']
 ---
 

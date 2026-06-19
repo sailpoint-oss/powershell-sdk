@@ -45,7 +45,7 @@ function Initialize-Rightpad {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Rightpad' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Rightpad' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Length) {
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToRightpad {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Rightpad' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Rightpad' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

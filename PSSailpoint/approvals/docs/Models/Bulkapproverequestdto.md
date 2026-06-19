@@ -5,7 +5,7 @@ pagination_label: Bulkapproverequestdto
 sidebar_label: Bulkapproverequestdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Bulkapproverequestdto', 'Bulkapproverequestdto'] 
-slug: /tools/sdk/powershell/approvalsv1/models/bulkapproverequestdto
+slug: /tools/sdk/powershell/approvals/models/bulkapproverequestdto
 tags: ['SDK', 'Software Development Kit', 'Bulkapproverequestdto', 'Bulkapproverequestdto']
 ---
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ApprovalIds** | **[]String** | Array of Approval IDs to be bulk approved | [optional] 
 **Comment** | **String** | Optional comment to include with the bulk approval request | [optional] 
-**AdditionalAttributes** | [**map[string]AnyType**](any-type) | Additional attributes to include with the bulk approval request | [optional] 
+**AdditionalAttributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Additional attributes to include with the bulk approval request | [optional] 
 
 ## Examples
 

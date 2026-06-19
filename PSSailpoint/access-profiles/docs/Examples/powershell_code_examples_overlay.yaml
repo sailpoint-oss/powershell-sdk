@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#create-access-profile-v1
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#create-access-profile-v1
       source: |
         $Accessprofile = @"
         
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#delete-access-profile-v1
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#delete-access-profile-v1
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to delete
         
@@ -43,7 +43,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#delete-access-profiles-in-bulk-v1
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#delete-access-profiles-in-bulk-v1
       source: |
         $Accessprofilebulkdeleterequest = @"
         {"bestEffortOnly":true,"accessProfileIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}
@@ -65,7 +65,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#get-access-profile-entitlements-v1
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#get-access-profile-entitlements-v1
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of the access profile containing the entitlements.
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -89,7 +89,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#get-access-profile-v1
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#get-access-profile-v1
       source: |
         $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Access Profile
         
@@ -108,7 +108,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#list-access-profiles-v1
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#list-access-profiles-v1
       source: |
         $ForSubadmin = "8c190e6787aa4ed9a90bd9d5344523fb" # String | Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity's ID.  If you specify an identity that isn't a subadmin, the API returns a 400 Bad Request error. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -134,11 +134,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#patch-access-profile-v1
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#patch-access-profile-v1
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to patch
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | 
         $Jsonpatchoperation = @"[{"op":"add","path":"/entitlements","value":[{"id":"2c9180857725c14301772a93bb77242d","type":"ENTITLEMENT","name":"AD User Group"}]}]"@ 
         
         
@@ -158,10 +156,9 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessprofilesv1/methods/access-profiles#update-access-profiles-in-bulk-v1
+      label: SDK_tools/sdk/powershell/accessprofiles/methods/access-profiles#update-access-profiles-in-bulk-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $AccessprofilebulkupdaterequestInner = Initialize-AccessprofilebulkupdaterequestInner -Id "464ae7bf-791e-49fd-b746-06a2e4a8" -Requestable $false# AccessprofilebulkupdaterequestInner[] | 
         $AccessprofilebulkupdaterequestInner = @"[{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]"@ 
         
         

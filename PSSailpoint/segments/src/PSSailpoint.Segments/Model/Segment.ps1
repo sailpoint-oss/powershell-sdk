@@ -65,7 +65,7 @@ function Initialize-Segment {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SegmentsV1 => Segment' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Segments => Segment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToSegment {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SegmentsV1 => Segment' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Segments => Segment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

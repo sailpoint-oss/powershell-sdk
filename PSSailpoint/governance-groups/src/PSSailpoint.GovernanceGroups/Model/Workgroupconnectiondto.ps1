@@ -36,7 +36,7 @@ function Initialize-Workgroupconnectiondto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GovernanceGroupsV1 => Workgroupconnectiondto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GovernanceGroups => Workgroupconnectiondto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToWorkgroupconnectiondto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroupsV1 => Workgroupconnectiondto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroups => Workgroupconnectiondto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

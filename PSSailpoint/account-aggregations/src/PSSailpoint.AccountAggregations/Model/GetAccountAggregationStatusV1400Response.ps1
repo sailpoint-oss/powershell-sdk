@@ -30,7 +30,7 @@ function Initialize-GetAccountAggregationStatusV1400Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountAggregationsV1 => GetAccountAggregationStatusV1400Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccountAggregations => GetAccountAggregationStatusV1400Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetAccountAggregationStatusV1400Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountAggregationsV1 => GetAccountAggregationStatusV1400Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccountAggregations => GetAccountAggregationStatusV1400Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

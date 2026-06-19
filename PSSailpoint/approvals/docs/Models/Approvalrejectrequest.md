@@ -5,7 +5,7 @@ pagination_label: Approvalrejectrequest
 sidebar_label: Approvalrejectrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalrejectrequest', 'Approvalrejectrequest'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalrejectrequest
+slug: /tools/sdk/powershell/approvals/models/approvalrejectrequest
 tags: ['SDK', 'Software Development Kit', 'Approvalrejectrequest', 'Approvalrejectrequest']
 ---
 

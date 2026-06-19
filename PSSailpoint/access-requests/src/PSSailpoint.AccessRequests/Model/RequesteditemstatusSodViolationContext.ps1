@@ -41,7 +41,7 @@ function Initialize-RequesteditemstatusSodViolationContext {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => RequesteditemstatusSodViolationContext' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => RequesteditemstatusSodViolationContext' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToRequesteditemstatusSodViolationContext {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => RequesteditemstatusSodViolationContext' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => RequesteditemstatusSodViolationContext' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

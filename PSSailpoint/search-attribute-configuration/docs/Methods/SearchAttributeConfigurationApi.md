@@ -5,7 +5,7 @@ pagination_label: SearchAttributeConfiguration
 sidebar_label: SearchAttributeConfiguration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SearchAttributeConfiguration', 'SearchAttributeConfiguration'] 
-slug: /tools/sdk/powershell/searchattributeconfigurationv1/methods/search-attribute-configuration
+slug: /tools/sdk/powershell/searchattributeconfiguration/methods/search-attribute-configuration
 tags: ['SDK', 'Software Development Kit', 'SearchAttributeConfiguration', 'SearchAttributeConfiguration']
 ---
 
@@ -58,7 +58,7 @@ Param Type | Name | Data Type | Required  | Description
  Body  | Searchattributeconfig | [**Searchattributeconfig**](../models/searchattributeconfig) | True  | 
 
 ### Return type
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -287,8 +287,6 @@ Code | Description  | Data Type
 ```powershell
 $Name = "promotedMailAttribute" # String | Name of the search attribute configuration to patch.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | 
  $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":"newAttributeName"},{"op":"replace","path":"/displayName","value":"new attribute display name"},{"op":"add","path":"/applicationAttributes","value":{"2c91808b79fd2422017a0b35d30f3968":"employeeNumber"}}]"@ # Jsonpatchoperation[] | 
  
 

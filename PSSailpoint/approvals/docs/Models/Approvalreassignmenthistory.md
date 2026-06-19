@@ -5,7 +5,7 @@ pagination_label: Approvalreassignmenthistory
 sidebar_label: Approvalreassignmenthistory
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalreassignmenthistory', 'Approvalreassignmenthistory'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalreassignmenthistory
+slug: /tools/sdk/powershell/approvals/models/approvalreassignmenthistory
 tags: ['SDK', 'Software Development Kit', 'Approvalreassignmenthistory', 'Approvalreassignmenthistory']
 ---
 

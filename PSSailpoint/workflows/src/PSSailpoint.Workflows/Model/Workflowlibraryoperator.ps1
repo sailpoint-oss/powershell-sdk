@@ -70,7 +70,7 @@ function Initialize-Workflowlibraryoperator {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkflowsV1 => Workflowlibraryoperator' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Workflows => Workflowlibraryoperator' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -114,7 +114,7 @@ function ConvertFrom-JsonToWorkflowlibraryoperator {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkflowsV1 => Workflowlibraryoperator' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Workflows => Workflowlibraryoperator' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

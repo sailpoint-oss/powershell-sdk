@@ -5,7 +5,7 @@ pagination_label: Sourceapp
 sidebar_label: Sourceapp
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourceapp', 'Sourceapp'] 
-slug: /tools/sdk/powershell/appsv1/models/sourceapp
+slug: /tools/sdk/powershell/apps/models/sourceapp
 tags: ['SDK', 'Software Development Kit', 'Sourceapp', 'Sourceapp']
 ---
 

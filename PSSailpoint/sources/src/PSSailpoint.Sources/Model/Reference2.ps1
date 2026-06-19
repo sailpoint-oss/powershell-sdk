@@ -40,7 +40,7 @@ function Initialize-Reference2 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Reference2' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Reference2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -82,7 +82,7 @@ function ConvertFrom-JsonToReference2 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Reference2' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Reference2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

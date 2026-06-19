@@ -5,7 +5,7 @@ pagination_label: Backupresponse
 sidebar_label: Backupresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Backupresponse', 'Backupresponse'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/backupresponse
+slug: /tools/sdk/powershell/configurationhub/models/backupresponse
 tags: ['SDK', 'Software Development Kit', 'Backupresponse', 'Backupresponse']
 ---
 

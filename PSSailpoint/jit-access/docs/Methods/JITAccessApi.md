@@ -5,7 +5,7 @@ pagination_label: JITAccess
 sidebar_label: JITAccess
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'JITAccess', 'JITAccess'] 
-slug: /tools/sdk/powershell/jitaccessv1/methods/jit-access
+slug: /tools/sdk/powershell/jitaccess/methods/jit-access
 tags: ['SDK', 'Software Development Kit', 'JITAccess', 'JITAccess']
 ---
 
@@ -112,8 +112,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $ConfigType = "policy" # String | Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
-$JitaccessoperationrequestValue = Initialize-JitaccessoperationrequestValue 
-$Jitaccessoperationrequest = Initialize-Jitaccessoperationrequest -Op "replace" -Path "/entitlementIds" -Value $JitaccessoperationrequestValue # Jitaccessoperationrequest[] | 
  $Jitaccessoperationrequest = @""@ # Jitaccessoperationrequest[] | 
  
 

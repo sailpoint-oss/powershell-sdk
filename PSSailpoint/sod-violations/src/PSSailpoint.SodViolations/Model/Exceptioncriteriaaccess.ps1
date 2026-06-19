@@ -46,7 +46,7 @@ function Initialize-Exceptioncriteriaaccess {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodViolationsV1 => Exceptioncriteriaaccess' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodViolations => Exceptioncriteriaaccess' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToExceptioncriteriaaccess {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodViolationsV1 => Exceptioncriteriaaccess' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodViolations => Exceptioncriteriaaccess' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

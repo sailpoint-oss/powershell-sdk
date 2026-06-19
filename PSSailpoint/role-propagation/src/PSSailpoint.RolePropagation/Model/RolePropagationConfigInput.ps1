@@ -30,7 +30,7 @@ function Initialize-RolePropagationConfigInput {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolePropagationV1 => RolePropagationConfigInput' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.RolePropagation => RolePropagationConfigInput' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToRolePropagationConfigInput {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolePropagationV1 => RolePropagationConfigInput' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.RolePropagation => RolePropagationConfigInput' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

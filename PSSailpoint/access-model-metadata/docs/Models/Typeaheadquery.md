@@ -5,7 +5,7 @@ pagination_label: Typeaheadquery
 sidebar_label: Typeaheadquery
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Typeaheadquery', 'Typeaheadquery'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/typeaheadquery
+slug: /tools/sdk/powershell/accessmodelmetadata/models/typeaheadquery
 tags: ['SDK', 'Software Development Kit', 'Typeaheadquery', 'Typeaheadquery']
 ---
 

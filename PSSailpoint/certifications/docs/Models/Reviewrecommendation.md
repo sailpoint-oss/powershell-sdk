@@ -5,7 +5,7 @@ pagination_label: Reviewrecommendation
 sidebar_label: Reviewrecommendation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reviewrecommendation', 'Reviewrecommendation'] 
-slug: /tools/sdk/powershell/certificationsv1/models/reviewrecommendation
+slug: /tools/sdk/powershell/certifications/models/reviewrecommendation
 tags: ['SDK', 'Software Development Kit', 'Reviewrecommendation', 'Reviewrecommendation']
 ---
 

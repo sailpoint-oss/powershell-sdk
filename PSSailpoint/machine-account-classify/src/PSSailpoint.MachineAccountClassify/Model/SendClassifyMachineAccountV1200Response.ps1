@@ -30,7 +30,7 @@ function Initialize-SendClassifyMachineAccountV1200Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountClassifyV1 => SendClassifyMachineAccountV1200Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccountClassify => SendClassifyMachineAccountV1200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToSendClassifyMachineAccountV1200Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountClassifyV1 => SendClassifyMachineAccountV1200Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountClassify => SendClassifyMachineAccountV1200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

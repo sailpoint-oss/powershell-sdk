@@ -5,7 +5,7 @@ pagination_label: ConfigurationHub
 sidebar_label: ConfigurationHub
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ConfigurationHub', 'ConfigurationHub'] 
-slug: /tools/sdk/powershell/configurationhubv1/methods/configuration-hub
+slug: /tools/sdk/powershell/configurationhub/methods/configuration-hub
 tags: ['SDK', 'Software Development Kit', 'ConfigurationHub', 'ConfigurationHub']
 ---
 
@@ -714,7 +714,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = "status eq "COMPLETE"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
+$Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
 # List backups
 
@@ -802,7 +802,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = "status eq "COMPLETE"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional)
+$Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional)
 
 # List drafts
 
@@ -891,7 +891,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = "status eq "COMPLETE"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
+$Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
 # List uploaded configurations
 

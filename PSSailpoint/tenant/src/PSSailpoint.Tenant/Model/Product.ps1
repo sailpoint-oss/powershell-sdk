@@ -106,7 +106,7 @@ function Initialize-Product {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TenantV1 => Product' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Tenant => Product' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -157,7 +157,7 @@ function ConvertFrom-JsonToProduct {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TenantV1 => Product' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Tenant => Product' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

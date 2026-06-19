@@ -36,7 +36,7 @@ function Initialize-Accessduration {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfilesV1 => Accessduration' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => Accessduration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToAccessduration {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfilesV1 => Accessduration' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => Accessduration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

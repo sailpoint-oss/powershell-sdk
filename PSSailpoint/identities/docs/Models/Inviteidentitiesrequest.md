@@ -5,7 +5,7 @@ pagination_label: Inviteidentitiesrequest
 sidebar_label: Inviteidentitiesrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Inviteidentitiesrequest', 'Inviteidentitiesrequest'] 
-slug: /tools/sdk/powershell/identitiesv1/models/inviteidentitiesrequest
+slug: /tools/sdk/powershell/identities/models/inviteidentitiesrequest
 tags: ['SDK', 'Software Development Kit', 'Inviteidentitiesrequest', 'Inviteidentitiesrequest']
 ---
 

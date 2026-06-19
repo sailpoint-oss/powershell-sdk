@@ -5,7 +5,7 @@ pagination_label: Accountsourcereference
 sidebar_label: Accountsourcereference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountsourcereference', 'Accountsourcereference'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountsourcereference
+slug: /tools/sdk/powershell/triggers/models/accountsourcereference
 tags: ['SDK', 'Software Development Kit', 'Accountsourcereference', 'Accountsourcereference']
 ---
 

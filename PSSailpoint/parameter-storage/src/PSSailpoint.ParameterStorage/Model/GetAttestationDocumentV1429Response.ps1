@@ -30,7 +30,7 @@ function Initialize-GetAttestationDocumentV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ParameterStorageV1 => GetAttestationDocumentV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ParameterStorage => GetAttestationDocumentV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetAttestationDocumentV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ParameterStorageV1 => GetAttestationDocumentV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ParameterStorage => GetAttestationDocumentV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

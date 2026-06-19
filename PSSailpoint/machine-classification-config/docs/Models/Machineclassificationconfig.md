@@ -5,7 +5,7 @@ pagination_label: Machineclassificationconfig
 sidebar_label: Machineclassificationconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Machineclassificationconfig', 'Machineclassificationconfig'] 
-slug: /tools/sdk/powershell/machineclassificationconfigv1/models/machineclassificationconfig
+slug: /tools/sdk/powershell/machineclassificationconfig/models/machineclassificationconfig
 tags: ['SDK', 'Software Development Kit', 'Machineclassificationconfig', 'Machineclassificationconfig']
 ---
 

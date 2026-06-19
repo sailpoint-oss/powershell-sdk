@@ -5,7 +5,7 @@ pagination_label: ImportAccountsV1Request
 sidebar_label: ImportAccountsV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ImportAccountsV1Request', 'ImportAccountsV1Request'] 
-slug: /tools/sdk/powershell/sourcesv1/models/import-accounts-v1-request
+slug: /tools/sdk/powershell/sources/models/import-accounts-v1-request
 tags: ['SDK', 'Software Development Kit', 'ImportAccountsV1Request', 'ImportAccountsV1Request']
 ---
 

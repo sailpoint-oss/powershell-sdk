@@ -5,7 +5,7 @@ pagination_label: AccountattributeschangedSource
 sidebar_label: AccountattributeschangedSource
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountattributeschangedSource', 'AccountattributeschangedSource'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountattributeschanged-source
+slug: /tools/sdk/powershell/triggers/models/accountattributeschanged-source
 tags: ['SDK', 'Software Development Kit', 'AccountattributeschangedSource', 'AccountattributeschangedSource']
 ---
 

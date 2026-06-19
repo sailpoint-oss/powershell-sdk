@@ -5,7 +5,7 @@ pagination_label: Httpauthenticationtype
 sidebar_label: Httpauthenticationtype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Httpauthenticationtype', 'Httpauthenticationtype'] 
-slug: /tools/sdk/powershell/triggersv1/models/httpauthenticationtype
+slug: /tools/sdk/powershell/triggers/models/httpauthenticationtype
 tags: ['SDK', 'Software Development Kit', 'Httpauthenticationtype', 'Httpauthenticationtype']
 ---
 

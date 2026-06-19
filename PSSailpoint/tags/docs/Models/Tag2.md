@@ -5,7 +5,7 @@ pagination_label: Tag2
 sidebar_label: Tag2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Tag2', 'Tag2'] 
-slug: /tools/sdk/powershell/tagsv1/models/tag2
+slug: /tools/sdk/powershell/tags/models/tag2
 tags: ['SDK', 'Software Development Kit', 'Tag2', 'Tag2']
 ---
 

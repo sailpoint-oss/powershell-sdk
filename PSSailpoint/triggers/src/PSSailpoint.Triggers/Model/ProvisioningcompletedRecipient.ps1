@@ -41,7 +41,7 @@ function Initialize-ProvisioningcompletedRecipient {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => ProvisioningcompletedRecipient' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => ProvisioningcompletedRecipient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToProvisioningcompletedRecipient {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => ProvisioningcompletedRecipient' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => ProvisioningcompletedRecipient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

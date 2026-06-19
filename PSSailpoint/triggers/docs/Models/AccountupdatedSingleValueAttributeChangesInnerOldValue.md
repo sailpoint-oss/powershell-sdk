@@ -5,7 +5,7 @@ pagination_label: AccountupdatedSingleValueAttributeChangesInnerOldValue
 sidebar_label: AccountupdatedSingleValueAttributeChangesInnerOldValue
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountupdatedSingleValueAttributeChangesInnerOldValue', 'AccountupdatedSingleValueAttributeChangesInnerOldValue'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountupdated-single-value-attribute-changes-inner-old-value
+slug: /tools/sdk/powershell/triggers/models/accountupdated-single-value-attribute-changes-inner-old-value
 tags: ['SDK', 'Software Development Kit', 'AccountupdatedSingleValueAttributeChangesInnerOldValue', 'AccountupdatedSingleValueAttributeChangesInnerOldValue']
 ---
 

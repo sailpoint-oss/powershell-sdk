@@ -45,7 +45,7 @@ function Initialize-Identityattributepreview {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityProfilesV1 => Identityattributepreview' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityProfiles => Identityattributepreview' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToIdentityattributepreview {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityProfilesV1 => Identityattributepreview' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityProfiles => Identityattributepreview' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

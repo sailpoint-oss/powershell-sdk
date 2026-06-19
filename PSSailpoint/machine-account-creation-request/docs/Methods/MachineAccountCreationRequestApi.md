@@ -5,7 +5,7 @@ pagination_label: MachineAccountCreationRequest
 sidebar_label: MachineAccountCreationRequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineAccountCreationRequest', 'MachineAccountCreationRequest'] 
-slug: /tools/sdk/powershell/machineaccountcreationrequestv1/methods/machine-account-creation-request
+slug: /tools/sdk/powershell/machineaccountcreationrequest/methods/machine-account-creation-request
 tags: ['SDK', 'Software Development Kit', 'MachineAccountCreationRequest', 'MachineAccountCreationRequest']
 ---
 

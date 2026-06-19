@@ -30,7 +30,7 @@ function Initialize-Identitycompareresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Identitycompareresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Identitycompareresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToIdentitycompareresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Identitycompareresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Identitycompareresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

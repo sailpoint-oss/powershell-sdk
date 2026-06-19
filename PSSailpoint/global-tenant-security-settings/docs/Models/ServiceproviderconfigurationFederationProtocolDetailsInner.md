@@ -5,7 +5,7 @@ pagination_label: ServiceproviderconfigurationFederationProtocolDetailsInner
 sidebar_label: ServiceproviderconfigurationFederationProtocolDetailsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ServiceproviderconfigurationFederationProtocolDetailsInner', 'ServiceproviderconfigurationFederationProtocolDetailsInner'] 
-slug: /tools/sdk/powershell/globaltenantsecuritysettingsv1/models/serviceproviderconfiguration-federation-protocol-details-inner
+slug: /tools/sdk/powershell/globaltenantsecuritysettings/models/serviceproviderconfiguration-federation-protocol-details-inner
 tags: ['SDK', 'Software Development Kit', 'ServiceproviderconfigurationFederationProtocolDetailsInner', 'ServiceproviderconfigurationFederationProtocolDetailsInner']
 ---
 

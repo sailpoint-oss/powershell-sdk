@@ -35,7 +35,7 @@ function Initialize-Column {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SavedSearchV1 => Column' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SavedSearch => Column' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Field) {
@@ -76,7 +76,7 @@ function ConvertFrom-JsonToColumn {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearchV1 => Column' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearch => Column' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

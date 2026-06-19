@@ -30,7 +30,7 @@ function Initialize-Listformelementdatabyelementidresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Listformelementdatabyelementidresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Listformelementdatabyelementidresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListformelementdatabyelementidresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Listformelementdatabyelementidresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Listformelementdatabyelementidresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

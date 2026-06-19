@@ -86,7 +86,7 @@ function Initialize-Basecreateapplicationrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Basecreateapplicationrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => Basecreateapplicationrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$ApplicationType) {
@@ -141,7 +141,7 @@ function ConvertFrom-JsonToBasecreateapplicationrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Basecreateapplicationrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => Basecreateapplicationrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

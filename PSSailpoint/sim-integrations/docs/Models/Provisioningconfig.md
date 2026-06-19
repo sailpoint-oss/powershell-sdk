@@ -5,7 +5,7 @@ pagination_label: Provisioningconfig
 sidebar_label: Provisioningconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Provisioningconfig', 'Provisioningconfig'] 
-slug: /tools/sdk/powershell/simintegrationsv1/models/provisioningconfig
+slug: /tools/sdk/powershell/simintegrations/models/provisioningconfig
 tags: ['SDK', 'Software Development Kit', 'Provisioningconfig', 'Provisioningconfig']
 ---
 

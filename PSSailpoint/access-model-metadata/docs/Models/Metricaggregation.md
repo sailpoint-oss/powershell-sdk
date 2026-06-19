@@ -5,7 +5,7 @@ pagination_label: Metricaggregation
 sidebar_label: Metricaggregation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Metricaggregation', 'Metricaggregation'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/metricaggregation
+slug: /tools/sdk/powershell/accessmodelmetadata/models/metricaggregation
 tags: ['SDK', 'Software Development Kit', 'Metricaggregation', 'Metricaggregation']
 ---
 

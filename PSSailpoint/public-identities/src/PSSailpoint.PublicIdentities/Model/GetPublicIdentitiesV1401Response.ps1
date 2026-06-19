@@ -30,7 +30,7 @@ function Initialize-GetPublicIdentitiesV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PublicIdentitiesV1 => GetPublicIdentitiesV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PublicIdentities => GetPublicIdentitiesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetPublicIdentitiesV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PublicIdentitiesV1 => GetPublicIdentitiesV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PublicIdentities => GetPublicIdentitiesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

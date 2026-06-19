@@ -5,7 +5,7 @@ pagination_label: RequesteditemstatusRequestedFor
 sidebar_label: RequesteditemstatusRequestedFor
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RequesteditemstatusRequestedFor', 'RequesteditemstatusRequestedFor'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/requesteditemstatus-requested-for
+slug: /tools/sdk/powershell/accessrequests/models/requesteditemstatus-requested-for
 tags: ['SDK', 'Software Development Kit', 'RequesteditemstatusRequestedFor', 'RequesteditemstatusRequestedFor']
 ---
 

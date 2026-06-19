@@ -45,7 +45,7 @@ function Initialize-Accessrequestpostapproval {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Accessrequestpostapproval' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Accessrequestpostapproval' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AccessRequestId) {
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToAccessrequestpostapproval {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Accessrequestpostapproval' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Accessrequestpostapproval' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

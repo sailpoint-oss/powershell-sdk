@@ -46,7 +46,7 @@ function Initialize-Filteraggregation {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Filteraggregation' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessModelMetadata => Filteraggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -97,7 +97,7 @@ function ConvertFrom-JsonToFilteraggregation {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Filteraggregation' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadata => Filteraggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

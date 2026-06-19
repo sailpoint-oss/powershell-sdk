@@ -35,7 +35,7 @@ function Initialize-Base64encode {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Base64encode' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Base64encode' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToBase64encode {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Base64encode' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Base64encode' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

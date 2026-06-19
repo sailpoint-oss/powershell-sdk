@@ -5,7 +5,7 @@ pagination_label: LoadaccountstaskTaskMessagesInner
 sidebar_label: LoadaccountstaskTaskMessagesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'LoadaccountstaskTaskMessagesInner', 'LoadaccountstaskTaskMessagesInner'] 
-slug: /tools/sdk/powershell/sourcesv1/models/loadaccountstask-task-messages-inner
+slug: /tools/sdk/powershell/sources/models/loadaccountstask-task-messages-inner
 tags: ['SDK', 'Software Development Kit', 'LoadaccountstaskTaskMessagesInner', 'LoadaccountstaskTaskMessagesInner']
 ---
 

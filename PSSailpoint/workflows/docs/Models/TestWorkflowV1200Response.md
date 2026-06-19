@@ -5,7 +5,7 @@ pagination_label: TestWorkflowV1200Response
 sidebar_label: TestWorkflowV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'TestWorkflowV1200Response', 'TestWorkflowV1200Response'] 
-slug: /tools/sdk/powershell/workflowsv1/models/test-workflow-v1200-response
+slug: /tools/sdk/powershell/workflows/models/test-workflow-v1200-response
 tags: ['SDK', 'Software Development Kit', 'TestWorkflowV1200Response', 'TestWorkflowV1200Response']
 ---
 

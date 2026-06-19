@@ -35,7 +35,7 @@ function Initialize-Identitywithnewaccess {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodViolationsV1 => Identitywithnewaccess' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodViolations => Identitywithnewaccess' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$IdentityId) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToIdentitywithnewaccess {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodViolationsV1 => Identitywithnewaccess' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodViolations => Identitywithnewaccess' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

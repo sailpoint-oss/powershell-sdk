@@ -151,7 +151,7 @@ function Initialize-Account {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountsV1 => Account' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Accounts => Account' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$SourceId) {
@@ -247,7 +247,7 @@ function ConvertFrom-JsonToAccount {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountsV1 => Account' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Accounts => Account' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

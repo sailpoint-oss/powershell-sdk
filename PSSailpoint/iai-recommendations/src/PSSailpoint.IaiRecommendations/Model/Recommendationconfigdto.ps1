@@ -45,7 +45,7 @@ function Initialize-Recommendationconfigdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRecommendationsV1 => Recommendationconfigdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRecommendations => Recommendationconfigdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($PeerGroupPercentageThreshold -and $PeerGroupPercentageThreshold -gt 1) {
@@ -92,7 +92,7 @@ function ConvertFrom-JsonToRecommendationconfigdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRecommendationsV1 => Recommendationconfigdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRecommendations => Recommendationconfigdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: GetReassignmentConfigTypesV1401Response
 sidebar_label: GetReassignmentConfigTypesV1401Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetReassignmentConfigTypesV1401Response', 'GetReassignmentConfigTypesV1401Response'] 
-slug: /tools/sdk/powershell/workreassignmentv1/models/get-reassignment-config-types-v1401-response
+slug: /tools/sdk/powershell/workreassignment/models/get-reassignment-config-types-v1401-response
 tags: ['SDK', 'Software Development Kit', 'GetReassignmentConfigTypesV1401Response', 'GetReassignmentConfigTypesV1401Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetReassignmentConfigTypesV1401Respon
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**VarError** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

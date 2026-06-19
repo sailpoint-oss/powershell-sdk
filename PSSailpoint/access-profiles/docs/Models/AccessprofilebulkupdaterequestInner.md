@@ -5,7 +5,7 @@ pagination_label: AccessprofilebulkupdaterequestInner
 sidebar_label: AccessprofilebulkupdaterequestInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessprofilebulkupdaterequestInner', 'AccessprofilebulkupdaterequestInner'] 
-slug: /tools/sdk/powershell/accessprofilesv1/models/accessprofilebulkupdaterequest-inner
+slug: /tools/sdk/powershell/accessprofiles/models/accessprofilebulkupdaterequest-inner
 tags: ['SDK', 'Software Development Kit', 'AccessprofilebulkupdaterequestInner', 'AccessprofilebulkupdaterequestInner']
 ---
 

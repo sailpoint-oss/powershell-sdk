@@ -75,7 +75,7 @@ function Initialize-Orgconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.OrgConfigV1 => Orgconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.OrgConfig => Orgconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -120,7 +120,7 @@ function ConvertFrom-JsonToOrgconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.OrgConfigV1 => Orgconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.OrgConfig => Orgconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

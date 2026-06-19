@@ -5,7 +5,7 @@ pagination_label: Approvalrequestedtarget
 sidebar_label: Approvalrequestedtarget
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalrequestedtarget', 'Approvalrequestedtarget'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalrequestedtarget
+slug: /tools/sdk/powershell/approvals/models/approvalrequestedtarget
 tags: ['SDK', 'Software Development Kit', 'Approvalrequestedtarget', 'Approvalrequestedtarget']
 ---
 

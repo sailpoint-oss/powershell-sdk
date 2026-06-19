@@ -5,7 +5,7 @@ pagination_label: Accessprofileupdateitem
 sidebar_label: Accessprofileupdateitem
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessprofileupdateitem', 'Accessprofileupdateitem'] 
-slug: /tools/sdk/powershell/accessprofilesv1/models/accessprofileupdateitem
+slug: /tools/sdk/powershell/accessprofiles/models/accessprofileupdateitem
 tags: ['SDK', 'Software Development Kit', 'Accessprofileupdateitem', 'Accessprofileupdateitem']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Dataownermodel
 sidebar_label: Dataownermodel
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dataownermodel', 'Dataownermodel'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/dataownermodel
+slug: /tools/sdk/powershell/dataaccesssecurity/models/dataownermodel
 tags: ['SDK', 'Software Development Kit', 'Dataownermodel', 'Dataownermodel']
 ---
 

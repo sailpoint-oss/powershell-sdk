@@ -41,7 +41,7 @@ function Initialize-Taggedobjectdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TaggedObjectsV1 => Taggedobjectdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.TaggedObjects => Taggedobjectdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToTaggedobjectdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TaggedObjectsV1 => Taggedobjectdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.TaggedObjects => Taggedobjectdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

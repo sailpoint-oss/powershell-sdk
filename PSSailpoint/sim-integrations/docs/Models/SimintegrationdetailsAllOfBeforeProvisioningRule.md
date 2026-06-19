@@ -5,7 +5,7 @@ pagination_label: SimintegrationdetailsAllOfBeforeProvisioningRule
 sidebar_label: SimintegrationdetailsAllOfBeforeProvisioningRule
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SimintegrationdetailsAllOfBeforeProvisioningRule', 'SimintegrationdetailsAllOfBeforeProvisioningRule'] 
-slug: /tools/sdk/powershell/simintegrationsv1/models/simintegrationdetails-all-of-before-provisioning-rule
+slug: /tools/sdk/powershell/simintegrations/models/simintegrationdetails-all-of-before-provisioning-rule
 tags: ['SDK', 'Software Development Kit', 'SimintegrationdetailsAllOfBeforeProvisioningRule', 'SimintegrationdetailsAllOfBeforeProvisioningRule']
 ---
 

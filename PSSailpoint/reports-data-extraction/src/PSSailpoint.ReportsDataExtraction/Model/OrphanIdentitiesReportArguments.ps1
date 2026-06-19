@@ -31,7 +31,7 @@ function Initialize-OrphanIdentitiesReportArguments {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => OrphanIdentitiesReportArguments' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ReportsDataExtraction => OrphanIdentitiesReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -67,7 +67,7 @@ function ConvertFrom-JsonToOrphanIdentitiesReportArguments {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => OrphanIdentitiesReportArguments' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtraction => OrphanIdentitiesReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

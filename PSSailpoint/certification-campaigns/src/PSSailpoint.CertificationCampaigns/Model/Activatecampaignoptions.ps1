@@ -30,7 +30,7 @@ function Initialize-Activatecampaignoptions {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Activatecampaignoptions' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaigns => Activatecampaignoptions' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToActivatecampaignoptions {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Activatecampaignoptions' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaigns => Activatecampaignoptions' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: ListMachineAccountsV1401Response
 sidebar_label: ListMachineAccountsV1401Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ListMachineAccountsV1401Response', 'ListMachineAccountsV1401Response'] 
-slug: /tools/sdk/powershell/machineaccountsv1/models/list-machine-accounts-v1401-response
+slug: /tools/sdk/powershell/machineaccounts/models/list-machine-accounts-v1401-response
 tags: ['SDK', 'Software Development Kit', 'ListMachineAccountsV1401Response', 'ListMachineAccountsV1401Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ListMachineAccountsV1401Response', 'L
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**VarError** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

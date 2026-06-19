@@ -30,7 +30,7 @@ function Initialize-SetIconV1200Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IconsV1 => SetIconV1200Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Icons => SetIconV1200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToSetIconV1200Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IconsV1 => SetIconV1200Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Icons => SetIconV1200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

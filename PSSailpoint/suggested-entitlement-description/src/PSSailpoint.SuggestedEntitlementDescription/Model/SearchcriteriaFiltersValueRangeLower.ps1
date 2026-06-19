@@ -35,7 +35,7 @@ function Initialize-SearchcriteriaFiltersValueRangeLower {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SuggestedEntitlementDescriptionV1 => SearchcriteriaFiltersValueRangeLower' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SuggestedEntitlementDescription => SearchcriteriaFiltersValueRangeLower' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToSearchcriteriaFiltersValueRangeLower {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SuggestedEntitlementDescriptionV1 => SearchcriteriaFiltersValueRangeLower' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SuggestedEntitlementDescription => SearchcriteriaFiltersValueRangeLower' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

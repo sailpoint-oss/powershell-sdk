@@ -35,7 +35,7 @@ function Initialize-Approvalbatch {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalbatch' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => Approvalbatch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToApprovalbatch {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalbatch' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => Approvalbatch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

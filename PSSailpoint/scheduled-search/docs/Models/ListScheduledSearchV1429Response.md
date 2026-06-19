@@ -5,7 +5,7 @@ pagination_label: ListScheduledSearchV1429Response
 sidebar_label: ListScheduledSearchV1429Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ListScheduledSearchV1429Response', 'ListScheduledSearchV1429Response'] 
-slug: /tools/sdk/powershell/scheduledsearchv1/models/list-scheduled-search-v1429-response
+slug: /tools/sdk/powershell/scheduledsearch/models/list-scheduled-search-v1429-response
 tags: ['SDK', 'Software Development Kit', 'ListScheduledSearchV1429Response', 'ListScheduledSearchV1429Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ListScheduledSearchV1429Response', 'L
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**Message** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

@@ -41,7 +41,7 @@ function Initialize-AccesssummaryAccess {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => AccesssummaryAccess' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => AccesssummaryAccess' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToAccesssummaryAccess {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => AccesssummaryAccess' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => AccesssummaryAccess' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

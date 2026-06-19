@@ -5,7 +5,7 @@ pagination_label: Accessprofilebulkdeleterequest
 sidebar_label: Accessprofilebulkdeleterequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessprofilebulkdeleterequest', 'Accessprofilebulkdeleterequest'] 
-slug: /tools/sdk/powershell/accessprofilesv1/models/accessprofilebulkdeleterequest
+slug: /tools/sdk/powershell/accessprofiles/models/accessprofilebulkdeleterequest
 tags: ['SDK', 'Software Development Kit', 'Accessprofilebulkdeleterequest', 'Accessprofilebulkdeleterequest']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Machineidentityupdated
 sidebar_label: Machineidentityupdated
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Machineidentityupdated', 'Machineidentityupdated'] 
-slug: /tools/sdk/powershell/triggersv1/models/machineidentityupdated
+slug: /tools/sdk/powershell/triggers/models/machineidentityupdated
 tags: ['SDK', 'Software Development Kit', 'Machineidentityupdated', 'Machineidentityupdated']
 ---
 

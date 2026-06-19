@@ -51,7 +51,7 @@ function Initialize-Bucketaggregation {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Bucketaggregation' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessModelMetadata => Bucketaggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -99,7 +99,7 @@ function ConvertFrom-JsonToBucketaggregation {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Bucketaggregation' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadata => Bucketaggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

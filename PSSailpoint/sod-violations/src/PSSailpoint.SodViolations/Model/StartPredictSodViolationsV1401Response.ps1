@@ -30,7 +30,7 @@ function Initialize-StartPredictSodViolationsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodViolationsV1 => StartPredictSodViolationsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodViolations => StartPredictSodViolationsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToStartPredictSodViolationsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodViolationsV1 => StartPredictSodViolationsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodViolations => StartPredictSodViolationsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

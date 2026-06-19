@@ -5,7 +5,7 @@ pagination_label: ScheduleMonths
 sidebar_label: ScheduleMonths
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ScheduleMonths', 'ScheduleMonths'] 
-slug: /tools/sdk/powershell/scheduledsearchv1/models/schedule-months
+slug: /tools/sdk/powershell/scheduledsearch/models/schedule-months
 tags: ['SDK', 'Software Development Kit', 'ScheduleMonths', 'ScheduleMonths']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: EntitlementdocumentAllOfManuallyUpdatedFields
 sidebar_label: EntitlementdocumentAllOfManuallyUpdatedFields
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementdocumentAllOfManuallyUpdatedFields', 'EntitlementdocumentAllOfManuallyUpdatedFields'] 
-slug: /tools/sdk/powershell/searchv1/models/entitlementdocument-all-of-manually-updated-fields
+slug: /tools/sdk/powershell/search/models/entitlementdocument-all-of-manually-updated-fields
 tags: ['SDK', 'Software Development Kit', 'EntitlementdocumentAllOfManuallyUpdatedFields', 'EntitlementdocumentAllOfManuallyUpdatedFields']
 ---
 

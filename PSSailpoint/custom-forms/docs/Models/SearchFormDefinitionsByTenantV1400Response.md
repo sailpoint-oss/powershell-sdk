@@ -5,7 +5,7 @@ pagination_label: SearchFormDefinitionsByTenantV1400Response
 sidebar_label: SearchFormDefinitionsByTenantV1400Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SearchFormDefinitionsByTenantV1400Response', 'SearchFormDefinitionsByTenantV1400Response'] 
-slug: /tools/sdk/powershell/customformsv1/models/search-form-definitions-by-tenant-v1400-response
+slug: /tools/sdk/powershell/customforms/models/search-form-definitions-by-tenant-v1400-response
 tags: ['SDK', 'Software Development Kit', 'SearchFormDefinitionsByTenantV1400Response', 'SearchFormDefinitionsByTenantV1400Response']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Servicedeskintegrationtemplatetype
 sidebar_label: Servicedeskintegrationtemplatetype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Servicedeskintegrationtemplatetype', 'Servicedeskintegrationtemplatetype'] 
-slug: /tools/sdk/powershell/servicedeskintegrationv1/models/servicedeskintegrationtemplatetype
+slug: /tools/sdk/powershell/servicedeskintegration/models/servicedeskintegrationtemplatetype
 tags: ['SDK', 'Software Development Kit', 'Servicedeskintegrationtemplatetype', 'Servicedeskintegrationtemplatetype']
 ---
 

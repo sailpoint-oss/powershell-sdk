@@ -41,7 +41,7 @@ function Initialize-Formdefinitionselfimportexportdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Formdefinitionselfimportexportdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Formdefinitionselfimportexportdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToFormdefinitionselfimportexportdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Formdefinitionselfimportexportdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Formdefinitionselfimportexportdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

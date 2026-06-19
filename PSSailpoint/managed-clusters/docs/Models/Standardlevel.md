@@ -5,7 +5,7 @@ pagination_label: Standardlevel
 sidebar_label: Standardlevel
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Standardlevel', 'Standardlevel'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/standardlevel
+slug: /tools/sdk/powershell/managedclusters/models/standardlevel
 tags: ['SDK', 'Software Development Kit', 'Standardlevel', 'Standardlevel']
 ---
 

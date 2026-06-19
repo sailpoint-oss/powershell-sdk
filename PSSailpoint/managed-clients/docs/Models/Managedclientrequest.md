@@ -5,7 +5,7 @@ pagination_label: Managedclientrequest
 sidebar_label: Managedclientrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Managedclientrequest', 'Managedclientrequest'] 
-slug: /tools/sdk/powershell/managedclientsv1/models/managedclientrequest
+slug: /tools/sdk/powershell/managedclients/models/managedclientrequest
 tags: ['SDK', 'Software Development Kit', 'Managedclientrequest', 'Managedclientrequest']
 ---
 

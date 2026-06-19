@@ -35,7 +35,7 @@ function Initialize-Basesegment {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Basesegment' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Basesegment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToBasesegment {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Basesegment' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Basesegment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: TestSourceConnectionMultihostV1200Response
 sidebar_label: TestSourceConnectionMultihostV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'TestSourceConnectionMultihostV1200Response', 'TestSourceConnectionMultihostV1200Response'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/test-source-connection-multihost-v1200-response
+slug: /tools/sdk/powershell/multihostintegration/models/test-source-connection-multihost-v1200-response
 tags: ['SDK', 'Software Development Kit', 'TestSourceConnectionMultihostV1200Response', 'TestSourceConnectionMultihostV1200Response']
 ---
 

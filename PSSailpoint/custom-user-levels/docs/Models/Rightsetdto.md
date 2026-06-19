@@ -5,7 +5,7 @@ pagination_label: Rightsetdto
 sidebar_label: Rightsetdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Rightsetdto', 'Rightsetdto'] 
-slug: /tools/sdk/powershell/customuserlevelsv1/models/rightsetdto
+slug: /tools/sdk/powershell/customuserlevels/models/rightsetdto
 tags: ['SDK', 'Software Development Kit', 'Rightsetdto', 'Rightsetdto']
 ---
 

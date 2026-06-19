@@ -5,7 +5,7 @@ pagination_label: SourcedeletedActor
 sidebar_label: SourcedeletedActor
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SourcedeletedActor', 'SourcedeletedActor'] 
-slug: /tools/sdk/powershell/triggersv1/models/sourcedeleted-actor
+slug: /tools/sdk/powershell/triggers/models/sourcedeleted-actor
 tags: ['SDK', 'Software Development Kit', 'SourcedeletedActor', 'SourcedeletedActor']
 ---
 

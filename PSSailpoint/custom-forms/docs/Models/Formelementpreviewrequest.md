@@ -5,7 +5,7 @@ pagination_label: Formelementpreviewrequest
 sidebar_label: Formelementpreviewrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Formelementpreviewrequest', 'Formelementpreviewrequest'] 
-slug: /tools/sdk/powershell/customformsv1/models/formelementpreviewrequest
+slug: /tools/sdk/powershell/customforms/models/formelementpreviewrequest
 tags: ['SDK', 'Software Development Kit', 'Formelementpreviewrequest', 'Formelementpreviewrequest']
 ---
 

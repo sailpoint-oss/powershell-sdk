@@ -41,7 +41,7 @@ function Initialize-MultihostintegrationsManagementWorkgroup {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => MultihostintegrationsManagementWorkgroup' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MultiHostIntegration => MultihostintegrationsManagementWorkgroup' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToMultihostintegrationsManagementWorkgroup {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => MultihostintegrationsManagementWorkgroup' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegration => MultihostintegrationsManagementWorkgroup' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

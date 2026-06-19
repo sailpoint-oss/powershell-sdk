@@ -5,7 +5,7 @@ pagination_label: ConnectorrulecreaterequestSignature
 sidebar_label: ConnectorrulecreaterequestSignature
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorrulecreaterequestSignature', 'ConnectorrulecreaterequestSignature'] 
-slug: /tools/sdk/powershell/connectorrulemanagementv1/models/connectorrulecreaterequest-signature
+slug: /tools/sdk/powershell/connectorrulemanagement/models/connectorrulecreaterequest-signature
 tags: ['SDK', 'Software Development Kit', 'ConnectorrulecreaterequestSignature', 'ConnectorrulecreaterequestSignature']
 ---
 

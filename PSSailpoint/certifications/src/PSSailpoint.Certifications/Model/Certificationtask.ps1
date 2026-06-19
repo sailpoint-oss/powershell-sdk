@@ -68,7 +68,7 @@ function Initialize-Certificationtask {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => Certificationtask' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => Certificationtask' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -111,7 +111,7 @@ function ConvertFrom-JsonToCertificationtask {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => Certificationtask' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => Certificationtask' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

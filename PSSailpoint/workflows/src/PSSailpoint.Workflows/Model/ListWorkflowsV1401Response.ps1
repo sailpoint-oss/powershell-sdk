@@ -30,7 +30,7 @@ function Initialize-ListWorkflowsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkflowsV1 => ListWorkflowsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Workflows => ListWorkflowsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListWorkflowsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkflowsV1 => ListWorkflowsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Workflows => ListWorkflowsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

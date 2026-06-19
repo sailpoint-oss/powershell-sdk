@@ -5,7 +5,7 @@ pagination_label: Formcondition
 sidebar_label: Formcondition
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Formcondition', 'Formcondition'] 
-slug: /tools/sdk/powershell/customformsv1/models/formcondition
+slug: /tools/sdk/powershell/customforms/models/formcondition
 tags: ['SDK', 'Software Development Kit', 'Formcondition', 'Formcondition']
 ---
 

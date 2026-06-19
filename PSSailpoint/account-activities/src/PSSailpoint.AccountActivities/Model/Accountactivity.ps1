@@ -97,7 +97,7 @@ function Initialize-Accountactivity {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountActivitiesV1 => Accountactivity' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccountActivities => Accountactivity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -146,7 +146,7 @@ function ConvertFrom-JsonToAccountactivity {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountActivitiesV1 => Accountactivity' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccountActivities => Accountactivity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Accountrequestphase
 sidebar_label: Accountrequestphase
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountrequestphase', 'Accountrequestphase'] 
-slug: /tools/sdk/powershell/machineaccountcreationrequestv1/models/accountrequestphase
+slug: /tools/sdk/powershell/machineaccountcreationrequest/models/accountrequestphase
 tags: ['SDK', 'Software Development Kit', 'Accountrequestphase', 'Accountrequestphase']
 ---
 

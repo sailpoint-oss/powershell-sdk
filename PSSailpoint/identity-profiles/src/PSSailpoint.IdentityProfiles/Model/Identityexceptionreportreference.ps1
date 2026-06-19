@@ -35,7 +35,7 @@ function Initialize-Identityexceptionreportreference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityProfilesV1 => Identityexceptionreportreference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityProfiles => Identityexceptionreportreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToIdentityexceptionreportreference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityProfilesV1 => Identityexceptionreportreference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityProfiles => Identityexceptionreportreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

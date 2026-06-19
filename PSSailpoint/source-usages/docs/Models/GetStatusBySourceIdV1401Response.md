@@ -5,7 +5,7 @@ pagination_label: GetStatusBySourceIdV1401Response
 sidebar_label: GetStatusBySourceIdV1401Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetStatusBySourceIdV1401Response', 'GetStatusBySourceIdV1401Response'] 
-slug: /tools/sdk/powershell/sourceusagesv1/models/get-status-by-source-id-v1401-response
+slug: /tools/sdk/powershell/sourceusages/models/get-status-by-source-id-v1401-response
 tags: ['SDK', 'Software Development Kit', 'GetStatusBySourceIdV1401Response', 'GetStatusBySourceIdV1401Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetStatusBySourceIdV1401Response', 'G
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**VarError** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

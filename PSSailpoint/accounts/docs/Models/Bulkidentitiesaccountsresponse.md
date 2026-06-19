@@ -5,7 +5,7 @@ pagination_label: Bulkidentitiesaccountsresponse
 sidebar_label: Bulkidentitiesaccountsresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Bulkidentitiesaccountsresponse', 'Bulkidentitiesaccountsresponse'] 
-slug: /tools/sdk/powershell/accountsv1/models/bulkidentitiesaccountsresponse
+slug: /tools/sdk/powershell/accounts/models/bulkidentitiesaccountsresponse
 tags: ['SDK', 'Software Development Kit', 'Bulkidentitiesaccountsresponse', 'Bulkidentitiesaccountsresponse']
 ---
 

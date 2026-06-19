@@ -40,7 +40,7 @@ function Initialize-CompletedapprovalRequesterComment {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestApprovalsV1 => CompletedapprovalRequesterComment' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequestApprovals => CompletedapprovalRequesterComment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToCompletedapprovalRequesterComment {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestApprovalsV1 => CompletedapprovalRequesterComment' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestApprovals => CompletedapprovalRequesterComment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

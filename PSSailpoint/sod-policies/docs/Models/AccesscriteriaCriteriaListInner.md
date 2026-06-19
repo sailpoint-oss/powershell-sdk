@@ -5,7 +5,7 @@ pagination_label: AccesscriteriaCriteriaListInner
 sidebar_label: AccesscriteriaCriteriaListInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccesscriteriaCriteriaListInner', 'AccesscriteriaCriteriaListInner'] 
-slug: /tools/sdk/powershell/sodpoliciesv1/models/accesscriteria-criteria-list-inner
+slug: /tools/sdk/powershell/sodpolicies/models/accesscriteria-criteria-list-inner
 tags: ['SDK', 'Software Development Kit', 'AccesscriteriaCriteriaListInner', 'AccesscriteriaCriteriaListInner']
 ---
 

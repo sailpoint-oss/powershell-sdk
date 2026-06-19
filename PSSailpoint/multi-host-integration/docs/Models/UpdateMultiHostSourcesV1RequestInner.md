@@ -5,7 +5,7 @@ pagination_label: UpdateMultiHostSourcesV1RequestInner
 sidebar_label: UpdateMultiHostSourcesV1RequestInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'UpdateMultiHostSourcesV1RequestInner', 'UpdateMultiHostSourcesV1RequestInner'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/update-multi-host-sources-v1-request-inner
+slug: /tools/sdk/powershell/multihostintegration/models/update-multi-host-sources-v1-request-inner
 tags: ['SDK', 'Software Development Kit', 'UpdateMultiHostSourcesV1RequestInner', 'UpdateMultiHostSourcesV1RequestInner']
 ---
 

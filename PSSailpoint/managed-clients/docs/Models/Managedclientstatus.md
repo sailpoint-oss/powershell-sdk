@@ -5,7 +5,7 @@ pagination_label: Managedclientstatus
 sidebar_label: Managedclientstatus
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Managedclientstatus', 'Managedclientstatus'] 
-slug: /tools/sdk/powershell/managedclientsv1/models/managedclientstatus
+slug: /tools/sdk/powershell/managedclients/models/managedclientstatus
 tags: ['SDK', 'Software Development Kit', 'Managedclientstatus', 'Managedclientstatus']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Managedclientstatus', 'Managedclients
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Body** | [**SystemCollectionsHashtable**](system-collections-hashtable) | ManagedClientStatus body information | [required]
+**Body** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | ManagedClientStatus body information | [required]
 **Status** | [**Managedclientstatuscode**](managedclientstatuscode) |  | [required]
 **Type** | [**Managedclienttype**](managedclienttype) |  | [required]
 **Timestamp** | **System.DateTime** | timestamp on the Client Status update | [required]

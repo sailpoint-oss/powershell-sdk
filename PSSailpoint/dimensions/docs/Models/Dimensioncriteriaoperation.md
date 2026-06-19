@@ -5,7 +5,7 @@ pagination_label: Dimensioncriteriaoperation
 sidebar_label: Dimensioncriteriaoperation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dimensioncriteriaoperation', 'Dimensioncriteriaoperation'] 
-slug: /tools/sdk/powershell/dimensionsv1/models/dimensioncriteriaoperation
+slug: /tools/sdk/powershell/dimensions/models/dimensioncriteriaoperation
 tags: ['SDK', 'Software Development Kit', 'Dimensioncriteriaoperation', 'Dimensioncriteriaoperation']
 ---
 

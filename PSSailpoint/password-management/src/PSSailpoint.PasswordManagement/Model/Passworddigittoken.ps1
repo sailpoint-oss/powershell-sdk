@@ -35,7 +35,7 @@ function Initialize-Passworddigittoken {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PasswordManagementV1 => Passworddigittoken' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PasswordManagement => Passworddigittoken' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToPassworddigittoken {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PasswordManagementV1 => Passworddigittoken' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PasswordManagement => Passworddigittoken' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

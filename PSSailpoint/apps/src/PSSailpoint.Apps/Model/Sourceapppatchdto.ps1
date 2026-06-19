@@ -90,7 +90,7 @@ function Initialize-Sourceapppatchdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AppsV1 => Sourceapppatchdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Apps => Sourceapppatchdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -138,7 +138,7 @@ function ConvertFrom-JsonToSourceapppatchdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AppsV1 => Sourceapppatchdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Apps => Sourceapppatchdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

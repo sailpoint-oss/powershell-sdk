@@ -35,7 +35,7 @@ function Initialize-Entitycreatedbydto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRoleMiningV1 => Entitycreatedbydto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRoleMining => Entitycreatedbydto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToEntitycreatedbydto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMiningV1 => Entitycreatedbydto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMining => Entitycreatedbydto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

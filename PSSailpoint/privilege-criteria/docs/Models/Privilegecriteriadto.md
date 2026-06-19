@@ -5,7 +5,7 @@ pagination_label: Privilegecriteriadto
 sidebar_label: Privilegecriteriadto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Privilegecriteriadto', 'Privilegecriteriadto'] 
-slug: /tools/sdk/powershell/privilegecriteriav1/models/privilegecriteriadto
+slug: /tools/sdk/powershell/privilegecriteria/models/privilegecriteriadto
 tags: ['SDK', 'Software Development Kit', 'Privilegecriteriadto', 'Privilegecriteriadto']
 ---
 

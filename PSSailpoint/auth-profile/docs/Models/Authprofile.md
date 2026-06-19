@@ -5,7 +5,7 @@ pagination_label: Authprofile
 sidebar_label: Authprofile
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Authprofile', 'Authprofile'] 
-slug: /tools/sdk/powershell/authprofilev1/models/authprofile
+slug: /tools/sdk/powershell/authprofile/models/authprofile
 tags: ['SDK', 'Software Development Kit', 'Authprofile', 'Authprofile']
 ---
 

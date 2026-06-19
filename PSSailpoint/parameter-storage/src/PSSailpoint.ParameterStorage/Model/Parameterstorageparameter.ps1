@@ -80,7 +80,7 @@ function Initialize-Parameterstorageparameter {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ParameterStorageV1 => Parameterstorageparameter' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ParameterStorage => Parameterstorageparameter' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -142,7 +142,7 @@ function ConvertFrom-JsonToParameterstorageparameter {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ParameterStorageV1 => Parameterstorageparameter' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ParameterStorage => Parameterstorageparameter' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

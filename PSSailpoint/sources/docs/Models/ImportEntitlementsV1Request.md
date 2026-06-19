@@ -5,7 +5,7 @@ pagination_label: ImportEntitlementsV1Request
 sidebar_label: ImportEntitlementsV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ImportEntitlementsV1Request', 'ImportEntitlementsV1Request'] 
-slug: /tools/sdk/powershell/sourcesv1/models/import-entitlements-v1-request
+slug: /tools/sdk/powershell/sources/models/import-entitlements-v1-request
 tags: ['SDK', 'Software Development Kit', 'ImportEntitlementsV1Request', 'ImportEntitlementsV1Request']
 ---
 

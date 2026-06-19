@@ -5,7 +5,7 @@ pagination_label: WorkgroupdtoOwner
 sidebar_label: WorkgroupdtoOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupdtoOwner', 'WorkgroupdtoOwner'] 
-slug: /tools/sdk/powershell/governancegroupsv1/models/workgroupdto-owner
+slug: /tools/sdk/powershell/governancegroups/models/workgroupdto-owner
 tags: ['SDK', 'Software Development Kit', 'WorkgroupdtoOwner', 'WorkgroupdtoOwner']
 ---
 

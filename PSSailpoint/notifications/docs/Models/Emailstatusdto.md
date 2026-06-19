@@ -5,7 +5,7 @@ pagination_label: Emailstatusdto
 sidebar_label: Emailstatusdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Emailstatusdto', 'Emailstatusdto'] 
-slug: /tools/sdk/powershell/notificationsv1/models/emailstatusdto
+slug: /tools/sdk/powershell/notifications/models/emailstatusdto
 tags: ['SDK', 'Software Development Kit', 'Emailstatusdto', 'Emailstatusdto']
 ---
 

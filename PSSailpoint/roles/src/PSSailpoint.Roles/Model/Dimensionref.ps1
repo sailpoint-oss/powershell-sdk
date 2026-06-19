@@ -41,7 +41,7 @@ function Initialize-Dimensionref {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Dimensionref' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Dimensionref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToDimensionref {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Dimensionref' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Dimensionref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

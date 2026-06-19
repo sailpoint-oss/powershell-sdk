@@ -19,7 +19,7 @@ No description available.
 .PARAMETER Key
 No description available.
 .PARAMETER StringValue
-String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
+String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, DOES_NOT_CONTAIN, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
 .PARAMETER Children
 Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be children or OR nodes and vice-versa.
 .OUTPUTS
@@ -31,7 +31,7 @@ function Initialize-Rolecriterialevel2 {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("EQUALS", "NOT_EQUALS", "CONTAINS", "STARTS_WITH", "ENDS_WITH", "AND", "OR")]
+        [ValidateSet("EQUALS", "NOT_EQUALS", "CONTAINS", "DOES_NOT_CONTAIN", "STARTS_WITH", "ENDS_WITH", "GREATER_THAN", "LESS_THAN", "GREATER_THAN_EQUALS", "LESS_THAN_EQUALS", "AND", "OR")]
         [PSCustomObject]
         ${Operation},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -46,7 +46,7 @@ function Initialize-Rolecriterialevel2 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Rolecriterialevel2' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Rolecriterialevel2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToRolecriterialevel2 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Rolecriterialevel2' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Rolecriterialevel2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

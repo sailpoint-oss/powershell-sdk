@@ -45,7 +45,7 @@ function Initialize-SearchExportReportArguments {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => SearchExportReportArguments' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ReportsDataExtraction => SearchExportReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Query) {
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToSearchExportReportArguments {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => SearchExportReportArguments' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtraction => SearchExportReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

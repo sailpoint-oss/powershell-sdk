@@ -5,7 +5,7 @@ pagination_label: Accounttogglerequest
 sidebar_label: Accounttogglerequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accounttogglerequest', 'Accounttogglerequest'] 
-slug: /tools/sdk/powershell/accountsv1/models/accounttogglerequest
+slug: /tools/sdk/powershell/accounts/models/accounttogglerequest
 tags: ['SDK', 'Software Development Kit', 'Accounttogglerequest', 'Accounttogglerequest']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Argument
 sidebar_label: Argument
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Argument', 'Argument'] 
-slug: /tools/sdk/powershell/connectorrulemanagementv1/models/argument
+slug: /tools/sdk/powershell/connectorrulemanagement/models/argument
 tags: ['SDK', 'Software Development Kit', 'Argument', 'Argument']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: DeleteSourceV1202Response
 sidebar_label: DeleteSourceV1202Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'DeleteSourceV1202Response', 'DeleteSourceV1202Response'] 
-slug: /tools/sdk/powershell/sourcesv1/models/delete-source-v1202-response
+slug: /tools/sdk/powershell/sources/models/delete-source-v1202-response
 tags: ['SDK', 'Software Development Kit', 'DeleteSourceV1202Response', 'DeleteSourceV1202Response']
 ---
 

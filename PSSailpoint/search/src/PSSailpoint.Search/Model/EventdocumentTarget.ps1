@@ -30,7 +30,7 @@ function Initialize-EventdocumentTarget {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => EventdocumentTarget' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => EventdocumentTarget' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToEventdocumentTarget {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => EventdocumentTarget' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => EventdocumentTarget' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

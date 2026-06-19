@@ -30,7 +30,7 @@ function Initialize-GetProfileConfigListV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AuthProfileV1 => GetProfileConfigListV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AuthProfile => GetProfileConfigListV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetProfileConfigListV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AuthProfileV1 => GetProfileConfigListV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AuthProfile => GetProfileConfigListV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

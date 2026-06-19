@@ -5,7 +5,7 @@ pagination_label: Basecommondto
 sidebar_label: Basecommondto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Basecommondto', 'Basecommondto'] 
-slug: /tools/sdk/powershell/machineaccountsv1/models/basecommondto
+slug: /tools/sdk/powershell/machineaccounts/models/basecommondto
 tags: ['SDK', 'Software Development Kit', 'Basecommondto', 'Basecommondto']
 ---
 

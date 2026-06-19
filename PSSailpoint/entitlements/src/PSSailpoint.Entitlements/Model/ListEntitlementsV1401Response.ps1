@@ -30,7 +30,7 @@ function Initialize-ListEntitlementsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.EntitlementsV1 => ListEntitlementsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Entitlements => ListEntitlementsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListEntitlementsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.EntitlementsV1 => ListEntitlementsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Entitlements => ListEntitlementsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

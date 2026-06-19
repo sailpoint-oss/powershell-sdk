@@ -40,7 +40,7 @@ function Initialize-Workgroupmemberadditem {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GovernanceGroupsV1 => Workgroupmemberadditem' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GovernanceGroups => Workgroupmemberadditem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToWorkgroupmemberadditem {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroupsV1 => Workgroupmemberadditem' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroups => Workgroupmemberadditem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -36,7 +36,7 @@ function Initialize-Passwordchangeresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PasswordManagementV1 => Passwordchangeresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PasswordManagement => Passwordchangeresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToPasswordchangeresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PasswordManagementV1 => Passwordchangeresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PasswordManagement => Passwordchangeresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

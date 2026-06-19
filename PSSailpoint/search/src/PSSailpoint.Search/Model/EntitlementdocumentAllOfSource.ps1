@@ -40,7 +40,7 @@ function Initialize-EntitlementdocumentAllOfSource {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => EntitlementdocumentAllOfSource' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => EntitlementdocumentAllOfSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToEntitlementdocumentAllOfSource {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => EntitlementdocumentAllOfSource' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => EntitlementdocumentAllOfSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

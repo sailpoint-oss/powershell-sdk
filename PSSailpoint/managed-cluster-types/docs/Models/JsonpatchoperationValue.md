@@ -5,7 +5,7 @@ pagination_label: JsonpatchoperationValue
 sidebar_label: JsonpatchoperationValue
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'JsonpatchoperationValue', 'JsonpatchoperationValue'] 
-slug: /tools/sdk/powershell/managedclustertypesv1/models/jsonpatchoperation-value
+slug: /tools/sdk/powershell/managedclustertypes/models/jsonpatchoperation-value
 tags: ['SDK', 'Software Development Kit', 'JsonpatchoperationValue', 'JsonpatchoperationValue']
 ---
 

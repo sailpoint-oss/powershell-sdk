@@ -41,7 +41,7 @@ function Initialize-Rolecriteriakey {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Rolecriteriakey' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Rolecriteriakey' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -87,7 +87,7 @@ function ConvertFrom-JsonToRolecriteriakey {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Rolecriteriakey' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Rolecriteriakey' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

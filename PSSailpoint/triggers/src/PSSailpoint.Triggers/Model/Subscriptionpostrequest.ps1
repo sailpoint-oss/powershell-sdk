@@ -71,7 +71,7 @@ function Initialize-Subscriptionpostrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Subscriptionpostrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Subscriptionpostrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -127,7 +127,7 @@ function ConvertFrom-JsonToSubscriptionpostrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Subscriptionpostrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Subscriptionpostrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

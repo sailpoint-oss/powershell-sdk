@@ -35,7 +35,7 @@ function Initialize-DependantappconnectionsAccountSource {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => DependantappconnectionsAccountSource' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => DependantappconnectionsAccountSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToDependantappconnectionsAccountSource {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => DependantappconnectionsAccountSource' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => DependantappconnectionsAccountSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

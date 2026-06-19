@@ -5,7 +5,7 @@ pagination_label: Permissioncollectorsettings
 sidebar_label: Permissioncollectorsettings
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Permissioncollectorsettings', 'Permissioncollectorsettings'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/permissioncollectorsettings
+slug: /tools/sdk/powershell/dataaccesssecurity/models/permissioncollectorsettings
 tags: ['SDK', 'Software Development Kit', 'Permissioncollectorsettings', 'Permissioncollectorsettings']
 ---
 

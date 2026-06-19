@@ -36,7 +36,7 @@ function Initialize-Approval2ApprovalCriteriaApproval {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => Approval2ApprovalCriteriaApproval' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => Approval2ApprovalCriteriaApproval' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToApproval2ApprovalCriteriaApproval {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => Approval2ApprovalCriteriaApproval' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => Approval2ApprovalCriteriaApproval' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

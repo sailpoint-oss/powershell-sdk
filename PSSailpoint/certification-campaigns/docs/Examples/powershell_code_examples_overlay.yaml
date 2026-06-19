@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#complete-campaign-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#complete-campaign-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
         $Campaigncompleteoptions = @"
@@ -24,7 +24,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#create-campaign-template-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#create-campaign-template-v1
       source: |
         $Campaigntemplate = @"
         
@@ -46,7 +46,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#create-campaign-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#create-campaign-v1
       source: |
         $Campaign2 = @"
         
@@ -68,7 +68,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#delete-campaign-template-schedule-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#delete-campaign-template-schedule-v1
       source: |
         $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being deleted.
         
@@ -87,7 +87,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#delete-campaign-template-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#delete-campaign-template-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being deleted.
         
@@ -106,7 +106,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#delete-campaigns-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#delete-campaigns-v1
       source: |
         $Campaignsdeleterequest = @"
         
@@ -128,7 +128,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#get-active-campaigns-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-active-campaigns-v1
       source: |
         $Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -152,7 +152,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#get-campaign-reports-config-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-reports-config-v1
       source: |
         
         # Get campaign reports configuration
@@ -170,7 +170,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#get-campaign-reports-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-reports-v1
       source: |
         $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose reports are being fetched.
         
@@ -189,7 +189,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#get-campaign-template-schedule-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-template-schedule-v1
       source: |
         $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being fetched.
         
@@ -208,7 +208,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#get-campaign-template-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-template-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | Requested campaign template's ID.
         
@@ -227,7 +227,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#get-campaign-templates-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-templates-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -250,7 +250,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#get-campaign-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-v1
       source: |
         $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign to be retrieved.
         $Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
@@ -270,7 +270,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#move-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#move-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification campaign ID
         $Adminreviewreassign = @"
@@ -293,11 +293,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#patch-campaign-template-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#patch-campaign-template-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being modified.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
         $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Updated description!"},{"op":"replace","path":"/campaign/filter/id","value":"ff80818155fe8c080155fe8d925b0316"}]"@ 
         
         
@@ -317,7 +315,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#set-campaign-reports-config-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#set-campaign-reports-config-v1
       source: |
         $Campaignreportsconfig = @"
         
@@ -339,7 +337,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#set-campaign-template-schedule-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#set-campaign-template-schedule-v1
       source: |
         $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template being scheduled.
         $Schedule2 = @"
@@ -361,7 +359,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#start-campaign-remediation-scan-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#start-campaign-remediation-scan-v1
       source: |
         $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the remediation scan is being run for.
         
@@ -380,7 +378,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#start-campaign-report-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#start-campaign-report-v1
       source: |
         $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the report is being run for.
         $Type = "CAMPAIGN_COMPOSITION_REPORT" # Reporttype | Type of the report to run.
@@ -400,7 +398,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#start-campaign-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#start-campaign-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
         $Activatecampaignoptions = @"
@@ -422,7 +420,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#start-generate-campaign-template-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#start-generate-campaign-template-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template to use for generation.
         
@@ -441,11 +439,9 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationcampaignsv1/methods/certification-campaigns#update-campaign-v1
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#update-campaign-v1
       source: |
         $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template being modified.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
         $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":"This field has been updated!"},{"op":"copy","from":"/name","path":"/description"}]"@ 
         
         

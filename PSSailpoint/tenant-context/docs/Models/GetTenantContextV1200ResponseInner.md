@@ -5,7 +5,7 @@ pagination_label: GetTenantContextV1200ResponseInner
 sidebar_label: GetTenantContextV1200ResponseInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetTenantContextV1200ResponseInner', 'GetTenantContextV1200ResponseInner'] 
-slug: /tools/sdk/powershell/tenantcontextv1/models/get-tenant-context-v1200-response-inner
+slug: /tools/sdk/powershell/tenantcontext/models/get-tenant-context-v1200-response-inner
 tags: ['SDK', 'Software Development Kit', 'GetTenantContextV1200ResponseInner', 'GetTenantContextV1200ResponseInner']
 ---
 

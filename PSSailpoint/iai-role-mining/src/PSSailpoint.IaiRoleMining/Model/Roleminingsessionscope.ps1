@@ -40,7 +40,7 @@ function Initialize-Roleminingsessionscope {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRoleMiningV1 => Roleminingsessionscope' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRoleMining => Roleminingsessionscope' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToRoleminingsessionscope {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMiningV1 => Roleminingsessionscope' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMining => Roleminingsessionscope' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -41,7 +41,7 @@ function Initialize-SimintegrationdetailsAllOfBeforeProvisioningRule {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SimIntegrationsV1 => SimintegrationdetailsAllOfBeforeProvisioningRule' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SimIntegrations => SimintegrationdetailsAllOfBeforeProvisioningRule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToSimintegrationdetailsAllOfBeforeProvisioningRule {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SimIntegrationsV1 => SimintegrationdetailsAllOfBeforeProvisioningRule' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SimIntegrations => SimintegrationdetailsAllOfBeforeProvisioningRule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

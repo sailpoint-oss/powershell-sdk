@@ -5,7 +5,7 @@ pagination_label: TestExternalExecuteWorkflowV1200Response
 sidebar_label: TestExternalExecuteWorkflowV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'TestExternalExecuteWorkflowV1200Response', 'TestExternalExecuteWorkflowV1200Response'] 
-slug: /tools/sdk/powershell/workflowsv1/models/test-external-execute-workflow-v1200-response
+slug: /tools/sdk/powershell/workflows/models/test-external-execute-workflow-v1200-response
 tags: ['SDK', 'Software Development Kit', 'TestExternalExecuteWorkflowV1200Response', 'TestExternalExecuteWorkflowV1200Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'TestExternalExecuteWorkflowV1200Respo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Payload** | [**SystemCollectionsHashtable**](system-collections-hashtable) | The input that was received | [optional] 
+**Payload** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The input that was received | [optional] 
 
 ## Examples
 

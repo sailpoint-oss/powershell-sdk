@@ -56,7 +56,7 @@ function Initialize-Nativechangedetectionconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Nativechangedetectionconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Nativechangedetectionconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -97,7 +97,7 @@ function ConvertFrom-JsonToNativechangedetectionconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Nativechangedetectionconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Nativechangedetectionconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

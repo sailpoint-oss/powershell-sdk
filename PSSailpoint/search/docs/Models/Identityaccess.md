@@ -5,7 +5,7 @@ pagination_label: Identityaccess
 sidebar_label: Identityaccess
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityaccess', 'Identityaccess'] 
-slug: /tools/sdk/powershell/searchv1/models/identityaccess
+slug: /tools/sdk/powershell/search/models/identityaccess
 tags: ['SDK', 'Software Development Kit', 'Identityaccess', 'Identityaccess']
 ---
 

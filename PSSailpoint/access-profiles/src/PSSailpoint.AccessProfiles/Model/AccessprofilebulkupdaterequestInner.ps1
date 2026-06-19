@@ -35,7 +35,7 @@ function Initialize-AccessprofilebulkupdaterequestInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfilesV1 => AccessprofilebulkupdaterequestInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => AccessprofilebulkupdaterequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAccessprofilebulkupdaterequestInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfilesV1 => AccessprofilebulkupdaterequestInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => AccessprofilebulkupdaterequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

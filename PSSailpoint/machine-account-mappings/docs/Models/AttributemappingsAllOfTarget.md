@@ -5,7 +5,7 @@ pagination_label: AttributemappingsAllOfTarget
 sidebar_label: AttributemappingsAllOfTarget
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AttributemappingsAllOfTarget', 'AttributemappingsAllOfTarget'] 
-slug: /tools/sdk/powershell/machineaccountmappingsv1/models/attributemappings-all-of-target
+slug: /tools/sdk/powershell/machineaccountmappings/models/attributemappings-all-of-target
 tags: ['SDK', 'Software Development Kit', 'AttributemappingsAllOfTarget', 'AttributemappingsAllOfTarget']
 ---
 

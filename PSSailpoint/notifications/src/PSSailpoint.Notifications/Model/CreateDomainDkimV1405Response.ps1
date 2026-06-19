@@ -40,7 +40,7 @@ function Initialize-CreateDomainDkimV1405Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => CreateDomainDkimV1405Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => CreateDomainDkimV1405Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToCreateDomainDkimV1405Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => CreateDomainDkimV1405Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => CreateDomainDkimV1405Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

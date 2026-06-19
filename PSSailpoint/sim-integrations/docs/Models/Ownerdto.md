@@ -5,7 +5,7 @@ pagination_label: Ownerdto
 sidebar_label: Ownerdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Ownerdto', 'Ownerdto'] 
-slug: /tools/sdk/powershell/simintegrationsv1/models/ownerdto
+slug: /tools/sdk/powershell/simintegrations/models/ownerdto
 tags: ['SDK', 'Software Development Kit', 'Ownerdto', 'Ownerdto']
 ---
 

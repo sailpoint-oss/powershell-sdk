@@ -95,7 +95,7 @@ function Initialize-Sed {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SuggestedEntitlementDescriptionV1 => Sed' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SuggestedEntitlementDescription => Sed' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -144,7 +144,7 @@ function ConvertFrom-JsonToSed {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SuggestedEntitlementDescriptionV1 => Sed' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SuggestedEntitlementDescription => Sed' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -35,7 +35,7 @@ function Initialize-Upper {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Upper' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Upper' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToUpper {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Upper' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Upper' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Applicationitem
 sidebar_label: Applicationitem
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Applicationitem', 'Applicationitem'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/applicationitem
+slug: /tools/sdk/powershell/dataaccesssecurity/models/applicationitem
 tags: ['SDK', 'Software Development Kit', 'Applicationitem', 'Applicationitem']
 ---
 

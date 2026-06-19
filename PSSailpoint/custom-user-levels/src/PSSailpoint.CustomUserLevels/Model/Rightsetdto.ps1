@@ -80,7 +80,7 @@ function Initialize-Rightsetdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Rightsetdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomUserLevels => Rightsetdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -126,7 +126,7 @@ function ConvertFrom-JsonToRightsetdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Rightsetdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevels => Rightsetdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

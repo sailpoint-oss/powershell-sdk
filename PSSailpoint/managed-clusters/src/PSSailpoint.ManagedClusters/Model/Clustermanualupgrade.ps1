@@ -30,7 +30,7 @@ function Initialize-Clustermanualupgrade {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClustersV1 => Clustermanualupgrade' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClusters => Clustermanualupgrade' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToClustermanualupgrade {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClustersV1 => Clustermanualupgrade' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusters => Clustermanualupgrade' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -35,7 +35,7 @@ function Initialize-Sodviolationcontext {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Sodviolationcontext' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Sodviolationcontext' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToSodviolationcontext {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Sodviolationcontext' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Sodviolationcontext' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

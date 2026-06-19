@@ -40,7 +40,7 @@ function Initialize-Concatenation {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Concatenation' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Concatenation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Values) {
@@ -82,7 +82,7 @@ function ConvertFrom-JsonToConcatenation {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Concatenation' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Concatenation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -40,7 +40,7 @@ function Initialize-Servicedeskintegrationtemplatetype {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ServiceDeskIntegrationV1 => Servicedeskintegrationtemplatetype' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ServiceDeskIntegration => Servicedeskintegrationtemplatetype' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToServicedeskintegrationtemplatetype {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ServiceDeskIntegrationV1 => Servicedeskintegrationtemplatetype' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ServiceDeskIntegration => Servicedeskintegrationtemplatetype' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -50,7 +50,7 @@ function Initialize-Roleminingpotentialroleprovisionrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRoleMiningV1 => Roleminingpotentialroleprovisionrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRoleMining => Roleminingpotentialroleprovisionrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToRoleminingpotentialroleprovisionrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMiningV1 => Roleminingpotentialroleprovisionrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMining => Roleminingpotentialroleprovisionrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

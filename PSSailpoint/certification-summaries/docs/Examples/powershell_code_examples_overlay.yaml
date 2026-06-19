@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsummariesv1/methods/certification-summaries#get-identity-access-summaries-v1
+      label: SDK_tools/sdk/powershell/certificationsummaries/methods/certification-summaries#get-identity-access-summaries-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
         $Type = "ROLE" # String | The type of access review item to retrieve summaries for
@@ -27,7 +27,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsummariesv1/methods/certification-summaries#get-identity-decision-summary-v1
+      label: SDK_tools/sdk/powershell/certificationsummaries/methods/certification-summaries#get-identity-decision-summary-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
         $Filters = "identitySummary.id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identitySummary.id**: *eq, in* (optional)
@@ -47,7 +47,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsummariesv1/methods/certification-summaries#get-identity-summaries-v1
+      label: SDK_tools/sdk/powershell/certificationsummaries/methods/certification-summaries#get-identity-summaries-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -71,7 +71,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsummariesv1/methods/certification-summaries#get-identity-summary-v1
+      label: SDK_tools/sdk/powershell/certificationsummaries/methods/certification-summaries#get-identity-summary-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
         $IdentitySummaryId = "2c91808772a504f50172a9540e501ba8" # String | The identity summary ID

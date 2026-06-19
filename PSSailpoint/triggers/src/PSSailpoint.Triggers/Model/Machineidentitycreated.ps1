@@ -36,7 +36,7 @@ function Initialize-Machineidentitycreated {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Machineidentitycreated' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Machineidentitycreated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$EventType) {
@@ -81,7 +81,7 @@ function ConvertFrom-JsonToMachineidentitycreated {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Machineidentitycreated' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Machineidentitycreated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

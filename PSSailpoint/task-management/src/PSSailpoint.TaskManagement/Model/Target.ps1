@@ -41,7 +41,7 @@ function Initialize-Target {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TaskManagementV1 => Target' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.TaskManagement => Target' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToTarget {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TaskManagementV1 => Target' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.TaskManagement => Target' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

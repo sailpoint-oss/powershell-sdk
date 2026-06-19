@@ -30,7 +30,7 @@ function Initialize-ListDeploysV1200Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConfigurationHubV1 => ListDeploysV1200Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConfigurationHub => ListDeploysV1200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListDeploysV1200Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHubV1 => ListDeploysV1200Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHub => ListDeploysV1200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

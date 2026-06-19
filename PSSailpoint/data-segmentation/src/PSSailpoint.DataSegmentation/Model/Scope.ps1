@@ -47,7 +47,7 @@ function Initialize-Scope {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataSegmentationV1 => Scope' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataSegmentation => Scope' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToScope {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataSegmentationV1 => Scope' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataSegmentation => Scope' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

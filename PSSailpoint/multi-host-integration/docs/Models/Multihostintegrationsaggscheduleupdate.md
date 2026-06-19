@@ -5,7 +5,7 @@ pagination_label: Multihostintegrationsaggscheduleupdate
 sidebar_label: Multihostintegrationsaggscheduleupdate
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Multihostintegrationsaggscheduleupdate', 'Multihostintegrationsaggscheduleupdate'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/multihostintegrationsaggscheduleupdate
+slug: /tools/sdk/powershell/multihostintegration/models/multihostintegrationsaggscheduleupdate
 tags: ['SDK', 'Software Development Kit', 'Multihostintegrationsaggscheduleupdate', 'Multihostintegrationsaggscheduleupdate']
 ---
 

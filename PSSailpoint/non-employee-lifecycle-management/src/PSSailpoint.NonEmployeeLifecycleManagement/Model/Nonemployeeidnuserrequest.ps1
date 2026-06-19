@@ -30,7 +30,7 @@ function Initialize-Nonemployeeidnuserrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => Nonemployeeidnuserrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => Nonemployeeidnuserrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToNonemployeeidnuserrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => Nonemployeeidnuserrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => Nonemployeeidnuserrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

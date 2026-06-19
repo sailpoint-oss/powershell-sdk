@@ -66,7 +66,7 @@ function Initialize-Objectmappingresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConfigurationHubV1 => Objectmappingresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConfigurationHub => Objectmappingresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -109,7 +109,7 @@ function ConvertFrom-JsonToObjectmappingresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHubV1 => Objectmappingresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHub => Objectmappingresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

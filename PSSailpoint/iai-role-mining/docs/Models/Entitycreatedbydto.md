@@ -5,7 +5,7 @@ pagination_label: Entitycreatedbydto
 sidebar_label: Entitycreatedbydto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Entitycreatedbydto', 'Entitycreatedbydto'] 
-slug: /tools/sdk/powershell/iairoleminingv1/models/entitycreatedbydto
+slug: /tools/sdk/powershell/iairolemining/models/entitycreatedbydto
 tags: ['SDK', 'Software Development Kit', 'Entitycreatedbydto', 'Entitycreatedbydto']
 ---
 

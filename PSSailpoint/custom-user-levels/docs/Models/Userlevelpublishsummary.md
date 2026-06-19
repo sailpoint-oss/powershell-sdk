@@ -5,7 +5,7 @@ pagination_label: Userlevelpublishsummary
 sidebar_label: Userlevelpublishsummary
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Userlevelpublishsummary', 'Userlevelpublishsummary'] 
-slug: /tools/sdk/powershell/customuserlevelsv1/models/userlevelpublishsummary
+slug: /tools/sdk/powershell/customuserlevels/models/userlevelpublishsummary
 tags: ['SDK', 'Software Development Kit', 'Userlevelpublishsummary', 'Userlevelpublishsummary']
 ---
 

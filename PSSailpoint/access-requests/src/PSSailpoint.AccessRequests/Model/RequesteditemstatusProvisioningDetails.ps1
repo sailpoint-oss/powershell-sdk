@@ -30,7 +30,7 @@ function Initialize-RequesteditemstatusProvisioningDetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => RequesteditemstatusProvisioningDetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => RequesteditemstatusProvisioningDetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToRequesteditemstatusProvisioningDetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => RequesteditemstatusProvisioningDetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => RequesteditemstatusProvisioningDetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

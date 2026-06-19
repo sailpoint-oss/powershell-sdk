@@ -30,7 +30,7 @@ function Initialize-Jsonpatch {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Jsonpatch' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomUserLevels => Jsonpatch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToJsonpatch {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Jsonpatch' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevels => Jsonpatch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

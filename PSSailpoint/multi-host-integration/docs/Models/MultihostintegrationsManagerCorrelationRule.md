@@ -5,7 +5,7 @@ pagination_label: MultihostintegrationsManagerCorrelationRule
 sidebar_label: MultihostintegrationsManagerCorrelationRule
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MultihostintegrationsManagerCorrelationRule', 'MultihostintegrationsManagerCorrelationRule'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/multihostintegrations-manager-correlation-rule
+slug: /tools/sdk/powershell/multihostintegration/models/multihostintegrations-manager-correlation-rule
 tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsManagerCorrelationRule', 'MultihostintegrationsManagerCorrelationRule']
 ---
 

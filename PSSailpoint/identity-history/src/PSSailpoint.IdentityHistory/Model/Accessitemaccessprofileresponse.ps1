@@ -85,7 +85,7 @@ function Initialize-Accessitemaccessprofileresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessitemaccessprofileresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Accessitemaccessprofileresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$EntitlementCount) {
@@ -140,7 +140,7 @@ function ConvertFrom-JsonToAccessitemaccessprofileresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessitemaccessprofileresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Accessitemaccessprofileresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

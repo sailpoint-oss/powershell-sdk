@@ -5,7 +5,7 @@ pagination_label: DataaccessCategoriesInner
 sidebar_label: DataaccessCategoriesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'DataaccessCategoriesInner', 'DataaccessCategoriesInner'] 
-slug: /tools/sdk/powershell/certificationsummariesv1/models/dataaccess-categories-inner
+slug: /tools/sdk/powershell/certificationsummaries/models/dataaccess-categories-inner
 tags: ['SDK', 'Software Development Kit', 'DataaccessCategoriesInner', 'DataaccessCategoriesInner']
 ---
 

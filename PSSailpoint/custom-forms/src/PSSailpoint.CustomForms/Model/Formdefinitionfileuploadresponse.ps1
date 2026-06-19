@@ -40,7 +40,7 @@ function Initialize-Formdefinitionfileuploadresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Formdefinitionfileuploadresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Formdefinitionfileuploadresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToFormdefinitionfileuploadresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Formdefinitionfileuploadresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Formdefinitionfileuploadresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

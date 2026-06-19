@@ -5,7 +5,7 @@ pagination_label: Campaigncompleteoptions
 sidebar_label: Campaigncompleteoptions
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaigncompleteoptions', 'Campaigncompleteoptions'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/campaigncompleteoptions
+slug: /tools/sdk/powershell/certificationcampaigns/models/campaigncompleteoptions
 tags: ['SDK', 'Software Development Kit', 'Campaigncompleteoptions', 'Campaigncompleteoptions']
 ---
 

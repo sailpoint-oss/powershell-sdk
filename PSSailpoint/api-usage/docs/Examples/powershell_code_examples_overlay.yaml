@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/apiusagev1/methods/api-usage#get-total-count-v1
+      label: SDK_tools/sdk/powershell/apiusage/methods/api-usage#get-total-count-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Filters = "method eq "GET", startDate gt "2025-08-01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional)
@@ -22,7 +22,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/apiusagev1/methods/api-usage#list-api-summary-v1
+      label: SDK_tools/sdk/powershell/apiusage/methods/api-usage#list-api-summary-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Filters = "method eq "GET", startDate gt "2025-08-01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional)

@@ -5,7 +5,7 @@ pagination_label: IdentitydocumentAllOfManager
 sidebar_label: IdentitydocumentAllOfManager
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitydocumentAllOfManager', 'IdentitydocumentAllOfManager'] 
-slug: /tools/sdk/powershell/searchv1/models/identitydocument-all-of-manager
+slug: /tools/sdk/powershell/search/models/identitydocument-all-of-manager
 tags: ['SDK', 'Software Development Kit', 'IdentitydocumentAllOfManager', 'IdentitydocumentAllOfManager']
 ---
 

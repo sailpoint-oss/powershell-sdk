@@ -5,7 +5,7 @@ pagination_label: Roleminingpotentialroleeditentitlements
 sidebar_label: Roleminingpotentialroleeditentitlements
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Roleminingpotentialroleeditentitlements', 'Roleminingpotentialroleeditentitlements'] 
-slug: /tools/sdk/powershell/iairoleminingv1/models/roleminingpotentialroleeditentitlements
+slug: /tools/sdk/powershell/iairolemining/models/roleminingpotentialroleeditentitlements
 tags: ['SDK', 'Software Development Kit', 'Roleminingpotentialroleeditentitlements', 'Roleminingpotentialroleeditentitlements']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Identitiesaccountsbulkrequest
 sidebar_label: Identitiesaccountsbulkrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitiesaccountsbulkrequest', 'Identitiesaccountsbulkrequest'] 
-slug: /tools/sdk/powershell/accountsv1/models/identitiesaccountsbulkrequest
+slug: /tools/sdk/powershell/accounts/models/identitiesaccountsbulkrequest
 tags: ['SDK', 'Software Development Kit', 'Identitiesaccountsbulkrequest', 'Identitiesaccountsbulkrequest']
 ---
 

@@ -66,7 +66,7 @@ function Initialize-Accessrequestitemresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessrequestitemresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Accessrequestitemresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -109,7 +109,7 @@ function ConvertFrom-JsonToAccessrequestitemresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessrequestitemresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Accessrequestitemresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

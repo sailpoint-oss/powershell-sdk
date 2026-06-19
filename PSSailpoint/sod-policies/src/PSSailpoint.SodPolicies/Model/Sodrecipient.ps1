@@ -41,7 +41,7 @@ function Initialize-Sodrecipient {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodPoliciesV1 => Sodrecipient' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodPolicies => Sodrecipient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToSodrecipient {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodPoliciesV1 => Sodrecipient' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodPolicies => Sodrecipient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

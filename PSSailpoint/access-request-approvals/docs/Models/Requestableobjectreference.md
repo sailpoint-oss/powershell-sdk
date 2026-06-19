@@ -5,7 +5,7 @@ pagination_label: Requestableobjectreference
 sidebar_label: Requestableobjectreference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Requestableobjectreference', 'Requestableobjectreference'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/requestableobjectreference
+slug: /tools/sdk/powershell/accessrequestapprovals/models/requestableobjectreference
 tags: ['SDK', 'Software Development Kit', 'Requestableobjectreference', 'Requestableobjectreference']
 ---
 

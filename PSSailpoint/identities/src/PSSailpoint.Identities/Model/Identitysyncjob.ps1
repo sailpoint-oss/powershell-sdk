@@ -41,7 +41,7 @@ function Initialize-Identitysyncjob {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Identitysyncjob' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Identitysyncjob' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToIdentitysyncjob {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Identitysyncjob' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Identitysyncjob' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

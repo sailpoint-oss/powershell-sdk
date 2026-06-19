@@ -5,7 +5,7 @@ pagination_label: Tag
 sidebar_label: Tag
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Tag', 'Tag'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/tag
+slug: /tools/sdk/powershell/dataaccesssecurity/models/tag
 tags: ['SDK', 'Software Development Kit', 'Tag', 'Tag']
 ---
 

@@ -70,7 +70,7 @@ function Initialize-Simintegrationdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SimIntegrationsV1 => Simintegrationdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SimIntegrations => Simintegrationdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -114,7 +114,7 @@ function ConvertFrom-JsonToSimintegrationdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SimIntegrationsV1 => Simintegrationdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SimIntegrations => Simintegrationdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

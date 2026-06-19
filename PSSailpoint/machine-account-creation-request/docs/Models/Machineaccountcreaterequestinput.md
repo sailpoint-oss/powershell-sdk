@@ -5,7 +5,7 @@ pagination_label: Machineaccountcreaterequestinput
 sidebar_label: Machineaccountcreaterequestinput
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Machineaccountcreaterequestinput', 'Machineaccountcreaterequestinput'] 
-slug: /tools/sdk/powershell/machineaccountcreationrequestv1/models/machineaccountcreaterequestinput
+slug: /tools/sdk/powershell/machineaccountcreationrequest/models/machineaccountcreaterequestinput
 tags: ['SDK', 'Software Development Kit', 'Machineaccountcreaterequestinput', 'Machineaccountcreaterequestinput']
 ---
 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **MachineIdentityId** | **String** | Machine identity to correlate with the created machine account. If not provided, a new machine identity will be created. | [optional] 
 **Environment** | **String** | Environment type to use for the machine account. | [optional] 
 **Description** | **String** | Description for the machine account. | [optional] 
-**UserInput** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Fields of the form linked to the subtype in approval settings. | [optional] 
+**UserInput** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Fields of the form linked to the subtype in approval settings. | [optional] 
 **EntitlementIds** | **[]String** | List of entitlement IDs to provision for created machine account. | [optional] 
 
 ## Examples

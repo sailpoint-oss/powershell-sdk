@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#create-custom-connector-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#create-custom-connector-v1
       source: |
         $V3createconnectordto = @"
         
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#delete-custom-connector-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#delete-custom-connector-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
         
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#get-connector-correlation-config-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#get-connector-correlation-config-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
         
@@ -62,7 +62,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#get-connector-list-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#get-connector-list-v1
       source: |
         $Filters = "directConnect eq "true"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca* (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -85,7 +85,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#get-connector-source-config-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#get-connector-source-config-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
         
@@ -104,7 +104,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#get-connector-source-template-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#get-connector-source-template-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
         
@@ -123,7 +123,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#get-connector-translations-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#get-connector-translations-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
         $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
@@ -143,7 +143,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#get-connector-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#get-connector-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
         $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
@@ -163,7 +163,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#put-connector-correlation-config-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#put-connector-correlation-config-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
         $File =  # System.IO.FileInfo | connector correlation config xml file
@@ -183,7 +183,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#put-connector-source-config-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#put-connector-source-config-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
         $File =  # System.IO.FileInfo | connector source config xml file
@@ -203,7 +203,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#put-connector-source-template-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#put-connector-source-template-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
         $File =  # System.IO.FileInfo | connector source template xml file
@@ -223,7 +223,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#put-connector-translations-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#put-connector-translations-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
         $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
@@ -243,11 +243,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorsv1/methods/connectors#update-connector-v1
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#update-connector-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of connector detail update operations 
         $Jsonpatchoperation = @""@ 
         
         

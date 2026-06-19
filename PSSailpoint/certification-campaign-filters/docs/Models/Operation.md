@@ -5,7 +5,7 @@ pagination_label: Operation
 sidebar_label: Operation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Operation', 'Operation'] 
-slug: /tools/sdk/powershell/certificationcampaignfiltersv1/models/operation
+slug: /tools/sdk/powershell/certificationcampaignfilters/models/operation
 tags: ['SDK', 'Software Development Kit', 'Operation', 'Operation']
 ---
 

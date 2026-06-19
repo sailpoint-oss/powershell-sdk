@@ -5,7 +5,7 @@ pagination_label: Accessprofileref
 sidebar_label: Accessprofileref
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessprofileref', 'Accessprofileref'] 
-slug: /tools/sdk/powershell/dimensionsv1/models/accessprofileref
+slug: /tools/sdk/powershell/dimensions/models/accessprofileref
 tags: ['SDK', 'Software Development Kit', 'Accessprofileref', 'Accessprofileref']
 ---
 

@@ -36,7 +36,7 @@ function Initialize-Typedreference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ScheduledSearchV1 => Typedreference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ScheduledSearch => Typedreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -81,7 +81,7 @@ function ConvertFrom-JsonToTypedreference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ScheduledSearchV1 => Typedreference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ScheduledSearch => Typedreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

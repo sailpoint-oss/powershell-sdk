@@ -5,7 +5,7 @@ pagination_label: Commonaccesstype
 sidebar_label: Commonaccesstype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Commonaccesstype', 'Commonaccesstype'] 
-slug: /tools/sdk/powershell/iaicommonaccessv1/models/commonaccesstype
+slug: /tools/sdk/powershell/iaicommonaccess/models/commonaccesstype
 tags: ['SDK', 'Software Development Kit', 'Commonaccesstype', 'Commonaccesstype']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Campaigntemplate
 sidebar_label: Campaigntemplate
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaigntemplate', 'Campaigntemplate'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/campaigntemplate
+slug: /tools/sdk/powershell/certificationcampaigns/models/campaigntemplate
 tags: ['SDK', 'Software Development Kit', 'Campaigntemplate', 'Campaigntemplate']
 ---
 

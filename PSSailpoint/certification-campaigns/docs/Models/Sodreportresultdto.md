@@ -5,7 +5,7 @@ pagination_label: Sodreportresultdto
 sidebar_label: Sodreportresultdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sodreportresultdto', 'Sodreportresultdto'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/sodreportresultdto
+slug: /tools/sdk/powershell/certificationcampaigns/models/sodreportresultdto
 tags: ['SDK', 'Software Development Kit', 'Sodreportresultdto', 'Sodreportresultdto']
 ---
 

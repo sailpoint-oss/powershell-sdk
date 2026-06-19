@@ -5,7 +5,7 @@ pagination_label: Ref
 sidebar_label: Ref
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Ref', 'Ref'] 
-slug: /tools/sdk/powershell/datasegmentationv1/models/ref
+slug: /tools/sdk/powershell/datasegmentation/models/ref
 tags: ['SDK', 'Software Development Kit', 'Ref', 'Ref']
 ---
 

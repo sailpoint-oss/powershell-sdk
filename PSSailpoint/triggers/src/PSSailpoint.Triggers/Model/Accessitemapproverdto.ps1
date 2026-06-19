@@ -41,7 +41,7 @@ function Initialize-Accessitemapproverdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Accessitemapproverdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Accessitemapproverdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToAccessitemapproverdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Accessitemapproverdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Accessitemapproverdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

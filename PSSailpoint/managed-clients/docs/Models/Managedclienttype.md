@@ -5,7 +5,7 @@ pagination_label: Managedclienttype
 sidebar_label: Managedclienttype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Managedclienttype', 'Managedclienttype'] 
-slug: /tools/sdk/powershell/managedclientsv1/models/managedclienttype
+slug: /tools/sdk/powershell/managedclients/models/managedclienttype
 tags: ['SDK', 'Software Development Kit', 'Managedclienttype', 'Managedclienttype']
 ---
 

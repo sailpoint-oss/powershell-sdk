@@ -30,7 +30,7 @@ function Initialize-StartLauncherV1200Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.LaunchersV1 => StartLauncherV1200Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Launchers => StartLauncherV1200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$InteractiveProcessId) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToStartLauncherV1200Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.LaunchersV1 => StartLauncherV1200Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Launchers => StartLauncherV1200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

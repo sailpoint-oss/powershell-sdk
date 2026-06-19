@@ -5,7 +5,7 @@ pagination_label: SourceSchemasInner
 sidebar_label: SourceSchemasInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SourceSchemasInner', 'SourceSchemasInner'] 
-slug: /tools/sdk/powershell/sourcesv1/models/source-schemas-inner
+slug: /tools/sdk/powershell/sources/models/source-schemas-inner
 tags: ['SDK', 'Software Development Kit', 'SourceSchemasInner', 'SourceSchemasInner']
 ---
 

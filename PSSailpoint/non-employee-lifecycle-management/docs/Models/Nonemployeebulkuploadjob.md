@@ -5,7 +5,7 @@ pagination_label: Nonemployeebulkuploadjob
 sidebar_label: Nonemployeebulkuploadjob
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Nonemployeebulkuploadjob', 'Nonemployeebulkuploadjob'] 
-slug: /tools/sdk/powershell/nonemployeelifecyclemanagementv1/models/nonemployeebulkuploadjob
+slug: /tools/sdk/powershell/nonemployeelifecyclemanagement/models/nonemployeebulkuploadjob
 tags: ['SDK', 'Software Development Kit', 'Nonemployeebulkuploadjob', 'Nonemployeebulkuploadjob']
 ---
 

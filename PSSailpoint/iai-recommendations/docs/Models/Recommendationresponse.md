@@ -5,7 +5,7 @@ pagination_label: Recommendationresponse
 sidebar_label: Recommendationresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Recommendationresponse', 'Recommendationresponse'] 
-slug: /tools/sdk/powershell/iairecommendationsv1/models/recommendationresponse
+slug: /tools/sdk/powershell/iairecommendations/models/recommendationresponse
 tags: ['SDK', 'Software Development Kit', 'Recommendationresponse', 'Recommendationresponse']
 ---
 

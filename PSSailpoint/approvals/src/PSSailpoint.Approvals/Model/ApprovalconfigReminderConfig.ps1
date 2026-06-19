@@ -45,7 +45,7 @@ function Initialize-ApprovalconfigReminderConfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => ApprovalconfigReminderConfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => ApprovalconfigReminderConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToApprovalconfigReminderConfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => ApprovalconfigReminderConfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => ApprovalconfigReminderConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

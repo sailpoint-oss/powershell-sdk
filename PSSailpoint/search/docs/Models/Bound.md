@@ -5,7 +5,7 @@ pagination_label: Bound
 sidebar_label: Bound
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Bound', 'Bound'] 
-slug: /tools/sdk/powershell/searchv1/models/bound
+slug: /tools/sdk/powershell/search/models/bound
 tags: ['SDK', 'Software Development Kit', 'Bound', 'Bound']
 ---
 

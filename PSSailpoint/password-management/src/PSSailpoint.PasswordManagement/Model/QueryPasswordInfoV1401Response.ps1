@@ -30,7 +30,7 @@ function Initialize-QueryPasswordInfoV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PasswordManagementV1 => QueryPasswordInfoV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PasswordManagement => QueryPasswordInfoV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToQueryPasswordInfoV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PasswordManagementV1 => QueryPasswordInfoV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PasswordManagement => QueryPasswordInfoV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: AccessmodelmetadataValuesInner
 sidebar_label: AccessmodelmetadataValuesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessmodelmetadataValuesInner', 'AccessmodelmetadataValuesInner'] 
-slug: /tools/sdk/powershell/entitlementsv1/models/accessmodelmetadata-values-inner
+slug: /tools/sdk/powershell/entitlements/models/accessmodelmetadata-values-inner
 tags: ['SDK', 'Software Development Kit', 'AccessmodelmetadataValuesInner', 'AccessmodelmetadataValuesInner']
 ---
 

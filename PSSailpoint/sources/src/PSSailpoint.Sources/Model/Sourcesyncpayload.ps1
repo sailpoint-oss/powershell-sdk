@@ -35,7 +35,7 @@ function Initialize-Sourcesyncpayload {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Sourcesyncpayload' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Sourcesyncpayload' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToSourcesyncpayload {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Sourcesyncpayload' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Sourcesyncpayload' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Spconfigexportresults
 sidebar_label: Spconfigexportresults
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Spconfigexportresults', 'Spconfigexportresults'] 
-slug: /tools/sdk/powershell/spconfigv1/models/spconfigexportresults
+slug: /tools/sdk/powershell/spconfig/models/spconfigexportresults
 tags: ['SDK', 'Software Development Kit', 'Spconfigexportresults', 'Spconfigexportresults']
 ---
 

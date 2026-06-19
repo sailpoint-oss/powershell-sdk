@@ -5,7 +5,7 @@ pagination_label: IdentityprofileAllOfOwner
 sidebar_label: IdentityprofileAllOfOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityprofileAllOfOwner', 'IdentityprofileAllOfOwner'] 
-slug: /tools/sdk/powershell/identityprofilesv1/models/identityprofile-all-of-owner
+slug: /tools/sdk/powershell/identityprofiles/models/identityprofile-all-of-owner
 tags: ['SDK', 'Software Development Kit', 'IdentityprofileAllOfOwner', 'IdentityprofileAllOfOwner']
 ---
 

@@ -40,7 +40,7 @@ function Initialize-Networkconfiguration {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GlobalTenantSecuritySettingsV1 => Networkconfiguration' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GlobalTenantSecuritySettings => Networkconfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToNetworkconfiguration {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GlobalTenantSecuritySettingsV1 => Networkconfiguration' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GlobalTenantSecuritySettings => Networkconfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

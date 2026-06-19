@@ -5,7 +5,7 @@ pagination_label: MachineidentityaggregationresponseTarget
 sidebar_label: MachineidentityaggregationresponseTarget
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineidentityaggregationresponseTarget', 'MachineidentityaggregationresponseTarget'] 
-slug: /tools/sdk/powershell/machineidentitiesv1/models/machineidentityaggregationresponse-target
+slug: /tools/sdk/powershell/machineidentities/models/machineidentityaggregationresponse-target
 tags: ['SDK', 'Software Development Kit', 'MachineidentityaggregationresponseTarget', 'MachineidentityaggregationresponseTarget']
 ---
 

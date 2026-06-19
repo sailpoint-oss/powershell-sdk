@@ -30,7 +30,7 @@ function Initialize-GetTasksV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataAccessSecurityV1 => GetTasksV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => GetTasksV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetTasksV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurityV1 => GetTasksV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => GetTasksV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

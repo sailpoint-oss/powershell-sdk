@@ -40,7 +40,7 @@ function Initialize-ReplacestreamconfigurationrequestDelivery {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsfV1 => ReplacestreamconfigurationrequestDelivery' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsf => ReplacestreamconfigurationrequestDelivery' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Method) {
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToReplacestreamconfigurationrequestDelivery {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsfV1 => ReplacestreamconfigurationrequestDelivery' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsf => ReplacestreamconfigurationrequestDelivery' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

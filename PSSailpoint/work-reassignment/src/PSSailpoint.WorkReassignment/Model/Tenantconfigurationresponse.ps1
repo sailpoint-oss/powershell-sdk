@@ -35,7 +35,7 @@ function Initialize-Tenantconfigurationresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkReassignmentV1 => Tenantconfigurationresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkReassignment => Tenantconfigurationresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToTenantconfigurationresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkReassignmentV1 => Tenantconfigurationresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkReassignment => Tenantconfigurationresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

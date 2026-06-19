@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/scheduledsearchv1/methods/scheduled-search#create-scheduled-search-v1
+      label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#create-scheduled-search-v1
       source: |
         $CreateScheduledSearchV1Request = @"
         {"savedSearchId":"9c620e13-cd33-4804-a13d-403bd7bcdbad","schedule":{"type":"DAILY","hours":{"type":"LIST","values":["9"]}},"recipients":[{"type":"IDENTITY","id":"2c9180867624cbd7017642d8c8c81f67"}]}
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/scheduledsearchv1/methods/scheduled-search#delete-scheduled-search-v1
+      label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#delete-scheduled-search-v1
       source: |
         $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
         
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/scheduledsearchv1/methods/scheduled-search#get-scheduled-search-v1
+      label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#get-scheduled-search-v1
       source: |
         $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
         
@@ -62,7 +62,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/scheduledsearchv1/methods/scheduled-search#list-scheduled-search-v1
+      label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#list-scheduled-search-v1
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -84,7 +84,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/scheduledsearchv1/methods/scheduled-search#unsubscribe-scheduled-search-v1
+      label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#unsubscribe-scheduled-search-v1
       source: |
         $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
         $Typedreference = @"
@@ -107,7 +107,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/scheduledsearchv1/methods/scheduled-search#update-scheduled-search-v1
+      label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#update-scheduled-search-v1
       source: |
         $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
         $Scheduledsearch = @"

@@ -5,7 +5,7 @@ pagination_label: Typedreference
 sidebar_label: Typedreference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Typedreference', 'Typedreference'] 
-slug: /tools/sdk/powershell/savedsearchv1/models/typedreference
+slug: /tools/sdk/powershell/savedsearch/models/typedreference
 tags: ['SDK', 'Software Development Kit', 'Typedreference', 'Typedreference']
 ---
 

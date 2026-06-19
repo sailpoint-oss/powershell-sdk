@@ -41,7 +41,7 @@ function Initialize-Formowner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Formowner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Formowner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToFormowner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Formowner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Formowner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

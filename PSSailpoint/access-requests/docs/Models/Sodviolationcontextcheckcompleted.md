@@ -5,7 +5,7 @@ pagination_label: Sodviolationcontextcheckcompleted
 sidebar_label: Sodviolationcontextcheckcompleted
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sodviolationcontextcheckcompleted', 'Sodviolationcontextcheckcompleted'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/sodviolationcontextcheckcompleted
+slug: /tools/sdk/powershell/accessrequests/models/sodviolationcontextcheckcompleted
 tags: ['SDK', 'Software Development Kit', 'Sodviolationcontextcheckcompleted', 'Sodviolationcontextcheckcompleted']
 ---
 

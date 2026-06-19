@@ -5,7 +5,7 @@ pagination_label: Accountaction
 sidebar_label: Accountaction
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountaction', 'Accountaction'] 
-slug: /tools/sdk/powershell/lifecyclestatesv1/models/accountaction
+slug: /tools/sdk/powershell/lifecyclestates/models/accountaction
 tags: ['SDK', 'Software Development Kit', 'Accountaction', 'Accountaction']
 ---
 

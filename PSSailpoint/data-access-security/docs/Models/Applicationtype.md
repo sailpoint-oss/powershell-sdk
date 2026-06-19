@@ -5,7 +5,7 @@ pagination_label: Applicationtype
 sidebar_label: Applicationtype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Applicationtype', 'Applicationtype'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/applicationtype
+slug: /tools/sdk/powershell/dataaccesssecurity/models/applicationtype
 tags: ['SDK', 'Software Development Kit', 'Applicationtype', 'Applicationtype']
 ---
 

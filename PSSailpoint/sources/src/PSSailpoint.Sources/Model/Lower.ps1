@@ -35,7 +35,7 @@ function Initialize-Lower {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Lower' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Lower' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToLower {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Lower' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Lower' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

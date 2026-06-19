@@ -5,7 +5,7 @@ pagination_label: Contextattributedto
 sidebar_label: Contextattributedto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Contextattributedto', 'Contextattributedto'] 
-slug: /tools/sdk/powershell/identitiesv1/models/contextattributedto
+slug: /tools/sdk/powershell/identities/models/contextattributedto
 tags: ['SDK', 'Software Development Kit', 'Contextattributedto', 'Contextattributedto']
 ---
 

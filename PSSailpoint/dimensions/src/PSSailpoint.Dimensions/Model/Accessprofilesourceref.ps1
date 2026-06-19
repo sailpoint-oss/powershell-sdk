@@ -41,7 +41,7 @@ function Initialize-Accessprofilesourceref {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DimensionsV1 => Accessprofilesourceref' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Dimensions => Accessprofilesourceref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToAccessprofilesourceref {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DimensionsV1 => Accessprofilesourceref' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Dimensions => Accessprofilesourceref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Accountcorrelated
 sidebar_label: Accountcorrelated
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountcorrelated', 'Accountcorrelated'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountcorrelated
+slug: /tools/sdk/powershell/triggers/models/accountcorrelated
 tags: ['SDK', 'Software Development Kit', 'Accountcorrelated', 'Accountcorrelated']
 ---
 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Identity** | [**AccountcorrelatedIdentity**](accountcorrelated-identity) |  | [required]
 **Source** | [**AccountcorrelatedSource**](accountcorrelated-source) |  | [required]
 **Account** | [**AccountcorrelatedAccount**](accountcorrelated-account) |  | [required]
-**Attributes** | [**map[string]AnyType**](any-type) | The attributes associated with the account.  Attributes are unique per source. | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes associated with the account.  Attributes are unique per source. | [required]
 **EntitlementCount** | **Int32** | The number of entitlements associated with this account. | [optional] 
 
 ## Examples

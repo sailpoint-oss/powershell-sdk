@@ -35,7 +35,7 @@ function Initialize-Sourceappbulkupdaterequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AppsV1 => Sourceappbulkupdaterequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Apps => Sourceappbulkupdaterequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AppIds) {
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToSourceappbulkupdaterequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AppsV1 => Sourceappbulkupdaterequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Apps => Sourceappbulkupdaterequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

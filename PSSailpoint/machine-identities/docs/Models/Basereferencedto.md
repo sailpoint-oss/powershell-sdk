@@ -5,7 +5,7 @@ pagination_label: Basereferencedto
 sidebar_label: Basereferencedto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Basereferencedto', 'Basereferencedto'] 
-slug: /tools/sdk/powershell/machineidentitiesv1/models/basereferencedto
+slug: /tools/sdk/powershell/machineidentities/models/basereferencedto
 tags: ['SDK', 'Software Development Kit', 'Basereferencedto', 'Basereferencedto']
 ---
 

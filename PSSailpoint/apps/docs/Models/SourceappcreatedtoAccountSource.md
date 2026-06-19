@@ -5,7 +5,7 @@ pagination_label: SourceappcreatedtoAccountSource
 sidebar_label: SourceappcreatedtoAccountSource
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SourceappcreatedtoAccountSource', 'SourceappcreatedtoAccountSource'] 
-slug: /tools/sdk/powershell/appsv1/models/sourceappcreatedto-account-source
+slug: /tools/sdk/powershell/apps/models/sourceappcreatedto-account-source
 tags: ['SDK', 'Software Development Kit', 'SourceappcreatedtoAccountSource', 'SourceappcreatedtoAccountSource']
 ---
 

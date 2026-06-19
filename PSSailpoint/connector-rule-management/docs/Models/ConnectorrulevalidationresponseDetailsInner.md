@@ -5,7 +5,7 @@ pagination_label: ConnectorrulevalidationresponseDetailsInner
 sidebar_label: ConnectorrulevalidationresponseDetailsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ConnectorrulevalidationresponseDetailsInner', 'ConnectorrulevalidationresponseDetailsInner'] 
-slug: /tools/sdk/powershell/connectorrulemanagementv1/models/connectorrulevalidationresponse-details-inner
+slug: /tools/sdk/powershell/connectorrulemanagement/models/connectorrulevalidationresponse-details-inner
 tags: ['SDK', 'Software Development Kit', 'ConnectorrulevalidationresponseDetailsInner', 'ConnectorrulevalidationresponseDetailsInner']
 ---
 

@@ -45,7 +45,7 @@ function Initialize-Reportconfigdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.OrgConfigV1 => Reportconfigdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.OrgConfig => Reportconfigdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($Order -and $Order -gt 2147483647) {
@@ -92,7 +92,7 @@ function ConvertFrom-JsonToReportconfigdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.OrgConfigV1 => Reportconfigdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.OrgConfig => Reportconfigdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

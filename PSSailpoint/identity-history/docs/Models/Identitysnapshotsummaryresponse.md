@@ -5,7 +5,7 @@ pagination_label: Identitysnapshotsummaryresponse
 sidebar_label: Identitysnapshotsummaryresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitysnapshotsummaryresponse', 'Identitysnapshotsummaryresponse'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/identitysnapshotsummaryresponse
+slug: /tools/sdk/powershell/identityhistory/models/identitysnapshotsummaryresponse
 tags: ['SDK', 'Software Development Kit', 'Identitysnapshotsummaryresponse', 'Identitysnapshotsummaryresponse']
 ---
 

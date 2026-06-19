@@ -56,7 +56,7 @@ function Initialize-Machineclassificationcriterialevel3 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineClassificationConfigV1 => Machineclassificationcriterialevel3' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineClassificationConfig => Machineclassificationcriterialevel3' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -97,7 +97,7 @@ function ConvertFrom-JsonToMachineclassificationcriterialevel3 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineClassificationConfigV1 => Machineclassificationcriterialevel3' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineClassificationConfig => Machineclassificationcriterialevel3' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

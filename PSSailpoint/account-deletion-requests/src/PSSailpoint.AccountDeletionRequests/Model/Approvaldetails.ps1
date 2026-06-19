@@ -46,7 +46,7 @@ function Initialize-Approvaldetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountDeletionRequestsV1 => Approvaldetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccountDeletionRequests => Approvaldetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToApprovaldetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountDeletionRequestsV1 => Approvaldetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccountDeletionRequests => Approvaldetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: SendClassifyMachineAccountFromSourceV1200Response
 sidebar_label: SendClassifyMachineAccountFromSourceV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SendClassifyMachineAccountFromSourceV1200Response', 'SendClassifyMachineAccountFromSourceV1200Response'] 
-slug: /tools/sdk/powershell/classifysourcev1/models/send-classify-machine-account-from-source-v1200-response
+slug: /tools/sdk/powershell/classifysource/models/send-classify-machine-account-from-source-v1200-response
 tags: ['SDK', 'Software Development Kit', 'SendClassifyMachineAccountFromSourceV1200Response', 'SendClassifyMachineAccountFromSourceV1200Response']
 ---
 

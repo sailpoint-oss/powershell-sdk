@@ -40,7 +40,7 @@ function Initialize-Assignmentcontextdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Assignmentcontextdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Assignmentcontextdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToAssignmentcontextdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Assignmentcontextdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Assignmentcontextdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -45,7 +45,7 @@ function Initialize-ApprovalconfigEscalationConfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => ApprovalconfigEscalationConfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => ApprovalconfigEscalationConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToApprovalconfigEscalationConfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => ApprovalconfigEscalationConfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => ApprovalconfigEscalationConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

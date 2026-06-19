@@ -5,7 +5,7 @@ pagination_label: Deployrequest
 sidebar_label: Deployrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Deployrequest', 'Deployrequest'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/deployrequest
+slug: /tools/sdk/powershell/configurationhub/models/deployrequest
 tags: ['SDK', 'Software Development Kit', 'Deployrequest', 'Deployrequest']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: AccountactionrequestdtoRequester
 sidebar_label: AccountactionrequestdtoRequester
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountactionrequestdtoRequester', 'AccountactionrequestdtoRequester'] 
-slug: /tools/sdk/powershell/accountdeletionrequestsv1/models/accountactionrequestdto-requester
+slug: /tools/sdk/powershell/accountdeletionrequests/models/accountactionrequestdto-requester
 tags: ['SDK', 'Software Development Kit', 'AccountactionrequestdtoRequester', 'AccountactionrequestdtoRequester']
 ---
 

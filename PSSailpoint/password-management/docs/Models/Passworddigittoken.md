@@ -5,7 +5,7 @@ pagination_label: Passworddigittoken
 sidebar_label: Passworddigittoken
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Passworddigittoken', 'Passworddigittoken'] 
-slug: /tools/sdk/powershell/passwordmanagementv1/models/passworddigittoken
+slug: /tools/sdk/powershell/passwordmanagement/models/passworddigittoken
 tags: ['SDK', 'Software Development Kit', 'Passworddigittoken', 'Passworddigittoken']
 ---
 

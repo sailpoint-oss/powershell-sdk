@@ -5,7 +5,7 @@ pagination_label: Sourcesyncjob
 sidebar_label: Sourcesyncjob
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourcesyncjob', 'Sourcesyncjob'] 
-slug: /tools/sdk/powershell/sourcesv1/models/sourcesyncjob
+slug: /tools/sdk/powershell/sources/models/sourcesyncjob
 tags: ['SDK', 'Software Development Kit', 'Sourcesyncjob', 'Sourcesyncjob']
 ---
 

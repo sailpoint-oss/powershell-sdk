@@ -5,7 +5,7 @@ pagination_label: CreateMachineAccountSubtypeV1Request
 sidebar_label: CreateMachineAccountSubtypeV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CreateMachineAccountSubtypeV1Request', 'CreateMachineAccountSubtypeV1Request'] 
-slug: /tools/sdk/powershell/machineaccountsv1/models/create-machine-account-subtype-v1-request
+slug: /tools/sdk/powershell/machineaccounts/models/create-machine-account-subtype-v1-request
 tags: ['SDK', 'Software Development Kit', 'CreateMachineAccountSubtypeV1Request', 'CreateMachineAccountSubtypeV1Request']
 ---
 

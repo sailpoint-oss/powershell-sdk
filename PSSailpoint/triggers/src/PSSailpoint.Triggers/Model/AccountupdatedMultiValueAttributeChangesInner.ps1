@@ -40,7 +40,7 @@ function Initialize-AccountupdatedMultiValueAttributeChangesInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => AccountupdatedMultiValueAttributeChangesInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => AccountupdatedMultiValueAttributeChangesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToAccountupdatedMultiValueAttributeChangesInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => AccountupdatedMultiValueAttributeChangesInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => AccountupdatedMultiValueAttributeChangesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

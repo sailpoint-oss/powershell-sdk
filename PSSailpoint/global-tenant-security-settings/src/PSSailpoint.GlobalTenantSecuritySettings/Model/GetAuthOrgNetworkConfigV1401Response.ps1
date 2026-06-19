@@ -30,7 +30,7 @@ function Initialize-GetAuthOrgNetworkConfigV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GlobalTenantSecuritySettingsV1 => GetAuthOrgNetworkConfigV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GlobalTenantSecuritySettings => GetAuthOrgNetworkConfigV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetAuthOrgNetworkConfigV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GlobalTenantSecuritySettingsV1 => GetAuthOrgNetworkConfigV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GlobalTenantSecuritySettings => GetAuthOrgNetworkConfigV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

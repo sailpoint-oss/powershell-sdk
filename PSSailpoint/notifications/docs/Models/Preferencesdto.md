@@ -5,7 +5,7 @@ pagination_label: Preferencesdto
 sidebar_label: Preferencesdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Preferencesdto', 'Preferencesdto'] 
-slug: /tools/sdk/powershell/notificationsv1/models/preferencesdto
+slug: /tools/sdk/powershell/notifications/models/preferencesdto
 tags: ['SDK', 'Software Development Kit', 'Preferencesdto', 'Preferencesdto']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Accessrequestpreapproval
 sidebar_label: Accessrequestpreapproval
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessrequestpreapproval', 'Accessrequestpreapproval'] 
-slug: /tools/sdk/powershell/triggersv1/models/accessrequestpreapproval
+slug: /tools/sdk/powershell/triggers/models/accessrequestpreapproval
 tags: ['SDK', 'Software Development Kit', 'Accessrequestpreapproval', 'Accessrequestpreapproval']
 ---
 

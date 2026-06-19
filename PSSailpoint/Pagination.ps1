@@ -101,7 +101,7 @@ function Invoke-PaginateSearch {
                 Write-Debug "SearchAfter=$SearchAfter"
             }
             
-            $Result = Search-Post -Limit $Increment -Search $Search -WithHttpInfo
+            $Result = Search-PostV1 -Limit $Increment -Search $Search -WithHttpInfo
             
             Write-Debug "Retrieved $(($Result.Response | Measure-Object).Count) Results"
             

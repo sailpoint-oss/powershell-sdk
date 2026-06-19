@@ -5,7 +5,7 @@ pagination_label: Objectmappingrequest
 sidebar_label: Objectmappingrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Objectmappingrequest', 'Objectmappingrequest'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/objectmappingrequest
+slug: /tools/sdk/powershell/configurationhub/models/objectmappingrequest
 tags: ['SDK', 'Software Development Kit', 'Objectmappingrequest', 'Objectmappingrequest']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Certificationdto
 sidebar_label: Certificationdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Certificationdto', 'Certificationdto'] 
-slug: /tools/sdk/powershell/triggersv1/models/certificationdto
+slug: /tools/sdk/powershell/triggers/models/certificationdto
 tags: ['SDK', 'Software Development Kit', 'Certificationdto', 'Certificationdto']
 ---
 

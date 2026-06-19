@@ -55,7 +55,7 @@ function Initialize-Passwordinfo {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PasswordManagementV1 => Passwordinfo' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PasswordManagement => Passwordinfo' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToPasswordinfo {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PasswordManagementV1 => Passwordinfo' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PasswordManagement => Passwordinfo' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

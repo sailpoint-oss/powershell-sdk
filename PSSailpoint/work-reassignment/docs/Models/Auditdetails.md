@@ -5,7 +5,7 @@ pagination_label: Auditdetails
 sidebar_label: Auditdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Auditdetails', 'Auditdetails'] 
-slug: /tools/sdk/powershell/workreassignmentv1/models/auditdetails
+slug: /tools/sdk/powershell/workreassignment/models/auditdetails
 tags: ['SDK', 'Software Development Kit', 'Auditdetails', 'Auditdetails']
 ---
 

@@ -115,7 +115,7 @@ function Initialize-Reviewableentitlement {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationSummariesV1 => Reviewableentitlement' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationSummaries => Reviewableentitlement' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -168,7 +168,7 @@ function ConvertFrom-JsonToReviewableentitlement {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationSummariesV1 => Reviewableentitlement' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationSummaries => Reviewableentitlement' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

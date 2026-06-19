@@ -46,7 +46,7 @@ function Initialize-Provisioningcriterialevel3 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfilesV1 => Provisioningcriterialevel3' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => Provisioningcriterialevel3' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToProvisioningcriterialevel3 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfilesV1 => Provisioningcriterialevel3' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => Provisioningcriterialevel3' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

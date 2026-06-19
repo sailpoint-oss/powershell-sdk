@@ -51,7 +51,7 @@ function Initialize-V3createconnectordto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConnectorsV1 => V3createconnectordto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Connectors => V3createconnectordto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -99,7 +99,7 @@ function ConvertFrom-JsonToV3createconnectordto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorsV1 => V3createconnectordto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Connectors => V3createconnectordto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

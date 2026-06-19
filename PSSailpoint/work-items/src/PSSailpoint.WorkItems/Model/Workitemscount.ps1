@@ -30,7 +30,7 @@ function Initialize-Workitemscount {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkItemsV1 => Workitemscount' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkItems => Workitemscount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToWorkitemscount {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkItemsV1 => Workitemscount' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkItems => Workitemscount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

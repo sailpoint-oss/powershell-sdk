@@ -5,7 +5,7 @@ pagination_label: Identityattributetransform
 sidebar_label: Identityattributetransform
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityattributetransform', 'Identityattributetransform'] 
-slug: /tools/sdk/powershell/identityprofilesv1/models/identityattributetransform
+slug: /tools/sdk/powershell/identityprofiles/models/identityattributetransform
 tags: ['SDK', 'Software Development Kit', 'Identityattributetransform', 'Identityattributetransform']
 ---
 

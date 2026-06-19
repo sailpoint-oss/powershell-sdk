@@ -5,7 +5,7 @@ pagination_label: AccessrequestpreapprovalRequestedItemsInner
 sidebar_label: AccessrequestpreapprovalRequestedItemsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessrequestpreapprovalRequestedItemsInner', 'AccessrequestpreapprovalRequestedItemsInner'] 
-slug: /tools/sdk/powershell/triggersv1/models/accessrequestpreapproval-requested-items-inner
+slug: /tools/sdk/powershell/triggers/models/accessrequestpreapproval-requested-items-inner
 tags: ['SDK', 'Software Development Kit', 'AccessrequestpreapprovalRequestedItemsInner', 'AccessrequestpreapprovalRequestedItemsInner']
 ---
 

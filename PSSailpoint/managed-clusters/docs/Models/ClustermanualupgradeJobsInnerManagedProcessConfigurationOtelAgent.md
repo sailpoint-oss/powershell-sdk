@@ -5,7 +5,7 @@ pagination_label: ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAg
 sidebar_label: ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/clustermanualupgrade-jobs-inner-managed-process-configuration-otel-agent
+slug: /tools/sdk/powershell/managedclusters/models/clustermanualupgrade-jobs-inner-managed-process-configuration-otel-agent
 tags: ['SDK', 'Software Development Kit', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent']
 ---
 

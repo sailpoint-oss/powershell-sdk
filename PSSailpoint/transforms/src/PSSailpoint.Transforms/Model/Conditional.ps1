@@ -50,7 +50,7 @@ function Initialize-Conditional {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Conditional' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Conditional' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Expression) {
@@ -102,7 +102,7 @@ function ConvertFrom-JsonToConditional {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Conditional' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Conditional' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

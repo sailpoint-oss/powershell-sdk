@@ -5,7 +5,7 @@ pagination_label: Reassignreference
 sidebar_label: Reassignreference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reassignreference', 'Reassignreference'] 
-slug: /tools/sdk/powershell/certificationsv1/models/reassignreference
+slug: /tools/sdk/powershell/certifications/models/reassignreference
 tags: ['SDK', 'Software Development Kit', 'Reassignreference', 'Reassignreference']
 ---
 

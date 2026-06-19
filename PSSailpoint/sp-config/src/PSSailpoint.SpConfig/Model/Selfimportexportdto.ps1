@@ -41,7 +41,7 @@ function Initialize-Selfimportexportdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SpConfigV1 => Selfimportexportdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SpConfig => Selfimportexportdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToSelfimportexportdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SpConfigV1 => Selfimportexportdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SpConfig => Selfimportexportdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

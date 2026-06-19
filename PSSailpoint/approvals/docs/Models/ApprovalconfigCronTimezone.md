@@ -5,7 +5,7 @@ pagination_label: ApprovalconfigCronTimezone
 sidebar_label: ApprovalconfigCronTimezone
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalconfigCronTimezone', 'ApprovalconfigCronTimezone'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalconfig-cron-timezone
+slug: /tools/sdk/powershell/approvals/models/approvalconfig-cron-timezone
 tags: ['SDK', 'Software Development Kit', 'ApprovalconfigCronTimezone', 'ApprovalconfigCronTimezone']
 ---
 

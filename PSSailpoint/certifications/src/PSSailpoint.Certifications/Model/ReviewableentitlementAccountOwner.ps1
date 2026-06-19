@@ -41,7 +41,7 @@ function Initialize-ReviewableentitlementAccountOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => ReviewableentitlementAccountOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => ReviewableentitlementAccountOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToReviewableentitlementAccountOwner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => ReviewableentitlementAccountOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => ReviewableentitlementAccountOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

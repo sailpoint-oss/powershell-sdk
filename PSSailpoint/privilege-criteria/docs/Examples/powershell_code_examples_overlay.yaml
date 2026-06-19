@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/privilegecriteriav1/methods/privilege-criteria#create-custom-privilege-criteria-v1
+      label: SDK_tools/sdk/powershell/privilegecriteria/methods/privilege-criteria#create-custom-privilege-criteria-v1
       source: |
         $Createprivilegecriteriarequest = @"
         
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/privilegecriteriav1/methods/privilege-criteria#delete-custom-privilege-criteria-v1
+      label: SDK_tools/sdk/powershell/privilegecriteria/methods/privilege-criteria#delete-custom-privilege-criteria-v1
       source: |
         $CriteriaId = "6d123044-5834-4e8d-a49f-9c70089b0de1" # String | The Id of the custom privilege criteria to delete.
         
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/privilegecriteriav1/methods/privilege-criteria#get-privilege-criteria-v1
+      label: SDK_tools/sdk/powershell/privilegecriteria/methods/privilege-criteria#get-privilege-criteria-v1
       source: |
         $CriteriaId = "6d123044-5834-4e8d-a49f-9c70089b0de1" # String | The Id of the privilege criteria record to return.
         
@@ -62,7 +62,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/privilegecriteriav1/methods/privilege-criteria#list-privilege-criteria-v1
+      label: SDK_tools/sdk/powershell/privilegecriteria/methods/privilege-criteria#list-privilege-criteria-v1
       source: |
         $Filters = "type eq "CUSTOM" and sourceId eq "c42c45d8d7c04d2da64d215cd8c32f21"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq*  **sourceId**: *eq*  **privilegeLevel**: *eq*  **Supported composite operators**: *and*  All filter values are case-sensitive for this API.  For example, the following is valid: `?filters=type eq ""CUSTOM"" and sourceId eq ""2c91809175e6c63f0175fb5570220569""`
         
@@ -81,7 +81,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/privilegecriteriav1/methods/privilege-criteria#put-custom-privilege-criteria-value-v1
+      label: SDK_tools/sdk/powershell/privilegecriteria/methods/privilege-criteria#put-custom-privilege-criteria-value-v1
       source: |
         $CriteriaId = "6d123044-5834-4e8d-a49f-9c70089b0de1" # String | The Id of the privilege criteria record to return.
         $Privilegecriteriadto = @"

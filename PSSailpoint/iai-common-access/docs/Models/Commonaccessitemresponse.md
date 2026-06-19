@@ -5,7 +5,7 @@ pagination_label: Commonaccessitemresponse
 sidebar_label: Commonaccessitemresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Commonaccessitemresponse', 'Commonaccessitemresponse'] 
-slug: /tools/sdk/powershell/iaicommonaccessv1/models/commonaccessitemresponse
+slug: /tools/sdk/powershell/iaicommonaccess/models/commonaccessitemresponse
 tags: ['SDK', 'Software Development Kit', 'Commonaccessitemresponse', 'Commonaccessitemresponse']
 ---
 

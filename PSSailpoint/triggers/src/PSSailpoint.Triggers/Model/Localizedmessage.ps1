@@ -35,7 +35,7 @@ function Initialize-Localizedmessage {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Localizedmessage' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Localizedmessage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Locale) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToLocalizedmessage {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Localizedmessage' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Localizedmessage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -116,7 +116,7 @@ function Initialize-Machineaccount {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountsV1 => Machineaccount' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccounts => Machineaccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$NativeIdentity) {
@@ -193,7 +193,7 @@ function ConvertFrom-JsonToMachineaccount {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountsV1 => Machineaccount' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccounts => Machineaccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

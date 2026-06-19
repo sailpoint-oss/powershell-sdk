@@ -5,7 +5,7 @@ pagination_label: IdentitydocumentAllOfIdentityProfile
 sidebar_label: IdentitydocumentAllOfIdentityProfile
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitydocumentAllOfIdentityProfile', 'IdentitydocumentAllOfIdentityProfile'] 
-slug: /tools/sdk/powershell/searchv1/models/identitydocument-all-of-identity-profile
+slug: /tools/sdk/powershell/search/models/identitydocument-all-of-identity-profile
 tags: ['SDK', 'Software Development Kit', 'IdentitydocumentAllOfIdentityProfile', 'IdentitydocumentAllOfIdentityProfile']
 ---
 

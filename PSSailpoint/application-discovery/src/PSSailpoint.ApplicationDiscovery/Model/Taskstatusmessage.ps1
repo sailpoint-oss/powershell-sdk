@@ -46,7 +46,7 @@ function Initialize-Taskstatusmessage {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Taskstatusmessage' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ApplicationDiscovery => Taskstatusmessage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -93,7 +93,7 @@ function ConvertFrom-JsonToTaskstatusmessage {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Taskstatusmessage' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscovery => Taskstatusmessage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

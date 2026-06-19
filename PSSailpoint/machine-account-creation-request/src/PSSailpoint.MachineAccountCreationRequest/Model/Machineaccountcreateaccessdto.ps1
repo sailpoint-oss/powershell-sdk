@@ -40,7 +40,7 @@ function Initialize-Machineaccountcreateaccessdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountCreationRequestV1 => Machineaccountcreateaccessdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccountCreationRequest => Machineaccountcreateaccessdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToMachineaccountcreateaccessdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountCreationRequestV1 => Machineaccountcreateaccessdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountCreationRequest => Machineaccountcreateaccessdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

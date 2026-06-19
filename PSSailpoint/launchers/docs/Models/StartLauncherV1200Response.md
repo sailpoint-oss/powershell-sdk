@@ -5,7 +5,7 @@ pagination_label: StartLauncherV1200Response
 sidebar_label: StartLauncherV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'StartLauncherV1200Response', 'StartLauncherV1200Response'] 
-slug: /tools/sdk/powershell/launchersv1/models/start-launcher-v1200-response
+slug: /tools/sdk/powershell/launchers/models/start-launcher-v1200-response
 tags: ['SDK', 'Software Development Kit', 'StartLauncherV1200Response', 'StartLauncherV1200Response']
 ---
 

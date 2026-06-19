@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identityprofilesv1/methods/identity-profiles#create-identity-profile-v1
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#create-identity-profile-v1
       source: |
         $Identityprofile = @"
         
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identityprofilesv1/methods/identity-profiles#delete-identity-profile-v1
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#delete-identity-profile-v1
       source: |
         $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
         
@@ -43,7 +43,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identityprofilesv1/methods/identity-profiles#delete-identity-profiles-v1
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#delete-identity-profiles-v1
       source: |
         $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request body.
         $RequestBody = @""@ 
@@ -65,7 +65,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identityprofilesv1/methods/identity-profiles#export-identity-profiles-v1
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#export-identity-profiles-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -88,7 +88,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identityprofilesv1/methods/identity-profiles#generate-identity-preview-v1
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#generate-identity-preview-v1
       source: |
         $Identitypreviewrequest = @"
         
@@ -110,7 +110,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identityprofilesv1/methods/identity-profiles#get-default-identity-attribute-config-v1
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#get-default-identity-attribute-config-v1
       source: |
         $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Identity Profile ID.
         
@@ -129,7 +129,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identityprofilesv1/methods/identity-profiles#get-identity-profile-v1
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#get-identity-profile-v1
       source: |
         $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
         
@@ -148,22 +148,13 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identityprofilesv1/methods/identity-profiles#import-identity-profiles-v1
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#import-identity-profiles-v1
       source: |
-        $IdentityprofileexportedobjectSelf = Initialize-IdentityprofileexportedobjectSelf -Type "ACCESS_PROFILE" -Id "2c9180835d191a86015d28455b4b232a" -Name "HR Active Directory"
 
-$IdentityprofileAllOfOwner = Initialize-IdentityprofileAllOfOwner -Type "IDENTITY" -Id "2c9180835d191a86015d28455b4b232a" -Name "William Wilson"
-$IdentityprofileAllOfAuthoritativeSource = Initialize-IdentityprofileAllOfAuthoritativeSource -Type "SOURCE" -Id "2c9180835d191a86015d28455b4b232a" -Name "HR Active Directory"
 
-$Transformdefinition = Initialize-Transformdefinition -Type "accountAttribute" -Attributes @{ key_example =  }
-$Identityattributetransform = Initialize-Identityattributetransform -IdentityAttributeName "email" -TransformDefinition $Transformdefinition
 
-$Identityattributeconfig = Initialize-Identityattributeconfig -Enabled $true -AttributeTransforms $Identityattributetransform
 
-$Identityexceptionreportreference = Initialize-Identityexceptionreportreference -TaskResultId "2b838de9-db9b-abcf-e646-d4f274ad4238" -ReportName "My annual report"
-$Identityprofile = Initialize-Identityprofile -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "My custom flat file profile" -Owner $IdentityprofileAllOfOwner -Priority 10 -AuthoritativeSource $IdentityprofileAllOfAuthoritativeSource -IdentityRefreshRequired $true -IdentityCount 8 -IdentityAttributeConfig $Identityattributeconfig -IdentityExceptionReportReference $Identityexceptionreportreference -HasTimeBasedAttr $true
 
-$Identityprofileexportedobject = Initialize-Identityprofileexportedobject -Version 1 -Self $IdentityprofileexportedobjectSelf -Object $Identityprofile# Identityprofileexportedobject[] | Previously exported Identity Profiles.
         $Identityprofileexportedobject = @""@ 
         
         
@@ -183,7 +174,7 @@ $Identityprofileexportedobject = Initialize-Identityprofileexportedobject -Versi
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identityprofilesv1/methods/identity-profiles#list-identity-profiles-v1
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#list-identity-profiles-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -206,7 +197,7 @@ $Identityprofileexportedobject = Initialize-Identityprofileexportedobject -Versi
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identityprofilesv1/methods/identity-profiles#sync-identity-profile-v1
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#sync-identity-profile-v1
       source: |
         $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID to be processed
         
@@ -225,11 +216,9 @@ $Identityprofileexportedobject = Initialize-Identityprofileexportedobject -Versi
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identityprofilesv1/methods/identity-profiles#update-identity-profile-v1
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#update-identity-profile-v1
       source: |
         $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
         $Jsonpatchoperation = @"[{"op":"add","path":"/identityAttributeConfig/attributeTransforms/0","value":{"identityAttributeName":"location","transformDefinition":{"type":"accountAttribute","attributes":{"sourceName":"Employees","attributeName":"location","sourceId":"2c91808878b7d63b0178c66ffcdc4ce4"}}}}]"@ 
         
         

@@ -30,7 +30,7 @@ function Initialize-Accountattributes {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountsV1 => Accountattributes' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Accounts => Accountattributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Attributes) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToAccountattributes {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountsV1 => Accountattributes' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Accounts => Accountattributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

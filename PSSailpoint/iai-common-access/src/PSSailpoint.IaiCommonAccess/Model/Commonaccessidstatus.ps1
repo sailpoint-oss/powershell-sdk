@@ -35,7 +35,7 @@ function Initialize-Commonaccessidstatus {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiCommonAccessV1 => Commonaccessidstatus' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiCommonAccess => Commonaccessidstatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToCommonaccessidstatus {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiCommonAccessV1 => Commonaccessidstatus' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiCommonAccess => Commonaccessidstatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

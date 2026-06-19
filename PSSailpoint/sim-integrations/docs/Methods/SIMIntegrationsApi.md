@@ -5,7 +5,7 @@ pagination_label: SIMIntegrations
 sidebar_label: SIMIntegrations
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SIMIntegrations', 'SIMIntegrations'] 
-slug: /tools/sdk/powershell/simintegrationsv1/methods/sim-integrations
+slug: /tools/sdk/powershell/simintegrations/methods/sim-integrations
 tags: ['SDK', 'Software Development Kit', 'SIMIntegrations', 'SIMIntegrations']
 ---
 

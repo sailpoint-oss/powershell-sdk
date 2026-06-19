@@ -5,7 +5,7 @@ pagination_label: Domainstatusdto
 sidebar_label: Domainstatusdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Domainstatusdto', 'Domainstatusdto'] 
-slug: /tools/sdk/powershell/notificationsv1/models/domainstatusdto
+slug: /tools/sdk/powershell/notifications/models/domainstatusdto
 tags: ['SDK', 'Software Development Kit', 'Domainstatusdto', 'Domainstatusdto']
 ---
 

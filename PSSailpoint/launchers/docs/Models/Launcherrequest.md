@@ -5,7 +5,7 @@ pagination_label: Launcherrequest
 sidebar_label: Launcherrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Launcherrequest', 'Launcherrequest'] 
-slug: /tools/sdk/powershell/launchersv1/models/launcherrequest
+slug: /tools/sdk/powershell/launchers/models/launcherrequest
 tags: ['SDK', 'Software Development Kit', 'Launcherrequest', 'Launcherrequest']
 ---
 

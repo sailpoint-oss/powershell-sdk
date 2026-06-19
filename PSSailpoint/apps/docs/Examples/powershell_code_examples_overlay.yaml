@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#create-source-app-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#create-source-app-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Sourceappcreatedto = @"
@@ -25,7 +25,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#delete-access-profiles-from-source-app-by-bulk-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#delete-access-profiles-from-source-app-by-bulk-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -50,7 +50,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#delete-source-app-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#delete-source-app-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | source app ID.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -70,7 +70,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#get-source-app-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#get-source-app-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -90,7 +90,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-access-profiles-for-source-app-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#list-access-profiles-for-source-app-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -113,7 +113,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-all-source-app-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#list-all-source-app-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -137,7 +137,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-all-user-apps-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#list-all-user-apps-v1
       source: |
         $Filters = "name eq "user app name"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **ownerId**: *eq*  **ownerName**: *eq, sw*  **ownerAlias**: *eq, sw*  **accountId**: *eq*  **sourceAppId**: *eq*
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -160,7 +160,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-assigned-source-app-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#list-assigned-source-app-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -184,7 +184,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-available-accounts-for-user-app-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#list-available-accounts-for-user-app-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the user app
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -206,7 +206,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-available-source-apps-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#list-available-source-apps-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -230,7 +230,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#list-owned-user-apps-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#list-owned-user-apps-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -253,12 +253,10 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#patch-source-app-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#patch-source-app-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app to patch
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] |  (optional)
         $Jsonpatchoperation = @"[{"op":"replace","path":"/enabled","value":true},{"op":"replace","path":"/matchAllAccounts","value":true}]"@ 
         
         
@@ -277,12 +275,10 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#patch-user-app-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#patch-user-app-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the user app to patch
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] |  (optional)
         $Jsonpatchoperation = @""@ 
         
         
@@ -301,7 +297,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/appsv1/methods/apps#update-source-apps-in-bulk-v1
+      label: SDK_tools/sdk/powershell/apps/methods/apps#update-source-apps-in-bulk-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Sourceappbulkupdaterequest = @"

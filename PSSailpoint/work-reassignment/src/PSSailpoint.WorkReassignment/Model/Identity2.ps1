@@ -35,7 +35,7 @@ function Initialize-Identity2 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkReassignmentV1 => Identity2' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkReassignment => Identity2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToIdentity2 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkReassignmentV1 => Identity2' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkReassignment => Identity2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

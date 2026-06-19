@@ -35,7 +35,7 @@ function Initialize-Summaryresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApiUsageV1 => Summaryresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ApiUsage => Summaryresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToSummaryresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApiUsageV1 => Summaryresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ApiUsage => Summaryresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

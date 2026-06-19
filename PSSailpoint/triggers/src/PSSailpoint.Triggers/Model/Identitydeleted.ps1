@@ -35,7 +35,7 @@ function Initialize-Identitydeleted {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Identitydeleted' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Identitydeleted' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Identity) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToIdentitydeleted {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Identitydeleted' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Identitydeleted' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

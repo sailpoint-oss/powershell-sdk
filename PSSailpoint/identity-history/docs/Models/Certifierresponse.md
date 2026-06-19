@@ -5,7 +5,7 @@ pagination_label: Certifierresponse
 sidebar_label: Certifierresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Certifierresponse', 'Certifierresponse'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/certifierresponse
+slug: /tools/sdk/powershell/identityhistory/models/certifierresponse
 tags: ['SDK', 'Software Development Kit', 'Certifierresponse', 'Certifierresponse']
 ---
 

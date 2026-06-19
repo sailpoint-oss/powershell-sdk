@@ -40,7 +40,7 @@ function Initialize-Identityattribute {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Identityattribute' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Identityattribute' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -82,7 +82,7 @@ function ConvertFrom-JsonToIdentityattribute {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Identityattribute' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Identityattribute' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

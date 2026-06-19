@@ -30,7 +30,7 @@ function Initialize-ListHistoricalIdentitiesV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => ListHistoricalIdentitiesV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => ListHistoricalIdentitiesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListHistoricalIdentitiesV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => ListHistoricalIdentitiesV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => ListHistoricalIdentitiesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

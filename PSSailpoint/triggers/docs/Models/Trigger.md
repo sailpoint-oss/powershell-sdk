@@ -5,7 +5,7 @@ pagination_label: Trigger
 sidebar_label: Trigger
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Trigger', 'Trigger'] 
-slug: /tools/sdk/powershell/triggersv1/models/trigger
+slug: /tools/sdk/powershell/triggers/models/trigger
 tags: ['SDK', 'Software Development Kit', 'Trigger', 'Trigger']
 ---
 

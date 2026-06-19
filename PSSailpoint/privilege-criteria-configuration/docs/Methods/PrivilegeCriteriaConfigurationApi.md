@@ -5,7 +5,7 @@ pagination_label: PrivilegeCriteriaConfiguration
 sidebar_label: PrivilegeCriteriaConfiguration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'PrivilegeCriteriaConfiguration', 'PrivilegeCriteriaConfiguration'] 
-slug: /tools/sdk/powershell/privilegecriteriaconfigurationv1/methods/privilege-criteria-configuration
+slug: /tools/sdk/powershell/privilegecriteriaconfiguration/methods/privilege-criteria-configuration
 tags: ['SDK', 'Software Development Kit', 'PrivilegeCriteriaConfiguration', 'PrivilegeCriteriaConfiguration']
 ---
 
@@ -123,7 +123,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = "sourceId eq "c42c45d8d7c04d2da64d215cd8c32f21"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  All filter values are case-sensitive for this API.  For example, the following is valid: `?filters=sourceId eq ""2c91809175e6c63f0175fb5570220569""`
+$Filters = 'sourceId eq "c42c45d8d7c04d2da64d215cd8c32f21"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  All filter values are case-sensitive for this API.  For example, the following is valid: `?filters=sourceId eq ""2c91809175e6c63f0175fb5570220569"'`
 
 # List privilege criteria config
 
@@ -148,7 +148,7 @@ Use this API to update the privilege criteria configuration.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | CriteriaConfigId | **String** | True  | The Id of the privilege criteria configuration to update.
- Body  | RequestBody | [**[]SystemCollectionsHashtable**](../models/system-collections-hashtable) | True  | A list of criteria configuration operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ Body  | RequestBody | [**[]SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) | True  | A list of criteria configuration operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
 [**Privilegecriteriaconfigdto**](../models/privilegecriteriaconfigdto)

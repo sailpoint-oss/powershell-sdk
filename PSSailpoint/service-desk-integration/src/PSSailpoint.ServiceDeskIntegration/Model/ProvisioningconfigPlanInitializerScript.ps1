@@ -30,7 +30,7 @@ function Initialize-ProvisioningconfigPlanInitializerScript {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ServiceDeskIntegrationV1 => ProvisioningconfigPlanInitializerScript' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ServiceDeskIntegration => ProvisioningconfigPlanInitializerScript' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToProvisioningconfigPlanInitializerScript {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ServiceDeskIntegrationV1 => ProvisioningconfigPlanInitializerScript' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ServiceDeskIntegration => ProvisioningconfigPlanInitializerScript' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

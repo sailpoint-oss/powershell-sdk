@@ -5,7 +5,7 @@ pagination_label: Startinvocationinput
 sidebar_label: Startinvocationinput
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Startinvocationinput', 'Startinvocationinput'] 
-slug: /tools/sdk/powershell/triggersv1/models/startinvocationinput
+slug: /tools/sdk/powershell/triggers/models/startinvocationinput
 tags: ['SDK', 'Software Development Kit', 'Startinvocationinput', 'Startinvocationinput']
 ---
 
@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'Startinvocationinput', 'Startinvocati
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TriggerId** | **String** | Trigger ID | [optional] 
-**VarInput** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Trigger input payload. Its schema is defined in the trigger definition. | [optional] 
-**ContentJson** | [**SystemCollectionsHashtable**](system-collections-hashtable) | JSON map of invocation metadata | [optional] 
+**VarInput** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Trigger input payload. Its schema is defined in the trigger definition. | [optional] 
+**ContentJson** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | JSON map of invocation metadata | [optional] 
 
 ## Examples
 

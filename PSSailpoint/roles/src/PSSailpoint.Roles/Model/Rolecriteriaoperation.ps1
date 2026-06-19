@@ -22,10 +22,20 @@ enum Rolecriteriaoperation {
     NOT_EQUALS
     # enum value: "CONTAINS"
     CONTAINS
+    # enum value: "DOES_NOT_CONTAIN"
+    DOES_NOT_CONTAIN
     # enum value: "STARTS_WITH"
     STARTS_WITH
     # enum value: "ENDS_WITH"
     ENDS_WITH
+    # enum value: "GREATER_THAN"
+    GREATER_THAN
+    # enum value: "LESS_THAN"
+    LESS_THAN
+    # enum value: "GREATER_THAN_EQUALS"
+    GREATER_THAN_EQUALS
+    # enum value: "LESS_THAN_EQUALS"
+    LESS_THAN_EQUALS
     # enum value: "AND"
     AND
     # enum value: "OR"

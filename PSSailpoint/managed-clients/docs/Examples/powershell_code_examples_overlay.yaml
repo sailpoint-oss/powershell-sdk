@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/managedclientsv1/methods/managed-clients#create-managed-client-v1
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#create-managed-client-v1
       source: |
         $Managedclientrequest = @"
         
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/managedclientsv1/methods/managed-clients#delete-managed-client-v1
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#delete-managed-client-v1
       source: |
         $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
         
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/managedclientsv1/methods/managed-clients#get-managed-client-health-indicators-v1
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#get-managed-client-health-indicators-v1
       source: |
         $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID to get health indicators for.
         
@@ -62,7 +62,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/managedclientsv1/methods/managed-clients#get-managed-client-status-v1
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#get-managed-client-status-v1
       source: |
         $Id = "aClientId" # String | Managed client ID to get status for.
         $Type = "CCG" # Managedclienttype | Managed client type to get status for.
@@ -82,7 +82,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/managedclientsv1/methods/managed-clients#get-managed-client-v1
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#get-managed-client-v1
       source: |
         $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
         
@@ -101,7 +101,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/managedclientsv1/methods/managed-clients#get-managed-clients-v1
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#get-managed-clients-v1
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -123,11 +123,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/managedclientsv1/methods/managed-clients#update-managed-client-v1
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#update-managed-client-v1
       source: |
         $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | JSONPatch payload used to update the object.
         $Jsonpatchoperation = @""@ 
         
         

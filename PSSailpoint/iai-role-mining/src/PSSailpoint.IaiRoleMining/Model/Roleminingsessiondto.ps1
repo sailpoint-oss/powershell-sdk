@@ -81,7 +81,7 @@ function Initialize-Roleminingsessiondto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRoleMiningV1 => Roleminingsessiondto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRoleMining => Roleminingsessiondto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -127,7 +127,7 @@ function ConvertFrom-JsonToRoleminingsessiondto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMiningV1 => Roleminingsessiondto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMining => Roleminingsessiondto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

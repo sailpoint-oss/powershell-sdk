@@ -40,7 +40,7 @@ function Initialize-Workitemssummary {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkItemsV1 => Workitemssummary' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkItems => Workitemssummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToWorkitemssummary {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkItemsV1 => Workitemssummary' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkItems => Workitemssummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

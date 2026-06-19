@@ -37,7 +37,7 @@ function Initialize-Accountrequestphase {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountCreationRequestV1 => Accountrequestphase' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccountCreationRequest => Accountrequestphase' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -74,7 +74,7 @@ function ConvertFrom-JsonToAccountrequestphase {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountCreationRequestV1 => Accountrequestphase' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountCreationRequest => Accountrequestphase' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

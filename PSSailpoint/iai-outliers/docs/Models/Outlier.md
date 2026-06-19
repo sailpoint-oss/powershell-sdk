@@ -5,7 +5,7 @@ pagination_label: Outlier
 sidebar_label: Outlier
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Outlier', 'Outlier'] 
-slug: /tools/sdk/powershell/iaioutliersv1/models/outlier
+slug: /tools/sdk/powershell/iaioutliers/models/outlier
 tags: ['SDK', 'Software Development Kit', 'Outlier', 'Outlier']
 ---
 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **FirstDetectionDate** | **System.DateTime** | The first date the outlier was detected | [optional] 
 **LatestDetectionDate** | **System.DateTime** | The most recent date the outlier was detected | [optional] 
 **Ignored** | **Boolean** | Flag whether or not the outlier has been ignored | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Object containing mapped identity attributes | [optional] 
+**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Object containing mapped identity attributes | [optional] 
 **Score** | **Double** | The outlier score determined by the detection engine ranging from 0..1 | [optional] 
 **UnignoreType** |  **Enum** [  "MANUAL",    "AUTOMATIC" ] | Enum value of if the outlier manually or automatically un-ignored. Will be NULL if outlier is not ignored | [optional] 
 **UnignoreDate** | **System.DateTime** | shows date when last time has been unignored outlier | [optional] 

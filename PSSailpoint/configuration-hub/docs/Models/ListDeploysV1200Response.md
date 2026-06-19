@@ -5,7 +5,7 @@ pagination_label: ListDeploysV1200Response
 sidebar_label: ListDeploysV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ListDeploysV1200Response', 'ListDeploysV1200Response'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/list-deploys-v1200-response
+slug: /tools/sdk/powershell/configurationhub/models/list-deploys-v1200-response
 tags: ['SDK', 'Software Development Kit', 'ListDeploysV1200Response', 'ListDeploysV1200Response']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Approvalitemdetails
 sidebar_label: Approvalitemdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalitemdetails', 'Approvalitemdetails'] 
-slug: /tools/sdk/powershell/workitemsv1/models/approvalitemdetails
+slug: /tools/sdk/powershell/workitems/models/approvalitemdetails
 tags: ['SDK', 'Software Development Kit', 'Approvalitemdetails', 'Approvalitemdetails']
 ---
 

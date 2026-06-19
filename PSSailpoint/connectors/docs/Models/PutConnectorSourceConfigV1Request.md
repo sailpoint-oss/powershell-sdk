@@ -5,7 +5,7 @@ pagination_label: PutConnectorSourceConfigV1Request
 sidebar_label: PutConnectorSourceConfigV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'PutConnectorSourceConfigV1Request', 'PutConnectorSourceConfigV1Request'] 
-slug: /tools/sdk/powershell/connectorsv1/models/put-connector-source-config-v1-request
+slug: /tools/sdk/powershell/connectors/models/put-connector-source-config-v1-request
 tags: ['SDK', 'Software Development Kit', 'PutConnectorSourceConfigV1Request', 'PutConnectorSourceConfigV1Request']
 ---
 

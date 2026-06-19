@@ -30,7 +30,7 @@ function Initialize-Approvalcancelrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalcancelrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => Approvalcancelrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToApprovalcancelrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalcancelrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => Approvalcancelrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

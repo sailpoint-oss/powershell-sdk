@@ -55,7 +55,7 @@ function Initialize-Roleinsightssummary {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RoleInsightsV1 => Roleinsightssummary' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.RoleInsights => Roleinsightssummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToRoleinsightssummary {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RoleInsightsV1 => Roleinsightssummary' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.RoleInsights => Roleinsightssummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

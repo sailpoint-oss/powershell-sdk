@@ -5,7 +5,7 @@ pagination_label: Dimensionref
 sidebar_label: Dimensionref
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dimensionref', 'Dimensionref'] 
-slug: /tools/sdk/powershell/rolesv1/models/dimensionref
+slug: /tools/sdk/powershell/roles/models/dimensionref
 tags: ['SDK', 'Software Development Kit', 'Dimensionref', 'Dimensionref']
 ---
 

@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#cancel-task-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#cancel-task-v1
       source: |
         $Id = 1001 # Int64 | The unique identifier of the task to cancel.
         
@@ -21,7 +21,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#create-application-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#create-application-v1
       source: |
         $Basecreateapplicationrequest = @"
         
@@ -43,7 +43,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#create-schedule-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#create-schedule-v1
       source: |
         $Createschedulerequest = @"
         
@@ -65,7 +65,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#das-v1-owners-assign-post
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#das-v1-owners-assign-post
       source: |
         $Assignresourceownerrequest = @"
         
@@ -87,7 +87,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#das-v1-owners-owner-identity-id-resources-get
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#das-v1-owners-owner-identity-id-resources-get
       source: |
         $OwnerIdentityId = "a3f1c2d4-5678-4e9b-8c2d-123456789abc" # String | Unique identifier for the owner. This should be a UUID representing the owner's identity.
         $Limit = 250 # Int32 | Not applicable for this endpoint. Do not use. (optional) (default to 250)
@@ -108,7 +108,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#das-v1-owners-reelect-post
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#das-v1-owners-reelect-post
       source: |
         $Reelectrequest = @"
         
@@ -130,7 +130,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#das-v1-owners-resources-resource-id-get
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#das-v1-owners-resources-resource-id-get
       source: |
         $ResourceId = 101 # Int64 | Unique identifier for the resource.
         $Limit = 250 # Int32 | Not applicable for this endpoint. Do not use. (optional) (default to 250)
@@ -151,7 +151,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#das-v1-owners-source-identity-id-reassign-destination-identity-id-post
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#das-v1-owners-source-identity-id-reassign-destination-identity-id-post
       source: |
         $SourceIdentityId = "a3f1c2d4-5678-4e9b-8c2d-123456789abc" # String | Unique identifier for the source owner. This should be a UUID representing the identity to reassign from.
         $DestinationIdentityId = "b4e2d3c5-6789-4f0a-9d3e-234567890bcd" # String | Unique identifier for the destination owner. This should be a UUID representing the identity to reassign to.
@@ -171,7 +171,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#delete-application-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#delete-application-v1
       source: |
         $Id = 12345 # Int64 | The unique identifier of the application to delete.
         
@@ -190,7 +190,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#delete-schedule-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#delete-schedule-v1
       source: |
         $Id = 1001 # Int64 | The unique identifier of the schedule to delete.
         
@@ -209,7 +209,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#delete-task-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#delete-task-v1
       source: |
         $Id = 1001 # Int64 | The unique identifier of the task to delete.
         
@@ -228,7 +228,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-application-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#get-application-v1
       source: |
         $Id = 12345 # Int64 | The unique identifier of the application to retrieve.
         
@@ -247,7 +247,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-applications-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#get-applications-v1
       source: |
         $Filters = "AppType eq 'ActiveDirectory' and Statuses eq 'Passed'" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **appIds**: *eq, in*  **tagIds**: *eq, in*  **statuses**: *eq, in*  **groupCodes**: *eq, in*  **virtualAppId**: *eq*  **appName**: *eq*  **supportsValidation**: *eq*  Supported composite operators are *and, or* (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -269,7 +269,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-owners-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#get-owners-v1
       source: |
         $AppId = 2001 # Int64 | The unique identifier of the application for which to retrieve owners.
         $Limit = 250 # Int32 | Not applicable for this endpoint. Do not use. (optional) (default to 250)
@@ -290,7 +290,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-schedule-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#get-schedule-v1
       source: |
         $Id = 1001 # Int64 | The unique identifier of the schedule to retrieve.
         
@@ -309,7 +309,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-schedules-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#get-schedules-v1
       source: |
         $Filters = "ScheduleType eq "Daily" and startTime eq 1762237200" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **scheduleTaskIds**: *eq, in*  **taskTypeName**: *eq, in*  **status**: *eq*  **applicationId**: *eq*  **fullName**: *eq*  **nameSubString**: *eq*  **scheduleType**: *eq*  Supported composite operators are *and, or* (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -331,7 +331,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-task-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#get-task-v1
       source: |
         $Id = 1001 # Int64 | The unique identifier of the task to retrieve.
         
@@ -350,7 +350,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#get-tasks-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#get-tasks-v1
       source: |
         $Filters = "TaskTypeName eq "DataClassification and EndBeforeTime eq 1762240800" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **taskIds**: *eq, in*  **statuses**: *eq, in*  **taskTypeName**: *eq, in*  **taskName**: *eq*  **endBeforeTime**: *eq*  Supported composite operators are *and, or*  Example: taskTypeName eq ""DataSync"" and endBeforeTime eq 1762240800 (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -372,7 +372,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#put-application-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#put-application-v1
       source: |
         $Id = 12345 # Int64 | The unique identifier of the application to update.
         $Basecreateapplicationrequest = @"
@@ -395,7 +395,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#put-schedule-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#put-schedule-v1
       source: |
         $Id = 1001 # Int64 | The unique identifier of the schedule to update.
         $Updateschedulerequest = @"
@@ -418,7 +418,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dataaccesssecurityv1/methods/data-access-security#start-task-rerun-v1
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#start-task-rerun-v1
       source: |
         $Id = 1001 # Int64 | The unique identifier of the task to rerun.
         

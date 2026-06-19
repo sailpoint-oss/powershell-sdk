@@ -5,7 +5,7 @@ pagination_label: PublicidentityAttributesInner
 sidebar_label: PublicidentityAttributesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'PublicidentityAttributesInner', 'PublicidentityAttributesInner'] 
-slug: /tools/sdk/powershell/customuserlevelsv1/models/publicidentity-attributes-inner
+slug: /tools/sdk/powershell/customuserlevels/models/publicidentity-attributes-inner
 tags: ['SDK', 'Software Development Kit', 'PublicidentityAttributesInner', 'PublicidentityAttributesInner']
 ---
 

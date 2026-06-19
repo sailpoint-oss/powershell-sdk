@@ -30,7 +30,7 @@ function Initialize-GetNotificationTemplateVariablesV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => GetNotificationTemplateVariablesV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => GetNotificationTemplateVariablesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetNotificationTemplateVariablesV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => GetNotificationTemplateVariablesV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => GetNotificationTemplateVariablesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

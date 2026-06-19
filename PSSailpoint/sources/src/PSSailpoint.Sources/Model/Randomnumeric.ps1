@@ -40,7 +40,7 @@ function Initialize-Randomnumeric {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Randomnumeric' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Randomnumeric' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToRandomnumeric {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Randomnumeric' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Randomnumeric' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

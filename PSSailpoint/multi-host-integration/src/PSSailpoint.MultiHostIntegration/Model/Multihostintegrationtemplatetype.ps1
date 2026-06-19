@@ -40,7 +40,7 @@ function Initialize-Multihostintegrationtemplatetype {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => Multihostintegrationtemplatetype' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MultiHostIntegration => Multihostintegrationtemplatetype' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToMultihostintegrationtemplatetype {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => Multihostintegrationtemplatetype' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegration => Multihostintegrationtemplatetype' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

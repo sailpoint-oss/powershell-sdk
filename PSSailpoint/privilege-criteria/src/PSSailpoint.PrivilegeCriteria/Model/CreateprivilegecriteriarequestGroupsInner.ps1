@@ -36,7 +36,7 @@ function Initialize-CreateprivilegecriteriarequestGroupsInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PrivilegeCriteriaV1 => CreateprivilegecriteriarequestGroupsInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PrivilegeCriteria => CreateprivilegecriteriarequestGroupsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToCreateprivilegecriteriarequestGroupsInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PrivilegeCriteriaV1 => CreateprivilegecriteriarequestGroupsInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PrivilegeCriteria => CreateprivilegecriteriarequestGroupsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

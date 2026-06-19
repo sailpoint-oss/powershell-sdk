@@ -35,7 +35,7 @@ function Initialize-IdentityassociationdetailsAssociationDetailsInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => IdentityassociationdetailsAssociationDetailsInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => IdentityassociationdetailsAssociationDetailsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToIdentityassociationdetailsAssociationDetailsInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => IdentityassociationdetailsAssociationDetailsInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => IdentityassociationdetailsAssociationDetailsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: GetTotalCountV1401Response
 sidebar_label: GetTotalCountV1401Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetTotalCountV1401Response', 'GetTotalCountV1401Response'] 
-slug: /tools/sdk/powershell/apiusagev1/models/get-total-count-v1401-response
+slug: /tools/sdk/powershell/apiusage/models/get-total-count-v1401-response
 tags: ['SDK', 'Software Development Kit', 'GetTotalCountV1401Response', 'GetTotalCountV1401Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetTotalCountV1401Response', 'GetTota
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**VarError** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

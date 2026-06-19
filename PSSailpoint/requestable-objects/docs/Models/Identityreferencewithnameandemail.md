@@ -5,7 +5,7 @@ pagination_label: Identityreferencewithnameandemail
 sidebar_label: Identityreferencewithnameandemail
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityreferencewithnameandemail', 'Identityreferencewithnameandemail'] 
-slug: /tools/sdk/powershell/requestableobjectsv1/models/identityreferencewithnameandemail
+slug: /tools/sdk/powershell/requestableobjects/models/identityreferencewithnameandemail
 tags: ['SDK', 'Software Development Kit', 'Identityreferencewithnameandemail', 'Identityreferencewithnameandemail']
 ---
 

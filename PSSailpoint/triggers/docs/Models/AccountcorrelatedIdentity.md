@@ -5,7 +5,7 @@ pagination_label: AccountcorrelatedIdentity
 sidebar_label: AccountcorrelatedIdentity
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountcorrelatedIdentity', 'AccountcorrelatedIdentity'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountcorrelated-identity
+slug: /tools/sdk/powershell/triggers/models/accountcorrelated-identity
 tags: ['SDK', 'Software Development Kit', 'AccountcorrelatedIdentity', 'AccountcorrelatedIdentity']
 ---
 

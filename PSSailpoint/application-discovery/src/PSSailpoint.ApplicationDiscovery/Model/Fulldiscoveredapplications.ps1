@@ -186,7 +186,7 @@ function Initialize-Fulldiscoveredapplications {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Fulldiscoveredapplications' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ApplicationDiscovery => Fulldiscoveredapplications' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -253,7 +253,7 @@ function ConvertFrom-JsonToFulldiscoveredapplications {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Fulldiscoveredapplications' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscovery => Fulldiscoveredapplications' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

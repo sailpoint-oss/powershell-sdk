@@ -50,7 +50,7 @@ function Initialize-Connectorcustomizersresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConnectorCustomizersV1 => Connectorcustomizersresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConnectorCustomizers => Connectorcustomizersresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToConnectorcustomizersresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorCustomizersV1 => Connectorcustomizersresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorCustomizers => Connectorcustomizersresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Mfaoktaconfig
 sidebar_label: Mfaoktaconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Mfaoktaconfig', 'Mfaoktaconfig'] 
-slug: /tools/sdk/powershell/mfaconfigurationv1/models/mfaoktaconfig
+slug: /tools/sdk/powershell/mfaconfiguration/models/mfaoktaconfig
 tags: ['SDK', 'Software Development Kit', 'Mfaoktaconfig', 'Mfaoktaconfig']
 ---
 

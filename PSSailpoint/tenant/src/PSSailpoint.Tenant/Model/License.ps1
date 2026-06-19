@@ -35,7 +35,7 @@ function Initialize-License {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TenantV1 => License' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Tenant => License' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToLicense {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TenantV1 => License' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Tenant => License' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

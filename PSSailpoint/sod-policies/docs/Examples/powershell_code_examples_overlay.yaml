@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#create-sod-policy-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#create-sod-policy-v1
       source: |
         $Sodpolicy = @"
         {"name":"Conflicting-Policy-Name","description":"This policy ensures compliance of xyz","ownerRef":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"Owner Name"},"externalPolicyReference":"XYZ policy","compensatingControls":"Have a manager review the transaction decisions for their \"out of compliance\" employee","correctionAdvice":"Based on the role of the employee, managers should remove access that is not required for their job function.","state":"ENFORCED","tags":["string"],"creatorId":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","modifierId":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","violationOwnerAssignmentConfig":{"assignmentRule":"MANAGER","ownerRef":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"Violation Owner Name"}},"scheduled":true,"type":"CONFLICTING_ACCESS_BASED","conflictingAccessCriteria":{"leftCriteria":{"name":"money-in","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a66"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a67"}]},"rightCriteria":{"name":"money-out","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a68"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a69"}]}}}
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#delete-sod-policy-schedule-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#delete-sod-policy-schedule-v1
       source: |
         $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy the schedule must be deleted for.
         
@@ -43,7 +43,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#delete-sod-policy-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#delete-sod-policy-v1
       source: |
         $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy to delete.
         $Logical = $true # Boolean | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to $true)
@@ -63,7 +63,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#get-custom-violation-report-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-custom-violation-report-v1
       source: |
         $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
         $FileName = "custom-name" # String | Custom Name for the  file.
@@ -83,7 +83,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#get-default-violation-report-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-default-violation-report-v1
       source: |
         $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
         
@@ -102,7 +102,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#get-sod-all-report-run-status-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-sod-all-report-run-status-v1
       source: |
         
         # Get multi-report run task status
@@ -120,7 +120,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#get-sod-policy-schedule-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-sod-policy-schedule-v1
       source: |
         $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy schedule to retrieve.
         
@@ -139,7 +139,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#get-sod-policy-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-sod-policy-v1
       source: |
         $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy to retrieve.
         
@@ -158,7 +158,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#get-sod-violation-report-run-status-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-sod-violation-report-run-status-v1
       source: |
         $ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of the report reference to retrieve.
         
@@ -177,7 +177,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#get-sod-violation-report-status-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-sod-violation-report-status-v1
       source: |
         $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the violation report to retrieve status for.
         
@@ -196,7 +196,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#list-sod-policies-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#list-sod-policies-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -219,11 +219,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#patch-sod-policy-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#patch-sod-policy-v1
       source: |
         $Id = "2c918083-5d19-1a86-015d-28455b4a2329" # String | The ID of the SOD policy being modified.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
         $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Modified description"},{"op":"replace","path":"/conflictingAccessCriteria/leftCriteria/name","value":"money-in-modified"},{"op":"replace","path":"/conflictingAccessCriteria/rightCriteria","value":{"name":"money-out-modified","criteriaList":[{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c0509c1ab2"}]}}]"@ 
         
         
@@ -243,7 +241,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#put-policy-schedule-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#put-policy-schedule-v1
       source: |
         $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update its schedule.
         $Sodpolicyschedule = @"
@@ -266,7 +264,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#put-sod-policy-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#put-sod-policy-v1
       source: |
         $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update.
         $Sodpolicy = @"
@@ -289,7 +287,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#start-evaluate-sod-policy-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#start-evaluate-sod-policy-v1
       source: |
         $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
         
@@ -308,7 +306,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#start-sod-all-policies-for-org-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#start-sod-all-policies-for-org-v1
       source: |
         $Multipolicyrequest = @"
         {"filteredPolicyList":["b868cd40-ffa4-4337-9c07-1a51846cfa94","63a07a7b-39a4-48aa-956d-50c827deba2a"]}
@@ -329,7 +327,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sodpoliciesv1/methods/sod-policies#start-sod-policy-v1
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#start-sod-policy-v1
       source: |
         $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
         

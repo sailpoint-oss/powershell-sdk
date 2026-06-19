@@ -47,7 +47,7 @@ function Initialize-Closeaccessrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Closeaccessrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Closeaccessrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AccessRequestIds) {
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToCloseaccessrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Closeaccessrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Closeaccessrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

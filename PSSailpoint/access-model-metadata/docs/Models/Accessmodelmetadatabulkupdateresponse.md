@@ -5,7 +5,7 @@ pagination_label: Accessmodelmetadatabulkupdateresponse
 sidebar_label: Accessmodelmetadatabulkupdateresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessmodelmetadatabulkupdateresponse', 'Accessmodelmetadatabulkupdateresponse'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/accessmodelmetadatabulkupdateresponse
+slug: /tools/sdk/powershell/accessmodelmetadata/models/accessmodelmetadatabulkupdateresponse
 tags: ['SDK', 'Software Development Kit', 'Accessmodelmetadatabulkupdateresponse', 'Accessmodelmetadatabulkupdateresponse']
 ---
 

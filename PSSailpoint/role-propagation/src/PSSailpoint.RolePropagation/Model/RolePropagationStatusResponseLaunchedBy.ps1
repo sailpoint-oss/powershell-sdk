@@ -41,7 +41,7 @@ function Initialize-RolePropagationStatusResponseLaunchedBy {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolePropagationV1 => RolePropagationStatusResponseLaunchedBy' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.RolePropagation => RolePropagationStatusResponseLaunchedBy' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToRolePropagationStatusResponseLaunchedBy {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolePropagationV1 => RolePropagationStatusResponseLaunchedBy' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.RolePropagation => RolePropagationStatusResponseLaunchedBy' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

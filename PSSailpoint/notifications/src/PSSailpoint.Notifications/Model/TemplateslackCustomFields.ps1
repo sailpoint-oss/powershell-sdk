@@ -45,7 +45,7 @@ function Initialize-TemplateslackCustomFields {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => TemplateslackCustomFields' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => TemplateslackCustomFields' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToTemplateslackCustomFields {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => TemplateslackCustomFields' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => TemplateslackCustomFields' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

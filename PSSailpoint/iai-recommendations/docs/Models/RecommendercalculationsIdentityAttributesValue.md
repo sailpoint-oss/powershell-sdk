@@ -5,7 +5,7 @@ pagination_label: RecommendercalculationsIdentityAttributesValue
 sidebar_label: RecommendercalculationsIdentityAttributesValue
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RecommendercalculationsIdentityAttributesValue', 'RecommendercalculationsIdentityAttributesValue'] 
-slug: /tools/sdk/powershell/iairecommendationsv1/models/recommendercalculations-identity-attributes-value
+slug: /tools/sdk/powershell/iairecommendations/models/recommendercalculations-identity-attributes-value
 tags: ['SDK', 'Software Development Kit', 'RecommendercalculationsIdentityAttributesValue', 'RecommendercalculationsIdentityAttributesValue']
 ---
 

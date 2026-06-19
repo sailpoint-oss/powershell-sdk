@@ -5,7 +5,7 @@ pagination_label: Authuser
 sidebar_label: Authuser
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Authuser', 'Authuser'] 
-slug: /tools/sdk/powershell/authusersv1/models/authuser
+slug: /tools/sdk/powershell/authusers/models/authuser
 tags: ['SDK', 'Software Development Kit', 'Authuser', 'Authuser']
 ---
 

@@ -35,7 +35,7 @@ function Initialize-Translationmessage {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiOutliersV1 => Translationmessage' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiOutliers => Translationmessage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToTranslationmessage {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiOutliersV1 => Translationmessage' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiOutliers => Translationmessage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

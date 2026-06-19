@@ -5,7 +5,7 @@ pagination_label: Clientlogconfigurationdurationminutes
 sidebar_label: Clientlogconfigurationdurationminutes
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Clientlogconfigurationdurationminutes', 'Clientlogconfigurationdurationminutes'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/clientlogconfigurationdurationminutes
+slug: /tools/sdk/powershell/managedclusters/models/clientlogconfigurationdurationminutes
 tags: ['SDK', 'Software Development Kit', 'Clientlogconfigurationdurationminutes', 'Clientlogconfigurationdurationminutes']
 ---
 

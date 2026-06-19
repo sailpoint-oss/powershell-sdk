@@ -30,7 +30,7 @@ function Initialize-Violationprediction {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodViolationsV1 => Violationprediction' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodViolations => Violationprediction' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToViolationprediction {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodViolationsV1 => Violationprediction' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodViolations => Violationprediction' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

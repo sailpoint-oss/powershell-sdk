@@ -60,7 +60,7 @@ function Initialize-Approvalitemdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkItemsV1 => Approvalitemdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkItems => Approvalitemdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -102,7 +102,7 @@ function ConvertFrom-JsonToApprovalitemdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkItemsV1 => Approvalitemdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkItems => Approvalitemdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

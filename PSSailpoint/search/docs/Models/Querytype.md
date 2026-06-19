@@ -5,7 +5,7 @@ pagination_label: Querytype
 sidebar_label: Querytype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Querytype', 'Querytype'] 
-slug: /tools/sdk/powershell/searchv1/models/querytype
+slug: /tools/sdk/powershell/search/models/querytype
 tags: ['SDK', 'Software Development Kit', 'Querytype', 'Querytype']
 ---
 

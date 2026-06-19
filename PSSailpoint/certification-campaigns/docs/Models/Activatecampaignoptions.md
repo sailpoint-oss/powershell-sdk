@@ -5,7 +5,7 @@ pagination_label: Activatecampaignoptions
 sidebar_label: Activatecampaignoptions
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Activatecampaignoptions', 'Activatecampaignoptions'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/activatecampaignoptions
+slug: /tools/sdk/powershell/certificationcampaigns/models/activatecampaignoptions
 tags: ['SDK', 'Software Development Kit', 'Activatecampaignoptions', 'Activatecampaignoptions']
 ---
 

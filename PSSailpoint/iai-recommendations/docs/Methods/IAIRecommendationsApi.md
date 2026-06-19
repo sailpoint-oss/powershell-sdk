@@ -5,7 +5,7 @@ pagination_label: IAIRecommendations
 sidebar_label: IAIRecommendations
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IAIRecommendations', 'IAIRecommendations'] 
-slug: /tools/sdk/powershell/iairecommendationsv1/methods/iai-recommendations
+slug: /tools/sdk/powershell/iairecommendations/methods/iai-recommendations
 tags: ['SDK', 'Software Development Kit', 'IAIRecommendations', 'IAIRecommendations']
 ---
 

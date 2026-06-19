@@ -106,7 +106,7 @@ function Initialize-Connectordetail {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Connectordetail' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Connectordetail' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -157,7 +157,7 @@ function ConvertFrom-JsonToConnectordetail {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Connectordetail' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Connectordetail' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

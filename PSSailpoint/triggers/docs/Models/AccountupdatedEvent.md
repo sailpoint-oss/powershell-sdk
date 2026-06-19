@@ -5,7 +5,7 @@ pagination_label: AccountupdatedEvent
 sidebar_label: AccountupdatedEvent
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountupdatedEvent', 'AccountupdatedEvent'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountupdated-event
+slug: /tools/sdk/powershell/triggers/models/accountupdated-event
 tags: ['SDK', 'Software Development Kit', 'AccountupdatedEvent', 'AccountupdatedEvent']
 ---
 

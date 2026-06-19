@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#create-domain-dkim-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#create-domain-dkim-v1
       source: |
         $Domainaddress = @"
         
@@ -24,7 +24,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#create-notification-template-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#create-notification-template-v1
       source: |
         $Templatedto = @"
         
@@ -46,7 +46,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#create-verified-from-address-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#create-verified-from-address-v1
       source: |
         $Emailstatusdto = @"
         {"email":"sender@example.com"}
@@ -68,9 +68,8 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#delete-notification-templates-in-bulk-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#delete-notification-templates-in-bulk-v1
       source: |
-        $Templatebulkdeletedto = Initialize-Templatebulkdeletedto -Key "cloud_manual_work_item_summary" -Medium "EMAIL" -Locale "en"# Templatebulkdeletedto[] | 
         $Templatebulkdeletedto = @""@ 
         
         
@@ -90,7 +89,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#delete-verified-from-address-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#delete-verified-from-address-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Unique identifier of the verified sender address to delete.
         
@@ -109,7 +108,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#get-dkim-attributes-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-dkim-attributes-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -129,7 +128,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#get-mail-from-attributes-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-mail-from-attributes-v1
       source: |
         $Identity = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
         
@@ -148,7 +147,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#get-notification-preferences-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-notification-preferences-v1
       source: |
         $Key = "MyKey" # String | The key.
         
@@ -167,7 +166,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#get-notification-template-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-notification-template-v1
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Notification Template
         
@@ -186,7 +185,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#get-notification-template-variables-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-notification-template-variables-v1
       source: |
         $Key = "approval_request_notification" # String | The notification template key. Valid keys (and key/medium pairs) are available from the list notification templates operation. 
         $Medium = "EMAIL" # String | The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation. 
@@ -207,7 +206,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#get-notifications-template-context-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-notifications-template-context-v1
       source: |
         
         # Get notification template context
@@ -225,7 +224,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#list-from-addresses-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#list-from-addresses-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -248,7 +247,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#list-notification-template-defaults-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#list-notification-template-defaults-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -269,7 +268,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#list-notification-templates-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#list-notification-templates-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -291,7 +290,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#put-mail-from-attributes-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#put-mail-from-attributes-v1
       source: |
         $Mailfromattributesdto = @"
         {"identity":"BobSmith@sailpoint.com","mailFromDomain":"example.sailpoint.com"}
@@ -313,7 +312,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/notificationsv1/methods/notifications#send-test-notification-v1
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#send-test-notification-v1
       source: |
         $Sendtestnotificationrequestdto = @"
         {"key":"cloud_manual_work_item_summary","medium":"EMAIL","context":{"numberOfPendingTasks":"4","ownerId":"201327fda1c44704ac01181e963d463c"}}

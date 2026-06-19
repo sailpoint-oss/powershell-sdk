@@ -5,7 +5,7 @@ pagination_label: Rolemetadatabulkupdatebyidrequest
 sidebar_label: Rolemetadatabulkupdatebyidrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Rolemetadatabulkupdatebyidrequest', 'Rolemetadatabulkupdatebyidrequest'] 
-slug: /tools/sdk/powershell/rolesv1/models/rolemetadatabulkupdatebyidrequest
+slug: /tools/sdk/powershell/roles/models/rolemetadatabulkupdatebyidrequest
 tags: ['SDK', 'Software Development Kit', 'Rolemetadatabulkupdatebyidrequest', 'Rolemetadatabulkupdatebyidrequest']
 ---
 

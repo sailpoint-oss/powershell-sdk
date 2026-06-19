@@ -5,7 +5,7 @@ pagination_label: PendingapprovalMaxPermittedAccessDuration
 sidebar_label: PendingapprovalMaxPermittedAccessDuration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'PendingapprovalMaxPermittedAccessDuration', 'PendingapprovalMaxPermittedAccessDuration'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/pendingapproval-max-permitted-access-duration
+slug: /tools/sdk/powershell/accessrequestapprovals/models/pendingapproval-max-permitted-access-duration
 tags: ['SDK', 'Software Development Kit', 'PendingapprovalMaxPermittedAccessDuration', 'PendingapprovalMaxPermittedAccessDuration']
 ---
 

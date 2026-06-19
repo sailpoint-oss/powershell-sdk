@@ -45,7 +45,7 @@ function Initialize-Errorresponsedto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PasswordSyncGroupsV1 => Errorresponsedto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PasswordSyncGroups => Errorresponsedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToErrorresponsedto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PasswordSyncGroupsV1 => Errorresponsedto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PasswordSyncGroups => Errorresponsedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

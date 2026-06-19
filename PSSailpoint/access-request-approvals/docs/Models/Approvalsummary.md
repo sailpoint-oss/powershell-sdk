@@ -5,7 +5,7 @@ pagination_label: Approvalsummary
 sidebar_label: Approvalsummary
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalsummary', 'Approvalsummary'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/approvalsummary
+slug: /tools/sdk/powershell/accessrequestapprovals/models/approvalsummary
 tags: ['SDK', 'Software Development Kit', 'Approvalsummary', 'Approvalsummary']
 ---
 

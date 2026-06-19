@@ -30,7 +30,7 @@ function Initialize-Certificationsignedoff {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Certificationsignedoff' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Certificationsignedoff' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Certification) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToCertificationsignedoff {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Certificationsignedoff' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Certificationsignedoff' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: CreateExternalExecuteWorkflowV1200Response
 sidebar_label: CreateExternalExecuteWorkflowV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CreateExternalExecuteWorkflowV1200Response', 'CreateExternalExecuteWorkflowV1200Response'] 
-slug: /tools/sdk/powershell/workflowsv1/models/create-external-execute-workflow-v1200-response
+slug: /tools/sdk/powershell/workflows/models/create-external-execute-workflow-v1200-response
 tags: ['SDK', 'Software Development Kit', 'CreateExternalExecuteWorkflowV1200Response', 'CreateExternalExecuteWorkflowV1200Response']
 ---
 

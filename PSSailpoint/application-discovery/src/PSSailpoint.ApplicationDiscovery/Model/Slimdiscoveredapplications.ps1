@@ -181,7 +181,7 @@ function Initialize-Slimdiscoveredapplications {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Slimdiscoveredapplications' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ApplicationDiscovery => Slimdiscoveredapplications' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -247,7 +247,7 @@ function ConvertFrom-JsonToSlimdiscoveredapplications {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Slimdiscoveredapplications' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscovery => Slimdiscoveredapplications' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

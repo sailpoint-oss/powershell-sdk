@@ -5,7 +5,7 @@ pagination_label: Identitylistitem
 sidebar_label: Identitylistitem
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitylistitem', 'Identitylistitem'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/identitylistitem
+slug: /tools/sdk/powershell/identityhistory/models/identitylistitem
 tags: ['SDK', 'Software Development Kit', 'Identitylistitem', 'Identitylistitem']
 ---
 

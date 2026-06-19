@@ -5,7 +5,7 @@ pagination_label: SearchcriteriaFiltersValueRangeLower
 sidebar_label: SearchcriteriaFiltersValueRangeLower
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SearchcriteriaFiltersValueRangeLower', 'SearchcriteriaFiltersValueRangeLower'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/searchcriteria-filters-value-range-lower
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/searchcriteria-filters-value-range-lower
 tags: ['SDK', 'Software Development Kit', 'SearchcriteriaFiltersValueRangeLower', 'SearchcriteriaFiltersValueRangeLower']
 ---
 

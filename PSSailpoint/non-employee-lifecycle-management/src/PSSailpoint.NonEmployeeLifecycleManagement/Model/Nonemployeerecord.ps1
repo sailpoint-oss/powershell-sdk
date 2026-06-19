@@ -90,7 +90,7 @@ function Initialize-Nonemployeerecord {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => Nonemployeerecord' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => Nonemployeerecord' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -138,7 +138,7 @@ function ConvertFrom-JsonToNonemployeerecord {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => Nonemployeerecord' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => Nonemployeerecord' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

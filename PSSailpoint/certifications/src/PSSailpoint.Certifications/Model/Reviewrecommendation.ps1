@@ -40,7 +40,7 @@ function Initialize-Reviewrecommendation {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => Reviewrecommendation' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => Reviewrecommendation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToReviewrecommendation {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => Reviewrecommendation' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => Reviewrecommendation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

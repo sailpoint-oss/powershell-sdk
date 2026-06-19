@@ -5,7 +5,7 @@ pagination_label: Accessitemremoved
 sidebar_label: Accessitemremoved
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessitemremoved', 'Accessitemremoved'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/accessitemremoved
+slug: /tools/sdk/powershell/identityhistory/models/accessitemremoved
 tags: ['SDK', 'Software Development Kit', 'Accessitemremoved', 'Accessitemremoved']
 ---
 

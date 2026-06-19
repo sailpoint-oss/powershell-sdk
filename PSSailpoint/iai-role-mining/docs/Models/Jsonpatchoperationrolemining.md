@@ -5,7 +5,7 @@ pagination_label: Jsonpatchoperationrolemining
 sidebar_label: Jsonpatchoperationrolemining
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Jsonpatchoperationrolemining', 'Jsonpatchoperationrolemining'] 
-slug: /tools/sdk/powershell/iairoleminingv1/models/jsonpatchoperationrolemining
+slug: /tools/sdk/powershell/iairolemining/models/jsonpatchoperationrolemining
 tags: ['SDK', 'Software Development Kit', 'Jsonpatchoperationrolemining', 'Jsonpatchoperationrolemining']
 ---
 

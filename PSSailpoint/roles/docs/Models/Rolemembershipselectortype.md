@@ -5,7 +5,7 @@ pagination_label: Rolemembershipselectortype
 sidebar_label: Rolemembershipselectortype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Rolemembershipselectortype', 'Rolemembershipselectortype'] 
-slug: /tools/sdk/powershell/rolesv1/models/rolemembershipselectortype
+slug: /tools/sdk/powershell/roles/models/rolemembershipselectortype
 tags: ['SDK', 'Software Development Kit', 'Rolemembershipselectortype', 'Rolemembershipselectortype']
 ---
 

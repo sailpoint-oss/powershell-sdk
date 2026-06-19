@@ -30,7 +30,7 @@ function Initialize-Revocability {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfilesV1 => Revocability' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => Revocability' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToRevocability {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfilesV1 => Revocability' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => Revocability' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

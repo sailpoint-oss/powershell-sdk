@@ -45,7 +45,7 @@ function Initialize-Externalattributes {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkflowsV1 => Externalattributes' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Workflows => Externalattributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToExternalattributes {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkflowsV1 => Externalattributes' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Workflows => Externalattributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

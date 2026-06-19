@@ -30,7 +30,7 @@ function Initialize-ExportFormDefinitionsByTenantV1200ResponseInnerSelf {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => ExportFormDefinitionsByTenantV1200ResponseInnerSelf' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => ExportFormDefinitionsByTenantV1200ResponseInnerSelf' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToExportFormDefinitionsByTenantV1200ResponseInnerSelf {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => ExportFormDefinitionsByTenantV1200ResponseInnerSelf' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => ExportFormDefinitionsByTenantV1200ResponseInnerSelf' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

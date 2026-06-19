@@ -5,7 +5,7 @@ pagination_label: Taskinfo
 sidebar_label: Taskinfo
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Taskinfo', 'Taskinfo'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/taskinfo
+slug: /tools/sdk/powershell/dataaccesssecurity/models/taskinfo
 tags: ['SDK', 'Software Development Kit', 'Taskinfo', 'Taskinfo']
 ---
 

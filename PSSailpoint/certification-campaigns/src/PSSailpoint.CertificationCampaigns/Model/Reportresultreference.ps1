@@ -47,7 +47,7 @@ function Initialize-Reportresultreference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Reportresultreference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaigns => Reportresultreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToReportresultreference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Reportresultreference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaigns => Reportresultreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: MachineIdentityRequestUserEntitlements
 sidebar_label: MachineIdentityRequestUserEntitlements
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineIdentityRequestUserEntitlements', 'MachineIdentityRequestUserEntitlements'] 
-slug: /tools/sdk/powershell/machineidentitiesv1/models/machine-identity-request-user-entitlements
+slug: /tools/sdk/powershell/machineidentities/models/machine-identity-request-user-entitlements
 tags: ['SDK', 'Software Development Kit', 'MachineIdentityRequestUserEntitlements', 'MachineIdentityRequestUserEntitlements']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Activityconfigurationsettings
 sidebar_label: Activityconfigurationsettings
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Activityconfigurationsettings', 'Activityconfigurationsettings'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/activityconfigurationsettings
+slug: /tools/sdk/powershell/dataaccesssecurity/models/activityconfigurationsettings
 tags: ['SDK', 'Software Development Kit', 'Activityconfigurationsettings', 'Activityconfigurationsettings']
 ---
 

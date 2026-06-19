@@ -5,7 +5,7 @@ pagination_label: Accountdeleteconfigdto
 sidebar_label: Accountdeleteconfigdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountdeleteconfigdto', 'Accountdeleteconfigdto'] 
-slug: /tools/sdk/powershell/sourcesv1/models/accountdeleteconfigdto
+slug: /tools/sdk/powershell/sources/models/accountdeleteconfigdto
 tags: ['SDK', 'Software Development Kit', 'Accountdeleteconfigdto', 'Accountdeleteconfigdto']
 ---
 

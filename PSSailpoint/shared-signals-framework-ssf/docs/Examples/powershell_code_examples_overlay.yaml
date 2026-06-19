@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#create-stream-v1
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#create-stream-v1
       source: |
         $Createstreamrequest = @"
         {"delivery":{"method":"urn:ietf:rfc:8935","endpoint_url":"https://receiver.example.com/ssf/events"},"events_requested":["https://schemas.openid.net/secevent/caep/event-type/session-revoked"],"description":"Production event stream for session revocation notifications"}
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#delete-stream-v1
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#delete-stream-v1
       source: |
         $StreamId = "550e8400-e29b-41d4-a716-446655440000" # String | ID of the stream to delete. Required; omitted or empty returns 400.
         
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#get-jwks-data-v1
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#get-jwks-data-v1
       source: |
         
         # Get JWKS
@@ -61,7 +61,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#get-ssf-configuration-v1
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#get-ssf-configuration-v1
       source: |
         
         # Get SSF configuration
@@ -79,7 +79,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#get-stream-status-v1
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#get-stream-status-v1
       source: |
         $StreamId = "550e8400-e29b-41d4-a716-446655440000" # String | ID of the stream whose status to retrieve.
         
@@ -98,7 +98,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#get-stream-v1
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#get-stream-v1
       source: |
         $StreamId = "550e8400-e29b-41d4-a716-446655440000" # String | If provided, returns that stream; otherwise returns list of all streams. (optional)
         
@@ -117,7 +117,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#send-stream-verification-v1
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#send-stream-verification-v1
       source: |
         $Verificationrequest = @"
         {"stream_id":"550e8400-e29b-41d4-a716-446655440000","state":"verification-challenge-state-123"}
@@ -139,7 +139,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#set-stream-configuration-v1
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#set-stream-configuration-v1
       source: |
         $Replacestreamconfigurationrequest = @"
         {"stream_id":"550e8400-e29b-41d4-a716-446655440000","delivery":{"method":"urn:ietf:rfc:8935","endpoint_url":"https://receiver.example.com/ssf/events"},"events_requested":["https://schemas.openid.net/secevent/caep/event-type/session-revoked"],"description":"Replaced stream configuration for production event delivery"}
@@ -161,7 +161,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#update-stream-configuration-v1
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#update-stream-configuration-v1
       source: |
         $Updatestreamconfigurationrequest = @"
         {"stream_id":"550e8400-e29b-41d4-a716-446655440000","description":"Updated production event stream configuration"}
@@ -183,7 +183,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf#update-stream-status-v1
+      label: SDK_tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf#update-stream-status-v1
       source: |
         $Updatestreamstatusrequest = @"
         {"stream_id":"550e8400-e29b-41d4-a716-446655440000","status":"paused","reason":"manually paused"}

@@ -5,7 +5,7 @@ pagination_label: Aggregationresult
 sidebar_label: Aggregationresult
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Aggregationresult', 'Aggregationresult'] 
-slug: /tools/sdk/powershell/searchv1/models/aggregationresult
+slug: /tools/sdk/powershell/search/models/aggregationresult
 tags: ['SDK', 'Software Development Kit', 'Aggregationresult', 'Aggregationresult']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Aggregationresult', 'Aggregationresul
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Aggregations** | [**SystemCollectionsHashtable**](system-collections-hashtable) | The document containing the results of the aggregation. This document is controlled by Elasticsearch and depends on the type of aggregation query that is run.  See Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) documentation for information.  | [optional] 
+**Aggregations** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The document containing the results of the aggregation. This document is controlled by Elasticsearch and depends on the type of aggregation query that is run.  See Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) documentation for information.  | [optional] 
 **Hits** | [**[]Searchdocuments**](searchdocuments) | The results of the aggregation search query.  | [optional] 
 
 ## Examples

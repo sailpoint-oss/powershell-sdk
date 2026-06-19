@@ -5,7 +5,7 @@ pagination_label: Spconfigmessage2
 sidebar_label: Spconfigmessage2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Spconfigmessage2', 'Spconfigmessage2'] 
-slug: /tools/sdk/powershell/spconfigv1/models/spconfigmessage2
+slug: /tools/sdk/powershell/spconfig/models/spconfigmessage2
 tags: ['SDK', 'Software Development Kit', 'Spconfigmessage2', 'Spconfigmessage2']
 ---
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **String** | Message key. | [required]
 **Text** | **String** | Message text. | [required]
-**Details** | [**map[string]SystemCollectionsHashtable**](system-collections-hashtable) | Message details if any, in key:value pairs. | [required]
+**Details** | [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Message details if any, in key:value pairs. | [required]
 
 ## Examples
 

@@ -5,7 +5,7 @@ pagination_label: SavedSearch
 sidebar_label: SavedSearch
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SavedSearch', 'SavedSearch'] 
-slug: /tools/sdk/powershell/savedsearchv1/methods/saved-search
+slug: /tools/sdk/powershell/savedsearch/methods/saved-search
 tags: ['SDK', 'Software Development Kit', 'SavedSearch', 'SavedSearch']
 ---
 
@@ -262,7 +262,7 @@ Code | Description  | Data Type
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = "owner.id eq "7a724640-0c17-4ce9-a8c3-4a89738459c8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq* (optional)
+$Filters = 'owner.id eq "7a724640-0c17-4ce9-a8c3-4a89738459c8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq* (optional)
 
 # A list of saved searches
 

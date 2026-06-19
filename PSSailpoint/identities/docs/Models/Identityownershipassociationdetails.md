@@ -5,7 +5,7 @@ pagination_label: Identityownershipassociationdetails
 sidebar_label: Identityownershipassociationdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityownershipassociationdetails', 'Identityownershipassociationdetails'] 
-slug: /tools/sdk/powershell/identitiesv1/models/identityownershipassociationdetails
+slug: /tools/sdk/powershell/identities/models/identityownershipassociationdetails
 tags: ['SDK', 'Software Development Kit', 'Identityownershipassociationdetails', 'Identityownershipassociationdetails']
 ---
 

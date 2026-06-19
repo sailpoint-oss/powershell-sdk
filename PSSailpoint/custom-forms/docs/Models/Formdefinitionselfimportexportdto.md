@@ -5,7 +5,7 @@ pagination_label: Formdefinitionselfimportexportdto
 sidebar_label: Formdefinitionselfimportexportdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Formdefinitionselfimportexportdto', 'Formdefinitionselfimportexportdto'] 
-slug: /tools/sdk/powershell/customformsv1/models/formdefinitionselfimportexportdto
+slug: /tools/sdk/powershell/customforms/models/formdefinitionselfimportexportdto
 tags: ['SDK', 'Software Development Kit', 'Formdefinitionselfimportexportdto', 'Formdefinitionselfimportexportdto']
 ---
 

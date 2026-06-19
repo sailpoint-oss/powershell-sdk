@@ -5,7 +5,7 @@ pagination_label: Eventbridgeconfig
 sidebar_label: Eventbridgeconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Eventbridgeconfig', 'Eventbridgeconfig'] 
-slug: /tools/sdk/powershell/triggersv1/models/eventbridgeconfig
+slug: /tools/sdk/powershell/triggers/models/eventbridgeconfig
 tags: ['SDK', 'Software Development Kit', 'Eventbridgeconfig', 'Eventbridgeconfig']
 ---
 

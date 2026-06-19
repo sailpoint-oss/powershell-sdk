@@ -5,7 +5,7 @@ pagination_label: Searcharguments
 sidebar_label: Searcharguments
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Searcharguments', 'Searcharguments'] 
-slug: /tools/sdk/powershell/savedsearchv1/models/searcharguments
+slug: /tools/sdk/powershell/savedsearch/models/searcharguments
 tags: ['SDK', 'Software Development Kit', 'Searcharguments', 'Searcharguments']
 ---
 

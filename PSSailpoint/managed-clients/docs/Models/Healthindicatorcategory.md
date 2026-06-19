@@ -5,7 +5,7 @@ pagination_label: Healthindicatorcategory
 sidebar_label: Healthindicatorcategory
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Healthindicatorcategory', 'Healthindicatorcategory'] 
-slug: /tools/sdk/powershell/managedclientsv1/models/healthindicatorcategory
+slug: /tools/sdk/powershell/managedclients/models/healthindicatorcategory
 tags: ['SDK', 'Software Development Kit', 'Healthindicatorcategory', 'Healthindicatorcategory']
 ---
 

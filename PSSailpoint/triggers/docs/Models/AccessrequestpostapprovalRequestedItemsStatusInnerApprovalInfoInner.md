@@ -5,7 +5,7 @@ pagination_label: AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfo
 sidebar_label: AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner', 'AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner'] 
-slug: /tools/sdk/powershell/triggersv1/models/accessrequestpostapproval-requested-items-status-inner-approval-info-inner
+slug: /tools/sdk/powershell/triggers/models/accessrequestpostapproval-requested-items-status-inner-approval-info-inner
 tags: ['SDK', 'Software Development Kit', 'AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner', 'AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner']
 ---
 

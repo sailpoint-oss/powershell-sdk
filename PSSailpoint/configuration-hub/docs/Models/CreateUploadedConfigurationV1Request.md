@@ -5,7 +5,7 @@ pagination_label: CreateUploadedConfigurationV1Request
 sidebar_label: CreateUploadedConfigurationV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CreateUploadedConfigurationV1Request', 'CreateUploadedConfigurationV1Request'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/create-uploaded-configuration-v1-request
+slug: /tools/sdk/powershell/configurationhub/models/create-uploaded-configuration-v1-request
 tags: ['SDK', 'Software Development Kit', 'CreateUploadedConfigurationV1Request', 'CreateUploadedConfigurationV1Request']
 ---
 

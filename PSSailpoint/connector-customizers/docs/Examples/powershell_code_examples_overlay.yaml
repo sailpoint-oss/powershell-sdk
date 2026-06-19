@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorcustomizersv1/methods/connector-customizers#create-connector-customizer-v1
+      label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#create-connector-customizer-v1
       source: |
         $Connectorcustomizercreaterequest = @"
         
@@ -24,7 +24,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorcustomizersv1/methods/connector-customizers#create-connector-customizer-version-v1
+      label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#create-connector-customizer-version-v1
       source: |
         $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | The id of the connector customizer.
         
@@ -43,7 +43,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorcustomizersv1/methods/connector-customizers#delete-connector-customizer-v1
+      label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#delete-connector-customizer-v1
       source: |
         $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | ID of the connector customizer to delete.
         
@@ -62,7 +62,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorcustomizersv1/methods/connector-customizers#get-connector-customizer-v1
+      label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#get-connector-customizer-v1
       source: |
         $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | ID of the connector customizer to get.
         
@@ -81,7 +81,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorcustomizersv1/methods/connector-customizers#list-connector-customizers-v1
+      label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#list-connector-customizers-v1
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -101,7 +101,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorcustomizersv1/methods/connector-customizers#put-connector-customizer-v1
+      label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#put-connector-customizer-v1
       source: |
         $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | ID of the connector customizer to update.
         $Connectorcustomizerupdaterequest = @"

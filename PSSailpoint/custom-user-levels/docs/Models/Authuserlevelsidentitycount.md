@@ -5,7 +5,7 @@ pagination_label: Authuserlevelsidentitycount
 sidebar_label: Authuserlevelsidentitycount
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Authuserlevelsidentitycount', 'Authuserlevelsidentitycount'] 
-slug: /tools/sdk/powershell/customuserlevelsv1/models/authuserlevelsidentitycount
+slug: /tools/sdk/powershell/customuserlevels/models/authuserlevelsidentitycount
 tags: ['SDK', 'Software Development Kit', 'Authuserlevelsidentitycount', 'Authuserlevelsidentitycount']
 ---
 

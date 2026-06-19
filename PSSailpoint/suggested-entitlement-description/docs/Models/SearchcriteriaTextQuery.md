@@ -5,7 +5,7 @@ pagination_label: SearchcriteriaTextQuery
 sidebar_label: SearchcriteriaTextQuery
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SearchcriteriaTextQuery', 'SearchcriteriaTextQuery'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/searchcriteria-text-query
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/searchcriteria-text-query
 tags: ['SDK', 'Software Development Kit', 'SearchcriteriaTextQuery', 'SearchcriteriaTextQuery']
 ---
 

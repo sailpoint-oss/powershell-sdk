@@ -36,7 +36,7 @@ function Initialize-EntitlementrecommendationassigneeOneOf {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SuggestedEntitlementDescriptionV1 => EntitlementrecommendationassigneeOneOf' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SuggestedEntitlementDescription => EntitlementrecommendationassigneeOneOf' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -81,7 +81,7 @@ function ConvertFrom-JsonToEntitlementrecommendationassigneeOneOf {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SuggestedEntitlementDescriptionV1 => EntitlementrecommendationassigneeOneOf' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SuggestedEntitlementDescription => EntitlementrecommendationassigneeOneOf' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

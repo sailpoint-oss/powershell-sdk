@@ -47,7 +47,7 @@ function Initialize-Rolemetadatabulkupdatebyfilterrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Rolemetadatabulkupdatebyfilterrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Rolemetadatabulkupdatebyfilterrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Filters) {
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToRolemetadatabulkupdatebyfilterrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Rolemetadatabulkupdatebyfilterrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Rolemetadatabulkupdatebyfilterrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

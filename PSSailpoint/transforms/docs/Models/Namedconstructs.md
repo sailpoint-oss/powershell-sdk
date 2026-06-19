@@ -5,7 +5,7 @@ pagination_label: Namedconstructs
 sidebar_label: Namedconstructs
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Namedconstructs', 'Namedconstructs'] 
-slug: /tools/sdk/powershell/transformsv1/models/namedconstructs
+slug: /tools/sdk/powershell/transforms/models/namedconstructs
 tags: ['SDK', 'Software Development Kit', 'Namedconstructs', 'Namedconstructs']
 ---
 

@@ -36,7 +36,7 @@ function Initialize-Violationownerassignmentconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodPoliciesV1 => Violationownerassignmentconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodPolicies => Violationownerassignmentconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToViolationownerassignmentconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodPoliciesV1 => Violationownerassignmentconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodPolicies => Violationownerassignmentconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

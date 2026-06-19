@@ -5,7 +5,7 @@ pagination_label: WorkItems
 sidebar_label: WorkItems
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'WorkItems', 'WorkItems'] 
-slug: /tools/sdk/powershell/workitemsv1/methods/work-items
+slug: /tools/sdk/powershell/workitems/methods/work-items
 tags: ['SDK', 'Software Development Kit', 'WorkItems', 'WorkItems']
 ---
 
@@ -619,7 +619,7 @@ This API submits account selections. Either an admin, or the owning/current user
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the work item
- Body  | RequestBody | [**map[string]AnyType**](../models/any-type) | True  | Account Selection Data map, keyed on fieldName
+ Body  | RequestBody | [**map[string]AnyType**](https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4) | True  | Account Selection Data map, keyed on fieldName
 
 ### Return type
 [**Workitems**](../models/workitems)

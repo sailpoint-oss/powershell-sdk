@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#approve-bulk-entitlement-recommendations-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#approve-bulk-entitlement-recommendations-v1
       source: |
         $Bulkapproveentitlementrecommendationrequest = @"
         
@@ -24,7 +24,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#create-auto-write-settings-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#create-auto-write-settings-v1
       source: |
         $Autowritesetting = @"
         
@@ -46,7 +46,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#get-auto-write-settings-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#get-auto-write-settings-v1
       source: |
         
         # Get auto-write settings for SED
@@ -64,7 +64,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#get-sed-batch-stats-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#get-sed-batch-stats-v1
       source: |
         $BatchId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | Batch Id
         
@@ -83,7 +83,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#get-sed-batches-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#get-sed-batches-v1
       source: |
         $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
         $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
@@ -106,7 +106,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#list-pending-entitlement-recommendation-approvals-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#list-pending-entitlement-recommendation-approvals-v1
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -126,7 +126,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#list-privileged-entitlement-recommendations-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#list-privileged-entitlement-recommendations-v1
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -146,7 +146,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#list-seds-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#list-seds-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -172,11 +172,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#patch-entitlement-recommendation-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#patch-entitlement-recommendation-v1
       source: |
         $Id = "79db50d4-723c-4aa0-a824-83c2205d82d1" # String | The unique identifier of the entitlement recommendation to update.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | The patch operations to apply to the entitlement recommendation record.
         $Jsonpatchoperation = @""@ 
         
         
@@ -196,10 +194,9 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#patch-sed-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#patch-sed-v1
       source: |
         $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
-        $Sedpatch = Initialize-Sedpatch -Op "replace" -Path "status" -Value# Sedpatch[] | Sed Patch Request
         $Sedpatch = @""@ 
         
         
@@ -219,7 +216,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#submit-entitlement-recommendations-assignment-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-entitlement-recommendations-assignment-v1
       source: |
         $Entitlementrecommendationassignrequest = @"
         
@@ -241,9 +238,8 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#submit-sed-approval-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-sed-approval-v1
       source: |
-        $Sedapproval = Initialize-Sedapproval -Items "MyItems"# Sedapproval[] | Sed Approval
         $Sedapproval = @""@ 
         
         
@@ -263,7 +259,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#submit-sed-assignment-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-sed-assignment-v1
       source: |
         $Sedassignment = @"
         
@@ -285,7 +281,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#submit-sed-batch-request-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-sed-batch-request-v1
       source: |
         $Sedbatchrequest = @"
         
@@ -306,10 +302,8 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description#update-auto-write-settings-v1
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#update-auto-write-settings-v1
       source: |
-        $AutowritesettingpatchValue = Initialize-AutowritesettingpatchValue 
-$Autowritesettingpatch = Initialize-Autowritesettingpatch -Op "replace" -Path "/enabled" -Value $AutowritesettingpatchValue# Autowritesettingpatch[] | Patch operations for auto-write settings
         $Autowritesettingpatch = @""@ 
         
         

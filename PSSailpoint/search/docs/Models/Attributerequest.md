@@ -5,7 +5,7 @@ pagination_label: Attributerequest
 sidebar_label: Attributerequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Attributerequest', 'Attributerequest'] 
-slug: /tools/sdk/powershell/searchv1/models/attributerequest
+slug: /tools/sdk/powershell/search/models/attributerequest
 tags: ['SDK', 'Software Development Kit', 'Attributerequest', 'Attributerequest']
 ---
 

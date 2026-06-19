@@ -5,7 +5,7 @@ pagination_label: Accessmodelmetadata
 sidebar_label: Accessmodelmetadata
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessmodelmetadata', 'Accessmodelmetadata'] 
-slug: /tools/sdk/powershell/entitlementsv1/models/accessmodelmetadata
+slug: /tools/sdk/powershell/entitlements/models/accessmodelmetadata
 tags: ['SDK', 'Software Development Kit', 'Accessmodelmetadata', 'Accessmodelmetadata']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: UIMetadata
 sidebar_label: UIMetadata
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'UIMetadata', 'UIMetadata'] 
-slug: /tools/sdk/powershell/uimetadatav1/methods/ui-metadata
+slug: /tools/sdk/powershell/uimetadata/methods/ui-metadata
 tags: ['SDK', 'Software Development Kit', 'UIMetadata', 'UIMetadata']
 ---
 

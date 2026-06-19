@@ -45,7 +45,7 @@ function Initialize-Nestedconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Nestedconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomUserLevels => Nestedconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToNestedconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Nestedconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevels => Nestedconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

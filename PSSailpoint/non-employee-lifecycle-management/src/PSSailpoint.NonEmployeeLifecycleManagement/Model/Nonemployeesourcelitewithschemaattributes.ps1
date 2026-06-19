@@ -50,7 +50,7 @@ function Initialize-Nonemployeesourcelitewithschemaattributes {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => Nonemployeesourcelitewithschemaattributes' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => Nonemployeesourcelitewithschemaattributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToNonemployeesourcelitewithschemaattributes {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => Nonemployeesourcelitewithschemaattributes' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => Nonemployeesourcelitewithschemaattributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

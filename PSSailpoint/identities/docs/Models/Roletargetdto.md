@@ -5,7 +5,7 @@ pagination_label: Roletargetdto
 sidebar_label: Roletargetdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Roletargetdto', 'Roletargetdto'] 
-slug: /tools/sdk/powershell/identitiesv1/models/roletargetdto
+slug: /tools/sdk/powershell/identities/models/roletargetdto
 tags: ['SDK', 'Software Development Kit', 'Roletargetdto', 'Roletargetdto']
 ---
 

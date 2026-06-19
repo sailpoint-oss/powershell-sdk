@@ -5,7 +5,7 @@ pagination_label: EventdocumentTarget
 sidebar_label: EventdocumentTarget
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'EventdocumentTarget', 'EventdocumentTarget'] 
-slug: /tools/sdk/powershell/searchv1/models/eventdocument-target
+slug: /tools/sdk/powershell/search/models/eventdocument-target
 tags: ['SDK', 'Software Development Kit', 'EventdocumentTarget', 'EventdocumentTarget']
 ---
 

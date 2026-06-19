@@ -41,7 +41,7 @@ function Initialize-SourceAccountCorrelationConfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => SourceAccountCorrelationConfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => SourceAccountCorrelationConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToSourceAccountCorrelationConfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => SourceAccountCorrelationConfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => SourceAccountCorrelationConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

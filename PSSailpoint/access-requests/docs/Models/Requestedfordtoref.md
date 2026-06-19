@@ -5,7 +5,7 @@ pagination_label: Requestedfordtoref
 sidebar_label: Requestedfordtoref
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Requestedfordtoref', 'Requestedfordtoref'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/requestedfordtoref
+slug: /tools/sdk/powershell/accessrequests/models/requestedfordtoref
 tags: ['SDK', 'Software Development Kit', 'Requestedfordtoref', 'Requestedfordtoref']
 ---
 

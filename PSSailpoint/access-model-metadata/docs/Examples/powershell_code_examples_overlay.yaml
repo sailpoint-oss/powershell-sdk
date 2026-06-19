@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#create-access-model-metadata-attribute-v1
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#create-access-model-metadata-attribute-v1
       source: |
         $Attributedto = @"
         
@@ -24,7 +24,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#create-access-model-metadata-attribute-value-v1
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#create-access-model-metadata-attribute-value-v1
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
         $Attributevaluedto = @"
@@ -47,7 +47,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#get-access-model-metadata-attribute-v1
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#get-access-model-metadata-attribute-v1
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
         
@@ -66,7 +66,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#get-access-model-metadata-attribute-value-v1
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#get-access-model-metadata-attribute-value-v1
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
         $Value = "public" # String | Technical name of the Attribute value.
@@ -86,7 +86,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#list-access-model-metadata-attribute-v1
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#list-access-model-metadata-attribute-v1
       source: |
         $Filters = "name eq "Privacy"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
         $Sorters = "name,-key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
@@ -108,7 +108,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#list-access-model-metadata-attribute-value-v1
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#list-access-model-metadata-attribute-value-v1
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -129,11 +129,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#update-access-model-metadata-attribute-v1
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#update-access-model-metadata-attribute-v1
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | JSON Patch array to apply
         $Jsonpatchoperation = @""@ 
         
         
@@ -153,12 +151,10 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#update-access-model-metadata-attribute-value-v1
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#update-access-model-metadata-attribute-value-v1
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
         $Value = "public" # String | Technical name of the Attribute value.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | JSON Patch array to apply
         $Jsonpatchoperation = @""@ 
         
         
@@ -178,7 +174,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#update-access-model-metadata-by-filter-v1
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#update-access-model-metadata-by-filter-v1
       source: |
         $Entitlementattributebulkupdatefilterrequest = @"
         
@@ -200,7 +196,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#update-access-model-metadata-by-ids-v1
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#update-access-model-metadata-by-ids-v1
       source: |
         $Entitlementattributebulkupdateidsrequest = @"
         
@@ -222,7 +218,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata#update-access-model-metadata-by-query-v1
+      label: SDK_tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata#update-access-model-metadata-by-query-v1
       source: |
         $Entitlementattributebulkupdatequeryrequest = @"
         

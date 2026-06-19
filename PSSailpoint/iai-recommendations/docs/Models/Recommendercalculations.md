@@ -5,7 +5,7 @@ pagination_label: Recommendercalculations
 sidebar_label: Recommendercalculations
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Recommendercalculations', 'Recommendercalculations'] 
-slug: /tools/sdk/powershell/iairecommendationsv1/models/recommendercalculations
+slug: /tools/sdk/powershell/iairecommendations/models/recommendercalculations
 tags: ['SDK', 'Software Development Kit', 'Recommendercalculations', 'Recommendercalculations']
 ---
 

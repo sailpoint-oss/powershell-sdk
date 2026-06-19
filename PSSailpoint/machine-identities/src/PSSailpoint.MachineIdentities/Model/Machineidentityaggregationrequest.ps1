@@ -35,7 +35,7 @@ function Initialize-Machineidentityaggregationrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineIdentitiesV1 => Machineidentityaggregationrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineIdentities => Machineidentityaggregationrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$DatasetIds) {
@@ -76,7 +76,7 @@ function ConvertFrom-JsonToMachineidentityaggregationrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineIdentitiesV1 => Machineidentityaggregationrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineIdentities => Machineidentityaggregationrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

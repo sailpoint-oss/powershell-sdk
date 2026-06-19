@@ -41,7 +41,7 @@ function Initialize-Preapprovaltriggerdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Preapprovaltriggerdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Preapprovaltriggerdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToPreapprovaltriggerdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Preapprovaltriggerdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Preapprovaltriggerdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

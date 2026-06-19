@@ -46,7 +46,7 @@ function Initialize-Parameterstoragejsonpatch {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ParameterStorageV1 => Parameterstoragejsonpatch' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ParameterStorage => Parameterstoragejsonpatch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Op) {
@@ -93,7 +93,7 @@ function ConvertFrom-JsonToParameterstoragejsonpatch {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ParameterStorageV1 => Parameterstoragejsonpatch' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ParameterStorage => Parameterstoragejsonpatch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

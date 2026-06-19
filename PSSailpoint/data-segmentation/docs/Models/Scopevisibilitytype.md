@@ -5,7 +5,7 @@ pagination_label: Scopevisibilitytype
 sidebar_label: Scopevisibilitytype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Scopevisibilitytype', 'Scopevisibilitytype'] 
-slug: /tools/sdk/powershell/datasegmentationv1/models/scopevisibilitytype
+slug: /tools/sdk/powershell/datasegmentation/models/scopevisibilitytype
 tags: ['SDK', 'Software Development Kit', 'Scopevisibilitytype', 'Scopevisibilitytype']
 ---
 

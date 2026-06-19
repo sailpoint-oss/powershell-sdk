@@ -5,7 +5,7 @@ pagination_label: ReviewableentitlementAccountOwner
 sidebar_label: ReviewableentitlementAccountOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ReviewableentitlementAccountOwner', 'ReviewableentitlementAccountOwner'] 
-slug: /tools/sdk/powershell/certificationsv1/models/reviewableentitlement-account-owner
+slug: /tools/sdk/powershell/certifications/models/reviewableentitlement-account-owner
 tags: ['SDK', 'Software Development Kit', 'ReviewableentitlementAccountOwner', 'ReviewableentitlementAccountOwner']
 ---
 

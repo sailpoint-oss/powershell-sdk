@@ -5,7 +5,7 @@ pagination_label: Campaign2AllOfMachineAccountCampaignInfo
 sidebar_label: Campaign2AllOfMachineAccountCampaignInfo
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaign2AllOfMachineAccountCampaignInfo', 'Campaign2AllOfMachineAccountCampaignInfo'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/campaign2-all-of-machine-account-campaign-info
+slug: /tools/sdk/powershell/certificationcampaigns/models/campaign2-all-of-machine-account-campaign-info
 tags: ['SDK', 'Software Development Kit', 'Campaign2AllOfMachineAccountCampaignInfo', 'Campaign2AllOfMachineAccountCampaignInfo']
 ---
 

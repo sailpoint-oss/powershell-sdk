@@ -5,7 +5,7 @@ pagination_label: AccountattributeschangedChangesInner
 sidebar_label: AccountattributeschangedChangesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountattributeschangedChangesInner', 'AccountattributeschangedChangesInner'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountattributeschanged-changes-inner
+slug: /tools/sdk/powershell/triggers/models/accountattributeschanged-changes-inner
 tags: ['SDK', 'Software Development Kit', 'AccountattributeschangedChangesInner', 'AccountattributeschangedChangesInner']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: IAICommonAccess
 sidebar_label: IAICommonAccess
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IAICommonAccess', 'IAICommonAccess'] 
-slug: /tools/sdk/powershell/iaicommonaccessv1/methods/iai-common-access
+slug: /tools/sdk/powershell/iaicommonaccess/methods/iai-common-access
 tags: ['SDK', 'Software Development Kit', 'IAICommonAccess', 'IAICommonAccess']
 ---
 
@@ -113,7 +113,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = "access.type eq "ROLE"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, sw*  **reviewedByUser** *eq*  **access.id**: *eq, sw*  **access.type**: *eq*  **access.name**: *sw, eq*  **access.description**: *sw, eq* (optional)
+$Filters = 'access.type eq "ROLE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, sw*  **reviewedByUser** *eq*  **access.id**: *eq, sw*  **access.type**: *eq*  **access.name**: *sw, eq*  **access.description**: *sw, eq* (optional)
 $Sorters = "access.name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, status**  By default the common access items are sorted by name, ascending. (optional)
 
 # Get a paginated list of common access
@@ -145,7 +145,7 @@ Param Type | Name | Data Type | Required  | Description
  Body  | Commonaccessidstatus | [**[]Commonaccessidstatus**](../models/commonaccessidstatus) | True  | Confirm or deny in bulk the common access ids that are (or aren't) common access
 
 ### Return type
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -164,7 +164,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Commonaccessidstatus = Initialize-Commonaccessidstatus -ConfirmedIds "MyConfirmedIds" -DeniedIds "MyDeniedIds" # Commonaccessidstatus[] | Confirm or deny in bulk the common access ids that are (or aren't) common access
  $Commonaccessidstatus = @""@ # Commonaccessidstatus[] | Confirm or deny in bulk the common access ids that are (or aren't) common access
  
 

@@ -5,7 +5,7 @@ pagination_label: GetStreamV1200Response
 sidebar_label: GetStreamV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetStreamV1200Response', 'GetStreamV1200Response'] 
-slug: /tools/sdk/powershell/sharedsignalsframeworkssfv1/models/get-stream-v1200-response
+slug: /tools/sdk/powershell/sharedsignalsframeworkssf/models/get-stream-v1200-response
 tags: ['SDK', 'Software Development Kit', 'GetStreamV1200Response', 'GetStreamV1200Response']
 ---
 

@@ -61,7 +61,7 @@ function Initialize-Datecompare {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Datecompare' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Datecompare' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$FirstDate) {
@@ -123,7 +123,7 @@ function ConvertFrom-JsonToDatecompare {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Datecompare' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Datecompare' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -41,7 +41,7 @@ function Initialize-Campaign2AllOfSearchCampaignInfoReviewer {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Campaign2AllOfSearchCampaignInfoReviewer' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaigns => Campaign2AllOfSearchCampaignInfoReviewer' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToCampaign2AllOfSearchCampaignInfoReviewer {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Campaign2AllOfSearchCampaignInfoReviewer' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaigns => Campaign2AllOfSearchCampaignInfoReviewer' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

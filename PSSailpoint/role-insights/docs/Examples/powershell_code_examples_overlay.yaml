@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/roleinsightsv1/methods/role-insights#create-role-insight-requests-v1
+      label: SDK_tools/sdk/powershell/roleinsights/methods/role-insights#create-role-insight-requests-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
@@ -21,7 +21,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/roleinsightsv1/methods/role-insights#download-role-insights-entitlements-changes-v1
+      label: SDK_tools/sdk/powershell/roleinsights/methods/role-insights#download-role-insights-entitlements-changes-v1
       source: |
         $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/roleinsightsv1/methods/role-insights#get-entitlement-changes-identities-v1
+      label: SDK_tools/sdk/powershell/roleinsights/methods/role-insights#get-entitlement-changes-identities-v1
       source: |
         $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
         $EntitlementId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The entitlement id
@@ -70,7 +70,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/roleinsightsv1/methods/role-insights#get-role-insight-v1
+      label: SDK_tools/sdk/powershell/roleinsights/methods/role-insights#get-role-insight-v1
       source: |
         $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -90,7 +90,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/roleinsightsv1/methods/role-insights#get-role-insights-current-entitlements-v1
+      label: SDK_tools/sdk/powershell/roleinsights/methods/role-insights#get-role-insights-current-entitlements-v1
       source: |
         $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -111,7 +111,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/roleinsightsv1/methods/role-insights#get-role-insights-entitlements-changes-v1
+      label: SDK_tools/sdk/powershell/roleinsights/methods/role-insights#get-role-insights-entitlements-changes-v1
       source: |
         $InsightId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insight id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -133,7 +133,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/roleinsightsv1/methods/role-insights#get-role-insights-requests-v1
+      label: SDK_tools/sdk/powershell/roleinsights/methods/role-insights#get-role-insights-requests-v1
       source: |
         $Id = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role insights request id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -153,7 +153,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/roleinsightsv1/methods/role-insights#get-role-insights-summary-v1
+      label: SDK_tools/sdk/powershell/roleinsights/methods/role-insights#get-role-insights-summary-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
@@ -172,7 +172,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/roleinsightsv1/methods/role-insights#get-role-insights-v1
+      label: SDK_tools/sdk/powershell/roleinsights/methods/role-insights#get-role-insights-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)

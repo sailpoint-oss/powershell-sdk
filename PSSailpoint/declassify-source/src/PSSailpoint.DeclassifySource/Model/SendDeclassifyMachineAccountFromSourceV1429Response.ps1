@@ -30,7 +30,7 @@ function Initialize-SendDeclassifyMachineAccountFromSourceV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DeclassifySourceV1 => SendDeclassifyMachineAccountFromSourceV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DeclassifySource => SendDeclassifyMachineAccountFromSourceV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToSendDeclassifyMachineAccountFromSourceV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DeclassifySourceV1 => SendDeclassifyMachineAccountFromSourceV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DeclassifySource => SendDeclassifyMachineAccountFromSourceV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

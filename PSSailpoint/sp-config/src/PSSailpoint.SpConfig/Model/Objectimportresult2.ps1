@@ -45,7 +45,7 @@ function Initialize-Objectimportresult2 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SpConfigV1 => Objectimportresult2' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SpConfig => Objectimportresult2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Infos) {
@@ -100,7 +100,7 @@ function ConvertFrom-JsonToObjectimportresult2 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SpConfigV1 => Objectimportresult2' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SpConfig => Objectimportresult2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

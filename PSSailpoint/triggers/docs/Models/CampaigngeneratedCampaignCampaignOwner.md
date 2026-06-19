@@ -5,7 +5,7 @@ pagination_label: CampaigngeneratedCampaignCampaignOwner
 sidebar_label: CampaigngeneratedCampaignCampaignOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CampaigngeneratedCampaignCampaignOwner', 'CampaigngeneratedCampaignCampaignOwner'] 
-slug: /tools/sdk/powershell/triggersv1/models/campaigngenerated-campaign-campaign-owner
+slug: /tools/sdk/powershell/triggers/models/campaigngenerated-campaign-campaign-owner
 tags: ['SDK', 'Software Development Kit', 'CampaigngeneratedCampaignCampaignOwner', 'CampaigngeneratedCampaignCampaignOwner']
 ---
 

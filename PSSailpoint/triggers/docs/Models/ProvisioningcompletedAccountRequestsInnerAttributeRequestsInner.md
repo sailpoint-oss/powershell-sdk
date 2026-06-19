@@ -5,7 +5,7 @@ pagination_label: ProvisioningcompletedAccountRequestsInnerAttributeRequestsInne
 sidebar_label: ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner', 'ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner'] 
-slug: /tools/sdk/powershell/triggersv1/models/provisioningcompleted-account-requests-inner-attribute-requests-inner
+slug: /tools/sdk/powershell/triggers/models/provisioningcompleted-account-requests-inner-attribute-requests-inner
 tags: ['SDK', 'Software Development Kit', 'ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner', 'ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner']
 ---
 

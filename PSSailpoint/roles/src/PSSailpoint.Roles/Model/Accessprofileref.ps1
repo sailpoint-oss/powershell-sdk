@@ -41,7 +41,7 @@ function Initialize-Accessprofileref {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Accessprofileref' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Accessprofileref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToAccessprofileref {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Accessprofileref' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Accessprofileref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

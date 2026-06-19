@@ -80,7 +80,7 @@ function Initialize-TemplatedtoSlackTemplate {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => TemplatedtoSlackTemplate' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => TemplatedtoSlackTemplate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -126,7 +126,7 @@ function ConvertFrom-JsonToTemplatedtoSlackTemplate {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => TemplatedtoSlackTemplate' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => TemplatedtoSlackTemplate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -40,7 +40,7 @@ function Initialize-Firstvalid {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Firstvalid' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Firstvalid' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Values) {
@@ -82,7 +82,7 @@ function ConvertFrom-JsonToFirstvalid {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Firstvalid' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Firstvalid' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

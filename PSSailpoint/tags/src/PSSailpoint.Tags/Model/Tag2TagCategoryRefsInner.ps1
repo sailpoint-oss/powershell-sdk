@@ -41,7 +41,7 @@ function Initialize-Tag2TagCategoryRefsInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TagsV1 => Tag2TagCategoryRefsInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Tags => Tag2TagCategoryRefsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToTag2TagCategoryRefsInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TagsV1 => Tag2TagCategoryRefsInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Tags => Tag2TagCategoryRefsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

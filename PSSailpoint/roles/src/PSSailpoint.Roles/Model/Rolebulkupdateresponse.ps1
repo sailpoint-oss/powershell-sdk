@@ -46,7 +46,7 @@ function Initialize-Rolebulkupdateresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Rolebulkupdateresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Rolebulkupdateresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToRolebulkupdateresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Rolebulkupdateresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Rolebulkupdateresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: ScheduledactionresponseContentBackupOptionsObjectOptionsValue
 sidebar_label: ScheduledactionresponseContentBackupOptionsObjectOptionsValue
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ScheduledactionresponseContentBackupOptionsObjectOptionsValue', 'ScheduledactionresponseContentBackupOptionsObjectOptionsValue'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/scheduledactionresponse-content-backup-options-object-options-value
+slug: /tools/sdk/powershell/configurationhub/models/scheduledactionresponse-content-backup-options-object-options-value
 tags: ['SDK', 'Software Development Kit', 'ScheduledactionresponseContentBackupOptionsObjectOptionsValue', 'ScheduledactionresponseContentBackupOptionsObjectOptionsValue']
 ---
 

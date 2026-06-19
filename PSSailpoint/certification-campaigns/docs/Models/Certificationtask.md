@@ -5,7 +5,7 @@ pagination_label: Certificationtask
 sidebar_label: Certificationtask
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Certificationtask', 'Certificationtask'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/certificationtask
+slug: /tools/sdk/powershell/certificationcampaigns/models/certificationtask
 tags: ['SDK', 'Software Development Kit', 'Certificationtask', 'Certificationtask']
 ---
 

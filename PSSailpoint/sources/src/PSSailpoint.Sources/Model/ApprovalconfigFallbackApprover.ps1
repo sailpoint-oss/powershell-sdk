@@ -36,7 +36,7 @@ function Initialize-ApprovalconfigFallbackApprover {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => ApprovalconfigFallbackApprover' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => ApprovalconfigFallbackApprover' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToApprovalconfigFallbackApprover {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => ApprovalconfigFallbackApprover' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => ApprovalconfigFallbackApprover' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

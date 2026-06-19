@@ -5,7 +5,7 @@ pagination_label: Sessionconfiguration
 sidebar_label: Sessionconfiguration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sessionconfiguration', 'Sessionconfiguration'] 
-slug: /tools/sdk/powershell/globaltenantsecuritysettingsv1/models/sessionconfiguration
+slug: /tools/sdk/powershell/globaltenantsecuritysettings/models/sessionconfiguration
 tags: ['SDK', 'Software Development Kit', 'Sessionconfiguration', 'Sessionconfiguration']
 ---
 

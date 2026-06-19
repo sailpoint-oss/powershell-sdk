@@ -41,7 +41,7 @@ function Initialize-WorkflowbodyOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkflowsV1 => WorkflowbodyOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Workflows => WorkflowbodyOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToWorkflowbodyOwner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkflowsV1 => WorkflowbodyOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Workflows => WorkflowbodyOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

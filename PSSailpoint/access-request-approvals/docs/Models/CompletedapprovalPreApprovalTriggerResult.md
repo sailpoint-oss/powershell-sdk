@@ -5,7 +5,7 @@ pagination_label: CompletedapprovalPreApprovalTriggerResult
 sidebar_label: CompletedapprovalPreApprovalTriggerResult
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CompletedapprovalPreApprovalTriggerResult', 'CompletedapprovalPreApprovalTriggerResult'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/completedapproval-pre-approval-trigger-result
+slug: /tools/sdk/powershell/accessrequestapprovals/models/completedapproval-pre-approval-trigger-result
 tags: ['SDK', 'Software Development Kit', 'CompletedapprovalPreApprovalTriggerResult', 'CompletedapprovalPreApprovalTriggerResult']
 ---
 

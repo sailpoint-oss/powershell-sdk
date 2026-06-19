@@ -117,7 +117,7 @@ function Initialize-Taskstatus {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Taskstatus' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Taskstatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -210,7 +210,7 @@ function ConvertFrom-JsonToTaskstatus {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Taskstatus' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Taskstatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

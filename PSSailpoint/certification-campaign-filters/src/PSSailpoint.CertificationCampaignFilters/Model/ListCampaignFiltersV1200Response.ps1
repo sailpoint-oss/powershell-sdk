@@ -35,7 +35,7 @@ function Initialize-ListCampaignFiltersV1200Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignFiltersV1 => ListCampaignFiltersV1200Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaignFilters => ListCampaignFiltersV1200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToListCampaignFiltersV1200Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignFiltersV1 => ListCampaignFiltersV1200Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignFilters => ListCampaignFiltersV1200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

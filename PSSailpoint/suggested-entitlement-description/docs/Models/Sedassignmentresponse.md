@@ -5,7 +5,7 @@ pagination_label: Sedassignmentresponse
 sidebar_label: Sedassignmentresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sedassignmentresponse', 'Sedassignmentresponse'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/sedassignmentresponse
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/sedassignmentresponse
 tags: ['SDK', 'Software Development Kit', 'Sedassignmentresponse', 'Sedassignmentresponse']
 ---
 

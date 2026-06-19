@@ -238,7 +238,7 @@ function Initialize-Identitydocuments {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Identitydocuments' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Identitydocuments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -324,7 +324,7 @@ function ConvertFrom-JsonToIdentitydocuments {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Identitydocuments' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Identitydocuments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

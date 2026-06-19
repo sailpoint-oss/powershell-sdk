@@ -5,7 +5,7 @@ pagination_label: Commentdto
 sidebar_label: Commentdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Commentdto', 'Commentdto'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/commentdto
+slug: /tools/sdk/powershell/accessrequestapprovals/models/commentdto
 tags: ['SDK', 'Software Development Kit', 'Commentdto', 'Commentdto']
 ---
 

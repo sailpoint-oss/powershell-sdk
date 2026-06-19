@@ -35,7 +35,7 @@ function Initialize-Attrsyncsourceconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Attrsyncsourceconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Attrsyncsourceconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Source) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToAttrsyncsourceconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Attrsyncsourceconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Attrsyncsourceconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

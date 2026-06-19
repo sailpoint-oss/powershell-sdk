@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#get-certification-task-v1
+      label: SDK_tools/sdk/powershell/certifications/methods/certifications#get-certification-task-v1
       source: |
         $Id = "63b32151-26c0-42f4-9299-8898dc1c9daa" # String | The task ID
         
@@ -21,7 +21,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#get-identity-certification-item-permissions-v1
+      label: SDK_tools/sdk/powershell/certifications/methods/certifications#get-identity-certification-item-permissions-v1
       source: |
         $CertificationId = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
         $ItemId = "2c91808671bcbab40171bd945d961227" # String | The certification item ID
@@ -45,7 +45,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#get-identity-certification-v1
+      label: SDK_tools/sdk/powershell/certifications/methods/certifications#get-identity-certification-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification id
         
@@ -64,7 +64,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#get-pending-certification-tasks-v1
+      label: SDK_tools/sdk/powershell/certifications/methods/certifications#get-pending-certification-tasks-v1
       source: |
         $ReviewerIdentity = "Ada.1de82e55078344" # String | The ID of reviewer identity. *me* indicates the current user. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -87,7 +87,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#list-certification-reviewers-v1
+      label: SDK_tools/sdk/powershell/certifications/methods/certifications#list-certification-reviewers-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -111,7 +111,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#list-identity-access-review-items-v1
+      label: SDK_tools/sdk/powershell/certifications/methods/certifications#list-identity-access-review-items-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -138,7 +138,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#list-identity-certifications-v1
+      label: SDK_tools/sdk/powershell/certifications/methods/certifications#list-identity-certifications-v1
       source: |
         $ReviewerIdentity = "me" # String | Reviewer's identity. *me* indicates the current user. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -162,11 +162,9 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#make-identity-decision-v1
+      label: SDK_tools/sdk/powershell/certifications/methods/certifications#make-identity-decision-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campaign certification on which to make decisions
-        $Reviewrecommendation = Initialize-Reviewrecommendation -Recommendation "MyRecommendation" -Reasons "MyReasons" -Timestamp (Get-Date)
-$Reviewdecision = Initialize-Reviewdecision -Id "ef38f94347e94562b5bb8424a56397d8" -Decision "APPROVE" -ProposedEndDate (Get-Date) -Bulk $true -Recommendation $Reviewrecommendation -Comments "This user no longer needs access to this source"# Reviewdecision[] | A non-empty array of decisions to be made.
         $Reviewdecision = @"[{"id":"ef38f94347e94562b5bb8424a56396b5","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source."},{"id":"ef38f94347e94562b5bb8424a56397d8","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source too."}]"@ 
         
         
@@ -186,7 +184,7 @@ $Reviewdecision = Initialize-Reviewdecision -Id "ef38f94347e94562b5bb8424a56397d
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#reassign-identity-certifications-v1
+      label: SDK_tools/sdk/powershell/certifications/methods/certifications#reassign-identity-certifications-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
         $Reviewreassign = @"
@@ -209,7 +207,7 @@ $Reviewdecision = Initialize-Reviewdecision -Id "ef38f94347e94562b5bb8424a56397d
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#sign-off-identity-certification-v1
+      label: SDK_tools/sdk/powershell/certifications/methods/certifications#sign-off-identity-certification-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
         
@@ -228,7 +226,7 @@ $Reviewdecision = Initialize-Reviewdecision -Id "ef38f94347e94562b5bb8424a56397d
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/certificationsv1/methods/certifications#submit-reassign-certs-async-v1
+      label: SDK_tools/sdk/powershell/certifications/methods/certifications#submit-reassign-certs-async-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
         $Reviewreassign = @"

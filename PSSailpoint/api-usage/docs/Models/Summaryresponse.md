@@ -5,7 +5,7 @@ pagination_label: Summaryresponse
 sidebar_label: Summaryresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Summaryresponse', 'Summaryresponse'] 
-slug: /tools/sdk/powershell/apiusagev1/models/summaryresponse
+slug: /tools/sdk/powershell/apiusage/models/summaryresponse
 tags: ['SDK', 'Software Development Kit', 'Summaryresponse', 'Summaryresponse']
 ---
 

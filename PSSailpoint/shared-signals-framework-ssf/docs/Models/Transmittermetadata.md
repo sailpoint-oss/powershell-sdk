@@ -5,7 +5,7 @@ pagination_label: Transmittermetadata
 sidebar_label: Transmittermetadata
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Transmittermetadata', 'Transmittermetadata'] 
-slug: /tools/sdk/powershell/sharedsignalsframeworkssfv1/models/transmittermetadata
+slug: /tools/sdk/powershell/sharedsignalsframeworkssf/models/transmittermetadata
 tags: ['SDK', 'Software Development Kit', 'Transmittermetadata', 'Transmittermetadata']
 ---
 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Transmittermetadata = Initialize-Transmittermetadata  -SpecVersion 1_0 `
+$Transmittermetadata = Initialize-Transmittermetadata  -SpecVersion 10 `
  -Issuer https://tenant.api.identitynow.com `
  -JwksUri https://tenant.api.identitynow.com/ssf/jwks `
  -DeliveryMethodsSupported ["urn:ietf:rfc:8935"] `

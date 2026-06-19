@@ -36,7 +36,7 @@ function Initialize-Dependantconnectionsmissingdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Dependantconnectionsmissingdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Dependantconnectionsmissingdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToDependantconnectionsmissingdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Dependantconnectionsmissingdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Dependantconnectionsmissingdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

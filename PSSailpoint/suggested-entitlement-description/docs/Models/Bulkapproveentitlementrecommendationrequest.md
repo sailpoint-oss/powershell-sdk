@@ -5,7 +5,7 @@ pagination_label: Bulkapproveentitlementrecommendationrequest
 sidebar_label: Bulkapproveentitlementrecommendationrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Bulkapproveentitlementrecommendationrequest', 'Bulkapproveentitlementrecommendationrequest'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/bulkapproveentitlementrecommendationrequest
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/bulkapproveentitlementrecommendationrequest
 tags: ['SDK', 'Software Development Kit', 'Bulkapproveentitlementrecommendationrequest', 'Bulkapproveentitlementrecommendationrequest']
 ---
 

@@ -35,7 +35,7 @@ function Initialize-Cancelaccessrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Cancelaccessrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Cancelaccessrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AccountActivityId) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToCancelaccessrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Cancelaccessrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Cancelaccessrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

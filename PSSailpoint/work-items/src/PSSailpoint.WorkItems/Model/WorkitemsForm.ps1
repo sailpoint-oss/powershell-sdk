@@ -55,7 +55,7 @@ function Initialize-WorkitemsForm {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkItemsV1 => WorkitemsForm' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkItems => WorkitemsForm' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToWorkitemsForm {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkItemsV1 => WorkitemsForm' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkItems => WorkitemsForm' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

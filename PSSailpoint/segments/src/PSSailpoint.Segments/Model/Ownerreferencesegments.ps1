@@ -41,7 +41,7 @@ function Initialize-Ownerreferencesegments {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SegmentsV1 => Ownerreferencesegments' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Segments => Ownerreferencesegments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToOwnerreferencesegments {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SegmentsV1 => Ownerreferencesegments' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Segments => Ownerreferencesegments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: TemplateslackAutoApprovalData
 sidebar_label: TemplateslackAutoApprovalData
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'TemplateslackAutoApprovalData', 'TemplateslackAutoApprovalData'] 
-slug: /tools/sdk/powershell/notificationsv1/models/templateslack-auto-approval-data
+slug: /tools/sdk/powershell/notifications/models/templateslack-auto-approval-data
 tags: ['SDK', 'Software Development Kit', 'TemplateslackAutoApprovalData', 'TemplateslackAutoApprovalData']
 ---
 

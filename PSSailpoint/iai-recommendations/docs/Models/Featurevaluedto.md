@@ -5,7 +5,7 @@ pagination_label: Featurevaluedto
 sidebar_label: Featurevaluedto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Featurevaluedto', 'Featurevaluedto'] 
-slug: /tools/sdk/powershell/iairecommendationsv1/models/featurevaluedto
+slug: /tools/sdk/powershell/iairecommendations/models/featurevaluedto
 tags: ['SDK', 'Software Development Kit', 'Featurevaluedto', 'Featurevaluedto']
 ---
 

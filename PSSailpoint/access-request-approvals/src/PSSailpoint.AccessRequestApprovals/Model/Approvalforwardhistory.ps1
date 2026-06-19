@@ -56,7 +56,7 @@ function Initialize-Approvalforwardhistory {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestApprovalsV1 => Approvalforwardhistory' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequestApprovals => Approvalforwardhistory' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -97,7 +97,7 @@ function ConvertFrom-JsonToApprovalforwardhistory {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestApprovalsV1 => Approvalforwardhistory' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestApprovals => Approvalforwardhistory' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

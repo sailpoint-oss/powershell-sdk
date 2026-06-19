@@ -41,7 +41,7 @@ function Initialize-AccountactionrequestdtoCorrelatedIdentity {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountDeletionRequestsV1 => AccountactionrequestdtoCorrelatedIdentity' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccountDeletionRequests => AccountactionrequestdtoCorrelatedIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToAccountactionrequestdtoCorrelatedIdentity {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountDeletionRequestsV1 => AccountactionrequestdtoCorrelatedIdentity' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccountDeletionRequests => AccountactionrequestdtoCorrelatedIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

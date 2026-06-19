@@ -5,7 +5,7 @@ pagination_label: SourceManagerCorrelationMapping
 sidebar_label: SourceManagerCorrelationMapping
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SourceManagerCorrelationMapping', 'SourceManagerCorrelationMapping'] 
-slug: /tools/sdk/powershell/sourcesv1/models/source-manager-correlation-mapping
+slug: /tools/sdk/powershell/sources/models/source-manager-correlation-mapping
 tags: ['SDK', 'Software Development Kit', 'SourceManagerCorrelationMapping', 'SourceManagerCorrelationMapping']
 ---
 

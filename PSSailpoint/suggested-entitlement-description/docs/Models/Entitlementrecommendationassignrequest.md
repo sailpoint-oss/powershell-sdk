@@ -5,7 +5,7 @@ pagination_label: Entitlementrecommendationassignrequest
 sidebar_label: Entitlementrecommendationassignrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlementrecommendationassignrequest', 'Entitlementrecommendationassignrequest'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/entitlementrecommendationassignrequest
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/entitlementrecommendationassignrequest
 tags: ['SDK', 'Software Development Kit', 'Entitlementrecommendationassignrequest', 'Entitlementrecommendationassignrequest']
 ---
 

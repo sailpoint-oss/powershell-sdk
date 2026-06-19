@@ -5,7 +5,7 @@ pagination_label: Value
 sidebar_label: Value
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Value', 'Value'] 
-slug: /tools/sdk/powershell/segmentsv1/models/value
+slug: /tools/sdk/powershell/segments/models/value
 tags: ['SDK', 'Software Development Kit', 'Value', 'Value']
 ---
 

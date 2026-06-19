@@ -5,7 +5,7 @@ pagination_label: Revocabilityforrole
 sidebar_label: Revocabilityforrole
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Revocabilityforrole', 'Revocabilityforrole'] 
-slug: /tools/sdk/powershell/rolesv1/models/revocabilityforrole
+slug: /tools/sdk/powershell/roles/models/revocabilityforrole
 tags: ['SDK', 'Software Development Kit', 'Revocabilityforrole', 'Revocabilityforrole']
 ---
 

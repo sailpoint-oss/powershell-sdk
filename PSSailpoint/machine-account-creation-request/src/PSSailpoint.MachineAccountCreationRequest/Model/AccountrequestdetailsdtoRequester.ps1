@@ -41,7 +41,7 @@ function Initialize-AccountrequestdetailsdtoRequester {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountCreationRequestV1 => AccountrequestdetailsdtoRequester' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccountCreationRequest => AccountrequestdetailsdtoRequester' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToAccountrequestdetailsdtoRequester {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountCreationRequestV1 => AccountrequestdetailsdtoRequester' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountCreationRequest => AccountrequestdetailsdtoRequester' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

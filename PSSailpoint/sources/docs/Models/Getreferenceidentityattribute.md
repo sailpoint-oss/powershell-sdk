@@ -5,7 +5,7 @@ pagination_label: Getreferenceidentityattribute
 sidebar_label: Getreferenceidentityattribute
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Getreferenceidentityattribute', 'Getreferenceidentityattribute'] 
-slug: /tools/sdk/powershell/sourcesv1/models/getreferenceidentityattribute
+slug: /tools/sdk/powershell/sources/models/getreferenceidentityattribute
 tags: ['SDK', 'Software Development Kit', 'Getreferenceidentityattribute', 'Getreferenceidentityattribute']
 ---
 

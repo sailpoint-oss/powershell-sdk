@@ -30,7 +30,7 @@ function Initialize-GetDataSegmentIdentityMembershipV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataSegmentationV1 => GetDataSegmentIdentityMembershipV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataSegmentation => GetDataSegmentIdentityMembershipV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetDataSegmentIdentityMembershipV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataSegmentationV1 => GetDataSegmentIdentityMembershipV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataSegmentation => GetDataSegmentIdentityMembershipV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

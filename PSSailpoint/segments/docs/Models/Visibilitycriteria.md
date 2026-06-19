@@ -5,7 +5,7 @@ pagination_label: Visibilitycriteria
 sidebar_label: Visibilitycriteria
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Visibilitycriteria', 'Visibilitycriteria'] 
-slug: /tools/sdk/powershell/segmentsv1/models/visibilitycriteria
+slug: /tools/sdk/powershell/segments/models/visibilitycriteria
 tags: ['SDK', 'Software Development Kit', 'Visibilitycriteria', 'Visibilitycriteria']
 ---
 

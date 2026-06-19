@@ -5,7 +5,7 @@ pagination_label: Sourcecreationerrors
 sidebar_label: Sourcecreationerrors
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourcecreationerrors', 'Sourcecreationerrors'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/sourcecreationerrors
+slug: /tools/sdk/powershell/multihostintegration/models/sourcecreationerrors
 tags: ['SDK', 'Software Development Kit', 'Sourcecreationerrors', 'Sourcecreationerrors']
 ---
 

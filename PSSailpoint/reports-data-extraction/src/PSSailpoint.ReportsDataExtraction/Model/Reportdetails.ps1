@@ -36,7 +36,7 @@ function Initialize-Reportdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => Reportdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ReportsDataExtraction => Reportdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToReportdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => Reportdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtraction => Reportdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

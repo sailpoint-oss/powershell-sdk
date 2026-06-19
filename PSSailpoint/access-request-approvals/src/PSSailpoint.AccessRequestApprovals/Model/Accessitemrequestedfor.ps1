@@ -41,7 +41,7 @@ function Initialize-Accessitemrequestedfor {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestApprovalsV1 => Accessitemrequestedfor' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequestApprovals => Accessitemrequestedfor' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToAccessitemrequestedfor {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestApprovalsV1 => Accessitemrequestedfor' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestApprovals => Accessitemrequestedfor' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

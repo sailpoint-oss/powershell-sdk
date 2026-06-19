@@ -5,7 +5,7 @@ pagination_label: PasswordPolicies
 sidebar_label: PasswordPolicies
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordPolicies', 'PasswordPolicies'] 
-slug: /tools/sdk/powershell/passwordpoliciesv1/methods/password-policies
+slug: /tools/sdk/powershell/passwordpolicies/methods/password-policies
 tags: ['SDK', 'Software Development Kit', 'PasswordPolicies', 'PasswordPolicies']
 ---
 

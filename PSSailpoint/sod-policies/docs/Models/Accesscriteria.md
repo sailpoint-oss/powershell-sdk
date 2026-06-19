@@ -5,7 +5,7 @@ pagination_label: Accesscriteria
 sidebar_label: Accesscriteria
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accesscriteria', 'Accesscriteria'] 
-slug: /tools/sdk/powershell/sodpoliciesv1/models/accesscriteria
+slug: /tools/sdk/powershell/sodpolicies/models/accesscriteria
 tags: ['SDK', 'Software Development Kit', 'Accesscriteria', 'Accesscriteria']
 ---
 

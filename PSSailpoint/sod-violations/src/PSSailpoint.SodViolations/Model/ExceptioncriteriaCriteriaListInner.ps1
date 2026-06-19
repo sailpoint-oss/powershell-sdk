@@ -46,7 +46,7 @@ function Initialize-ExceptioncriteriaCriteriaListInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodViolationsV1 => ExceptioncriteriaCriteriaListInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodViolations => ExceptioncriteriaCriteriaListInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToExceptioncriteriaCriteriaListInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodViolationsV1 => ExceptioncriteriaCriteriaListInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodViolations => ExceptioncriteriaCriteriaListInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

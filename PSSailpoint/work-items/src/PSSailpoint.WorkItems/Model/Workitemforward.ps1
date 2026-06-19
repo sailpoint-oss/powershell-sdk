@@ -40,7 +40,7 @@ function Initialize-Workitemforward {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkItemsV1 => Workitemforward' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkItems => Workitemforward' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$TargetOwnerId) {
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToWorkitemforward {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkItemsV1 => Workitemforward' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkItems => Workitemforward' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

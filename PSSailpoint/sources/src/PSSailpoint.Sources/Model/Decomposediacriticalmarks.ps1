@@ -35,7 +35,7 @@ function Initialize-Decomposediacriticalmarks {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Decomposediacriticalmarks' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Decomposediacriticalmarks' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToDecomposediacriticalmarks {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Decomposediacriticalmarks' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Decomposediacriticalmarks' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

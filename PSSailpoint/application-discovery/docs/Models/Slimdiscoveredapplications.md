@@ -5,7 +5,7 @@ pagination_label: Slimdiscoveredapplications
 sidebar_label: Slimdiscoveredapplications
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Slimdiscoveredapplications', 'Slimdiscoveredapplications'] 
-slug: /tools/sdk/powershell/applicationdiscoveryv1/models/slimdiscoveredapplications
+slug: /tools/sdk/powershell/applicationdiscovery/models/slimdiscoveredapplications
 tags: ['SDK', 'Software Development Kit', 'Slimdiscoveredapplications', 'Slimdiscoveredapplications']
 ---
 
@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **IsSanctioned** | **Boolean** | Indicates whether the application is sanctioned. | [optional] [default to $false]
 **Logo** | **String** | URL of the application's logo. | [optional] 
 **AppUrl** | **String** | The URL of the application. | [optional] 
-**Groups** | [**[]SystemCollectionsHashtable**](system-collections-hashtable) | List of groups associated with the application. | [optional] 
+**Groups** | [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | List of groups associated with the application. | [optional] 
 **UsersCount** | **String** | The count of users associated with the application. | [optional] 
 **ApplicationOwner** | **[]String** | The owners of the application. | [optional] 
 **ItApplicationOwner** | **[]String** | The IT owners of the application. | [optional] 
@@ -46,7 +46,7 @@ Name | Type | Description | Notes
 **RiskLevel** |  **Enum** [  "High",    "Medium",    "Low" ] | The risk level of the application. | [optional] 
 **IsPrivileged** | **Boolean** | Indicates whether the application has privileged access. | [optional] [default to $false]
 **WarrantyExpiration** | **String** | The warranty expiration date of the application. | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Additional attributes of the application useful for visibility of governance posture. | [optional] 
+**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Additional attributes of the application useful for visibility of governance posture. | [optional] 
 
 ## Examples
 

@@ -30,7 +30,7 @@ function Initialize-CreateFormDefinitionFileRequestV1Request {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => CreateFormDefinitionFileRequestV1Request' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => CreateFormDefinitionFileRequestV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$File) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToCreateFormDefinitionFileRequestV1Request {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => CreateFormDefinitionFileRequestV1Request' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => CreateFormDefinitionFileRequestV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

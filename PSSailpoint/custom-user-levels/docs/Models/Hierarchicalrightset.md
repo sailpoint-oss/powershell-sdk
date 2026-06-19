@@ -5,7 +5,7 @@ pagination_label: Hierarchicalrightset
 sidebar_label: Hierarchicalrightset
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Hierarchicalrightset', 'Hierarchicalrightset'] 
-slug: /tools/sdk/powershell/customuserlevelsv1/models/hierarchicalrightset
+slug: /tools/sdk/powershell/customuserlevels/models/hierarchicalrightset
 tags: ['SDK', 'Software Development Kit', 'Hierarchicalrightset', 'Hierarchicalrightset']
 ---
 

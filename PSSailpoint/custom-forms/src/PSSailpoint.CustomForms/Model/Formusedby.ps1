@@ -41,7 +41,7 @@ function Initialize-Formusedby {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Formusedby' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Formusedby' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToFormusedby {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Formusedby' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Formusedby' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

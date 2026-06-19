@@ -5,7 +5,7 @@ pagination_label: CustomUserLevels
 sidebar_label: CustomUserLevels
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CustomUserLevels', 'CustomUserLevels'] 
-slug: /tools/sdk/powershell/customuserlevelsv1/methods/custom-user-levels
+slug: /tools/sdk/powershell/customuserlevels/methods/custom-user-levels
 tags: ['SDK', 'Software Development Kit', 'CustomUserLevels', 'CustomUserLevels']
 ---
 
@@ -226,7 +226,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Filters = "category eq "identity"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **category**: *eq* (optional)
+$Filters = 'category eq "identity"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **category**: *eq* (optional)
 $Sorters = "name, -id, -category" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, category** (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -344,7 +344,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $DetailLevel = "FULL" # String | Specifies the level of detail for the user levels. (optional) (default to "basic")
-$Filters = "name co "identity", owner co "john", status eq "active", description co "some description"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *co*    **owner**: *co*    **status**: *eq*  **description**: *co* (optional)
+$Filters = 'name co "identity", owner co "john", status eq "active", description co "some description"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *co*    **owner**: *co*    **status**: *eq*  **description**: *co* (optional)
 $Sorters = "name, -created, description, status, owner" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, description, status, owner** (optional)
 $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)

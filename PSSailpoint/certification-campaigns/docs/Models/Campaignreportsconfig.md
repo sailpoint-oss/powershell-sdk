@@ -5,7 +5,7 @@ pagination_label: Campaignreportsconfig
 sidebar_label: Campaignreportsconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaignreportsconfig', 'Campaignreportsconfig'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/campaignreportsconfig
+slug: /tools/sdk/powershell/certificationcampaigns/models/campaignreportsconfig
 tags: ['SDK', 'Software Development Kit', 'Campaignreportsconfig', 'Campaignreportsconfig']
 ---
 

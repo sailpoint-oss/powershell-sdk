@@ -5,7 +5,7 @@ pagination_label: Requestableobjecttype
 sidebar_label: Requestableobjecttype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Requestableobjecttype', 'Requestableobjecttype'] 
-slug: /tools/sdk/powershell/requestableobjectsv1/models/requestableobjecttype
+slug: /tools/sdk/powershell/requestableobjects/models/requestableobjecttype
 tags: ['SDK', 'Software Development Kit', 'Requestableobjecttype', 'Requestableobjecttype']
 ---
 

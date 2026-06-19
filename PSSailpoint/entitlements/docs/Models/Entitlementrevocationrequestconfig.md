@@ -5,7 +5,7 @@ pagination_label: Entitlementrevocationrequestconfig
 sidebar_label: Entitlementrevocationrequestconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlementrevocationrequestconfig', 'Entitlementrevocationrequestconfig'] 
-slug: /tools/sdk/powershell/entitlementsv1/models/entitlementrevocationrequestconfig
+slug: /tools/sdk/powershell/entitlements/models/entitlementrevocationrequestconfig
 tags: ['SDK', 'Software Development Kit', 'Entitlementrevocationrequestconfig', 'Entitlementrevocationrequestconfig']
 ---
 

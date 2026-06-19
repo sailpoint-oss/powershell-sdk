@@ -35,7 +35,7 @@ function Initialize-Managedclusterredis {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClustersV1 => Managedclusterredis' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClusters => Managedclusterredis' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToManagedclusterredis {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClustersV1 => Managedclusterredis' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusters => Managedclusterredis' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

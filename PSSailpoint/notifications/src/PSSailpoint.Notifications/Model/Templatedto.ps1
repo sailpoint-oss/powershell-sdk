@@ -106,7 +106,7 @@ function Initialize-Templatedto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => Templatedto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => Templatedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Key) {
@@ -169,7 +169,7 @@ function ConvertFrom-JsonToTemplatedto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => Templatedto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => Templatedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

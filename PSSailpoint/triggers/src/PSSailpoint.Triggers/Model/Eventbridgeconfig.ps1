@@ -35,7 +35,7 @@ function Initialize-Eventbridgeconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Eventbridgeconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Eventbridgeconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AwsAccount) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToEventbridgeconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Eventbridgeconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Eventbridgeconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Workflowlibraryformfields
 sidebar_label: Workflowlibraryformfields
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workflowlibraryformfields', 'Workflowlibraryformfields'] 
-slug: /tools/sdk/powershell/workflowsv1/models/workflowlibraryformfields
+slug: /tools/sdk/powershell/workflows/models/workflowlibraryformfields
 tags: ['SDK', 'Software Development Kit', 'Workflowlibraryformfields', 'Workflowlibraryformfields']
 ---
 

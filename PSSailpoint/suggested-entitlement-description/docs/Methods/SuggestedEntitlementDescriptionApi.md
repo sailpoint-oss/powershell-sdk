@@ -5,7 +5,7 @@ pagination_label: SuggestedEntitlementDescription
 sidebar_label: SuggestedEntitlementDescription
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SuggestedEntitlementDescription', 'SuggestedEntitlementDescription'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/methods/suggested-entitlement-description
+slug: /tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description
 tags: ['SDK', 'Software Development Kit', 'SuggestedEntitlementDescription', 'SuggestedEntitlementDescription']
 ---
 
@@ -427,7 +427,7 @@ Code | Description  | Data Type
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = "displayName co "Read and Write"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional)
+$Filters = 'displayName co "Read and Write"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional)
 $Sorters = "sorters=displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional)
 $CountOnly = $false # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to $false)
 $RequestedByAnyone = $false # Boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to $false)
@@ -479,8 +479,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "79db50d4-723c-4aa0-a824-83c2205d82d1" # String | The unique identifier of the entitlement recommendation to update.
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | The patch operations to apply to the entitlement recommendation record.
  $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | The patch operations to apply to the entitlement recommendation record.
  
 
@@ -531,7 +529,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
-$Sedpatch = Initialize-Sedpatch -Op "replace" -Path "status" -Value # Sedpatch[] | Sed Patch Request
  $Sedpatch = @""@ # Sedpatch[] | Sed Patch Request
  
 
@@ -627,7 +624,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Sedapproval = Initialize-Sedapproval -Items "MyItems" # Sedapproval[] | Sed Approval
  $Sedapproval = @""@ # Sedapproval[] | Sed Approval
  
 
@@ -771,8 +767,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$AutowritesettingpatchValue = Initialize-AutowritesettingpatchValue 
-$Autowritesettingpatch = Initialize-Autowritesettingpatch -Op "replace" -Path "/enabled" -Value $AutowritesettingpatchValue # Autowritesettingpatch[] | Patch operations for auto-write settings
  $Autowritesettingpatch = @""@ # Autowritesettingpatch[] | Patch operations for auto-write settings
  
 

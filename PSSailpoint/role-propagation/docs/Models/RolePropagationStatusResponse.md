@@ -5,7 +5,7 @@ pagination_label: RolePropagationStatusResponse
 sidebar_label: RolePropagationStatusResponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RolePropagationStatusResponse', 'RolePropagationStatusResponse'] 
-slug: /tools/sdk/powershell/rolepropagationv1/models/role-propagation-status-response
+slug: /tools/sdk/powershell/rolepropagation/models/role-propagation-status-response
 tags: ['SDK', 'Software Development Kit', 'RolePropagationStatusResponse', 'RolePropagationStatusResponse']
 ---
 

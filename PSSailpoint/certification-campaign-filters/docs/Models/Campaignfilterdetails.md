@@ -5,7 +5,7 @@ pagination_label: Campaignfilterdetails
 sidebar_label: Campaignfilterdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaignfilterdetails', 'Campaignfilterdetails'] 
-slug: /tools/sdk/powershell/certificationcampaignfiltersv1/models/campaignfilterdetails
+slug: /tools/sdk/powershell/certificationcampaignfilters/models/campaignfilterdetails
 tags: ['SDK', 'Software Development Kit', 'Campaignfilterdetails', 'Campaignfilterdetails']
 ---
 

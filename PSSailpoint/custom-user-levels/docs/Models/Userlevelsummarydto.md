@@ -5,7 +5,7 @@ pagination_label: Userlevelsummarydto
 sidebar_label: Userlevelsummarydto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Userlevelsummarydto', 'Userlevelsummarydto'] 
-slug: /tools/sdk/powershell/customuserlevelsv1/models/userlevelsummarydto
+slug: /tools/sdk/powershell/customuserlevels/models/userlevelsummarydto
 tags: ['SDK', 'Software Development Kit', 'Userlevelsummarydto', 'Userlevelsummarydto']
 ---
 

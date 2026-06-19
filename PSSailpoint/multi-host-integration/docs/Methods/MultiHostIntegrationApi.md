@@ -5,7 +5,7 @@ pagination_label: MultiHostIntegration
 sidebar_label: MultiHostIntegration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MultiHostIntegration', 'MultiHostIntegration'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration
+slug: /tools/sdk/powershell/multihostintegration/methods/multi-host-integration
 tags: ['SDK', 'Software Development Kit', 'MultiHostIntegration', 'MultiHostIntegration']
 ---
 
@@ -119,7 +119,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
-$Multihostintegrationscreatesources = Initialize-Multihostintegrationscreatesources -Name "My Source" -Description "This is the corporate directory." -ConnectorAttributes @{ key_example =  } # Multihostintegrationscreatesources[] | The specifics of the sources to create within Multi-Host Integration.
  $Multihostintegrationscreatesources = @""@ # Multihostintegrationscreatesources[] | The specifics of the sources to create within Multi-Host Integration.
  
 
@@ -382,7 +381,7 @@ Code | Description  | Data Type
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
-$Filters = "id eq 2c91808b6ef1d43e016efba0ce470904" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *in*  **forSubAdminId**: *in* (optional)
+$Filters = 'id eq 2c91808b6ef1d43e016efba0ce470904' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *in*  **forSubAdminId**: *in* (optional)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity or SOURCE_SUBADMIN identity.  The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
 
@@ -583,7 +582,7 @@ $MultihostId = "aMultiHostId" # String | ID of the Multi-Host Integration to upd
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
-$Filters = "id eq 2c91808b6ef1d43e016efba0ce470904" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *in* (optional)
+$Filters = 'id eq 2c91808b6ef1d43e016efba0ce470904' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *in* (optional)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
 # List sources within multi-host integration
@@ -732,8 +731,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
-$UpdateMultiHostSourcesV1RequestInnerValue = Initialize-UpdateMultiHostSourcesV1RequestInnerValue 
-$UpdateMultiHostSourcesV1RequestInner = Initialize-UpdateMultiHostSourcesV1RequestInner -Op "add" -Path "/description" -Value $UpdateMultiHostSourcesV1RequestInnerValue # UpdateMultiHostSourcesV1RequestInner[] | This endpoint allows you to update a Multi-Host Integration. 
  $UpdateMultiHostSourcesV1RequestInner = @"[{"op":"add","path":"/description","value":"MDK Multi-Host Integration 222 description"}]"@ # UpdateMultiHostSourcesV1RequestInner[] | This endpoint allows you to update a Multi-Host Integration. 
  
 

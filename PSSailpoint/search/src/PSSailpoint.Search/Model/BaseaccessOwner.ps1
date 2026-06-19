@@ -46,7 +46,7 @@ function Initialize-BaseaccessOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => BaseaccessOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => BaseaccessOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToBaseaccessOwner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => BaseaccessOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => BaseaccessOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

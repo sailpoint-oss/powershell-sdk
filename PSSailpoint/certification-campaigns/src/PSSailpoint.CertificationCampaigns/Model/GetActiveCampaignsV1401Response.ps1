@@ -30,7 +30,7 @@ function Initialize-GetActiveCampaignsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignsV1 => GetActiveCampaignsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaigns => GetActiveCampaignsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetActiveCampaignsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignsV1 => GetActiveCampaignsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaigns => GetActiveCampaignsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

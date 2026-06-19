@@ -35,7 +35,7 @@ function Initialize-Identityattributetransform {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityProfilesV1 => Identityattributetransform' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityProfiles => Identityattributetransform' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToIdentityattributetransform {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityProfilesV1 => Identityattributetransform' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityProfiles => Identityattributetransform' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

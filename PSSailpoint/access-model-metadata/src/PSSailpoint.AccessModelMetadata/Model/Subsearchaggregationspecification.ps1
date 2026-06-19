@@ -50,7 +50,7 @@ function Initialize-Subsearchaggregationspecification {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Subsearchaggregationspecification' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessModelMetadata => Subsearchaggregationspecification' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToSubsearchaggregationspecification {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Subsearchaggregationspecification' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadata => Subsearchaggregationspecification' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

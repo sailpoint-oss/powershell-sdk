@@ -45,7 +45,7 @@ function Initialize-Attributeschanged {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Attributeschanged' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Attributeschanged' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AttributeChanges) {
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToAttributeschanged {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Attributeschanged' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Attributeschanged' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

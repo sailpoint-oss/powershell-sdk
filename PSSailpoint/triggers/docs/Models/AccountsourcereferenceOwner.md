@@ -5,7 +5,7 @@ pagination_label: AccountsourcereferenceOwner
 sidebar_label: AccountsourcereferenceOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountsourcereferenceOwner', 'AccountsourcereferenceOwner'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountsourcereference-owner
+slug: /tools/sdk/powershell/triggers/models/accountsourcereference-owner
 tags: ['SDK', 'Software Development Kit', 'AccountsourcereferenceOwner', 'AccountsourcereferenceOwner']
 ---
 

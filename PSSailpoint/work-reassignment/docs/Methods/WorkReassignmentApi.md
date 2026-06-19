@@ -5,7 +5,7 @@ pagination_label: WorkReassignment
 sidebar_label: WorkReassignment
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'WorkReassignment', 'WorkReassignment'] 
-slug: /tools/sdk/powershell/workreassignmentv1/methods/work-reassignment
+slug: /tools/sdk/powershell/workreassignment/methods/work-reassignment
 tags: ['SDK', 'Software Development Kit', 'WorkReassignment', 'WorkReassignment']
 ---
 

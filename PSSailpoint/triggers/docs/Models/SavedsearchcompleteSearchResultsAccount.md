@@ -5,7 +5,7 @@ pagination_label: SavedsearchcompleteSearchResultsAccount
 sidebar_label: SavedsearchcompleteSearchResultsAccount
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SavedsearchcompleteSearchResultsAccount', 'SavedsearchcompleteSearchResultsAccount'] 
-slug: /tools/sdk/powershell/triggersv1/models/savedsearchcomplete-search-results-account
+slug: /tools/sdk/powershell/triggers/models/savedsearchcomplete-search-results-account
 tags: ['SDK', 'Software Development Kit', 'SavedsearchcompleteSearchResultsAccount', 'SavedsearchcompleteSearchResultsAccount']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Mailfromattributes
 sidebar_label: Mailfromattributes
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Mailfromattributes', 'Mailfromattributes'] 
-slug: /tools/sdk/powershell/notificationsv1/models/mailfromattributes
+slug: /tools/sdk/powershell/notifications/models/mailfromattributes
 tags: ['SDK', 'Software Development Kit', 'Mailfromattributes', 'Mailfromattributes']
 ---
 

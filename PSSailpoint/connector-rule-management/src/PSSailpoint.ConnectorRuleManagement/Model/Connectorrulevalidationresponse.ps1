@@ -36,7 +36,7 @@ function Initialize-Connectorrulevalidationresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConnectorRuleManagementV1 => Connectorrulevalidationresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConnectorRuleManagement => Connectorrulevalidationresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$State) {
@@ -81,7 +81,7 @@ function ConvertFrom-JsonToConnectorrulevalidationresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorRuleManagementV1 => Connectorrulevalidationresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorRuleManagement => Connectorrulevalidationresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

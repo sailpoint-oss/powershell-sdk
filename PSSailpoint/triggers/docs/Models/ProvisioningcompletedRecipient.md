@@ -5,7 +5,7 @@ pagination_label: ProvisioningcompletedRecipient
 sidebar_label: ProvisioningcompletedRecipient
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningcompletedRecipient', 'ProvisioningcompletedRecipient'] 
-slug: /tools/sdk/powershell/triggersv1/models/provisioningcompleted-recipient
+slug: /tools/sdk/powershell/triggers/models/provisioningcompleted-recipient
 tags: ['SDK', 'Software Development Kit', 'ProvisioningcompletedRecipient', 'ProvisioningcompletedRecipient']
 ---
 

@@ -41,7 +41,7 @@ function Initialize-Taskresultdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Taskresultdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Taskresultdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToTaskresultdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Taskresultdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Taskresultdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

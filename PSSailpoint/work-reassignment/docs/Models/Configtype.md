@@ -5,7 +5,7 @@ pagination_label: Configtype
 sidebar_label: Configtype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Configtype', 'Configtype'] 
-slug: /tools/sdk/powershell/workreassignmentv1/models/configtype
+slug: /tools/sdk/powershell/workreassignment/models/configtype
 tags: ['SDK', 'Software Development Kit', 'Configtype', 'Configtype']
 ---
 

@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/orgconfigv1/methods/org-config#get-org-config-v1
+      label: SDK_tools/sdk/powershell/orgconfig/methods/org-config#get-org-config-v1
       source: |
         
         # Get org config settings
@@ -20,7 +20,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/orgconfigv1/methods/org-config#get-valid-time-zones-v1
+      label: SDK_tools/sdk/powershell/orgconfig/methods/org-config#get-valid-time-zones-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
@@ -42,10 +42,8 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/orgconfigv1/methods/org-config#patch-org-config-v1
+      label: SDK_tools/sdk/powershell/orgconfig/methods/org-config#patch-org-config-v1
       source: |
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
         $Jsonpatchoperation = @"[{"op":"replace","path":"/timeZone","value":"America/Toronto"}]"@ 
         
         

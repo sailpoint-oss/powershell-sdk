@@ -5,7 +5,7 @@ pagination_label: Accountinforef
 sidebar_label: Accountinforef
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountinforef', 'Accountinforef'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/accountinforef
+slug: /tools/sdk/powershell/accessrequests/models/accountinforef
 tags: ['SDK', 'Software Development Kit', 'Accountinforef', 'Accountinforef']
 ---
 

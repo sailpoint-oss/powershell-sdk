@@ -5,7 +5,7 @@ pagination_label: Accessrequestpostapproval
 sidebar_label: Accessrequestpostapproval
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessrequestpostapproval', 'Accessrequestpostapproval'] 
-slug: /tools/sdk/powershell/triggersv1/models/accessrequestpostapproval
+slug: /tools/sdk/powershell/triggers/models/accessrequestpostapproval
 tags: ['SDK', 'Software Development Kit', 'Accessrequestpostapproval', 'Accessrequestpostapproval']
 ---
 

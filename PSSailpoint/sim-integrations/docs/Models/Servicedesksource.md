@@ -5,7 +5,7 @@ pagination_label: Servicedesksource
 sidebar_label: Servicedesksource
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Servicedesksource', 'Servicedesksource'] 
-slug: /tools/sdk/powershell/simintegrationsv1/models/servicedesksource
+slug: /tools/sdk/powershell/simintegrations/models/servicedesksource
 tags: ['SDK', 'Software Development Kit', 'Servicedesksource', 'Servicedesksource']
 ---
 

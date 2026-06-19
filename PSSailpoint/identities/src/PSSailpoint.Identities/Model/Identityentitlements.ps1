@@ -35,7 +35,7 @@ function Initialize-Identityentitlements {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Identityentitlements' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Identityentitlements' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToIdentityentitlements {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Identityentitlements' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Identityentitlements' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

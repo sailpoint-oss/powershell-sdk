@@ -5,7 +5,7 @@ pagination_label: RequesteditemstatusPreApprovalTriggerDetails
 sidebar_label: RequesteditemstatusPreApprovalTriggerDetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RequesteditemstatusPreApprovalTriggerDetails', 'RequesteditemstatusPreApprovalTriggerDetails'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/requesteditemstatus-pre-approval-trigger-details
+slug: /tools/sdk/powershell/accessrequests/models/requesteditemstatus-pre-approval-trigger-details
 tags: ['SDK', 'Software Development Kit', 'RequesteditemstatusPreApprovalTriggerDetails', 'RequesteditemstatusPreApprovalTriggerDetails']
 ---
 

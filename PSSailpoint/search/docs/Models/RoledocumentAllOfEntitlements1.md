@@ -5,7 +5,7 @@ pagination_label: RoledocumentAllOfEntitlements1
 sidebar_label: RoledocumentAllOfEntitlements1
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RoledocumentAllOfEntitlements1', 'RoledocumentAllOfEntitlements1'] 
-slug: /tools/sdk/powershell/searchv1/models/roledocument-all-of-entitlements1
+slug: /tools/sdk/powershell/search/models/roledocument-all-of-entitlements1
 tags: ['SDK', 'Software Development Kit', 'RoledocumentAllOfEntitlements1', 'RoledocumentAllOfEntitlements1']
 ---
 

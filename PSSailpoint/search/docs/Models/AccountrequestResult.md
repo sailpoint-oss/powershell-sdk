@@ -5,7 +5,7 @@ pagination_label: AccountrequestResult
 sidebar_label: AccountrequestResult
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountrequestResult', 'AccountrequestResult'] 
-slug: /tools/sdk/powershell/searchv1/models/accountrequest-result
+slug: /tools/sdk/powershell/search/models/accountrequest-result
 tags: ['SDK', 'Software Development Kit', 'AccountrequestResult', 'AccountrequestResult']
 ---
 

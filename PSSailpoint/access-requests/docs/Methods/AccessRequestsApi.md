@@ -5,7 +5,7 @@ pagination_label: AccessRequests
 sidebar_label: AccessRequests
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequests', 'AccessRequests'] 
-slug: /tools/sdk/powershell/accessrequestsv1/methods/access-requests
+slug: /tools/sdk/powershell/accessrequests/methods/access-requests
 tags: ['SDK', 'Software Development Kit', 'AccessRequests', 'AccessRequests']
 ---
 
@@ -23,11 +23,13 @@ Method | HTTP request | Description
 [**Close-AccessRequestV1**](#close-access-request-v1) | **POST** `/access-requests/v1/close` | Close access request
 [**New-AccessRequestV1**](#create-access-request-v1) | **POST** `/access-requests/v1` | Submit access request
 [**Get-AccessRequestConfigV1**](#get-access-request-config-v1) | **GET** `/access-request-config/v1` | Get access request configuration
+[**Get-AccessRequestConfigV2**](#get-access-request-config-v2) | **GET** `/access-request-config/v2` | Get access request configuration
 [**Get-EntitlementDetailsForIdentityV1**](#get-entitlement-details-for-identity-v1) | **GET** `/revocable-objects/v1` | Identity entitlement details
 [**Get-AccessRequestStatusV1**](#list-access-request-status-v1) | **GET** `/access-request-status/v1` | Access request status
 [**Get-AdministratorsAccessRequestStatusV1**](#list-administrators-access-request-status-v1) | **GET** `/access-request-administration/v1` | Access request status for administrators
 [**Invoke-LoadAccountSelectionsV1**](#load-account-selections-v1) | **POST** `/access-requests/v1/accounts-selection` | Get accounts selections for identity
 [**Set-AccessRequestConfigV1**](#set-access-request-config-v1) | **PUT** `/access-request-config/v1` | Update access request configuration
+[**Set-AccessRequestConfigV2**](#set-access-request-config-v2) | **PUT** `/access-request-config/v2` | Update access request configuration
 
 
 ## approve-bulk-access-request-v1
@@ -41,7 +43,7 @@ Param Type | Name | Data Type | Required  | Description
  Body  | Bulkapproveaccessrequest | [**Bulkapproveaccessrequest**](../models/bulkapproveaccessrequest) | True  | 
 
 ### Return type
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -89,7 +91,7 @@ Param Type | Name | Data Type | Required  | Description
  Body  | Bulkcancelaccessrequest | [**Bulkcancelaccessrequest**](../models/bulkcancelaccessrequest) | True  | 
 
 ### Return type
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -137,7 +139,7 @@ Param Type | Name | Data Type | Required  | Description
  Body  | Cancelaccessrequest | [**Cancelaccessrequest**](../models/cancelaccessrequest) | True  | 
 
 ### Return type
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -195,7 +197,7 @@ Param Type | Name | Data Type | Required  | Description
  Body  | Closeaccessrequest | [**Closeaccessrequest**](../models/closeaccessrequest) | True  | 
 
 ### Return type
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -257,6 +259,8 @@ __GRANT_ACCESS__
 * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.  
 * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others.
 * Roles, access profiles and entitlements can be requested.
+* You can specify a `startDate` to set or alter a sunrise date-time on an assignment. The startDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunrise date and its yet to be provisioned, you can also submit a request without a `startDate` to request immediate provisioning after approval.
+* If a `startDate` is specified, then the requested role, access profile, or entitlement will be provisioned on that date and time.
 * You can specify a `removeDate` to set or alter a sunset date-time on an assignment. The removeDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunset date, you can also submit a request without a `removeDate` to request removal of the sunset date and time.
 * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
 * Now supports an alternate field 'requestedForWithRequestedItems' for users to specify account selections while requesting items where they have more than one account on the source.
@@ -274,6 +278,7 @@ __REVOKE_ACCESS__
 * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
 * Roles, access profiles, and entitlements can be requested for revocation.
 * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
+* You cannot specify a 'startDate' in a REVOKE_ACCESS request, as startDate is only applicable for GRANT_ACCESS requests to indicate when the access should be provisioned, and it does not make sense in the context of revoking access.
 * You can specify a `removeDate` to add or alter a sunset date and time on an assignment. The `removeDate` must be a future date-time, in the UTC timezone. If the user already has the access assigned with a sunset date and time, the removeDate must be a date-time earlier than the existing sunset date and time. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
 * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields. These fields should be used within the 'requestedItems' section for the revoke requests. 
@@ -324,6 +329,9 @@ try {
 [[Back to top]](#) 
 
 ## get-access-request-config-v1
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This endpoint returns the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v1/get-access-request-config-v1)
@@ -361,6 +369,49 @@ try {
     # Get-AccessRequestConfigV1  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessRequestConfigV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-access-request-config-v2
+This endpoint returns the current access-request configuration.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v1/get-access-request-config-v2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+
+### Return type
+[**Accessrequestconfigv2**](../models/accessrequestconfigv2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Access Request Configuration Details. | Accessrequestconfigv2
+400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+
+# Get access request configuration
+
+try {
+    Get-AccessRequestConfigV2 
+    
+    # Below is a request that includes all optional parameters
+    # Get-AccessRequestConfigV2  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccessRequestConfigV2"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -461,7 +512,7 @@ $AssignedTo = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results b
 $Count = $false # Boolean | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to $false)
 $Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
 $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
-$Filters = "accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne* (optional)
+$Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, ne, sw*  **created**: *eq, ge, gt, le, lt, ne* (optional)
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
@@ -499,7 +550,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return.
   Query | Offset | **Int32** |   (optional) | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in, eq, ne, ge, gt, le, lt, sw*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId**
   Query | RequestState | **String** |   (optional) | Filter the results by the state of the request. The only valid value is *EXECUTING*.
 
@@ -530,7 +581,7 @@ $AssignedTo = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results b
 $Count = $false # Boolean | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to $false)
 $Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
 $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
-$Filters = "accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
+$Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in, eq, ne, ge, gt, le, lt, sw*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
@@ -603,6 +654,9 @@ try {
 [[Back to top]](#) 
 
 ## set-access-request-config-v1
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This endpoint replaces the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v1/set-access-request-config-v1)
@@ -643,6 +697,52 @@ try {
     # Set-AccessRequestConfigV1 -Accessrequestconfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestConfigV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## set-access-request-config-v2
+This endpoint replaces the current access-request configuration.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v1/set-access-request-config-v2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | Accessrequestconfigv2 | [**Accessrequestconfigv2**](../models/accessrequestconfigv2) | True  | 
+
+### Return type
+[**Accessrequestconfigv2**](../models/accessrequestconfigv2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Access Request Configuration Details. | Accessrequestconfigv2
+400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetAccessRequestConfigV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetAccessRequestConfigV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Accessrequestconfigv2 = @""@
+
+# Update access request configuration
+
+try {
+    $Result = ConvertFrom-JsonToAccessrequestconfigv2 -Json $Accessrequestconfigv2
+    Set-AccessRequestConfigV2 -Accessrequestconfigv2 $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Set-AccessRequestConfigV2 -Accessrequestconfigv2 $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-AccessRequestConfigV2"
     Write-Host $_.ErrorDetails
 }
 ```

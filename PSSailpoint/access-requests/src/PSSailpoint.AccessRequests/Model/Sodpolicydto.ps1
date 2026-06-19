@@ -41,7 +41,7 @@ function Initialize-Sodpolicydto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Sodpolicydto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Sodpolicydto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToSodpolicydto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Sodpolicydto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Sodpolicydto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

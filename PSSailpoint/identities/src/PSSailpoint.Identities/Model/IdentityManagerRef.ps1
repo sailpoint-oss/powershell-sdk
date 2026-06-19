@@ -41,7 +41,7 @@ function Initialize-IdentityManagerRef {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => IdentityManagerRef' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => IdentityManagerRef' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToIdentityManagerRef {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => IdentityManagerRef' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => IdentityManagerRef' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

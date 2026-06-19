@@ -5,7 +5,7 @@ pagination_label: Machineidentityresponse
 sidebar_label: Machineidentityresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Machineidentityresponse', 'Machineidentityresponse'] 
-slug: /tools/sdk/powershell/machineidentitiesv1/models/machineidentityresponse
+slug: /tools/sdk/powershell/machineidentities/models/machineidentityresponse
 tags: ['SDK', 'Software Development Kit', 'Machineidentityresponse', 'Machineidentityresponse']
 ---
 
@@ -22,14 +22,14 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
 **NativeIdentity** | **String** | The native identity associated to the machine identity directly aggregated from a source | [required]
 **Description** | **String** | Description of machine identity | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**](system-collections-hashtable) | A map of custom machine identity attributes | [optional] 
+**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | A map of custom machine identity attributes | [optional] 
 **Subtype** | **String** | The subtype value associated to the machine identity | [required]
 **Owners** | [**MachineIdentityDtoOwners**](machine-identity-dto-owners) |  | [optional] 
 **SourceId** | **String** | The source id associated to the machine identity | [optional] 
 **Uuid** | **String** | The UUID associated to the machine identity directly aggregated from a source | [optional] 
 **ManuallyEdited** | **Boolean** | Indicates if the machine identity has been manually edited | [optional] [default to $false]
 **ManuallyCreated** | **Boolean** | Indicates if the machine identity has been manually created | [optional] [default to $false]
-**Source** | [**SystemCollectionsHashtable**](system-collections-hashtable) | The source of the machine identity | [optional] 
+**Source** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The source of the machine identity | [optional] 
 **DatasetId** | **String** | The dataset id associated to the source in which the identity was retrieved from | [optional] 
 **UserEntitlements** | [**[]MachineIdentityResponseUserEntitlements**](machine-identity-response-user-entitlements) | The user entitlements associated to the machine identity | [optional] 
 

@@ -45,7 +45,7 @@ function Initialize-App {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => App' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => App' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToApp {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => App' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => App' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

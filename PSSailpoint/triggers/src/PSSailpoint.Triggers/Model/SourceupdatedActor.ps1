@@ -41,7 +41,7 @@ function Initialize-SourceupdatedActor {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => SourceupdatedActor' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => SourceupdatedActor' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -87,7 +87,7 @@ function ConvertFrom-JsonToSourceupdatedActor {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => SourceupdatedActor' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => SourceupdatedActor' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

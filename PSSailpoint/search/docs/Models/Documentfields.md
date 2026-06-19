@@ -5,7 +5,7 @@ pagination_label: Documentfields
 sidebar_label: Documentfields
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Documentfields', 'Documentfields'] 
-slug: /tools/sdk/powershell/searchv1/models/documentfields
+slug: /tools/sdk/powershell/search/models/documentfields
 tags: ['SDK', 'Software Development Kit', 'Documentfields', 'Documentfields']
 ---
 

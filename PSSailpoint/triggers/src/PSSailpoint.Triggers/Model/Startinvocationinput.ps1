@@ -40,7 +40,7 @@ function Initialize-Startinvocationinput {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Startinvocationinput' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Startinvocationinput' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToStartinvocationinput {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Startinvocationinput' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Startinvocationinput' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

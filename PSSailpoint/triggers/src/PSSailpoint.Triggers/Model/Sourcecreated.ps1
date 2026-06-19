@@ -55,7 +55,7 @@ function Initialize-Sourcecreated {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Sourcecreated' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Sourcecreated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -120,7 +120,7 @@ function ConvertFrom-JsonToSourcecreated {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Sourcecreated' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Sourcecreated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Additionalownerref
 sidebar_label: Additionalownerref
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Additionalownerref', 'Additionalownerref'] 
-slug: /tools/sdk/powershell/entitlementsv1/models/additionalownerref
+slug: /tools/sdk/powershell/entitlements/models/additionalownerref
 tags: ['SDK', 'Software Development Kit', 'Additionalownerref', 'Additionalownerref']
 ---
 

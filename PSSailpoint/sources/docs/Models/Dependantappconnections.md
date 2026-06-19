@@ -5,7 +5,7 @@ pagination_label: Dependantappconnections
 sidebar_label: Dependantappconnections
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dependantappconnections', 'Dependantappconnections'] 
-slug: /tools/sdk/powershell/sourcesv1/models/dependantappconnections
+slug: /tools/sdk/powershell/sources/models/dependantappconnections
 tags: ['SDK', 'Software Development Kit', 'Dependantappconnections', 'Dependantappconnections']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Cancelaccessrequest
 sidebar_label: Cancelaccessrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Cancelaccessrequest', 'Cancelaccessrequest'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/cancelaccessrequest
+slug: /tools/sdk/powershell/accessrequests/models/cancelaccessrequest
 tags: ['SDK', 'Software Development Kit', 'Cancelaccessrequest', 'Cancelaccessrequest']
 ---
 

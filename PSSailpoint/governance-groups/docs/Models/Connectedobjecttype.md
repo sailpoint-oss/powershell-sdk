@@ -5,7 +5,7 @@ pagination_label: Connectedobjecttype
 sidebar_label: Connectedobjecttype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Connectedobjecttype', 'Connectedobjecttype'] 
-slug: /tools/sdk/powershell/governancegroupsv1/models/connectedobjecttype
+slug: /tools/sdk/powershell/governancegroups/models/connectedobjecttype
 tags: ['SDK', 'Software Development Kit', 'Connectedobjecttype', 'Connectedobjecttype']
 ---
 

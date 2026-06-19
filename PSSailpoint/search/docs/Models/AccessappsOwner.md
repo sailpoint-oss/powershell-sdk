@@ -5,7 +5,7 @@ pagination_label: AccessappsOwner
 sidebar_label: AccessappsOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessappsOwner', 'AccessappsOwner'] 
-slug: /tools/sdk/powershell/searchv1/models/accessapps-owner
+slug: /tools/sdk/powershell/search/models/accessapps-owner
 tags: ['SDK', 'Software Development Kit', 'AccessappsOwner', 'AccessappsOwner']
 ---
 

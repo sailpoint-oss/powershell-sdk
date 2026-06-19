@@ -5,7 +5,7 @@ pagination_label: IdentityprofileexportedobjectSelf
 sidebar_label: IdentityprofileexportedobjectSelf
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityprofileexportedobjectSelf', 'IdentityprofileexportedobjectSelf'] 
-slug: /tools/sdk/powershell/identityprofilesv1/models/identityprofileexportedobject-self
+slug: /tools/sdk/powershell/identityprofiles/models/identityprofileexportedobject-self
 tags: ['SDK', 'Software Development Kit', 'IdentityprofileexportedobjectSelf', 'IdentityprofileexportedobjectSelf']
 ---
 

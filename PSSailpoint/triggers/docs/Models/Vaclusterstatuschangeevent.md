@@ -5,7 +5,7 @@ pagination_label: Vaclusterstatuschangeevent
 sidebar_label: Vaclusterstatuschangeevent
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Vaclusterstatuschangeevent', 'Vaclusterstatuschangeevent'] 
-slug: /tools/sdk/powershell/triggersv1/models/vaclusterstatuschangeevent
+slug: /tools/sdk/powershell/triggers/models/vaclusterstatuschangeevent
 tags: ['SDK', 'Software Development Kit', 'Vaclusterstatuschangeevent', 'Vaclusterstatuschangeevent']
 ---
 

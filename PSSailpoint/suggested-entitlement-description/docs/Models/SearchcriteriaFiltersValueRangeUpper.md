@@ -5,7 +5,7 @@ pagination_label: SearchcriteriaFiltersValueRangeUpper
 sidebar_label: SearchcriteriaFiltersValueRangeUpper
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SearchcriteriaFiltersValueRangeUpper', 'SearchcriteriaFiltersValueRangeUpper'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/searchcriteria-filters-value-range-upper
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/searchcriteria-filters-value-range-upper
 tags: ['SDK', 'Software Development Kit', 'SearchcriteriaFiltersValueRangeUpper', 'SearchcriteriaFiltersValueRangeUpper']
 ---
 

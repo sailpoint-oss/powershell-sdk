@@ -60,7 +60,7 @@ function Initialize-Sourcesubtype {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountsV1 => Sourcesubtype' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccounts => Sourcesubtype' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$TechnicalName) {
@@ -114,7 +114,7 @@ function ConvertFrom-JsonToSourcesubtype {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountsV1 => Sourcesubtype' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccounts => Sourcesubtype' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

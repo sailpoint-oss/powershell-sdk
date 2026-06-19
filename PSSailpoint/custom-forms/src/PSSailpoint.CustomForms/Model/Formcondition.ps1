@@ -41,7 +41,7 @@ function Initialize-Formcondition {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Formcondition' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Formcondition' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToFormcondition {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Formcondition' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Formcondition' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

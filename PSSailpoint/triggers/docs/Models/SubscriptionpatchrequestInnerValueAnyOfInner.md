@@ -5,7 +5,7 @@ pagination_label: SubscriptionpatchrequestInnerValueAnyOfInner
 sidebar_label: SubscriptionpatchrequestInnerValueAnyOfInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SubscriptionpatchrequestInnerValueAnyOfInner', 'SubscriptionpatchrequestInnerValueAnyOfInner'] 
-slug: /tools/sdk/powershell/triggersv1/models/subscriptionpatchrequest-inner-value-any-of-inner
+slug: /tools/sdk/powershell/triggers/models/subscriptionpatchrequest-inner-value-any-of-inner
 tags: ['SDK', 'Software Development Kit', 'SubscriptionpatchrequestInnerValueAnyOfInner', 'SubscriptionpatchrequestInnerValueAnyOfInner']
 ---
 

@@ -55,7 +55,7 @@ function Initialize-Jwk {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsfV1 => Jwk' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsf => Jwk' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToJwk {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsfV1 => Jwk' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsf => Jwk' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

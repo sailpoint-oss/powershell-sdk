@@ -5,7 +5,7 @@ pagination_label: Accessrequestcontext
 sidebar_label: Accessrequestcontext
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessrequestcontext', 'Accessrequestcontext'] 
-slug: /tools/sdk/powershell/identitiesv1/models/accessrequestcontext
+slug: /tools/sdk/powershell/identities/models/accessrequestcontext
 tags: ['SDK', 'Software Development Kit', 'Accessrequestcontext', 'Accessrequestcontext']
 ---
 

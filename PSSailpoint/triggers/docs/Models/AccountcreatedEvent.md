@@ -5,7 +5,7 @@ pagination_label: AccountcreatedEvent
 sidebar_label: AccountcreatedEvent
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountcreatedEvent', 'AccountcreatedEvent'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountcreated-event
+slug: /tools/sdk/powershell/triggers/models/accountcreated-event
 tags: ['SDK', 'Software Development Kit', 'AccountcreatedEvent', 'AccountcreatedEvent']
 ---
 

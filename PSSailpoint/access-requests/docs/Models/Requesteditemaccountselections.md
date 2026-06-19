@@ -5,7 +5,7 @@ pagination_label: Requesteditemaccountselections
 sidebar_label: Requesteditemaccountselections
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Requesteditemaccountselections', 'Requesteditemaccountselections'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/requesteditemaccountselections
+slug: /tools/sdk/powershell/accessrequests/models/requesteditemaccountselections
 tags: ['SDK', 'Software Development Kit', 'Requesteditemaccountselections', 'Requesteditemaccountselections']
 ---
 

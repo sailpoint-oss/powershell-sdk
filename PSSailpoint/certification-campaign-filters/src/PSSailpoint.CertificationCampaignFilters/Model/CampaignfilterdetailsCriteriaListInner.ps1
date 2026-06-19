@@ -77,7 +77,7 @@ function Initialize-CampaignfilterdetailsCriteriaListInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignFiltersV1 => CampaignfilterdetailsCriteriaListInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaignFilters => CampaignfilterdetailsCriteriaListInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -126,7 +126,7 @@ function ConvertFrom-JsonToCampaignfilterdetailsCriteriaListInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignFiltersV1 => CampaignfilterdetailsCriteriaListInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignFilters => CampaignfilterdetailsCriteriaListInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

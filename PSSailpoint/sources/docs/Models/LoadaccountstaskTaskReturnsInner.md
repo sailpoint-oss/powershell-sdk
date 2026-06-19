@@ -5,7 +5,7 @@ pagination_label: LoadaccountstaskTaskReturnsInner
 sidebar_label: LoadaccountstaskTaskReturnsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'LoadaccountstaskTaskReturnsInner', 'LoadaccountstaskTaskReturnsInner'] 
-slug: /tools/sdk/powershell/sourcesv1/models/loadaccountstask-task-returns-inner
+slug: /tools/sdk/powershell/sources/models/loadaccountstask-task-returns-inner
 tags: ['SDK', 'Software Development Kit', 'LoadaccountstaskTaskReturnsInner', 'LoadaccountstaskTaskReturnsInner']
 ---
 

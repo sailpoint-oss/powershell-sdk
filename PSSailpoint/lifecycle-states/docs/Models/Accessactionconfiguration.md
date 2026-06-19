@@ -5,7 +5,7 @@ pagination_label: Accessactionconfiguration
 sidebar_label: Accessactionconfiguration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessactionconfiguration', 'Accessactionconfiguration'] 
-slug: /tools/sdk/powershell/lifecyclestatesv1/models/accessactionconfiguration
+slug: /tools/sdk/powershell/lifecyclestates/models/accessactionconfiguration
 tags: ['SDK', 'Software Development Kit', 'Accessactionconfiguration', 'Accessactionconfiguration']
 ---
 

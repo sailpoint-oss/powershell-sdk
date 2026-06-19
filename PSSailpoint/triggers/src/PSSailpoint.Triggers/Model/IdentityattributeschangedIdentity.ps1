@@ -41,7 +41,7 @@ function Initialize-IdentityattributeschangedIdentity {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => IdentityattributeschangedIdentity' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => IdentityattributeschangedIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToIdentityattributeschangedIdentity {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => IdentityattributeschangedIdentity' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => IdentityattributeschangedIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

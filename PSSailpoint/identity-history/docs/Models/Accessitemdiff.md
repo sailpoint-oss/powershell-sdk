@@ -5,7 +5,7 @@ pagination_label: Accessitemdiff
 sidebar_label: Accessitemdiff
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessitemdiff', 'Accessitemdiff'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/accessitemdiff
+slug: /tools/sdk/powershell/identityhistory/models/accessitemdiff
 tags: ['SDK', 'Software Development Kit', 'Accessitemdiff', 'Accessitemdiff']
 ---
 

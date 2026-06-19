@@ -5,7 +5,7 @@ pagination_label: Formowner
 sidebar_label: Formowner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Formowner', 'Formowner'] 
-slug: /tools/sdk/powershell/customformsv1/models/formowner
+slug: /tools/sdk/powershell/customforms/models/formowner
 tags: ['SDK', 'Software Development Kit', 'Formowner', 'Formowner']
 ---
 

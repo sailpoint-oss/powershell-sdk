@@ -50,7 +50,7 @@ function Initialize-AccountaggregationcompletedStats {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => AccountaggregationcompletedStats' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => AccountaggregationcompletedStats' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Scanned) {
@@ -150,7 +150,7 @@ function ConvertFrom-JsonToAccountaggregationcompletedStats {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => AccountaggregationcompletedStats' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => AccountaggregationcompletedStats' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

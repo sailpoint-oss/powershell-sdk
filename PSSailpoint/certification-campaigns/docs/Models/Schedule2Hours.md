@@ -5,7 +5,7 @@ pagination_label: Schedule2Hours
 sidebar_label: Schedule2Hours
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Schedule2Hours', 'Schedule2Hours'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/schedule2-hours
+slug: /tools/sdk/powershell/certificationcampaigns/models/schedule2-hours
 tags: ['SDK', 'Software Development Kit', 'Schedule2Hours', 'Schedule2Hours']
 ---
 

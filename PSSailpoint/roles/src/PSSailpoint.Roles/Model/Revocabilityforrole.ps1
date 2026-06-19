@@ -40,7 +40,7 @@ function Initialize-Revocabilityforrole {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Revocabilityforrole' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Revocabilityforrole' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToRevocabilityforrole {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Revocabilityforrole' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Revocabilityforrole' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

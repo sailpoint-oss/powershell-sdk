@@ -5,7 +5,7 @@ pagination_label: MultihostintegrationsManagerCorrelationMapping
 sidebar_label: MultihostintegrationsManagerCorrelationMapping
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MultihostintegrationsManagerCorrelationMapping', 'MultihostintegrationsManagerCorrelationMapping'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/multihostintegrations-manager-correlation-mapping
+slug: /tools/sdk/powershell/multihostintegration/models/multihostintegrations-manager-correlation-mapping
 tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsManagerCorrelationMapping', 'MultihostintegrationsManagerCorrelationMapping']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: AccessitemassociatedAccessItem
 sidebar_label: AccessitemassociatedAccessItem
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessitemassociatedAccessItem', 'AccessitemassociatedAccessItem'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/accessitemassociated-access-item
+slug: /tools/sdk/powershell/identityhistory/models/accessitemassociated-access-item
 tags: ['SDK', 'Software Development Kit', 'AccessitemassociatedAccessItem', 'AccessitemassociatedAccessItem']
 ---
 

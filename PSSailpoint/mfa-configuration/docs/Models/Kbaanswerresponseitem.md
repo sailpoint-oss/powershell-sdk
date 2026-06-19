@@ -5,7 +5,7 @@ pagination_label: Kbaanswerresponseitem
 sidebar_label: Kbaanswerresponseitem
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Kbaanswerresponseitem', 'Kbaanswerresponseitem'] 
-slug: /tools/sdk/powershell/mfaconfigurationv1/models/kbaanswerresponseitem
+slug: /tools/sdk/powershell/mfaconfiguration/models/kbaanswerresponseitem
 tags: ['SDK', 'Software Development Kit', 'Kbaanswerresponseitem', 'Kbaanswerresponseitem']
 ---
 

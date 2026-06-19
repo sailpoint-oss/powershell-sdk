@@ -5,7 +5,7 @@ pagination_label: Outliersummary
 sidebar_label: Outliersummary
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Outliersummary', 'Outliersummary'] 
-slug: /tools/sdk/powershell/iaioutliersv1/models/outliersummary
+slug: /tools/sdk/powershell/iaioutliers/models/outliersummary
 tags: ['SDK', 'Software Development Kit', 'Outliersummary', 'Outliersummary']
 ---
 

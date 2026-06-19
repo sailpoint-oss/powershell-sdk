@@ -35,7 +35,7 @@ function Initialize-ScheduledactionresponseContentBackupOptions {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConfigurationHubV1 => ScheduledactionresponseContentBackupOptions' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConfigurationHub => ScheduledactionresponseContentBackupOptions' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToScheduledactionresponseContentBackupOptions {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHubV1 => ScheduledactionresponseContentBackupOptions' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHub => ScheduledactionresponseContentBackupOptions' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

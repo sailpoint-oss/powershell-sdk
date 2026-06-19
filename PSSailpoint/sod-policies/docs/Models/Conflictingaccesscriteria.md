@@ -5,7 +5,7 @@ pagination_label: Conflictingaccesscriteria
 sidebar_label: Conflictingaccesscriteria
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Conflictingaccesscriteria', 'Conflictingaccesscriteria'] 
-slug: /tools/sdk/powershell/sodpoliciesv1/models/conflictingaccesscriteria
+slug: /tools/sdk/powershell/sodpolicies/models/conflictingaccesscriteria
 tags: ['SDK', 'Software Development Kit', 'Conflictingaccesscriteria', 'Conflictingaccesscriteria']
 ---
 

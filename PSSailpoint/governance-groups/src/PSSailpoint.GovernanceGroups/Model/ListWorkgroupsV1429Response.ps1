@@ -30,7 +30,7 @@ function Initialize-ListWorkgroupsV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GovernanceGroupsV1 => ListWorkgroupsV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GovernanceGroups => ListWorkgroupsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListWorkgroupsV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroupsV1 => ListWorkgroupsV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroups => ListWorkgroupsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

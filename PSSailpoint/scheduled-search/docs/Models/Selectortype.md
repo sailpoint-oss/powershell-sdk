@@ -5,7 +5,7 @@ pagination_label: Selectortype
 sidebar_label: Selectortype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Selectortype', 'Selectortype'] 
-slug: /tools/sdk/powershell/scheduledsearchv1/models/selectortype
+slug: /tools/sdk/powershell/scheduledsearch/models/selectortype
 tags: ['SDK', 'Software Development Kit', 'Selectortype', 'Selectortype']
 ---
 

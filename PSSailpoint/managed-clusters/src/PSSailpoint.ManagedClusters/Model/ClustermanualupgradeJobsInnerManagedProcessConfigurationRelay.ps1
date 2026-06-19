@@ -45,7 +45,7 @@ function Initialize-ClustermanualupgradeJobsInnerManagedProcessConfigurationRela
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClustersV1 => ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClusters => ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Version) {
@@ -100,7 +100,7 @@ function ConvertFrom-JsonToClustermanualupgradeJobsInnerManagedProcessConfigurat
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClustersV1 => ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusters => ClustermanualupgradeJobsInnerManagedProcessConfigurationRelay' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

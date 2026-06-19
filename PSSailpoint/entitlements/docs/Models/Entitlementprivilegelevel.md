@@ -5,7 +5,7 @@ pagination_label: Entitlementprivilegelevel
 sidebar_label: Entitlementprivilegelevel
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlementprivilegelevel', 'Entitlementprivilegelevel'] 
-slug: /tools/sdk/powershell/entitlementsv1/models/entitlementprivilegelevel
+slug: /tools/sdk/powershell/entitlements/models/entitlementprivilegelevel
 tags: ['SDK', 'Software Development Kit', 'Entitlementprivilegelevel', 'Entitlementprivilegelevel']
 ---
 

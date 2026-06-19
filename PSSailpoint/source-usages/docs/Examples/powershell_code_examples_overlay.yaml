@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourceusagesv1/methods/source-usages#get-status-by-source-id-v1
+      label: SDK_tools/sdk/powershell/sourceusages/methods/source-usages#get-status-by-source-id-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
         
@@ -21,7 +21,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/sourceusagesv1/methods/source-usages#get-usages-by-source-id-v1
+      label: SDK_tools/sdk/powershell/sourceusages/methods/source-usages#get-usages-by-source-id-v1
       source: |
         $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)

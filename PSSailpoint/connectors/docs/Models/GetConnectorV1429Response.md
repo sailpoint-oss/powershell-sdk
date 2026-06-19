@@ -5,7 +5,7 @@ pagination_label: GetConnectorV1429Response
 sidebar_label: GetConnectorV1429Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetConnectorV1429Response', 'GetConnectorV1429Response'] 
-slug: /tools/sdk/powershell/connectorsv1/models/get-connector-v1429-response
+slug: /tools/sdk/powershell/connectors/models/get-connector-v1429-response
 tags: ['SDK', 'Software Development Kit', 'GetConnectorV1429Response', 'GetConnectorV1429Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetConnectorV1429Response', 'GetConne
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**Message** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

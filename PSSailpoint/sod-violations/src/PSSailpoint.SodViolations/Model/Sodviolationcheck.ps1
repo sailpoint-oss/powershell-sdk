@@ -30,7 +30,7 @@ function Initialize-Sodviolationcheck {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodViolationsV1 => Sodviolationcheck' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodViolations => Sodviolationcheck' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$RequestId) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToSodviolationcheck {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodViolationsV1 => Sodviolationcheck' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodViolations => Sodviolationcheck' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

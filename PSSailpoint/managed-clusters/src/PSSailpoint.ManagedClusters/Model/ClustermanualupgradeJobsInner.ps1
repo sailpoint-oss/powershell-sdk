@@ -55,7 +55,7 @@ function Initialize-ClustermanualupgradeJobsInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClustersV1 => ClustermanualupgradeJobsInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClusters => ClustermanualupgradeJobsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Uuid) {
@@ -120,7 +120,7 @@ function ConvertFrom-JsonToClustermanualupgradeJobsInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClustersV1 => ClustermanualupgradeJobsInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusters => ClustermanualupgradeJobsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

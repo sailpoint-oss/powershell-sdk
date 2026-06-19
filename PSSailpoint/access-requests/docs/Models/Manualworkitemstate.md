@@ -5,7 +5,7 @@ pagination_label: Manualworkitemstate
 sidebar_label: Manualworkitemstate
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Manualworkitemstate', 'Manualworkitemstate'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/manualworkitemstate
+slug: /tools/sdk/powershell/accessrequests/models/manualworkitemstate
 tags: ['SDK', 'Software Development Kit', 'Manualworkitemstate', 'Manualworkitemstate']
 ---
 

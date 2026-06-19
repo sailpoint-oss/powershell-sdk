@@ -50,7 +50,7 @@ function Initialize-Accessrequestapproverslistresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestApprovalsV1 => Accessrequestapproverslistresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequestApprovals => Accessrequestapproverslistresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToAccessrequestapproverslistresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestApprovalsV1 => Accessrequestapproverslistresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestApprovals => Accessrequestapproverslistresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

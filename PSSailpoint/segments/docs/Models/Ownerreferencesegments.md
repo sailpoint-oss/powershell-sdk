@@ -5,7 +5,7 @@ pagination_label: Ownerreferencesegments
 sidebar_label: Ownerreferencesegments
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Ownerreferencesegments', 'Ownerreferencesegments'] 
-slug: /tools/sdk/powershell/segmentsv1/models/ownerreferencesegments
+slug: /tools/sdk/powershell/segments/models/ownerreferencesegments
 tags: ['SDK', 'Software Development Kit', 'Ownerreferencesegments', 'Ownerreferencesegments']
 ---
 

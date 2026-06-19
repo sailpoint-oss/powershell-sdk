@@ -30,7 +30,7 @@ function Initialize-Accountsasyncresult {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountsV1 => Accountsasyncresult' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Accounts => Accountsasyncresult' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToAccountsasyncresult {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountsV1 => Accountsasyncresult' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Accounts => Accountsasyncresult' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

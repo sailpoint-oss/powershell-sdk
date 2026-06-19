@@ -5,7 +5,7 @@ pagination_label: Concatenation
 sidebar_label: Concatenation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Concatenation', 'Concatenation'] 
-slug: /tools/sdk/powershell/sourcesv1/models/concatenation
+slug: /tools/sdk/powershell/sources/models/concatenation
 tags: ['SDK', 'Software Development Kit', 'Concatenation', 'Concatenation']
 ---
 
@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'Concatenation', 'Concatenation']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**[]SystemCollectionsHashtable**](system-collections-hashtable) | An array of items to join together | [required]
+**Values** | [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | An array of items to join together | [required]
 **RequiresPeriodicRefresh** | **Boolean** | A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process | [optional] [default to $false]
-**VarInput** | [**map[string]AnyType**](any-type) | This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI. | [optional] 
+**VarInput** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI. | [optional] 
 
 ## Examples
 

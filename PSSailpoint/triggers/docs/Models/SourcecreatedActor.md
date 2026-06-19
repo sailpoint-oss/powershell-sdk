@@ -5,7 +5,7 @@ pagination_label: SourcecreatedActor
 sidebar_label: SourcecreatedActor
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SourcecreatedActor', 'SourcecreatedActor'] 
-slug: /tools/sdk/powershell/triggersv1/models/sourcecreated-actor
+slug: /tools/sdk/powershell/triggers/models/sourcecreated-actor
 tags: ['SDK', 'Software Development Kit', 'SourcecreatedActor', 'SourcecreatedActor']
 ---
 

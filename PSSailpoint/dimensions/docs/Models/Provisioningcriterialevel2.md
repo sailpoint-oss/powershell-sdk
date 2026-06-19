@@ -5,7 +5,7 @@ pagination_label: Provisioningcriterialevel2
 sidebar_label: Provisioningcriterialevel2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Provisioningcriterialevel2', 'Provisioningcriterialevel2'] 
-slug: /tools/sdk/powershell/dimensionsv1/models/provisioningcriterialevel2
+slug: /tools/sdk/powershell/dimensions/models/provisioningcriterialevel2
 tags: ['SDK', 'Software Development Kit', 'Provisioningcriterialevel2', 'Provisioningcriterialevel2']
 ---
 

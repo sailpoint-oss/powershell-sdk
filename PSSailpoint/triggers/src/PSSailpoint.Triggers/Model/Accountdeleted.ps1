@@ -45,7 +45,7 @@ function Initialize-Accountdeleted {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Accountdeleted' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Accountdeleted' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$VarEvent) {
@@ -100,7 +100,7 @@ function ConvertFrom-JsonToAccountdeleted {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Accountdeleted' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Accountdeleted' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Campaign2AllOfRoleCompositionCampaignInfo
 sidebar_label: Campaign2AllOfRoleCompositionCampaignInfo
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaign2AllOfRoleCompositionCampaignInfo', 'Campaign2AllOfRoleCompositionCampaignInfo'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/campaign2-all-of-role-composition-campaign-info
+slug: /tools/sdk/powershell/certificationcampaigns/models/campaign2-all-of-role-composition-campaign-info
 tags: ['SDK', 'Software Development Kit', 'Campaign2AllOfRoleCompositionCampaignInfo', 'Campaign2AllOfRoleCompositionCampaignInfo']
 ---
 

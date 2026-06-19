@@ -5,7 +5,7 @@ pagination_label: ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon
 sidebar_label: ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/clustermanualupgrade-jobs-inner-managed-process-configuration-charon
+slug: /tools/sdk/powershell/managedclusters/models/clustermanualupgrade-jobs-inner-managed-process-configuration-charon
 tags: ['SDK', 'Software Development Kit', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationCharon']
 ---
 

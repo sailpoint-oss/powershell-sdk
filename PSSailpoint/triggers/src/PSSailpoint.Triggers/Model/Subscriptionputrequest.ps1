@@ -66,7 +66,7 @@ function Initialize-Subscriptionputrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Subscriptionputrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Subscriptionputrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -109,7 +109,7 @@ function ConvertFrom-JsonToSubscriptionputrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Subscriptionputrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Subscriptionputrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

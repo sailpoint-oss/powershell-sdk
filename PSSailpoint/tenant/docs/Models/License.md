@@ -5,7 +5,7 @@ pagination_label: License
 sidebar_label: License
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'License', 'License'] 
-slug: /tools/sdk/powershell/tenantv1/models/license
+slug: /tools/sdk/powershell/tenant/models/license
 tags: ['SDK', 'Software Development Kit', 'License', 'License']
 ---
 

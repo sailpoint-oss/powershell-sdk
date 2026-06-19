@@ -5,7 +5,7 @@ pagination_label: RoleminingsessionresponseCreatedBy
 sidebar_label: RoleminingsessionresponseCreatedBy
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RoleminingsessionresponseCreatedBy', 'RoleminingsessionresponseCreatedBy'] 
-slug: /tools/sdk/powershell/iairoleminingv1/models/roleminingsessionresponse-created-by
+slug: /tools/sdk/powershell/iairolemining/models/roleminingsessionresponse-created-by
 tags: ['SDK', 'Software Development Kit', 'RoleminingsessionresponseCreatedBy', 'RoleminingsessionresponseCreatedBy']
 ---
 

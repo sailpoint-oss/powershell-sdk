@@ -5,7 +5,7 @@ pagination_label: SearchcriteriaFiltersValue
 sidebar_label: SearchcriteriaFiltersValue
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SearchcriteriaFiltersValue', 'SearchcriteriaFiltersValue'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/searchcriteria-filters-value
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/searchcriteria-filters-value
 tags: ['SDK', 'Software Development Kit', 'SearchcriteriaFiltersValue', 'SearchcriteriaFiltersValue']
 ---
 

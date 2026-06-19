@@ -56,7 +56,7 @@ function Initialize-Reviewer {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => Reviewer' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => Reviewer' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -97,7 +97,7 @@ function ConvertFrom-JsonToReviewer {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => Reviewer' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => Reviewer' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

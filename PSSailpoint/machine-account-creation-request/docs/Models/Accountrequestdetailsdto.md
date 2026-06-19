@@ -5,7 +5,7 @@ pagination_label: Accountrequestdetailsdto
 sidebar_label: Accountrequestdetailsdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountrequestdetailsdto', 'Accountrequestdetailsdto'] 
-slug: /tools/sdk/powershell/machineaccountcreationrequestv1/models/accountrequestdetailsdto
+slug: /tools/sdk/powershell/machineaccountcreationrequest/models/accountrequestdetailsdto
 tags: ['SDK', 'Software Development Kit', 'Accountrequestdetailsdto', 'Accountrequestdetailsdto']
 ---
 

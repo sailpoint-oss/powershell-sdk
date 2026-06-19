@@ -5,7 +5,7 @@ pagination_label: Multipolicyrequest
 sidebar_label: Multipolicyrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Multipolicyrequest', 'Multipolicyrequest'] 
-slug: /tools/sdk/powershell/sodpoliciesv1/models/multipolicyrequest
+slug: /tools/sdk/powershell/sodpolicies/models/multipolicyrequest
 tags: ['SDK', 'Software Development Kit', 'Multipolicyrequest', 'Multipolicyrequest']
 ---
 

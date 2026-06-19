@@ -5,7 +5,7 @@ pagination_label: Cancelledrequestdetails
 sidebar_label: Cancelledrequestdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Cancelledrequestdetails', 'Cancelledrequestdetails'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/cancelledrequestdetails
+slug: /tools/sdk/powershell/accessrequests/models/cancelledrequestdetails
 tags: ['SDK', 'Software Development Kit', 'Cancelledrequestdetails', 'Cancelledrequestdetails']
 ---
 

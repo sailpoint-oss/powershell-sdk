@@ -5,7 +5,7 @@ pagination_label: Searchaggregationspecification
 sidebar_label: Searchaggregationspecification
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Searchaggregationspecification', 'Searchaggregationspecification'] 
-slug: /tools/sdk/powershell/searchv1/models/searchaggregationspecification
+slug: /tools/sdk/powershell/search/models/searchaggregationspecification
 tags: ['SDK', 'Software Development Kit', 'Searchaggregationspecification', 'Searchaggregationspecification']
 ---
 

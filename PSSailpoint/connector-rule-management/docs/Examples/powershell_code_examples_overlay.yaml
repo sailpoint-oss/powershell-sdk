@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorrulemanagementv1/methods/connector-rule-management#create-connector-rule-v1
+      label: SDK_tools/sdk/powershell/connectorrulemanagement/methods/connector-rule-management#create-connector-rule-v1
       source: |
         $Connectorrulecreaterequest = @"
         
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorrulemanagementv1/methods/connector-rule-management#delete-connector-rule-v1
+      label: SDK_tools/sdk/powershell/connectorrulemanagement/methods/connector-rule-management#delete-connector-rule-v1
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to delete.
         
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorrulemanagementv1/methods/connector-rule-management#get-connector-rule-list-v1
+      label: SDK_tools/sdk/powershell/connectorrulemanagement/methods/connector-rule-management#get-connector-rule-list-v1
       source: |
         $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -64,7 +64,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorrulemanagementv1/methods/connector-rule-management#get-connector-rule-v1
+      label: SDK_tools/sdk/powershell/connectorrulemanagement/methods/connector-rule-management#get-connector-rule-v1
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to get.
         
@@ -83,7 +83,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorrulemanagementv1/methods/connector-rule-management#put-connector-rule-v1
+      label: SDK_tools/sdk/powershell/connectorrulemanagement/methods/connector-rule-management#put-connector-rule-v1
       source: |
         $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to update.
         $Connectorruleupdaterequest = @"
@@ -105,7 +105,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/connectorrulemanagementv1/methods/connector-rule-management#test-connector-rule-v1
+      label: SDK_tools/sdk/powershell/connectorrulemanagement/methods/connector-rule-management#test-connector-rule-v1
       source: |
         $Sourcecode = @"
         

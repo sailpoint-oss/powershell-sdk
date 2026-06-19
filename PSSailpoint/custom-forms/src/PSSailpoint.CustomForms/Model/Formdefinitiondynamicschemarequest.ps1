@@ -50,7 +50,7 @@ function Initialize-Formdefinitiondynamicschemarequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Formdefinitiondynamicschemarequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Formdefinitiondynamicschemarequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToFormdefinitiondynamicschemarequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Formdefinitiondynamicschemarequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Formdefinitiondynamicschemarequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

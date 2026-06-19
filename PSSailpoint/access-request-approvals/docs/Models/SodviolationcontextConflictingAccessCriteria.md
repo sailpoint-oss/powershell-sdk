@@ -5,7 +5,7 @@ pagination_label: SodviolationcontextConflictingAccessCriteria
 sidebar_label: SodviolationcontextConflictingAccessCriteria
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SodviolationcontextConflictingAccessCriteria', 'SodviolationcontextConflictingAccessCriteria'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/sodviolationcontext-conflicting-access-criteria
+slug: /tools/sdk/powershell/accessrequestapprovals/models/sodviolationcontext-conflicting-access-criteria
 tags: ['SDK', 'Software Development Kit', 'SodviolationcontextConflictingAccessCriteria', 'SodviolationcontextConflictingAccessCriteria']
 ---
 

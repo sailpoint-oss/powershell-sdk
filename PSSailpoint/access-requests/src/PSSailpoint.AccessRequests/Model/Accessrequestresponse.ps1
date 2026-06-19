@@ -35,7 +35,7 @@ function Initialize-Accessrequestresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Accessrequestresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Accessrequestresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAccessrequestresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Accessrequestresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Accessrequestresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

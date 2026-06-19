@@ -45,7 +45,7 @@ function Initialize-Kbaquestion {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MfaConfigurationV1 => Kbaquestion' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MfaConfiguration => Kbaquestion' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -100,7 +100,7 @@ function ConvertFrom-JsonToKbaquestion {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfigurationV1 => Kbaquestion' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfiguration => Kbaquestion' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

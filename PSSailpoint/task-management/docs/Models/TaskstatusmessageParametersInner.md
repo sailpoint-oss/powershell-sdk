@@ -5,7 +5,7 @@ pagination_label: TaskstatusmessageParametersInner
 sidebar_label: TaskstatusmessageParametersInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'TaskstatusmessageParametersInner', 'TaskstatusmessageParametersInner'] 
-slug: /tools/sdk/powershell/taskmanagementv1/models/taskstatusmessage-parameters-inner
+slug: /tools/sdk/powershell/taskmanagement/models/taskstatusmessage-parameters-inner
 tags: ['SDK', 'Software Development Kit', 'TaskstatusmessageParametersInner', 'TaskstatusmessageParametersInner']
 ---
 

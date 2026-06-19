@@ -35,7 +35,7 @@ function Initialize-AccessitemaccessprofileresponseAppRefsInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => AccessitemaccessprofileresponseAppRefsInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => AccessitemaccessprofileresponseAppRefsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAccessitemaccessprofileresponseAppRefsInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => AccessitemaccessprofileresponseAppRefsInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => AccessitemaccessprofileresponseAppRefsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

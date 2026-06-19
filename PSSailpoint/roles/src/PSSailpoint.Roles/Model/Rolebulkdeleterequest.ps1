@@ -30,7 +30,7 @@ function Initialize-Rolebulkdeleterequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Rolebulkdeleterequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Rolebulkdeleterequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$RoleIds) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToRolebulkdeleterequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Rolebulkdeleterequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Rolebulkdeleterequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

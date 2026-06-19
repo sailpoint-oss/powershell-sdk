@@ -5,7 +5,7 @@ pagination_label: GetConnectorV1401Response
 sidebar_label: GetConnectorV1401Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetConnectorV1401Response', 'GetConnectorV1401Response'] 
-slug: /tools/sdk/powershell/connectorsv1/models/get-connector-v1401-response
+slug: /tools/sdk/powershell/connectors/models/get-connector-v1401-response
 tags: ['SDK', 'Software Development Kit', 'GetConnectorV1401Response', 'GetConnectorV1401Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetConnectorV1401Response', 'GetConne
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**VarError** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

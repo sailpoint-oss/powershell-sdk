@@ -5,7 +5,7 @@ pagination_label: Identitycreated
 sidebar_label: Identitycreated
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitycreated', 'Identitycreated'] 
-slug: /tools/sdk/powershell/triggersv1/models/identitycreated
+slug: /tools/sdk/powershell/triggers/models/identitycreated
 tags: ['SDK', 'Software Development Kit', 'Identitycreated', 'Identitycreated']
 ---
 
@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Identitycreated', 'Identitycreated']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Identity** | [**IdentitycreatedIdentity**](identitycreated-identity) |  | [required]
-**Attributes** | [**map[string]AnyType**](any-type) | The attributes assigned to the identity. Attributes are determined by the identity profile. | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes assigned to the identity. Attributes are determined by the identity profile. | [required]
 
 ## Examples
 

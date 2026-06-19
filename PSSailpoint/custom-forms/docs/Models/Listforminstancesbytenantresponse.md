@@ -5,7 +5,7 @@ pagination_label: Listforminstancesbytenantresponse
 sidebar_label: Listforminstancesbytenantresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Listforminstancesbytenantresponse', 'Listforminstancesbytenantresponse'] 
-slug: /tools/sdk/powershell/customformsv1/models/listforminstancesbytenantresponse
+slug: /tools/sdk/powershell/customforms/models/listforminstancesbytenantresponse
 tags: ['SDK', 'Software Development Kit', 'Listforminstancesbytenantresponse', 'Listforminstancesbytenantresponse']
 ---
 
@@ -23,9 +23,9 @@ Name | Type | Description | Notes
 **StandAloneFormUrl** | **String** | StandAloneFormURL is the URL where this form may be completed by the designated recipients using the standalone form UI | [optional] 
 **CreatedBy** | [**Forminstancecreatedby**](forminstancecreatedby) |  | [optional] 
 **FormDefinitionId** | **String** | FormDefinitionID is the id of the form definition that created this form | [optional] 
-**FormInput** | [**map[string]AnyType**](any-type) | FormInput is an object of form input labels to value | [optional] 
+**FormInput** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | FormInput is an object of form input labels to value | [optional] 
 **FormElements** | [**[]Formelement**](formelement) | FormElements is the configuration of the form, this would be a repeat of the fields from the form-config | [optional] 
-**FormData** | [**map[string]AnyType**](any-type) | FormData is the data provided by the form on submit. The data is in a key -> value map | [optional] 
+**FormData** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | FormData is the data provided by the form on submit. The data is in a key -> value map | [optional] 
 **FormErrors** | [**[]Formerror**](formerror) | FormErrors is an array of form validation errors from the last time the form instance was transitioned to the SUBMITTED state. If the form instance had validation errors then it would be moved to the IN PROGRESS state where the client can retrieve these errors | [optional] 
 **FormConditions** | [**[]Formcondition**](formcondition) | FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form | [optional] 
 **Created** | **System.DateTime** | Created is the date the form instance was assigned | [optional] 

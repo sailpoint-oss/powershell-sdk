@@ -5,7 +5,7 @@ pagination_label: Servicedeskintegrationdto
 sidebar_label: Servicedeskintegrationdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Servicedeskintegrationdto', 'Servicedeskintegrationdto'] 
-slug: /tools/sdk/powershell/simintegrationsv1/models/servicedeskintegrationdto
+slug: /tools/sdk/powershell/simintegrations/models/servicedeskintegrationdto
 tags: ['SDK', 'Software Development Kit', 'Servicedeskintegrationdto', 'Servicedeskintegrationdto']
 ---
 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **Cluster** | **String** | Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility). | [optional] 
 **ManagedSources** | **[]String** | Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility). | [optional] 
 **ProvisioningConfig** | [**Provisioningconfig**](provisioningconfig) |  | [optional] 
-**Attributes** | [**map[string]AnyType**](any-type) | Service Desk integration's attributes. Validation constraints enforced by the implementation. | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Service Desk integration's attributes. Validation constraints enforced by the implementation. | [required]
 **BeforeProvisioningRule** | [**Beforeprovisioningruledto**](beforeprovisioningruledto) |  | [optional] 
 
 ## Examples

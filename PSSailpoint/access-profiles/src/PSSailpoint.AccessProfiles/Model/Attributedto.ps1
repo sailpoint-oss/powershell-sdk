@@ -65,7 +65,7 @@ function Initialize-Attributedto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfilesV1 => Attributedto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => Attributedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToAttributedto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfilesV1 => Attributedto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => Attributedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

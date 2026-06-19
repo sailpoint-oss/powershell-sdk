@@ -35,7 +35,7 @@ function Initialize-Innerhit {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Innerhit' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessModelMetadata => Innerhit' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Query) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToInnerhit {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Innerhit' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadata => Innerhit' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

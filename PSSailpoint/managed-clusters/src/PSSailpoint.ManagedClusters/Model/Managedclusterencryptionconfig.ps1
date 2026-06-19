@@ -31,7 +31,7 @@ function Initialize-Managedclusterencryptionconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClustersV1 => Managedclusterencryptionconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClusters => Managedclusterencryptionconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -67,7 +67,7 @@ function ConvertFrom-JsonToManagedclusterencryptionconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClustersV1 => Managedclusterencryptionconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusters => Managedclusterencryptionconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: GetNotificationTemplateVariablesV1429Response
 sidebar_label: GetNotificationTemplateVariablesV1429Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetNotificationTemplateVariablesV1429Response', 'GetNotificationTemplateVariablesV1429Response'] 
-slug: /tools/sdk/powershell/notificationsv1/models/get-notification-template-variables-v1429-response
+slug: /tools/sdk/powershell/notifications/models/get-notification-template-variables-v1429-response
 tags: ['SDK', 'Software Development Kit', 'GetNotificationTemplateVariablesV1429Response', 'GetNotificationTemplateVariablesV1429Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetNotificationTemplateVariablesV1429
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**Message** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

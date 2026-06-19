@@ -5,7 +5,7 @@ pagination_label: Roledocuments
 sidebar_label: Roledocuments
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Roledocuments', 'Roledocuments'] 
-slug: /tools/sdk/powershell/searchv1/models/roledocuments
+slug: /tools/sdk/powershell/search/models/roledocuments
 tags: ['SDK', 'Software Development Kit', 'Roledocuments', 'Roledocuments']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Basicauthconfig
 sidebar_label: Basicauthconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Basicauthconfig', 'Basicauthconfig'] 
-slug: /tools/sdk/powershell/triggersv1/models/basicauthconfig
+slug: /tools/sdk/powershell/triggers/models/basicauthconfig
 tags: ['SDK', 'Software Development Kit', 'Basicauthconfig', 'Basicauthconfig']
 ---
 

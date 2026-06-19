@@ -41,7 +41,7 @@ function Initialize-Selector {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodPoliciesV1 => Selector' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodPolicies => Selector' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -87,7 +87,7 @@ function ConvertFrom-JsonToSelector {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodPoliciesV1 => Selector' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodPolicies => Selector' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -35,7 +35,7 @@ function Initialize-AccountsourcereferenceOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => AccountsourcereferenceOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => AccountsourcereferenceOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToAccountsourcereferenceOwner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => AccountsourcereferenceOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => AccountsourcereferenceOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

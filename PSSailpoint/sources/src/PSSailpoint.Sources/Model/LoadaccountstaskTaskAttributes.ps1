@@ -35,7 +35,7 @@ function Initialize-LoadaccountstaskTaskAttributes {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => LoadaccountstaskTaskAttributes' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => LoadaccountstaskTaskAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToLoadaccountstaskTaskAttributes {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => LoadaccountstaskTaskAttributes' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => LoadaccountstaskTaskAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

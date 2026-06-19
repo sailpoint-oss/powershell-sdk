@@ -30,7 +30,7 @@ function Initialize-ImportAccountsSchemaV1Request {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => ImportAccountsSchemaV1Request' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => ImportAccountsSchemaV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToImportAccountsSchemaV1Request {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => ImportAccountsSchemaV1Request' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => ImportAccountsSchemaV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

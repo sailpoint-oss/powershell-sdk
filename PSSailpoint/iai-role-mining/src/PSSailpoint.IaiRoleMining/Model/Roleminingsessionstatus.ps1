@@ -31,7 +31,7 @@ function Initialize-Roleminingsessionstatus {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRoleMiningV1 => Roleminingsessionstatus' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRoleMining => Roleminingsessionstatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -67,7 +67,7 @@ function ConvertFrom-JsonToRoleminingsessionstatus {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMiningV1 => Roleminingsessionstatus' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMining => Roleminingsessionstatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

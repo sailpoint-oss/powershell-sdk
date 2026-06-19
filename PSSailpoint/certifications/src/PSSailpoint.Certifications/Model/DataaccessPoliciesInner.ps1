@@ -30,7 +30,7 @@ function Initialize-DataaccessPoliciesInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => DataaccessPoliciesInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => DataaccessPoliciesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToDataaccessPoliciesInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => DataaccessPoliciesInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => DataaccessPoliciesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Basesettings
 sidebar_label: Basesettings
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Basesettings', 'Basesettings'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/basesettings
+slug: /tools/sdk/powershell/dataaccesssecurity/models/basesettings
 tags: ['SDK', 'Software Development Kit', 'Basesettings', 'Basesettings']
 ---
 

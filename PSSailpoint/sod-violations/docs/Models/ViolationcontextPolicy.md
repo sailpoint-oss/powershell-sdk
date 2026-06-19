@@ -5,7 +5,7 @@ pagination_label: ViolationcontextPolicy
 sidebar_label: ViolationcontextPolicy
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ViolationcontextPolicy', 'ViolationcontextPolicy'] 
-slug: /tools/sdk/powershell/sodviolationsv1/models/violationcontext-policy
+slug: /tools/sdk/powershell/sodviolations/models/violationcontext-policy
 tags: ['SDK', 'Software Development Kit', 'ViolationcontextPolicy', 'ViolationcontextPolicy']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: ApiUsage
 sidebar_label: ApiUsage
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApiUsage', 'ApiUsage'] 
-slug: /tools/sdk/powershell/apiusagev1/methods/api-usage
+slug: /tools/sdk/powershell/apiusage/methods/api-usage
 tags: ['SDK', 'Software Development Kit', 'ApiUsage', 'ApiUsage']
 ---
 
@@ -38,7 +38,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq*
 
 ### Return type
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -57,7 +57,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Filters = "method eq "GET", startDate gt "2025-08-01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional)
+$Filters = 'method eq "GET", startDate gt "2025-08-01"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional)
 
 # Total number of API requests
 
@@ -109,7 +109,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Filters = "method eq "GET", startDate gt "2025-08-01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional)
+$Filters = 'method eq "GET", startDate gt "2025-08-01"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional)
 $Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
 $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
 

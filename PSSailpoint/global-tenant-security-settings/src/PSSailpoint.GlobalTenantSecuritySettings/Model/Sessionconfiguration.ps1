@@ -40,7 +40,7 @@ function Initialize-Sessionconfiguration {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GlobalTenantSecuritySettingsV1 => Sessionconfiguration' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GlobalTenantSecuritySettings => Sessionconfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToSessionconfiguration {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GlobalTenantSecuritySettingsV1 => Sessionconfiguration' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GlobalTenantSecuritySettings => Sessionconfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

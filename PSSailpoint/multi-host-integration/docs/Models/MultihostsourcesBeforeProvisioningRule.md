@@ -5,7 +5,7 @@ pagination_label: MultihostsourcesBeforeProvisioningRule
 sidebar_label: MultihostsourcesBeforeProvisioningRule
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MultihostsourcesBeforeProvisioningRule', 'MultihostsourcesBeforeProvisioningRule'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/multihostsources-before-provisioning-rule
+slug: /tools/sdk/powershell/multihostintegration/models/multihostsources-before-provisioning-rule
 tags: ['SDK', 'Software Development Kit', 'MultihostsourcesBeforeProvisioningRule', 'MultihostsourcesBeforeProvisioningRule']
 ---
 

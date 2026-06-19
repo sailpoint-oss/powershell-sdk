@@ -52,7 +52,7 @@ function Initialize-Httpconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Httpconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Httpconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Url) {
@@ -100,7 +100,7 @@ function ConvertFrom-JsonToHttpconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Httpconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Httpconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

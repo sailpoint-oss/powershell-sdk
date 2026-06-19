@@ -35,7 +35,7 @@ function Initialize-Requestonbehalfofconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Requestonbehalfofconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Requestonbehalfofconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToRequestonbehalfofconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Requestonbehalfofconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Requestonbehalfofconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

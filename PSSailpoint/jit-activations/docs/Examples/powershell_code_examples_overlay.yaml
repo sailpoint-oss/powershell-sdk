@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/jitactivationsv1/methods/jit-activations#start-activate-workflow-v1
+      label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#start-activate-workflow-v1
       source: |
         $Jitactivationactivaterequest = @"
         
@@ -24,7 +24,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/jitactivationsv1/methods/jit-activations#start-deactivate-workflow-v1
+      label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#start-deactivate-workflow-v1
       source: |
         $Jitactivationdeactivaterequest = @"
         
@@ -46,7 +46,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/jitactivationsv1/methods/jit-activations#start-extend-workflow-v1
+      label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#start-extend-workflow-v1
       source: |
         $Jitactivationextendrequest = @"
         

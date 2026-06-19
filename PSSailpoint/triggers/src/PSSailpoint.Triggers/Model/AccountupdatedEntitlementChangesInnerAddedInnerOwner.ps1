@@ -40,7 +40,7 @@ function Initialize-AccountupdatedEntitlementChangesInnerAddedInnerOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => AccountupdatedEntitlementChangesInnerAddedInnerOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => AccountupdatedEntitlementChangesInnerAddedInnerOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToAccountupdatedEntitlementChangesInnerAddedInnerOwner 
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => AccountupdatedEntitlementChangesInnerAddedInnerOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => AccountupdatedEntitlementChangesInnerAddedInnerOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

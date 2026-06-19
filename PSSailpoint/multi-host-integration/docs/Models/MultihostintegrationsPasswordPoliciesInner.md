@@ -5,7 +5,7 @@ pagination_label: MultihostintegrationsPasswordPoliciesInner
 sidebar_label: MultihostintegrationsPasswordPoliciesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MultihostintegrationsPasswordPoliciesInner', 'MultihostintegrationsPasswordPoliciesInner'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/multihostintegrations-password-policies-inner
+slug: /tools/sdk/powershell/multihostintegration/models/multihostintegrations-password-policies-inner
 tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsPasswordPoliciesInner', 'MultihostintegrationsPasswordPoliciesInner']
 ---
 

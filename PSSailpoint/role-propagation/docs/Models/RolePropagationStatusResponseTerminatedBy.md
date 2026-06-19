@@ -5,7 +5,7 @@ pagination_label: RolePropagationStatusResponseTerminatedBy
 sidebar_label: RolePropagationStatusResponseTerminatedBy
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RolePropagationStatusResponseTerminatedBy', 'RolePropagationStatusResponseTerminatedBy'] 
-slug: /tools/sdk/powershell/rolepropagationv1/models/role-propagation-status-response-terminated-by
+slug: /tools/sdk/powershell/rolepropagation/models/role-propagation-status-response-terminated-by
 tags: ['SDK', 'Software Development Kit', 'RolePropagationStatusResponseTerminatedBy', 'RolePropagationStatusResponseTerminatedBy']
 ---
 

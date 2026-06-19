@@ -5,7 +5,7 @@ pagination_label: Localeorigin
 sidebar_label: Localeorigin
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Localeorigin', 'Localeorigin'] 
-slug: /tools/sdk/powershell/entitlementsv1/models/localeorigin
+slug: /tools/sdk/powershell/entitlements/models/localeorigin
 tags: ['SDK', 'Software Development Kit', 'Localeorigin', 'Localeorigin']
 ---
 

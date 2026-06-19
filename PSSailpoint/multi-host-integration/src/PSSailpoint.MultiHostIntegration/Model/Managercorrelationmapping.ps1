@@ -35,7 +35,7 @@ function Initialize-Managercorrelationmapping {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => Managercorrelationmapping' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MultiHostIntegration => Managercorrelationmapping' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToManagercorrelationmapping {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => Managercorrelationmapping' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegration => Managercorrelationmapping' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

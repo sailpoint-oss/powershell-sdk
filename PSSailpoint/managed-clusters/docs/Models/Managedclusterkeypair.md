@@ -5,7 +5,7 @@ pagination_label: Managedclusterkeypair
 sidebar_label: Managedclusterkeypair
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Managedclusterkeypair', 'Managedclusterkeypair'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/managedclusterkeypair
+slug: /tools/sdk/powershell/managedclusters/models/managedclusterkeypair
 tags: ['SDK', 'Software Development Kit', 'Managedclusterkeypair', 'Managedclusterkeypair']
 ---
 

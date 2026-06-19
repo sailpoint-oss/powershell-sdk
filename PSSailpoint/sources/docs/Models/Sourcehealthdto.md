@@ -5,7 +5,7 @@ pagination_label: Sourcehealthdto
 sidebar_label: Sourcehealthdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourcehealthdto', 'Sourcehealthdto'] 
-slug: /tools/sdk/powershell/sourcesv1/models/sourcehealthdto
+slug: /tools/sdk/powershell/sources/models/sourcehealthdto
 tags: ['SDK', 'Software Development Kit', 'Sourcehealthdto', 'Sourcehealthdto']
 ---
 

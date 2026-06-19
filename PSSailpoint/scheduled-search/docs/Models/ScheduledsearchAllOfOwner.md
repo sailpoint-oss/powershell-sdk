@@ -5,7 +5,7 @@ pagination_label: ScheduledsearchAllOfOwner
 sidebar_label: ScheduledsearchAllOfOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ScheduledsearchAllOfOwner', 'ScheduledsearchAllOfOwner'] 
-slug: /tools/sdk/powershell/scheduledsearchv1/models/scheduledsearch-all-of-owner
+slug: /tools/sdk/powershell/scheduledsearch/models/scheduledsearch-all-of-owner
 tags: ['SDK', 'Software Development Kit', 'ScheduledsearchAllOfOwner', 'ScheduledsearchAllOfOwner']
 ---
 

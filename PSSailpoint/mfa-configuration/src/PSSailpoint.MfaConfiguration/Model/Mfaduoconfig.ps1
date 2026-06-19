@@ -55,7 +55,7 @@ function Initialize-Mfaduoconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MfaConfigurationV1 => Mfaduoconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MfaConfiguration => Mfaduoconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToMfaduoconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfigurationV1 => Mfaduoconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfiguration => Mfaduoconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

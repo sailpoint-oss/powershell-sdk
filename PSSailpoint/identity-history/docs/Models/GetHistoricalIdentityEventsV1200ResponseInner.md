@@ -5,7 +5,7 @@ pagination_label: GetHistoricalIdentityEventsV1200ResponseInner
 sidebar_label: GetHistoricalIdentityEventsV1200ResponseInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetHistoricalIdentityEventsV1200ResponseInner', 'GetHistoricalIdentityEventsV1200ResponseInner'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/get-historical-identity-events-v1200-response-inner
+slug: /tools/sdk/powershell/identityhistory/models/get-historical-identity-events-v1200-response-inner
 tags: ['SDK', 'Software Development Kit', 'GetHistoricalIdentityEventsV1200ResponseInner', 'GetHistoricalIdentityEventsV1200ResponseInner']
 ---
 

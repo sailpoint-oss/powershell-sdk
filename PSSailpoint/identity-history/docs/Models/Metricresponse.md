@@ -5,7 +5,7 @@ pagination_label: Metricresponse
 sidebar_label: Metricresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Metricresponse', 'Metricresponse'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/metricresponse
+slug: /tools/sdk/powershell/identityhistory/models/metricresponse
 tags: ['SDK', 'Software Development Kit', 'Metricresponse', 'Metricresponse']
 ---
 

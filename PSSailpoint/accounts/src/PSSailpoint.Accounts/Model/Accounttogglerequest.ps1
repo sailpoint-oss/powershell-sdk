@@ -35,7 +35,7 @@ function Initialize-Accounttogglerequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountsV1 => Accounttogglerequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Accounts => Accounttogglerequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAccounttogglerequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountsV1 => Accounttogglerequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Accounts => Accounttogglerequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

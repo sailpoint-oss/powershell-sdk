@@ -5,7 +5,7 @@ pagination_label: Scheduledattributes
 sidebar_label: Scheduledattributes
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Scheduledattributes', 'Scheduledattributes'] 
-slug: /tools/sdk/powershell/workflowsv1/models/scheduledattributes
+slug: /tools/sdk/powershell/workflows/models/scheduledattributes
 tags: ['SDK', 'Software Development Kit', 'Scheduledattributes', 'Scheduledattributes']
 ---
 

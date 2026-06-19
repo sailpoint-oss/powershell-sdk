@@ -5,7 +5,7 @@ pagination_label: Rolematchdto
 sidebar_label: Rolematchdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Rolematchdto', 'Rolematchdto'] 
-slug: /tools/sdk/powershell/identitiesv1/models/rolematchdto
+slug: /tools/sdk/powershell/identities/models/rolematchdto
 tags: ['SDK', 'Software Development Kit', 'Rolematchdto', 'Rolematchdto']
 ---
 

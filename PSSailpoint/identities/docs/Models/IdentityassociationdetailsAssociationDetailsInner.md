@@ -5,7 +5,7 @@ pagination_label: IdentityassociationdetailsAssociationDetailsInner
 sidebar_label: IdentityassociationdetailsAssociationDetailsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityassociationdetailsAssociationDetailsInner', 'IdentityassociationdetailsAssociationDetailsInner'] 
-slug: /tools/sdk/powershell/identitiesv1/models/identityassociationdetails-association-details-inner
+slug: /tools/sdk/powershell/identities/models/identityassociationdetails-association-details-inner
 tags: ['SDK', 'Software Development Kit', 'IdentityassociationdetailsAssociationDetailsInner', 'IdentityassociationdetailsAssociationDetailsInner']
 ---
 

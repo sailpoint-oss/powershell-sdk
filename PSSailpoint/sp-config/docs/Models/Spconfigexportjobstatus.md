@@ -5,7 +5,7 @@ pagination_label: Spconfigexportjobstatus
 sidebar_label: Spconfigexportjobstatus
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Spconfigexportjobstatus', 'Spconfigexportjobstatus'] 
-slug: /tools/sdk/powershell/spconfigv1/models/spconfigexportjobstatus
+slug: /tools/sdk/powershell/spconfig/models/spconfigexportjobstatus
 tags: ['SDK', 'Software Development Kit', 'Spconfigexportjobstatus', 'Spconfigexportjobstatus']
 ---
 

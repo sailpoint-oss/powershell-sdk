@@ -5,7 +5,7 @@ pagination_label: Roleinsightsentitlementchanges
 sidebar_label: Roleinsightsentitlementchanges
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Roleinsightsentitlementchanges', 'Roleinsightsentitlementchanges'] 
-slug: /tools/sdk/powershell/roleinsightsv1/models/roleinsightsentitlementchanges
+slug: /tools/sdk/powershell/roleinsights/models/roleinsightsentitlementchanges
 tags: ['SDK', 'Software Development Kit', 'Roleinsightsentitlementchanges', 'Roleinsightsentitlementchanges']
 ---
 

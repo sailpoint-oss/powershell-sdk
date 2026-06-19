@@ -5,7 +5,7 @@ pagination_label: IdentityProfileIdentityErrorReportArguments
 sidebar_label: IdentityProfileIdentityErrorReportArguments
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityProfileIdentityErrorReportArguments', 'IdentityProfileIdentityErrorReportArguments'] 
-slug: /tools/sdk/powershell/reportsdataextractionv1/models/identity-profile-identity-error-report-arguments
+slug: /tools/sdk/powershell/reportsdataextraction/models/identity-profile-identity-error-report-arguments
 tags: ['SDK', 'Software Development Kit', 'IdentityProfileIdentityErrorReportArguments', 'IdentityProfileIdentityErrorReportArguments']
 ---
 

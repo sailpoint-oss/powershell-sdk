@@ -41,7 +41,7 @@ function Initialize-Ownerdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GovernanceGroupsV1 => Ownerdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GovernanceGroups => Ownerdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToOwnerdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroupsV1 => Ownerdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroups => Ownerdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

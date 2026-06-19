@@ -60,7 +60,7 @@ function Initialize-Accessitemaccountresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessitemaccountresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Accessitemaccountresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$NativeIdentity) {
@@ -106,7 +106,7 @@ function ConvertFrom-JsonToAccessitemaccountresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessitemaccountresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Accessitemaccountresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

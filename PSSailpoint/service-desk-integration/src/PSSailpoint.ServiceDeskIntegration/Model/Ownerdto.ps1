@@ -41,7 +41,7 @@ function Initialize-Ownerdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ServiceDeskIntegrationV1 => Ownerdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ServiceDeskIntegration => Ownerdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToOwnerdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ServiceDeskIntegrationV1 => Ownerdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ServiceDeskIntegration => Ownerdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -41,7 +41,7 @@ function Initialize-Identityreference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Identityreference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomUserLevels => Identityreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToIdentityreference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Identityreference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevels => Identityreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

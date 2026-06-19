@@ -5,7 +5,7 @@ pagination_label: Campaign2AllOfSourcesWithOrphanEntitlements
 sidebar_label: Campaign2AllOfSourcesWithOrphanEntitlements
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaign2AllOfSourcesWithOrphanEntitlements', 'Campaign2AllOfSourcesWithOrphanEntitlements'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/campaign2-all-of-sources-with-orphan-entitlements
+slug: /tools/sdk/powershell/certificationcampaigns/models/campaign2-all-of-sources-with-orphan-entitlements
 tags: ['SDK', 'Software Development Kit', 'Campaign2AllOfSourcesWithOrphanEntitlements', 'Campaign2AllOfSourcesWithOrphanEntitlements']
 ---
 

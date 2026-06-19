@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/taskmanagementv1/methods/task-management#get-task-status-list-v1
+      label: SDK_tools/sdk/powershell/taskmanagement/methods/task-management#get-task-status-list-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -25,7 +25,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/taskmanagementv1/methods/task-management#get-task-status-v1
+      label: SDK_tools/sdk/powershell/taskmanagement/methods/task-management#get-task-status-v1
       source: |
         $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
         
@@ -44,11 +44,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/taskmanagementv1/methods/task-management#update-task-status-v1
+      label: SDK_tools/sdk/powershell/taskmanagement/methods/task-management#update-task-status-v1
       source: |
         $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | The JSONPatch payload used to update the object.
         $Jsonpatchoperation = @""@ 
         
         

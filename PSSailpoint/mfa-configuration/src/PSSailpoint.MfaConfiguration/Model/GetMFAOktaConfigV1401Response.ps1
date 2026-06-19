@@ -30,7 +30,7 @@ function Initialize-GetMFAOktaConfigV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MfaConfigurationV1 => GetMFAOktaConfigV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MfaConfiguration => GetMFAOktaConfigV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetMFAOktaConfigV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfigurationV1 => GetMFAOktaConfigV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfiguration => GetMFAOktaConfigV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

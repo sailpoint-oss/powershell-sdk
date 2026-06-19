@@ -5,7 +5,7 @@ pagination_label: ScheduledactionresponseContent
 sidebar_label: ScheduledactionresponseContent
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ScheduledactionresponseContent', 'ScheduledactionresponseContent'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/scheduledactionresponse-content
+slug: /tools/sdk/powershell/configurationhub/models/scheduledactionresponse-content
 tags: ['SDK', 'Software Development Kit', 'ScheduledactionresponseContent', 'ScheduledactionresponseContent']
 ---
 

@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaipeergroupstrategiesv1/methods/iai-peer-group-strategies#get-peer-group-outliers-v1
+      label: SDK_tools/sdk/powershell/iaipeergroupstrategies/methods/iai-peer-group-strategies#get-peer-group-outliers-v1
       source: |
         $Strategy = "entitlement" # String | The strategy used to create peer groups. Currently, 'entitlement' is supported.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")

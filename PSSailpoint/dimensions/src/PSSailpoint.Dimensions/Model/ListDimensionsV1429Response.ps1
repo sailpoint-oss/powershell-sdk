@@ -30,7 +30,7 @@ function Initialize-ListDimensionsV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DimensionsV1 => ListDimensionsV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Dimensions => ListDimensionsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListDimensionsV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DimensionsV1 => ListDimensionsV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Dimensions => ListDimensionsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Dependantconnectionsmissingdto
 sidebar_label: Dependantconnectionsmissingdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dependantconnectionsmissingdto', 'Dependantconnectionsmissingdto'] 
-slug: /tools/sdk/powershell/sourcesv1/models/dependantconnectionsmissingdto
+slug: /tools/sdk/powershell/sources/models/dependantconnectionsmissingdto
 tags: ['SDK', 'Software Development Kit', 'Dependantconnectionsmissingdto', 'Dependantconnectionsmissingdto']
 ---
 

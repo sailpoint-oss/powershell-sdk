@@ -5,7 +5,7 @@ pagination_label: Passwordinfo
 sidebar_label: Passwordinfo
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Passwordinfo', 'Passwordinfo'] 
-slug: /tools/sdk/powershell/passwordmanagementv1/models/passwordinfo
+slug: /tools/sdk/powershell/passwordmanagement/models/passwordinfo
 tags: ['SDK', 'Software Development Kit', 'Passwordinfo', 'Passwordinfo']
 ---
 

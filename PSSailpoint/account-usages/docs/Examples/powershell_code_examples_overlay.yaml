@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountusagesv1/methods/account-usages#get-usages-by-account-id-v1
+      label: SDK_tools/sdk/powershell/accountusages/methods/account-usages#get-usages-by-account-id-v1
       source: |
         $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of IDN account
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)

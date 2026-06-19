@@ -35,7 +35,7 @@ function Initialize-RolemetadatabulkupdatebyidrequestValuesInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => RolemetadatabulkupdatebyidrequestValuesInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => RolemetadatabulkupdatebyidrequestValuesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Attribute) {
@@ -76,7 +76,7 @@ function ConvertFrom-JsonToRolemetadatabulkupdatebyidrequestValuesInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => RolemetadatabulkupdatebyidrequestValuesInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => RolemetadatabulkupdatebyidrequestValuesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

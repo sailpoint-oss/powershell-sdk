@@ -30,7 +30,7 @@ function Initialize-Accessactionconfiguration {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.LifecycleStatesV1 => Accessactionconfiguration' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.LifecycleStates => Accessactionconfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToAccessactionconfiguration {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.LifecycleStatesV1 => Accessactionconfiguration' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.LifecycleStates => Accessactionconfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

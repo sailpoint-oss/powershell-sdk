@@ -5,7 +5,7 @@ pagination_label: EntitlementaccessrequestconfigMaxPermittedAccessDuration
 sidebar_label: EntitlementaccessrequestconfigMaxPermittedAccessDuration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementaccessrequestconfigMaxPermittedAccessDuration', 'EntitlementaccessrequestconfigMaxPermittedAccessDuration'] 
-slug: /tools/sdk/powershell/sourcesv1/models/entitlementaccessrequestconfig-max-permitted-access-duration
+slug: /tools/sdk/powershell/sources/models/entitlementaccessrequestconfig-max-permitted-access-duration
 tags: ['SDK', 'Software Development Kit', 'EntitlementaccessrequestconfigMaxPermittedAccessDuration', 'EntitlementaccessrequestconfigMaxPermittedAccessDuration']
 ---
 

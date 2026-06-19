@@ -46,7 +46,7 @@ function Initialize-Accessmodelmetadatabulkupdateresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Accessmodelmetadatabulkupdateresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessModelMetadata => Accessmodelmetadatabulkupdateresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToAccessmodelmetadatabulkupdateresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Accessmodelmetadatabulkupdateresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadata => Accessmodelmetadatabulkupdateresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

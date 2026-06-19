@@ -5,7 +5,7 @@ pagination_label: Autowritesetting
 sidebar_label: Autowritesetting
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Autowritesetting', 'Autowritesetting'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/autowritesetting
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/autowritesetting
 tags: ['SDK', 'Software Development Kit', 'Autowritesetting', 'Autowritesetting']
 ---
 

@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#create-account-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#create-account-v1
       source: |
         $Accountattributescreate = @"
         
@@ -24,7 +24,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#delete-account-async-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#delete-account-async-v1
       source: |
         $Id = "c350d6aa4f104c61b062cb632421ad10" # String | The account id
         
@@ -43,7 +43,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#delete-account-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#delete-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
         
@@ -62,7 +62,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#disable-account-for-identity-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#disable-account-for-identity-v1
       source: |
         $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
         
@@ -81,7 +81,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#disable-account-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#disable-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
         $Accounttogglerequest = @"
@@ -104,7 +104,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#disable-accounts-for-identities-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#disable-accounts-for-identities-v1
       source: |
         $Identitiesaccountsbulkrequest = @"
         
@@ -126,7 +126,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#enable-account-for-identity-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#enable-account-for-identity-v1
       source: |
         $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
         
@@ -145,7 +145,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#enable-account-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#enable-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
         $Accounttogglerequest = @"
@@ -168,7 +168,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#enable-accounts-for-identities-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#enable-accounts-for-identities-v1
       source: |
         $Identitiesaccountsbulkrequest = @"
         
@@ -190,7 +190,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#get-account-entitlements-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#get-account-entitlements-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -212,7 +212,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#get-account-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#get-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
         
@@ -231,7 +231,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#list-accounts-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#list-accounts-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -255,7 +255,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#put-account-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#put-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
         $Accountattributes = @"
@@ -278,7 +278,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#submit-reload-account-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#submit-reload-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
         
@@ -297,7 +297,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#unlock-account-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#unlock-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID.
         $Accountunlockrequest = @"
@@ -320,7 +320,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountsv1/methods/accounts#update-account-v1
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#update-account-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
         $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.

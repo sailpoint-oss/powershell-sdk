@@ -5,7 +5,7 @@ pagination_label: Objectmappingbulkcreateresponse
 sidebar_label: Objectmappingbulkcreateresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Objectmappingbulkcreateresponse', 'Objectmappingbulkcreateresponse'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/objectmappingbulkcreateresponse
+slug: /tools/sdk/powershell/configurationhub/models/objectmappingbulkcreateresponse
 tags: ['SDK', 'Software Development Kit', 'Objectmappingbulkcreateresponse', 'Objectmappingbulkcreateresponse']
 ---
 

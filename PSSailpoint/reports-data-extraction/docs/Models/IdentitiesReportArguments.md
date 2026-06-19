@@ -5,7 +5,7 @@ pagination_label: IdentitiesReportArguments
 sidebar_label: IdentitiesReportArguments
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitiesReportArguments', 'IdentitiesReportArguments'] 
-slug: /tools/sdk/powershell/reportsdataextractionv1/models/identities-report-arguments
+slug: /tools/sdk/powershell/reportsdataextraction/models/identities-report-arguments
 tags: ['SDK', 'Software Development Kit', 'IdentitiesReportArguments', 'IdentitiesReportArguments']
 ---
 

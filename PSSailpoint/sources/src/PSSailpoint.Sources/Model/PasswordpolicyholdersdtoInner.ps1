@@ -40,7 +40,7 @@ function Initialize-PasswordpolicyholdersdtoInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => PasswordpolicyholdersdtoInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => PasswordpolicyholdersdtoInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToPasswordpolicyholdersdtoInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => PasswordpolicyholdersdtoInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => PasswordpolicyholdersdtoInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Approvalstatusdto
 sidebar_label: Approvalstatusdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalstatusdto', 'Approvalstatusdto'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/approvalstatusdto
+slug: /tools/sdk/powershell/accessrequests/models/approvalstatusdto
 tags: ['SDK', 'Software Development Kit', 'Approvalstatusdto', 'Approvalstatusdto']
 ---
 

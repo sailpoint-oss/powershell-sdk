@@ -55,7 +55,7 @@ function Initialize-Passwordsyncgroup {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PasswordSyncGroupsV1 => Passwordsyncgroup' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PasswordSyncGroups => Passwordsyncgroup' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToPasswordsyncgroup {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PasswordSyncGroupsV1 => Passwordsyncgroup' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PasswordSyncGroups => Passwordsyncgroup' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: ExceptioncriteriaCriteriaListInner
 sidebar_label: ExceptioncriteriaCriteriaListInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ExceptioncriteriaCriteriaListInner', 'ExceptioncriteriaCriteriaListInner'] 
-slug: /tools/sdk/powershell/sodviolationsv1/models/exceptioncriteria-criteria-list-inner
+slug: /tools/sdk/powershell/sodviolations/models/exceptioncriteria-criteria-list-inner
 tags: ['SDK', 'Software Development Kit', 'ExceptioncriteriaCriteriaListInner', 'ExceptioncriteriaCriteriaListInner']
 ---
 

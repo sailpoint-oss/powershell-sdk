@@ -45,7 +45,7 @@ function Initialize-Identityreferencewithnameandemail {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RequestableObjectsV1 => Identityreferencewithnameandemail' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.RequestableObjects => Identityreferencewithnameandemail' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToIdentityreferencewithnameandemail {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RequestableObjectsV1 => Identityreferencewithnameandemail' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.RequestableObjects => Identityreferencewithnameandemail' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/segmentsv1/methods/segments#create-segment-v1
+      label: SDK_tools/sdk/powershell/segments/methods/segments#create-segment-v1
       source: |
         $Segment = @"
         
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/segmentsv1/methods/segments#delete-segment-v1
+      label: SDK_tools/sdk/powershell/segments/methods/segments#delete-segment-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
         
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/segmentsv1/methods/segments#get-segment-v1
+      label: SDK_tools/sdk/powershell/segments/methods/segments#get-segment-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
         
@@ -62,7 +62,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/segmentsv1/methods/segments#list-segments-v1
+      label: SDK_tools/sdk/powershell/segments/methods/segments#list-segments-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -83,7 +83,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/segmentsv1/methods/segments#patch-segment-v1
+      label: SDK_tools/sdk/powershell/segments/methods/segments#patch-segment-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to modify.
         $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 

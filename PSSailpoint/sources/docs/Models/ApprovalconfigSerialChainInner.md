@@ -5,7 +5,7 @@ pagination_label: ApprovalconfigSerialChainInner
 sidebar_label: ApprovalconfigSerialChainInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalconfigSerialChainInner', 'ApprovalconfigSerialChainInner'] 
-slug: /tools/sdk/powershell/sourcesv1/models/approvalconfig-serial-chain-inner
+slug: /tools/sdk/powershell/sources/models/approvalconfig-serial-chain-inner
 tags: ['SDK', 'Software Development Kit', 'ApprovalconfigSerialChainInner', 'ApprovalconfigSerialChainInner']
 ---
 

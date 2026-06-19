@@ -51,7 +51,7 @@ function Initialize-Approvalcomment {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConfigurationHubV1 => Approvalcomment' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConfigurationHub => Approvalcomment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Comment) {
@@ -111,7 +111,7 @@ function ConvertFrom-JsonToApprovalcomment {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHubV1 => Approvalcomment' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHub => Approvalcomment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

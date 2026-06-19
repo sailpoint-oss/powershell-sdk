@@ -30,7 +30,7 @@ function Initialize-GetServiceDeskIntegrationsV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ServiceDeskIntegrationV1 => GetServiceDeskIntegrationsV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ServiceDeskIntegration => GetServiceDeskIntegrationsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetServiceDeskIntegrationsV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ServiceDeskIntegrationV1 => GetServiceDeskIntegrationsV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ServiceDeskIntegration => GetServiceDeskIntegrationsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

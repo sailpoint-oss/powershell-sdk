@@ -177,7 +177,7 @@ function Initialize-Source {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Source' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Source' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -250,7 +250,7 @@ function ConvertFrom-JsonToSource {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Source' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Source' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

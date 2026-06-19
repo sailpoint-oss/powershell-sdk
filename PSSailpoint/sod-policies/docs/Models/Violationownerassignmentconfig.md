@@ -5,7 +5,7 @@ pagination_label: Violationownerassignmentconfig
 sidebar_label: Violationownerassignmentconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Violationownerassignmentconfig', 'Violationownerassignmentconfig'] 
-slug: /tools/sdk/powershell/sodpoliciesv1/models/violationownerassignmentconfig
+slug: /tools/sdk/powershell/sodpolicies/models/violationownerassignmentconfig
 tags: ['SDK', 'Software Development Kit', 'Violationownerassignmentconfig', 'Violationownerassignmentconfig']
 ---
 

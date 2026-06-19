@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/authprofilev1/methods/auth-profile#get-profile-config-list-v1
+      label: SDK_tools/sdk/powershell/authprofile/methods/auth-profile#get-profile-config-list-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
@@ -21,7 +21,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/authprofilev1/methods/auth-profile#get-profile-config-v1
+      label: SDK_tools/sdk/powershell/authprofile/methods/auth-profile#get-profile-config-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
@@ -41,12 +41,10 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/authprofilev1/methods/auth-profile#patch-profile-config-v1
+      label: SDK_tools/sdk/powershell/authprofile/methods/auth-profile#patch-profile-config-v1
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | 
         $Jsonpatchoperation = @""@ 
         
         

@@ -5,7 +5,7 @@ pagination_label: Identity
 sidebar_label: Identity
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identity', 'Identity'] 
-slug: /tools/sdk/powershell/identitiesv1/models/identity
+slug: /tools/sdk/powershell/identities/models/identity
 tags: ['SDK', 'Software Development Kit', 'Identity', 'Identity']
 ---
 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **ManagerRef** | [**IdentityManagerRef**](identity-manager-ref) |  | [optional] 
 **IsManager** | **Boolean** | Whether this identity is a manager of another identity | [optional] [default to $false]
 **LastRefresh** | **System.DateTime** | The last time the identity was refreshed by the system | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**](system-collections-hashtable) | A map with the identity attributes for the identity | [optional] 
+**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | A map with the identity attributes for the identity | [optional] 
 **LifecycleState** | [**IdentityLifecycleState**](identity-lifecycle-state) |  | [optional] 
 
 ## Examples

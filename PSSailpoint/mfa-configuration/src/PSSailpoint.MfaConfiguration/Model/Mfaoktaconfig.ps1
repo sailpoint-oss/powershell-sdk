@@ -50,7 +50,7 @@ function Initialize-Mfaoktaconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MfaConfigurationV1 => Mfaoktaconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MfaConfiguration => Mfaoktaconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToMfaoktaconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfigurationV1 => Mfaoktaconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfiguration => Mfaoktaconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

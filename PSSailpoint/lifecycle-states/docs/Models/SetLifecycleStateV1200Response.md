@@ -5,7 +5,7 @@ pagination_label: SetLifecycleStateV1200Response
 sidebar_label: SetLifecycleStateV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SetLifecycleStateV1200Response', 'SetLifecycleStateV1200Response'] 
-slug: /tools/sdk/powershell/lifecyclestatesv1/models/set-lifecycle-state-v1200-response
+slug: /tools/sdk/powershell/lifecyclestates/models/set-lifecycle-state-v1200-response
 tags: ['SDK', 'Software Development Kit', 'SetLifecycleStateV1200Response', 'SetLifecycleStateV1200Response']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Identity2
 sidebar_label: Identity2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identity2', 'Identity2'] 
-slug: /tools/sdk/powershell/workreassignmentv1/models/identity2
+slug: /tools/sdk/powershell/workreassignment/models/identity2
 tags: ['SDK', 'Software Development Kit', 'Identity2', 'Identity2']
 ---
 

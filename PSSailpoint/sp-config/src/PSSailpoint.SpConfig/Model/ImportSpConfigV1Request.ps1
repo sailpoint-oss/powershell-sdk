@@ -35,7 +35,7 @@ function Initialize-ImportSpConfigV1Request {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SpConfigV1 => ImportSpConfigV1Request' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SpConfig => ImportSpConfigV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$VarData) {
@@ -76,7 +76,7 @@ function ConvertFrom-JsonToImportSpConfigV1Request {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SpConfigV1 => ImportSpConfigV1Request' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SpConfig => ImportSpConfigV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

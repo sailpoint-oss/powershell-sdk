@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/brandingv1/methods/branding#create-branding-item-v1
+      label: SDK_tools/sdk/powershell/branding/methods/branding#create-branding-item-v1
       source: |
         $Name = "MyName" # String | name of branding item
         $ProductName = "MyProductName" # String | product name
@@ -28,7 +28,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/brandingv1/methods/branding#delete-branding-v1
+      label: SDK_tools/sdk/powershell/branding/methods/branding#delete-branding-v1
       source: |
         $Name = "default" # String | The name of the branding item to be deleted
         
@@ -47,7 +47,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/brandingv1/methods/branding#get-branding-list-v1
+      label: SDK_tools/sdk/powershell/branding/methods/branding#get-branding-list-v1
       source: |
         
         # List of branding items
@@ -65,7 +65,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/brandingv1/methods/branding#get-branding-v1
+      label: SDK_tools/sdk/powershell/branding/methods/branding#get-branding-v1
       source: |
         $Name = "default" # String | The name of the branding item to be retrieved
         
@@ -84,7 +84,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/brandingv1/methods/branding#set-branding-item-v1
+      label: SDK_tools/sdk/powershell/branding/methods/branding#set-branding-item-v1
       source: |
         $Name = "default" # String | The name of the branding item to be retrieved
         $Name2 = "Name_example" # String | name of branding item

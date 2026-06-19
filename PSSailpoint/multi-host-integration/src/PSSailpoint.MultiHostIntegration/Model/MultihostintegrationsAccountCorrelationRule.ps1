@@ -41,7 +41,7 @@ function Initialize-MultihostintegrationsAccountCorrelationRule {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => MultihostintegrationsAccountCorrelationRule' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MultiHostIntegration => MultihostintegrationsAccountCorrelationRule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToMultihostintegrationsAccountCorrelationRule {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => MultihostintegrationsAccountCorrelationRule' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegration => MultihostintegrationsAccountCorrelationRule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

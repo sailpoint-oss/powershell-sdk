@@ -35,7 +35,7 @@ function Initialize-Taskreturndetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Taskreturndetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ApplicationDiscovery => Taskreturndetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToTaskreturndetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Taskreturndetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscovery => Taskreturndetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

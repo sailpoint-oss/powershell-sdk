@@ -51,7 +51,7 @@ function Initialize-Fielddetailsdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Fielddetailsdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Fielddetailsdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToFielddetailsdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Fielddetailsdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Fielddetailsdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

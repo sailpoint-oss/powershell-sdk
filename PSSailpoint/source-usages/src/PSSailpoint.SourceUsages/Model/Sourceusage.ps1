@@ -35,7 +35,7 @@ function Initialize-Sourceusage {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourceUsagesV1 => Sourceusage' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SourceUsages => Sourceusage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToSourceusage {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourceUsagesV1 => Sourceusage' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SourceUsages => Sourceusage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

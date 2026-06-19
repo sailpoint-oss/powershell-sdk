@@ -61,7 +61,7 @@ function Initialize-MultihostintegrationsConnectorAttributes {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => MultihostintegrationsConnectorAttributes' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MultiHostIntegration => MultihostintegrationsConnectorAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -103,7 +103,7 @@ function ConvertFrom-JsonToMultihostintegrationsConnectorAttributes {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => MultihostintegrationsConnectorAttributes' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegration => MultihostintegrationsConnectorAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

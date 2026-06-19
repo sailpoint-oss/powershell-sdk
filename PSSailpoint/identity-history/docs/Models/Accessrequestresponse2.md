@@ -5,7 +5,7 @@ pagination_label: Accessrequestresponse2
 sidebar_label: Accessrequestresponse2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessrequestresponse2', 'Accessrequestresponse2'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/accessrequestresponse2
+slug: /tools/sdk/powershell/identityhistory/models/accessrequestresponse2
 tags: ['SDK', 'Software Development Kit', 'Accessrequestresponse2', 'Accessrequestresponse2']
 ---
 

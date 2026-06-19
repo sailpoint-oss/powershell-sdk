@@ -46,7 +46,7 @@ function Initialize-Updatedetail {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConnectorsV1 => Updatedetail' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Connectors => Updatedetail' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToUpdatedetail {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorsV1 => Updatedetail' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Connectors => Updatedetail' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

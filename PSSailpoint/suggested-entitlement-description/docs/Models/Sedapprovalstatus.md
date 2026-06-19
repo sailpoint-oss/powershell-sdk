@@ -5,7 +5,7 @@ pagination_label: Sedapprovalstatus
 sidebar_label: Sedapprovalstatus
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sedapprovalstatus', 'Sedapprovalstatus'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/sedapprovalstatus
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/sedapprovalstatus
 tags: ['SDK', 'Software Development Kit', 'Sedapprovalstatus', 'Sedapprovalstatus']
 ---
 

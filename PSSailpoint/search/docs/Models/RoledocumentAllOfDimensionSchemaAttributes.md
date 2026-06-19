@@ -5,7 +5,7 @@ pagination_label: RoledocumentAllOfDimensionSchemaAttributes
 sidebar_label: RoledocumentAllOfDimensionSchemaAttributes
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RoledocumentAllOfDimensionSchemaAttributes', 'RoledocumentAllOfDimensionSchemaAttributes'] 
-slug: /tools/sdk/powershell/searchv1/models/roledocument-all-of-dimension-schema-attributes
+slug: /tools/sdk/powershell/search/models/roledocument-all-of-dimension-schema-attributes
 tags: ['SDK', 'Software Development Kit', 'RoledocumentAllOfDimensionSchemaAttributes', 'RoledocumentAllOfDimensionSchemaAttributes']
 ---
 

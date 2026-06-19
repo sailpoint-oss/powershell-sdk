@@ -35,7 +35,7 @@ function Initialize-Range {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SavedSearchV1 => Range' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SavedSearch => Range' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToRange {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearchV1 => Range' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearch => Range' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

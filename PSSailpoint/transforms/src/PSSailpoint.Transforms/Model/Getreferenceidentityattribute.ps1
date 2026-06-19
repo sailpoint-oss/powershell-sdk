@@ -45,7 +45,7 @@ function Initialize-Getreferenceidentityattribute {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Getreferenceidentityattribute' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Getreferenceidentityattribute' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToGetreferenceidentityattribute {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Getreferenceidentityattribute' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Getreferenceidentityattribute' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

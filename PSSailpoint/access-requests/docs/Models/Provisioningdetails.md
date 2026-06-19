@@ -5,7 +5,7 @@ pagination_label: Provisioningdetails
 sidebar_label: Provisioningdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Provisioningdetails', 'Provisioningdetails'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/provisioningdetails
+slug: /tools/sdk/powershell/accessrequests/models/provisioningdetails
 tags: ['SDK', 'Software Development Kit', 'Provisioningdetails', 'Provisioningdetails']
 ---
 

@@ -30,7 +30,7 @@ function Initialize-GetLaunchersV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.LaunchersV1 => GetLaunchersV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Launchers => GetLaunchersV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetLaunchersV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.LaunchersV1 => GetLaunchersV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Launchers => GetLaunchersV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

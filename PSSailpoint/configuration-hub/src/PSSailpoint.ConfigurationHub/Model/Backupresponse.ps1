@@ -115,7 +115,7 @@ function Initialize-Backupresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConfigurationHubV1 => Backupresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConfigurationHub => Backupresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -167,7 +167,7 @@ function ConvertFrom-JsonToBackupresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHubV1 => Backupresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHub => Backupresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

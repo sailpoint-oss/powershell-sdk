@@ -40,7 +40,7 @@ function Initialize-Indexof {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Indexof' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Indexof' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Substring) {
@@ -82,7 +82,7 @@ function ConvertFrom-JsonToIndexof {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Indexof' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Indexof' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

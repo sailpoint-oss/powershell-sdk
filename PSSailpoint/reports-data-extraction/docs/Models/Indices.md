@@ -5,7 +5,7 @@ pagination_label: Index
 sidebar_label: Index
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Index', 'Index'] 
-slug: /tools/sdk/powershell/reportsdataextractionv1/models/index
+slug: /tools/sdk/powershell/reportsdataextraction/models/index
 tags: ['SDK', 'Software Development Kit', 'Index', 'Index']
 ---
 

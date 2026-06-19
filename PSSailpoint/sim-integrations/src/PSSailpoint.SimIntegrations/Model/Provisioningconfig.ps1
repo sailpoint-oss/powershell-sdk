@@ -45,7 +45,7 @@ function Initialize-Provisioningconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SimIntegrationsV1 => Provisioningconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SimIntegrations => Provisioningconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToProvisioningconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SimIntegrationsV1 => Provisioningconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SimIntegrations => Provisioningconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

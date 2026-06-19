@@ -5,7 +5,7 @@ pagination_label: Medium
 sidebar_label: Medium
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Medium', 'Medium'] 
-slug: /tools/sdk/powershell/notificationsv1/models/medium
+slug: /tools/sdk/powershell/notifications/models/medium
 tags: ['SDK', 'Software Development Kit', 'Medium', 'Medium']
 ---
 

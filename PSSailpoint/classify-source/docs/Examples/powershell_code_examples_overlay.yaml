@@ -2,7 +2,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/classifysourcev1/methods/classify-source#delete-classify-machine-account-from-source-v1
+      label: SDK_tools/sdk/powershell/classifysource/methods/classify-source#delete-classify-machine-account-from-source-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         
@@ -21,7 +21,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/classifysourcev1/methods/classify-source#get-classify-machine-account-from-source-status-v1
+      label: SDK_tools/sdk/powershell/classifysource/methods/classify-source#get-classify-machine-account-from-source-status-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         
@@ -40,7 +40,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/classifysourcev1/methods/classify-source#send-classify-machine-account-from-source-v1
+      label: SDK_tools/sdk/powershell/classifysource/methods/classify-source#send-classify-machine-account-from-source-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         

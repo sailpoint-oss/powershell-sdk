@@ -5,7 +5,7 @@ pagination_label: Formdefinitioninput
 sidebar_label: Formdefinitioninput
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Formdefinitioninput', 'Formdefinitioninput'] 
-slug: /tools/sdk/powershell/customformsv1/models/formdefinitioninput
+slug: /tools/sdk/powershell/customforms/models/formdefinitioninput
 tags: ['SDK', 'Software Development Kit', 'Formdefinitioninput', 'Formdefinitioninput']
 ---
 

@@ -40,7 +40,7 @@ function Initialize-IdentityentitiesIdentityEntity {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => IdentityentitiesIdentityEntity' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => IdentityentitiesIdentityEntity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToIdentityentitiesIdentityEntity {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => IdentityentitiesIdentityEntity' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => IdentityentitiesIdentityEntity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

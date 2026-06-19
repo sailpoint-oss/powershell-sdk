@@ -5,7 +5,7 @@ pagination_label: JITActivations
 sidebar_label: JITActivations
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'JITActivations', 'JITActivations'] 
-slug: /tools/sdk/powershell/jitactivationsv1/methods/jit-activations
+slug: /tools/sdk/powershell/jitactivations/methods/jit-activations
 tags: ['SDK', 'Software Development Kit', 'JITActivations', 'JITActivations']
 ---
 

@@ -56,7 +56,7 @@ function Initialize-Jitactivationextendresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.JitActivationsV1 => Jitactivationextendresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.JitActivations => Jitactivationextendresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -121,7 +121,7 @@ function ConvertFrom-JsonToJitactivationextendresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.JitActivationsV1 => Jitactivationextendresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.JitActivations => Jitactivationextendresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

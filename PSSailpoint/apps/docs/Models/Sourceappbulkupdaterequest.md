@@ -5,7 +5,7 @@ pagination_label: Sourceappbulkupdaterequest
 sidebar_label: Sourceappbulkupdaterequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourceappbulkupdaterequest', 'Sourceappbulkupdaterequest'] 
-slug: /tools/sdk/powershell/appsv1/models/sourceappbulkupdaterequest
+slug: /tools/sdk/powershell/apps/models/sourceappbulkupdaterequest
 tags: ['SDK', 'Software Development Kit', 'Sourceappbulkupdaterequest', 'Sourceappbulkupdaterequest']
 ---
 

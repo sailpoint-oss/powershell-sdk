@@ -5,7 +5,7 @@ pagination_label: ImportFormDefinitionsV1202Response
 sidebar_label: ImportFormDefinitionsV1202Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ImportFormDefinitionsV1202Response', 'ImportFormDefinitionsV1202Response'] 
-slug: /tools/sdk/powershell/customformsv1/models/import-form-definitions-v1202-response
+slug: /tools/sdk/powershell/customforms/models/import-form-definitions-v1202-response
 tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsV1202Response', 'ImportFormDefinitionsV1202Response']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: EntitlementdocumentAllOfPermissions
 sidebar_label: EntitlementdocumentAllOfPermissions
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementdocumentAllOfPermissions', 'EntitlementdocumentAllOfPermissions'] 
-slug: /tools/sdk/powershell/searchv1/models/entitlementdocument-all-of-permissions
+slug: /tools/sdk/powershell/search/models/entitlementdocument-all-of-permissions
 tags: ['SDK', 'Software Development Kit', 'EntitlementdocumentAllOfPermissions', 'EntitlementdocumentAllOfPermissions']
 ---
 

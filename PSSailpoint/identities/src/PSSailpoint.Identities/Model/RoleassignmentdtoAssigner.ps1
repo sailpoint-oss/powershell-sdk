@@ -41,7 +41,7 @@ function Initialize-RoleassignmentdtoAssigner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => RoleassignmentdtoAssigner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => RoleassignmentdtoAssigner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToRoleassignmentdtoAssigner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => RoleassignmentdtoAssigner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => RoleassignmentdtoAssigner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

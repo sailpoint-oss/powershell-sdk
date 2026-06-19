@@ -5,7 +5,7 @@ pagination_label: Objectexportimportnames
 sidebar_label: Objectexportimportnames
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Objectexportimportnames', 'Objectexportimportnames'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/objectexportimportnames
+slug: /tools/sdk/powershell/configurationhub/models/objectexportimportnames
 tags: ['SDK', 'Software Development Kit', 'Objectexportimportnames', 'Objectexportimportnames']
 ---
 

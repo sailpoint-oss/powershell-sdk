@@ -5,7 +5,7 @@ pagination_label: VaclusterstatuschangeeventApplication
 sidebar_label: VaclusterstatuschangeeventApplication
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'VaclusterstatuschangeeventApplication', 'VaclusterstatuschangeeventApplication'] 
-slug: /tools/sdk/powershell/triggersv1/models/vaclusterstatuschangeevent-application
+slug: /tools/sdk/powershell/triggers/models/vaclusterstatuschangeevent-application
 tags: ['SDK', 'Software Development Kit', 'VaclusterstatuschangeeventApplication', 'VaclusterstatuschangeeventApplication']
 ---
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | The GUID of the application | [required]
 **Name** | **String** | The name of the application | [required]
-**Attributes** | [**map[string]AnyType**](any-type) | Custom map of attributes for a source.  This will only be populated if type is `SOURCE` and the source has a proxy. | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Custom map of attributes for a source.  This will only be populated if type is `SOURCE` and the source has a proxy. | [required]
 
 ## Examples
 

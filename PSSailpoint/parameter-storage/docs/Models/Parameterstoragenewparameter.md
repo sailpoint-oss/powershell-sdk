@@ -5,7 +5,7 @@ pagination_label: Parameterstoragenewparameter
 sidebar_label: Parameterstoragenewparameter
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Parameterstoragenewparameter', 'Parameterstoragenewparameter'] 
-slug: /tools/sdk/powershell/parameterstoragev1/models/parameterstoragenewparameter
+slug: /tools/sdk/powershell/parameterstorage/models/parameterstoragenewparameter
 tags: ['SDK', 'Software Development Kit', 'Parameterstoragenewparameter', 'Parameterstoragenewparameter']
 ---
 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **OwnerId** | **String** | The UUID of the parameter owner. | [required]
 **Name** | **String** | The human-readable name for the parameter. | [required]
 **Type** | **String** | The type of the parameter. This cannot be changed after being set. Please see the types document for more information. | [required]
-**PublicFields** | [**SystemCollectionsHashtable**](system-collections-hashtable) | The content must be a JSON object containing the public fields that can be stored with this parameter. | [optional] 
+**PublicFields** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The content must be a JSON object containing the public fields that can be stored with this parameter. | [optional] 
 **PrivateFields** | **String** | Must be a JWE AES256 encrypted blob. The content of the blob must be a JSON object containing the private fields that can be stored with this parameter.  | [optional] 
 **Description** | **String** | Describe the parameter | [optional] 
 

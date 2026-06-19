@@ -5,7 +5,7 @@ pagination_label: Bulkcancelrequestdto
 sidebar_label: Bulkcancelrequestdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Bulkcancelrequestdto', 'Bulkcancelrequestdto'] 
-slug: /tools/sdk/powershell/approvalsv1/models/bulkcancelrequestdto
+slug: /tools/sdk/powershell/approvals/models/bulkcancelrequestdto
 tags: ['SDK', 'Software Development Kit', 'Bulkcancelrequestdto', 'Bulkcancelrequestdto']
 ---
 

@@ -35,7 +35,7 @@ function Initialize-Conflictingaccesscriteria {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodPoliciesV1 => Conflictingaccesscriteria' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodPolicies => Conflictingaccesscriteria' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToConflictingaccesscriteria {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodPoliciesV1 => Conflictingaccesscriteria' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodPolicies => Conflictingaccesscriteria' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

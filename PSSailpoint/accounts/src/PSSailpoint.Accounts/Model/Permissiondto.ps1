@@ -25,7 +25,7 @@ function Initialize-Permissiondto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountsV1 => Permissiondto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Accounts => Permissiondto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -60,7 +60,7 @@ function ConvertFrom-JsonToPermissiondto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountsV1 => Permissiondto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Accounts => Permissiondto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

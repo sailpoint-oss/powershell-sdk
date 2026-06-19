@@ -5,7 +5,7 @@ pagination_label: Baseaccount
 sidebar_label: Baseaccount
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Baseaccount', 'Baseaccount'] 
-slug: /tools/sdk/powershell/searchv1/models/baseaccount
+slug: /tools/sdk/powershell/search/models/baseaccount
 tags: ['SDK', 'Software Development Kit', 'Baseaccount', 'Baseaccount']
 ---
 
@@ -25,10 +25,10 @@ Name | Type | Description | Notes
 **Privileged** | **Boolean** | Indicates whether the account is privileged. | [optional] [default to $false]
 **ManuallyCorrelated** | **Boolean** | Indicates whether the account has been manually correlated to an identity. | [optional] [default to $false]
 **PasswordLastSet** | **System.DateTime** | A date-time in ISO-8601 format | [optional] 
-**EntitlementAttributes** | [**map[string]AnyType**](any-type) | Map or dictionary of key/value pairs. | [optional] 
+**EntitlementAttributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Map or dictionary of key/value pairs. | [optional] 
 **Created** | **System.DateTime** | ISO-8601 date-time referring to the time when the object was created. | [optional] 
 **SupportsPasswordChange** | **Boolean** | Indicates whether the account supports password change. | [optional] [default to $false]
-**AccountAttributes** | [**map[string]AnyType**](any-type) | Map or dictionary of key/value pairs. | [optional] 
+**AccountAttributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Map or dictionary of key/value pairs. | [optional] 
 
 ## Examples
 

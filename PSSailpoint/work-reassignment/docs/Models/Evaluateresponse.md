@@ -5,7 +5,7 @@ pagination_label: Evaluateresponse
 sidebar_label: Evaluateresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Evaluateresponse', 'Evaluateresponse'] 
-slug: /tools/sdk/powershell/workreassignmentv1/models/evaluateresponse
+slug: /tools/sdk/powershell/workreassignment/models/evaluateresponse
 tags: ['SDK', 'Software Development Kit', 'Evaluateresponse', 'Evaluateresponse']
 ---
 

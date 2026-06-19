@@ -30,7 +30,7 @@ function Initialize-GetSearchAttributeConfigV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchAttributeConfigurationV1 => GetSearchAttributeConfigV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SearchAttributeConfiguration => GetSearchAttributeConfigV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetSearchAttributeConfigV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchAttributeConfigurationV1 => GetSearchAttributeConfigV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SearchAttributeConfiguration => GetSearchAttributeConfigV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

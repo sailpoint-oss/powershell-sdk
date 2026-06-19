@@ -5,7 +5,7 @@ pagination_label: SavedsearchdetailFilters
 sidebar_label: SavedsearchdetailFilters
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SavedsearchdetailFilters', 'SavedsearchdetailFilters'] 
-slug: /tools/sdk/powershell/savedsearchv1/models/savedsearchdetail-filters
+slug: /tools/sdk/powershell/savedsearch/models/savedsearchdetail-filters
 tags: ['SDK', 'Software Development Kit', 'SavedsearchdetailFilters', 'SavedsearchdetailFilters']
 ---
 

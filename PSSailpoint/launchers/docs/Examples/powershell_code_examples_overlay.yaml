@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/launchersv1/methods/launchers#create-launcher-v1
+      label: SDK_tools/sdk/powershell/launchers/methods/launchers#create-launcher-v1
       source: |
         $Launcherrequest = @"
         
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/launchersv1/methods/launchers#delete-launcher-v1
+      label: SDK_tools/sdk/powershell/launchers/methods/launchers#delete-launcher-v1
       source: |
         $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be deleted
         
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/launchersv1/methods/launchers#get-launcher-v1
+      label: SDK_tools/sdk/powershell/launchers/methods/launchers#get-launcher-v1
       source: |
         $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be retrieved
         
@@ -62,7 +62,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/launchersv1/methods/launchers#get-launchers-v1
+      label: SDK_tools/sdk/powershell/launchers/methods/launchers#get-launchers-v1
       source: |
         $Filters = "disabled eq "true"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional)
         $Next = "eyJuZXh0IjoxMjN9Cg==" # String | Pagination marker (optional)
@@ -83,7 +83,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/launchersv1/methods/launchers#put-launcher-v1
+      label: SDK_tools/sdk/powershell/launchers/methods/launchers#put-launcher-v1
       source: |
         $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be replaced
         $Launcherrequest = @"
@@ -106,7 +106,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/launchersv1/methods/launchers#start-launcher-v1
+      label: SDK_tools/sdk/powershell/launchers/methods/launchers#start-launcher-v1
       source: |
         $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be launched
         

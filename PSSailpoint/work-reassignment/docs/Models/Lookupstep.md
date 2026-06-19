@@ -5,7 +5,7 @@ pagination_label: Lookupstep
 sidebar_label: Lookupstep
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Lookupstep', 'Lookupstep'] 
-slug: /tools/sdk/powershell/workreassignmentv1/models/lookupstep
+slug: /tools/sdk/powershell/workreassignment/models/lookupstep
 tags: ['SDK', 'Software Development Kit', 'Lookupstep', 'Lookupstep']
 ---
 

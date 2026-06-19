@@ -5,7 +5,7 @@ pagination_label: Accountcreated
 sidebar_label: Accountcreated
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountcreated', 'Accountcreated'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountcreated
+slug: /tools/sdk/powershell/triggers/models/accountcreated
 tags: ['SDK', 'Software Development Kit', 'Accountcreated', 'Accountcreated']
 ---
 

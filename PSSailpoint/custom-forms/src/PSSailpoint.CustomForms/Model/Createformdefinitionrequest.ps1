@@ -60,7 +60,7 @@ function Initialize-Createformdefinitionrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Createformdefinitionrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Createformdefinitionrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Description -and $Description.length -gt 2000) {
@@ -122,7 +122,7 @@ function ConvertFrom-JsonToCreateformdefinitionrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Createformdefinitionrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Createformdefinitionrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

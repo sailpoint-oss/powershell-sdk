@@ -5,7 +5,7 @@ pagination_label: Uuidgenerator
 sidebar_label: Uuidgenerator
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Uuidgenerator', 'Uuidgenerator'] 
-slug: /tools/sdk/powershell/transformsv1/models/uuidgenerator
+slug: /tools/sdk/powershell/transforms/models/uuidgenerator
 tags: ['SDK', 'Software Development Kit', 'Uuidgenerator', 'Uuidgenerator']
 ---
 

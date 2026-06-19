@@ -41,7 +41,7 @@ function Initialize-Errormessagedto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => Errormessagedto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => Errormessagedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToErrormessagedto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => Errormessagedto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => Errormessagedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

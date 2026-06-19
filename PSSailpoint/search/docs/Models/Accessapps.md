@@ -5,7 +5,7 @@ pagination_label: Accessapps
 sidebar_label: Accessapps
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessapps', 'Accessapps'] 
-slug: /tools/sdk/powershell/searchv1/models/accessapps
+slug: /tools/sdk/powershell/search/models/accessapps
 tags: ['SDK', 'Software Development Kit', 'Accessapps', 'Accessapps']
 ---
 

@@ -41,7 +41,7 @@ function Initialize-SodpolicyOwnerRef {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodPoliciesV1 => SodpolicyOwnerRef' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodPolicies => SodpolicyOwnerRef' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToSodpolicyOwnerRef {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodPoliciesV1 => SodpolicyOwnerRef' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodPolicies => SodpolicyOwnerRef' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

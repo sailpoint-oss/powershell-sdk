@@ -5,7 +5,7 @@ pagination_label: Accessrequestapproverslistresponse
 sidebar_label: Accessrequestapproverslistresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessrequestapproverslistresponse', 'Accessrequestapproverslistresponse'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/accessrequestapproverslistresponse
+slug: /tools/sdk/powershell/accessrequestapprovals/models/accessrequestapproverslistresponse
 tags: ['SDK', 'Software Development Kit', 'Accessrequestapproverslistresponse', 'Accessrequestapproverslistresponse']
 ---
 

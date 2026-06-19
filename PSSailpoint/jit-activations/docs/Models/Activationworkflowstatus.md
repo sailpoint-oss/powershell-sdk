@@ -5,7 +5,7 @@ pagination_label: Activationworkflowstatus
 sidebar_label: Activationworkflowstatus
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Activationworkflowstatus', 'Activationworkflowstatus'] 
-slug: /tools/sdk/powershell/jitactivationsv1/models/activationworkflowstatus
+slug: /tools/sdk/powershell/jitactivations/models/activationworkflowstatus
 tags: ['SDK', 'Software Development Kit', 'Activationworkflowstatus', 'Activationworkflowstatus']
 ---
 

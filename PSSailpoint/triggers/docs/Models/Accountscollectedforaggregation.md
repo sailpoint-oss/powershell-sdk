@@ -5,7 +5,7 @@ pagination_label: Accountscollectedforaggregation
 sidebar_label: Accountscollectedforaggregation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountscollectedforaggregation', 'Accountscollectedforaggregation'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountscollectedforaggregation
+slug: /tools/sdk/powershell/triggers/models/accountscollectedforaggregation
 tags: ['SDK', 'Software Development Kit', 'Accountscollectedforaggregation', 'Accountscollectedforaggregation']
 ---
 

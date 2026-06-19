@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#get-mfa-duo-config-v1
+      label: SDK_tools/sdk/powershell/mfaconfiguration/methods/mfa-configuration#get-mfa-duo-config-v1
       source: |
         
         # Configuration of duo mfa method
@@ -20,7 +20,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#get-mfa-kba-config-v1
+      label: SDK_tools/sdk/powershell/mfaconfiguration/methods/mfa-configuration#get-mfa-kba-config-v1
       source: |
         $AllLanguages = $false # Boolean | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false (optional)
         
@@ -39,7 +39,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#get-mfa-okta-config-v1
+      label: SDK_tools/sdk/powershell/mfaconfiguration/methods/mfa-configuration#get-mfa-okta-config-v1
       source: |
         
         # Configuration of okta mfa method
@@ -57,7 +57,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#set-mfa-duo-config-v1
+      label: SDK_tools/sdk/powershell/mfaconfiguration/methods/mfa-configuration#set-mfa-duo-config-v1
       source: |
         $Mfaduoconfig = @"
         {"mfaMethod":"duo-web","enabled":true,"host":"www.example.com","accessKey":"qw123Y3QlA5UqocYpdU3rEkzrK2D497y","identityAttribute":"email","configProperties":{"skey":"12q3WERlcUHWJmiMqyCXI3uOF7EaDJTbdeOp6E2B","ikey":"Q123WE45R6TY7890ZXCV"}}
@@ -79,9 +79,8 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#set-mfakba-config-v1
+      label: SDK_tools/sdk/powershell/mfaconfiguration/methods/mfa-configuration#set-mfakba-config-v1
       source: |
-        $Kbaanswerrequestitem = Initialize-Kbaanswerrequestitem -Id "c54fee53-2d63-4fc5-9259-3e93b9994135" -Answer "Your answer"# Kbaanswerrequestitem[] | 
         $Kbaanswerrequestitem = @"[{"id":"173423","answer":"822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34"},{"id":"c54fee53-2d63-4fc5-9259-3e93b9994135","answer":"9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"}]"@ 
         
         
@@ -101,7 +100,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#set-mfa-okta-config-v1
+      label: SDK_tools/sdk/powershell/mfaconfiguration/methods/mfa-configuration#set-mfa-okta-config-v1
       source: |
         $Mfaoktaconfig = @"
         {"mfaMethod":"okta-verify","enabled":true,"host":"www.example.com","accessKey":"dk778Y3QlA5UqocYpdU3rEkzrK2D497y","identityAttribute":"email"}
@@ -123,7 +122,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/mfaconfigurationv1/methods/mfa-configuration#test-mfa-config-v1
+      label: SDK_tools/sdk/powershell/mfaconfiguration/methods/mfa-configuration#test-mfa-config-v1
       source: |
         $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
         

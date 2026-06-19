@@ -5,7 +5,7 @@ pagination_label: Servicedeskintegrationtemplatedto
 sidebar_label: Servicedeskintegrationtemplatedto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Servicedeskintegrationtemplatedto', 'Servicedeskintegrationtemplatedto'] 
-slug: /tools/sdk/powershell/servicedeskintegrationv1/models/servicedeskintegrationtemplatedto
+slug: /tools/sdk/powershell/servicedeskintegration/models/servicedeskintegrationtemplatedto
 tags: ['SDK', 'Software Development Kit', 'Servicedeskintegrationtemplatedto', 'Servicedeskintegrationtemplatedto']
 ---
 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | Creation date of the Object | [optional] [readonly] 
 **Modified** | **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
 **Type** | **String** | The 'type' property specifies the type of the Service Desk integration template. | [required][default to "Web Service SDIM"]
-**Attributes** | [**map[string]AnyType**](any-type) | The 'attributes' property value is a map of attributes available for integrations using this Service Desk integration template. | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The 'attributes' property value is a map of attributes available for integrations using this Service Desk integration template. | [required]
 **ProvisioningConfig** | [**Provisioningconfig**](provisioningconfig) |  | [required]
 
 ## Examples

@@ -5,7 +5,7 @@ pagination_label: MachineidentityupdatedSingleValueAttributeChangesInner
 sidebar_label: MachineidentityupdatedSingleValueAttributeChangesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineidentityupdatedSingleValueAttributeChangesInner', 'MachineidentityupdatedSingleValueAttributeChangesInner'] 
-slug: /tools/sdk/powershell/triggersv1/models/machineidentityupdated-single-value-attribute-changes-inner
+slug: /tools/sdk/powershell/triggers/models/machineidentityupdated-single-value-attribute-changes-inner
 tags: ['SDK', 'Software Development Kit', 'MachineidentityupdatedSingleValueAttributeChangesInner', 'MachineidentityupdatedSingleValueAttributeChangesInner']
 ---
 

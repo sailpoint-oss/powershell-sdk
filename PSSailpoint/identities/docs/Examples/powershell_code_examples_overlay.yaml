@@ -2,7 +2,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#delete-identity-v1
+      label: SDK_tools/sdk/powershell/identities/methods/identities#delete-identity-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -22,7 +22,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#get-identity-ownership-details-v1
+      label: SDK_tools/sdk/powershell/identities/methods/identities#get-identity-ownership-details-v1
       source: |
         $IdentityId = "ff8081814d2a8036014d701f3fbf53fa" # String | Identity ID.
         
@@ -41,7 +41,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#get-identity-v1
+      label: SDK_tools/sdk/powershell/identities/methods/identities#get-identity-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
         
@@ -60,7 +60,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#get-role-assignment-v1
+      label: SDK_tools/sdk/powershell/identities/methods/identities#get-role-assignment-v1
       source: |
         $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
         $AssignmentId = "1cbb0705b38c4226b1334eadd8874086" # String | Assignment Id
@@ -80,7 +80,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#get-role-assignments-v1
+      label: SDK_tools/sdk/powershell/identities/methods/identities#get-role-assignments-v1
       source: |
         $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id to get the role assignments for
         $RoleId = "e7697a1e96d04db1ac7b0f4544915d2c" # String | Role Id to filter the role assignments with (optional)
@@ -101,7 +101,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#list-entitlements-by-identity-v1
+      label: SDK_tools/sdk/powershell/identities/methods/identities#list-entitlements-by-identity-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -123,7 +123,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#list-identities-v1
+      label: SDK_tools/sdk/powershell/identities/methods/identities#list-identities-v1
       source: |
         $Filters = "id eq "6c9079b270a266a60170a2779fcb0006" or correlated eq false" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional)
         $Sorters = "name,-cloudStatus" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional)
@@ -147,7 +147,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#reset-identity-v1
+      label: SDK_tools/sdk/powershell/identities/methods/identities#reset-identity-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
         
@@ -166,7 +166,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#send-identity-verification-account-token-v1
+      label: SDK_tools/sdk/powershell/identities/methods/identities#send-identity-verification-account-token-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
@@ -190,7 +190,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#start-identities-invite-v1
+      label: SDK_tools/sdk/powershell/identities/methods/identities#start-identities-invite-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Inviteidentitiesrequest = @"
@@ -213,7 +213,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#start-identity-processing-v1
+      label: SDK_tools/sdk/powershell/identities/methods/identities#start-identity-processing-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Processidentitiesrequest = @"
@@ -236,7 +236,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/identitiesv1/methods/identities#synchronize-attributes-for-identity-v1
+      label: SDK_tools/sdk/powershell/identities/methods/identities#synchronize-attributes-for-identity-v1
       source: |
         $IdentityId = "MyIdentityId" # String | The Identity id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")

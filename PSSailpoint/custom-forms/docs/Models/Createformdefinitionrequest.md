@@ -5,7 +5,7 @@ pagination_label: Createformdefinitionrequest
 sidebar_label: Createformdefinitionrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Createformdefinitionrequest', 'Createformdefinitionrequest'] 
-slug: /tools/sdk/powershell/customformsv1/models/createformdefinitionrequest
+slug: /tools/sdk/powershell/customforms/models/createformdefinitionrequest
 tags: ['SDK', 'Software Development Kit', 'Createformdefinitionrequest', 'Createformdefinitionrequest']
 ---
 

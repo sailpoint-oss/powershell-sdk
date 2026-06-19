@@ -51,7 +51,7 @@ function Initialize-Emailstatusdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => Emailstatusdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => Emailstatusdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToEmailstatusdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => Emailstatusdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => Emailstatusdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

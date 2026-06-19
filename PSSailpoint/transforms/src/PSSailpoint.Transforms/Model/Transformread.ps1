@@ -51,7 +51,7 @@ function Initialize-Transformread {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Transformread' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Transformread' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -115,7 +115,7 @@ function ConvertFrom-JsonToTransformread {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Transformread' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Transformread' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

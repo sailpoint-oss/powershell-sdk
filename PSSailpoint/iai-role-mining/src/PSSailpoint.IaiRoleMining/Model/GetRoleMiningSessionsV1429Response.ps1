@@ -30,7 +30,7 @@ function Initialize-GetRoleMiningSessionsV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRoleMiningV1 => GetRoleMiningSessionsV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRoleMining => GetRoleMiningSessionsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetRoleMiningSessionsV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMiningV1 => GetRoleMiningSessionsV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMining => GetRoleMiningSessionsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

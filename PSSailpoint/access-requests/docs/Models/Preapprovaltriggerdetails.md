@@ -5,7 +5,7 @@ pagination_label: Preapprovaltriggerdetails
 sidebar_label: Preapprovaltriggerdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Preapprovaltriggerdetails', 'Preapprovaltriggerdetails'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/preapprovaltriggerdetails
+slug: /tools/sdk/powershell/accessrequests/models/preapprovaltriggerdetails
 tags: ['SDK', 'Software Development Kit', 'Preapprovaltriggerdetails', 'Preapprovaltriggerdetails']
 ---
 

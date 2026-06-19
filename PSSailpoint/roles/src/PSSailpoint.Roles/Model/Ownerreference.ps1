@@ -41,7 +41,7 @@ function Initialize-Ownerreference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Ownerreference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Ownerreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToOwnerreference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Ownerreference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Ownerreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

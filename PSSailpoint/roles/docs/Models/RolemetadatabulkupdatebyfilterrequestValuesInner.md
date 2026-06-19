@@ -5,7 +5,7 @@ pagination_label: RolemetadatabulkupdatebyfilterrequestValuesInner
 sidebar_label: RolemetadatabulkupdatebyfilterrequestValuesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RolemetadatabulkupdatebyfilterrequestValuesInner', 'RolemetadatabulkupdatebyfilterrequestValuesInner'] 
-slug: /tools/sdk/powershell/rolesv1/models/rolemetadatabulkupdatebyfilterrequest-values-inner
+slug: /tools/sdk/powershell/roles/models/rolemetadatabulkupdatebyfilterrequest-values-inner
 tags: ['SDK', 'Software Development Kit', 'RolemetadatabulkupdatebyfilterrequestValuesInner', 'RolemetadatabulkupdatebyfilterrequestValuesInner']
 ---
 

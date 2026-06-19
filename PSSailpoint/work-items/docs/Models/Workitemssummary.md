@@ -5,7 +5,7 @@ pagination_label: Workitemssummary
 sidebar_label: Workitemssummary
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workitemssummary', 'Workitemssummary'] 
-slug: /tools/sdk/powershell/workitemsv1/models/workitemssummary
+slug: /tools/sdk/powershell/workitems/models/workitemssummary
 tags: ['SDK', 'Software Development Kit', 'Workitemssummary', 'Workitemssummary']
 ---
 

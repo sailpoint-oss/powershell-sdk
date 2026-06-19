@@ -5,7 +5,7 @@ pagination_label: Loaduncorrelatedaccountstask
 sidebar_label: Loaduncorrelatedaccountstask
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Loaduncorrelatedaccountstask', 'Loaduncorrelatedaccountstask'] 
-slug: /tools/sdk/powershell/sourcesv1/models/loaduncorrelatedaccountstask
+slug: /tools/sdk/powershell/sources/models/loaduncorrelatedaccountstask
 tags: ['SDK', 'Software Development Kit', 'Loaduncorrelatedaccountstask', 'Loaduncorrelatedaccountstask']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Originalrequest
 sidebar_label: Originalrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Originalrequest', 'Originalrequest'] 
-slug: /tools/sdk/powershell/searchv1/models/originalrequest
+slug: /tools/sdk/powershell/search/models/originalrequest
 tags: ['SDK', 'Software Development Kit', 'Originalrequest', 'Originalrequest']
 ---
 

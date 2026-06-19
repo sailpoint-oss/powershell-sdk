@@ -5,7 +5,7 @@ pagination_label: Jitconfiguration
 sidebar_label: Jitconfiguration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Jitconfiguration', 'Jitconfiguration'] 
-slug: /tools/sdk/powershell/globaltenantsecuritysettingsv1/models/jitconfiguration
+slug: /tools/sdk/powershell/globaltenantsecuritysettings/models/jitconfiguration
 tags: ['SDK', 'Software Development Kit', 'Jitconfiguration', 'Jitconfiguration']
 ---
 

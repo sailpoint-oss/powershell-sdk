@@ -41,7 +41,7 @@ function Initialize-Sourcesyncjob {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Sourcesyncjob' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Sourcesyncjob' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToSourcesyncjob {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Sourcesyncjob' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Sourcesyncjob' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

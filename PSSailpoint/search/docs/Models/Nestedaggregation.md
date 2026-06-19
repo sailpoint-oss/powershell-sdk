@@ -5,7 +5,7 @@ pagination_label: Nestedaggregation
 sidebar_label: Nestedaggregation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Nestedaggregation', 'Nestedaggregation'] 
-slug: /tools/sdk/powershell/searchv1/models/nestedaggregation
+slug: /tools/sdk/powershell/search/models/nestedaggregation
 tags: ['SDK', 'Software Development Kit', 'Nestedaggregation', 'Nestedaggregation']
 ---
 

@@ -46,7 +46,7 @@ function Initialize-Formdefinitioninput {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Formdefinitioninput' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Formdefinitioninput' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToFormdefinitioninput {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Formdefinitioninput' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Formdefinitioninput' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

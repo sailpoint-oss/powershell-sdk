@@ -36,7 +36,7 @@ function Initialize-Reassignreference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => Reassignreference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => Reassignreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -81,7 +81,7 @@ function ConvertFrom-JsonToReassignreference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => Reassignreference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => Reassignreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

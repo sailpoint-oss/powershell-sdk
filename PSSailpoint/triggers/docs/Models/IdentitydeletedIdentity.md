@@ -5,7 +5,7 @@ pagination_label: IdentitydeletedIdentity
 sidebar_label: IdentitydeletedIdentity
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitydeletedIdentity', 'IdentitydeletedIdentity'] 
-slug: /tools/sdk/powershell/triggersv1/models/identitydeleted-identity
+slug: /tools/sdk/powershell/triggers/models/identitydeleted-identity
 tags: ['SDK', 'Software Development Kit', 'IdentitydeletedIdentity', 'IdentitydeletedIdentity']
 ---
 

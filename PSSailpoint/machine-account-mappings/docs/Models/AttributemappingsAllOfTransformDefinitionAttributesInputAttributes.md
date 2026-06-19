@@ -5,7 +5,7 @@ pagination_label: AttributemappingsAllOfTransformDefinitionAttributesInputAttrib
 sidebar_label: AttributemappingsAllOfTransformDefinitionAttributesInputAttributes
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AttributemappingsAllOfTransformDefinitionAttributesInputAttributes', 'AttributemappingsAllOfTransformDefinitionAttributesInputAttributes'] 
-slug: /tools/sdk/powershell/machineaccountmappingsv1/models/attributemappings-all-of-transform-definition-attributes-input-attributes
+slug: /tools/sdk/powershell/machineaccountmappings/models/attributemappings-all-of-transform-definition-attributes-input-attributes
 tags: ['SDK', 'Software Development Kit', 'AttributemappingsAllOfTransformDefinitionAttributesInputAttributes', 'AttributemappingsAllOfTransformDefinitionAttributesInputAttributes']
 ---
 

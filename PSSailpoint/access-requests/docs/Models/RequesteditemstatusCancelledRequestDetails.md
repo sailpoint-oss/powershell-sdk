@@ -5,7 +5,7 @@ pagination_label: RequesteditemstatusCancelledRequestDetails
 sidebar_label: RequesteditemstatusCancelledRequestDetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RequesteditemstatusCancelledRequestDetails', 'RequesteditemstatusCancelledRequestDetails'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/requesteditemstatus-cancelled-request-details
+slug: /tools/sdk/powershell/accessrequests/models/requesteditemstatus-cancelled-request-details
 tags: ['SDK', 'Software Development Kit', 'RequesteditemstatusCancelledRequestDetails', 'RequesteditemstatusCancelledRequestDetails']
 ---
 

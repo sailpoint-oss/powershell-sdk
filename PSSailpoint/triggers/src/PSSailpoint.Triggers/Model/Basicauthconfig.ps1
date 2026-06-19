@@ -35,7 +35,7 @@ function Initialize-Basicauthconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Basicauthconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Basicauthconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToBasicauthconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Basicauthconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Basicauthconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

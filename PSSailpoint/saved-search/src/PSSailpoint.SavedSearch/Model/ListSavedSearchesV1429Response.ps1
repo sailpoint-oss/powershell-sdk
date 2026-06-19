@@ -30,7 +30,7 @@ function Initialize-ListSavedSearchesV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SavedSearchV1 => ListSavedSearchesV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SavedSearch => ListSavedSearchesV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListSavedSearchesV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearchV1 => ListSavedSearchesV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearch => ListSavedSearchesV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

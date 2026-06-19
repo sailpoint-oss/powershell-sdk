@@ -35,7 +35,7 @@ function Initialize-Objectexportimportoptions {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SpConfigV1 => Objectexportimportoptions' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SpConfig => Objectexportimportoptions' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToObjectexportimportoptions {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SpConfigV1 => Objectexportimportoptions' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SpConfig => Objectexportimportoptions' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

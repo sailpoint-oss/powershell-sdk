@@ -36,7 +36,7 @@ function Initialize-LauncherReference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.LaunchersV1 => LauncherReference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Launchers => LauncherReference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToLauncherReference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.LaunchersV1 => LauncherReference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Launchers => LauncherReference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

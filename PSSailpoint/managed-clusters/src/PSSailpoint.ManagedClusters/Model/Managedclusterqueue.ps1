@@ -35,7 +35,7 @@ function Initialize-Managedclusterqueue {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClustersV1 => Managedclusterqueue' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClusters => Managedclusterqueue' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToManagedclusterqueue {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClustersV1 => Managedclusterqueue' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusters => Managedclusterqueue' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

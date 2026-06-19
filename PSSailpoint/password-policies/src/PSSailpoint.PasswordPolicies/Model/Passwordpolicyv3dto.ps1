@@ -180,7 +180,7 @@ function Initialize-Passwordpolicyv3dto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PasswordPoliciesV1 => Passwordpolicyv3dto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PasswordPolicies => Passwordpolicyv3dto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -246,7 +246,7 @@ function ConvertFrom-JsonToPasswordpolicyv3dto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PasswordPoliciesV1 => Passwordpolicyv3dto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PasswordPolicies => Passwordpolicyv3dto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

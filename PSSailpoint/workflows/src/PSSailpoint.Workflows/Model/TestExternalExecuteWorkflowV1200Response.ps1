@@ -30,7 +30,7 @@ function Initialize-TestExternalExecuteWorkflowV1200Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkflowsV1 => TestExternalExecuteWorkflowV1200Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Workflows => TestExternalExecuteWorkflowV1200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToTestExternalExecuteWorkflowV1200Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkflowsV1 => TestExternalExecuteWorkflowV1200Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Workflows => TestExternalExecuteWorkflowV1200Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

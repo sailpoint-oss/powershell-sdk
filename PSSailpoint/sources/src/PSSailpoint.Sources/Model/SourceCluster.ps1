@@ -41,7 +41,7 @@ function Initialize-SourceCluster {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => SourceCluster' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => SourceCluster' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToSourceCluster {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => SourceCluster' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => SourceCluster' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

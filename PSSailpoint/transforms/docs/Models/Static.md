@@ -5,7 +5,7 @@ pagination_label: Static
 sidebar_label: Static
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Static', 'Static'] 
-slug: /tools/sdk/powershell/transformsv1/models/static
+slug: /tools/sdk/powershell/transforms/models/static
 tags: ['SDK', 'Software Development Kit', 'Static', 'Static']
 ---
 

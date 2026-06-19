@@ -41,7 +41,7 @@ function Initialize-Sodreportresultdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodPoliciesV1 => Sodreportresultdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodPolicies => Sodreportresultdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToSodreportresultdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodPoliciesV1 => Sodreportresultdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodPolicies => Sodreportresultdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

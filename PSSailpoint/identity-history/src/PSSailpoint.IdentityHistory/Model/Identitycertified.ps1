@@ -65,7 +65,7 @@ function Initialize-Identitycertified {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Identitycertified' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Identitycertified' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$CertificationId) {
@@ -116,7 +116,7 @@ function ConvertFrom-JsonToIdentitycertified {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Identitycertified' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Identitycertified' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

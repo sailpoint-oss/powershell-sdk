@@ -65,7 +65,7 @@ function Initialize-Baseaccess {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Baseaccess' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Baseaccess' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToBaseaccess {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Baseaccess' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Baseaccess' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

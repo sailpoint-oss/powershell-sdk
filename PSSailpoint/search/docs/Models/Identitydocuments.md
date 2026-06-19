@@ -5,7 +5,7 @@ pagination_label: Identitydocuments
 sidebar_label: Identitydocuments
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitydocuments', 'Identitydocuments'] 
-slug: /tools/sdk/powershell/searchv1/models/identitydocuments
+slug: /tools/sdk/powershell/search/models/identitydocuments
 tags: ['SDK', 'Software Development Kit', 'Identitydocuments', 'Identitydocuments']
 ---
 
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **IsManager** | **Boolean** | Indicates whether the identity is a manager of other identities. | [optional] 
 **IdentityProfile** | [**IdentitydocumentAllOfIdentityProfile**](identitydocument-all-of-identity-profile) |  | [optional] 
 **Source** | [**IdentitydocumentAllOfSource**](identitydocument-all-of-source) |  | [optional] 
-**Attributes** | [**map[string]AnyType**](any-type) | Map or dictionary of key/value pairs. | [optional] 
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Map or dictionary of key/value pairs. | [optional] 
 **Disabled** | **Boolean** | Indicates whether the identity is disabled. | [optional] [default to $false]
 **Locked** | **Boolean** | Indicates whether the identity is locked. | [optional] [default to $false]
 **ProcessingState** | **String** | Identity's processing state. | [optional] 

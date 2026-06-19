@@ -5,7 +5,7 @@ pagination_label: Identitysyncjob
 sidebar_label: Identitysyncjob
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitysyncjob', 'Identitysyncjob'] 
-slug: /tools/sdk/powershell/identitiesv1/models/identitysyncjob
+slug: /tools/sdk/powershell/identities/models/identitysyncjob
 tags: ['SDK', 'Software Development Kit', 'Identitysyncjob', 'Identitysyncjob']
 ---
 

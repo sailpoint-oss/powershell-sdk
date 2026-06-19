@@ -5,7 +5,7 @@ pagination_label: Jwks
 sidebar_label: Jwks
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Jwks', 'Jwks'] 
-slug: /tools/sdk/powershell/sharedsignalsframeworkssfv1/models/jwks
+slug: /tools/sdk/powershell/sharedsignalsframeworkssf/models/jwks
 tags: ['SDK', 'Software Development Kit', 'Jwks', 'Jwks']
 ---
 

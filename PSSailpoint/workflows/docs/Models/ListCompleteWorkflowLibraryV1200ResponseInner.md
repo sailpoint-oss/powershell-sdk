@@ -5,7 +5,7 @@ pagination_label: ListCompleteWorkflowLibraryV1200ResponseInner
 sidebar_label: ListCompleteWorkflowLibraryV1200ResponseInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ListCompleteWorkflowLibraryV1200ResponseInner', 'ListCompleteWorkflowLibraryV1200ResponseInner'] 
-slug: /tools/sdk/powershell/workflowsv1/models/list-complete-workflow-library-v1200-response-inner
+slug: /tools/sdk/powershell/workflows/models/list-complete-workflow-library-v1200-response-inner
 tags: ['SDK', 'Software Development Kit', 'ListCompleteWorkflowLibraryV1200ResponseInner', 'ListCompleteWorkflowLibraryV1200ResponseInner']
 ---
 
@@ -27,8 +27,8 @@ Name | Type | Description | Notes
 **VersionNumber** | **Int32** | Version number | [optional] 
 **IsSimulationEnabled** | **Boolean** |  | [optional] 
 **IsDynamicSchema** | **Boolean** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
-**OutputSchema** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Example output schema | [optional] 
-**InputExample** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Example trigger payload if applicable | [optional] 
+**OutputSchema** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Example output schema | [optional] 
+**InputExample** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Example trigger payload if applicable | [optional] 
 
 ## Examples
 

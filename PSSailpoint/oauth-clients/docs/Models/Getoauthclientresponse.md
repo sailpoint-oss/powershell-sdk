@@ -5,7 +5,7 @@ pagination_label: Getoauthclientresponse
 sidebar_label: Getoauthclientresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Getoauthclientresponse', 'Getoauthclientresponse'] 
-slug: /tools/sdk/powershell/oauthclientsv1/models/getoauthclientresponse
+slug: /tools/sdk/powershell/oauthclients/models/getoauthclientresponse
 tags: ['SDK', 'Software Development Kit', 'Getoauthclientresponse', 'Getoauthclientresponse']
 ---
 

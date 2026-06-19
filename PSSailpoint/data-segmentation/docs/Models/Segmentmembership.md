@@ -5,7 +5,7 @@ pagination_label: Segmentmembership
 sidebar_label: Segmentmembership
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Segmentmembership', 'Segmentmembership'] 
-slug: /tools/sdk/powershell/datasegmentationv1/models/segmentmembership
+slug: /tools/sdk/powershell/datasegmentation/models/segmentmembership
 tags: ['SDK', 'Software Development Kit', 'Segmentmembership', 'Segmentmembership']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Importoptions
 sidebar_label: Importoptions
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Importoptions', 'Importoptions'] 
-slug: /tools/sdk/powershell/spconfigv1/models/importoptions
+slug: /tools/sdk/powershell/spconfig/models/importoptions
 tags: ['SDK', 'Software Development Kit', 'Importoptions', 'Importoptions']
 ---
 

@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineaccountcreationrequestv1/methods/machine-account-creation-request#create-machine-account-request-v1
+      label: SDK_tools/sdk/powershell/machineaccountcreationrequest/methods/machine-account-creation-request#create-machine-account-request-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Machineaccountcreaterequestinput = @"
@@ -25,7 +25,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineaccountcreationrequestv1/methods/machine-account-creation-request#get-create-machine-account-request-v1
+      label: SDK_tools/sdk/powershell/machineaccountcreationrequest/methods/machine-account-creation-request#get-create-machine-account-request-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $AccountRequestId = "gt38f94347e94562b5bb8424a56498d8" # String | Account Request ID
@@ -45,7 +45,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineaccountcreationrequestv1/methods/machine-account-creation-request#get-machine-account-create-access-info-v1
+      label: SDK_tools/sdk/powershell/machineaccountcreationrequest/methods/machine-account-creation-request#get-machine-account-create-access-info-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)

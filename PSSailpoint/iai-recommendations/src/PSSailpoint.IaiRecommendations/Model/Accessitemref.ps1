@@ -36,7 +36,7 @@ function Initialize-Accessitemref {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRecommendationsV1 => Accessitemref' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRecommendations => Accessitemref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToAccessitemref {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRecommendationsV1 => Accessitemref' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRecommendations => Accessitemref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

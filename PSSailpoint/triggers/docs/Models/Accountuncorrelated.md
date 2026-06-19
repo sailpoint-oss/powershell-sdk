@@ -5,7 +5,7 @@ pagination_label: Accountuncorrelated
 sidebar_label: Accountuncorrelated
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountuncorrelated', 'Accountuncorrelated'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountuncorrelated
+slug: /tools/sdk/powershell/triggers/models/accountuncorrelated
 tags: ['SDK', 'Software Development Kit', 'Accountuncorrelated', 'Accountuncorrelated']
 ---
 

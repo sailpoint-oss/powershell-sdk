@@ -5,7 +5,7 @@ pagination_label: Completedapprovalstate
 sidebar_label: Completedapprovalstate
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Completedapprovalstate', 'Completedapprovalstate'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/completedapprovalstate
+slug: /tools/sdk/powershell/accessrequestapprovals/models/completedapprovalstate
 tags: ['SDK', 'Software Development Kit', 'Completedapprovalstate', 'Completedapprovalstate']
 ---
 

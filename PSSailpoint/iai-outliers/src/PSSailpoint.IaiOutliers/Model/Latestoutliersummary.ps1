@@ -51,7 +51,7 @@ function Initialize-Latestoutliersummary {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiOutliersV1 => Latestoutliersummary' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiOutliers => Latestoutliersummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToLatestoutliersummary {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiOutliersV1 => Latestoutliersummary' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiOutliers => Latestoutliersummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

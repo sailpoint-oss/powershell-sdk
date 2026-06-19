@@ -5,7 +5,7 @@ pagination_label: Accessrecommendationmessage
 sidebar_label: Accessrecommendationmessage
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessrecommendationmessage', 'Accessrecommendationmessage'] 
-slug: /tools/sdk/powershell/iaiaccessrequestrecommendationsv1/models/accessrecommendationmessage
+slug: /tools/sdk/powershell/iaiaccessrequestrecommendations/models/accessrecommendationmessage
 tags: ['SDK', 'Software Development Kit', 'Accessrecommendationmessage', 'Accessrecommendationmessage']
 ---
 

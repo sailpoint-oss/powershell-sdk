@@ -5,7 +5,7 @@ pagination_label: AccountAllOfRecommendation
 sidebar_label: AccountAllOfRecommendation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAllOfRecommendation', 'AccountAllOfRecommendation'] 
-slug: /tools/sdk/powershell/accountsv1/models/account-all-of-recommendation
+slug: /tools/sdk/powershell/accounts/models/account-all-of-recommendation
 tags: ['SDK', 'Software Development Kit', 'AccountAllOfRecommendation', 'AccountAllOfRecommendation']
 ---
 

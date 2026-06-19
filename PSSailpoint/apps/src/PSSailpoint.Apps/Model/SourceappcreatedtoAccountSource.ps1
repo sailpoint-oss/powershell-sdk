@@ -40,7 +40,7 @@ function Initialize-SourceappcreatedtoAccountSource {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AppsV1 => SourceappcreatedtoAccountSource' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Apps => SourceappcreatedtoAccountSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -82,7 +82,7 @@ function ConvertFrom-JsonToSourceappcreatedtoAccountSource {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AppsV1 => SourceappcreatedtoAccountSource' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Apps => SourceappcreatedtoAccountSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

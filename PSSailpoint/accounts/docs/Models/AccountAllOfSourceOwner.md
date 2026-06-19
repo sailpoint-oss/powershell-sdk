@@ -5,7 +5,7 @@ pagination_label: AccountAllOfSourceOwner
 sidebar_label: AccountAllOfSourceOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountAllOfSourceOwner', 'AccountAllOfSourceOwner'] 
-slug: /tools/sdk/powershell/accountsv1/models/account-all-of-source-owner
+slug: /tools/sdk/powershell/accounts/models/account-all-of-source-owner
 tags: ['SDK', 'Software Development Kit', 'AccountAllOfSourceOwner', 'AccountAllOfSourceOwner']
 ---
 

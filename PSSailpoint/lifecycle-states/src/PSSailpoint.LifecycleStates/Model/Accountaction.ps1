@@ -46,7 +46,7 @@ function Initialize-Accountaction {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.LifecycleStatesV1 => Accountaction' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.LifecycleStates => Accountaction' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToAccountaction {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.LifecycleStatesV1 => Accountaction' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.LifecycleStates => Accountaction' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

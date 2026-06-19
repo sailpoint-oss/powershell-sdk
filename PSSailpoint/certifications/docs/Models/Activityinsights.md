@@ -5,7 +5,7 @@ pagination_label: Activityinsights
 sidebar_label: Activityinsights
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Activityinsights', 'Activityinsights'] 
-slug: /tools/sdk/powershell/certificationsv1/models/activityinsights
+slug: /tools/sdk/powershell/certifications/models/activityinsights
 tags: ['SDK', 'Software Development Kit', 'Activityinsights', 'Activityinsights']
 ---
 

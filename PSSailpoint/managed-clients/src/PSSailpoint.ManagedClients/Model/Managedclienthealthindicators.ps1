@@ -47,7 +47,7 @@ function Initialize-Managedclienthealthindicators {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClientsV1 => Managedclienthealthindicators' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClients => Managedclienthealthindicators' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Body) {
@@ -102,7 +102,7 @@ function ConvertFrom-JsonToManagedclienthealthindicators {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClientsV1 => Managedclienthealthindicators' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClients => Managedclienthealthindicators' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

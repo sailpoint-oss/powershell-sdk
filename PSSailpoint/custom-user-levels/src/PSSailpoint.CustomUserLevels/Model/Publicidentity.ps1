@@ -66,7 +66,7 @@ function Initialize-Publicidentity {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Publicidentity' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomUserLevels => Publicidentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -109,7 +109,7 @@ function ConvertFrom-JsonToPublicidentity {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Publicidentity' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevels => Publicidentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

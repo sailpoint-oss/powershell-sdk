@@ -5,7 +5,7 @@ pagination_label: Dimension
 sidebar_label: Dimension
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dimension', 'Dimension'] 
-slug: /tools/sdk/powershell/dimensionsv1/models/dimension
+slug: /tools/sdk/powershell/dimensions/models/dimension
 tags: ['SDK', 'Software Development Kit', 'Dimension', 'Dimension']
 ---
 

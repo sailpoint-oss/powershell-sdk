@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#add-access-request-recommendations-ignored-item-v1
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-ignored-item-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Accessrequestrecommendationactionitemdto = @"
@@ -25,7 +25,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#add-access-request-recommendations-requested-item-v1
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-requested-item-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Accessrequestrecommendationactionitemdto = @"
@@ -48,7 +48,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#add-access-request-recommendations-viewed-item-v1
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-viewed-item-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Accessrequestrecommendationactionitemdto = @"
@@ -71,11 +71,9 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#add-access-request-recommendations-viewed-items-v1
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-viewed-items-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Accessrequestrecommendationitem = Initialize-Accessrequestrecommendationitem -Id "2c9180835d2e5168015d32f890ca1581" -Type "ACCESS_PROFILE"
-$Accessrequestrecommendationactionitemdto = Initialize-Accessrequestrecommendationactionitemdto -IdentityId "2c91808570313110017040b06f344ec9" -Access $Accessrequestrecommendationitem# Accessrequestrecommendationactionitemdto[] | The recommended access items that were viewed for an identity.
         $Accessrequestrecommendationactionitemdto = @""@ 
         
         
@@ -95,7 +93,7 @@ $Accessrequestrecommendationactionitemdto = Initialize-Accessrequestrecommendati
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#get-access-request-recommendations-config-v1
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-config-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
@@ -114,7 +112,7 @@ $Accessrequestrecommendationactionitemdto = Initialize-Accessrequestrecommendati
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#get-access-request-recommendations-ignored-items-v1
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-ignored-items-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -138,7 +136,7 @@ $Accessrequestrecommendationactionitemdto = Initialize-Accessrequestrecommendati
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#get-access-request-recommendations-requested-items-v1
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-requested-items-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -162,7 +160,7 @@ $Accessrequestrecommendationactionitemdto = Initialize-Accessrequestrecommendati
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#get-access-request-recommendations-v1
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentityId = "2c91808570313110017040b06f344ec9" # String | Get access request recommendations for an identityId. *me* indicates the current user. (optional) (default to "me")
@@ -188,7 +186,7 @@ $Accessrequestrecommendationactionitemdto = Initialize-Accessrequestrecommendati
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#get-access-request-recommendations-viewed-items-v1
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-viewed-items-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -212,7 +210,7 @@ $Accessrequestrecommendationactionitemdto = Initialize-Accessrequestrecommendati
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendationsv1/methods/iai-access-request-recommendations#set-access-request-recommendations-config-v1
+      label: SDK_tools/sdk/powershell/iaiaccessrequestrecommendations/methods/iai-access-request-recommendations#set-access-request-recommendations-config-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Accessrequestrecommendationconfigdto = @"

@@ -5,7 +5,7 @@ pagination_label: GetActiveCampaignsV1200ResponseInner
 sidebar_label: GetActiveCampaignsV1200ResponseInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetActiveCampaignsV1200ResponseInner', 'GetActiveCampaignsV1200ResponseInner'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/get-active-campaigns-v1200-response-inner
+slug: /tools/sdk/powershell/certificationcampaigns/models/get-active-campaigns-v1200-response-inner
 tags: ['SDK', 'Software Development Kit', 'GetActiveCampaignsV1200ResponseInner', 'GetActiveCampaignsV1200ResponseInner']
 ---
 

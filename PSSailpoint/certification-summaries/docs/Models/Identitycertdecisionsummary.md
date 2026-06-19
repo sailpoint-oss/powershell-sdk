@@ -5,7 +5,7 @@ pagination_label: Identitycertdecisionsummary
 sidebar_label: Identitycertdecisionsummary
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitycertdecisionsummary', 'Identitycertdecisionsummary'] 
-slug: /tools/sdk/powershell/certificationsummariesv1/models/identitycertdecisionsummary
+slug: /tools/sdk/powershell/certificationsummaries/models/identitycertdecisionsummary
 tags: ['SDK', 'Software Development Kit', 'Identitycertdecisionsummary', 'Identitycertdecisionsummary']
 ---
 

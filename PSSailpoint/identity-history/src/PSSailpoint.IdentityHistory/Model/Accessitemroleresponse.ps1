@@ -65,7 +65,7 @@ function Initialize-Accessitemroleresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessitemroleresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Accessitemroleresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Revocable) {
@@ -112,7 +112,7 @@ function ConvertFrom-JsonToAccessitemroleresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessitemroleresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Accessitemroleresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

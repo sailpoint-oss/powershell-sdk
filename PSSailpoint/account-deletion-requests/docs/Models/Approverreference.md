@@ -5,7 +5,7 @@ pagination_label: Approverreference
 sidebar_label: Approverreference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approverreference', 'Approverreference'] 
-slug: /tools/sdk/powershell/accountdeletionrequestsv1/models/approverreference
+slug: /tools/sdk/powershell/accountdeletionrequests/models/approverreference
 tags: ['SDK', 'Software Development Kit', 'Approverreference', 'Approverreference']
 ---
 

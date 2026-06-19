@@ -5,7 +5,7 @@ pagination_label: ImportNonEmployeeRecordsInBulkV1Request
 sidebar_label: ImportNonEmployeeRecordsInBulkV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ImportNonEmployeeRecordsInBulkV1Request', 'ImportNonEmployeeRecordsInBulkV1Request'] 
-slug: /tools/sdk/powershell/nonemployeelifecyclemanagementv1/models/import-non-employee-records-in-bulk-v1-request
+slug: /tools/sdk/powershell/nonemployeelifecyclemanagement/models/import-non-employee-records-in-bulk-v1-request
 tags: ['SDK', 'Software Development Kit', 'ImportNonEmployeeRecordsInBulkV1Request', 'ImportNonEmployeeRecordsInBulkV1Request']
 ---
 

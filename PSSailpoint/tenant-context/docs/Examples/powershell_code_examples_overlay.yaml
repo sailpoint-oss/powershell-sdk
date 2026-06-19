@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/tenantcontextv1/methods/tenant-context#get-tenant-context-v1
+      label: SDK_tools/sdk/powershell/tenantcontext/methods/tenant-context#get-tenant-context-v1
       source: |
         
         # Retrieve tenant context
@@ -20,7 +20,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/tenantcontextv1/methods/tenant-context#patch-tenant-context-v1
+      label: SDK_tools/sdk/powershell/tenantcontext/methods/tenant-context#patch-tenant-context-v1
       source: |
         $Jsonpatchoperation = @"
         [{"op":"add","path":"/Key/IAS","value":"Integrated Automation System"},{"op":"replace","path":"/Key/IAS","value":"International Accounting Standards"},{"op":"remove","path":"/Key/NDR"}]

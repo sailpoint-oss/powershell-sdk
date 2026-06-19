@@ -5,7 +5,7 @@ pagination_label: Sourcecode
 sidebar_label: Sourcecode
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourcecode', 'Sourcecode'] 
-slug: /tools/sdk/powershell/connectorrulemanagementv1/models/sourcecode
+slug: /tools/sdk/powershell/connectorrulemanagement/models/sourcecode
 tags: ['SDK', 'Software Development Kit', 'Sourcecode', 'Sourcecode']
 ---
 

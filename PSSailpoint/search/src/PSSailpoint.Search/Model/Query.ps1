@@ -45,7 +45,7 @@ function Initialize-Query {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Query' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Query' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToQuery {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Query' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Query' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

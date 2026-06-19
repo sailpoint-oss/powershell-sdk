@@ -45,7 +45,7 @@ function Initialize-Accessrequestdynamicapprover {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Accessrequestdynamicapprover' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Accessrequestdynamicapprover' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AccessRequestId) {
@@ -116,7 +116,7 @@ function ConvertFrom-JsonToAccessrequestdynamicapprover {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Accessrequestdynamicapprover' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Accessrequestdynamicapprover' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

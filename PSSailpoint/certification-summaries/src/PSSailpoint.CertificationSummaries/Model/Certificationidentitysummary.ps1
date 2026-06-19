@@ -45,7 +45,7 @@ function Initialize-Certificationidentitysummary {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationSummariesV1 => Certificationidentitysummary' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationSummaries => Certificationidentitysummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToCertificationidentitysummary {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationSummariesV1 => Certificationidentitysummary' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationSummaries => Certificationidentitysummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

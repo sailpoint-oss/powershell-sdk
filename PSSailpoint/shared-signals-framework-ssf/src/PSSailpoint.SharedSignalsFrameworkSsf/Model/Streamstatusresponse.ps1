@@ -41,7 +41,7 @@ function Initialize-Streamstatusresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsfV1 => Streamstatusresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsf => Streamstatusresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToStreamstatusresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsfV1 => Streamstatusresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SharedSignalsFrameworkSsf => Streamstatusresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

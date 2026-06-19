@@ -35,7 +35,7 @@ function Initialize-Nestedaggregation {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Nestedaggregation' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessModelMetadata => Nestedaggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToNestedaggregation {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Nestedaggregation' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadata => Nestedaggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

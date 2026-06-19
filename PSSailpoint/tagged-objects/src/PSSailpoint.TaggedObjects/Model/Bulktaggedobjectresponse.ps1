@@ -35,7 +35,7 @@ function Initialize-Bulktaggedobjectresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TaggedObjectsV1 => Bulktaggedobjectresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.TaggedObjects => Bulktaggedobjectresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToBulktaggedobjectresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TaggedObjectsV1 => Bulktaggedobjectresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.TaggedObjects => Bulktaggedobjectresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

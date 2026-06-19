@@ -56,7 +56,7 @@ function Initialize-Accessitemremoved {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessitemremoved' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Accessitemremoved' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AccessItem) {
@@ -101,7 +101,7 @@ function ConvertFrom-JsonToAccessitemremoved {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessitemremoved' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Accessitemremoved' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

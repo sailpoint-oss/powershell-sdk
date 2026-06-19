@@ -5,7 +5,7 @@ pagination_label: Rolecriteriakeytype
 sidebar_label: Rolecriteriakeytype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Rolecriteriakeytype', 'Rolecriteriakeytype'] 
-slug: /tools/sdk/powershell/rolesv1/models/rolecriteriakeytype
+slug: /tools/sdk/powershell/roles/models/rolecriteriakeytype
 tags: ['SDK', 'Software Development Kit', 'Rolecriteriakeytype', 'Rolecriteriakeytype']
 ---
 

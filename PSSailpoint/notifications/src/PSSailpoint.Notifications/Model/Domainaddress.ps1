@@ -30,7 +30,7 @@ function Initialize-Domainaddress {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => Domainaddress' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => Domainaddress' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToDomainaddress {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => Domainaddress' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => Domainaddress' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

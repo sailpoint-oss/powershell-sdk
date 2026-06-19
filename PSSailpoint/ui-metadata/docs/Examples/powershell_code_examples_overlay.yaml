@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/uimetadatav1/methods/ui-metadata#get-tenant-ui-metadata-v1
+      label: SDK_tools/sdk/powershell/uimetadata/methods/ui-metadata#get-tenant-ui-metadata-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
@@ -21,7 +21,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/uimetadatav1/methods/ui-metadata#set-tenant-ui-metadata-v1
+      label: SDK_tools/sdk/powershell/uimetadata/methods/ui-metadata#set-tenant-ui-metadata-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Tenantuimetadataitemupdaterequest = @"

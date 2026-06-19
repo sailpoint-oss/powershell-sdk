@@ -30,7 +30,7 @@ function Initialize-ListRolesV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => ListRolesV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => ListRolesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListRolesV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => ListRolesV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => ListRolesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: ListWorkflowsV1429Response
 sidebar_label: ListWorkflowsV1429Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ListWorkflowsV1429Response', 'ListWorkflowsV1429Response'] 
-slug: /tools/sdk/powershell/workflowsv1/models/list-workflows-v1429-response
+slug: /tools/sdk/powershell/workflows/models/list-workflows-v1429-response
 tags: ['SDK', 'Software Development Kit', 'ListWorkflowsV1429Response', 'ListWorkflowsV1429Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ListWorkflowsV1429Response', 'ListWor
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**Message** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

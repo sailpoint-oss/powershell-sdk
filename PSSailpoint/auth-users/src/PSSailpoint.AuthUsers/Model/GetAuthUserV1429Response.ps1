@@ -30,7 +30,7 @@ function Initialize-GetAuthUserV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AuthUsersV1 => GetAuthUserV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AuthUsers => GetAuthUserV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetAuthUserV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AuthUsersV1 => GetAuthUserV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AuthUsers => GetAuthUserV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

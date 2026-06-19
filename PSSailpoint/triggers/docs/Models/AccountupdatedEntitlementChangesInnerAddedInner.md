@@ -5,7 +5,7 @@ pagination_label: AccountupdatedEntitlementChangesInnerAddedInner
 sidebar_label: AccountupdatedEntitlementChangesInnerAddedInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountupdatedEntitlementChangesInnerAddedInner', 'AccountupdatedEntitlementChangesInnerAddedInner'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountupdated-entitlement-changes-inner-added-inner
+slug: /tools/sdk/powershell/triggers/models/accountupdated-entitlement-changes-inner-added-inner
 tags: ['SDK', 'Software Development Kit', 'AccountupdatedEntitlementChangesInnerAddedInner', 'AccountupdatedEntitlementChangesInnerAddedInner']
 ---
 

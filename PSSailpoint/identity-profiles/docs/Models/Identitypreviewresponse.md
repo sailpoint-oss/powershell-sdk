@@ -5,7 +5,7 @@ pagination_label: Identitypreviewresponse
 sidebar_label: Identitypreviewresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitypreviewresponse', 'Identitypreviewresponse'] 
-slug: /tools/sdk/powershell/identityprofilesv1/models/identitypreviewresponse
+slug: /tools/sdk/powershell/identityprofiles/models/identitypreviewresponse
 tags: ['SDK', 'Software Development Kit', 'Identitypreviewresponse', 'Identitypreviewresponse']
 ---
 

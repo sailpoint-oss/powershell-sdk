@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaicommonaccessv1/methods/iai-common-access#create-common-access-v1
+      label: SDK_tools/sdk/powershell/iaicommonaccess/methods/iai-common-access#create-common-access-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Commonaccessitemrequest = @"
@@ -25,7 +25,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaicommonaccessv1/methods/iai-common-access#get-common-access-v1
+      label: SDK_tools/sdk/powershell/iaicommonaccess/methods/iai-common-access#get-common-access-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -49,10 +49,9 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaicommonaccessv1/methods/iai-common-access#update-common-access-status-in-bulk-v1
+      label: SDK_tools/sdk/powershell/iaicommonaccess/methods/iai-common-access#update-common-access-status-in-bulk-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Commonaccessidstatus = Initialize-Commonaccessidstatus -ConfirmedIds "MyConfirmedIds" -DeniedIds "MyDeniedIds"# Commonaccessidstatus[] | Confirm or deny in bulk the common access ids that are (or aren't) common access
         $Commonaccessidstatus = @""@ 
         
         

@@ -50,7 +50,7 @@ function Initialize-Searchaggregationspecification {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Searchaggregationspecification' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Searchaggregationspecification' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToSearchaggregationspecification {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Searchaggregationspecification' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Searchaggregationspecification' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -60,7 +60,7 @@ function Initialize-Typeaheadquery {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Typeaheadquery' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Typeaheadquery' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Query) {
@@ -122,7 +122,7 @@ function ConvertFrom-JsonToTypeaheadquery {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Typeaheadquery' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Typeaheadquery' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

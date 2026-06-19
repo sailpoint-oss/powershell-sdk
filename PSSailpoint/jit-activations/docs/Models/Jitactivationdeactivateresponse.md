@@ -5,7 +5,7 @@ pagination_label: Jitactivationdeactivateresponse
 sidebar_label: Jitactivationdeactivateresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Jitactivationdeactivateresponse', 'Jitactivationdeactivateresponse'] 
-slug: /tools/sdk/powershell/jitactivationsv1/models/jitactivationdeactivateresponse
+slug: /tools/sdk/powershell/jitactivations/models/jitactivationdeactivateresponse
 tags: ['SDK', 'Software Development Kit', 'Jitactivationdeactivateresponse', 'Jitactivationdeactivateresponse']
 ---
 

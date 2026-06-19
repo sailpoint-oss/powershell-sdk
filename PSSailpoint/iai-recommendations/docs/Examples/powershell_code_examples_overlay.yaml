@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairecommendationsv1/methods/iai-recommendations#get-recommendations-config-v1
+      label: SDK_tools/sdk/powershell/iairecommendations/methods/iai-recommendations#get-recommendations-config-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
@@ -21,7 +21,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairecommendationsv1/methods/iai-recommendations#get-recommendations-v1
+      label: SDK_tools/sdk/powershell/iairecommendations/methods/iai-recommendations#get-recommendations-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Recommendationrequestdto = @"
@@ -44,7 +44,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairecommendationsv1/methods/iai-recommendations#update-recommendations-config-v1
+      label: SDK_tools/sdk/powershell/iairecommendations/methods/iai-recommendations#update-recommendations-config-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Recommendationconfigdto = @"

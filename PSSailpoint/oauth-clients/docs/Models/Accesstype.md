@@ -5,7 +5,7 @@ pagination_label: Accesstype
 sidebar_label: Accesstype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accesstype', 'Accesstype'] 
-slug: /tools/sdk/powershell/oauthclientsv1/models/accesstype
+slug: /tools/sdk/powershell/oauthclients/models/accesstype
 tags: ['SDK', 'Software Development Kit', 'Accesstype', 'Accesstype']
 ---
 

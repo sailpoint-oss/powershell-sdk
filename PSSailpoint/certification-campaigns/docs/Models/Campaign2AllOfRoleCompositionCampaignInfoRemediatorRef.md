@@ -5,7 +5,7 @@ pagination_label: Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef
 sidebar_label: Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef', 'Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/campaign2-all-of-role-composition-campaign-info-remediator-ref
+slug: /tools/sdk/powershell/certificationcampaigns/models/campaign2-all-of-role-composition-campaign-info-remediator-ref
 tags: ['SDK', 'Software Development Kit', 'Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef', 'Campaign2AllOfRoleCompositionCampaignInfoRemediatorRef']
 ---
 

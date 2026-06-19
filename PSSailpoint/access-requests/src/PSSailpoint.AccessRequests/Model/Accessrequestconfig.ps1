@@ -16,14 +16,16 @@ No description available.
 
 .PARAMETER ApprovalsMustBeExternal
 If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn't an org admin.
+.PARAMETER AutoApprovalEnabled
+If this is true and the requester and reviewer are the same, the request is automatically approved.
 .PARAMETER ReauthorizationEnabled
 If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state.
 .PARAMETER RequestOnBehalfOfConfig
 No description available.
+.PARAMETER ApprovalReminderAndEscalationConfig
+No description available.
 .PARAMETER EntitlementRequestConfig
 No description available.
-.PARAMETER GovGroupVisibilityEnabled
-If this is true, requesters and requested-for users will be able to see the names of governance group members when a request is awaiting the group's approval. Up to the first 10 members of the group will be listed.
 .OUTPUTS
 
 Accessrequestconfig<PSCustomObject>
@@ -37,29 +39,33 @@ function Initialize-Accessrequestconfig {
         ${ApprovalsMustBeExternal} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
+        ${AutoApprovalEnabled} = $false,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
         ${ReauthorizationEnabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${RequestOnBehalfOfConfig},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${EntitlementRequestConfig},
+        ${ApprovalReminderAndEscalationConfig},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Boolean]]
-        ${GovGroupVisibilityEnabled} = $false
+        [PSCustomObject]
+        ${EntitlementRequestConfig}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Accessrequestconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Accessrequestconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
         $PSO = [PSCustomObject]@{
             "approvalsMustBeExternal" = ${ApprovalsMustBeExternal}
+            "autoApprovalEnabled" = ${AutoApprovalEnabled}
             "reauthorizationEnabled" = ${ReauthorizationEnabled}
             "requestOnBehalfOfConfig" = ${RequestOnBehalfOfConfig}
+            "approvalReminderAndEscalationConfig" = ${ApprovalReminderAndEscalationConfig}
             "entitlementRequestConfig" = ${EntitlementRequestConfig}
-            "govGroupVisibilityEnabled" = ${GovGroupVisibilityEnabled}
         }
 
         return $PSO
@@ -90,13 +96,13 @@ function ConvertFrom-JsonToAccessrequestconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Accessrequestconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Accessrequestconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Accessrequestconfig
-        $AllProperties = ("approvalsMustBeExternal", "reauthorizationEnabled", "requestOnBehalfOfConfig", "entitlementRequestConfig", "govGroupVisibilityEnabled")
+        $AllProperties = ("approvalsMustBeExternal", "autoApprovalEnabled", "reauthorizationEnabled", "requestOnBehalfOfConfig", "approvalReminderAndEscalationConfig", "entitlementRequestConfig")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -107,6 +113,12 @@ function ConvertFrom-JsonToAccessrequestconfig {
             $ApprovalsMustBeExternal = $null
         } else {
             $ApprovalsMustBeExternal = $JsonParameters.PSobject.Properties["approvalsMustBeExternal"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "autoApprovalEnabled"))) { #optional property not found
+            $AutoApprovalEnabled = $null
+        } else {
+            $AutoApprovalEnabled = $JsonParameters.PSobject.Properties["autoApprovalEnabled"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "reauthorizationEnabled"))) { #optional property not found
@@ -121,24 +133,25 @@ function ConvertFrom-JsonToAccessrequestconfig {
             $RequestOnBehalfOfConfig = $JsonParameters.PSobject.Properties["requestOnBehalfOfConfig"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "approvalReminderAndEscalationConfig"))) { #optional property not found
+            $ApprovalReminderAndEscalationConfig = $null
+        } else {
+            $ApprovalReminderAndEscalationConfig = $JsonParameters.PSobject.Properties["approvalReminderAndEscalationConfig"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "entitlementRequestConfig"))) { #optional property not found
             $EntitlementRequestConfig = $null
         } else {
             $EntitlementRequestConfig = $JsonParameters.PSobject.Properties["entitlementRequestConfig"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "govGroupVisibilityEnabled"))) { #optional property not found
-            $GovGroupVisibilityEnabled = $null
-        } else {
-            $GovGroupVisibilityEnabled = $JsonParameters.PSobject.Properties["govGroupVisibilityEnabled"].value
-        }
-
         $PSO = [PSCustomObject]@{
             "approvalsMustBeExternal" = ${ApprovalsMustBeExternal}
+            "autoApprovalEnabled" = ${AutoApprovalEnabled}
             "reauthorizationEnabled" = ${ReauthorizationEnabled}
             "requestOnBehalfOfConfig" = ${RequestOnBehalfOfConfig}
+            "approvalReminderAndEscalationConfig" = ${ApprovalReminderAndEscalationConfig}
             "entitlementRequestConfig" = ${EntitlementRequestConfig}
-            "govGroupVisibilityEnabled" = ${GovGroupVisibilityEnabled}
         }
 
         return $PSO

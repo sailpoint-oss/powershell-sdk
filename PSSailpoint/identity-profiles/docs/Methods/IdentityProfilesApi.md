@@ -5,7 +5,7 @@ pagination_label: IdentityProfiles
 sidebar_label: IdentityProfiles
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IdentityProfiles', 'IdentityProfiles'] 
-slug: /tools/sdk/powershell/identityprofilesv1/methods/identity-profiles
+slug: /tools/sdk/powershell/identityprofiles/methods/identity-profiles
 tags: ['SDK', 'Software Development Kit', 'IdentityProfiles', 'IdentityProfiles']
 ---
 
@@ -221,7 +221,7 @@ Code | Description  | Data Type
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = "id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne* (optional)
+$Filters = 'id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** (optional)
 
 # Export identity profiles
@@ -405,20 +405,11 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$IdentityprofileexportedobjectSelf = Initialize-IdentityprofileexportedobjectSelf -Type "ACCESS_PROFILE" -Id "2c9180835d191a86015d28455b4b232a" -Name "HR Active Directory"
 
-$IdentityprofileAllOfOwner = Initialize-IdentityprofileAllOfOwner -Type "IDENTITY" -Id "2c9180835d191a86015d28455b4b232a" -Name "William Wilson"
-$IdentityprofileAllOfAuthoritativeSource = Initialize-IdentityprofileAllOfAuthoritativeSource -Type "SOURCE" -Id "2c9180835d191a86015d28455b4b232a" -Name "HR Active Directory"
 
-$Transformdefinition = Initialize-Transformdefinition -Type "accountAttribute" -Attributes @{ key_example =  }
-$Identityattributetransform = Initialize-Identityattributetransform -IdentityAttributeName "email" -TransformDefinition $Transformdefinition
 
-$Identityattributeconfig = Initialize-Identityattributeconfig -Enabled $true -AttributeTransforms $Identityattributetransform
 
-$Identityexceptionreportreference = Initialize-Identityexceptionreportreference -TaskResultId "2b838de9-db9b-abcf-e646-d4f274ad4238" -ReportName "My annual report"
-$Identityprofile = Initialize-Identityprofile -Id "id12345" -Name "aName" -Created (Get-Date) -Modified (Get-Date) -Description "My custom flat file profile" -Owner $IdentityprofileAllOfOwner -Priority 10 -AuthoritativeSource $IdentityprofileAllOfAuthoritativeSource -IdentityRefreshRequired $true -IdentityCount 8 -IdentityAttributeConfig $Identityattributeconfig -IdentityExceptionReportReference $Identityexceptionreportreference -HasTimeBasedAttr $true
 
-$Identityprofileexportedobject = Initialize-Identityprofileexportedobject -Version 1 -Self $IdentityprofileexportedobjectSelf -Object $Identityprofile # Identityprofileexportedobject[] | Previously exported Identity Profiles.
  $Identityprofileexportedobject = @""@ # Identityprofileexportedobject[] | Previously exported Identity Profiles.
  
 
@@ -473,7 +464,7 @@ Code | Description  | Data Type
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = "id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
+$Filters = 'id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
 
 # List identity profiles
@@ -505,7 +496,7 @@ Param Type | Name | Data Type | Required  | Description
 Path   | IdentityProfileId | **String** | True  | The Identity Profile ID to be processed
 
 ### Return type
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -580,8 +571,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  $Jsonpatchoperation = @"[{"op":"add","path":"/identityAttributeConfig/attributeTransforms/0","value":{"identityAttributeName":"location","transformDefinition":{"type":"accountAttribute","attributes":{"sourceName":"Employees","attributeName":"location","sourceId":"2c91808878b7d63b0178c66ffcdc4ce4"}}}}]"@ # Jsonpatchoperation[] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 

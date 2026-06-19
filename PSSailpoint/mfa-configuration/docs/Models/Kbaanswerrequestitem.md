@@ -5,7 +5,7 @@ pagination_label: Kbaanswerrequestitem
 sidebar_label: Kbaanswerrequestitem
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Kbaanswerrequestitem', 'Kbaanswerrequestitem'] 
-slug: /tools/sdk/powershell/mfaconfigurationv1/models/kbaanswerrequestitem
+slug: /tools/sdk/powershell/mfaconfiguration/models/kbaanswerrequestitem
 tags: ['SDK', 'Software Development Kit', 'Kbaanswerrequestitem', 'Kbaanswerrequestitem']
 ---
 

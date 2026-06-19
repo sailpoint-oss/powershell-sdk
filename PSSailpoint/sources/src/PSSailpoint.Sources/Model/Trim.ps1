@@ -35,7 +35,7 @@ function Initialize-Trim {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Trim' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Trim' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToTrim {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Trim' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Trim' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

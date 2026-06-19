@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/transformsv1/methods/transforms#create-transform-v1
+      label: SDK_tools/sdk/powershell/transforms/methods/transforms#create-transform-v1
       source: |
         $Transform = @"
         {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM dd yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/transformsv1/methods/transforms#delete-transform-v1
+      label: SDK_tools/sdk/powershell/transforms/methods/transforms#delete-transform-v1
       source: |
         $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to delete
         
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/transformsv1/methods/transforms#get-transform-v1
+      label: SDK_tools/sdk/powershell/transforms/methods/transforms#get-transform-v1
       source: |
         $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retrieve
         
@@ -62,7 +62,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/transformsv1/methods/transforms#list-transforms-v1
+      label: SDK_tools/sdk/powershell/transforms/methods/transforms#list-transforms-v1
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -85,7 +85,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/transformsv1/methods/transforms#update-transform-v1
+      label: SDK_tools/sdk/powershell/transforms/methods/transforms#update-transform-v1
       source: |
         $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to update
         $Transform = @"

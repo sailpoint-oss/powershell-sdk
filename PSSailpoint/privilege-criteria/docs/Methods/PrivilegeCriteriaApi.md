@@ -5,7 +5,7 @@ pagination_label: PrivilegeCriteria
 sidebar_label: PrivilegeCriteria
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'PrivilegeCriteria', 'PrivilegeCriteria'] 
-slug: /tools/sdk/powershell/privilegecriteriav1/methods/privilege-criteria
+slug: /tools/sdk/powershell/privilegecriteria/methods/privilege-criteria
 tags: ['SDK', 'Software Development Kit', 'PrivilegeCriteria', 'PrivilegeCriteria']
 ---
 
@@ -190,7 +190,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = "type eq "CUSTOM" and sourceId eq "c42c45d8d7c04d2da64d215cd8c32f21"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq*  **sourceId**: *eq*  **privilegeLevel**: *eq*  **Supported composite operators**: *and*  All filter values are case-sensitive for this API.  For example, the following is valid: `?filters=type eq ""CUSTOM"" and sourceId eq ""2c91809175e6c63f0175fb5570220569""`
+$Filters = 'type eq "CUSTOM" and sourceId eq "c42c45d8d7c04d2da64d215cd8c32f21"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq*  **sourceId**: *eq*  **privilegeLevel**: *eq*  **Supported composite operators**: *and*  All filter values are case-sensitive for this API.  For example, the following is valid: `?filters=type eq ""CUSTOM"" and sourceId eq ""2c91809175e6c63f0175fb5570220569"'`
 
 # List privilege criteria
 

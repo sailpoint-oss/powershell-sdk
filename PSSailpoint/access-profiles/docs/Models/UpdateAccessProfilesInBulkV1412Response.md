@@ -5,7 +5,7 @@ pagination_label: UpdateAccessProfilesInBulkV1412Response
 sidebar_label: UpdateAccessProfilesInBulkV1412Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'UpdateAccessProfilesInBulkV1412Response', 'UpdateAccessProfilesInBulkV1412Response'] 
-slug: /tools/sdk/powershell/accessprofilesv1/models/update-access-profiles-in-bulk-v1412-response
+slug: /tools/sdk/powershell/accessprofiles/models/update-access-profiles-in-bulk-v1412-response
 tags: ['SDK', 'Software Development Kit', 'UpdateAccessProfilesInBulkV1412Response', 'UpdateAccessProfilesInBulkV1412Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'UpdateAccessProfilesInBulkV1412Respon
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**Message** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

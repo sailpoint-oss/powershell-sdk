@@ -5,7 +5,7 @@ pagination_label: Identitysyncpayload
 sidebar_label: Identitysyncpayload
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitysyncpayload', 'Identitysyncpayload'] 
-slug: /tools/sdk/powershell/identitiesv1/models/identitysyncpayload
+slug: /tools/sdk/powershell/identities/models/identitysyncpayload
 tags: ['SDK', 'Software Development Kit', 'Identitysyncpayload', 'Identitysyncpayload']
 ---
 

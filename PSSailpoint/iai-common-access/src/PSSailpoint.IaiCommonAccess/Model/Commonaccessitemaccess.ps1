@@ -56,7 +56,7 @@ function Initialize-Commonaccessitemaccess {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiCommonAccessV1 => Commonaccessitemaccess' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiCommonAccess => Commonaccessitemaccess' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -97,7 +97,7 @@ function ConvertFrom-JsonToCommonaccessitemaccess {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiCommonAccessV1 => Commonaccessitemaccess' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiCommonAccess => Commonaccessitemaccess' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

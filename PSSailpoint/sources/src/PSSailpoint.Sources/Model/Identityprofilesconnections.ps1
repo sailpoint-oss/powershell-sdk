@@ -40,7 +40,7 @@ function Initialize-Identityprofilesconnections {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Identityprofilesconnections' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Identityprofilesconnections' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToIdentityprofilesconnections {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Identityprofilesconnections' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Identityprofilesconnections' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

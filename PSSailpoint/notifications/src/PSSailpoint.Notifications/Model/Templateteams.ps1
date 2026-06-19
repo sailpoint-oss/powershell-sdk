@@ -80,7 +80,7 @@ function Initialize-Templateteams {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => Templateteams' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => Templateteams' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -126,7 +126,7 @@ function ConvertFrom-JsonToTemplateteams {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => Templateteams' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => Templateteams' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

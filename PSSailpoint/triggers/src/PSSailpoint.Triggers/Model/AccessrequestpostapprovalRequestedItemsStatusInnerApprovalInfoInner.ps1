@@ -46,7 +46,7 @@ function Initialize-AccessrequestpostapprovalRequestedItemsStatusInnerApprovalIn
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$ApprovalDecision) {
@@ -97,7 +97,7 @@ function ConvertFrom-JsonToAccessrequestpostapprovalRequestedItemsStatusInnerApp
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

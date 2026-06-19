@@ -45,7 +45,7 @@ function Initialize-Replace {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Replace' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Replace' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Regex) {
@@ -92,7 +92,7 @@ function ConvertFrom-JsonToReplace {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Replace' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Replace' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

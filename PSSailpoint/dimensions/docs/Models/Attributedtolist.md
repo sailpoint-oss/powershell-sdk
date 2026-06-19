@@ -5,7 +5,7 @@ pagination_label: Attributedtolist
 sidebar_label: Attributedtolist
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Attributedtolist', 'Attributedtolist'] 
-slug: /tools/sdk/powershell/dimensionsv1/models/attributedtolist
+slug: /tools/sdk/powershell/dimensions/models/attributedtolist
 tags: ['SDK', 'Software Development Kit', 'Attributedtolist', 'Attributedtolist']
 ---
 

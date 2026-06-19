@@ -5,7 +5,7 @@ pagination_label: Workflowlibrarytrigger
 sidebar_label: Workflowlibrarytrigger
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workflowlibrarytrigger', 'Workflowlibrarytrigger'] 
-slug: /tools/sdk/powershell/workflowsv1/models/workflowlibrarytrigger
+slug: /tools/sdk/powershell/workflows/models/workflowlibrarytrigger
 tags: ['SDK', 'Software Development Kit', 'Workflowlibrarytrigger', 'Workflowlibrarytrigger']
 ---
 
@@ -21,11 +21,11 @@ Name | Type | Description | Notes
 **Deprecated** | **Boolean** | Whether the trigger is deprecated. | [optional] [default to $false]
 **DeprecatedBy** | **System.DateTime** | Date the trigger was deprecated, if applicable. | [optional] 
 **IsSimulationEnabled** | **Boolean** | Whether the trigger can be simulated. | [optional] [default to $false]
-**OutputSchema** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Example output schema | [optional] 
+**OutputSchema** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Example output schema | [optional] 
 **Name** | **String** | Trigger Name | [optional] 
 **Description** | **String** | Trigger Description | [optional] 
 **IsDynamicSchema** | **Boolean** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] [default to $false]
-**InputExample** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Example trigger payload if applicable | [optional] 
+**InputExample** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Example trigger payload if applicable | [optional] 
 **FormFields** | [**[]Workflowlibraryformfields**](workflowlibraryformfields) | One or more inputs that the trigger accepts | [optional] 
 
 ## Examples

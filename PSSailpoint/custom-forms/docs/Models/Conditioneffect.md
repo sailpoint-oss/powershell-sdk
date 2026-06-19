@@ -5,7 +5,7 @@ pagination_label: Conditioneffect
 sidebar_label: Conditioneffect
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Conditioneffect', 'Conditioneffect'] 
-slug: /tools/sdk/powershell/customformsv1/models/conditioneffect
+slug: /tools/sdk/powershell/customforms/models/conditioneffect
 tags: ['SDK', 'Software Development Kit', 'Conditioneffect', 'Conditioneffect']
 ---
 

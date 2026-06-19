@@ -5,7 +5,7 @@ pagination_label: Resourceobjectsrequest
 sidebar_label: Resourceobjectsrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Resourceobjectsrequest', 'Resourceobjectsrequest'] 
-slug: /tools/sdk/powershell/sourcesv1/models/resourceobjectsrequest
+slug: /tools/sdk/powershell/sources/models/resourceobjectsrequest
 tags: ['SDK', 'Software Development Kit', 'Resourceobjectsrequest', 'Resourceobjectsrequest']
 ---
 

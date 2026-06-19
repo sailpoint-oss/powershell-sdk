@@ -5,7 +5,7 @@ pagination_label: Passwordpolicyholdersdtoattributes
 sidebar_label: Passwordpolicyholdersdtoattributes
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Passwordpolicyholdersdtoattributes', 'Passwordpolicyholdersdtoattributes'] 
-slug: /tools/sdk/powershell/sourcesv1/models/passwordpolicyholdersdtoattributes
+slug: /tools/sdk/powershell/sources/models/passwordpolicyholdersdtoattributes
 tags: ['SDK', 'Software Development Kit', 'Passwordpolicyholdersdtoattributes', 'Passwordpolicyholdersdtoattributes']
 ---
 

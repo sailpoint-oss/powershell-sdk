@@ -5,7 +5,7 @@ pagination_label: SetIconV1200Response
 sidebar_label: SetIconV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SetIconV1200Response', 'SetIconV1200Response'] 
-slug: /tools/sdk/powershell/iconsv1/models/set-icon-v1200-response
+slug: /tools/sdk/powershell/icons/models/set-icon-v1200-response
 tags: ['SDK', 'Software Development Kit', 'SetIconV1200Response', 'SetIconV1200Response']
 ---
 

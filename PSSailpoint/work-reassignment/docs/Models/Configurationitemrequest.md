@@ -5,7 +5,7 @@ pagination_label: Configurationitemrequest
 sidebar_label: Configurationitemrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Configurationitemrequest', 'Configurationitemrequest'] 
-slug: /tools/sdk/powershell/workreassignmentv1/models/configurationitemrequest
+slug: /tools/sdk/powershell/workreassignment/models/configurationitemrequest
 tags: ['SDK', 'Software Development Kit', 'Configurationitemrequest', 'Configurationitemrequest']
 ---
 

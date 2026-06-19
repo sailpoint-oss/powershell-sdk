@@ -5,7 +5,7 @@ pagination_label: Closeaccessrequest
 sidebar_label: Closeaccessrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Closeaccessrequest', 'Closeaccessrequest'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/closeaccessrequest
+slug: /tools/sdk/powershell/accessrequests/models/closeaccessrequest
 tags: ['SDK', 'Software Development Kit', 'Closeaccessrequest', 'Closeaccessrequest']
 ---
 

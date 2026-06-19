@@ -5,7 +5,7 @@ pagination_label: Nonemployeesourcewithnecount
 sidebar_label: Nonemployeesourcewithnecount
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Nonemployeesourcewithnecount', 'Nonemployeesourcewithnecount'] 
-slug: /tools/sdk/powershell/nonemployeelifecyclemanagementv1/models/nonemployeesourcewithnecount
+slug: /tools/sdk/powershell/nonemployeelifecyclemanagement/models/nonemployeesourcewithnecount
 tags: ['SDK', 'Software Development Kit', 'Nonemployeesourcewithnecount', 'Nonemployeesourcewithnecount']
 ---
 

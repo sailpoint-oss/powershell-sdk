@@ -5,7 +5,7 @@ pagination_label: Machineaccountcreateaccessdto
 sidebar_label: Machineaccountcreateaccessdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Machineaccountcreateaccessdto', 'Machineaccountcreateaccessdto'] 
-slug: /tools/sdk/powershell/machineaccountcreationrequestv1/models/machineaccountcreateaccessdto
+slug: /tools/sdk/powershell/machineaccountcreationrequest/models/machineaccountcreateaccessdto
 tags: ['SDK', 'Software Development Kit', 'Machineaccountcreateaccessdto', 'Machineaccountcreateaccessdto']
 ---
 

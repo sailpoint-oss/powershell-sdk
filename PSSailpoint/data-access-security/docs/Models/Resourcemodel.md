@@ -5,7 +5,7 @@ pagination_label: Resourcemodel
 sidebar_label: Resourcemodel
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Resourcemodel', 'Resourcemodel'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/resourcemodel
+slug: /tools/sdk/powershell/dataaccesssecurity/models/resourcemodel
 tags: ['SDK', 'Software Development Kit', 'Resourcemodel', 'Resourcemodel']
 ---
 

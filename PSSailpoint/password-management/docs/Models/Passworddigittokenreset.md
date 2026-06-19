@@ -5,7 +5,7 @@ pagination_label: Passworddigittokenreset
 sidebar_label: Passworddigittokenreset
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Passworddigittokenreset', 'Passworddigittokenreset'] 
-slug: /tools/sdk/powershell/passwordmanagementv1/models/passworddigittokenreset
+slug: /tools/sdk/powershell/passwordmanagement/models/passworddigittokenreset
 tags: ['SDK', 'Software Development Kit', 'Passworddigittokenreset', 'Passworddigittokenreset']
 ---
 

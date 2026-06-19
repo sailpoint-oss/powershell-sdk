@@ -5,7 +5,7 @@ pagination_label: ImportFormDefinitionsV1RequestInner
 sidebar_label: ImportFormDefinitionsV1RequestInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ImportFormDefinitionsV1RequestInner', 'ImportFormDefinitionsV1RequestInner'] 
-slug: /tools/sdk/powershell/customformsv1/models/import-form-definitions-v1-request-inner
+slug: /tools/sdk/powershell/customforms/models/import-form-definitions-v1-request-inner
 tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsV1RequestInner', 'ImportFormDefinitionsV1RequestInner']
 ---
 

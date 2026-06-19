@@ -5,7 +5,7 @@ pagination_label: Fielddetailsdto
 sidebar_label: Fielddetailsdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Fielddetailsdto', 'Fielddetailsdto'] 
-slug: /tools/sdk/powershell/sourcesv1/models/fielddetailsdto
+slug: /tools/sdk/powershell/sources/models/fielddetailsdto
 tags: ['SDK', 'Software Development Kit', 'Fielddetailsdto', 'Fielddetailsdto']
 ---
 
@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'Fielddetailsdto', 'Fielddetailsdto']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | The name of the attribute. | [optional] 
-**Transform** | [**SystemCollectionsHashtable**](system-collections-hashtable) | The transform to apply to the field | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Attributes required for the transform | [optional] 
+**Transform** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The transform to apply to the field | [optional] 
+**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Attributes required for the transform | [optional] 
 **IsRequired** | **Boolean** | Flag indicating whether or not the attribute is required. | [optional] [readonly] [default to $false]
 **Type** |  **Enum** [  "string",    "int",    "long",    "date",    "boolean",    "secret" ] | The type of the attribute.  string: For text-based data.  int: For whole numbers.  long: For larger whole numbers.  date: For date and time values.  boolean: For true/false values.  secret: For sensitive data like passwords, which will be masked and encrypted.  | [optional] 
 **IsMultiValued** | **Boolean** | Flag indicating whether or not the attribute is multi-valued. | [optional] [default to $false]

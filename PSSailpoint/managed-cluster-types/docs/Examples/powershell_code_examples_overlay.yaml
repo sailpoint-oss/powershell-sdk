@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/managedclustertypesv1/methods/managed-cluster-types#create-managed-cluster-type-v1
+      label: SDK_tools/sdk/powershell/managedclustertypes/methods/managed-cluster-types#create-managed-cluster-type-v1
       source: |
         $Managedclustertype = @"
         
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/managedclustertypesv1/methods/managed-cluster-types#delete-managed-cluster-type-v1
+      label: SDK_tools/sdk/powershell/managedclustertypes/methods/managed-cluster-types#delete-managed-cluster-type-v1
       source: |
         $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
         
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/managedclustertypesv1/methods/managed-cluster-types#get-managed-cluster-type-v1
+      label: SDK_tools/sdk/powershell/managedclustertypes/methods/managed-cluster-types#get-managed-cluster-type-v1
       source: |
         $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
         
@@ -62,7 +62,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/managedclustertypesv1/methods/managed-cluster-types#get-managed-cluster-types-v1
+      label: SDK_tools/sdk/powershell/managedclustertypes/methods/managed-cluster-types#get-managed-cluster-types-v1
       source: |
         $Type = "IDN" # String | Type descriptor (optional)
         $Pod = "megapod-useast1" # String | Pinned pod (or default) (optional)
@@ -85,7 +85,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/managedclustertypesv1/methods/managed-cluster-types#update-managed-cluster-type-v1
+      label: SDK_tools/sdk/powershell/managedclustertypes/methods/managed-cluster-types#update-managed-cluster-type-v1
       source: |
         $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
         $Jsonpatch = @"

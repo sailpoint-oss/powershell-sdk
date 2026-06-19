@@ -60,7 +60,7 @@ function Initialize-Accessrequestrecommendationitemdetail {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiAccessRequestRecommendationsV1 => Accessrequestrecommendationitemdetail' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiAccessRequestRecommendations => Accessrequestrecommendationitemdetail' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -102,7 +102,7 @@ function ConvertFrom-JsonToAccessrequestrecommendationitemdetail {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiAccessRequestRecommendationsV1 => Accessrequestrecommendationitemdetail' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiAccessRequestRecommendations => Accessrequestrecommendationitemdetail' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Expression
 sidebar_label: Expression
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Expression', 'Expression'] 
-slug: /tools/sdk/powershell/segmentsv1/models/expression
+slug: /tools/sdk/powershell/segments/models/expression
 tags: ['SDK', 'Software Development Kit', 'Expression', 'Expression']
 ---
 

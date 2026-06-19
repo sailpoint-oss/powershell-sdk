@@ -50,7 +50,7 @@ function Initialize-Processingdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Processingdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Processingdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToProcessingdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Processingdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Processingdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

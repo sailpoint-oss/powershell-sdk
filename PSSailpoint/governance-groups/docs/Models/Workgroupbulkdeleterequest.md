@@ -5,7 +5,7 @@ pagination_label: Workgroupbulkdeleterequest
 sidebar_label: Workgroupbulkdeleterequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workgroupbulkdeleterequest', 'Workgroupbulkdeleterequest'] 
-slug: /tools/sdk/powershell/governancegroupsv1/models/workgroupbulkdeleterequest
+slug: /tools/sdk/powershell/governancegroups/models/workgroupbulkdeleterequest
 tags: ['SDK', 'Software Development Kit', 'Workgroupbulkdeleterequest', 'Workgroupbulkdeleterequest']
 ---
 

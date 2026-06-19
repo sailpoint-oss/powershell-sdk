@@ -55,7 +55,7 @@ function Initialize-Accessrequestrecommendationconfigdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiAccessRequestRecommendationsV1 => Accessrequestrecommendationconfigdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiAccessRequestRecommendations => Accessrequestrecommendationconfigdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$ScoreThreshold) {
@@ -100,7 +100,7 @@ function ConvertFrom-JsonToAccessrequestrecommendationconfigdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiAccessRequestRecommendationsV1 => Accessrequestrecommendationconfigdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiAccessRequestRecommendations => Accessrequestrecommendationconfigdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

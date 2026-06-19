@@ -98,7 +98,7 @@ function Initialize-Taskresultdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => Taskresultdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ReportsDataExtraction => Taskresultdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -147,7 +147,7 @@ function ConvertFrom-JsonToTaskresultdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => Taskresultdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtraction => Taskresultdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

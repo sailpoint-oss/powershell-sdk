@@ -40,7 +40,7 @@ function Initialize-Spconfigmessage2 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SpConfigV1 => Spconfigmessage2' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SpConfig => Spconfigmessage2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Key) {
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToSpconfigmessage2 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SpConfigV1 => Spconfigmessage2' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SpConfig => Spconfigmessage2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

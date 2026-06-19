@@ -41,7 +41,7 @@ function Initialize-Transform {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Transform' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Transform' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -95,7 +95,7 @@ function ConvertFrom-JsonToTransform {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Transform' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Transform' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

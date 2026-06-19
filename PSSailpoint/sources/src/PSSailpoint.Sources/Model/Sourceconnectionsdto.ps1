@@ -60,7 +60,7 @@ function Initialize-Sourceconnectionsdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Sourceconnectionsdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Sourceconnectionsdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -102,7 +102,7 @@ function ConvertFrom-JsonToSourceconnectionsdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Sourceconnectionsdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Sourceconnectionsdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

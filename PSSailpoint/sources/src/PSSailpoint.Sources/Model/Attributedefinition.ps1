@@ -66,7 +66,7 @@ function Initialize-Attributedefinition {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Attributedefinition' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Attributedefinition' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -109,7 +109,7 @@ function ConvertFrom-JsonToAttributedefinition {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Attributedefinition' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Attributedefinition' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

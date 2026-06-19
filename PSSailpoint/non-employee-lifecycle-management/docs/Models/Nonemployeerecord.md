@@ -5,7 +5,7 @@ pagination_label: Nonemployeerecord
 sidebar_label: Nonemployeerecord
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Nonemployeerecord', 'Nonemployeerecord'] 
-slug: /tools/sdk/powershell/nonemployeelifecyclemanagementv1/models/nonemployeerecord
+slug: /tools/sdk/powershell/nonemployeelifecyclemanagement/models/nonemployeerecord
 tags: ['SDK', 'Software Development Kit', 'Nonemployeerecord', 'Nonemployeerecord']
 ---
 

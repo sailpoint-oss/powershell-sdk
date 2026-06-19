@@ -5,7 +5,7 @@ pagination_label: AccesssummaryAccess
 sidebar_label: AccesssummaryAccess
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccesssummaryAccess', 'AccesssummaryAccess'] 
-slug: /tools/sdk/powershell/certificationsummariesv1/models/accesssummary-access
+slug: /tools/sdk/powershell/certificationsummaries/models/accesssummary-access
 tags: ['SDK', 'Software Development Kit', 'AccesssummaryAccess', 'AccesssummaryAccess']
 ---
 

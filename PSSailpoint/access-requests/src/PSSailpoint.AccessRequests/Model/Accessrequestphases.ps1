@@ -57,7 +57,7 @@ function Initialize-Accessrequestphases {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Accessrequestphases' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Accessrequestphases' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToAccessrequestphases {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Accessrequestphases' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Accessrequestphases' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -55,7 +55,7 @@ function Initialize-Taskdefinitionsummary {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TaskManagementV1 => Taskdefinitionsummary' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.TaskManagement => Taskdefinitionsummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -112,7 +112,7 @@ function ConvertFrom-JsonToTaskdefinitionsummary {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TaskManagementV1 => Taskdefinitionsummary' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.TaskManagement => Taskdefinitionsummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

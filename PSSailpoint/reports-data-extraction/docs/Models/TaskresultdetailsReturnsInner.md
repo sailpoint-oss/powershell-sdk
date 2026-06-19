@@ -5,7 +5,7 @@ pagination_label: TaskresultdetailsReturnsInner
 sidebar_label: TaskresultdetailsReturnsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'TaskresultdetailsReturnsInner', 'TaskresultdetailsReturnsInner'] 
-slug: /tools/sdk/powershell/reportsdataextractionv1/models/taskresultdetails-returns-inner
+slug: /tools/sdk/powershell/reportsdataextraction/models/taskresultdetails-returns-inner
 tags: ['SDK', 'Software Development Kit', 'TaskresultdetailsReturnsInner', 'TaskresultdetailsReturnsInner']
 ---
 

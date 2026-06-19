@@ -55,7 +55,7 @@ function Initialize-Searchschedule {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ScheduledSearchV1 => Searchschedule' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ScheduledSearch => Searchschedule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$SavedSearchId) {
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToSearchschedule {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ScheduledSearchV1 => Searchschedule' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ScheduledSearch => Searchschedule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

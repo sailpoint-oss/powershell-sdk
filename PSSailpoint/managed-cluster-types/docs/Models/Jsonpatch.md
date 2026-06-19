@@ -5,7 +5,7 @@ pagination_label: Jsonpatch
 sidebar_label: Jsonpatch
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Jsonpatch', 'Jsonpatch'] 
-slug: /tools/sdk/powershell/managedclustertypesv1/models/jsonpatch
+slug: /tools/sdk/powershell/managedclustertypes/models/jsonpatch
 tags: ['SDK', 'Software Development Kit', 'Jsonpatch', 'Jsonpatch']
 ---
 

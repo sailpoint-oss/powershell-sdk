@@ -5,7 +5,7 @@ pagination_label: Errorresponsedto
 sidebar_label: Errorresponsedto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Errorresponsedto', 'Errorresponsedto'] 
-slug: /tools/sdk/powershell/sharedsignalsframeworkssfv1/models/errorresponsedto
+slug: /tools/sdk/powershell/sharedsignalsframeworkssf/models/errorresponsedto
 tags: ['SDK', 'Software Development Kit', 'Errorresponsedto', 'Errorresponsedto']
 ---
 

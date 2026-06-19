@@ -35,7 +35,7 @@ function Initialize-Publicidentityattributeconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PublicIdentitiesConfigV1 => Publicidentityattributeconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PublicIdentitiesConfig => Publicidentityattributeconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToPublicidentityattributeconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PublicIdentitiesConfigV1 => Publicidentityattributeconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PublicIdentitiesConfig => Publicidentityattributeconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

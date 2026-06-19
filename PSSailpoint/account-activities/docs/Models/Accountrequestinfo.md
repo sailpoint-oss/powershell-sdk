@@ -5,7 +5,7 @@ pagination_label: Accountrequestinfo
 sidebar_label: Accountrequestinfo
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountrequestinfo', 'Accountrequestinfo'] 
-slug: /tools/sdk/powershell/accountactivitiesv1/models/accountrequestinfo
+slug: /tools/sdk/powershell/accountactivities/models/accountrequestinfo
 tags: ['SDK', 'Software Development Kit', 'Accountrequestinfo', 'Accountrequestinfo']
 ---
 

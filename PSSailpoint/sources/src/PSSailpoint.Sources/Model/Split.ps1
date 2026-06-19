@@ -50,7 +50,7 @@ function Initialize-Split {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Split' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Split' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Delimiter) {
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToSplit {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Split' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Split' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

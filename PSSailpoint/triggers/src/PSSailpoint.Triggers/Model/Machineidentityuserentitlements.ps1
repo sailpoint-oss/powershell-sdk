@@ -40,7 +40,7 @@ function Initialize-Machineidentityuserentitlements {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Machineidentityuserentitlements' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Machineidentityuserentitlements' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$EntitlementId) {
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToMachineidentityuserentitlements {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Machineidentityuserentitlements' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Machineidentityuserentitlements' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

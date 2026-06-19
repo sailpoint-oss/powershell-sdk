@@ -5,7 +5,7 @@ pagination_label: Invocationstatustype
 sidebar_label: Invocationstatustype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Invocationstatustype', 'Invocationstatustype'] 
-slug: /tools/sdk/powershell/triggersv1/models/invocationstatustype
+slug: /tools/sdk/powershell/triggers/models/invocationstatustype
 tags: ['SDK', 'Software Development Kit', 'Invocationstatustype', 'Invocationstatustype']
 ---
 

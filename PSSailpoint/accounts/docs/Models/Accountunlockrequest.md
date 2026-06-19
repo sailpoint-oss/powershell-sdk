@@ -5,7 +5,7 @@ pagination_label: Accountunlockrequest
 sidebar_label: Accountunlockrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountunlockrequest', 'Accountunlockrequest'] 
-slug: /tools/sdk/powershell/accountsv1/models/accountunlockrequest
+slug: /tools/sdk/powershell/accounts/models/accountunlockrequest
 tags: ['SDK', 'Software Development Kit', 'Accountunlockrequest', 'Accountunlockrequest']
 ---
 

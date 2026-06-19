@@ -82,7 +82,7 @@ function Initialize-Outlier {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiOutliersV1 => Outlier' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiOutliers => Outlier' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -128,7 +128,7 @@ function ConvertFrom-JsonToOutlier {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiOutliersV1 => Outlier' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiOutliers => Outlier' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

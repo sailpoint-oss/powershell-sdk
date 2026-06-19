@@ -5,7 +5,7 @@ pagination_label: Metrictype
 sidebar_label: Metrictype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Metrictype', 'Metrictype'] 
-slug: /tools/sdk/powershell/searchv1/models/metrictype
+slug: /tools/sdk/powershell/search/models/metrictype
 tags: ['SDK', 'Software Development Kit', 'Metrictype', 'Metrictype']
 ---
 

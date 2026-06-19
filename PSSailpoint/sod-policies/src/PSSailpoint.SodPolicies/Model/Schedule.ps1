@@ -56,7 +56,7 @@ function Initialize-Schedule {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodPoliciesV1 => Schedule' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodPolicies => Schedule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -105,7 +105,7 @@ function ConvertFrom-JsonToSchedule {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodPoliciesV1 => Schedule' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodPolicies => Schedule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

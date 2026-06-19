@@ -5,7 +5,7 @@ pagination_label: Accessitemroleresponse
 sidebar_label: Accessitemroleresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessitemroleresponse', 'Accessitemroleresponse'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/accessitemroleresponse
+slug: /tools/sdk/powershell/identityhistory/models/accessitemroleresponse
 tags: ['SDK', 'Software Development Kit', 'Accessitemroleresponse', 'Accessitemroleresponse']
 ---
 

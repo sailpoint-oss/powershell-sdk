@@ -50,7 +50,7 @@ function Initialize-Privilegecriteriaconfigdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PrivilegeCriteriaConfigurationV1 => Privilegecriteriaconfigdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PrivilegeCriteriaConfiguration => Privilegecriteriaconfigdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$SourceId -and $SourceId.length -gt 32) {
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToPrivilegecriteriaconfigdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PrivilegeCriteriaConfigurationV1 => Privilegecriteriaconfigdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PrivilegeCriteriaConfiguration => Privilegecriteriaconfigdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

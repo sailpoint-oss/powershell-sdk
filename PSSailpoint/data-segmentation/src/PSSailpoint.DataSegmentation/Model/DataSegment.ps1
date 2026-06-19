@@ -81,7 +81,7 @@ function Initialize-DataSegment {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataSegmentationV1 => DataSegment' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataSegmentation => DataSegment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -127,7 +127,7 @@ function ConvertFrom-JsonToDataSegment {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataSegmentationV1 => DataSegment' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataSegmentation => DataSegment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

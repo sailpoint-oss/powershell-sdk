@@ -5,7 +5,7 @@ pagination_label: Parameterstorageattestationdocument
 sidebar_label: Parameterstorageattestationdocument
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Parameterstorageattestationdocument', 'Parameterstorageattestationdocument'] 
-slug: /tools/sdk/powershell/parameterstoragev1/models/parameterstorageattestationdocument
+slug: /tools/sdk/powershell/parameterstorage/models/parameterstorageattestationdocument
 tags: ['SDK', 'Software Development Kit', 'Parameterstorageattestationdocument', 'Parameterstorageattestationdocument']
 ---
 

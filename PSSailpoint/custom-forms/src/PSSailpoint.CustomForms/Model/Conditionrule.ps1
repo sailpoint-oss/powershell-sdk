@@ -53,7 +53,7 @@ function Initialize-Conditionrule {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Conditionrule' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Conditionrule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -93,7 +93,7 @@ function ConvertFrom-JsonToConditionrule {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Conditionrule' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Conditionrule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

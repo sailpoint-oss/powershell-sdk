@@ -5,7 +5,7 @@ pagination_label: Tenant
 sidebar_label: Tenant
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Tenant', 'Tenant'] 
-slug: /tools/sdk/powershell/tenantv1/models/tenant
+slug: /tools/sdk/powershell/tenant/models/tenant
 tags: ['SDK', 'Software Development Kit', 'Tenant', 'Tenant']
 ---
 

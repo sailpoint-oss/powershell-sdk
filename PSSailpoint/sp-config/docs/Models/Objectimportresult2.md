@@ -5,7 +5,7 @@ pagination_label: Objectimportresult2
 sidebar_label: Objectimportresult2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Objectimportresult2', 'Objectimportresult2'] 
-slug: /tools/sdk/powershell/spconfigv1/models/objectimportresult2
+slug: /tools/sdk/powershell/spconfig/models/objectimportresult2
 tags: ['SDK', 'Software Development Kit', 'Objectimportresult2', 'Objectimportresult2']
 ---
 

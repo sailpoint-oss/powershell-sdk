@@ -5,7 +5,7 @@ pagination_label: CreateExternalExecuteWorkflowV1Request
 sidebar_label: CreateExternalExecuteWorkflowV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CreateExternalExecuteWorkflowV1Request', 'CreateExternalExecuteWorkflowV1Request'] 
-slug: /tools/sdk/powershell/workflowsv1/models/create-external-execute-workflow-v1-request
+slug: /tools/sdk/powershell/workflows/models/create-external-execute-workflow-v1-request
 tags: ['SDK', 'Software Development Kit', 'CreateExternalExecuteWorkflowV1Request', 'CreateExternalExecuteWorkflowV1Request']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateExternalExecuteWorkflowV1Reques
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarInput** | [**SystemCollectionsHashtable**](system-collections-hashtable) | The input for the workflow | [optional] 
+**VarInput** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The input for the workflow | [optional] 
 
 ## Examples
 

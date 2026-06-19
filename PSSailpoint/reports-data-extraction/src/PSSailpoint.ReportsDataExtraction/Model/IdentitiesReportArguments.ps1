@@ -30,7 +30,7 @@ function Initialize-IdentitiesReportArguments {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => IdentitiesReportArguments' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ReportsDataExtraction => IdentitiesReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToIdentitiesReportArguments {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => IdentitiesReportArguments' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtraction => IdentitiesReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

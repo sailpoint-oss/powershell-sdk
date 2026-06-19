@@ -5,7 +5,7 @@ pagination_label: Resourceobject
 sidebar_label: Resourceobject
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Resourceobject', 'Resourceobject'] 
-slug: /tools/sdk/powershell/sourcesv1/models/resourceobject
+slug: /tools/sdk/powershell/sources/models/resourceobject
 tags: ['SDK', 'Software Development Kit', 'Resourceobject', 'Resourceobject']
 ---
 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **Delete** | **Boolean** | A flag indicating that this object has been deleted. This is set only when doing delta aggregation and the connector supports detection of native deletes. | [optional] [readonly] 
 **Remove** | **Boolean** | A flag set indicating that the values in the attributes represent things to remove rather than things to add. Setting this implies incremental. The values which are always for multi-valued attributes are removed from the current values. | [optional] [readonly] 
 **Missing** | **[]String** | A list of attribute names that are not included in this object. This is only used with SMConnector and will only contain ""groups"". | [optional] [readonly] 
-**Attributes** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Attributes of this ResourceObject. | [optional] [readonly] 
+**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Attributes of this ResourceObject. | [optional] [readonly] 
 **FinalUpdate** | **Boolean** | In Aggregation, for sparse object the count for total accounts scanned identities updated is not incremented. | [optional] [readonly] 
 
 ## Examples

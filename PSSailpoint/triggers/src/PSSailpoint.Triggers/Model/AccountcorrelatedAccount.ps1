@@ -51,7 +51,7 @@ function Initialize-AccountcorrelatedAccount {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => AccountcorrelatedAccount' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => AccountcorrelatedAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -107,7 +107,7 @@ function ConvertFrom-JsonToAccountcorrelatedAccount {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => AccountcorrelatedAccount' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => AccountcorrelatedAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

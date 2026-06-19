@@ -30,7 +30,7 @@ function Initialize-Multipolicyrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodPoliciesV1 => Multipolicyrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodPolicies => Multipolicyrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToMultipolicyrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodPoliciesV1 => Multipolicyrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodPolicies => Multipolicyrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

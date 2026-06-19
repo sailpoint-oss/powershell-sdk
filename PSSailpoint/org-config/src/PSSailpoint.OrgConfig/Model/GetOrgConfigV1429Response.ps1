@@ -30,7 +30,7 @@ function Initialize-GetOrgConfigV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.OrgConfigV1 => GetOrgConfigV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.OrgConfig => GetOrgConfigV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetOrgConfigV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.OrgConfigV1 => GetOrgConfigV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.OrgConfig => GetOrgConfigV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

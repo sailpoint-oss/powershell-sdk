@@ -5,7 +5,7 @@ pagination_label: Listformdefinitionsbytenantresponse
 sidebar_label: Listformdefinitionsbytenantresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Listformdefinitionsbytenantresponse', 'Listformdefinitionsbytenantresponse'] 
-slug: /tools/sdk/powershell/customformsv1/models/listformdefinitionsbytenantresponse
+slug: /tools/sdk/powershell/customforms/models/listformdefinitionsbytenantresponse
 tags: ['SDK', 'Software Development Kit', 'Listformdefinitionsbytenantresponse', 'Listformdefinitionsbytenantresponse']
 ---
 

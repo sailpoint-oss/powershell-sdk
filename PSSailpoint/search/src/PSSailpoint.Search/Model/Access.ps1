@@ -45,7 +45,7 @@ function Initialize-Access {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Access' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Access' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToAccess {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Access' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Access' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

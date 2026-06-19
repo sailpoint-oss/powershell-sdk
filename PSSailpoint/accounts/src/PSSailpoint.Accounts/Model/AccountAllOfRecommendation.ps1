@@ -37,7 +37,7 @@ function Initialize-AccountAllOfRecommendation {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountsV1 => AccountAllOfRecommendation' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Accounts => AccountAllOfRecommendation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -82,7 +82,7 @@ function ConvertFrom-JsonToAccountAllOfRecommendation {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountsV1 => AccountAllOfRecommendation' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Accounts => AccountAllOfRecommendation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

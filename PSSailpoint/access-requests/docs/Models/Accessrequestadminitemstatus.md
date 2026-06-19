@@ -5,7 +5,7 @@ pagination_label: Accessrequestadminitemstatus
 sidebar_label: Accessrequestadminitemstatus
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessrequestadminitemstatus', 'Accessrequestadminitemstatus'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/accessrequestadminitemstatus
+slug: /tools/sdk/powershell/accessrequests/models/accessrequestadminitemstatus
 tags: ['SDK', 'Software Development Kit', 'Accessrequestadminitemstatus', 'Accessrequestadminitemstatus']
 ---
 
@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **PreApprovalTriggerDetails** | [**RequesteditemstatusPreApprovalTriggerDetails**](requesteditemstatus-pre-approval-trigger-details) |  | [optional] 
 **AccessRequestPhases** | [**[]Accessrequestphases**](accessrequestphases) | A list of Phases that the Access Request has gone through in order, to help determine the status of the request. | [optional] 
 **Description** | **String** | Description associated to the requested object. | [optional] 
+**StartDate** | **System.DateTime** | When the role access is scheduled for provisioning. | [optional] 
 **RemoveDate** | **System.DateTime** | When the role access is scheduled for removal. | [optional] 
 **Cancelable** | **Boolean** | True if the request can be canceled. | [optional] [default to $false]
 **ReauthorizationRequired** | **Boolean** | True if re-auth is required. | [optional] [default to $false]
@@ -66,6 +67,7 @@ $Accessrequestadminitemstatus = Initialize-Accessrequestadminitemstatus  -Id 2c9
  -PreApprovalTriggerDetails null `
  -AccessRequestPhases null `
  -Description This is the Engineering role that engineers are granted. `
+ -StartDate 2019-10-21T00:00Z `
  -RemoveDate 2019-10-23T00:00Z `
  -Cancelable true `
  -ReauthorizationRequired true `

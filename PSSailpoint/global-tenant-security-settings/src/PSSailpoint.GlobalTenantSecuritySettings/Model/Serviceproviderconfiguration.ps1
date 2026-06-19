@@ -45,7 +45,7 @@ function Initialize-Serviceproviderconfiguration {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GlobalTenantSecuritySettingsV1 => Serviceproviderconfiguration' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GlobalTenantSecuritySettings => Serviceproviderconfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToServiceproviderconfiguration {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GlobalTenantSecuritySettingsV1 => Serviceproviderconfiguration' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GlobalTenantSecuritySettings => Serviceproviderconfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

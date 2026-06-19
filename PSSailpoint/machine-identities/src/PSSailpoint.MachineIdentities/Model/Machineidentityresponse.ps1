@@ -90,7 +90,7 @@ function Initialize-Machineidentityresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineIdentitiesV1 => Machineidentityresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineIdentities => Machineidentityresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$NativeIdentity) {
@@ -146,7 +146,7 @@ function ConvertFrom-JsonToMachineidentityresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineIdentitiesV1 => Machineidentityresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineIdentities => Machineidentityresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

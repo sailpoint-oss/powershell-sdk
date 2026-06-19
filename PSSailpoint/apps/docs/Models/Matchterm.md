@@ -5,7 +5,7 @@ pagination_label: Matchterm
 sidebar_label: Matchterm
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Matchterm', 'Matchterm'] 
-slug: /tools/sdk/powershell/appsv1/models/matchterm
+slug: /tools/sdk/powershell/apps/models/matchterm
 tags: ['SDK', 'Software Development Kit', 'Matchterm', 'Matchterm']
 ---
 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Op** | **String** | The operator between name and value | [optional] 
 **Container** | **Boolean** | If it is a container or a real match term | [optional] [default to $false]
 **And** | **Boolean** | If it is AND logical operator for the children match terms | [optional] [default to $false]
-**Children** | [**[]System.Collections.Hashtable**](system-collections-hashtable) | The children under this match term | [optional] 
+**Children** | [**[]System.Collections.Hashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The children under this match term | [optional] 
 
 ## Examples
 

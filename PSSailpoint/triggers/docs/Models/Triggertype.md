@@ -5,7 +5,7 @@ pagination_label: Triggertype
 sidebar_label: Triggertype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Triggertype', 'Triggertype'] 
-slug: /tools/sdk/powershell/triggersv1/models/triggertype
+slug: /tools/sdk/powershell/triggers/models/triggertype
 tags: ['SDK', 'Software Development Kit', 'Triggertype', 'Triggertype']
 ---
 

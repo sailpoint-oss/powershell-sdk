@@ -75,7 +75,7 @@ function Initialize-Createschedulerequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Createschedulerequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => Createschedulerequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -120,7 +120,7 @@ function ConvertFrom-JsonToCreateschedulerequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Createschedulerequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => Createschedulerequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

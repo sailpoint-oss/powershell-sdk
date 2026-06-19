@@ -5,7 +5,7 @@ pagination_label: Connectorrulecreaterequest
 sidebar_label: Connectorrulecreaterequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Connectorrulecreaterequest', 'Connectorrulecreaterequest'] 
-slug: /tools/sdk/powershell/connectorrulemanagementv1/models/connectorrulecreaterequest
+slug: /tools/sdk/powershell/connectorrulemanagement/models/connectorrulecreaterequest
 tags: ['SDK', 'Software Development Kit', 'Connectorrulecreaterequest', 'Connectorrulecreaterequest']
 ---
 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Type** |  **Enum** [  "BuildMap",    "ConnectorAfterCreate",    "ConnectorAfterDelete",    "ConnectorAfterModify",    "ConnectorBeforeCreate",    "ConnectorBeforeDelete",    "ConnectorBeforeModify",    "JDBCBuildMap",    "JDBCOperationProvisioning",    "JDBCProvision",    "PeopleSoftHRMSBuildMap",    "PeopleSoftHRMSOperationProvisioning",    "PeopleSoftHRMSProvision",    "RACFPermissionCustomization",    "ResourceObjectCustomization",    "SAPBuildMap",    "SapHrManagerRule",    "SapHrOperationProvisioning",    "SapHrProvision",    "SuccessFactorsOperationProvisioning",    "WebServiceAfterOperationRule",    "WebServiceBeforeOperationRule",    "ResourceObjectCustomization" ] | the type of rule | [required]
 **Signature** | [**ConnectorrulecreaterequestSignature**](connectorrulecreaterequest-signature) |  | [optional] 
 **SourceCode** | [**Sourcecode**](sourcecode) |  | [required]
-**Attributes** | [**SystemCollectionsHashtable**](system-collections-hashtable) | a map of string to objects | [optional] 
+**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | a map of string to objects | [optional] 
 
 ## Examples
 

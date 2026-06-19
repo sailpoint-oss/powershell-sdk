@@ -5,7 +5,7 @@ pagination_label: Approvaldetails
 sidebar_label: Approvaldetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvaldetails', 'Approvaldetails'] 
-slug: /tools/sdk/powershell/accountdeletionrequestsv1/models/approvaldetails
+slug: /tools/sdk/powershell/accountdeletionrequests/models/approvaldetails
 tags: ['SDK', 'Software Development Kit', 'Approvaldetails', 'Approvaldetails']
 ---
 

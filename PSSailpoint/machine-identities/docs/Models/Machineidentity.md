@@ -5,7 +5,7 @@ pagination_label: Machineidentity
 sidebar_label: Machineidentity
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Machineidentity', 'Machineidentity'] 
-slug: /tools/sdk/powershell/machineidentitiesv1/models/machineidentity
+slug: /tools/sdk/powershell/machineidentities/models/machineidentity
 tags: ['SDK', 'Software Development Kit', 'Machineidentity', 'Machineidentity']
 ---
 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
 **NativeIdentity** | **String** | The native identity associated to the machine identity directly aggregated from a source | [required]
 **Description** | **String** | Description of machine identity | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**](system-collections-hashtable) | A map of custom machine identity attributes | [optional] 
+**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | A map of custom machine identity attributes | [optional] 
 **Subtype** | **String** | The subtype value associated to the machine identity | [required]
 **Owners** | [**MachineIdentityDtoOwners**](machine-identity-dto-owners) |  | [optional] 
 **SourceId** | **String** | The source id associated to the machine identity | [optional] 

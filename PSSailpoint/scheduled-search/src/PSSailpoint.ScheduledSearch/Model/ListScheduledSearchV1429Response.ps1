@@ -30,7 +30,7 @@ function Initialize-ListScheduledSearchV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ScheduledSearchV1 => ListScheduledSearchV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ScheduledSearch => ListScheduledSearchV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListScheduledSearchV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ScheduledSearchV1 => ListScheduledSearchV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ScheduledSearch => ListScheduledSearchV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -50,7 +50,7 @@ function Initialize-Parameterstoragereference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ParameterStorageV1 => Parameterstoragereference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ParameterStorage => Parameterstoragereference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -106,7 +106,7 @@ function ConvertFrom-JsonToParameterstoragereference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ParameterStorageV1 => Parameterstoragereference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ParameterStorage => Parameterstoragereference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

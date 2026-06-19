@@ -5,7 +5,7 @@ pagination_label: Deliveryrequest
 sidebar_label: Deliveryrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Deliveryrequest', 'Deliveryrequest'] 
-slug: /tools/sdk/powershell/sharedsignalsframeworkssfv1/models/deliveryrequest
+slug: /tools/sdk/powershell/sharedsignalsframeworkssf/models/deliveryrequest
 tags: ['SDK', 'Software Development Kit', 'Deliveryrequest', 'Deliveryrequest']
 ---
 

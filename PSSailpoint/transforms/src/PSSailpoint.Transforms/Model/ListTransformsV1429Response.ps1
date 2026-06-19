@@ -30,7 +30,7 @@ function Initialize-ListTransformsV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => ListTransformsV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => ListTransformsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListTransformsV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => ListTransformsV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => ListTransformsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

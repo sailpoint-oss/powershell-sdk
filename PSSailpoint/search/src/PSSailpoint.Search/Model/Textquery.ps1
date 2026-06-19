@@ -45,7 +45,7 @@ function Initialize-Textquery {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Textquery' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Textquery' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Terms) {
@@ -92,7 +92,7 @@ function ConvertFrom-JsonToTextquery {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Textquery' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Textquery' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

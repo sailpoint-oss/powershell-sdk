@@ -5,7 +5,7 @@ pagination_label: Backupoptions
 sidebar_label: Backupoptions
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Backupoptions', 'Backupoptions'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/backupoptions
+slug: /tools/sdk/powershell/configurationhub/models/backupoptions
 tags: ['SDK', 'Software Development Kit', 'Backupoptions', 'Backupoptions']
 ---
 

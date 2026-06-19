@@ -5,7 +5,7 @@ pagination_label: AccountupdatedMultiValueAttributeChangesInner
 sidebar_label: AccountupdatedMultiValueAttributeChangesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountupdatedMultiValueAttributeChangesInner', 'AccountupdatedMultiValueAttributeChangesInner'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountupdated-multi-value-attribute-changes-inner
+slug: /tools/sdk/powershell/triggers/models/accountupdated-multi-value-attribute-changes-inner
 tags: ['SDK', 'Software Development Kit', 'AccountupdatedMultiValueAttributeChangesInner', 'AccountupdatedMultiValueAttributeChangesInner']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Ownerreference
 sidebar_label: Ownerreference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Ownerreference', 'Ownerreference'] 
-slug: /tools/sdk/powershell/dimensionsv1/models/ownerreference
+slug: /tools/sdk/powershell/dimensions/models/ownerreference
 tags: ['SDK', 'Software Development Kit', 'Ownerreference', 'Ownerreference']
 ---
 

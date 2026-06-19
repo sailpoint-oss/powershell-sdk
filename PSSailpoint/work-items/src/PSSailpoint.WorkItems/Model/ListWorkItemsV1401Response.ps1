@@ -30,7 +30,7 @@ function Initialize-ListWorkItemsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkItemsV1 => ListWorkItemsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkItems => ListWorkItemsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListWorkItemsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkItemsV1 => ListWorkItemsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkItems => ListWorkItemsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

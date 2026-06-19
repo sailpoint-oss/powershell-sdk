@@ -5,7 +5,7 @@ pagination_label: Networkconfiguration
 sidebar_label: Networkconfiguration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Networkconfiguration', 'Networkconfiguration'] 
-slug: /tools/sdk/powershell/globaltenantsecuritysettingsv1/models/networkconfiguration
+slug: /tools/sdk/powershell/globaltenantsecuritysettings/models/networkconfiguration
 tags: ['SDK', 'Software Development Kit', 'Networkconfiguration', 'Networkconfiguration']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Accessitemapproverdto
 sidebar_label: Accessitemapproverdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessitemapproverdto', 'Accessitemapproverdto'] 
-slug: /tools/sdk/powershell/triggersv1/models/accessitemapproverdto
+slug: /tools/sdk/powershell/triggers/models/accessitemapproverdto
 tags: ['SDK', 'Software Development Kit', 'Accessitemapproverdto', 'Accessitemapproverdto']
 ---
 

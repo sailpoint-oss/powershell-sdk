@@ -61,7 +61,7 @@ function Initialize-Correlatedgovernanceevent {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Correlatedgovernanceevent' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Correlatedgovernanceevent' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -103,7 +103,7 @@ function ConvertFrom-JsonToCorrelatedgovernanceevent {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Correlatedgovernanceevent' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Correlatedgovernanceevent' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

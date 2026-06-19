@@ -65,7 +65,7 @@ function Initialize-Accessmodelmetadata {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Accessmodelmetadata' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Accessmodelmetadata' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToAccessmodelmetadata {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Accessmodelmetadata' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Accessmodelmetadata' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

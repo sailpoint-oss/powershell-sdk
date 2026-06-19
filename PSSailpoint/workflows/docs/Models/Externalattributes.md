@@ -5,7 +5,7 @@ pagination_label: Externalattributes
 sidebar_label: Externalattributes
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Externalattributes', 'Externalattributes'] 
-slug: /tools/sdk/powershell/workflowsv1/models/externalattributes
+slug: /tools/sdk/powershell/workflows/models/externalattributes
 tags: ['SDK', 'Software Development Kit', 'Externalattributes', 'Externalattributes']
 ---
 

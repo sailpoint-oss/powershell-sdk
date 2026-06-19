@@ -5,7 +5,7 @@ pagination_label: Taskreturndetails
 sidebar_label: Taskreturndetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Taskreturndetails', 'Taskreturndetails'] 
-slug: /tools/sdk/powershell/taskmanagementv1/models/taskreturndetails
+slug: /tools/sdk/powershell/taskmanagement/models/taskreturndetails
 tags: ['SDK', 'Software Development Kit', 'Taskreturndetails', 'Taskreturndetails']
 ---
 

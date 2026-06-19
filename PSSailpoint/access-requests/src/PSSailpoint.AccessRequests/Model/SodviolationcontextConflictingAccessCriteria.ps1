@@ -35,7 +35,7 @@ function Initialize-SodviolationcontextConflictingAccessCriteria {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => SodviolationcontextConflictingAccessCriteria' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => SodviolationcontextConflictingAccessCriteria' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToSodviolationcontextConflictingAccessCriteria {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => SodviolationcontextConflictingAccessCriteria' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => SodviolationcontextConflictingAccessCriteria' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

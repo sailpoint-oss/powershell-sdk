@@ -5,7 +5,7 @@ pagination_label: BaseaccessOwner
 sidebar_label: BaseaccessOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'BaseaccessOwner', 'BaseaccessOwner'] 
-slug: /tools/sdk/powershell/searchv1/models/baseaccess-owner
+slug: /tools/sdk/powershell/search/models/baseaccess-owner
 tags: ['SDK', 'Software Development Kit', 'BaseaccessOwner', 'BaseaccessOwner']
 ---
 

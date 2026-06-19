@@ -56,7 +56,7 @@ function Initialize-Approvalreassignmenthistory {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalreassignmenthistory' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => Approvalreassignmenthistory' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -97,7 +97,7 @@ function ConvertFrom-JsonToApprovalreassignmenthistory {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalreassignmenthistory' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => Approvalreassignmenthistory' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

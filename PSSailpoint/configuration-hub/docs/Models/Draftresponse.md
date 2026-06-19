@@ -5,7 +5,7 @@ pagination_label: Draftresponse
 sidebar_label: Draftresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Draftresponse', 'Draftresponse'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/draftresponse
+slug: /tools/sdk/powershell/configurationhub/models/draftresponse
 tags: ['SDK', 'Software Development Kit', 'Draftresponse', 'Draftresponse']
 ---
 

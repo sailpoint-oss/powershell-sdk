@@ -55,7 +55,7 @@ function Initialize-Campaigntemplate {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Campaigntemplate' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaigns => Campaigntemplate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToCampaigntemplate {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Campaigntemplate' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaigns => Campaigntemplate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

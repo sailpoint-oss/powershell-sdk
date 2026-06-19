@@ -5,7 +5,7 @@ pagination_label: RolePropagationOngoingResponseRolePropagationDetails
 sidebar_label: RolePropagationOngoingResponseRolePropagationDetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RolePropagationOngoingResponseRolePropagationDetails', 'RolePropagationOngoingResponseRolePropagationDetails'] 
-slug: /tools/sdk/powershell/rolepropagationv1/models/role-propagation-ongoing-response-role-propagation-details
+slug: /tools/sdk/powershell/rolepropagation/models/role-propagation-ongoing-response-role-propagation-details
 tags: ['SDK', 'Software Development Kit', 'RolePropagationOngoingResponseRolePropagationDetails', 'RolePropagationOngoingResponseRolePropagationDetails']
 ---
 

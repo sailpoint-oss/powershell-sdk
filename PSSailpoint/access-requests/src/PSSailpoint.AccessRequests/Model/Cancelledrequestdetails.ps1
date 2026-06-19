@@ -40,7 +40,7 @@ function Initialize-Cancelledrequestdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Cancelledrequestdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Cancelledrequestdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToCancelledrequestdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Cancelledrequestdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Cancelledrequestdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

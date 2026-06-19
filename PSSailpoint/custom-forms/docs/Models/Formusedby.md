@@ -5,7 +5,7 @@ pagination_label: Formusedby
 sidebar_label: Formusedby
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Formusedby', 'Formusedby'] 
-slug: /tools/sdk/powershell/customformsv1/models/formusedby
+slug: /tools/sdk/powershell/customforms/models/formusedby
 tags: ['SDK', 'Software Development Kit', 'Formusedby', 'Formusedby']
 ---
 

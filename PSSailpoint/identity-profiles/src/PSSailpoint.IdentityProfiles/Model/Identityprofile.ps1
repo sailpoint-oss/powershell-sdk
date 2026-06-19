@@ -75,7 +75,7 @@ function Initialize-Identityprofile {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityProfilesV1 => Identityprofile' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityProfiles => Identityprofile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AuthoritativeSource) {
@@ -124,7 +124,7 @@ function ConvertFrom-JsonToIdentityprofile {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityProfilesV1 => Identityprofile' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityProfiles => Identityprofile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

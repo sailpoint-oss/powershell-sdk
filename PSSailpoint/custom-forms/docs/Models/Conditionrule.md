@@ -5,7 +5,7 @@ pagination_label: Conditionrule
 sidebar_label: Conditionrule
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Conditionrule', 'Conditionrule'] 
-slug: /tools/sdk/powershell/customformsv1/models/conditionrule
+slug: /tools/sdk/powershell/customforms/models/conditionrule
 tags: ['SDK', 'Software Development Kit', 'Conditionrule', 'Conditionrule']
 ---
 

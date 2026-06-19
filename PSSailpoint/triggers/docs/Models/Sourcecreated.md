@@ -5,7 +5,7 @@ pagination_label: Sourcecreated
 sidebar_label: Sourcecreated
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourcecreated', 'Sourcecreated'] 
-slug: /tools/sdk/powershell/triggersv1/models/sourcecreated
+slug: /tools/sdk/powershell/triggers/models/sourcecreated
 tags: ['SDK', 'Software Development Kit', 'Sourcecreated', 'Sourcecreated']
 ---
 

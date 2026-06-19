@@ -116,7 +116,7 @@ function Initialize-Authuser {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AuthUsersV1 => Authuser' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AuthUsers => Authuser' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -169,7 +169,7 @@ function ConvertFrom-JsonToAuthuser {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AuthUsersV1 => Authuser' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AuthUsers => Authuser' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

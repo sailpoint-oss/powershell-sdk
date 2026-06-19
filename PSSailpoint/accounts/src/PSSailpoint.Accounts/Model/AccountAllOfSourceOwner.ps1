@@ -41,7 +41,7 @@ function Initialize-AccountAllOfSourceOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountsV1 => AccountAllOfSourceOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Accounts => AccountAllOfSourceOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToAccountAllOfSourceOwner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountsV1 => AccountAllOfSourceOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Accounts => AccountAllOfSourceOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

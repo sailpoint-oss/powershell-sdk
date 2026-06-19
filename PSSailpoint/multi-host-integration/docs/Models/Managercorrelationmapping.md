@@ -5,7 +5,7 @@ pagination_label: Managercorrelationmapping
 sidebar_label: Managercorrelationmapping
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Managercorrelationmapping', 'Managercorrelationmapping'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/managercorrelationmapping
+slug: /tools/sdk/powershell/multihostintegration/models/managercorrelationmapping
 tags: ['SDK', 'Software Development Kit', 'Managercorrelationmapping', 'Managercorrelationmapping']
 ---
 

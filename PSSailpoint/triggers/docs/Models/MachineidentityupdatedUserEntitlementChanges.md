@@ -5,7 +5,7 @@ pagination_label: MachineidentityupdatedUserEntitlementChanges
 sidebar_label: MachineidentityupdatedUserEntitlementChanges
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineidentityupdatedUserEntitlementChanges', 'MachineidentityupdatedUserEntitlementChanges'] 
-slug: /tools/sdk/powershell/triggersv1/models/machineidentityupdated-user-entitlement-changes
+slug: /tools/sdk/powershell/triggers/models/machineidentityupdated-user-entitlement-changes
 tags: ['SDK', 'Software Development Kit', 'MachineidentityupdatedUserEntitlementChanges', 'MachineidentityupdatedUserEntitlementChanges']
 ---
 

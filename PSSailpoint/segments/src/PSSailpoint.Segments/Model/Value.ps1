@@ -35,7 +35,7 @@ function Initialize-Value {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SegmentsV1 => Value' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Segments => Value' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToValue {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SegmentsV1 => Value' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Segments => Value' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

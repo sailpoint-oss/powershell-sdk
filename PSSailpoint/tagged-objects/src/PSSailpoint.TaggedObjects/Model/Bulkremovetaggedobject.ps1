@@ -35,7 +35,7 @@ function Initialize-Bulkremovetaggedobject {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TaggedObjectsV1 => Bulkremovetaggedobject' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.TaggedObjects => Bulkremovetaggedobject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToBulkremovetaggedobject {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TaggedObjectsV1 => Bulkremovetaggedobject' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.TaggedObjects => Bulkremovetaggedobject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Accountrequestphasestate
 sidebar_label: Accountrequestphasestate
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountrequestphasestate', 'Accountrequestphasestate'] 
-slug: /tools/sdk/powershell/accountdeletionrequestsv1/models/accountrequestphasestate
+slug: /tools/sdk/powershell/accountdeletionrequests/models/accountrequestphasestate
 tags: ['SDK', 'Software Development Kit', 'Accountrequestphasestate', 'Accountrequestphasestate']
 ---
 

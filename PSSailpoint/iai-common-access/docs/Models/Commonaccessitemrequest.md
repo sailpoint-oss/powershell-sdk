@@ -5,7 +5,7 @@ pagination_label: Commonaccessitemrequest
 sidebar_label: Commonaccessitemrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Commonaccessitemrequest', 'Commonaccessitemrequest'] 
-slug: /tools/sdk/powershell/iaicommonaccessv1/models/commonaccessitemrequest
+slug: /tools/sdk/powershell/iaicommonaccess/models/commonaccessitemrequest
 tags: ['SDK', 'Software Development Kit', 'Commonaccessitemrequest', 'Commonaccessitemrequest']
 ---
 

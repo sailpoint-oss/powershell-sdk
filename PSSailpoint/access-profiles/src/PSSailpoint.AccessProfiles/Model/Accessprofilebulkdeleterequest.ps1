@@ -35,7 +35,7 @@ function Initialize-Accessprofilebulkdeleterequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfilesV1 => Accessprofilebulkdeleterequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => Accessprofilebulkdeleterequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAccessprofilebulkdeleterequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfilesV1 => Accessprofilebulkdeleterequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => Accessprofilebulkdeleterequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

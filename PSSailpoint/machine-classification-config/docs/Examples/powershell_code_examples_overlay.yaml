@@ -2,7 +2,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineclassificationconfigv1/methods/machine-classification-config#delete-machine-classification-config-v1
+      label: SDK_tools/sdk/powershell/machineclassificationconfig/methods/machine-classification-config#delete-machine-classification-config-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         
@@ -21,7 +21,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineclassificationconfigv1/methods/machine-classification-config#get-machine-classification-config-v1
+      label: SDK_tools/sdk/powershell/machineclassificationconfig/methods/machine-classification-config#get-machine-classification-config-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
         
@@ -40,7 +40,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineclassificationconfigv1/methods/machine-classification-config#set-machine-classification-config-v1
+      label: SDK_tools/sdk/powershell/machineclassificationconfig/methods/machine-classification-config#set-machine-classification-config-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         $Machineclassificationconfig = @"

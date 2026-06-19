@@ -5,7 +5,7 @@ pagination_label: AccountattributeschangedAccount
 sidebar_label: AccountattributeschangedAccount
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountattributeschangedAccount', 'AccountattributeschangedAccount'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountattributeschanged-account
+slug: /tools/sdk/powershell/triggers/models/accountattributeschanged-account
 tags: ['SDK', 'Software Development Kit', 'AccountattributeschangedAccount', 'AccountattributeschangedAccount']
 ---
 

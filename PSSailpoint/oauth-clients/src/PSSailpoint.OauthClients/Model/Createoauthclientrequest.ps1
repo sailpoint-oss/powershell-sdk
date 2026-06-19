@@ -102,7 +102,7 @@ function Initialize-Createoauthclientrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.OauthClientsV1 => Createoauthclientrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.OauthClients => Createoauthclientrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AccessTokenValiditySeconds) {
@@ -164,7 +164,7 @@ function ConvertFrom-JsonToCreateoauthclientrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.OauthClientsV1 => Createoauthclientrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.OauthClients => Createoauthclientrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Configtypeenum
 sidebar_label: Configtypeenum
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Configtypeenum', 'Configtypeenum'] 
-slug: /tools/sdk/powershell/workreassignmentv1/models/configtypeenum
+slug: /tools/sdk/powershell/workreassignment/models/configtypeenum
 tags: ['SDK', 'Software Development Kit', 'Configtypeenum', 'Configtypeenum']
 ---
 

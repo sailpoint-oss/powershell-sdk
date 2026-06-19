@@ -5,7 +5,7 @@ pagination_label: IdentitywithnewaccessAccessRefsInner
 sidebar_label: IdentitywithnewaccessAccessRefsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitywithnewaccessAccessRefsInner', 'IdentitywithnewaccessAccessRefsInner'] 
-slug: /tools/sdk/powershell/sodviolationsv1/models/identitywithnewaccess-access-refs-inner
+slug: /tools/sdk/powershell/sodviolations/models/identitywithnewaccess-access-refs-inner
 tags: ['SDK', 'Software Development Kit', 'IdentitywithnewaccessAccessRefsInner', 'IdentitywithnewaccessAccessRefsInner']
 ---
 

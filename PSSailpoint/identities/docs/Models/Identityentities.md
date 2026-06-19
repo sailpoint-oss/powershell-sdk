@@ -5,7 +5,7 @@ pagination_label: Identityentities
 sidebar_label: Identityentities
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityentities', 'Identityentities'] 
-slug: /tools/sdk/powershell/identitiesv1/models/identityentities
+slug: /tools/sdk/powershell/identities/models/identityentities
 tags: ['SDK', 'Software Development Kit', 'Identityentities', 'Identityentities']
 ---
 

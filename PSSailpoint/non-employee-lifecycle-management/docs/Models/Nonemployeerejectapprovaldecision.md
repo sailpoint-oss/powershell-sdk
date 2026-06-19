@@ -5,7 +5,7 @@ pagination_label: Nonemployeerejectapprovaldecision
 sidebar_label: Nonemployeerejectapprovaldecision
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Nonemployeerejectapprovaldecision', 'Nonemployeerejectapprovaldecision'] 
-slug: /tools/sdk/powershell/nonemployeelifecyclemanagementv1/models/nonemployeerejectapprovaldecision
+slug: /tools/sdk/powershell/nonemployeelifecyclemanagement/models/nonemployeerejectapprovaldecision
 tags: ['SDK', 'Software Development Kit', 'Nonemployeerejectapprovaldecision', 'Nonemployeerejectapprovaldecision']
 ---
 

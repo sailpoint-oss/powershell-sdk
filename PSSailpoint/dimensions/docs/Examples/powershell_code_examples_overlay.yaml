@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dimensionsv1/methods/dimensions#create-dimension-v1
+      label: SDK_tools/sdk/powershell/dimensions/methods/dimensions#create-dimension-v1
       source: |
         $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
         $Dimension = @"
@@ -25,7 +25,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dimensionsv1/methods/dimensions#delete-bulk-dimensions-v1
+      label: SDK_tools/sdk/powershell/dimensions/methods/dimensions#delete-bulk-dimensions-v1
       source: |
         $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimensions.
         $Dimensionbulkdeleterequest = @"
@@ -48,7 +48,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dimensionsv1/methods/dimensions#delete-dimension-v1
+      label: SDK_tools/sdk/powershell/dimensions/methods/dimensions#delete-dimension-v1
       source: |
         $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
         $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
@@ -68,7 +68,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dimensionsv1/methods/dimensions#get-dimension-entitlements-v1
+      label: SDK_tools/sdk/powershell/dimensions/methods/dimensions#get-dimension-entitlements-v1
       source: |
         $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
         $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
@@ -93,7 +93,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dimensionsv1/methods/dimensions#get-dimension-v1
+      label: SDK_tools/sdk/powershell/dimensions/methods/dimensions#get-dimension-v1
       source: |
         $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
         $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
@@ -113,7 +113,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dimensionsv1/methods/dimensions#list-dimension-access-profiles-v1
+      label: SDK_tools/sdk/powershell/dimensions/methods/dimensions#list-dimension-access-profiles-v1
       source: |
         $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
         $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
@@ -138,7 +138,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dimensionsv1/methods/dimensions#list-dimensions-v1
+      label: SDK_tools/sdk/powershell/dimensions/methods/dimensions#list-dimensions-v1
       source: |
         $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
         $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
@@ -163,12 +163,10 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/dimensionsv1/methods/dimensions#patch-dimension-v1
+      label: SDK_tools/sdk/powershell/dimensions/methods/dimensions#patch-dimension-v1
       source: |
         $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
         $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | 
         $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Test Description"},{"op":"replace","path":"/name","value":"new name"}]"@ 
         
         

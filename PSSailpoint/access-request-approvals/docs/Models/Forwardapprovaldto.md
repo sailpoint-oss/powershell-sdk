@@ -5,7 +5,7 @@ pagination_label: Forwardapprovaldto
 sidebar_label: Forwardapprovaldto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Forwardapprovaldto', 'Forwardapprovaldto'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/forwardapprovaldto
+slug: /tools/sdk/powershell/accessrequestapprovals/models/forwardapprovaldto
 tags: ['SDK', 'Software Development Kit', 'Forwardapprovaldto', 'Forwardapprovaldto']
 ---
 

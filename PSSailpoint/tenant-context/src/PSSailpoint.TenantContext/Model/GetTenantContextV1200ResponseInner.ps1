@@ -35,7 +35,7 @@ function Initialize-GetTenantContextV1200ResponseInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TenantContextV1 => GetTenantContextV1200ResponseInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.TenantContext => GetTenantContextV1200ResponseInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToGetTenantContextV1200ResponseInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TenantContextV1 => GetTenantContextV1200ResponseInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.TenantContext => GetTenantContextV1200ResponseInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

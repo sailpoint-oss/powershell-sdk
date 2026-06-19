@@ -5,7 +5,7 @@ pagination_label: Reassignmenttypeenum
 sidebar_label: Reassignmenttypeenum
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reassignmenttypeenum', 'Reassignmenttypeenum'] 
-slug: /tools/sdk/powershell/workreassignmentv1/models/reassignmenttypeenum
+slug: /tools/sdk/powershell/workreassignment/models/reassignmenttypeenum
 tags: ['SDK', 'Software Development Kit', 'Reassignmenttypeenum', 'Reassignmenttypeenum']
 ---
 

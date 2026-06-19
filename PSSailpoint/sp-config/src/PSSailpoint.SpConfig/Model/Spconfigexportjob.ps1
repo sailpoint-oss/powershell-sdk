@@ -62,7 +62,7 @@ function Initialize-Spconfigexportjob {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SpConfigV1 => Spconfigexportjob' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SpConfig => Spconfigexportjob' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$JobId) {
@@ -124,7 +124,7 @@ function ConvertFrom-JsonToSpconfigexportjob {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SpConfigV1 => Spconfigexportjob' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SpConfig => Spconfigexportjob' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

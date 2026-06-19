@@ -53,7 +53,7 @@ function Initialize-Campaignreport {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Campaignreport' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaigns => Campaignreport' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$ReportType) {
@@ -97,7 +97,7 @@ function ConvertFrom-JsonToCampaignreport {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Campaignreport' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaigns => Campaignreport' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

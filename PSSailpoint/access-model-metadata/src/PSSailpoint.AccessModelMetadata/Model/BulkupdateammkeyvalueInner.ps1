@@ -35,7 +35,7 @@ function Initialize-BulkupdateammkeyvalueInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessModelMetadataV1 => BulkupdateammkeyvalueInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessModelMetadata => BulkupdateammkeyvalueInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Attribute) {
@@ -76,7 +76,7 @@ function ConvertFrom-JsonToBulkupdateammkeyvalueInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadataV1 => BulkupdateammkeyvalueInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadata => BulkupdateammkeyvalueInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

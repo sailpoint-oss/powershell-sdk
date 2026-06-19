@@ -30,7 +30,7 @@ function Initialize-RecommendercalculationsIdentityAttributesValue {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRecommendationsV1 => RecommendercalculationsIdentityAttributesValue' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRecommendations => RecommendercalculationsIdentityAttributesValue' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToRecommendercalculationsIdentityAttributesValue {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRecommendationsV1 => RecommendercalculationsIdentityAttributesValue' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRecommendations => RecommendercalculationsIdentityAttributesValue' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

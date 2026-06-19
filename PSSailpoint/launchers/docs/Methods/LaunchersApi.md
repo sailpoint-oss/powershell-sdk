@@ -5,7 +5,7 @@ pagination_label: Launchers
 sidebar_label: Launchers
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Launchers', 'Launchers'] 
-slug: /tools/sdk/powershell/launchersv1/methods/launchers
+slug: /tools/sdk/powershell/launchers/methods/launchers
 tags: ['SDK', 'Software Development Kit', 'Launchers', 'Launchers']
 ---
 
@@ -196,7 +196,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = "disabled eq "true"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional)
+$Filters = 'disabled eq "true"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional)
 $Next = "eyJuZXh0IjoxMjN9Cg==" # String | Pagination marker (optional)
 $Limit = 42 # Int32 | Number of Launchers to return (optional) (default to 10)
 

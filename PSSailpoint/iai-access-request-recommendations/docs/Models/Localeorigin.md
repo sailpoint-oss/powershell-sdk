@@ -5,7 +5,7 @@ pagination_label: Localeorigin
 sidebar_label: Localeorigin
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Localeorigin', 'Localeorigin'] 
-slug: /tools/sdk/powershell/iaiaccessrequestrecommendationsv1/models/localeorigin
+slug: /tools/sdk/powershell/iaiaccessrequestrecommendations/models/localeorigin
 tags: ['SDK', 'Software Development Kit', 'Localeorigin', 'Localeorigin']
 ---
 

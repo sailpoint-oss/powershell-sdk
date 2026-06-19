@@ -5,7 +5,7 @@ pagination_label: Translationmessage
 sidebar_label: Translationmessage
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Translationmessage', 'Translationmessage'] 
-slug: /tools/sdk/powershell/iaiaccessrequestrecommendationsv1/models/translationmessage
+slug: /tools/sdk/powershell/iaiaccessrequestrecommendations/models/translationmessage
 tags: ['SDK', 'Software Development Kit', 'Translationmessage', 'Translationmessage']
 ---
 

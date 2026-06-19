@@ -35,7 +35,7 @@ function Initialize-Forwardapprovaldto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestApprovalsV1 => Forwardapprovaldto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequestApprovals => Forwardapprovaldto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$NewOwnerId) {
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToForwardapprovaldto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestApprovalsV1 => Forwardapprovaldto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestApprovals => Forwardapprovaldto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

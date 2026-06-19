@@ -30,7 +30,7 @@ function Initialize-Formelementpreviewrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Formelementpreviewrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Formelementpreviewrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToFormelementpreviewrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Formelementpreviewrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Formelementpreviewrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

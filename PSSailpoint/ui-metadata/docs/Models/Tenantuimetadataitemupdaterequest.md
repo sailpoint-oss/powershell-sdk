@@ -5,7 +5,7 @@ pagination_label: Tenantuimetadataitemupdaterequest
 sidebar_label: Tenantuimetadataitemupdaterequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Tenantuimetadataitemupdaterequest', 'Tenantuimetadataitemupdaterequest'] 
-slug: /tools/sdk/powershell/uimetadatav1/models/tenantuimetadataitemupdaterequest
+slug: /tools/sdk/powershell/uimetadata/models/tenantuimetadataitemupdaterequest
 tags: ['SDK', 'Software Development Kit', 'Tenantuimetadataitemupdaterequest', 'Tenantuimetadataitemupdaterequest']
 ---
 

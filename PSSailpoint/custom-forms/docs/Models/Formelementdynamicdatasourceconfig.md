@@ -5,7 +5,7 @@ pagination_label: Formelementdynamicdatasourceconfig
 sidebar_label: Formelementdynamicdatasourceconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Formelementdynamicdatasourceconfig', 'Formelementdynamicdatasourceconfig'] 
-slug: /tools/sdk/powershell/customformsv1/models/formelementdynamicdatasourceconfig
+slug: /tools/sdk/powershell/customforms/models/formelementdynamicdatasourceconfig
 tags: ['SDK', 'Software Development Kit', 'Formelementdynamicdatasourceconfig', 'Formelementdynamicdatasourceconfig']
 ---
 

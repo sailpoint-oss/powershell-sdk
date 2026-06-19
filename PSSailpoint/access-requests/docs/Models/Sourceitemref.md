@@ -5,7 +5,7 @@ pagination_label: Sourceitemref
 sidebar_label: Sourceitemref
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourceitemref', 'Sourceitemref'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/sourceitemref
+slug: /tools/sdk/powershell/accessrequests/models/sourceitemref
 tags: ['SDK', 'Software Development Kit', 'Sourceitemref', 'Sourceitemref']
 ---
 

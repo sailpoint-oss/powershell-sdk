@@ -5,7 +5,7 @@ pagination_label: Pendingapproval
 sidebar_label: Pendingapproval
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Pendingapproval', 'Pendingapproval'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/pendingapproval
+slug: /tools/sdk/powershell/accessrequestapprovals/models/pendingapproval
 tags: ['SDK', 'Software Development Kit', 'Pendingapproval', 'Pendingapproval']
 ---
 
@@ -35,6 +35,9 @@ Name | Type | Description | Notes
 **RemoveDate** | **System.DateTime** | The date the role or access profile or entitlement is no longer assigned to the specified identity. | [optional] 
 **RemoveDateUpdateRequested** | **Boolean** | If true, then the request is to change the remove date or sunset date. | [optional] [default to $false]
 **CurrentRemoveDate** | **System.DateTime** | The remove date or sunset date that was assigned at the time of the request. | [optional] 
+**StartDate** | **System.DateTime** | The date the role or access profile or entitlement is/will assigned to the specified identity. | [optional] 
+**StartUpdateRequested** | **Boolean** | If true, then the request is to change the start date or sunrise date. | [optional] [default to $false]
+**CurrentStartDate** | **System.DateTime** | The start date or sunrise date that was assigned at the time of the request. | [optional] 
 **SodViolationContext** | [**Sodviolationcontextcheckcompleted**](sodviolationcontextcheckcompleted) |  | [optional] 
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request item | [optional] 
 **RequestedAccounts** | [**[]Requestedaccountref**](requestedaccountref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
@@ -64,6 +67,9 @@ $Pendingapproval = Initialize-Pendingapproval  -Id id12345 `
  -RemoveDate 2020-07-11T00:00Z `
  -RemoveDateUpdateRequested true `
  -CurrentRemoveDate 2020-07-11T00:00Z `
+ -StartDate 2020-07-11T00:00Z `
+ -StartUpdateRequested true `
+ -CurrentStartDate 2020-07-11T00:00Z `
  -SodViolationContext null `
  -ClientMetadata {"customKey1":"custom value 1","customKey2":"custom value 2"} `
  -RequestedAccounts null `

@@ -41,7 +41,7 @@ function Initialize-WorkgroupdtoOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GovernanceGroupsV1 => WorkgroupdtoOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GovernanceGroups => WorkgroupdtoOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToWorkgroupdtoOwner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroupsV1 => WorkgroupdtoOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroups => WorkgroupdtoOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

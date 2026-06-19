@@ -30,7 +30,7 @@ function Initialize-ListSourcesV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => ListSourcesV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => ListSourcesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListSourcesV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => ListSourcesV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => ListSourcesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineaccountmappingsv1/methods/machine-account-mappings#create-machine-account-mappings-v1
+      label: SDK_tools/sdk/powershell/machineaccountmappings/methods/machine-account-mappings#create-machine-account-mappings-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         $Attributemappings = @"
@@ -25,7 +25,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineaccountmappingsv1/methods/machine-account-mappings#delete-machine-account-mappings-v1
+      label: SDK_tools/sdk/powershell/machineaccountmappings/methods/machine-account-mappings#delete-machine-account-mappings-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | source ID.
         
@@ -44,7 +44,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineaccountmappingsv1/methods/machine-account-mappings#list-machine-account-mappings-v1
+      label: SDK_tools/sdk/powershell/machineaccountmappings/methods/machine-account-mappings#list-machine-account-mappings-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -65,7 +65,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineaccountmappingsv1/methods/machine-account-mappings#set-machine-account-mappings-v1
+      label: SDK_tools/sdk/powershell/machineaccountmappings/methods/machine-account-mappings#set-machine-account-mappings-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         $Attributemappings = @"

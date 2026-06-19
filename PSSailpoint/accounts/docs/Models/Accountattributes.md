@@ -5,7 +5,7 @@ pagination_label: Accountattributes
 sidebar_label: Accountattributes
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountattributes', 'Accountattributes'] 
-slug: /tools/sdk/powershell/accountsv1/models/accountattributes
+slug: /tools/sdk/powershell/accounts/models/accountattributes
 tags: ['SDK', 'Software Development Kit', 'Accountattributes', 'Accountattributes']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Accountattributes', 'Accountattribute
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** | [**map[string]AnyType**](any-type) | The schema attribute values for the account | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The schema attribute values for the account | [required]
 
 ## Examples
 

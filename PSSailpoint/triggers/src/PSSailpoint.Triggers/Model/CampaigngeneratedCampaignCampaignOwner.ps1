@@ -40,7 +40,7 @@ function Initialize-CampaigngeneratedCampaignCampaignOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => CampaigngeneratedCampaignCampaignOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => CampaigngeneratedCampaignCampaignOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToCampaigngeneratedCampaignCampaignOwner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => CampaigngeneratedCampaignCampaignOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => CampaigngeneratedCampaignCampaignOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

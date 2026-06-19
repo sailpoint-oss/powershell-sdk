@@ -51,7 +51,7 @@ function Initialize-Configurationdetailsresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkReassignmentV1 => Configurationdetailsresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkReassignment => Configurationdetailsresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToConfigurationdetailsresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkReassignmentV1 => Configurationdetailsresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkReassignment => Configurationdetailsresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

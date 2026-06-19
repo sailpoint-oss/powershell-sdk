@@ -5,7 +5,7 @@ pagination_label: Accessitemref
 sidebar_label: Accessitemref
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessitemref', 'Accessitemref'] 
-slug: /tools/sdk/powershell/iairecommendationsv1/models/accessitemref
+slug: /tools/sdk/powershell/iairecommendations/models/accessitemref
 tags: ['SDK', 'Software Development Kit', 'Accessitemref', 'Accessitemref']
 ---
 

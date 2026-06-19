@@ -40,7 +40,7 @@ function Initialize-Accountsource {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Accountsource' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Accountsource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToAccountsource {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Accountsource' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Accountsource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

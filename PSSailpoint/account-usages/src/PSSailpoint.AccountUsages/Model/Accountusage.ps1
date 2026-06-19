@@ -35,7 +35,7 @@ function Initialize-Accountusage {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountUsagesV1 => Accountusage' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccountUsages => Accountusage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAccountusage {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountUsagesV1 => Accountusage' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccountUsages => Accountusage' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

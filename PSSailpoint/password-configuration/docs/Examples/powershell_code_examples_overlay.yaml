@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/passwordconfigurationv1/methods/password-configuration#create-password-org-config-v1
+      label: SDK_tools/sdk/powershell/passwordconfiguration/methods/password-configuration#create-password-org-config-v1
       source: |
         $Passwordorgconfig = @"
         {"customInstructionsEnabled":true,"digitTokenEnabled":true,"digitTokenDurationMinutes":12,"digitTokenLength":9}
@@ -24,7 +24,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/passwordconfigurationv1/methods/password-configuration#get-password-org-config-v1
+      label: SDK_tools/sdk/powershell/passwordconfiguration/methods/password-configuration#get-password-org-config-v1
       source: |
         
         # Get password org config
@@ -42,7 +42,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/passwordconfigurationv1/methods/password-configuration#put-password-org-config-v1
+      label: SDK_tools/sdk/powershell/passwordconfiguration/methods/password-configuration#put-password-org-config-v1
       source: |
         $Passwordorgconfig = @"
         {"digitTokenEnabled":true,"digitTokenDurationMinutes":12}

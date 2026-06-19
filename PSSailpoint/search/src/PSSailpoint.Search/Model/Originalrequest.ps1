@@ -50,7 +50,7 @@ function Initialize-Originalrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Originalrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Originalrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToOriginalrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Originalrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Originalrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

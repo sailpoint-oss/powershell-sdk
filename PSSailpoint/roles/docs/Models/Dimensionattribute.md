@@ -5,7 +5,7 @@ pagination_label: Dimensionattribute
 sidebar_label: Dimensionattribute
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dimensionattribute', 'Dimensionattribute'] 
-slug: /tools/sdk/powershell/rolesv1/models/dimensionattribute
+slug: /tools/sdk/powershell/roles/models/dimensionattribute
 tags: ['SDK', 'Software Development Kit', 'Dimensionattribute', 'Dimensionattribute']
 ---
 

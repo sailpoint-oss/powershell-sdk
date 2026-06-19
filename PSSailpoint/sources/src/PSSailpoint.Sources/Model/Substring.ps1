@@ -55,7 +55,7 @@ function Initialize-Substring {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Substring' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Substring' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$VarBegin) {
@@ -100,7 +100,7 @@ function ConvertFrom-JsonToSubstring {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Substring' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Substring' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

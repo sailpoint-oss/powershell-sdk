@@ -5,7 +5,7 @@ pagination_label: Approvalidentity
 sidebar_label: Approvalidentity
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalidentity', 'Approvalidentity'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalidentity
+slug: /tools/sdk/powershell/approvals/models/approvalidentity
 tags: ['SDK', 'Software Development Kit', 'Approvalidentity', 'Approvalidentity']
 ---
 

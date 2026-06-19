@@ -5,7 +5,7 @@ pagination_label: TemplatedtoTeamsTemplate
 sidebar_label: TemplatedtoTeamsTemplate
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'TemplatedtoTeamsTemplate', 'TemplatedtoTeamsTemplate'] 
-slug: /tools/sdk/powershell/notificationsv1/models/templatedto-teams-template
+slug: /tools/sdk/powershell/notifications/models/templatedto-teams-template
 tags: ['SDK', 'Software Development Kit', 'TemplatedtoTeamsTemplate', 'TemplatedtoTeamsTemplate']
 ---
 

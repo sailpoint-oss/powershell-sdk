@@ -55,7 +55,7 @@ function Initialize-Entitlementaccessrequestconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Entitlementaccessrequestconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Entitlementaccessrequestconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToEntitlementaccessrequestconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Entitlementaccessrequestconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Entitlementaccessrequestconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

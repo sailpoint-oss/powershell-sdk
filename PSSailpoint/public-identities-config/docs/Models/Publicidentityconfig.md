@@ -5,7 +5,7 @@ pagination_label: Publicidentityconfig
 sidebar_label: Publicidentityconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Publicidentityconfig', 'Publicidentityconfig'] 
-slug: /tools/sdk/powershell/publicidentitiesconfigv1/models/publicidentityconfig
+slug: /tools/sdk/powershell/publicidentitiesconfig/models/publicidentityconfig
 tags: ['SDK', 'Software Development Kit', 'Publicidentityconfig', 'Publicidentityconfig']
 ---
 

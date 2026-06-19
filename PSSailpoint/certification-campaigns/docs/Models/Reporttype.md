@@ -5,7 +5,7 @@ pagination_label: Reporttype
 sidebar_label: Reporttype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reporttype', 'Reporttype'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/reporttype
+slug: /tools/sdk/powershell/certificationcampaigns/models/reporttype
 tags: ['SDK', 'Software Development Kit', 'Reporttype', 'Reporttype']
 ---
 

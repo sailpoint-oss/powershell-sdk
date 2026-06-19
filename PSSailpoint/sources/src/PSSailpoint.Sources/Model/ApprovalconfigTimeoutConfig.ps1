@@ -41,7 +41,7 @@ function Initialize-ApprovalconfigTimeoutConfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => ApprovalconfigTimeoutConfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => ApprovalconfigTimeoutConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToApprovalconfigTimeoutConfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => ApprovalconfigTimeoutConfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => ApprovalconfigTimeoutConfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

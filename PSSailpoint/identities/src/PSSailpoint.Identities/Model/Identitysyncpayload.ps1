@@ -35,7 +35,7 @@ function Initialize-Identitysyncpayload {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Identitysyncpayload' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Identitysyncpayload' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToIdentitysyncpayload {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Identitysyncpayload' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Identitysyncpayload' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

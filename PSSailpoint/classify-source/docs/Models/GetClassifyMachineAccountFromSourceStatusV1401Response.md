@@ -5,7 +5,7 @@ pagination_label: GetClassifyMachineAccountFromSourceStatusV1401Response
 sidebar_label: GetClassifyMachineAccountFromSourceStatusV1401Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetClassifyMachineAccountFromSourceStatusV1401Response', 'GetClassifyMachineAccountFromSourceStatusV1401Response'] 
-slug: /tools/sdk/powershell/classifysourcev1/models/get-classify-machine-account-from-source-status-v1401-response
+slug: /tools/sdk/powershell/classifysource/models/get-classify-machine-account-from-source-status-v1401-response
 tags: ['SDK', 'Software Development Kit', 'GetClassifyMachineAccountFromSourceStatusV1401Response', 'GetClassifyMachineAccountFromSourceStatusV1401Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetClassifyMachineAccountFromSourceSt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**VarError** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

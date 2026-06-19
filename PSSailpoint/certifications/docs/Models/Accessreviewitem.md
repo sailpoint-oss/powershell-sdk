@@ -5,7 +5,7 @@ pagination_label: Accessreviewitem
 sidebar_label: Accessreviewitem
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessreviewitem', 'Accessreviewitem'] 
-slug: /tools/sdk/powershell/certificationsv1/models/accessreviewitem
+slug: /tools/sdk/powershell/certifications/models/accessreviewitem
 tags: ['SDK', 'Software Development Kit', 'Accessreviewitem', 'Accessreviewitem']
 ---
 

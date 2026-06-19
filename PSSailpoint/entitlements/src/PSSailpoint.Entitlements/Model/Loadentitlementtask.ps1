@@ -60,7 +60,7 @@ function Initialize-Loadentitlementtask {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.EntitlementsV1 => Loadentitlementtask' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Entitlements => Loadentitlementtask' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -102,7 +102,7 @@ function ConvertFrom-JsonToLoadentitlementtask {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.EntitlementsV1 => Loadentitlementtask' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Entitlements => Loadentitlementtask' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

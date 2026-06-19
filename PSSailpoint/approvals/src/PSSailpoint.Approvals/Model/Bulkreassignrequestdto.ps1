@@ -45,7 +45,7 @@ function Initialize-Bulkreassignrequestdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => Bulkreassignrequestdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => Bulkreassignrequestdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToBulkreassignrequestdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => Bulkreassignrequestdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => Bulkreassignrequestdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

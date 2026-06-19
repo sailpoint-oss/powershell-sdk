@@ -5,7 +5,7 @@ pagination_label: Certificationsignedoff
 sidebar_label: Certificationsignedoff
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Certificationsignedoff', 'Certificationsignedoff'] 
-slug: /tools/sdk/powershell/triggersv1/models/certificationsignedoff
+slug: /tools/sdk/powershell/triggers/models/certificationsignedoff
 tags: ['SDK', 'Software Development Kit', 'Certificationsignedoff', 'Certificationsignedoff']
 ---
 

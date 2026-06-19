@@ -5,7 +5,7 @@ pagination_label: MultihostintegrationsOwner
 sidebar_label: MultihostintegrationsOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MultihostintegrationsOwner', 'MultihostintegrationsOwner'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/multihostintegrations-owner
+slug: /tools/sdk/powershell/multihostintegration/models/multihostintegrations-owner
 tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsOwner', 'MultihostintegrationsOwner']
 ---
 

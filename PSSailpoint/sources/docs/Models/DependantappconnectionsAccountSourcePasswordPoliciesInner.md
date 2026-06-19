@@ -5,7 +5,7 @@ pagination_label: DependantappconnectionsAccountSourcePasswordPoliciesInner
 sidebar_label: DependantappconnectionsAccountSourcePasswordPoliciesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'DependantappconnectionsAccountSourcePasswordPoliciesInner', 'DependantappconnectionsAccountSourcePasswordPoliciesInner'] 
-slug: /tools/sdk/powershell/sourcesv1/models/dependantappconnections-account-source-password-policies-inner
+slug: /tools/sdk/powershell/sources/models/dependantappconnections-account-source-password-policies-inner
 tags: ['SDK', 'Software Development Kit', 'DependantappconnectionsAccountSourcePasswordPoliciesInner', 'DependantappconnectionsAccountSourcePasswordPoliciesInner']
 ---
 

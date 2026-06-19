@@ -5,7 +5,7 @@ pagination_label: MachineAccountClassify
 sidebar_label: MachineAccountClassify
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineAccountClassify', 'MachineAccountClassify'] 
-slug: /tools/sdk/powershell/machineaccountclassifyv1/methods/machine-account-classify
+slug: /tools/sdk/powershell/machineaccountclassify/methods/machine-account-classify
 tags: ['SDK', 'Software Development Kit', 'MachineAccountClassify', 'MachineAccountClassify']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Filtertype
 sidebar_label: Filtertype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Filtertype', 'Filtertype'] 
-slug: /tools/sdk/powershell/savedsearchv1/models/filtertype
+slug: /tools/sdk/powershell/savedsearch/models/filtertype
 tags: ['SDK', 'Software Development Kit', 'Filtertype', 'Filtertype']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Roleminingpotentialroleprovisionstate
 sidebar_label: Roleminingpotentialroleprovisionstate
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Roleminingpotentialroleprovisionstate', 'Roleminingpotentialroleprovisionstate'] 
-slug: /tools/sdk/powershell/iairoleminingv1/models/roleminingpotentialroleprovisionstate
+slug: /tools/sdk/powershell/iairolemining/models/roleminingpotentialroleprovisionstate
 tags: ['SDK', 'Software Development Kit', 'Roleminingpotentialroleprovisionstate', 'Roleminingpotentialroleprovisionstate']
 ---
 

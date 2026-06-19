@@ -46,7 +46,7 @@ function Initialize-SavedsearchdetailFilters {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SavedSearchV1 => SavedsearchdetailFilters' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SavedSearch => SavedsearchdetailFilters' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToSavedsearchdetailFilters {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearchV1 => SavedsearchdetailFilters' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearch => SavedsearchdetailFilters' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

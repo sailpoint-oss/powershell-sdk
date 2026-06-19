@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessrequestapprovalsv1/methods/access-request-approvals#approve-access-request-v1
+      label: SDK_tools/sdk/powershell/accessrequestapprovals/methods/access-request-approvals#approve-access-request-v1
       source: |
         $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
         $Commentdto = @"
@@ -24,7 +24,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessrequestapprovalsv1/methods/access-request-approvals#forward-access-request-v1
+      label: SDK_tools/sdk/powershell/accessrequestapprovals/methods/access-request-approvals#forward-access-request-v1
       source: |
         $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
         $Forwardapprovaldto = @"
@@ -47,7 +47,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessrequestapprovalsv1/methods/access-request-approvals#get-access-request-approval-summary-v1
+      label: SDK_tools/sdk/powershell/accessrequestapprovals/methods/access-request-approvals#get-access-request-approval-summary-v1
       source: |
         $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
         $FromDate = "from-date=2020-03-19T19:59:11Z" # String | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format. (optional)
@@ -67,7 +67,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessrequestapprovalsv1/methods/access-request-approvals#list-access-request-approvers-v1
+      label: SDK_tools/sdk/powershell/accessrequestapprovals/methods/access-request-approvals#list-access-request-approvers-v1
       source: |
         $AccessRequestId = "2c91808568c529c60168cca6f90c1313" # String | Access Request ID.
         $Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
@@ -89,7 +89,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessrequestapprovalsv1/methods/access-request-approvals#list-completed-approvals-v1
+      label: SDK_tools/sdk/powershell/accessrequestapprovals/methods/access-request-approvals#list-completed-approvals-v1
       source: |
         $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -113,7 +113,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessrequestapprovalsv1/methods/access-request-approvals#list-pending-approvals-v1
+      label: SDK_tools/sdk/powershell/accessrequestapprovals/methods/access-request-approvals#list-pending-approvals-v1
       source: |
         $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -137,7 +137,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accessrequestapprovalsv1/methods/access-request-approvals#reject-access-request-v1
+      label: SDK_tools/sdk/powershell/accessrequestapprovals/methods/access-request-approvals#reject-access-request-v1
       source: |
         $ApprovalId = "2c91808b7294bea301729568c68c002e" # String | Approval ID.
         $Commentdto = @"

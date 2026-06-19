@@ -5,7 +5,7 @@ pagination_label: Tenantuimetadataitemresponse
 sidebar_label: Tenantuimetadataitemresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Tenantuimetadataitemresponse', 'Tenantuimetadataitemresponse'] 
-slug: /tools/sdk/powershell/uimetadatav1/models/tenantuimetadataitemresponse
+slug: /tools/sdk/powershell/uimetadata/models/tenantuimetadataitemresponse
 tags: ['SDK', 'Software Development Kit', 'Tenantuimetadataitemresponse', 'Tenantuimetadataitemresponse']
 ---
 

@@ -35,7 +35,7 @@ function Initialize-Accessrequestrecommendationactionitemdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiAccessRequestRecommendationsV1 => Accessrequestrecommendationactionitemdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiAccessRequestRecommendations => Accessrequestrecommendationactionitemdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$IdentityId) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToAccessrequestrecommendationactionitemdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiAccessRequestRecommendationsV1 => Accessrequestrecommendationactionitemdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiAccessRequestRecommendations => Accessrequestrecommendationactionitemdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

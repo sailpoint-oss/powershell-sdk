@@ -41,7 +41,7 @@ function Initialize-Jsonpatchoperationrolemining {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRoleMiningV1 => Jsonpatchoperationrolemining' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRoleMining => Jsonpatchoperationrolemining' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Op) {
@@ -87,7 +87,7 @@ function ConvertFrom-JsonToJsonpatchoperationrolemining {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMiningV1 => Jsonpatchoperationrolemining' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMining => Jsonpatchoperationrolemining' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

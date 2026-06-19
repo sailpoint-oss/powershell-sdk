@@ -5,7 +5,7 @@ pagination_label: LoaduncorrelatedaccountstaskTask
 sidebar_label: LoaduncorrelatedaccountstaskTask
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'LoaduncorrelatedaccountstaskTask', 'LoaduncorrelatedaccountstaskTask'] 
-slug: /tools/sdk/powershell/sourcesv1/models/loaduncorrelatedaccountstask-task
+slug: /tools/sdk/powershell/sources/models/loaduncorrelatedaccountstask-task
 tags: ['SDK', 'Software Development Kit', 'LoaduncorrelatedaccountstaskTask', 'LoaduncorrelatedaccountstaskTask']
 ---
 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **Messages** | [**[]LoaduncorrelatedaccountstaskTaskMessagesInner**](loaduncorrelatedaccountstask-task-messages-inner) | List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors. | [optional] 
 **Progress** | **String** | Current task state. | [optional] 
 **Attributes** | [**LoaduncorrelatedaccountstaskTaskAttributes**](loaduncorrelatedaccountstask-task-attributes) |  | [optional] 
-**Returns** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Return values from the task | [optional] 
+**Returns** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Return values from the task | [optional] 
 
 ## Examples
 

@@ -45,7 +45,7 @@ function Initialize-Accountcreated {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Accountcreated' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Accountcreated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$VarEvent) {
@@ -100,7 +100,7 @@ function ConvertFrom-JsonToAccountcreated {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Accountcreated' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Accountcreated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

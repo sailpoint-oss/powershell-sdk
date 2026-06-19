@@ -5,7 +5,7 @@ pagination_label: Kbaquestion
 sidebar_label: Kbaquestion
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Kbaquestion', 'Kbaquestion'] 
-slug: /tools/sdk/powershell/mfaconfigurationv1/models/kbaquestion
+slug: /tools/sdk/powershell/mfaconfiguration/models/kbaquestion
 tags: ['SDK', 'Software Development Kit', 'Kbaquestion', 'Kbaquestion']
 ---
 

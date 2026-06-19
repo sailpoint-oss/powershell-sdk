@@ -5,7 +5,7 @@ pagination_label: EntitlementrecommendationassigneeOneOf
 sidebar_label: EntitlementrecommendationassigneeOneOf
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementrecommendationassigneeOneOf', 'EntitlementrecommendationassigneeOneOf'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/entitlementrecommendationassignee-one-of
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/entitlementrecommendationassignee-one-of
 tags: ['SDK', 'Software Development Kit', 'EntitlementrecommendationassigneeOneOf', 'EntitlementrecommendationassigneeOneOf']
 ---
 

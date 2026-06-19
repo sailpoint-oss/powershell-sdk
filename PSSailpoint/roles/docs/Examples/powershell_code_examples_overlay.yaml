@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#create-role-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#create-role-v1
       source: |
         $Role = @"
         
@@ -24,7 +24,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#delete-bulk-roles-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#delete-bulk-roles-v1
       source: |
         $Rolebulkdeleterequest = @"
         {"roleIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}
@@ -46,7 +46,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#delete-metadata-from-role-by-key-and-value-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#delete-metadata-from-role-by-key-and-value-v1
       source: |
         $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The role's id.
         $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
@@ -67,7 +67,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#delete-role-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#delete-role-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
         
@@ -86,7 +86,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#get-bulk-update-status-by-id-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#get-bulk-update-status-by-id-v1
       source: |
         $Id = "c24359c389374d0fb8585698a2189e3d" # String | The Id of the bulk update task.
         
@@ -105,7 +105,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#get-bulk-update-status-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#get-bulk-update-status-v1
       source: |
         
         # Get bulk-update statuses
@@ -123,7 +123,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#get-role-assigned-identities-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#get-role-assigned-identities-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role for which the assigned Identities are to be listed
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -147,7 +147,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#get-role-entitlements-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#get-role-entitlements-v1
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | Containing role's ID.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -172,7 +172,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#get-role-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#get-role-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
         
@@ -191,7 +191,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#list-roles-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#list-roles-v1
       source: |
         $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
         $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
@@ -217,11 +217,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#patch-role-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#patch-role-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | 
         $Jsonpatchoperation = @"[{"op":"replace","path":"/requestable","value":true},{"op":"replace","path":"/enabled","value":true}]"@ 
         
         
@@ -241,7 +239,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#search-roles-by-filter-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#search-roles-by-filter-v1
       source: |
         $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
         $Limit = 50 # Int32 | Max number of results to return See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
@@ -269,7 +267,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#update-attribute-key-and-value-to-role-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#update-attribute-key-and-value-to-role-v1
       source: |
         $Id = "c24359c389374d0fb8585698a2189e3d" # String | The Id of a role
         $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
@@ -290,7 +288,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#update-roles-metadata-by-filter-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#update-roles-metadata-by-filter-v1
       source: |
         $Rolemetadatabulkupdatebyfilterrequest = @"
         {"operation":"ADD","replaceScope":"ALL","filters":"requestable eq false","values":[{"attribute":"iscFederalClassifications","values":["topSecret"]}]}
@@ -312,7 +310,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#update-roles-metadata-by-ids-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#update-roles-metadata-by-ids-v1
       source: |
         $Rolemetadatabulkupdatebyidrequest = @"
         
@@ -334,7 +332,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/rolesv1/methods/roles#update-roles-metadata-by-query-v1
+      label: SDK_tools/sdk/powershell/roles/methods/roles#update-roles-metadata-by-query-v1
       source: |
         $Rolemetadatabulkupdatebyqueryrequest = @"
         {"example of a success update":{"query":{"indices":["roles"],"queryType":"TEXT","textQuery":{"terms":["test123"],"fields":["id"],"matchAny":false,"contains":true},"includeNested":false},"operation":"REPLACE","replaceScope":"ALL","values":[{"attribute":"iscFederalClassifications","values":["secret"]}]}}

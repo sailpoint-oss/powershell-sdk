@@ -30,7 +30,7 @@ function Initialize-ListIdentityCertificationsV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => ListIdentityCertificationsV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => ListIdentityCertificationsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListIdentityCertificationsV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => ListIdentityCertificationsV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => ListIdentityCertificationsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

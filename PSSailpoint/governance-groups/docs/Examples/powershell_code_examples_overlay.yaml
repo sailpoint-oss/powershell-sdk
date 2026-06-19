@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/governancegroupsv1/methods/governance-groups#create-workgroup-v1
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#create-workgroup-v1
       source: |
         $Workgroupdto = @"
         
@@ -24,10 +24,9 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/governancegroupsv1/methods/governance-groups#delete-workgroup-members-v1
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#delete-workgroup-members-v1
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-        $BulkworkgroupmembersrequestInner = Initialize-BulkworkgroupmembersrequestInner -Type "IDENTITY" -Id "2c7180a46faadee4016fb4e018c20642" -Name "Michael Michaels"# BulkworkgroupmembersrequestInner[] | List of identities to be removed from  a Governance Group members list.
         $BulkworkgroupmembersrequestInner = @""@ 
         
         
@@ -47,7 +46,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/governancegroupsv1/methods/governance-groups#delete-workgroup-v1
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#delete-workgroup-v1
       source: |
         $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
         
@@ -66,7 +65,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/governancegroupsv1/methods/governance-groups#delete-workgroups-in-bulk-v1
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#delete-workgroups-in-bulk-v1
       source: |
         $Workgroupbulkdeleterequest = @"
         {"ids":["567a697e-885b-495a-afc5-d55e1c23a302","c7b0f7b2-1e78-4063-b294-a555333dacd2"]}
@@ -88,7 +87,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/governancegroupsv1/methods/governance-groups#get-workgroup-v1
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#get-workgroup-v1
       source: |
         $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
         
@@ -107,7 +106,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/governancegroupsv1/methods/governance-groups#list-connections-v1
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#list-connections-v1
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -130,7 +129,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/governancegroupsv1/methods/governance-groups#list-workgroup-members-v1
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#list-workgroup-members-v1
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -153,7 +152,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/governancegroupsv1/methods/governance-groups#list-workgroups-v1
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#list-workgroups-v1
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -176,11 +175,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/governancegroupsv1/methods/governance-groups#patch-workgroup-v1
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#patch-workgroup-v1
       source: |
         $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] |  (optional)
         $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Governance Group new description."}]"@ 
         
         
@@ -199,10 +196,9 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/governancegroupsv1/methods/governance-groups#update-workgroup-members-v1
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#update-workgroup-members-v1
       source: |
         $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-        $BulkworkgroupmembersrequestInner = Initialize-BulkworkgroupmembersrequestInner -Type "IDENTITY" -Id "2c7180a46faadee4016fb4e018c20642" -Name "Michael Michaels"# BulkworkgroupmembersrequestInner[] | List of identities to be added to a Governance Group members list.
         $BulkworkgroupmembersrequestInner = @""@ 
         
         

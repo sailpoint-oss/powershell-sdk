@@ -5,7 +5,7 @@ pagination_label: ApprovalconfigEscalationConfigEscalationChainInner
 sidebar_label: ApprovalconfigEscalationConfigEscalationChainInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalconfigEscalationConfigEscalationChainInner', 'ApprovalconfigEscalationConfigEscalationChainInner'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalconfig-escalation-config-escalation-chain-inner
+slug: /tools/sdk/powershell/approvals/models/approvalconfig-escalation-config-escalation-chain-inner
 tags: ['SDK', 'Software Development Kit', 'ApprovalconfigEscalationConfigEscalationChainInner', 'ApprovalconfigEscalationConfigEscalationChainInner']
 ---
 

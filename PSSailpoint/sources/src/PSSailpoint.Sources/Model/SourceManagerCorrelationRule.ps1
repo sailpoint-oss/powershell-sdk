@@ -41,7 +41,7 @@ function Initialize-SourceManagerCorrelationRule {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => SourceManagerCorrelationRule' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => SourceManagerCorrelationRule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToSourceManagerCorrelationRule {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => SourceManagerCorrelationRule' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => SourceManagerCorrelationRule' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

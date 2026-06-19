@@ -5,7 +5,7 @@ pagination_label: Roleidentity
 sidebar_label: Roleidentity
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Roleidentity', 'Roleidentity'] 
-slug: /tools/sdk/powershell/rolesv1/models/roleidentity
+slug: /tools/sdk/powershell/roles/models/roleidentity
 tags: ['SDK', 'Software Development Kit', 'Roleidentity', 'Roleidentity']
 ---
 

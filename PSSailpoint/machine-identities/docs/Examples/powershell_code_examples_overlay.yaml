@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#create-machine-identity-v1
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#create-machine-identity-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Machineidentityrequest = @"
@@ -25,7 +25,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#delete-machine-identity-v1
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#delete-machine-identity-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -45,7 +45,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#get-machine-identity-v1
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#get-machine-identity-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -65,7 +65,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#list-machine-identities-v1
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#list-machine-identities-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **source.name**: *eq, in, sw*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw* (optional)
@@ -89,7 +89,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#list-machine-identity-user-entitlements-v1
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#list-machine-identity-user-entitlements-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Filters = "machineIdentityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **machineIdentityId**: *eq, in*  **machineIdentityName**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **source.id**: *eq, in*  **source.name**: *eq, in, sw* (optional)
@@ -113,7 +113,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#start-machine-identity-aggregation-v1
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#start-machine-identity-aggregation-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -137,7 +137,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/machineidentitiesv1/methods/machine-identities#update-machine-identity-v1
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#update-machine-identity-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")

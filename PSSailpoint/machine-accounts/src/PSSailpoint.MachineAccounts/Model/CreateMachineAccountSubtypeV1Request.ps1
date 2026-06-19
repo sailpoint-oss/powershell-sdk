@@ -45,7 +45,7 @@ function Initialize-CreateMachineAccountSubtypeV1Request {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountsV1 => CreateMachineAccountSubtypeV1Request' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccounts => CreateMachineAccountSubtypeV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$TechnicalName) {
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToCreateMachineAccountSubtypeV1Request {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountsV1 => CreateMachineAccountSubtypeV1Request' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccounts => CreateMachineAccountSubtypeV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

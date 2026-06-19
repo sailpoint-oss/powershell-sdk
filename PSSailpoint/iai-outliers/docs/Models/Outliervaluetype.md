@@ -5,7 +5,7 @@ pagination_label: Outliervaluetype
 sidebar_label: Outliervaluetype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Outliervaluetype', 'Outliervaluetype'] 
-slug: /tools/sdk/powershell/iaioutliersv1/models/outliervaluetype
+slug: /tools/sdk/powershell/iaioutliers/models/outliervaluetype
 tags: ['SDK', 'Software Development Kit', 'Outliervaluetype', 'Outliervaluetype']
 ---
 

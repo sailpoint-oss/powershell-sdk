@@ -5,7 +5,7 @@ pagination_label: Permissiondto
 sidebar_label: Permissiondto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Permissiondto', 'Permissiondto'] 
-slug: /tools/sdk/powershell/rolesv1/models/permissiondto
+slug: /tools/sdk/powershell/roles/models/permissiondto
 tags: ['SDK', 'Software Development Kit', 'Permissiondto', 'Permissiondto']
 ---
 

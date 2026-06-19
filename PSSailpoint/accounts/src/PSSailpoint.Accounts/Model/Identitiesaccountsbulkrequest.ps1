@@ -30,7 +30,7 @@ function Initialize-Identitiesaccountsbulkrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountsV1 => Identitiesaccountsbulkrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Accounts => Identitiesaccountsbulkrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToIdentitiesaccountsbulkrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountsV1 => Identitiesaccountsbulkrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Accounts => Identitiesaccountsbulkrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

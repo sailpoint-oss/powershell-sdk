@@ -40,7 +40,7 @@ function Initialize-Taskresultresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Taskresultresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Taskresultresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToTaskresultresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Taskresultresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Taskresultresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

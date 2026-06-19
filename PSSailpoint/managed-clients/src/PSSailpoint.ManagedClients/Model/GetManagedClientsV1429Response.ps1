@@ -30,7 +30,7 @@ function Initialize-GetManagedClientsV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClientsV1 => GetManagedClientsV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClients => GetManagedClientsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetManagedClientsV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClientsV1 => GetManagedClientsV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClients => GetManagedClientsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

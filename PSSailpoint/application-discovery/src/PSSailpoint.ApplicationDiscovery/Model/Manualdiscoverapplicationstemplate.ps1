@@ -35,7 +35,7 @@ function Initialize-Manualdiscoverapplicationstemplate {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Manualdiscoverapplicationstemplate' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ApplicationDiscovery => Manualdiscoverapplicationstemplate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToManualdiscoverapplicationstemplate {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Manualdiscoverapplicationstemplate' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscovery => Manualdiscoverapplicationstemplate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

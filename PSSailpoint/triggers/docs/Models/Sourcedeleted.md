@@ -5,7 +5,7 @@ pagination_label: Sourcedeleted
 sidebar_label: Sourcedeleted
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourcedeleted', 'Sourcedeleted'] 
-slug: /tools/sdk/powershell/triggersv1/models/sourcedeleted
+slug: /tools/sdk/powershell/triggers/models/sourcedeleted
 tags: ['SDK', 'Software Development Kit', 'Sourcedeleted', 'Sourcedeleted']
 ---
 

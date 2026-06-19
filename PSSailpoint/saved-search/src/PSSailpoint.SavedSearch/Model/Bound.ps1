@@ -35,7 +35,7 @@ function Initialize-Bound {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SavedSearchV1 => Bound' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SavedSearch => Bound' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Value) {
@@ -76,7 +76,7 @@ function ConvertFrom-JsonToBound {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearchV1 => Bound' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearch => Bound' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

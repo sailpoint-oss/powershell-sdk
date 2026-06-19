@@ -5,7 +5,7 @@ pagination_label: GetPublicIdentitiesV1401Response
 sidebar_label: GetPublicIdentitiesV1401Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetPublicIdentitiesV1401Response', 'GetPublicIdentitiesV1401Response'] 
-slug: /tools/sdk/powershell/publicidentitiesv1/models/get-public-identities-v1401-response
+slug: /tools/sdk/powershell/publicidentities/models/get-public-identities-v1401-response
 tags: ['SDK', 'Software Development Kit', 'GetPublicIdentitiesV1401Response', 'GetPublicIdentitiesV1401Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetPublicIdentitiesV1401Response', 'G
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**VarError** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

@@ -5,7 +5,7 @@ pagination_label: Source2
 sidebar_label: Source2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Source2', 'Source2'] 
-slug: /tools/sdk/powershell/identityattributesv1/models/source2
+slug: /tools/sdk/powershell/identityattributes/models/source2
 tags: ['SDK', 'Software Development Kit', 'Source2', 'Source2']
 ---
 
@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Source2', 'Source2']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **String** | Attribute mapping type. | [optional] 
-**Properties** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Attribute mapping properties. | [optional] 
+**Properties** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Attribute mapping properties. | [optional] 
 
 ## Examples
 

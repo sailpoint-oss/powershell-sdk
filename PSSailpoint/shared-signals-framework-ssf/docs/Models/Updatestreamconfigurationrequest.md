@@ -5,7 +5,7 @@ pagination_label: Updatestreamconfigurationrequest
 sidebar_label: Updatestreamconfigurationrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Updatestreamconfigurationrequest', 'Updatestreamconfigurationrequest'] 
-slug: /tools/sdk/powershell/sharedsignalsframeworkssfv1/models/updatestreamconfigurationrequest
+slug: /tools/sdk/powershell/sharedsignalsframeworkssf/models/updatestreamconfigurationrequest
 tags: ['SDK', 'Software Development Kit', 'Updatestreamconfigurationrequest', 'Updatestreamconfigurationrequest']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Campaignsdeleterequest
 sidebar_label: Campaignsdeleterequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaignsdeleterequest', 'Campaignsdeleterequest'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/campaignsdeleterequest
+slug: /tools/sdk/powershell/certificationcampaigns/models/campaignsdeleterequest
 tags: ['SDK', 'Software Development Kit', 'Campaignsdeleterequest', 'Campaignsdeleterequest']
 ---
 

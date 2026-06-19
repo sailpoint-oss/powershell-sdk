@@ -60,7 +60,7 @@ function Initialize-Savedsearchcomplete {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Savedsearchcomplete' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Savedsearchcomplete' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$FileName) {
@@ -130,7 +130,7 @@ function ConvertFrom-JsonToSavedsearchcomplete {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Savedsearchcomplete' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Savedsearchcomplete' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

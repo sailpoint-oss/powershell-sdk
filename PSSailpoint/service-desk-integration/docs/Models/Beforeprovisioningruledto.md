@@ -5,7 +5,7 @@ pagination_label: Beforeprovisioningruledto
 sidebar_label: Beforeprovisioningruledto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Beforeprovisioningruledto', 'Beforeprovisioningruledto'] 
-slug: /tools/sdk/powershell/servicedeskintegrationv1/models/beforeprovisioningruledto
+slug: /tools/sdk/powershell/servicedeskintegration/models/beforeprovisioningruledto
 tags: ['SDK', 'Software Development Kit', 'Beforeprovisioningruledto', 'Beforeprovisioningruledto']
 ---
 

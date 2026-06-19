@@ -40,7 +40,7 @@ function Initialize-VaclusterstatuschangeeventApplication {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => VaclusterstatuschangeeventApplication' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => VaclusterstatuschangeeventApplication' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToVaclusterstatuschangeeventApplication {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => VaclusterstatuschangeeventApplication' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => VaclusterstatuschangeeventApplication' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

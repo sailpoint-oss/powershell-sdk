@@ -40,7 +40,7 @@ function Initialize-Jitconfiguration {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GlobalTenantSecuritySettingsV1 => Jitconfiguration' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GlobalTenantSecuritySettings => Jitconfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToJitconfiguration {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GlobalTenantSecuritySettingsV1 => Jitconfiguration' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GlobalTenantSecuritySettings => Jitconfiguration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

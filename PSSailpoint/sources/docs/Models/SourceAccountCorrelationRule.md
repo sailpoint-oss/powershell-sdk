@@ -5,7 +5,7 @@ pagination_label: SourceAccountCorrelationRule
 sidebar_label: SourceAccountCorrelationRule
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SourceAccountCorrelationRule', 'SourceAccountCorrelationRule'] 
-slug: /tools/sdk/powershell/sourcesv1/models/source-account-correlation-rule
+slug: /tools/sdk/powershell/sources/models/source-account-correlation-rule
 tags: ['SDK', 'Software Development Kit', 'SourceAccountCorrelationRule', 'SourceAccountCorrelationRule']
 ---
 

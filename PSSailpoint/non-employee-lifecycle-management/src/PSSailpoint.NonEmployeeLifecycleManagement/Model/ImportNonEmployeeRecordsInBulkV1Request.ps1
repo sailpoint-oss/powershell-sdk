@@ -30,7 +30,7 @@ function Initialize-ImportNonEmployeeRecordsInBulkV1Request {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => ImportNonEmployeeRecordsInBulkV1Request' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => ImportNonEmployeeRecordsInBulkV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$VarData) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToImportNonEmployeeRecordsInBulkV1Request {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => ImportNonEmployeeRecordsInBulkV1Request' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => ImportNonEmployeeRecordsInBulkV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

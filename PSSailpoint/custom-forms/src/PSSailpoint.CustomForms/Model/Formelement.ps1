@@ -51,7 +51,7 @@ function Initialize-Formelement {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Formelement' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Formelement' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToFormelement {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Formelement' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Formelement' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Searchattributeconfig
 sidebar_label: Searchattributeconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Searchattributeconfig', 'Searchattributeconfig'] 
-slug: /tools/sdk/powershell/searchattributeconfigurationv1/models/searchattributeconfig
+slug: /tools/sdk/powershell/searchattributeconfiguration/models/searchattributeconfig
 tags: ['SDK', 'Software Development Kit', 'Searchattributeconfig', 'Searchattributeconfig']
 ---
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | Name of the new attribute | [optional] 
 **DisplayName** | **String** | The display name of the new attribute | [optional] 
-**ApplicationAttributes** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Map of application id and their associated attribute. | [optional] 
+**ApplicationAttributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Map of application id and their associated attribute. | [optional] 
 
 ## Examples
 

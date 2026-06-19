@@ -5,7 +5,7 @@ pagination_label: Search
 sidebar_label: Search
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Search', 'Search'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/search
+slug: /tools/sdk/powershell/accessmodelmetadata/models/search
 tags: ['SDK', 'Software Development Kit', 'Search', 'Search']
 ---
 
@@ -20,14 +20,14 @@ Name | Type | Description | Notes
 **QueryType** | [**Querytype**](querytype) |  | [optional] 
 **QueryVersion** | **String** |  | [optional] 
 **Query** | [**Query**](query) |  | [optional] 
-**QueryDsl** | [**SystemCollectionsHashtable**](system-collections-hashtable) | The search query using the Elasticsearch [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html) syntax. | [optional] 
+**QueryDsl** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The search query using the Elasticsearch [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html) syntax. | [optional] 
 **TextQuery** | [**Textquery**](textquery) |  | [optional] 
 **TypeAheadQuery** | [**Typeaheadquery**](typeaheadquery) |  | [optional] 
 **IncludeNested** | **Boolean** | Indicates whether nested objects from returned search results should be included. | [optional] [default to $true]
 **QueryResultFilter** | [**Queryresultfilter**](queryresultfilter) |  | [optional] 
 **AggregationType** | [**Aggregationtype**](aggregationtype) |  | [optional] 
 **AggregationsVersion** | **String** |  | [optional] 
-**AggregationsDsl** | [**SystemCollectionsHashtable**](system-collections-hashtable) | The aggregation search query using Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) syntax. | [optional] 
+**AggregationsDsl** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The aggregation search query using Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) syntax. | [optional] 
 **Aggregations** | [**Searchaggregationspecification**](searchaggregationspecification) |  | [optional] 
 **Sort** | **[]String** | The fields to be used to sort the search results. Use + or - to specify the sort direction. | [optional] 
 **SearchAfter** | **[]String** | Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set. This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value. It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging. For example, when searching for identities, if you are sorting by displayName you will also want to include ID, for example [""displayName"", ""id""].  If the last identity ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last displayName is ""John Doe"", then using that displayName and ID will start a new search after this identity. The searchAfter value will look like [""John Doe"",""2c91808375d8e80a0175e1f88a575221""] | [optional] 

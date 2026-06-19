@@ -65,7 +65,7 @@ function Initialize-Activityconfigurationsettings {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Activityconfigurationsettings' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => Activityconfigurationsettings' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -108,7 +108,7 @@ function ConvertFrom-JsonToActivityconfigurationsettings {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Activityconfigurationsettings' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => Activityconfigurationsettings' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: GetLaunchersV1200Response
 sidebar_label: GetLaunchersV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetLaunchersV1200Response', 'GetLaunchersV1200Response'] 
-slug: /tools/sdk/powershell/launchersv1/models/get-launchers-v1200-response
+slug: /tools/sdk/powershell/launchers/models/get-launchers-v1200-response
 tags: ['SDK', 'Software Development Kit', 'GetLaunchersV1200Response', 'GetLaunchersV1200Response']
 ---
 

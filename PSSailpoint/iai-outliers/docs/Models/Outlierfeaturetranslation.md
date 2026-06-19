@@ -5,7 +5,7 @@ pagination_label: Outlierfeaturetranslation
 sidebar_label: Outlierfeaturetranslation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Outlierfeaturetranslation', 'Outlierfeaturetranslation'] 
-slug: /tools/sdk/powershell/iaioutliersv1/models/outlierfeaturetranslation
+slug: /tools/sdk/powershell/iaioutliers/models/outlierfeaturetranslation
 tags: ['SDK', 'Software Development Kit', 'Outlierfeaturetranslation', 'Outlierfeaturetranslation']
 ---
 

@@ -31,7 +31,7 @@ function Initialize-UncorrelatedAccountsReportArguments {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => UncorrelatedAccountsReportArguments' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ReportsDataExtraction => UncorrelatedAccountsReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -67,7 +67,7 @@ function ConvertFrom-JsonToUncorrelatedAccountsReportArguments {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtractionV1 => UncorrelatedAccountsReportArguments' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ReportsDataExtraction => UncorrelatedAccountsReportArguments' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

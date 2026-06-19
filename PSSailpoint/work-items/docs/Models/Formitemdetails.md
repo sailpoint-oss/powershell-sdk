@@ -5,7 +5,7 @@ pagination_label: Formitemdetails
 sidebar_label: Formitemdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Formitemdetails', 'Formitemdetails'] 
-slug: /tools/sdk/powershell/workitemsv1/models/formitemdetails
+slug: /tools/sdk/powershell/workitems/models/formitemdetails
 tags: ['SDK', 'Software Development Kit', 'Formitemdetails', 'Formitemdetails']
 ---
 

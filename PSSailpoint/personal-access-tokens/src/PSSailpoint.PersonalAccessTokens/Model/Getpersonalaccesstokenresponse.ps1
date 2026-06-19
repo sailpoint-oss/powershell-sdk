@@ -75,7 +75,7 @@ function Initialize-Getpersonalaccesstokenresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PersonalAccessTokensV1 => Getpersonalaccesstokenresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PersonalAccessTokens => Getpersonalaccesstokenresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -136,7 +136,7 @@ function ConvertFrom-JsonToGetpersonalaccesstokenresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PersonalAccessTokensV1 => Getpersonalaccesstokenresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PersonalAccessTokens => Getpersonalaccesstokenresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -30,7 +30,7 @@ function Initialize-Entitlementrevocationrequestconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Entitlementrevocationrequestconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Entitlementrevocationrequestconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToEntitlementrevocationrequestconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Entitlementrevocationrequestconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Entitlementrevocationrequestconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

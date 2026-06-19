@@ -5,7 +5,7 @@ pagination_label: IdentitydocumentAllOfSource
 sidebar_label: IdentitydocumentAllOfSource
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'IdentitydocumentAllOfSource', 'IdentitydocumentAllOfSource'] 
-slug: /tools/sdk/powershell/searchv1/models/identitydocument-all-of-source
+slug: /tools/sdk/powershell/search/models/identitydocument-all-of-source
 tags: ['SDK', 'Software Development Kit', 'IdentitydocumentAllOfSource', 'IdentitydocumentAllOfSource']
 ---
 

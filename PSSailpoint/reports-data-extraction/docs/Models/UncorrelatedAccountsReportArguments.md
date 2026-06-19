@@ -5,7 +5,7 @@ pagination_label: UncorrelatedAccountsReportArguments
 sidebar_label: UncorrelatedAccountsReportArguments
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'UncorrelatedAccountsReportArguments', 'UncorrelatedAccountsReportArguments'] 
-slug: /tools/sdk/powershell/reportsdataextractionv1/models/uncorrelated-accounts-report-arguments
+slug: /tools/sdk/powershell/reportsdataextraction/models/uncorrelated-accounts-report-arguments
 tags: ['SDK', 'Software Development Kit', 'UncorrelatedAccountsReportArguments', 'UncorrelatedAccountsReportArguments']
 ---
 

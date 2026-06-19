@@ -5,7 +5,7 @@ pagination_label: Createpersonalaccesstokenresponse
 sidebar_label: Createpersonalaccesstokenresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Createpersonalaccesstokenresponse', 'Createpersonalaccesstokenresponse'] 
-slug: /tools/sdk/powershell/personalaccesstokensv1/models/createpersonalaccesstokenresponse
+slug: /tools/sdk/powershell/personalaccesstokens/models/createpersonalaccesstokenresponse
 tags: ['SDK', 'Software Development Kit', 'Createpersonalaccesstokenresponse', 'Createpersonalaccesstokenresponse']
 ---
 

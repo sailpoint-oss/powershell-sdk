@@ -46,7 +46,7 @@ function Initialize-Certificationreference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Certificationreference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Certificationreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToCertificationreference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Certificationreference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Certificationreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

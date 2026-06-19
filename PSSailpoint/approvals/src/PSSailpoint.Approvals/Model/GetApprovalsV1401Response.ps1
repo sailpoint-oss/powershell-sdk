@@ -30,7 +30,7 @@ function Initialize-GetApprovalsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => GetApprovalsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => GetApprovalsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetApprovalsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => GetApprovalsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => GetApprovalsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

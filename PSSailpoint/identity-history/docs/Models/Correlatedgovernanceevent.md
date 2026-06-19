@@ -5,7 +5,7 @@ pagination_label: Correlatedgovernanceevent
 sidebar_label: Correlatedgovernanceevent
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Correlatedgovernanceevent', 'Correlatedgovernanceevent'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/correlatedgovernanceevent
+slug: /tools/sdk/powershell/identityhistory/models/correlatedgovernanceevent
 tags: ['SDK', 'Software Development Kit', 'Correlatedgovernanceevent', 'Correlatedgovernanceevent']
 ---
 

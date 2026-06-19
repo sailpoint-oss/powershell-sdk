@@ -5,7 +5,7 @@ pagination_label: PasswordManagement
 sidebar_label: PasswordManagement
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordManagement', 'PasswordManagement'] 
-slug: /tools/sdk/powershell/passwordmanagementv1/methods/password-management
+slug: /tools/sdk/powershell/passwordmanagement/methods/password-management
 tags: ['SDK', 'Software Development Kit', 'PasswordManagement', 'PasswordManagement']
 ---
 

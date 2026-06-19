@@ -5,7 +5,7 @@ pagination_label: Sourcesyncpayload
 sidebar_label: Sourcesyncpayload
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourcesyncpayload', 'Sourcesyncpayload'] 
-slug: /tools/sdk/powershell/sourcesv1/models/sourcesyncpayload
+slug: /tools/sdk/powershell/sources/models/sourcesyncpayload
 tags: ['SDK', 'Software Development Kit', 'Sourcesyncpayload', 'Sourcesyncpayload']
 ---
 

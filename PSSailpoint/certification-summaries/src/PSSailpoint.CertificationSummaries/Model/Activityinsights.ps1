@@ -41,7 +41,7 @@ function Initialize-Activityinsights {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationSummariesV1 => Activityinsights' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationSummaries => Activityinsights' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($UsageDays -and $UsageDays -gt 90) {
@@ -87,7 +87,7 @@ function ConvertFrom-JsonToActivityinsights {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationSummariesV1 => Activityinsights' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationSummaries => Activityinsights' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

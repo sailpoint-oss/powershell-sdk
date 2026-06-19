@@ -46,7 +46,7 @@ function Initialize-Clientlogconfigurationdurationminutes {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClustersV1 => Clientlogconfigurationdurationminutes' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClusters => Clientlogconfigurationdurationminutes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($DurationMinutes -and $DurationMinutes -gt 1440) {
@@ -97,7 +97,7 @@ function ConvertFrom-JsonToClientlogconfigurationdurationminutes {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClustersV1 => Clientlogconfigurationdurationminutes' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusters => Clientlogconfigurationdurationminutes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

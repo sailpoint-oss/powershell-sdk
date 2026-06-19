@@ -35,7 +35,7 @@ function Initialize-AttributemappingsAllOfTransformDefinitionAttributesInput {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountMappingsV1 => AttributemappingsAllOfTransformDefinitionAttributesInput' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccountMappings => AttributemappingsAllOfTransformDefinitionAttributesInput' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAttributemappingsAllOfTransformDefinitionAttributesIn
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountMappingsV1 => AttributemappingsAllOfTransformDefinitionAttributesInput' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountMappings => AttributemappingsAllOfTransformDefinitionAttributesInput' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

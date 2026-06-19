@@ -5,7 +5,7 @@ pagination_label: Usagetype
 sidebar_label: Usagetype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Usagetype', 'Usagetype'] 
-slug: /tools/sdk/powershell/sourcesv1/models/usagetype
+slug: /tools/sdk/powershell/sources/models/usagetype
 tags: ['SDK', 'Software Development Kit', 'Usagetype', 'Usagetype']
 ---
 

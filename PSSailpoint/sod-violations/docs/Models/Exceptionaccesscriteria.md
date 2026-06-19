@@ -5,7 +5,7 @@ pagination_label: Exceptionaccesscriteria
 sidebar_label: Exceptionaccesscriteria
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Exceptionaccesscriteria', 'Exceptionaccesscriteria'] 
-slug: /tools/sdk/powershell/sodviolationsv1/models/exceptionaccesscriteria
+slug: /tools/sdk/powershell/sodviolations/models/exceptionaccesscriteria
 tags: ['SDK', 'Software Development Kit', 'Exceptionaccesscriteria', 'Exceptionaccesscriteria']
 ---
 

@@ -45,7 +45,7 @@ function Initialize-Connectedobject {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GovernanceGroupsV1 => Connectedobject' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GovernanceGroups => Connectedobject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToConnectedobject {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroupsV1 => Connectedobject' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroups => Connectedobject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

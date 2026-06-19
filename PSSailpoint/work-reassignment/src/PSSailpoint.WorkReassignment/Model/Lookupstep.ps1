@@ -41,7 +41,7 @@ function Initialize-Lookupstep {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkReassignmentV1 => Lookupstep' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkReassignment => Lookupstep' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToLookupstep {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkReassignmentV1 => Lookupstep' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkReassignment => Lookupstep' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

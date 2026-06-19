@@ -48,6 +48,8 @@ Whether the Role is dimensional.
 List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional.
 .PARAMETER AccessModelMetadata
 No description available.
+.PARAMETER PrivilegeLevel
+The privilege level of the role, if applicable.
 .OUTPUTS
 
 Role<PSCustomObject>
@@ -106,11 +108,14 @@ function Initialize-Role {
         ${DimensionRefs},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${AccessModelMetadata}
+        ${AccessModelMetadata},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${PrivilegeLevel}
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Role' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Role' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -140,6 +145,7 @@ function Initialize-Role {
             "dimensional" = ${Dimensional}
             "dimensionRefs" = ${DimensionRefs}
             "accessModelMetadata" = ${AccessModelMetadata}
+            "privilegeLevel" = ${PrivilegeLevel}
         }
 
         return $PSO
@@ -170,13 +176,13 @@ function ConvertFrom-JsonToRole {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Role' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Role' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Role
-        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "additionalOwners", "accessProfiles", "entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments", "dimensional", "dimensionRefs", "accessModelMetadata")
+        $AllProperties = ("id", "name", "created", "modified", "description", "owner", "additionalOwners", "accessProfiles", "entitlements", "membership", "legacyMembershipInfo", "enabled", "requestable", "accessRequestConfig", "revocationRequestConfig", "segments", "dimensional", "dimensionRefs", "accessModelMetadata", "privilegeLevel")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -301,6 +307,12 @@ function ConvertFrom-JsonToRole {
             $AccessModelMetadata = $JsonParameters.PSobject.Properties["accessModelMetadata"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "privilegeLevel"))) { #optional property not found
+            $PrivilegeLevel = $null
+        } else {
+            $PrivilegeLevel = $JsonParameters.PSobject.Properties["privilegeLevel"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -321,6 +333,7 @@ function ConvertFrom-JsonToRole {
             "dimensional" = ${Dimensional}
             "dimensionRefs" = ${DimensionRefs}
             "accessModelMetadata" = ${AccessModelMetadata}
+            "privilegeLevel" = ${PrivilegeLevel}
         }
 
         return $PSO

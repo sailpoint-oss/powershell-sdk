@@ -35,7 +35,7 @@ function Initialize-Namenormalizer {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Namenormalizer' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Namenormalizer' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToNamenormalizer {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Namenormalizer' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Namenormalizer' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

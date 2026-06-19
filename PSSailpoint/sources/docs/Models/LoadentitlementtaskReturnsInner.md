@@ -5,7 +5,7 @@ pagination_label: LoadentitlementtaskReturnsInner
 sidebar_label: LoadentitlementtaskReturnsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'LoadentitlementtaskReturnsInner', 'LoadentitlementtaskReturnsInner'] 
-slug: /tools/sdk/powershell/sourcesv1/models/loadentitlementtask-returns-inner
+slug: /tools/sdk/powershell/sources/models/loadentitlementtask-returns-inner
 tags: ['SDK', 'Software Development Kit', 'LoadentitlementtaskReturnsInner', 'LoadentitlementtaskReturnsInner']
 ---
 

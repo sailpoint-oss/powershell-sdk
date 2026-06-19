@@ -5,7 +5,7 @@ pagination_label: Dkimattributes
 sidebar_label: Dkimattributes
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dkimattributes', 'Dkimattributes'] 
-slug: /tools/sdk/powershell/notificationsv1/models/dkimattributes
+slug: /tools/sdk/powershell/notifications/models/dkimattributes
 tags: ['SDK', 'Software Development Kit', 'Dkimattributes', 'Dkimattributes']
 ---
 

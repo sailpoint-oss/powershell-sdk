@@ -5,7 +5,7 @@ pagination_label: Rolelistfilterdto
 sidebar_label: Rolelistfilterdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Rolelistfilterdto', 'Rolelistfilterdto'] 
-slug: /tools/sdk/powershell/rolesv1/models/rolelistfilterdto
+slug: /tools/sdk/powershell/roles/models/rolelistfilterdto
 tags: ['SDK', 'Software Development Kit', 'Rolelistfilterdto', 'Rolelistfilterdto']
 ---
 

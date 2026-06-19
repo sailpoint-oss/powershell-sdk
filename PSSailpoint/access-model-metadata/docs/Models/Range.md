@@ -5,7 +5,7 @@ pagination_label: Range
 sidebar_label: Range
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Range', 'Range'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/range
+slug: /tools/sdk/powershell/accessmodelmetadata/models/range
 tags: ['SDK', 'Software Development Kit', 'Range', 'Range']
 ---
 

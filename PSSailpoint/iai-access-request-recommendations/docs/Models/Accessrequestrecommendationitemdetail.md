@@ -5,7 +5,7 @@ pagination_label: Accessrequestrecommendationitemdetail
 sidebar_label: Accessrequestrecommendationitemdetail
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessrequestrecommendationitemdetail', 'Accessrequestrecommendationitemdetail'] 
-slug: /tools/sdk/powershell/iaiaccessrequestrecommendationsv1/models/accessrequestrecommendationitemdetail
+slug: /tools/sdk/powershell/iaiaccessrequestrecommendations/models/accessrequestrecommendationitemdetail
 tags: ['SDK', 'Software Development Kit', 'Accessrequestrecommendationitemdetail', 'Accessrequestrecommendationitemdetail']
 ---
 

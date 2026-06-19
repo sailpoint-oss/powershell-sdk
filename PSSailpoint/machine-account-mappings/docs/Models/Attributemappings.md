@@ -5,7 +5,7 @@ pagination_label: Attributemappings
 sidebar_label: Attributemappings
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Attributemappings', 'Attributemappings'] 
-slug: /tools/sdk/powershell/machineaccountmappingsv1/models/attributemappings
+slug: /tools/sdk/powershell/machineaccountmappings/models/attributemappings
 tags: ['SDK', 'Software Development Kit', 'Attributemappings', 'Attributemappings']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Taskstatusmessage
 sidebar_label: Taskstatusmessage
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Taskstatusmessage', 'Taskstatusmessage'] 
-slug: /tools/sdk/powershell/identitiesv1/models/taskstatusmessage
+slug: /tools/sdk/powershell/identities/models/taskstatusmessage
 tags: ['SDK', 'Software Development Kit', 'Taskstatusmessage', 'Taskstatusmessage']
 ---
 

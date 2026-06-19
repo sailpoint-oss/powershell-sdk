@@ -5,7 +5,7 @@ pagination_label: ManualworkitemdetailsOriginalOwner
 sidebar_label: ManualworkitemdetailsOriginalOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ManualworkitemdetailsOriginalOwner', 'ManualworkitemdetailsOriginalOwner'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/manualworkitemdetails-original-owner
+slug: /tools/sdk/powershell/accessrequests/models/manualworkitemdetails-original-owner
 tags: ['SDK', 'Software Development Kit', 'ManualworkitemdetailsOriginalOwner', 'ManualworkitemdetailsOriginalOwner']
 ---
 

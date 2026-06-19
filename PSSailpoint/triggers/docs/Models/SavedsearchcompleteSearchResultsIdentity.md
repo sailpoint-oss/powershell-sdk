@@ -5,7 +5,7 @@ pagination_label: SavedsearchcompleteSearchResultsIdentity
 sidebar_label: SavedsearchcompleteSearchResultsIdentity
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SavedsearchcompleteSearchResultsIdentity', 'SavedsearchcompleteSearchResultsIdentity'] 
-slug: /tools/sdk/powershell/triggersv1/models/savedsearchcomplete-search-results-identity
+slug: /tools/sdk/powershell/triggers/models/savedsearchcomplete-search-results-identity
 tags: ['SDK', 'Software Development Kit', 'SavedsearchcompleteSearchResultsIdentity', 'SavedsearchcompleteSearchResultsIdentity']
 ---
 

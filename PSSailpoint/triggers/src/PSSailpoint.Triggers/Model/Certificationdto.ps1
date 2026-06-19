@@ -91,7 +91,7 @@ function Initialize-Certificationdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Certificationdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Certificationdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$CampaignRef) {
@@ -183,7 +183,7 @@ function ConvertFrom-JsonToCertificationdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Certificationdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Certificationdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

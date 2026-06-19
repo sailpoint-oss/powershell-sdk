@@ -41,7 +41,7 @@ function Initialize-Jsonpatchoperation {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClusterTypesV1 => Jsonpatchoperation' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClusterTypes => Jsonpatchoperation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Op) {
@@ -87,7 +87,7 @@ function ConvertFrom-JsonToJsonpatchoperation {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusterTypesV1 => Jsonpatchoperation' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusterTypes => Jsonpatchoperation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

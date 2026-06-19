@@ -5,7 +5,7 @@ pagination_label: Identitycompareresponse
 sidebar_label: Identitycompareresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitycompareresponse', 'Identitycompareresponse'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/identitycompareresponse
+slug: /tools/sdk/powershell/identityhistory/models/identitycompareresponse
 tags: ['SDK', 'Software Development Kit', 'Identitycompareresponse', 'Identitycompareresponse']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Identitycompareresponse', 'Identityco
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessItemDiff** | [**map[string]SystemCollectionsHashtable**](system-collections-hashtable) | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [optional] 
+**AccessItemDiff** | [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [optional] 
 
 ## Examples
 

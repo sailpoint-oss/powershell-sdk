@@ -5,7 +5,7 @@ pagination_label: Identityentitlementdetails
 sidebar_label: Identityentitlementdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityentitlementdetails', 'Identityentitlementdetails'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/identityentitlementdetails
+slug: /tools/sdk/powershell/accessrequests/models/identityentitlementdetails
 tags: ['SDK', 'Software Development Kit', 'Identityentitlementdetails', 'Identityentitlementdetails']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Bulkaddtaggedobject
 sidebar_label: Bulkaddtaggedobject
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Bulkaddtaggedobject', 'Bulkaddtaggedobject'] 
-slug: /tools/sdk/powershell/taggedobjectsv1/models/bulkaddtaggedobject
+slug: /tools/sdk/powershell/taggedobjects/models/bulkaddtaggedobject
 tags: ['SDK', 'Software Development Kit', 'Bulkaddtaggedobject', 'Bulkaddtaggedobject']
 ---
 

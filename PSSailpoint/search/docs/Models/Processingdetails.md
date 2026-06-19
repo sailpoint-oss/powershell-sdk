@@ -5,7 +5,7 @@ pagination_label: Processingdetails
 sidebar_label: Processingdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Processingdetails', 'Processingdetails'] 
-slug: /tools/sdk/powershell/searchv1/models/processingdetails
+slug: /tools/sdk/powershell/search/models/processingdetails
 tags: ['SDK', 'Software Development Kit', 'Processingdetails', 'Processingdetails']
 ---
 

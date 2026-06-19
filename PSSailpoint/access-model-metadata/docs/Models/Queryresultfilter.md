@@ -5,7 +5,7 @@ pagination_label: Queryresultfilter
 sidebar_label: Queryresultfilter
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Queryresultfilter', 'Queryresultfilter'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/queryresultfilter
+slug: /tools/sdk/powershell/accessmodelmetadata/models/queryresultfilter
 tags: ['SDK', 'Software Development Kit', 'Queryresultfilter', 'Queryresultfilter']
 ---
 

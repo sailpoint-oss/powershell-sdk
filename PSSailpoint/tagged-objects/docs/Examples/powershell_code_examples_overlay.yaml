@@ -2,7 +2,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#delete-tagged-object-v1
+      label: SDK_tools/sdk/powershell/taggedobjects/methods/tagged-objects#delete-tagged-object-v1
       source: |
         $Type = "ACCESS_PROFILE" # String | The type of object to delete tags from.
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object to delete tags from.
@@ -22,7 +22,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#delete-tags-to-many-object-v1
+      label: SDK_tools/sdk/powershell/taggedobjects/methods/tagged-objects#delete-tags-to-many-object-v1
       source: |
         $Bulkremovetaggedobject = @"
         
@@ -44,7 +44,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#get-tagged-object-v1
+      label: SDK_tools/sdk/powershell/taggedobjects/methods/tagged-objects#get-tagged-object-v1
       source: |
         $Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
@@ -64,7 +64,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#list-tagged-objects-by-type-v1
+      label: SDK_tools/sdk/powershell/taggedobjects/methods/tagged-objects#list-tagged-objects-by-type-v1
       source: |
         $Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -87,7 +87,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#list-tagged-objects-v1
+      label: SDK_tools/sdk/powershell/taggedobjects/methods/tagged-objects#list-tagged-objects-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -109,7 +109,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#put-tagged-object-v1
+      label: SDK_tools/sdk/powershell/taggedobjects/methods/tagged-objects#put-tagged-object-v1
       source: |
         $Type = "ACCESS_PROFILE" # String | The type of tagged object to update.
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to update.
@@ -133,7 +133,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#set-tag-to-object-v1
+      label: SDK_tools/sdk/powershell/taggedobjects/methods/tagged-objects#set-tag-to-object-v1
       source: |
         $Taggedobject = @"
         
@@ -155,7 +155,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/taggedobjectsv1/methods/tagged-objects#set-tags-to-many-objects-v1
+      label: SDK_tools/sdk/powershell/taggedobjects/methods/tagged-objects#set-tags-to-many-objects-v1
       source: |
         $Bulkaddtaggedobject = @"
         

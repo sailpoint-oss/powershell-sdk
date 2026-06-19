@@ -30,6 +30,8 @@ Last modified timestamp.
 Type of the subtype. Either MACHINE OR null.
 .PARAMETER Source
 No description available.
+.PARAMETER SystemManaged
+Indicates if the subtype is managed by the system.
 .OUTPUTS
 
 Sourcesubtypewithsource<PSCustomObject>
@@ -61,11 +63,14 @@ function Initialize-Sourcesubtypewithsource {
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${Source}
+        ${Source},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${SystemManaged} = $false
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountSubtypesV1 => Sourcesubtypewithsource' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccountSubtypes => Sourcesubtypewithsource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,6 +83,7 @@ function Initialize-Sourcesubtypewithsource {
             "modified" = ${Modified}
             "type" = ${Type}
             "source" = ${Source}
+            "systemManaged" = ${SystemManaged}
         }
 
         return $PSO
@@ -108,13 +114,13 @@ function ConvertFrom-JsonToSourcesubtypewithsource {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountSubtypesV1 => Sourcesubtypewithsource' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountSubtypes => Sourcesubtypewithsource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Sourcesubtypewithsource
-        $AllProperties = ("id", "sourceId", "technicalName", "displayName", "description", "created", "modified", "type", "source")
+        $AllProperties = ("id", "sourceId", "technicalName", "displayName", "description", "created", "modified", "type", "source", "systemManaged")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -175,6 +181,12 @@ function ConvertFrom-JsonToSourcesubtypewithsource {
             $Source = $JsonParameters.PSobject.Properties["source"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "systemManaged"))) { #optional property not found
+            $SystemManaged = $null
+        } else {
+            $SystemManaged = $JsonParameters.PSobject.Properties["systemManaged"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "sourceId" = ${SourceId}
@@ -185,6 +197,7 @@ function ConvertFrom-JsonToSourcesubtypewithsource {
             "modified" = ${Modified}
             "type" = ${Type}
             "source" = ${Source}
+            "systemManaged" = ${SystemManaged}
         }
 
         return $PSO

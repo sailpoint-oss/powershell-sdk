@@ -5,7 +5,7 @@ pagination_label: ApprovalstatusdtoOriginalOwner
 sidebar_label: ApprovalstatusdtoOriginalOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalstatusdtoOriginalOwner', 'ApprovalstatusdtoOriginalOwner'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/approvalstatusdto-original-owner
+slug: /tools/sdk/powershell/accessrequests/models/approvalstatusdto-original-owner
 tags: ['SDK', 'Software Development Kit', 'ApprovalstatusdtoOriginalOwner', 'ApprovalstatusdtoOriginalOwner']
 ---
 

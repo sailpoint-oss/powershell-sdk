@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#create-reassignment-configuration-v1
+      label: SDK_tools/sdk/powershell/workreassignment/methods/work-reassignment#create-reassignment-configuration-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Configurationitemrequest = @"
@@ -25,7 +25,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#delete-reassignment-configuration-v1
+      label: SDK_tools/sdk/powershell/workreassignment/methods/work-reassignment#delete-reassignment-configuration-v1
       source: |
         $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
         $ConfigType = "ACCESS_REQUESTS" # Configtypeenum | 
@@ -46,7 +46,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#get-evaluate-reassignment-configuration-v1
+      label: SDK_tools/sdk/powershell/workreassignment/methods/work-reassignment#get-evaluate-reassignment-configuration-v1
       source: |
         $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
         $ConfigType = "ACCESS_REQUESTS" # Configtypeenum | Reassignment work type
@@ -70,7 +70,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#get-reassignment-config-types-v1
+      label: SDK_tools/sdk/powershell/workreassignment/methods/work-reassignment#get-reassignment-config-types-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
@@ -89,7 +89,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#get-reassignment-configuration-v1
+      label: SDK_tools/sdk/powershell/workreassignment/methods/work-reassignment#get-reassignment-configuration-v1
       source: |
         $IdentityId = "2c91808781a71ddb0181b9090b5c504f" # String | unique identity id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -109,7 +109,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#get-tenant-config-configuration-v1
+      label: SDK_tools/sdk/powershell/workreassignment/methods/work-reassignment#get-tenant-config-configuration-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
@@ -128,7 +128,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#list-reassignment-configurations-v1
+      label: SDK_tools/sdk/powershell/workreassignment/methods/work-reassignment#list-reassignment-configurations-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
@@ -147,7 +147,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#put-reassignment-config-v1
+      label: SDK_tools/sdk/powershell/workreassignment/methods/work-reassignment#put-reassignment-config-v1
       source: |
         $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -171,7 +171,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workreassignmentv1/methods/work-reassignment#put-tenant-configuration-v1
+      label: SDK_tools/sdk/powershell/workreassignment/methods/work-reassignment#put-tenant-configuration-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Tenantconfigurationrequest = @"

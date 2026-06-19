@@ -5,7 +5,7 @@ pagination_label: Verificationrequest
 sidebar_label: Verificationrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Verificationrequest', 'Verificationrequest'] 
-slug: /tools/sdk/powershell/sharedsignalsframeworkssfv1/models/verificationrequest
+slug: /tools/sdk/powershell/sharedsignalsframeworkssf/models/verificationrequest
 tags: ['SDK', 'Software Development Kit', 'Verificationrequest', 'Verificationrequest']
 ---
 

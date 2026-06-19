@@ -36,7 +36,7 @@ function Initialize-Conditioneffect {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Conditioneffect' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Conditioneffect' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToConditioneffect {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Conditioneffect' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Conditioneffect' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

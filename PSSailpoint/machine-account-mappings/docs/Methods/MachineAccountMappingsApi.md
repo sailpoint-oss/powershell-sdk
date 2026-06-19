@@ -5,7 +5,7 @@ pagination_label: MachineAccountMappings
 sidebar_label: MachineAccountMappings
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineAccountMappings', 'MachineAccountMappings'] 
-slug: /tools/sdk/powershell/machineaccountmappingsv1/methods/machine-account-mappings
+slug: /tools/sdk/powershell/machineaccountmappings/methods/machine-account-mappings
 tags: ['SDK', 'Software Development Kit', 'MachineAccountMappings', 'MachineAccountMappings']
 ---
 

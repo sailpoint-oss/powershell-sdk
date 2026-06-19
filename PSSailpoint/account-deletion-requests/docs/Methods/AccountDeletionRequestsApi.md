@@ -5,7 +5,7 @@ pagination_label: AccountDeletionRequests
 sidebar_label: AccountDeletionRequests
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountDeletionRequests', 'AccountDeletionRequests'] 
-slug: /tools/sdk/powershell/accountdeletionrequestsv1/methods/account-deletion-requests
+slug: /tools/sdk/powershell/accountdeletionrequests/methods/account-deletion-requests
 tags: ['SDK', 'Software Development Kit', 'AccountDeletionRequests', 'AccountDeletionRequests']
 ---
 

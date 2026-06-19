@@ -90,7 +90,7 @@ function Initialize-Baseaccount {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Baseaccount' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Baseaccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -138,7 +138,7 @@ function ConvertFrom-JsonToBaseaccount {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Baseaccount' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Baseaccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

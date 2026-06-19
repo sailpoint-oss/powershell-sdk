@@ -5,7 +5,7 @@ pagination_label: ApplicationDiscovery
 sidebar_label: ApplicationDiscovery
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApplicationDiscovery', 'ApplicationDiscovery'] 
-slug: /tools/sdk/powershell/applicationdiscoveryv1/methods/application-discovery
+slug: /tools/sdk/powershell/applicationdiscovery/methods/application-discovery
 tags: ['SDK', 'Software Development Kit', 'ApplicationDiscovery', 'ApplicationDiscovery']
 ---
 

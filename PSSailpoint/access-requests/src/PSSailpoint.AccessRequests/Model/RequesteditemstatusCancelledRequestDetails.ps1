@@ -40,7 +40,7 @@ function Initialize-RequesteditemstatusCancelledRequestDetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => RequesteditemstatusCancelledRequestDetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => RequesteditemstatusCancelledRequestDetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToRequesteditemstatusCancelledRequestDetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => RequesteditemstatusCancelledRequestDetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => RequesteditemstatusCancelledRequestDetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

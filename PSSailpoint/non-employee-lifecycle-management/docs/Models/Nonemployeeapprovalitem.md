@@ -5,7 +5,7 @@ pagination_label: Nonemployeeapprovalitem
 sidebar_label: Nonemployeeapprovalitem
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Nonemployeeapprovalitem', 'Nonemployeeapprovalitem'] 
-slug: /tools/sdk/powershell/nonemployeelifecyclemanagementv1/models/nonemployeeapprovalitem
+slug: /tools/sdk/powershell/nonemployeelifecyclemanagement/models/nonemployeeapprovalitem
 tags: ['SDK', 'Software Development Kit', 'Nonemployeeapprovalitem', 'Nonemployeeapprovalitem']
 ---
 

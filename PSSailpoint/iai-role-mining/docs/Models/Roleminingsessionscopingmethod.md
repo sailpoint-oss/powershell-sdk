@@ -5,7 +5,7 @@ pagination_label: Roleminingsessionscopingmethod
 sidebar_label: Roleminingsessionscopingmethod
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Roleminingsessionscopingmethod', 'Roleminingsessionscopingmethod'] 
-slug: /tools/sdk/powershell/iairoleminingv1/models/roleminingsessionscopingmethod
+slug: /tools/sdk/powershell/iairolemining/models/roleminingsessionscopingmethod
 tags: ['SDK', 'Software Development Kit', 'Roleminingsessionscopingmethod', 'Roleminingsessionscopingmethod']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Entitlementsourceresetbasereferencedto
 sidebar_label: Entitlementsourceresetbasereferencedto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlementsourceresetbasereferencedto', 'Entitlementsourceresetbasereferencedto'] 
-slug: /tools/sdk/powershell/entitlementsv1/models/entitlementsourceresetbasereferencedto
+slug: /tools/sdk/powershell/entitlements/models/entitlementsourceresetbasereferencedto
 tags: ['SDK', 'Software Development Kit', 'Entitlementsourceresetbasereferencedto', 'Entitlementsourceresetbasereferencedto']
 ---
 

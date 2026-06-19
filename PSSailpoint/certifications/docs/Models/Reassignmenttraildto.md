@@ -5,7 +5,7 @@ pagination_label: Reassignmenttraildto
 sidebar_label: Reassignmenttraildto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reassignmenttraildto', 'Reassignmenttraildto'] 
-slug: /tools/sdk/powershell/certificationsv1/models/reassignmenttraildto
+slug: /tools/sdk/powershell/certifications/models/reassignmenttraildto
 tags: ['SDK', 'Software Development Kit', 'Reassignmenttraildto', 'Reassignmenttraildto']
 ---
 

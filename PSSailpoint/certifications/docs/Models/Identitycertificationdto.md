@@ -5,7 +5,7 @@ pagination_label: Identitycertificationdto
 sidebar_label: Identitycertificationdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitycertificationdto', 'Identitycertificationdto'] 
-slug: /tools/sdk/powershell/certificationsv1/models/identitycertificationdto
+slug: /tools/sdk/powershell/certifications/models/identitycertificationdto
 tags: ['SDK', 'Software Development Kit', 'Identitycertificationdto', 'Identitycertificationdto']
 ---
 

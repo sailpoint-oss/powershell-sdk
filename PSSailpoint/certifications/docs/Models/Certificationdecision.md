@@ -5,7 +5,7 @@ pagination_label: Certificationdecision
 sidebar_label: Certificationdecision
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Certificationdecision', 'Certificationdecision'] 
-slug: /tools/sdk/powershell/certificationsv1/models/certificationdecision
+slug: /tools/sdk/powershell/certifications/models/certificationdecision
 tags: ['SDK', 'Software Development Kit', 'Certificationdecision', 'Certificationdecision']
 ---
 

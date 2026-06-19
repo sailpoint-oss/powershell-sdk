@@ -41,7 +41,7 @@ function Initialize-Basereferencedto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Basereferencedto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Basereferencedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToBasereferencedto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Basereferencedto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Basereferencedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Spconfigjob
 sidebar_label: Spconfigjob
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Spconfigjob', 'Spconfigjob'] 
-slug: /tools/sdk/powershell/spconfigv1/models/spconfigjob
+slug: /tools/sdk/powershell/spconfig/models/spconfigjob
 tags: ['SDK', 'Software Development Kit', 'Spconfigjob', 'Spconfigjob']
 ---
 

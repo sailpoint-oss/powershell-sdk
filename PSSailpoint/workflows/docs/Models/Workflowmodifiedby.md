@@ -5,7 +5,7 @@ pagination_label: Workflowmodifiedby
 sidebar_label: Workflowmodifiedby
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workflowmodifiedby', 'Workflowmodifiedby'] 
-slug: /tools/sdk/powershell/workflowsv1/models/workflowmodifiedby
+slug: /tools/sdk/powershell/workflows/models/workflowmodifiedby
 tags: ['SDK', 'Software Development Kit', 'Workflowmodifiedby', 'Workflowmodifiedby']
 ---
 

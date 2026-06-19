@@ -45,7 +45,7 @@ function Initialize-Leftpad {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Leftpad' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Leftpad' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Length) {
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToLeftpad {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Leftpad' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Leftpad' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

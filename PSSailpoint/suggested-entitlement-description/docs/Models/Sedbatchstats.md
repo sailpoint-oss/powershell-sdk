@@ -5,7 +5,7 @@ pagination_label: Sedbatchstats
 sidebar_label: Sedbatchstats
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sedbatchstats', 'Sedbatchstats'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/sedbatchstats
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/sedbatchstats
 tags: ['SDK', 'Software Development Kit', 'Sedbatchstats', 'Sedbatchstats']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: SpconfigruleValue
 sidebar_label: SpconfigruleValue
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SpconfigruleValue', 'SpconfigruleValue'] 
-slug: /tools/sdk/powershell/spconfigv1/models/spconfigrule-value
+slug: /tools/sdk/powershell/spconfig/models/spconfigrule-value
 tags: ['SDK', 'Software Development Kit', 'SpconfigruleValue', 'SpconfigruleValue']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: GetProfileConfigListV1429Response
 sidebar_label: GetProfileConfigListV1429Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetProfileConfigListV1429Response', 'GetProfileConfigListV1429Response'] 
-slug: /tools/sdk/powershell/authprofilev1/models/get-profile-config-list-v1429-response
+slug: /tools/sdk/powershell/authprofile/models/get-profile-config-list-v1429-response
 tags: ['SDK', 'Software Development Kit', 'GetProfileConfigListV1429Response', 'GetProfileConfigListV1429Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetProfileConfigListV1429Response', '
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**Message** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

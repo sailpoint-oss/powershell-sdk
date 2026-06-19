@@ -5,7 +5,7 @@ pagination_label: ApprovalconfigFallbackApprover
 sidebar_label: ApprovalconfigFallbackApprover
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalconfigFallbackApprover', 'ApprovalconfigFallbackApprover'] 
-slug: /tools/sdk/powershell/sourcesv1/models/approvalconfig-fallback-approver
+slug: /tools/sdk/powershell/sources/models/approvalconfig-fallback-approver
 tags: ['SDK', 'Software Development Kit', 'ApprovalconfigFallbackApprover', 'ApprovalconfigFallbackApprover']
 ---
 

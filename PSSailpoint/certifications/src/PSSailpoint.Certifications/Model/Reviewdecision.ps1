@@ -56,7 +56,7 @@ function Initialize-Reviewdecision {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => Reviewdecision' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => Reviewdecision' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -109,7 +109,7 @@ function ConvertFrom-JsonToReviewdecision {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => Reviewdecision' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => Reviewdecision' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

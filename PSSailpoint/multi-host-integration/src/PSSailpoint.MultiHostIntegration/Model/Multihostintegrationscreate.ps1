@@ -70,7 +70,7 @@ function Initialize-Multihostintegrationscreate {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => Multihostintegrationscreate' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MultiHostIntegration => Multihostintegrationscreate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -130,7 +130,7 @@ function ConvertFrom-JsonToMultihostintegrationscreate {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => Multihostintegrationscreate' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegration => Multihostintegrationscreate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

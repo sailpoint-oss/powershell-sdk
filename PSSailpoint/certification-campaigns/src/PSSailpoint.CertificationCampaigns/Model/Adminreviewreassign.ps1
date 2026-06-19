@@ -40,7 +40,7 @@ function Initialize-Adminreviewreassign {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Adminreviewreassign' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaigns => Adminreviewreassign' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$CertificationIds -and $CertificationIds.length -gt 250) {
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToAdminreviewreassign {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Adminreviewreassign' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaigns => Adminreviewreassign' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

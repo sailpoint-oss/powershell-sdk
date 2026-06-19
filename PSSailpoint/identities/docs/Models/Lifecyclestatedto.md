@@ -5,7 +5,7 @@ pagination_label: Lifecyclestatedto
 sidebar_label: Lifecyclestatedto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Lifecyclestatedto', 'Lifecyclestatedto'] 
-slug: /tools/sdk/powershell/identitiesv1/models/lifecyclestatedto
+slug: /tools/sdk/powershell/identities/models/lifecyclestatedto
 tags: ['SDK', 'Software Development Kit', 'Lifecyclestatedto', 'Lifecyclestatedto']
 ---
 

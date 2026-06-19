@@ -5,7 +5,7 @@ pagination_label: Nonemployeesourcewithcloudexternalid
 sidebar_label: Nonemployeesourcewithcloudexternalid
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Nonemployeesourcewithcloudexternalid', 'Nonemployeesourcewithcloudexternalid'] 
-slug: /tools/sdk/powershell/nonemployeelifecyclemanagementv1/models/nonemployeesourcewithcloudexternalid
+slug: /tools/sdk/powershell/nonemployeelifecyclemanagement/models/nonemployeesourcewithcloudexternalid
 tags: ['SDK', 'Software Development Kit', 'Nonemployeesourcewithcloudexternalid', 'Nonemployeesourcewithcloudexternalid']
 ---
 

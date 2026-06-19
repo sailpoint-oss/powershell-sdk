@@ -30,7 +30,7 @@ function Initialize-ListPersonalAccessTokensV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PersonalAccessTokensV1 => ListPersonalAccessTokensV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PersonalAccessTokens => ListPersonalAccessTokensV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListPersonalAccessTokensV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PersonalAccessTokensV1 => ListPersonalAccessTokensV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PersonalAccessTokens => ListPersonalAccessTokensV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

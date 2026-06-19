@@ -5,7 +5,7 @@ pagination_label: Reviewableaccessprofile
 sidebar_label: Reviewableaccessprofile
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reviewableaccessprofile', 'Reviewableaccessprofile'] 
-slug: /tools/sdk/powershell/certificationsv1/models/reviewableaccessprofile
+slug: /tools/sdk/powershell/certifications/models/reviewableaccessprofile
 tags: ['SDK', 'Software Development Kit', 'Reviewableaccessprofile', 'Reviewableaccessprofile']
 ---
 

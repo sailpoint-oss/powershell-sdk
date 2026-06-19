@@ -5,7 +5,7 @@ pagination_label: EntitlementAccessModelMetadata
 sidebar_label: EntitlementAccessModelMetadata
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementAccessModelMetadata', 'EntitlementAccessModelMetadata'] 
-slug: /tools/sdk/powershell/rolesv1/models/entitlement-access-model-metadata
+slug: /tools/sdk/powershell/roles/models/entitlement-access-model-metadata
 tags: ['SDK', 'Software Development Kit', 'EntitlementAccessModelMetadata', 'EntitlementAccessModelMetadata']
 ---
 

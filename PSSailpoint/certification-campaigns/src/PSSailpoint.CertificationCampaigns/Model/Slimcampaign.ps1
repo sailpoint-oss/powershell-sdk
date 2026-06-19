@@ -67,7 +67,7 @@ function Initialize-Slimcampaign {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Slimcampaign' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaigns => Slimcampaign' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -118,7 +118,7 @@ function ConvertFrom-JsonToSlimcampaign {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Slimcampaign' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaigns => Slimcampaign' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -120,7 +120,7 @@ function Initialize-Entitlement {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Entitlement' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Entitlement' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -174,7 +174,7 @@ function ConvertFrom-JsonToEntitlement {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Entitlement' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Entitlement' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

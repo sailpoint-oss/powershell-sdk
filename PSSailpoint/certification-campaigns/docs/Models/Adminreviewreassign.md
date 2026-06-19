@@ -5,7 +5,7 @@ pagination_label: Adminreviewreassign
 sidebar_label: Adminreviewreassign
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Adminreviewreassign', 'Adminreviewreassign'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/adminreviewreassign
+slug: /tools/sdk/powershell/certificationcampaigns/models/adminreviewreassign
 tags: ['SDK', 'Software Development Kit', 'Adminreviewreassign', 'Adminreviewreassign']
 ---
 

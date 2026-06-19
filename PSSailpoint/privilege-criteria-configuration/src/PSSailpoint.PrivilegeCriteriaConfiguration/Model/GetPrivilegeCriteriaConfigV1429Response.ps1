@@ -30,7 +30,7 @@ function Initialize-GetPrivilegeCriteriaConfigV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PrivilegeCriteriaConfigurationV1 => GetPrivilegeCriteriaConfigV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PrivilegeCriteriaConfiguration => GetPrivilegeCriteriaConfigV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetPrivilegeCriteriaConfigV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PrivilegeCriteriaConfigurationV1 => GetPrivilegeCriteriaConfigV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PrivilegeCriteriaConfiguration => GetPrivilegeCriteriaConfigV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

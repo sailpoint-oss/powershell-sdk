@@ -5,7 +5,7 @@ pagination_label: Managedclienthealthindicators
 sidebar_label: Managedclienthealthindicators
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Managedclienthealthindicators', 'Managedclienthealthindicators'] 
-slug: /tools/sdk/powershell/managedclientsv1/models/managedclienthealthindicators
+slug: /tools/sdk/powershell/managedclients/models/managedclienthealthindicators
 tags: ['SDK', 'Software Development Kit', 'Managedclienthealthindicators', 'Managedclienthealthindicators']
 ---
 

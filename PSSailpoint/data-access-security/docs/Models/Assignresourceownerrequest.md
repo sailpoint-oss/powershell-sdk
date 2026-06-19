@@ -5,7 +5,7 @@ pagination_label: Assignresourceownerrequest
 sidebar_label: Assignresourceownerrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Assignresourceownerrequest', 'Assignresourceownerrequest'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/assignresourceownerrequest
+slug: /tools/sdk/powershell/dataaccesssecurity/models/assignresourceownerrequest
 tags: ['SDK', 'Software Development Kit', 'Assignresourceownerrequest', 'Assignresourceownerrequest']
 ---
 

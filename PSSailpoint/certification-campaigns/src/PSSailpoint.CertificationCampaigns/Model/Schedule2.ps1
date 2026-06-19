@@ -56,7 +56,7 @@ function Initialize-Schedule2 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Schedule2' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaigns => Schedule2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -105,7 +105,7 @@ function ConvertFrom-JsonToSchedule2 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Schedule2' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaigns => Schedule2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

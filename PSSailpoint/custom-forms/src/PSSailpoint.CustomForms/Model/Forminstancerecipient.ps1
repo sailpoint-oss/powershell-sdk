@@ -36,7 +36,7 @@ function Initialize-Forminstancerecipient {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Forminstancerecipient' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Forminstancerecipient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToForminstancerecipient {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Forminstancerecipient' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Forminstancerecipient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

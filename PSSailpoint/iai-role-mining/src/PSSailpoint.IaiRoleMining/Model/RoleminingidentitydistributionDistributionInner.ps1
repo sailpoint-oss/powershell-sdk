@@ -35,7 +35,7 @@ function Initialize-RoleminingidentitydistributionDistributionInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRoleMiningV1 => RoleminingidentitydistributionDistributionInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRoleMining => RoleminingidentitydistributionDistributionInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToRoleminingidentitydistributionDistributionInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMiningV1 => RoleminingidentitydistributionDistributionInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRoleMining => RoleminingidentitydistributionDistributionInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

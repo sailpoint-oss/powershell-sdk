@@ -47,7 +47,7 @@ function Initialize-Rolemetadatabulkupdatebyqueryrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Rolemetadatabulkupdatebyqueryrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Rolemetadatabulkupdatebyqueryrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Query) {
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToRolemetadatabulkupdatebyqueryrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Rolemetadatabulkupdatebyqueryrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Rolemetadatabulkupdatebyqueryrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

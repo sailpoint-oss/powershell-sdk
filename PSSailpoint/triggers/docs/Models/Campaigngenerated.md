@@ -5,7 +5,7 @@ pagination_label: Campaigngenerated
 sidebar_label: Campaigngenerated
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaigngenerated', 'Campaigngenerated'] 
-slug: /tools/sdk/powershell/triggersv1/models/campaigngenerated
+slug: /tools/sdk/powershell/triggers/models/campaigngenerated
 tags: ['SDK', 'Software Development Kit', 'Campaigngenerated', 'Campaigngenerated']
 ---
 

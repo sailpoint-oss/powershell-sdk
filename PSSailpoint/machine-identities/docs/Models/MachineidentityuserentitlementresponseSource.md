@@ -5,7 +5,7 @@ pagination_label: MachineidentityuserentitlementresponseSource
 sidebar_label: MachineidentityuserentitlementresponseSource
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineidentityuserentitlementresponseSource', 'MachineidentityuserentitlementresponseSource'] 
-slug: /tools/sdk/powershell/machineidentitiesv1/models/machineidentityuserentitlementresponse-source
+slug: /tools/sdk/powershell/machineidentities/models/machineidentityuserentitlementresponse-source
 tags: ['SDK', 'Software Development Kit', 'MachineidentityuserentitlementresponseSource', 'MachineidentityuserentitlementresponseSource']
 ---
 

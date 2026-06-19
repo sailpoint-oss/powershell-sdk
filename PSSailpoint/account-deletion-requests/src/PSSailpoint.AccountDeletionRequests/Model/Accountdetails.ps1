@@ -126,7 +126,7 @@ function Initialize-Accountdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountDeletionRequestsV1 => Accountdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccountDeletionRequests => Accountdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -181,7 +181,7 @@ function ConvertFrom-JsonToAccountdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountDeletionRequestsV1 => Accountdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccountDeletionRequests => Accountdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

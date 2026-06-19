@@ -5,7 +5,7 @@ pagination_label: Tenantconfigurationresponse
 sidebar_label: Tenantconfigurationresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Tenantconfigurationresponse', 'Tenantconfigurationresponse'] 
-slug: /tools/sdk/powershell/workreassignmentv1/models/tenantconfigurationresponse
+slug: /tools/sdk/powershell/workreassignment/models/tenantconfigurationresponse
 tags: ['SDK', 'Software Development Kit', 'Tenantconfigurationresponse', 'Tenantconfigurationresponse']
 ---
 

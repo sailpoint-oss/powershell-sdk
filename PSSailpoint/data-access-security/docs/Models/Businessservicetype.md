@@ -5,7 +5,7 @@ pagination_label: Businessservicetype
 sidebar_label: Businessservicetype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Businessservicetype', 'Businessservicetype'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/businessservicetype
+slug: /tools/sdk/powershell/dataaccesssecurity/models/businessservicetype
 tags: ['SDK', 'Software Development Kit', 'Businessservicetype', 'Businessservicetype']
 ---
 

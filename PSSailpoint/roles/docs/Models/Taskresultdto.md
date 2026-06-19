@@ -5,7 +5,7 @@ pagination_label: Taskresultdto
 sidebar_label: Taskresultdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Taskresultdto', 'Taskresultdto'] 
-slug: /tools/sdk/powershell/rolesv1/models/taskresultdto
+slug: /tools/sdk/powershell/roles/models/taskresultdto
 tags: ['SDK', 'Software Development Kit', 'Taskresultdto', 'Taskresultdto']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Formdefinitionfileuploadresponse
 sidebar_label: Formdefinitionfileuploadresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Formdefinitionfileuploadresponse', 'Formdefinitionfileuploadresponse'] 
-slug: /tools/sdk/powershell/customformsv1/models/formdefinitionfileuploadresponse
+slug: /tools/sdk/powershell/customforms/models/formdefinitionfileuploadresponse
 tags: ['SDK', 'Software Development Kit', 'Formdefinitionfileuploadresponse', 'Formdefinitionfileuploadresponse']
 ---
 

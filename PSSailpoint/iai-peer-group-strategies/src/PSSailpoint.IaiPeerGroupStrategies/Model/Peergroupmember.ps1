@@ -45,7 +45,7 @@ function Initialize-Peergroupmember {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiPeerGroupStrategiesV1 => Peergroupmember' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiPeerGroupStrategies => Peergroupmember' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToPeergroupmember {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiPeerGroupStrategiesV1 => Peergroupmember' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiPeerGroupStrategies => Peergroupmember' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Templateslack
 sidebar_label: Templateslack
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Templateslack', 'Templateslack'] 
-slug: /tools/sdk/powershell/notificationsv1/models/templateslack
+slug: /tools/sdk/powershell/notifications/models/templateslack
 tags: ['SDK', 'Software Development Kit', 'Templateslack', 'Templateslack']
 ---
 

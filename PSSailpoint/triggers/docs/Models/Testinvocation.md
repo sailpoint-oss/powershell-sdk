@@ -5,7 +5,7 @@ pagination_label: Testinvocation
 sidebar_label: Testinvocation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Testinvocation', 'Testinvocation'] 
-slug: /tools/sdk/powershell/triggersv1/models/testinvocation
+slug: /tools/sdk/powershell/triggers/models/testinvocation
 tags: ['SDK', 'Software Development Kit', 'Testinvocation', 'Testinvocation']
 ---
 
@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'Testinvocation', 'Testinvocation']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TriggerId** | **String** | Trigger ID | [required]
-**VarInput** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Mock input to use for test invocation.  This must adhere to the input schema defined in the trigger being invoked.  If this property is omitted, then the default trigger sample payload will be sent. | [optional] 
-**ContentJson** | [**SystemCollectionsHashtable**](system-collections-hashtable) | JSON map of invocation metadata. | [required]
+**VarInput** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Mock input to use for test invocation.  This must adhere to the input schema defined in the trigger being invoked.  If this property is omitted, then the default trigger sample payload will be sent. | [optional] 
+**ContentJson** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | JSON map of invocation metadata. | [required]
 **SubscriptionIds** | **[]String** | Only send the test event to the subscription IDs listed.  If omitted, the test event will be sent to all subscribers. | [optional] 
 
 ## Examples

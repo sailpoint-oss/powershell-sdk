@@ -5,7 +5,7 @@ pagination_label: GetCampaignV1200Response
 sidebar_label: GetCampaignV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetCampaignV1200Response', 'GetCampaignV1200Response'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/get-campaign-v1200-response
+slug: /tools/sdk/powershell/certificationcampaigns/models/get-campaign-v1200-response
 tags: ['SDK', 'Software Development Kit', 'GetCampaignV1200Response', 'GetCampaignV1200Response']
 ---
 

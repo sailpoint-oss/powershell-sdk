@@ -5,7 +5,7 @@ pagination_label: DateformatOutputFormat
 sidebar_label: DateformatOutputFormat
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'DateformatOutputFormat', 'DateformatOutputFormat'] 
-slug: /tools/sdk/powershell/sourcesv1/models/dateformat-output-format
+slug: /tools/sdk/powershell/sources/models/dateformat-output-format
 tags: ['SDK', 'Software Development Kit', 'DateformatOutputFormat', 'DateformatOutputFormat']
 ---
 

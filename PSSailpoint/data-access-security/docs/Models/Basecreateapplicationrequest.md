@@ -5,7 +5,7 @@ pagination_label: Basecreateapplicationrequest
 sidebar_label: Basecreateapplicationrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Basecreateapplicationrequest', 'Basecreateapplicationrequest'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/basecreateapplicationrequest
+slug: /tools/sdk/powershell/dataaccesssecurity/models/basecreateapplicationrequest
 tags: ['SDK', 'Software Development Kit', 'Basecreateapplicationrequest', 'Basecreateapplicationrequest']
 ---
 

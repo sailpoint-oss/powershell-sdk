@@ -51,7 +51,7 @@ function Initialize-Requestedaccountref {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Requestedaccountref' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Requestedaccountref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToRequestedaccountref {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Requestedaccountref' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Requestedaccountref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

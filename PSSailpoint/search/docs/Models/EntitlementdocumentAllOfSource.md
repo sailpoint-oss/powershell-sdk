@@ -5,7 +5,7 @@ pagination_label: EntitlementdocumentAllOfSource
 sidebar_label: EntitlementdocumentAllOfSource
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementdocumentAllOfSource', 'EntitlementdocumentAllOfSource'] 
-slug: /tools/sdk/powershell/searchv1/models/entitlementdocument-all-of-source
+slug: /tools/sdk/powershell/search/models/entitlementdocument-all-of-source
 tags: ['SDK', 'Software Development Kit', 'EntitlementdocumentAllOfSource', 'EntitlementdocumentAllOfSource']
 ---
 

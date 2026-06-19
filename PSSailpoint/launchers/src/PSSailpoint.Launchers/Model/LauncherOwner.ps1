@@ -35,7 +35,7 @@ function Initialize-LauncherOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.LaunchersV1 => LauncherOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Launchers => LauncherOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToLauncherOwner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.LaunchersV1 => LauncherOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Launchers => LauncherOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

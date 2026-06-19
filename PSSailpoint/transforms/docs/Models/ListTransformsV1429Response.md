@@ -5,7 +5,7 @@ pagination_label: ListTransformsV1429Response
 sidebar_label: ListTransformsV1429Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ListTransformsV1429Response', 'ListTransformsV1429Response'] 
-slug: /tools/sdk/powershell/transformsv1/models/list-transforms-v1429-response
+slug: /tools/sdk/powershell/transforms/models/list-transforms-v1429-response
 tags: ['SDK', 'Software Development Kit', 'ListTransformsV1429Response', 'ListTransformsV1429Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ListTransformsV1429Response', 'ListTr
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**Message** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

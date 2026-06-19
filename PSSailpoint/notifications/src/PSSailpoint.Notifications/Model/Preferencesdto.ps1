@@ -40,7 +40,7 @@ function Initialize-Preferencesdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => Preferencesdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => Preferencesdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToPreferencesdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => Preferencesdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => Preferencesdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

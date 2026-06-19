@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#create-potential-role-provision-request-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#create-potential-role-provision-request-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -28,7 +28,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#create-role-mining-sessions-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#create-role-mining-sessions-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Roleminingsessiondto = @"
@@ -51,7 +51,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#download-role-mining-potential-role-zip-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#download-role-mining-potential-role-zip-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "278359a6-04b7-4669-9468-924cf580964a" # String | A potential role id in a role mining session
@@ -73,7 +73,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#export-role-mining-potential-role-async-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#export-role-mining-potential-role-async-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "278359a6-04b7-4669-9468-924cf580964a" # String | A potential role id in a role mining session
@@ -97,7 +97,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#export-role-mining-potential-role-status-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#export-role-mining-potential-role-status-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "278359a6-04b7-4669-9468-924cf580964a" # String | A potential role id in a role mining session
@@ -119,7 +119,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#export-role-mining-potential-role-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#export-role-mining-potential-role-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -140,7 +140,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-all-potential-role-summaries-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-all-potential-role-summaries-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Sorters = "createdDate" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **createdDate, identityCount, entitlementCount, freshness, quality** (optional)
@@ -164,7 +164,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-entitlement-distribution-potential-role-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-entitlement-distribution-potential-role-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -186,7 +186,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-entitlements-potential-role-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-entitlements-potential-role-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -213,7 +213,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-excluded-entitlements-potential-role-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-excluded-entitlements-potential-role-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -239,7 +239,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-identities-potential-role-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-identities-potential-role-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -265,7 +265,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-potential-role-applications-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-potential-role-applications-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "62f28d91-7d9f-4d17-be15-666d5b41d77f" # String | A potential role id in a role mining session
@@ -290,7 +290,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-potential-role-entitlements-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-potential-role-entitlements-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "62f28d91-7d9f-4d17-be15-666d5b41d77f" # String | A potential role id in a role mining session
@@ -315,7 +315,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-potential-role-source-identity-usage-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-potential-role-source-identity-usage-v1
       source: |
         $PotentialRoleId = "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923" # String | A potential role id
         $SourceId = "2c9180877620c1460176267f336a106f" # String | A source id
@@ -340,7 +340,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-potential-role-summaries-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-potential-role-summaries-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -365,7 +365,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-potential-role-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-potential-role-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session
@@ -386,7 +386,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-role-mining-potential-role-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-role-mining-potential-role-v1
       source: |
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -406,7 +406,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-role-mining-session-status-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-role-mining-session-status-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -426,7 +426,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-role-mining-session-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-role-mining-session-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id to be retrieved.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -446,7 +446,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-role-mining-sessions-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-role-mining-sessions-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Filters = "saved eq "true" and name sw "RM Session"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **saved**: *eq*  **name**: *eq, sw* (optional)
@@ -470,7 +470,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#get-saved-potential-roles-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#get-saved-potential-roles-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Sorters = "modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Sorting is supported for the following fields: **modified** (optional)
@@ -493,13 +493,11 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#patch-potential-role-session-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#patch-potential-role-session-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $JsonpatchoperationroleminingValue = Initialize-JsonpatchoperationroleminingValue 
-$Jsonpatchoperationrolemining = Initialize-Jsonpatchoperationrolemining -Op "remove" -Path "/description" -Value $JsonpatchoperationroleminingValue# Jsonpatchoperationrolemining[] | 
         $Jsonpatchoperationrolemining = @"[{"op":"remove","path":"/description"},{"op":"replace","path":"/description","value":"Acct I - Potential Role"},{"op":"remove","path":"/saved"},{"op":"replace","path":"/saved","value":"false"},{"op":"remove","path":"/name"},{"op":"replace","path":"/name","value":"Potential Role Accounting"}]"@ 
         
         
@@ -519,13 +517,11 @@ $Jsonpatchoperationrolemining = Initialize-Jsonpatchoperationrolemining -Op "rem
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#patch-potential-role-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#patch-potential-role-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potential role summary id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $JsonpatchoperationroleminingValue = Initialize-JsonpatchoperationroleminingValue 
-$Jsonpatchoperationrolemining = Initialize-Jsonpatchoperationrolemining -Op "remove" -Path "/description" -Value $JsonpatchoperationroleminingValue# Jsonpatchoperationrolemining[] | 
         $Jsonpatchoperationrolemining = @"[{"op":"remove","path":"/description"},{"op":"replace","path":"/description","value":"Acct I - Potential Role"},{"op":"remove","path":"/saved"},{"op":"replace","path":"/saved","value":"false"},{"op":"remove","path":"/name"},{"op":"replace","path":"/name","value":"Potential Role Accounting"}]"@ 
         
         
@@ -545,12 +541,10 @@ $Jsonpatchoperationrolemining = Initialize-Jsonpatchoperationrolemining -Op "rem
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#patch-role-mining-session-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#patch-role-mining-session-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id to be patched
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
         $Jsonpatchoperation = @"[{"op":"replace","path":"/pruneThreshold","value":"83"},{"op":"replace","path":"/minNumIdentitiesInPotentialRole","value":"10"},{"op":"replace","path":"/saved","value":"false"},{"op":"replace","path":"/name","value":"RM Session - 07/10/22"},{"op":"add","path":"/name","value":"RM Session - 07/10/22"}]"@ 
         
         
@@ -570,7 +564,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iairoleminingv1/methods/iai-role-mining#update-entitlements-potential-role-v1
+      label: SDK_tools/sdk/powershell/iairolemining/methods/iai-role-mining#update-entitlements-potential-role-v1
       source: |
         $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining session id
         $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | A potential role id in a role mining session

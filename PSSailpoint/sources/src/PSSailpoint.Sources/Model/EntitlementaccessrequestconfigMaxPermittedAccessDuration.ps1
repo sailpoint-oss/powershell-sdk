@@ -36,7 +36,7 @@ function Initialize-EntitlementaccessrequestconfigMaxPermittedAccessDuration {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => EntitlementaccessrequestconfigMaxPermittedAccessDuration' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => EntitlementaccessrequestconfigMaxPermittedAccessDuration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToEntitlementaccessrequestconfigMaxPermittedAccessDurat
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => EntitlementaccessrequestconfigMaxPermittedAccessDuration' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => EntitlementaccessrequestconfigMaxPermittedAccessDuration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

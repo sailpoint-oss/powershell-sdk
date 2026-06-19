@@ -5,7 +5,7 @@ pagination_label: Workflowlibraryoperator
 sidebar_label: Workflowlibraryoperator
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workflowlibraryoperator', 'Workflowlibraryoperator'] 
-slug: /tools/sdk/powershell/workflowsv1/models/workflowlibraryoperator
+slug: /tools/sdk/powershell/workflows/models/workflowlibraryoperator
 tags: ['SDK', 'Software Development Kit', 'Workflowlibraryoperator', 'Workflowlibraryoperator']
 ---
 

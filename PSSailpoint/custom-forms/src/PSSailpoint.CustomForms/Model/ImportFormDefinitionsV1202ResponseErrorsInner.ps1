@@ -40,7 +40,7 @@ function Initialize-ImportFormDefinitionsV1202ResponseErrorsInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => ImportFormDefinitionsV1202ResponseErrorsInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => ImportFormDefinitionsV1202ResponseErrorsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToImportFormDefinitionsV1202ResponseErrorsInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => ImportFormDefinitionsV1202ResponseErrorsInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => ImportFormDefinitionsV1202ResponseErrorsInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

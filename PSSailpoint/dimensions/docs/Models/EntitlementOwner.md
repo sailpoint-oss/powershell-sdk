@@ -5,7 +5,7 @@ pagination_label: EntitlementOwner
 sidebar_label: EntitlementOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'EntitlementOwner', 'EntitlementOwner'] 
-slug: /tools/sdk/powershell/dimensionsv1/models/entitlement-owner
+slug: /tools/sdk/powershell/dimensions/models/entitlement-owner
 tags: ['SDK', 'Software Development Kit', 'EntitlementOwner', 'EntitlementOwner']
 ---
 

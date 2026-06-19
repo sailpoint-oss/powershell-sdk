@@ -41,7 +41,7 @@ function Initialize-AccessprofileusageUsedByInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfilesV1 => AccessprofileusageUsedByInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => AccessprofileusageUsedByInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToAccessprofileusageUsedByInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfilesV1 => AccessprofileusageUsedByInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => AccessprofileusageUsedByInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

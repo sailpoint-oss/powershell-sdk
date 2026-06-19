@@ -41,7 +41,7 @@ function Initialize-UpdateMultiHostSourcesV1RequestInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => UpdateMultiHostSourcesV1RequestInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MultiHostIntegration => UpdateMultiHostSourcesV1RequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Op) {
@@ -87,7 +87,7 @@ function ConvertFrom-JsonToUpdateMultiHostSourcesV1RequestInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => UpdateMultiHostSourcesV1RequestInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegration => UpdateMultiHostSourcesV1RequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

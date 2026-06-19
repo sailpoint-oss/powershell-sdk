@@ -46,7 +46,7 @@ function Initialize-ExpressionChildrenInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataSegmentationV1 => ExpressionChildrenInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataSegmentation => ExpressionChildrenInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToExpressionChildrenInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataSegmentationV1 => ExpressionChildrenInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataSegmentation => ExpressionChildrenInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

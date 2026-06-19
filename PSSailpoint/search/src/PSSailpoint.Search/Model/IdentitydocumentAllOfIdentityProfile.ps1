@@ -35,7 +35,7 @@ function Initialize-IdentitydocumentAllOfIdentityProfile {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => IdentitydocumentAllOfIdentityProfile' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => IdentitydocumentAllOfIdentityProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToIdentitydocumentAllOfIdentityProfile {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => IdentitydocumentAllOfIdentityProfile' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => IdentitydocumentAllOfIdentityProfile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

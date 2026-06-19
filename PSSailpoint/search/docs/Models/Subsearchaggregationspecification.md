@@ -5,7 +5,7 @@ pagination_label: Subsearchaggregationspecification
 sidebar_label: Subsearchaggregationspecification
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Subsearchaggregationspecification', 'Subsearchaggregationspecification'] 
-slug: /tools/sdk/powershell/searchv1/models/subsearchaggregationspecification
+slug: /tools/sdk/powershell/search/models/subsearchaggregationspecification
 tags: ['SDK', 'Software Development Kit', 'Subsearchaggregationspecification', 'Subsearchaggregationspecification']
 ---
 

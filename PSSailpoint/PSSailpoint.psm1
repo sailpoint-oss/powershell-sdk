@@ -10,9 +10,31 @@ $Script:CmdletBindingParameters = @('Verbose', 'Debug', 'ErrorAction', 'WarningA
 . $PSScriptRoot/Pagination.ps1
 
 function Get-SailPointCommand {
+    <#
+    .SYNOPSIS
+        Lists available SailPoint cmdlets across all loaded partition modules.
+    .DESCRIPTION
+        Equivalent to Get-Command -Module PSSailpoint.* but with an optional
+        name filter. Use this instead of Get-Command -Module PSSailpoint.
+    .PARAMETER Name
+        Optional wildcard filter for the command name. Defaults to '*'.
+    .EXAMPLE
+        # List all Get-* cmdlets with their synopsis
+        Get-SailPointCommand -Name 'Get-*' | Get-Help | Format-Table Name, Synopsis
+    .EXAMPLE
+        # Find transform-related cmdlets
+        Get-SailPointCommand -Name '*Transform*'
+    .EXAMPLE
+        # Get detailed help for a specific cmdlet
+        Get-SailPointCommand -Name 'Get-AccountsV1' | Get-Help -Detailed
+    #>
     [CmdletBinding()]
-    param([Parameter(Position=0)][string]$Name = "*")
-    Get-Command -Module (Get-Module "PSSailpoint.*" | Select-Object -ExpandProperty Name) -Name $Name | Sort-Object Name
+    param(
+        [Parameter(Position = 0)]
+        [string]$Name = '*'
+    )
+    Get-Command -Module (Get-Module 'PSSailpoint.*' | Select-Object -ExpandProperty Name) -Name $Name |
+        Sort-Object Name
 }
 
 Import-Module -Name (Join-Path $PSScriptRoot 'access-model-metadata' 'src' 'PSSailpoint.AccessModelMetadata') -Force -Global
@@ -48,6 +70,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'data-access-security' 'src' 'PSSai
 Import-Module -Name (Join-Path $PSScriptRoot 'data-segmentation' 'src' 'PSSailpoint.DataSegmentation') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'declassify-source' 'src' 'PSSailpoint.DeclassifySource') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'dimensions' 'src' 'PSSailpoint.Dimensions') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'entitlement-connections' 'src' 'PSSailpoint.EntitlementConnections') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'entitlements' 'src' 'PSSailpoint.Entitlements') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'global-tenant-security-settings' 'src' 'PSSailpoint.GlobalTenantSecuritySettings') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'governance-groups' 'src' 'PSSailpoint.GovernanceGroups') -Force -Global
@@ -62,7 +85,6 @@ Import-Module -Name (Join-Path $PSScriptRoot 'identities' 'src' 'PSSailpoint.Ide
 Import-Module -Name (Join-Path $PSScriptRoot 'identity-attributes' 'src' 'PSSailpoint.IdentityAttributes') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'identity-history' 'src' 'PSSailpoint.IdentityHistory') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'identity-profiles' 'src' 'PSSailpoint.IdentityProfiles') -Force -Global
-Import-Module -Name (Join-Path $PSScriptRoot 'intelligence-package' 'src' 'PSSailpoint.IntelligencePackage') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'jit-access' 'src' 'PSSailpoint.JitAccess') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'jit-activations' 'src' 'PSSailpoint.JitActivations') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'launchers' 'src' 'PSSailpoint.Launchers') -Force -Global
@@ -94,6 +116,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'password-sync-groups' 'src' 'PSSai
 Import-Module -Name (Join-Path $PSScriptRoot 'personal-access-tokens' 'src' 'PSSailpoint.PersonalAccessTokens') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'privilege-criteria' 'src' 'PSSailpoint.PrivilegeCriteria') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'privilege-criteria-configuration' 'src' 'PSSailpoint.PrivilegeCriteriaConfiguration') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'prompt-insights' 'src' 'PSSailpoint.PromptInsights') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'public-identities' 'src' 'PSSailpoint.PublicIdentities') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'public-identities-config' 'src' 'PSSailpoint.PublicIdentitiesConfig') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'reports-data-extraction' 'src' 'PSSailpoint.ReportsDataExtraction') -Force -Global

@@ -45,7 +45,7 @@ function Initialize-SearchFormDefinitionsByTenantV1400Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => SearchFormDefinitionsByTenantV1400Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => SearchFormDefinitionsByTenantV1400Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToSearchFormDefinitionsByTenantV1400Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => SearchFormDefinitionsByTenantV1400Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => SearchFormDefinitionsByTenantV1400Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

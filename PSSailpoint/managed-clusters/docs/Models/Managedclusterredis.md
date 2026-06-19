@@ -5,7 +5,7 @@ pagination_label: Managedclusterredis
 sidebar_label: Managedclusterredis
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Managedclusterredis', 'Managedclusterredis'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/managedclusterredis
+slug: /tools/sdk/powershell/managedclusters/models/managedclusterredis
 tags: ['SDK', 'Software Development Kit', 'Managedclusterredis', 'Managedclusterredis']
 ---
 

@@ -50,7 +50,7 @@ function Initialize-Eventattributes {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkflowsV1 => Eventattributes' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Workflows => Eventattributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToEventattributes {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkflowsV1 => Eventattributes' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Workflows => Eventattributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

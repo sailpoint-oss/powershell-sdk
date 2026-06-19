@@ -5,7 +5,7 @@ pagination_label: Tag2TagCategoryRefsInner
 sidebar_label: Tag2TagCategoryRefsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Tag2TagCategoryRefsInner', 'Tag2TagCategoryRefsInner'] 
-slug: /tools/sdk/powershell/tagsv1/models/tag2-tag-category-refs-inner
+slug: /tools/sdk/powershell/tags/models/tag2-tag-category-refs-inner
 tags: ['SDK', 'Software Development Kit', 'Tag2TagCategoryRefsInner', 'Tag2TagCategoryRefsInner']
 ---
 

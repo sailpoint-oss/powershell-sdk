@@ -101,7 +101,7 @@ function Initialize-Userlevelsummarydto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Userlevelsummarydto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomUserLevels => Userlevelsummarydto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -151,7 +151,7 @@ function ConvertFrom-JsonToUserlevelsummarydto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Userlevelsummarydto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevels => Userlevelsummarydto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

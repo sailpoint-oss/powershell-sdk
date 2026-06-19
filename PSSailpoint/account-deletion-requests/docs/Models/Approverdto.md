@@ -5,7 +5,7 @@ pagination_label: Approverdto
 sidebar_label: Approverdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approverdto', 'Approverdto'] 
-slug: /tools/sdk/powershell/accountdeletionrequestsv1/models/approverdto
+slug: /tools/sdk/powershell/accountdeletionrequests/models/approverdto
 tags: ['SDK', 'Software Development Kit', 'Approverdto', 'Approverdto']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Sourceaccountselections
 sidebar_label: Sourceaccountselections
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourceaccountselections', 'Sourceaccountselections'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/sourceaccountselections
+slug: /tools/sdk/powershell/accessrequests/models/sourceaccountselections
 tags: ['SDK', 'Software Development Kit', 'Sourceaccountselections', 'Sourceaccountselections']
 ---
 

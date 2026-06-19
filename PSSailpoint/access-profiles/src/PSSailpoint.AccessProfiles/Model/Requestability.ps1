@@ -55,7 +55,7 @@ function Initialize-Requestability {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfilesV1 => Requestability' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => Requestability' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToRequestability {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfilesV1 => Requestability' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => Requestability' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

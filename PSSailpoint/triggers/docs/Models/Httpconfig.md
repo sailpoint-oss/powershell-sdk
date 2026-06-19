@@ -5,7 +5,7 @@ pagination_label: Httpconfig
 sidebar_label: Httpconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Httpconfig', 'Httpconfig'] 
-slug: /tools/sdk/powershell/triggersv1/models/httpconfig
+slug: /tools/sdk/powershell/triggers/models/httpconfig
 tags: ['SDK', 'Software Development Kit', 'Httpconfig', 'Httpconfig']
 ---
 

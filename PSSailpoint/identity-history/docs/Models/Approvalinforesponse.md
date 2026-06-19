@@ -5,7 +5,7 @@ pagination_label: Approvalinforesponse
 sidebar_label: Approvalinforesponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalinforesponse', 'Approvalinforesponse'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/approvalinforesponse
+slug: /tools/sdk/powershell/identityhistory/models/approvalinforesponse
 tags: ['SDK', 'Software Development Kit', 'Approvalinforesponse', 'Approvalinforesponse']
 ---
 

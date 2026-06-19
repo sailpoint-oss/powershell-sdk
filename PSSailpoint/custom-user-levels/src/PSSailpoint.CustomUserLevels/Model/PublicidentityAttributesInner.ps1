@@ -40,7 +40,7 @@ function Initialize-PublicidentityAttributesInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomUserLevelsV1 => PublicidentityAttributesInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomUserLevels => PublicidentityAttributesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToPublicidentityAttributesInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevelsV1 => PublicidentityAttributesInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevels => PublicidentityAttributesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

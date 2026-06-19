@@ -5,7 +5,7 @@ pagination_label: Recommendation
 sidebar_label: Recommendation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Recommendation', 'Recommendation'] 
-slug: /tools/sdk/powershell/accountsv1/models/recommendation
+slug: /tools/sdk/powershell/accounts/models/recommendation
 tags: ['SDK', 'Software Development Kit', 'Recommendation', 'Recommendation']
 ---
 

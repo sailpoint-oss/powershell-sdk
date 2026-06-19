@@ -47,7 +47,7 @@ function Initialize-Managedclientstatus {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClientsV1 => Managedclientstatus' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClients => Managedclientstatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Body) {
@@ -98,7 +98,7 @@ function ConvertFrom-JsonToManagedclientstatus {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClientsV1 => Managedclientstatus' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClients => Managedclientstatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

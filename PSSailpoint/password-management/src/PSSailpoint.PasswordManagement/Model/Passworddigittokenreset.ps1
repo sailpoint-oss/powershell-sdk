@@ -40,7 +40,7 @@ function Initialize-Passworddigittokenreset {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PasswordManagementV1 => Passworddigittokenreset' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PasswordManagement => Passworddigittokenreset' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$UserId) {
@@ -82,7 +82,7 @@ function ConvertFrom-JsonToPassworddigittokenreset {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PasswordManagementV1 => Passworddigittokenreset' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PasswordManagement => Passworddigittokenreset' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/applicationdiscoveryv1/methods/application-discovery#get-discovered-applications-v1
+      label: SDK_tools/sdk/powershell/applicationdiscovery/methods/application-discovery#get-discovered-applications-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -25,7 +25,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/applicationdiscoveryv1/methods/application-discovery#get-manual-discover-applications-csv-template-v1
+      label: SDK_tools/sdk/powershell/applicationdiscovery/methods/application-discovery#get-manual-discover-applications-csv-template-v1
       source: |
         
         # Download csv template for discovery
@@ -43,7 +43,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/applicationdiscoveryv1/methods/application-discovery#send-manual-discover-applications-csv-template-v1
+      label: SDK_tools/sdk/powershell/applicationdiscovery/methods/application-discovery#send-manual-discover-applications-csv-template-v1
       source: |
         $File =  # System.IO.FileInfo | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
         
@@ -62,7 +62,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/applicationdiscoveryv1/methods/application-discovery#start-application-discovery-v1
+      label: SDK_tools/sdk/powershell/applicationdiscovery/methods/application-discovery#start-application-discovery-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SourceId = "MySourceId" # String | The sourceId.

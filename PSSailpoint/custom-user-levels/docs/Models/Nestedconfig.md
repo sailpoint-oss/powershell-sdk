@@ -5,7 +5,7 @@ pagination_label: Nestedconfig
 sidebar_label: Nestedconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Nestedconfig', 'Nestedconfig'] 
-slug: /tools/sdk/powershell/customuserlevelsv1/models/nestedconfig
+slug: /tools/sdk/powershell/customuserlevels/models/nestedconfig
 tags: ['SDK', 'Software Development Kit', 'Nestedconfig', 'Nestedconfig']
 ---
 

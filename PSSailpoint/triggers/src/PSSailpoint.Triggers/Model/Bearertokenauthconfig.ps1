@@ -30,7 +30,7 @@ function Initialize-Bearertokenauthconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Bearertokenauthconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Bearertokenauthconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToBearertokenauthconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Bearertokenauthconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Bearertokenauthconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

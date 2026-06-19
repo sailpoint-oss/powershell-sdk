@@ -5,7 +5,7 @@ pagination_label: MachineidentityupdatedOwnerChanges
 sidebar_label: MachineidentityupdatedOwnerChanges
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineidentityupdatedOwnerChanges', 'MachineidentityupdatedOwnerChanges'] 
-slug: /tools/sdk/powershell/triggersv1/models/machineidentityupdated-owner-changes
+slug: /tools/sdk/powershell/triggers/models/machineidentityupdated-owner-changes
 tags: ['SDK', 'Software Development Kit', 'MachineidentityupdatedOwnerChanges', 'MachineidentityupdatedOwnerChanges']
 ---
 

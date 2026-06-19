@@ -5,7 +5,7 @@ pagination_label: RoleminingpotentialrolesummaryCreatedBy
 sidebar_label: RoleminingpotentialrolesummaryCreatedBy
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RoleminingpotentialrolesummaryCreatedBy', 'RoleminingpotentialrolesummaryCreatedBy'] 
-slug: /tools/sdk/powershell/iairoleminingv1/models/roleminingpotentialrolesummary-created-by
+slug: /tools/sdk/powershell/iairolemining/models/roleminingpotentialrolesummary-created-by
 tags: ['SDK', 'Software Development Kit', 'RoleminingpotentialrolesummaryCreatedBy', 'RoleminingpotentialrolesummaryCreatedBy']
 ---
 

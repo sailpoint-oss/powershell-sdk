@@ -5,7 +5,7 @@ pagination_label: Rule
 sidebar_label: Rule
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Rule', 'Rule'] 
-slug: /tools/sdk/powershell/transformsv1/models/rule
+slug: /tools/sdk/powershell/transforms/models/rule
 tags: ['SDK', 'Software Development Kit', 'Rule', 'Rule']
 ---
 

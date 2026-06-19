@@ -5,7 +5,7 @@ pagination_label: Jsonpatchoperation
 sidebar_label: Jsonpatchoperation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Jsonpatchoperation', 'Jsonpatchoperation'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/jsonpatchoperation
+slug: /tools/sdk/powershell/certificationcampaigns/models/jsonpatchoperation
 tags: ['SDK', 'Software Development Kit', 'Jsonpatchoperation', 'Jsonpatchoperation']
 ---
 

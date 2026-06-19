@@ -5,7 +5,7 @@ pagination_label: AppAllOfAccount
 sidebar_label: AppAllOfAccount
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AppAllOfAccount', 'AppAllOfAccount'] 
-slug: /tools/sdk/powershell/searchv1/models/app-all-of-account
+slug: /tools/sdk/powershell/search/models/app-all-of-account
 tags: ['SDK', 'Software Development Kit', 'AppAllOfAccount', 'AppAllOfAccount']
 ---
 

@@ -51,7 +51,7 @@ function Initialize-Scheduledactionpayload {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConfigurationHubV1 => Scheduledactionpayload' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConfigurationHub => Scheduledactionpayload' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$JobType) {
@@ -99,7 +99,7 @@ function ConvertFrom-JsonToScheduledactionpayload {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHubV1 => Scheduledactionpayload' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHub => Scheduledactionpayload' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

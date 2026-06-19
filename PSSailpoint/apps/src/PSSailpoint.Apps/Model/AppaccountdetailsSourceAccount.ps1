@@ -50,7 +50,7 @@ function Initialize-AppaccountdetailsSourceAccount {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AppsV1 => AppaccountdetailsSourceAccount' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Apps => AppaccountdetailsSourceAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToAppaccountdetailsSourceAccount {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AppsV1 => AppaccountdetailsSourceAccount' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Apps => AppaccountdetailsSourceAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

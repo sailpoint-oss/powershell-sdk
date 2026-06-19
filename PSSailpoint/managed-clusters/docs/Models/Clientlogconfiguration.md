@@ -5,7 +5,7 @@ pagination_label: Clientlogconfiguration
 sidebar_label: Clientlogconfiguration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Clientlogconfiguration', 'Clientlogconfiguration'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/clientlogconfiguration
+slug: /tools/sdk/powershell/managedclusters/models/clientlogconfiguration
 tags: ['SDK', 'Software Development Kit', 'Clientlogconfiguration', 'Clientlogconfiguration']
 ---
 

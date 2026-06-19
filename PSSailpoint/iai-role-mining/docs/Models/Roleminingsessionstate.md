@@ -5,7 +5,7 @@ pagination_label: Roleminingsessionstate
 sidebar_label: Roleminingsessionstate
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Roleminingsessionstate', 'Roleminingsessionstate'] 
-slug: /tools/sdk/powershell/iairoleminingv1/models/roleminingsessionstate
+slug: /tools/sdk/powershell/iairolemining/models/roleminingsessionstate
 tags: ['SDK', 'Software Development Kit', 'Roleminingsessionstate', 'Roleminingsessionstate']
 ---
 

@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/passwordpoliciesv1/methods/password-policies#create-password-policy-v1
+      label: SDK_tools/sdk/powershell/passwordpolicies/methods/password-policies#create-password-policy-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Passwordpolicyv3dto = @"
@@ -25,7 +25,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/passwordpoliciesv1/methods/password-policies#delete-password-policy-v1
+      label: SDK_tools/sdk/powershell/passwordpolicies/methods/password-policies#delete-password-policy-v1
       source: |
         $Id = "ff808081838d9e9d01838da6a03e0002" # String | The ID of password policy to delete.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -45,7 +45,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/passwordpoliciesv1/methods/password-policies#get-password-policy-by-id-v1
+      label: SDK_tools/sdk/powershell/passwordpolicies/methods/password-policies#get-password-policy-by-id-v1
       source: |
         $Id = "ff808081838d9e9d01838da6a03e0005" # String | The ID of password policy to retrieve.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -65,7 +65,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/passwordpoliciesv1/methods/password-policies#list-password-policies-v1
+      label: SDK_tools/sdk/powershell/passwordpolicies/methods/password-policies#list-password-policies-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -87,7 +87,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/passwordpoliciesv1/methods/password-policies#set-password-policy-v1
+      label: SDK_tools/sdk/powershell/passwordpolicies/methods/password-policies#set-password-policy-v1
       source: |
         $Id = "ff808081838d9e9d01838da6a03e0007" # String | The ID of password policy to update.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")

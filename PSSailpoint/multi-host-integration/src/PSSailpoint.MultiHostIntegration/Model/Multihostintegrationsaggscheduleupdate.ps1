@@ -65,7 +65,7 @@ function Initialize-Multihostintegrationsaggscheduleupdate {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => Multihostintegrationsaggscheduleupdate' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MultiHostIntegration => Multihostintegrationsaggscheduleupdate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$MultihostId) {
@@ -132,7 +132,7 @@ function ConvertFrom-JsonToMultihostintegrationsaggscheduleupdate {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegrationV1 => Multihostintegrationsaggscheduleupdate' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MultiHostIntegration => Multihostintegrationsaggscheduleupdate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

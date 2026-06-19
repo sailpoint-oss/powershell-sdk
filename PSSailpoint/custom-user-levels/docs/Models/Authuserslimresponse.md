@@ -5,7 +5,7 @@ pagination_label: Authuserslimresponse
 sidebar_label: Authuserslimresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Authuserslimresponse', 'Authuserslimresponse'] 
-slug: /tools/sdk/powershell/customuserlevelsv1/models/authuserslimresponse
+slug: /tools/sdk/powershell/customuserlevels/models/authuserslimresponse
 tags: ['SDK', 'Software Development Kit', 'Authuserslimresponse', 'Authuserslimresponse']
 ---
 

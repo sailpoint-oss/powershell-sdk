@@ -110,7 +110,7 @@ function Initialize-Accountactivitydocument {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Accountactivitydocument' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Accountactivitydocument' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -162,7 +162,7 @@ function ConvertFrom-JsonToAccountactivitydocument {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Accountactivitydocument' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Accountactivitydocument' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

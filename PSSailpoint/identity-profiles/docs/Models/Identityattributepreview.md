@@ -5,7 +5,7 @@ pagination_label: Identityattributepreview
 sidebar_label: Identityattributepreview
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityattributepreview', 'Identityattributepreview'] 
-slug: /tools/sdk/powershell/identityprofilesv1/models/identityattributepreview
+slug: /tools/sdk/powershell/identityprofiles/models/identityattributepreview
 tags: ['SDK', 'Software Development Kit', 'Identityattributepreview', 'Identityattributepreview']
 ---
 

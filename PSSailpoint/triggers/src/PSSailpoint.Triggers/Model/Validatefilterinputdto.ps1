@@ -35,7 +35,7 @@ function Initialize-Validatefilterinputdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Validatefilterinputdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Validatefilterinputdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$VarInput) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToValidatefilterinputdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Validatefilterinputdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Validatefilterinputdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

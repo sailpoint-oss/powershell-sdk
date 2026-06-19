@@ -5,7 +5,7 @@ pagination_label: Outlierfeaturesummary
 sidebar_label: Outlierfeaturesummary
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Outlierfeaturesummary', 'Outlierfeaturesummary'] 
-slug: /tools/sdk/powershell/iaioutliersv1/models/outlierfeaturesummary
+slug: /tools/sdk/powershell/iaioutliers/models/outlierfeaturesummary
 tags: ['SDK', 'Software Development Kit', 'Outlierfeaturesummary', 'Outlierfeaturesummary']
 ---
 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **FeatureExplanation** | **String** | Detailed explanation of the feature | [optional] 
 **PeerDisplayName** | **String** | outlier's peer identity display name | [optional] 
 **PeerIdentityId** | **String** | outlier's peer identity id | [optional] 
-**AccessItemReference** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Access Item reference | [optional] 
+**AccessItemReference** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Access Item reference | [optional] 
 
 ## Examples
 

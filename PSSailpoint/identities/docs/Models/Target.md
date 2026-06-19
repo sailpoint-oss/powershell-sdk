@@ -5,7 +5,7 @@ pagination_label: Target
 sidebar_label: Target
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Target', 'Target'] 
-slug: /tools/sdk/powershell/identitiesv1/models/target
+slug: /tools/sdk/powershell/identities/models/target
 tags: ['SDK', 'Software Development Kit', 'Target', 'Target']
 ---
 

@@ -41,7 +41,7 @@ function Initialize-Metricaggregation {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Metricaggregation' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessModelMetadata => Metricaggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -87,7 +87,7 @@ function ConvertFrom-JsonToMetricaggregation {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Metricaggregation' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadata => Metricaggregation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

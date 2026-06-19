@@ -5,7 +5,7 @@ pagination_label: Multihostintegrations
 sidebar_label: Multihostintegrations
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Multihostintegrations', 'Multihostintegrations'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/multihostintegrations
+slug: /tools/sdk/powershell/multihostintegration/models/multihostintegrations
 tags: ['SDK', 'Software Development Kit', 'Multihostintegrations', 'Multihostintegrations']
 ---
 

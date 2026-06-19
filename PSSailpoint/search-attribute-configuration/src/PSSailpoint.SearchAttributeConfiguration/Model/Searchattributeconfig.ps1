@@ -40,7 +40,7 @@ function Initialize-Searchattributeconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchAttributeConfigurationV1 => Searchattributeconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SearchAttributeConfiguration => Searchattributeconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToSearchattributeconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchAttributeConfigurationV1 => Searchattributeconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SearchAttributeConfiguration => Searchattributeconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

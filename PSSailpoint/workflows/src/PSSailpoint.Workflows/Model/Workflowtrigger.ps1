@@ -41,7 +41,7 @@ function Initialize-Workflowtrigger {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkflowsV1 => Workflowtrigger' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Workflows => Workflowtrigger' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -83,7 +83,7 @@ function ConvertFrom-JsonToWorkflowtrigger {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkflowsV1 => Workflowtrigger' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Workflows => Workflowtrigger' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

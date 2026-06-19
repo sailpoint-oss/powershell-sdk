@@ -5,7 +5,7 @@ pagination_label: Authorizationscheme
 sidebar_label: Authorizationscheme
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Authorizationscheme', 'Authorizationscheme'] 
-slug: /tools/sdk/powershell/sharedsignalsframeworkssfv1/models/authorizationscheme
+slug: /tools/sdk/powershell/sharedsignalsframeworkssf/models/authorizationscheme
 tags: ['SDK', 'Software Development Kit', 'Authorizationscheme', 'Authorizationscheme']
 ---
 

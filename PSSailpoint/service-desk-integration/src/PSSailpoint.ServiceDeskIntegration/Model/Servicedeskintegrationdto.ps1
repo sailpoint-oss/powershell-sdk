@@ -90,7 +90,7 @@ function Initialize-Servicedeskintegrationdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ServiceDeskIntegrationV1 => Servicedeskintegrationdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ServiceDeskIntegration => Servicedeskintegrationdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -154,7 +154,7 @@ function ConvertFrom-JsonToServicedeskintegrationdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ServiceDeskIntegrationV1 => Servicedeskintegrationdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ServiceDeskIntegration => Servicedeskintegrationdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Dimensioncriteriakey
 sidebar_label: Dimensioncriteriakey
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dimensioncriteriakey', 'Dimensioncriteriakey'] 
-slug: /tools/sdk/powershell/dimensionsv1/models/dimensioncriteriakey
+slug: /tools/sdk/powershell/dimensions/models/dimensioncriteriakey
 tags: ['SDK', 'Software Development Kit', 'Dimensioncriteriakey', 'Dimensioncriteriakey']
 ---
 

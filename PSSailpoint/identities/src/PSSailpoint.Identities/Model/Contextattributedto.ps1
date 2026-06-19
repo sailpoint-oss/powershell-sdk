@@ -40,7 +40,7 @@ function Initialize-Contextattributedto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Contextattributedto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Contextattributedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToContextattributedto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Contextattributedto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Contextattributedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

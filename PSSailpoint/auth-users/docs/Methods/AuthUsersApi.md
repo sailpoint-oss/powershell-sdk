@@ -5,7 +5,7 @@ pagination_label: AuthUsers
 sidebar_label: AuthUsers
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AuthUsers', 'AuthUsers'] 
-slug: /tools/sdk/powershell/authusersv1/methods/auth-users
+slug: /tools/sdk/powershell/authusers/methods/auth-users
 tags: ['SDK', 'Software Development Kit', 'AuthUsers', 'AuthUsers']
 ---
 
@@ -108,8 +108,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  $Jsonpatchoperation = @"[{"op":"replace","path":"/capabilities","value":["ORG_ADMIN"]}]"@ # Jsonpatchoperation[] | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 

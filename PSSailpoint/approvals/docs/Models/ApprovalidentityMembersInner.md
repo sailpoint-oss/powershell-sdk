@@ -5,7 +5,7 @@ pagination_label: ApprovalidentityMembersInner
 sidebar_label: ApprovalidentityMembersInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalidentityMembersInner', 'ApprovalidentityMembersInner'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalidentity-members-inner
+slug: /tools/sdk/powershell/approvals/models/approvalidentity-members-inner
 tags: ['SDK', 'Software Development Kit', 'ApprovalidentityMembersInner', 'ApprovalidentityMembersInner']
 ---
 

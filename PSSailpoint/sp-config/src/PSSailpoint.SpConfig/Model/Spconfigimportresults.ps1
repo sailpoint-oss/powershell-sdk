@@ -35,7 +35,7 @@ function Initialize-Spconfigimportresults {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SpConfigV1 => Spconfigimportresults' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SpConfig => Spconfigimportresults' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Results) {
@@ -76,7 +76,7 @@ function ConvertFrom-JsonToSpconfigimportresults {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SpConfigV1 => Spconfigimportresults' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SpConfig => Spconfigimportresults' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

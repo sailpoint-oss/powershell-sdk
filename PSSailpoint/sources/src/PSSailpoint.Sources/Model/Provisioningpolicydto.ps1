@@ -46,7 +46,7 @@ function Initialize-Provisioningpolicydto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Provisioningpolicydto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Provisioningpolicydto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToProvisioningpolicydto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Provisioningpolicydto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Provisioningpolicydto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

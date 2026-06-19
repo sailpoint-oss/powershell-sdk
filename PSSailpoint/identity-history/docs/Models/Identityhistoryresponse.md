@@ -5,7 +5,7 @@ pagination_label: Identityhistoryresponse
 sidebar_label: Identityhistoryresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityhistoryresponse', 'Identityhistoryresponse'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/identityhistoryresponse
+slug: /tools/sdk/powershell/identityhistory/models/identityhistoryresponse
 tags: ['SDK', 'Software Development Kit', 'Identityhistoryresponse', 'Identityhistoryresponse']
 ---
 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Snapshot** | **String** | the date when the identity record was created | [optional] 
 **DeletedDate** | **String** | the date when the identity was deleted | [optional] 
 **AccessItemCount** | **map[string]Int32** | A map containing the count of each access item | [optional] 
-**Attributes** | [**map[string]AnyType**](any-type) | A map containing the identity attributes | [optional] 
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map containing the identity attributes | [optional] 
 
 ## Examples
 

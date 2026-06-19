@@ -5,7 +5,7 @@ pagination_label: Sedassignee
 sidebar_label: Sedassignee
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sedassignee', 'Sedassignee'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/sedassignee
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/sedassignee
 tags: ['SDK', 'Software Development Kit', 'Sedassignee', 'Sedassignee']
 ---
 

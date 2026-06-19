@@ -5,7 +5,7 @@ pagination_label: ClustermanualupgradeJobsInner
 sidebar_label: ClustermanualupgradeJobsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ClustermanualupgradeJobsInner', 'ClustermanualupgradeJobsInner'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/clustermanualupgrade-jobs-inner
+slug: /tools/sdk/powershell/managedclusters/models/clustermanualupgrade-jobs-inner
 tags: ['SDK', 'Software Development Kit', 'ClustermanualupgradeJobsInner', 'ClustermanualupgradeJobsInner']
 ---
 

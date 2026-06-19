@@ -5,7 +5,7 @@ pagination_label: Manualdiscoverapplicationstemplate
 sidebar_label: Manualdiscoverapplicationstemplate
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Manualdiscoverapplicationstemplate', 'Manualdiscoverapplicationstemplate'] 
-slug: /tools/sdk/powershell/applicationdiscoveryv1/models/manualdiscoverapplicationstemplate
+slug: /tools/sdk/powershell/applicationdiscovery/models/manualdiscoverapplicationstemplate
 tags: ['SDK', 'Software Development Kit', 'Manualdiscoverapplicationstemplate', 'Manualdiscoverapplicationstemplate']
 ---
 

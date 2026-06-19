@@ -5,7 +5,7 @@ pagination_label: Roleminingsessionparametersdto
 sidebar_label: Roleminingsessionparametersdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Roleminingsessionparametersdto', 'Roleminingsessionparametersdto'] 
-slug: /tools/sdk/powershell/iairoleminingv1/models/roleminingsessionparametersdto
+slug: /tools/sdk/powershell/iairolemining/models/roleminingsessionparametersdto
 tags: ['SDK', 'Software Development Kit', 'Roleminingsessionparametersdto', 'Roleminingsessionparametersdto']
 ---
 

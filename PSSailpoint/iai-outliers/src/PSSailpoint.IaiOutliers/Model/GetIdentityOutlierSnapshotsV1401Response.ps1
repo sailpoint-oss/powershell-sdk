@@ -30,7 +30,7 @@ function Initialize-GetIdentityOutlierSnapshotsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiOutliersV1 => GetIdentityOutlierSnapshotsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiOutliers => GetIdentityOutlierSnapshotsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetIdentityOutlierSnapshotsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiOutliersV1 => GetIdentityOutlierSnapshotsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiOutliers => GetIdentityOutlierSnapshotsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

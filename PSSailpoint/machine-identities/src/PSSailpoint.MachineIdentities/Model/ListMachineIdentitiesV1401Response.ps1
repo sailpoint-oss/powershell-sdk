@@ -30,7 +30,7 @@ function Initialize-ListMachineIdentitiesV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineIdentitiesV1 => ListMachineIdentitiesV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineIdentities => ListMachineIdentitiesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListMachineIdentitiesV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineIdentitiesV1 => ListMachineIdentitiesV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineIdentities => ListMachineIdentitiesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

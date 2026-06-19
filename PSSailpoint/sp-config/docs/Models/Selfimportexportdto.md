@@ -5,7 +5,7 @@ pagination_label: Selfimportexportdto
 sidebar_label: Selfimportexportdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Selfimportexportdto', 'Selfimportexportdto'] 
-slug: /tools/sdk/powershell/spconfigv1/models/selfimportexportdto
+slug: /tools/sdk/powershell/spconfig/models/selfimportexportdto
 tags: ['SDK', 'Software Development Kit', 'Selfimportexportdto', 'Selfimportexportdto']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Taskstatus
 sidebar_label: Taskstatus
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Taskstatus', 'Taskstatus'] 
-slug: /tools/sdk/powershell/taskmanagementv1/models/taskstatus
+slug: /tools/sdk/powershell/taskmanagement/models/taskstatus
 tags: ['SDK', 'Software Development Kit', 'Taskstatus', 'Taskstatus']
 ---
 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **CompletionStatus** |  **Enum** [  "SUCCESS",    "WARNING",    "ERROR",    "TERMINATED",    "TEMPERROR" ] | Completion status of the task this TaskStatus represents | [required]
 **Messages** | [**[]Taskstatusmessage**](taskstatusmessage) | Messages associated with the task this TaskStatus represents | [required]
 **Returns** | [**[]Taskreturndetails**](taskreturndetails) | Return values from the task this TaskStatus represents | [required]
-**Attributes** | [**map[string]AnyType**](any-type) | Attributes of the task this TaskStatus represents | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Attributes of the task this TaskStatus represents | [required]
 **Progress** | **String** | Current progress of the task this TaskStatus represents | [required]
 **PercentComplete** | **Int32** | Current percentage completion of the task this TaskStatus represents | [required]
 **TaskDefinitionSummary** | [**Taskdefinitionsummary**](taskdefinitionsummary) |  | [optional] 

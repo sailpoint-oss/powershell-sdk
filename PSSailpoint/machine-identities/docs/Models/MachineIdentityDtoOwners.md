@@ -5,7 +5,7 @@ pagination_label: MachineIdentityDtoOwners
 sidebar_label: MachineIdentityDtoOwners
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineIdentityDtoOwners', 'MachineIdentityDtoOwners'] 
-slug: /tools/sdk/powershell/machineidentitiesv1/models/machine-identity-dto-owners
+slug: /tools/sdk/powershell/machineidentities/models/machine-identity-dto-owners
 tags: ['SDK', 'Software Development Kit', 'MachineIdentityDtoOwners', 'MachineIdentityDtoOwners']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'MachineIdentityDtoOwners', 'MachineId
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PrimaryIdentity** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Defines the identity which is selected as the primary owner | [required]
+**PrimaryIdentity** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Defines the identity which is selected as the primary owner | [required]
 **SecondaryIdentities** | [**[]Basereferencedto**](basereferencedto) | Defines the identities which are selected as secondary owners | [required]
 
 ## Examples

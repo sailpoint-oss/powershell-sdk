@@ -5,7 +5,7 @@ pagination_label: Errormessage
 sidebar_label: Errormessage
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Errormessage', 'Errormessage'] 
-slug: /tools/sdk/powershell/customformsv1/models/errormessage
+slug: /tools/sdk/powershell/customforms/models/errormessage
 tags: ['SDK', 'Software Development Kit', 'Errormessage', 'Errormessage']
 ---
 

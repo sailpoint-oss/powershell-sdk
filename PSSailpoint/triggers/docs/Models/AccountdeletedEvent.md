@@ -5,7 +5,7 @@ pagination_label: AccountdeletedEvent
 sidebar_label: AccountdeletedEvent
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountdeletedEvent', 'AccountdeletedEvent'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountdeleted-event
+slug: /tools/sdk/powershell/triggers/models/accountdeleted-event
 tags: ['SDK', 'Software Development Kit', 'AccountdeletedEvent', 'AccountdeletedEvent']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: AppaccessprofileselectorAccountMatchConfig
 sidebar_label: AppaccessprofileselectorAccountMatchConfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AppaccessprofileselectorAccountMatchConfig', 'AppaccessprofileselectorAccountMatchConfig'] 
-slug: /tools/sdk/powershell/appsv1/models/appaccessprofileselector-account-match-config
+slug: /tools/sdk/powershell/apps/models/appaccessprofileselector-account-match-config
 tags: ['SDK', 'Software Development Kit', 'AppaccessprofileselectorAccountMatchConfig', 'AppaccessprofileselectorAccountMatchConfig']
 ---
 

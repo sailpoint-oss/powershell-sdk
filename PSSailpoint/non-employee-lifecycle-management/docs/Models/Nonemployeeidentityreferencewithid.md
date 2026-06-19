@@ -5,7 +5,7 @@ pagination_label: Nonemployeeidentityreferencewithid
 sidebar_label: Nonemployeeidentityreferencewithid
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Nonemployeeidentityreferencewithid', 'Nonemployeeidentityreferencewithid'] 
-slug: /tools/sdk/powershell/nonemployeelifecyclemanagementv1/models/nonemployeeidentityreferencewithid
+slug: /tools/sdk/powershell/nonemployeelifecyclemanagement/models/nonemployeeidentityreferencewithid
 tags: ['SDK', 'Software Development Kit', 'Nonemployeeidentityreferencewithid', 'Nonemployeeidentityreferencewithid']
 ---
 

@@ -30,7 +30,7 @@ function Initialize-ListRequestableObjectsV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RequestableObjectsV1 => ListRequestableObjectsV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.RequestableObjects => ListRequestableObjectsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListRequestableObjectsV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RequestableObjectsV1 => ListRequestableObjectsV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.RequestableObjects => ListRequestableObjectsV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

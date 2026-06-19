@@ -5,7 +5,7 @@ pagination_label: BulkworkgroupmembersrequestInner
 sidebar_label: BulkworkgroupmembersrequestInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'BulkworkgroupmembersrequestInner', 'BulkworkgroupmembersrequestInner'] 
-slug: /tools/sdk/powershell/governancegroupsv1/models/bulkworkgroupmembersrequest-inner
+slug: /tools/sdk/powershell/governancegroups/models/bulkworkgroupmembersrequest-inner
 tags: ['SDK', 'Software Development Kit', 'BulkworkgroupmembersrequestInner', 'BulkworkgroupmembersrequestInner']
 ---
 

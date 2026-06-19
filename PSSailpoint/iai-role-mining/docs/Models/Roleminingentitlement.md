@@ -5,7 +5,7 @@ pagination_label: Roleminingentitlement
 sidebar_label: Roleminingentitlement
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Roleminingentitlement', 'Roleminingentitlement'] 
-slug: /tools/sdk/powershell/iairoleminingv1/models/roleminingentitlement
+slug: /tools/sdk/powershell/iairolemining/models/roleminingentitlement
 tags: ['SDK', 'Software Development Kit', 'Roleminingentitlement', 'Roleminingentitlement']
 ---
 

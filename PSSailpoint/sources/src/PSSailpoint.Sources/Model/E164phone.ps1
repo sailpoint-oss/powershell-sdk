@@ -40,7 +40,7 @@ function Initialize-E164phone {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => E164phone' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => E164phone' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToE164phone {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => E164phone' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => E164phone' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

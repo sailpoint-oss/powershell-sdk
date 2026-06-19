@@ -5,7 +5,7 @@ pagination_label: AccessprofiledetailsAccountSelector
 sidebar_label: AccessprofiledetailsAccountSelector
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessprofiledetailsAccountSelector', 'AccessprofiledetailsAccountSelector'] 
-slug: /tools/sdk/powershell/appsv1/models/accessprofiledetails-account-selector
+slug: /tools/sdk/powershell/apps/models/accessprofiledetails-account-selector
 tags: ['SDK', 'Software Development Kit', 'AccessprofiledetailsAccountSelector', 'AccessprofiledetailsAccountSelector']
 ---
 

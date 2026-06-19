@@ -45,7 +45,7 @@ function Initialize-Invocation {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Invocation' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Invocation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToInvocation {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Invocation' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Invocation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

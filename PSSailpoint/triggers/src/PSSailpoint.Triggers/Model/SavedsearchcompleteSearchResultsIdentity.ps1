@@ -40,7 +40,7 @@ function Initialize-SavedsearchcompleteSearchResultsIdentity {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => SavedsearchcompleteSearchResultsIdentity' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => SavedsearchcompleteSearchResultsIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Count) {
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToSavedsearchcompleteSearchResultsIdentity {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => SavedsearchcompleteSearchResultsIdentity' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => SavedsearchcompleteSearchResultsIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -30,7 +30,7 @@ function Initialize-Tag2 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TagsV1 => Tag2' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Tags => Tag2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToTag2 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TagsV1 => Tag2' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Tags => Tag2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

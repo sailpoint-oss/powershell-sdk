@@ -35,7 +35,7 @@ function Initialize-Requestedfordtoref {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Requestedfordtoref' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Requestedfordtoref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$IdentityId) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToRequestedfordtoref {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Requestedfordtoref' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Requestedfordtoref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

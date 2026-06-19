@@ -5,7 +5,7 @@ pagination_label: Scheduletype
 sidebar_label: Scheduletype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Scheduletype', 'Scheduletype'] 
-slug: /tools/sdk/powershell/sodpoliciesv1/models/scheduletype
+slug: /tools/sdk/powershell/sodpolicies/models/scheduletype
 tags: ['SDK', 'Software Development Kit', 'Scheduletype', 'Scheduletype']
 ---
 

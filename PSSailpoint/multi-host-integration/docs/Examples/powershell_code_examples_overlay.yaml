@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#create-multi-host-integration-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#create-multi-host-integration-v1
       source: |
         $Multihostintegrationscreate = @"
         
@@ -24,10 +24,9 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#create-sources-within-multi-host-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#create-sources-within-multi-host-v1
       source: |
         $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
-        $Multihostintegrationscreatesources = Initialize-Multihostintegrationscreatesources -Name "My Source" -Description "This is the corporate directory." -ConnectorAttributes @{ key_example =  }# Multihostintegrationscreatesources[] | The specifics of the sources to create within Multi-Host Integration.
         $Multihostintegrationscreatesources = @""@ 
         
         
@@ -47,7 +46,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#delete-multi-host-sources-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#delete-multi-host-sources-v1
       source: |
         $MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Host Integration
         $RequestBody = "MyRequestBody" # String[] | The delete bulk sources within multi-host integration request body
@@ -70,7 +69,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#delete-multi-host-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#delete-multi-host-v1
       source: |
         $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of Multi-Host Integration to delete.
         
@@ -89,7 +88,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#get-acct-aggregation-groups-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-acct-aggregation-groups-v1
       source: |
         $MultihostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -110,7 +109,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#get-entitlement-aggregation-groups-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-entitlement-aggregation-groups-v1
       source: |
         $MultiHostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -131,7 +130,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#get-multi-host-integrations-list-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-multi-host-integrations-list-v1
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -155,7 +154,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#get-multi-host-integrations-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-multi-host-integrations-v1
       source: |
         $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
         
@@ -174,7 +173,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#get-multi-host-source-creation-errors-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-multi-host-source-creation-errors-v1
       source: |
         $MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Host Integration
         
@@ -193,7 +192,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#get-multihost-integration-types-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-multihost-integration-types-v1
       source: |
         
         # List multi-host integration types
@@ -211,7 +210,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#get-sources-within-multi-host-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-sources-within-multi-host-v1
       source: |
         $MultihostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -235,7 +234,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#test-connection-multi-host-sources-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#test-connection-multi-host-sources-v1
       source: |
         $MultihostId = "2c91808568c529c60168cca6f90c1324" # String | ID of the Multi-Host Integration
         
@@ -254,7 +253,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#test-source-connection-multihost-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#test-source-connection-multihost-v1
       source: |
         $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration
         $SourceId = "2c91808568c529f60168cca6f90c1324" # String | ID of the source within the Multi-Host Integration
@@ -274,11 +273,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/multihostintegrationv1/methods/multi-host-integration#update-multi-host-sources-v1
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#update-multi-host-sources-v1
       source: |
         $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
-        $UpdateMultiHostSourcesV1RequestInnerValue = Initialize-UpdateMultiHostSourcesV1RequestInnerValue 
-$UpdateMultiHostSourcesV1RequestInner = Initialize-UpdateMultiHostSourcesV1RequestInner -Op "add" -Path "/description" -Value $UpdateMultiHostSourcesV1RequestInnerValue# UpdateMultiHostSourcesV1RequestInner[] | This endpoint allows you to update a Multi-Host Integration. 
         $UpdateMultiHostSourcesV1RequestInner = @"[{"op":"add","path":"/description","value":"MDK Multi-Host Integration 222 description"}]"@ 
         
         

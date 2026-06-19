@@ -30,7 +30,7 @@ function Initialize-ListTriggersV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => ListTriggersV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => ListTriggersV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListTriggersV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => ListTriggersV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => ListTriggersV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

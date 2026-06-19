@@ -5,7 +5,7 @@ pagination_label: Reportresultreference
 sidebar_label: Reportresultreference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reportresultreference', 'Reportresultreference'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/reportresultreference
+slug: /tools/sdk/powershell/certificationcampaigns/models/reportresultreference
 tags: ['SDK', 'Software Development Kit', 'Reportresultreference', 'Reportresultreference']
 ---
 

@@ -45,7 +45,7 @@ function Initialize-Passwordorgconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PasswordConfigurationV1 => Passwordorgconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PasswordConfiguration => Passwordorgconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if ($DigitTokenDurationMinutes -and $DigitTokenDurationMinutes -gt 60) {
@@ -100,7 +100,7 @@ function ConvertFrom-JsonToPasswordorgconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PasswordConfigurationV1 => Passwordorgconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PasswordConfiguration => Passwordorgconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

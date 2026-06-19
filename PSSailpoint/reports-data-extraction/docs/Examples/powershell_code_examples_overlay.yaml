@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/reportsdataextractionv1/methods/reports-data-extraction#cancel-report-v1
+      label: SDK_tools/sdk/powershell/reportsdataextraction/methods/reports-data-extraction#cancel-report-v1
       source: |
         $Id = "a1ed223247144cc29d23c632624b4767" # String | ID of the running Report to cancel
         
@@ -21,7 +21,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/reportsdataextractionv1/methods/reports-data-extraction#get-report-result-v1
+      label: SDK_tools/sdk/powershell/reportsdataextraction/methods/reports-data-extraction#get-report-result-v1
       source: |
         $TaskResultId = "ef38f94347e94562b5bb8424a56397d8" # String | Unique identifier of the task result which handled report
         $Completed = $true # Boolean | state of task result to apply ordering when results are fetching from the DB (optional) (default to $false)
@@ -41,7 +41,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/reportsdataextractionv1/methods/reports-data-extraction#get-report-v1
+      label: SDK_tools/sdk/powershell/reportsdataextraction/methods/reports-data-extraction#get-report-v1
       source: |
         $TaskResultId = "ef38f94347e94562b5bb8424a56397d8" # String | Unique identifier of the task result which handled report
         $FileFormat = "csv" # String | Output format of the requested report file
@@ -63,7 +63,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/reportsdataextractionv1/methods/reports-data-extraction#start-report-v1
+      label: SDK_tools/sdk/powershell/reportsdataextraction/methods/reports-data-extraction#start-report-v1
       source: |
         $Reportdetails = @"
         

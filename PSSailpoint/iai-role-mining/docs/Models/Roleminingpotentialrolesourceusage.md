@@ -5,7 +5,7 @@ pagination_label: Roleminingpotentialrolesourceusage
 sidebar_label: Roleminingpotentialrolesourceusage
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Roleminingpotentialrolesourceusage', 'Roleminingpotentialrolesourceusage'] 
-slug: /tools/sdk/powershell/iairoleminingv1/models/roleminingpotentialrolesourceusage
+slug: /tools/sdk/powershell/iairolemining/models/roleminingpotentialrolesourceusage
 tags: ['SDK', 'Software Development Kit', 'Roleminingpotentialrolesourceusage', 'Roleminingpotentialrolesourceusage']
 ---
 

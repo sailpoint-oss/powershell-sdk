@@ -36,7 +36,7 @@ function Initialize-Dimensionmembershipselector {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DimensionsV1 => Dimensionmembershipselector' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Dimensions => Dimensionmembershipselector' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToDimensionmembershipselector {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DimensionsV1 => Dimensionmembershipselector' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Dimensions => Dimensionmembershipselector' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

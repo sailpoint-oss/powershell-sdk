@@ -5,7 +5,7 @@ pagination_label: Approvalforwardhistory
 sidebar_label: Approvalforwardhistory
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalforwardhistory', 'Approvalforwardhistory'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/approvalforwardhistory
+slug: /tools/sdk/powershell/accessrequests/models/approvalforwardhistory
 tags: ['SDK', 'Software Development Kit', 'Approvalforwardhistory', 'Approvalforwardhistory']
 ---
 

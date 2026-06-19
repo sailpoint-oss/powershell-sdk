@@ -45,7 +45,7 @@ function Initialize-Accessprofileupdateitem {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfilesV1 => Accessprofileupdateitem' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => Accessprofileupdateitem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToAccessprofileupdateitem {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfilesV1 => Accessprofileupdateitem' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => Accessprofileupdateitem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

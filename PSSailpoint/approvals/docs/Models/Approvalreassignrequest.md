@@ -5,7 +5,7 @@ pagination_label: Approvalreassignrequest
 sidebar_label: Approvalreassignrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalreassignrequest', 'Approvalreassignrequest'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalreassignrequest
+slug: /tools/sdk/powershell/approvals/models/approvalreassignrequest
 tags: ['SDK', 'Software Development Kit', 'Approvalreassignrequest', 'Approvalreassignrequest']
 ---
 

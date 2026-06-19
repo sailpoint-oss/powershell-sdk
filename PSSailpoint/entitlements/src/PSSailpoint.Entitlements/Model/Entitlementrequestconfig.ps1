@@ -35,7 +35,7 @@ function Initialize-Entitlementrequestconfig {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.EntitlementsV1 => Entitlementrequestconfig' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Entitlements => Entitlementrequestconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToEntitlementrequestconfig {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.EntitlementsV1 => Entitlementrequestconfig' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Entitlements => Entitlementrequestconfig' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

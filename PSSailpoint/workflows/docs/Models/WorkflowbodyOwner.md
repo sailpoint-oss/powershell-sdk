@@ -5,7 +5,7 @@ pagination_label: WorkflowbodyOwner
 sidebar_label: WorkflowbodyOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'WorkflowbodyOwner', 'WorkflowbodyOwner'] 
-slug: /tools/sdk/powershell/workflowsv1/models/workflowbody-owner
+slug: /tools/sdk/powershell/workflows/models/workflowbody-owner
 tags: ['SDK', 'Software Development Kit', 'WorkflowbodyOwner', 'WorkflowbodyOwner']
 ---
 

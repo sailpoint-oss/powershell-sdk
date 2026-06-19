@@ -5,7 +5,7 @@ pagination_label: ListCampaignFiltersV1200Response
 sidebar_label: ListCampaignFiltersV1200Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ListCampaignFiltersV1200Response', 'ListCampaignFiltersV1200Response'] 
-slug: /tools/sdk/powershell/certificationcampaignfiltersv1/models/list-campaign-filters-v1200-response
+slug: /tools/sdk/powershell/certificationcampaignfilters/models/list-campaign-filters-v1200-response
 tags: ['SDK', 'Software Development Kit', 'ListCampaignFiltersV1200Response', 'ListCampaignFiltersV1200Response']
 ---
 

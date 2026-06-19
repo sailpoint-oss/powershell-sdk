@@ -41,7 +41,7 @@ function Initialize-AccountcorrelatedSource {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => AccountcorrelatedSource' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => AccountcorrelatedSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToAccountcorrelatedSource {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => AccountcorrelatedSource' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => AccountcorrelatedSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Bulkcancelaccessrequest
 sidebar_label: Bulkcancelaccessrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Bulkcancelaccessrequest', 'Bulkcancelaccessrequest'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/bulkcancelaccessrequest
+slug: /tools/sdk/powershell/accessrequests/models/bulkcancelaccessrequest
 tags: ['SDK', 'Software Development Kit', 'Bulkcancelaccessrequest', 'Bulkcancelaccessrequest']
 ---
 

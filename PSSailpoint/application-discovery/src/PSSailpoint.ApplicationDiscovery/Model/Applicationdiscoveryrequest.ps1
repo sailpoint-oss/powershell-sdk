@@ -30,7 +30,7 @@ function Initialize-Applicationdiscoveryrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Applicationdiscoveryrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ApplicationDiscovery => Applicationdiscoveryrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$DatasetIds) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToApplicationdiscoveryrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Applicationdiscoveryrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscovery => Applicationdiscoveryrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

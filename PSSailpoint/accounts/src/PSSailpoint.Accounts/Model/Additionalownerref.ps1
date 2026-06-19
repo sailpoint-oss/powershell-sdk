@@ -41,7 +41,7 @@ function Initialize-Additionalownerref {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountsV1 => Additionalownerref' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Accounts => Additionalownerref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToAdditionalownerref {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountsV1 => Additionalownerref' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Accounts => Additionalownerref' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

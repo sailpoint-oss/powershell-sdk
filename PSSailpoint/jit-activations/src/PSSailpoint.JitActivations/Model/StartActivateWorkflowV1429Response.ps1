@@ -30,7 +30,7 @@ function Initialize-StartActivateWorkflowV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.JitActivationsV1 => StartActivateWorkflowV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.JitActivations => StartActivateWorkflowV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToStartActivateWorkflowV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.JitActivationsV1 => StartActivateWorkflowV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.JitActivations => StartActivateWorkflowV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

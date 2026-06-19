@@ -30,7 +30,7 @@ function Initialize-GetBrandingListV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.BrandingV1 => GetBrandingListV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Branding => GetBrandingListV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetBrandingListV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.BrandingV1 => GetBrandingListV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Branding => GetBrandingListV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

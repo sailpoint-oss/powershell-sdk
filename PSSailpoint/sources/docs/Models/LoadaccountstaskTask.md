@@ -5,7 +5,7 @@ pagination_label: LoadaccountstaskTask
 sidebar_label: LoadaccountstaskTask
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'LoadaccountstaskTask', 'LoadaccountstaskTask'] 
-slug: /tools/sdk/powershell/sourcesv1/models/loadaccountstask-task
+slug: /tools/sdk/powershell/sources/models/loadaccountstask-task
 tags: ['SDK', 'Software Development Kit', 'LoadaccountstaskTask', 'LoadaccountstaskTask']
 ---
 

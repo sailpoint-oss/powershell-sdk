@@ -5,7 +5,7 @@ pagination_label: Sodpolicydto
 sidebar_label: Sodpolicydto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sodpolicydto', 'Sodpolicydto'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/sodpolicydto
+slug: /tools/sdk/powershell/accessrequestapprovals/models/sodpolicydto
 tags: ['SDK', 'Software Development Kit', 'Sodpolicydto', 'Sodpolicydto']
 ---
 

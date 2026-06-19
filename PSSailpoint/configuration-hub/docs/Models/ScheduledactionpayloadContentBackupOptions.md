@@ -5,7 +5,7 @@ pagination_label: ScheduledactionpayloadContentBackupOptions
 sidebar_label: ScheduledactionpayloadContentBackupOptions
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ScheduledactionpayloadContentBackupOptions', 'ScheduledactionpayloadContentBackupOptions'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/scheduledactionpayload-content-backup-options
+slug: /tools/sdk/powershell/configurationhub/models/scheduledactionpayload-content-backup-options
 tags: ['SDK', 'Software Development Kit', 'ScheduledactionpayloadContentBackupOptions', 'ScheduledactionpayloadContentBackupOptions']
 ---
 

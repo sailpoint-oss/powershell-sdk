@@ -5,7 +5,7 @@ pagination_label: Nonemployeeschemaattributebody
 sidebar_label: Nonemployeeschemaattributebody
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Nonemployeeschemaattributebody', 'Nonemployeeschemaattributebody'] 
-slug: /tools/sdk/powershell/nonemployeelifecyclemanagementv1/models/nonemployeeschemaattributebody
+slug: /tools/sdk/powershell/nonemployeelifecyclemanagement/models/nonemployeeschemaattributebody
 tags: ['SDK', 'Software Development Kit', 'Nonemployeeschemaattributebody', 'Nonemployeeschemaattributebody']
 ---
 

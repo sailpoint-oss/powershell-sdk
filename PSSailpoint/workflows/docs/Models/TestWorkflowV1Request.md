@@ -5,7 +5,7 @@ pagination_label: TestWorkflowV1Request
 sidebar_label: TestWorkflowV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'TestWorkflowV1Request', 'TestWorkflowV1Request'] 
-slug: /tools/sdk/powershell/workflowsv1/models/test-workflow-v1-request
+slug: /tools/sdk/powershell/workflows/models/test-workflow-v1-request
 tags: ['SDK', 'Software Development Kit', 'TestWorkflowV1Request', 'TestWorkflowV1Request']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'TestWorkflowV1Request', 'TestWorkflow
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarInput** | [**SystemCollectionsHashtable**](system-collections-hashtable) | The test input for the workflow. | [required]
+**VarInput** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The test input for the workflow. | [required]
 
 ## Examples
 

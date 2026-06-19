@@ -40,7 +40,7 @@ function Initialize-Replaceall {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Replaceall' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Replaceall' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Table) {
@@ -82,7 +82,7 @@ function ConvertFrom-JsonToReplaceall {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Replaceall' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Replaceall' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

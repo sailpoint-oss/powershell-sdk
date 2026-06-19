@@ -35,7 +35,7 @@ function Initialize-EntitlementdocumentAllOfPermissions {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => EntitlementdocumentAllOfPermissions' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => EntitlementdocumentAllOfPermissions' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToEntitlementdocumentAllOfPermissions {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => EntitlementdocumentAllOfPermissions' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => EntitlementdocumentAllOfPermissions' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

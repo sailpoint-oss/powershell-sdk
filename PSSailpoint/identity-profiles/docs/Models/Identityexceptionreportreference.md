@@ -5,7 +5,7 @@ pagination_label: Identityexceptionreportreference
 sidebar_label: Identityexceptionreportreference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityexceptionreportreference', 'Identityexceptionreportreference'] 
-slug: /tools/sdk/powershell/identityprofilesv1/models/identityexceptionreportreference
+slug: /tools/sdk/powershell/identityprofiles/models/identityexceptionreportreference
 tags: ['SDK', 'Software Development Kit', 'Identityexceptionreportreference', 'Identityexceptionreportreference']
 ---
 

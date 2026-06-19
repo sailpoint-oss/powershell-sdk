@@ -35,7 +35,7 @@ function Initialize-Bulkcancelrequestdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => Bulkcancelrequestdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => Bulkcancelrequestdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToBulkcancelrequestdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => Bulkcancelrequestdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => Bulkcancelrequestdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

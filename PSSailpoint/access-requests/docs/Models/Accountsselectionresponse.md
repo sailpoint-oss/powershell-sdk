@@ -5,7 +5,7 @@ pagination_label: Accountsselectionresponse
 sidebar_label: Accountsselectionresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountsselectionresponse', 'Accountsselectionresponse'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/accountsselectionresponse
+slug: /tools/sdk/powershell/accessrequests/models/accountsselectionresponse
 tags: ['SDK', 'Software Development Kit', 'Accountsselectionresponse', 'Accountsselectionresponse']
 ---
 

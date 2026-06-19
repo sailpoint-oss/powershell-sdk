@@ -65,7 +65,7 @@ function Initialize-Provisioningcompleted {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Provisioningcompleted' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Provisioningcompleted' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$TrackingNumber) {
@@ -124,7 +124,7 @@ function ConvertFrom-JsonToProvisioningcompleted {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Provisioningcompleted' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Provisioningcompleted' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

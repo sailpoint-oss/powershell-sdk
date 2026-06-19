@@ -41,7 +41,7 @@ function Initialize-DeleteSourceV1202Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => DeleteSourceV1202Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => DeleteSourceV1202Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToDeleteSourceV1202Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => DeleteSourceV1202Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => DeleteSourceV1202Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

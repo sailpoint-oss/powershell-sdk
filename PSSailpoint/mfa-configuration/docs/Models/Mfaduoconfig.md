@@ -5,7 +5,7 @@ pagination_label: Mfaduoconfig
 sidebar_label: Mfaduoconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Mfaduoconfig', 'Mfaduoconfig'] 
-slug: /tools/sdk/powershell/mfaconfigurationv1/models/mfaduoconfig
+slug: /tools/sdk/powershell/mfaconfiguration/models/mfaduoconfig
 tags: ['SDK', 'Software Development Kit', 'Mfaduoconfig', 'Mfaduoconfig']
 ---
 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **VarHost** | **String** | The server host name or IP address of the MFA provider. | [optional] 
 **AccessKey** | **String** | The secret key for authenticating requests to the MFA provider. | [optional] 
 **IdentityAttribute** | **String** | Optional. The name of the attribute for mapping IdentityNow identity to the MFA provider. | [optional] 
-**ConfigProperties** | [**map[string]AnyType**](any-type) | A map with additional config properties for the given MFA method - duo-web. | [optional] 
+**ConfigProperties** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map with additional config properties for the given MFA method - duo-web. | [optional] 
 
 ## Examples
 

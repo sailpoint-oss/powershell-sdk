@@ -5,7 +5,7 @@ pagination_label: ListTagsV1401Response
 sidebar_label: ListTagsV1401Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ListTagsV1401Response', 'ListTagsV1401Response'] 
-slug: /tools/sdk/powershell/tagsv1/models/list-tags-v1401-response
+slug: /tools/sdk/powershell/tags/models/list-tags-v1401-response
 tags: ['SDK', 'Software Development Kit', 'ListTagsV1401Response', 'ListTagsV1401Response']
 ---
 

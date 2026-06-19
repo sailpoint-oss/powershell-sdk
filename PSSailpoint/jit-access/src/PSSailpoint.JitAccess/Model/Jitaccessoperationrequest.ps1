@@ -42,7 +42,7 @@ function Initialize-Jitaccessoperationrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.JitAccessV1 => Jitaccessoperationrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.JitAccess => Jitaccessoperationrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Path) {
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToJitaccessoperationrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.JitAccessV1 => Jitaccessoperationrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.JitAccess => Jitaccessoperationrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

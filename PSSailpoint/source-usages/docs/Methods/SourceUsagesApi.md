@@ -5,7 +5,7 @@ pagination_label: SourceUsages
 sidebar_label: SourceUsages
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SourceUsages', 'SourceUsages'] 
-slug: /tools/sdk/powershell/sourceusagesv1/methods/source-usages
+slug: /tools/sdk/powershell/sourceusages/methods/source-usages
 tags: ['SDK', 'Software Development Kit', 'SourceUsages', 'SourceUsages']
 ---
 

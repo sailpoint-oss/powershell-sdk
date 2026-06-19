@@ -40,7 +40,7 @@ function Initialize-Workgroupmemberdeleteitem {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GovernanceGroupsV1 => Workgroupmemberdeleteitem' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GovernanceGroups => Workgroupmemberdeleteitem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToWorkgroupmemberdeleteitem {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroupsV1 => Workgroupmemberdeleteitem' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroups => Workgroupmemberdeleteitem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

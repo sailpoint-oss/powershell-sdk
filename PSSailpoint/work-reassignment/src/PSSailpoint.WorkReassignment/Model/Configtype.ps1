@@ -52,7 +52,7 @@ function Initialize-Configtype {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkReassignmentV1 => Configtype' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkReassignment => Configtype' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -92,7 +92,7 @@ function ConvertFrom-JsonToConfigtype {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkReassignmentV1 => Configtype' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkReassignment => Configtype' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

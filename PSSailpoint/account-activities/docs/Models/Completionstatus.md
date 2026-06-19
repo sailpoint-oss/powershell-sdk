@@ -5,7 +5,7 @@ pagination_label: Completionstatus
 sidebar_label: Completionstatus
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Completionstatus', 'Completionstatus'] 
-slug: /tools/sdk/powershell/accountactivitiesv1/models/completionstatus
+slug: /tools/sdk/powershell/accountactivities/models/completionstatus
 tags: ['SDK', 'Software Development Kit', 'Completionstatus', 'Completionstatus']
 ---
 

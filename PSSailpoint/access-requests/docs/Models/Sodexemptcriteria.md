@@ -5,7 +5,7 @@ pagination_label: Sodexemptcriteria
 sidebar_label: Sodexemptcriteria
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sodexemptcriteria', 'Sodexemptcriteria'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/sodexemptcriteria
+slug: /tools/sdk/powershell/accessrequests/models/sodexemptcriteria
 tags: ['SDK', 'Software Development Kit', 'Sodexemptcriteria', 'Sodexemptcriteria']
 ---
 

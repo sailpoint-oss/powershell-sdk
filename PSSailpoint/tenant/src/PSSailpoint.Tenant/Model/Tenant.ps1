@@ -55,7 +55,7 @@ function Initialize-Tenant {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TenantV1 => Tenant' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Tenant => Tenant' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToTenant {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TenantV1 => Tenant' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Tenant => Tenant' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

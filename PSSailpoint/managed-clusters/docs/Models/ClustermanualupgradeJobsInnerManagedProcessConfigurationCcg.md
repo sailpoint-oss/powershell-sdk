@@ -5,7 +5,7 @@ pagination_label: ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg
 sidebar_label: ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/clustermanualupgrade-jobs-inner-managed-process-configuration-ccg
+slug: /tools/sdk/powershell/managedclusters/models/clustermanualupgrade-jobs-inner-managed-process-configuration-ccg
 tags: ['SDK', 'Software Development Kit', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg', 'ClustermanualupgradeJobsInnerManagedProcessConfigurationCcg']
 ---
 

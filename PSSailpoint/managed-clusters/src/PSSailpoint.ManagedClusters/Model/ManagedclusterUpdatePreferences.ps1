@@ -41,7 +41,7 @@ function Initialize-ManagedclusterUpdatePreferences {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClustersV1 => ManagedclusterUpdatePreferences' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClusters => ManagedclusterUpdatePreferences' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToManagedclusterUpdatePreferences {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClustersV1 => ManagedclusterUpdatePreferences' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusters => ManagedclusterUpdatePreferences' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

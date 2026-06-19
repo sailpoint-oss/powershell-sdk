@@ -5,7 +5,7 @@ pagination_label: Applicationcrawlersettings
 sidebar_label: Applicationcrawlersettings
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Applicationcrawlersettings', 'Applicationcrawlersettings'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/applicationcrawlersettings
+slug: /tools/sdk/powershell/dataaccesssecurity/models/applicationcrawlersettings
 tags: ['SDK', 'Software Development Kit', 'Applicationcrawlersettings', 'Applicationcrawlersettings']
 ---
 

@@ -80,7 +80,7 @@ function Initialize-Managedclient {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClientsV1 => Managedclient' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClients => Managedclient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$ClientId) {
@@ -142,7 +142,7 @@ function ConvertFrom-JsonToManagedclient {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClientsV1 => Managedclient' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClients => Managedclient' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

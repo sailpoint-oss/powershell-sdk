@@ -5,7 +5,7 @@ pagination_label: SourceclassificationstatusAllOfCounts
 sidebar_label: SourceclassificationstatusAllOfCounts
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SourceclassificationstatusAllOfCounts', 'SourceclassificationstatusAllOfCounts'] 
-slug: /tools/sdk/powershell/classifysourcev1/models/sourceclassificationstatus-all-of-counts
+slug: /tools/sdk/powershell/classifysource/models/sourceclassificationstatus-all-of-counts
 tags: ['SDK', 'Software Development Kit', 'SourceclassificationstatusAllOfCounts', 'SourceclassificationstatusAllOfCounts']
 ---
 

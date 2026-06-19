@@ -40,7 +40,7 @@ function Initialize-Sectiondetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkItemsV1 => Sectiondetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkItems => Sectiondetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToSectiondetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkItemsV1 => Sectiondetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkItems => Sectiondetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

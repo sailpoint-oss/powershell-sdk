@@ -60,7 +60,7 @@ function Initialize-AccountstatuschangedAccount {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => AccountstatuschangedAccount' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => AccountstatuschangedAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -102,7 +102,7 @@ function ConvertFrom-JsonToAccountstatuschangedAccount {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => AccountstatuschangedAccount' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => AccountstatuschangedAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

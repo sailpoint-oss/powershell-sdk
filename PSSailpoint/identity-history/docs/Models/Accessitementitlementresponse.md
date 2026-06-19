@@ -5,7 +5,7 @@ pagination_label: Accessitementitlementresponse
 sidebar_label: Accessitementitlementresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessitementitlementresponse', 'Accessitementitlementresponse'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/accessitementitlementresponse
+slug: /tools/sdk/powershell/identityhistory/models/accessitementitlementresponse
 tags: ['SDK', 'Software Development Kit', 'Accessitementitlementresponse', 'Accessitementitlementresponse']
 ---
 

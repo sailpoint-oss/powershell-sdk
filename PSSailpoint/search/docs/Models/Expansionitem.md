@@ -5,7 +5,7 @@ pagination_label: Expansionitem
 sidebar_label: Expansionitem
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Expansionitem', 'Expansionitem'] 
-slug: /tools/sdk/powershell/searchv1/models/expansionitem
+slug: /tools/sdk/powershell/search/models/expansionitem
 tags: ['SDK', 'Software Development Kit', 'Expansionitem', 'Expansionitem']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Accountinfodto
 sidebar_label: Accountinfodto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountinfodto', 'Accountinfodto'] 
-slug: /tools/sdk/powershell/identitiesv1/models/accountinfodto
+slug: /tools/sdk/powershell/identities/models/accountinfodto
 tags: ['SDK', 'Software Development Kit', 'Accountinfodto', 'Accountinfodto']
 ---
 

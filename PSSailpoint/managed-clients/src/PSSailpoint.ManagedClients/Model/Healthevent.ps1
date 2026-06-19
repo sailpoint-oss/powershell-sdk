@@ -60,7 +60,7 @@ function Initialize-Healthevent {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClientsV1 => Healthevent' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClients => Healthevent' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -102,7 +102,7 @@ function ConvertFrom-JsonToHealthevent {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClientsV1 => Healthevent' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClients => Healthevent' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

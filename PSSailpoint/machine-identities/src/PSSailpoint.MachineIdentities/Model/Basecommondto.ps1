@@ -30,7 +30,7 @@ function Initialize-Basecommondto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineIdentitiesV1 => Basecommondto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineIdentities => Basecommondto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToBasecommondto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineIdentitiesV1 => Basecommondto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineIdentities => Basecommondto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

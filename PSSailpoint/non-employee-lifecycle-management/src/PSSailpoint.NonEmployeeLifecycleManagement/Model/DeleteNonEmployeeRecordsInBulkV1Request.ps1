@@ -30,7 +30,7 @@ function Initialize-DeleteNonEmployeeRecordsInBulkV1Request {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => DeleteNonEmployeeRecordsInBulkV1Request' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => DeleteNonEmployeeRecordsInBulkV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Ids) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToDeleteNonEmployeeRecordsInBulkV1Request {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagementV1 => DeleteNonEmployeeRecordsInBulkV1Request' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.NonEmployeeLifecycleManagement => DeleteNonEmployeeRecordsInBulkV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

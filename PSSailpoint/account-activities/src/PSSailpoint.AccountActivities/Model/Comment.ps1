@@ -45,7 +45,7 @@ function Initialize-Comment {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountActivitiesV1 => Comment' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccountActivities => Comment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToComment {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountActivitiesV1 => Comment' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccountActivities => Comment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

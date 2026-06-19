@@ -5,7 +5,7 @@ pagination_label: MultihostintegrationsConnectorAttributesConnectorFileUploadHis
 sidebar_label: MultihostintegrationsConnectorAttributesConnectorFileUploadHistory
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MultihostintegrationsConnectorAttributesConnectorFileUploadHistory', 'MultihostintegrationsConnectorAttributesConnectorFileUploadHistory'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/multihostintegrations-connector-attributes-connector-file-upload-history
+slug: /tools/sdk/powershell/multihostintegration/models/multihostintegrations-connector-attributes-connector-file-upload-history
 tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsConnectorAttributesConnectorFileUploadHistory', 'MultihostintegrationsConnectorAttributesConnectorFileUploadHistory']
 ---
 

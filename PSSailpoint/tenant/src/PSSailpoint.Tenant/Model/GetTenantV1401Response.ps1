@@ -30,7 +30,7 @@ function Initialize-GetTenantV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TenantV1 => GetTenantV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Tenant => GetTenantV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetTenantV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TenantV1 => GetTenantV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Tenant => GetTenantV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

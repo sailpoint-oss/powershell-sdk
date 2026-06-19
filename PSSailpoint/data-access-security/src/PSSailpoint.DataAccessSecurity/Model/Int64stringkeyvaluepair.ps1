@@ -35,7 +35,7 @@ function Initialize-Int64stringkeyvaluepair {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Int64stringkeyvaluepair' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.DataAccessSecurity => Int64stringkeyvaluepair' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToInt64stringkeyvaluepair {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurityV1 => Int64stringkeyvaluepair' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.DataAccessSecurity => Int64stringkeyvaluepair' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

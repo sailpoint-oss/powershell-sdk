@@ -30,7 +30,7 @@ function Initialize-Entitlementv2AccessModelMetadata {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.EntitlementsV1 => Entitlementv2AccessModelMetadata' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Entitlements => Entitlementv2AccessModelMetadata' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToEntitlementv2AccessModelMetadata {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.EntitlementsV1 => Entitlementv2AccessModelMetadata' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Entitlements => Entitlementv2AccessModelMetadata' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

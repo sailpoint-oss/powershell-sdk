@@ -30,7 +30,7 @@ function Initialize-Objectmappingbulkpatchrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConfigurationHubV1 => Objectmappingbulkpatchrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConfigurationHub => Objectmappingbulkpatchrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Patches) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToObjectmappingbulkpatchrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHubV1 => Objectmappingbulkpatchrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHub => Objectmappingbulkpatchrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

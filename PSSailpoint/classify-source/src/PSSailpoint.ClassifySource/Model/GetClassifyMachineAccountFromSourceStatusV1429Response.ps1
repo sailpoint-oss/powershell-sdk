@@ -30,7 +30,7 @@ function Initialize-GetClassifyMachineAccountFromSourceStatusV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ClassifySourceV1 => GetClassifyMachineAccountFromSourceStatusV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ClassifySource => GetClassifyMachineAccountFromSourceStatusV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetClassifyMachineAccountFromSourceStatusV1429Respons
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ClassifySourceV1 => GetClassifyMachineAccountFromSourceStatusV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ClassifySource => GetClassifyMachineAccountFromSourceStatusV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

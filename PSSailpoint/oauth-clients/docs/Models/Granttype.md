@@ -5,7 +5,7 @@ pagination_label: Granttype
 sidebar_label: Granttype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Granttype', 'Granttype'] 
-slug: /tools/sdk/powershell/oauthclientsv1/models/granttype
+slug: /tools/sdk/powershell/oauthclients/models/granttype
 tags: ['SDK', 'Software Development Kit', 'Granttype', 'Granttype']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Sources
 sidebar_label: Sources
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sources', 'Sources'] 
-slug: /tools/sdk/powershell/sourcesv1/methods/sources
+slug: /tools/sdk/powershell/sources/methods/sources
 tags: ['SDK', 'Software Development Kit', 'Sources', 'Sources']
 ---
 
@@ -1886,7 +1886,7 @@ Code | Description  | Data Type
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = "name eq "Employees"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw* (optional)
+$Filters = 'name eq "Employees"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType** (optional)
 $ForSubadmin = "name" # String | Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned. (optional)
 $IncludeIDNSource = $true # Boolean | Include the IdentityNow source in the response. (optional) (default to $false)
@@ -2504,8 +2504,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "00eebcf881994e419d72e757fd30dc0e" # String | Human account source ID.
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | The JSONPatch payload used to update the object.
  $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | The JSONPatch payload used to update the object.
  
 
@@ -2560,8 +2558,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "00eebcf881994e419d72e757fd30dc0e" # String | machine account source ID.
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | The JSONPatch payload used to update the object.
  $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | The JSONPatch payload used to update the object.
  
 
@@ -2614,7 +2610,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
-$PasswordpolicyholdersdtoInner = Initialize-PasswordpolicyholdersdtoInner -PolicyId "2c91808e7d976f3b017d9f5ceae440c8" -PolicyName "PasswordPolicy Example" -Selectors # PasswordpolicyholdersdtoInner[] | 
  $PasswordpolicyholdersdtoInner = @""@ # PasswordpolicyholdersdtoInner[] | 
  
 
@@ -2665,8 +2660,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
-$Fielddetailsdto = Initialize-Fielddetailsdto -Name "userName" -Transform  -Attributes  -IsRequired $false -Type "string" -IsMultiValued $false
-$Provisioningpolicydto = Initialize-Provisioningpolicydto -Name "example provisioning policy for inactive identities" -Description "this provisioning policy creates access based on an identity going inactive" -UsageType "CREATE" -Fields $Fielddetailsdto # Provisioningpolicydto[] | 
  $Provisioningpolicydto = @""@ # Provisioningpolicydto[] | 
  
 
@@ -2721,8 +2714,6 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $UsageType = "CREATE" # Usagetype | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | The JSONPatch payload used to update the schema.
  $Jsonpatchoperation = @"[{"op":"add","path":"/fields/0","value":{"name":"email","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}}]"@ # Jsonpatchoperation[] | The JSONPatch payload used to update the schema.
  
 
@@ -2837,8 +2828,6 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | The JSONPatch payload used to update the schedule.
  $Jsonpatchoperation = @"[{"op":"replace","path":"/cronExpression","value":"0 0 6 * * ?"}]"@ # Jsonpatchoperation[] | The JSONPatch payload used to update the schedule.
  
 
@@ -2920,8 +2909,6 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | The JSONPatch payload used to update the schema.
  $Jsonpatchoperation = @"[{"op":"add","path":"/attributes/-","value":{"name":"location","type":"STRING","schema":null,"description":"Employee location","isMulti":false,"isEntitlement":false,"isGroup":false}}]"@ # Jsonpatchoperation[] | The JSONPatch payload used to update the schema.
  
 
@@ -2987,8 +2974,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
  $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"new description"}]"@ # Jsonpatchoperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
  
 

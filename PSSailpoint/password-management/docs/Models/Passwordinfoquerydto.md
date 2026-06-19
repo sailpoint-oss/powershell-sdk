@@ -5,7 +5,7 @@ pagination_label: Passwordinfoquerydto
 sidebar_label: Passwordinfoquerydto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Passwordinfoquerydto', 'Passwordinfoquerydto'] 
-slug: /tools/sdk/powershell/passwordmanagementv1/models/passwordinfoquerydto
+slug: /tools/sdk/powershell/passwordmanagement/models/passwordinfoquerydto
 tags: ['SDK', 'Software Development Kit', 'Passwordinfoquerydto', 'Passwordinfoquerydto']
 ---
 

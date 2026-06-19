@@ -5,7 +5,7 @@ pagination_label: Result
 sidebar_label: Result
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Result', 'Result'] 
-slug: /tools/sdk/powershell/searchv1/models/result
+slug: /tools/sdk/powershell/search/models/result
 tags: ['SDK', 'Software Development Kit', 'Result', 'Result']
 ---
 

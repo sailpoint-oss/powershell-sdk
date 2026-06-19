@@ -5,7 +5,7 @@ pagination_label: Formdefinitiondynamicschemarequest
 sidebar_label: Formdefinitiondynamicschemarequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Formdefinitiondynamicschemarequest', 'Formdefinitiondynamicschemarequest'] 
-slug: /tools/sdk/powershell/customformsv1/models/formdefinitiondynamicschemarequest
+slug: /tools/sdk/powershell/customforms/models/formdefinitiondynamicschemarequest
 tags: ['SDK', 'Software Development Kit', 'Formdefinitiondynamicschemarequest', 'Formdefinitiondynamicschemarequest']
 ---
 

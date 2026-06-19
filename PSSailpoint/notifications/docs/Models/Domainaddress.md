@@ -5,7 +5,7 @@ pagination_label: Domainaddress
 sidebar_label: Domainaddress
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Domainaddress', 'Domainaddress'] 
-slug: /tools/sdk/powershell/notificationsv1/models/domainaddress
+slug: /tools/sdk/powershell/notifications/models/domainaddress
 tags: ['SDK', 'Software Development Kit', 'Domainaddress', 'Domainaddress']
 ---
 

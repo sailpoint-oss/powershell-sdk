@@ -5,7 +5,7 @@ pagination_label: Workgroupmemberadditem
 sidebar_label: Workgroupmemberadditem
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workgroupmemberadditem', 'Workgroupmemberadditem'] 
-slug: /tools/sdk/powershell/governancegroupsv1/models/workgroupmemberadditem
+slug: /tools/sdk/powershell/governancegroups/models/workgroupmemberadditem
 tags: ['SDK', 'Software Development Kit', 'Workgroupmemberadditem', 'Workgroupmemberadditem']
 ---
 

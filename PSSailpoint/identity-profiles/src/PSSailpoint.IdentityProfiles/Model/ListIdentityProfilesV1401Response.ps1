@@ -30,7 +30,7 @@ function Initialize-ListIdentityProfilesV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityProfilesV1 => ListIdentityProfilesV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityProfiles => ListIdentityProfilesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListIdentityProfilesV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityProfilesV1 => ListIdentityProfilesV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityProfiles => ListIdentityProfilesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

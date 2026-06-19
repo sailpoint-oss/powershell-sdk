@@ -30,7 +30,7 @@ function Initialize-ListUserLevelsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomUserLevelsV1 => ListUserLevelsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomUserLevels => ListUserLevelsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListUserLevelsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevelsV1 => ListUserLevelsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevels => ListUserLevelsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Bulkreassignrequestdto
 sidebar_label: Bulkreassignrequestdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Bulkreassignrequestdto', 'Bulkreassignrequestdto'] 
-slug: /tools/sdk/powershell/approvalsv1/models/bulkreassignrequestdto
+slug: /tools/sdk/powershell/approvals/models/bulkreassignrequestdto
 tags: ['SDK', 'Software Development Kit', 'Bulkreassignrequestdto', 'Bulkreassignrequestdto']
 ---
 

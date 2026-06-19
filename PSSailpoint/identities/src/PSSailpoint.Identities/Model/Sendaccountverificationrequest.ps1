@@ -36,7 +36,7 @@ function Initialize-Sendaccountverificationrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Sendaccountverificationrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Sendaccountverificationrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Via) {
@@ -77,7 +77,7 @@ function ConvertFrom-JsonToSendaccountverificationrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Sendaccountverificationrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Sendaccountverificationrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

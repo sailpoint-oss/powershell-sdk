@@ -41,7 +41,7 @@ function Initialize-Patowner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PersonalAccessTokensV1 => Patowner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PersonalAccessTokens => Patowner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToPatowner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PersonalAccessTokensV1 => Patowner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PersonalAccessTokens => Patowner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

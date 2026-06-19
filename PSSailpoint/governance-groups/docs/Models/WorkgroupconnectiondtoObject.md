@@ -5,7 +5,7 @@ pagination_label: WorkgroupconnectiondtoObject
 sidebar_label: WorkgroupconnectiondtoObject
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'WorkgroupconnectiondtoObject', 'WorkgroupconnectiondtoObject'] 
-slug: /tools/sdk/powershell/governancegroupsv1/models/workgroupconnectiondto-object
+slug: /tools/sdk/powershell/governancegroups/models/workgroupconnectiondto-object
 tags: ['SDK', 'Software Development Kit', 'WorkgroupconnectiondtoObject', 'WorkgroupconnectiondtoObject']
 ---
 

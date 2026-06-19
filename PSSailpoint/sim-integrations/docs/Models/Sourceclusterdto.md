@@ -5,7 +5,7 @@ pagination_label: Sourceclusterdto
 sidebar_label: Sourceclusterdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourceclusterdto', 'Sourceclusterdto'] 
-slug: /tools/sdk/powershell/simintegrationsv1/models/sourceclusterdto
+slug: /tools/sdk/powershell/simintegrations/models/sourceclusterdto
 tags: ['SDK', 'Software Development Kit', 'Sourceclusterdto', 'Sourceclusterdto']
 ---
 

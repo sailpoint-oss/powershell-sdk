@@ -5,7 +5,7 @@ pagination_label: Getpersonalaccesstokenresponse
 sidebar_label: Getpersonalaccesstokenresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Getpersonalaccesstokenresponse', 'Getpersonalaccesstokenresponse'] 
-slug: /tools/sdk/powershell/personalaccesstokensv1/models/getpersonalaccesstokenresponse
+slug: /tools/sdk/powershell/personalaccesstokens/models/getpersonalaccesstokenresponse
 tags: ['SDK', 'Software Development Kit', 'Getpersonalaccesstokenresponse', 'Getpersonalaccesstokenresponse']
 ---
 

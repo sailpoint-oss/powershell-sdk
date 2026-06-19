@@ -5,7 +5,7 @@ pagination_label: ListWorkgroupMembersV1200ResponseInner
 sidebar_label: ListWorkgroupMembersV1200ResponseInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ListWorkgroupMembersV1200ResponseInner', 'ListWorkgroupMembersV1200ResponseInner'] 
-slug: /tools/sdk/powershell/governancegroupsv1/models/list-workgroup-members-v1200-response-inner
+slug: /tools/sdk/powershell/governancegroups/models/list-workgroup-members-v1200-response-inner
 tags: ['SDK', 'Software Development Kit', 'ListWorkgroupMembersV1200ResponseInner', 'ListWorkgroupMembersV1200ResponseInner']
 ---
 

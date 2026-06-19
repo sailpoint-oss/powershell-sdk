@@ -5,7 +5,7 @@ pagination_label: Machineclassificationcriterialevel1
 sidebar_label: Machineclassificationcriterialevel1
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Machineclassificationcriterialevel1', 'Machineclassificationcriterialevel1'] 
-slug: /tools/sdk/powershell/machineclassificationconfigv1/models/machineclassificationcriterialevel1
+slug: /tools/sdk/powershell/machineclassificationconfig/models/machineclassificationcriterialevel1
 tags: ['SDK', 'Software Development Kit', 'Machineclassificationcriterialevel1', 'Machineclassificationcriterialevel1']
 ---
 

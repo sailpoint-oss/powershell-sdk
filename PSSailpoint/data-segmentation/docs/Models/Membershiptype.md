@@ -5,7 +5,7 @@ pagination_label: Membershiptype
 sidebar_label: Membershiptype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Membershiptype', 'Membershiptype'] 
-slug: /tools/sdk/powershell/datasegmentationv1/models/membershiptype
+slug: /tools/sdk/powershell/datasegmentation/models/membershiptype
 tags: ['SDK', 'Software Development Kit', 'Membershiptype', 'Membershiptype']
 ---
 

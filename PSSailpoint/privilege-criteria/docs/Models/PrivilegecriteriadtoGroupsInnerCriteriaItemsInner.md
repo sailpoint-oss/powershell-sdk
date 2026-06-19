@@ -5,7 +5,7 @@ pagination_label: PrivilegecriteriadtoGroupsInnerCriteriaItemsInner
 sidebar_label: PrivilegecriteriadtoGroupsInnerCriteriaItemsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'PrivilegecriteriadtoGroupsInnerCriteriaItemsInner', 'PrivilegecriteriadtoGroupsInnerCriteriaItemsInner'] 
-slug: /tools/sdk/powershell/privilegecriteriav1/models/privilegecriteriadto-groups-inner-criteria-items-inner
+slug: /tools/sdk/powershell/privilegecriteria/models/privilegecriteriadto-groups-inner-criteria-items-inner
 tags: ['SDK', 'Software Development Kit', 'PrivilegecriteriadtoGroupsInnerCriteriaItemsInner', 'PrivilegecriteriadtoGroupsInnerCriteriaItemsInner']
 ---
 

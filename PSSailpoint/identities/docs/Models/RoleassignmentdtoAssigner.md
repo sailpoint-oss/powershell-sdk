@@ -5,7 +5,7 @@ pagination_label: RoleassignmentdtoAssigner
 sidebar_label: RoleassignmentdtoAssigner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RoleassignmentdtoAssigner', 'RoleassignmentdtoAssigner'] 
-slug: /tools/sdk/powershell/identitiesv1/models/roleassignmentdto-assigner
+slug: /tools/sdk/powershell/identities/models/roleassignmentdto-assigner
 tags: ['SDK', 'Software Development Kit', 'RoleassignmentdtoAssigner', 'RoleassignmentdtoAssigner']
 ---
 

@@ -30,7 +30,7 @@ function Initialize-Accessrequestcontext {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Accessrequestcontext' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Accessrequestcontext' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToAccessrequestcontext {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Accessrequestcontext' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Accessrequestcontext' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

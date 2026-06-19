@@ -40,7 +40,7 @@ function Initialize-Accessprofilebulkdeleteresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessProfilesV1 => Accessprofilebulkdeleteresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessProfiles => Accessprofilebulkdeleteresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToAccessprofilebulkdeleteresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfilesV1 => Accessprofilebulkdeleteresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessProfiles => Accessprofilebulkdeleteresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

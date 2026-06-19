@@ -71,7 +71,7 @@ function Initialize-Sourcehealthdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Sourcehealthdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Sourcehealthdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -115,7 +115,7 @@ function ConvertFrom-JsonToSourcehealthdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Sourcehealthdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Sourcehealthdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

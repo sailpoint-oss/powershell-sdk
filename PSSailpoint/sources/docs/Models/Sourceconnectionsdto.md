@@ -5,7 +5,7 @@ pagination_label: Sourceconnectionsdto
 sidebar_label: Sourceconnectionsdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourceconnectionsdto', 'Sourceconnectionsdto'] 
-slug: /tools/sdk/powershell/sourcesv1/models/sourceconnectionsdto
+slug: /tools/sdk/powershell/sources/models/sourceconnectionsdto
 tags: ['SDK', 'Software Development Kit', 'Sourceconnectionsdto', 'Sourceconnectionsdto']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Previewdatasourceresponse
 sidebar_label: Previewdatasourceresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Previewdatasourceresponse', 'Previewdatasourceresponse'] 
-slug: /tools/sdk/powershell/customformsv1/models/previewdatasourceresponse
+slug: /tools/sdk/powershell/customforms/models/previewdatasourceresponse
 tags: ['SDK', 'Software Development Kit', 'Previewdatasourceresponse', 'Previewdatasourceresponse']
 ---
 

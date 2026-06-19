@@ -5,7 +5,7 @@ pagination_label: Scopetype
 sidebar_label: Scopetype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Scopetype', 'Scopetype'] 
-slug: /tools/sdk/powershell/datasegmentationv1/models/scopetype
+slug: /tools/sdk/powershell/datasegmentation/models/scopetype
 tags: ['SDK', 'Software Development Kit', 'Scopetype', 'Scopetype']
 ---
 

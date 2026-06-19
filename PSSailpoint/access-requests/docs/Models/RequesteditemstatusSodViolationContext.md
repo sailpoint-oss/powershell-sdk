@@ -5,7 +5,7 @@ pagination_label: RequesteditemstatusSodViolationContext
 sidebar_label: RequesteditemstatusSodViolationContext
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RequesteditemstatusSodViolationContext', 'RequesteditemstatusSodViolationContext'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/requesteditemstatus-sod-violation-context
+slug: /tools/sdk/powershell/accessrequests/models/requesteditemstatus-sod-violation-context
 tags: ['SDK', 'Software Development Kit', 'RequesteditemstatusSodViolationContext', 'RequesteditemstatusSodViolationContext']
 ---
 

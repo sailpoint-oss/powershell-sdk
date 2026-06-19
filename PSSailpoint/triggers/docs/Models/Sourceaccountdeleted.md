@@ -5,7 +5,7 @@ pagination_label: Sourceaccountdeleted
 sidebar_label: Sourceaccountdeleted
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourceaccountdeleted', 'Sourceaccountdeleted'] 
-slug: /tools/sdk/powershell/triggersv1/models/sourceaccountdeleted
+slug: /tools/sdk/powershell/triggers/models/sourceaccountdeleted
 tags: ['SDK', 'Software Development Kit', 'Sourceaccountdeleted', 'Sourceaccountdeleted']
 ---
 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **SourceName** | **String** | The name of the source. | [required]
 **IdentityId** | **String** | The ID of the identity that is correlated with this account. | [required]
 **IdentityName** | **String** | The name of the identity that is correlated with this account. | [required]
-**Attributes** | [**map[string]AnyType**](any-type) | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
 
 ## Examples
 

@@ -35,7 +35,7 @@ function Initialize-Inviteidentitiesrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Inviteidentitiesrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Inviteidentitiesrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToInviteidentitiesrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Inviteidentitiesrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Inviteidentitiesrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

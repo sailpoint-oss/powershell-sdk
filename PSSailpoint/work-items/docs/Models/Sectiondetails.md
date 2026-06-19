@@ -5,7 +5,7 @@ pagination_label: Sectiondetails
 sidebar_label: Sectiondetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sectiondetails', 'Sectiondetails'] 
-slug: /tools/sdk/powershell/workitemsv1/models/sectiondetails
+slug: /tools/sdk/powershell/workitems/models/sectiondetails
 tags: ['SDK', 'Software Development Kit', 'Sectiondetails', 'Sectiondetails']
 ---
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | Name of the FormItem | [optional] 
 **Label** | **String** | Label of the section | [optional] 
-**FormItems** | [**[]SystemCollectionsHashtable**](system-collections-hashtable) | List of FormItems. FormItems can be SectionDetails and/or FieldDetails | [optional] 
+**FormItems** | [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | List of FormItems. FormItems can be SectionDetails and/or FieldDetails | [optional] 
 
 ## Examples
 

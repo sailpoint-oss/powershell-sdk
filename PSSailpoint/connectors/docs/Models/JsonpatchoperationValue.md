@@ -5,7 +5,7 @@ pagination_label: JsonpatchoperationValue
 sidebar_label: JsonpatchoperationValue
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'JsonpatchoperationValue', 'JsonpatchoperationValue'] 
-slug: /tools/sdk/powershell/connectorsv1/models/jsonpatchoperation-value
+slug: /tools/sdk/powershell/connectors/models/jsonpatchoperation-value
 tags: ['SDK', 'Software Development Kit', 'JsonpatchoperationValue', 'JsonpatchoperationValue']
 ---
 

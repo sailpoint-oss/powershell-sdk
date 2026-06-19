@@ -5,7 +5,7 @@ pagination_label: Generaterandomstring
 sidebar_label: Generaterandomstring
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Generaterandomstring', 'Generaterandomstring'] 
-slug: /tools/sdk/powershell/transformsv1/models/generaterandomstring
+slug: /tools/sdk/powershell/transforms/models/generaterandomstring
 tags: ['SDK', 'Software Development Kit', 'Generaterandomstring', 'Generaterandomstring']
 ---
 

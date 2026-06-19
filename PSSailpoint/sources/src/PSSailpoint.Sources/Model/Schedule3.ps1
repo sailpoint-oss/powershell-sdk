@@ -36,7 +36,7 @@ function Initialize-Schedule3 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Schedule3' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Schedule3' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -81,7 +81,7 @@ function ConvertFrom-JsonToSchedule3 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Schedule3' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Schedule3' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

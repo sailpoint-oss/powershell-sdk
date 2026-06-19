@@ -5,7 +5,7 @@ pagination_label: GetReportResultV1429Response
 sidebar_label: GetReportResultV1429Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetReportResultV1429Response', 'GetReportResultV1429Response'] 
-slug: /tools/sdk/powershell/reportsdataextractionv1/models/get-report-result-v1429-response
+slug: /tools/sdk/powershell/reportsdataextraction/models/get-report-result-v1429-response
 tags: ['SDK', 'Software Development Kit', 'GetReportResultV1429Response', 'GetReportResultV1429Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetReportResultV1429Response', 'GetRe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**Message** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

@@ -35,7 +35,7 @@ function Initialize-Healthindicatorcategory {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClientsV1 => Healthindicatorcategory' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClients => Healthindicatorcategory' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToHealthindicatorcategory {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClientsV1 => Healthindicatorcategory' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClients => Healthindicatorcategory' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Autowritesettingpatch
 sidebar_label: Autowritesettingpatch
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Autowritesettingpatch', 'Autowritesettingpatch'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/autowritesettingpatch
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/autowritesettingpatch
 tags: ['SDK', 'Software Development Kit', 'Autowritesettingpatch', 'Autowritesettingpatch']
 ---
 

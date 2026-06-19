@@ -5,7 +5,7 @@ pagination_label: Exportoptions
 sidebar_label: Exportoptions
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Exportoptions', 'Exportoptions'] 
-slug: /tools/sdk/powershell/spconfigv1/models/exportoptions
+slug: /tools/sdk/powershell/spconfig/models/exportoptions
 tags: ['SDK', 'Software Development Kit', 'Exportoptions', 'Exportoptions']
 ---
 

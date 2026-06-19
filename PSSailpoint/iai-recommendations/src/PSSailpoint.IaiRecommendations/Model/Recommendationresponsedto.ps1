@@ -30,7 +30,7 @@ function Initialize-Recommendationresponsedto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IaiRecommendationsV1 => Recommendationresponsedto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IaiRecommendations => Recommendationresponsedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToRecommendationresponsedto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IaiRecommendationsV1 => Recommendationresponsedto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IaiRecommendations => Recommendationresponsedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

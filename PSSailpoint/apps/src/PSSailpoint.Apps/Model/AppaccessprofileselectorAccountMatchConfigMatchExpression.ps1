@@ -35,7 +35,7 @@ function Initialize-AppaccessprofileselectorAccountMatchConfigMatchExpression {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AppsV1 => AppaccessprofileselectorAccountMatchConfigMatchExpression' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Apps => AppaccessprofileselectorAccountMatchConfigMatchExpression' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAppaccessprofileselectorAccountMatchConfigMatchExpres
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AppsV1 => AppaccessprofileselectorAccountMatchConfigMatchExpression' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Apps => AppaccessprofileselectorAccountMatchConfigMatchExpression' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

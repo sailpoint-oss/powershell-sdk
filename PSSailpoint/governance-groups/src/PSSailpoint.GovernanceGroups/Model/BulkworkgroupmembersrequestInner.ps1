@@ -41,7 +41,7 @@ function Initialize-BulkworkgroupmembersrequestInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GovernanceGroupsV1 => BulkworkgroupmembersrequestInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GovernanceGroups => BulkworkgroupmembersrequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToBulkworkgroupmembersrequestInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroupsV1 => BulkworkgroupmembersrequestInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GovernanceGroups => BulkworkgroupmembersrequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

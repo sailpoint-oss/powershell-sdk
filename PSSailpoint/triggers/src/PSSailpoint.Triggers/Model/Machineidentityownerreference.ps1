@@ -45,7 +45,7 @@ function Initialize-Machineidentityownerreference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Machineidentityownerreference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Machineidentityownerreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToMachineidentityownerreference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Machineidentityownerreference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Machineidentityownerreference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

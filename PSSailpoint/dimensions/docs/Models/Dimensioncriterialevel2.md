@@ -5,7 +5,7 @@ pagination_label: Dimensioncriterialevel2
 sidebar_label: Dimensioncriterialevel2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dimensioncriterialevel2', 'Dimensioncriterialevel2'] 
-slug: /tools/sdk/powershell/dimensionsv1/models/dimensioncriterialevel2
+slug: /tools/sdk/powershell/dimensions/models/dimensioncriterialevel2
 tags: ['SDK', 'Software Development Kit', 'Dimensioncriterialevel2', 'Dimensioncriterialevel2']
 ---
 

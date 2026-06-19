@@ -5,7 +5,7 @@ pagination_label: Taskdefinitionsummary
 sidebar_label: Taskdefinitionsummary
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Taskdefinitionsummary', 'Taskdefinitionsummary'] 
-slug: /tools/sdk/powershell/identitiesv1/models/taskdefinitionsummary
+slug: /tools/sdk/powershell/identities/models/taskdefinitionsummary
 tags: ['SDK', 'Software Development Kit', 'Taskdefinitionsummary', 'Taskdefinitionsummary']
 ---
 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Description** | **String** | Description of the TaskDefinition | [required]
 **ParentName** | **String** | Name of the parent of the TaskDefinition | [required]
 **Executor** | **String** | Executor of the TaskDefinition | [required]
-**Arguments** | [**map[string]AnyType**](any-type) | Formal parameters of the TaskDefinition, without values | [required]
+**Arguments** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Formal parameters of the TaskDefinition, without values | [required]
 
 ## Examples
 

@@ -5,7 +5,7 @@ pagination_label: Sedbatchrequest
 sidebar_label: Sedbatchrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sedbatchrequest', 'Sedbatchrequest'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/sedbatchrequest
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/sedbatchrequest
 tags: ['SDK', 'Software Development Kit', 'Sedbatchrequest', 'Sedbatchrequest']
 ---
 

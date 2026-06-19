@@ -5,7 +5,7 @@ pagination_label: AccessrequestdynamicapproverRequestedItemsInner
 sidebar_label: AccessrequestdynamicapproverRequestedItemsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessrequestdynamicapproverRequestedItemsInner', 'AccessrequestdynamicapproverRequestedItemsInner'] 
-slug: /tools/sdk/powershell/triggersv1/models/accessrequestdynamicapprover-requested-items-inner
+slug: /tools/sdk/powershell/triggers/models/accessrequestdynamicapprover-requested-items-inner
 tags: ['SDK', 'Software Development Kit', 'AccessrequestdynamicapproverRequestedItemsInner', 'AccessrequestdynamicapproverRequestedItemsInner']
 ---
 

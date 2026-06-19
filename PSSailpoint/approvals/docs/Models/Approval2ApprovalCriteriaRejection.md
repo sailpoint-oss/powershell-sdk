@@ -5,7 +5,7 @@ pagination_label: Approval2ApprovalCriteriaRejection
 sidebar_label: Approval2ApprovalCriteriaRejection
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approval2ApprovalCriteriaRejection', 'Approval2ApprovalCriteriaRejection'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approval2-approval-criteria-rejection
+slug: /tools/sdk/powershell/approvals/models/approval2-approval-criteria-rejection
 tags: ['SDK', 'Software Development Kit', 'Approval2ApprovalCriteriaRejection', 'Approval2ApprovalCriteriaRejection']
 ---
 

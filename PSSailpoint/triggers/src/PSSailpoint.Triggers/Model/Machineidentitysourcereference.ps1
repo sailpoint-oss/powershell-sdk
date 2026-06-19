@@ -40,7 +40,7 @@ function Initialize-Machineidentitysourcereference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Machineidentitysourcereference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Machineidentitysourcereference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToMachineidentitysourcereference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Machineidentitysourcereference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Machineidentitysourcereference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

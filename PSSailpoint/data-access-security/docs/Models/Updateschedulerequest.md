@@ -5,7 +5,7 @@ pagination_label: Updateschedulerequest
 sidebar_label: Updateschedulerequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Updateschedulerequest', 'Updateschedulerequest'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/updateschedulerequest
+slug: /tools/sdk/powershell/dataaccesssecurity/models/updateschedulerequest
 tags: ['SDK', 'Software Development Kit', 'Updateschedulerequest', 'Updateschedulerequest']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Searchdocuments
 sidebar_label: Searchdocuments
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Searchdocuments', 'Searchdocuments'] 
-slug: /tools/sdk/powershell/searchv1/models/searchdocuments
+slug: /tools/sdk/powershell/search/models/searchdocuments
 tags: ['SDK', 'Software Development Kit', 'Searchdocuments', 'Searchdocuments']
 ---
 
@@ -59,7 +59,7 @@ Name | Type | Description | Notes
 **SourceSchemaObjectType** | **String** | Source schema object type of the entitlement. | [optional] 
 **Schema** | **String** | Schema type of the entitlement. | [optional] 
 **Hash** | **String** | Read-only calculated hash value of an entitlement. | [optional] 
-**Attributes** | [**map[string]AnyType**](any-type) | Map or dictionary of key/value pairs. | [optional] 
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Map or dictionary of key/value pairs. | [optional] 
 **TruncatedAttributes** | **[]String** | Truncated attributes of the entitlement. | [optional] 
 **ContainsDataAccess** | **Boolean** | Indicates whether the entitlement contains data access. | [optional] [default to $false]
 **ManuallyUpdatedFields** | [**EntitlementdocumentAllOfManuallyUpdatedFields**](entitlementdocument-all-of-manually-updated-fields) |  | [optional] 

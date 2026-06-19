@@ -5,7 +5,7 @@ pagination_label: MachineidentitycreatedMachineIdentity
 sidebar_label: MachineidentitycreatedMachineIdentity
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MachineidentitycreatedMachineIdentity', 'MachineidentitycreatedMachineIdentity'] 
-slug: /tools/sdk/powershell/triggersv1/models/machineidentitycreated-machine-identity
+slug: /tools/sdk/powershell/triggers/models/machineidentitycreated-machine-identity
 tags: ['SDK', 'Software Development Kit', 'MachineidentitycreatedMachineIdentity', 'MachineidentitycreatedMachineIdentity']
 ---
 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | Last modified timestamp. | [required]
 **BusinessApplication** | **String** | Associated business application. | [optional] 
 **Description** | **String** | Description of the machine identity. | [optional] 
-**Attributes** | [**map[string]AnyType**](any-type) | The attributes assigned to the identity. | [optional] 
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes assigned to the identity. | [optional] 
 **Subtype** |  **Enum** [  "AI Agent",    "Application" ] | Subtype of the machine identity. | [required]
 **Owners** | [**[]Machineidentityownerreference**](machineidentityownerreference) | List of owners. | [optional] 
 **SourceId** | **String** | Source identifier. | [optional] 

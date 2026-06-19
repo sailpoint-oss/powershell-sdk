@@ -5,7 +5,7 @@ pagination_label: GetOrgConfigV1401Response
 sidebar_label: GetOrgConfigV1401Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetOrgConfigV1401Response', 'GetOrgConfigV1401Response'] 
-slug: /tools/sdk/powershell/orgconfigv1/models/get-org-config-v1401-response
+slug: /tools/sdk/powershell/orgconfig/models/get-org-config-v1401-response
 tags: ['SDK', 'Software Development Kit', 'GetOrgConfigV1401Response', 'GetOrgConfigV1401Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetOrgConfigV1401Response', 'GetOrgCo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**VarError** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

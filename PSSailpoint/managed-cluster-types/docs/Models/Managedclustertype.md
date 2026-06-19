@@ -5,7 +5,7 @@ pagination_label: Managedclustertype
 sidebar_label: Managedclustertype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Managedclustertype', 'Managedclustertype'] 
-slug: /tools/sdk/powershell/managedclustertypesv1/models/managedclustertype
+slug: /tools/sdk/powershell/managedclustertypes/models/managedclustertype
 tags: ['SDK', 'Software Development Kit', 'Managedclustertype', 'Managedclustertype']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: SODViolations
 sidebar_label: SODViolations
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SODViolations', 'SODViolations'] 
-slug: /tools/sdk/powershell/sodviolationsv1/methods/sod-violations
+slug: /tools/sdk/powershell/sodviolations/methods/sod-violations
 tags: ['SDK', 'Software Development Kit', 'SODViolations', 'SODViolations']
 ---
 

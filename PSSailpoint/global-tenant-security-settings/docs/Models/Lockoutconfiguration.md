@@ -5,7 +5,7 @@ pagination_label: Lockoutconfiguration
 sidebar_label: Lockoutconfiguration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Lockoutconfiguration', 'Lockoutconfiguration'] 
-slug: /tools/sdk/powershell/globaltenantsecuritysettingsv1/models/lockoutconfiguration
+slug: /tools/sdk/powershell/globaltenantsecuritysettings/models/lockoutconfiguration
 tags: ['SDK', 'Software Development Kit', 'Lockoutconfiguration', 'Lockoutconfiguration']
 ---
 

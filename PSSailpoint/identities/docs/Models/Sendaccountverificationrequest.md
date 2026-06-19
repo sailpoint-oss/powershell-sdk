@@ -5,7 +5,7 @@ pagination_label: Sendaccountverificationrequest
 sidebar_label: Sendaccountverificationrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sendaccountverificationrequest', 'Sendaccountverificationrequest'] 
-slug: /tools/sdk/powershell/identitiesv1/models/sendaccountverificationrequest
+slug: /tools/sdk/powershell/identities/models/sendaccountverificationrequest
 tags: ['SDK', 'Software Development Kit', 'Sendaccountverificationrequest', 'Sendaccountverificationrequest']
 ---
 

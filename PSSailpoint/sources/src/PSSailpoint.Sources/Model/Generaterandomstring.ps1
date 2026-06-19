@@ -55,7 +55,7 @@ function Initialize-Generaterandomstring {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Generaterandomstring' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Generaterandomstring' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -116,7 +116,7 @@ function ConvertFrom-JsonToGeneraterandomstring {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Generaterandomstring' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Generaterandomstring' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

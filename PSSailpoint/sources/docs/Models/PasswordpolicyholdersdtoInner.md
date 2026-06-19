@@ -5,7 +5,7 @@ pagination_label: PasswordpolicyholdersdtoInner
 sidebar_label: PasswordpolicyholdersdtoInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordpolicyholdersdtoInner', 'PasswordpolicyholdersdtoInner'] 
-slug: /tools/sdk/powershell/sourcesv1/models/passwordpolicyholdersdto-inner
+slug: /tools/sdk/powershell/sources/models/passwordpolicyholdersdto-inner
 tags: ['SDK', 'Software Development Kit', 'PasswordpolicyholdersdtoInner', 'PasswordpolicyholdersdtoInner']
 ---
 

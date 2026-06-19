@@ -35,7 +35,7 @@ function Initialize-Sourcecode {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConnectorRuleManagementV1 => Sourcecode' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConnectorRuleManagement => Sourcecode' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Version) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToSourcecode {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorRuleManagementV1 => Sourcecode' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorRuleManagement => Sourcecode' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

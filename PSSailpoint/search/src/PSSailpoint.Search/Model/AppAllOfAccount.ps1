@@ -35,7 +35,7 @@ function Initialize-AppAllOfAccount {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => AppAllOfAccount' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => AppAllOfAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAppAllOfAccount {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => AppAllOfAccount' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => AppAllOfAccount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

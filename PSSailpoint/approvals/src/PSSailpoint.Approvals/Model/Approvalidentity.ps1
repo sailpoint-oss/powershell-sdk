@@ -61,7 +61,7 @@ function Initialize-Approvalidentity {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalidentity' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => Approvalidentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -103,7 +103,7 @@ function ConvertFrom-JsonToApprovalidentity {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalidentity' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => Approvalidentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

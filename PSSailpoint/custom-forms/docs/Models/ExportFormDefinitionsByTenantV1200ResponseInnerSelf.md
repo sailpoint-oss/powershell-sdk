@@ -5,7 +5,7 @@ pagination_label: ExportFormDefinitionsByTenantV1200ResponseInnerSelf
 sidebar_label: ExportFormDefinitionsByTenantV1200ResponseInnerSelf
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ExportFormDefinitionsByTenantV1200ResponseInnerSelf', 'ExportFormDefinitionsByTenantV1200ResponseInnerSelf'] 
-slug: /tools/sdk/powershell/customformsv1/models/export-form-definitions-by-tenant-v1200-response-inner-self
+slug: /tools/sdk/powershell/customforms/models/export-form-definitions-by-tenant-v1200-response-inner-self
 tags: ['SDK', 'Software Development Kit', 'ExportFormDefinitionsByTenantV1200ResponseInnerSelf', 'ExportFormDefinitionsByTenantV1200ResponseInnerSelf']
 ---
 

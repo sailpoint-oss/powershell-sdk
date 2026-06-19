@@ -5,7 +5,7 @@ pagination_label: Accessitemrequester
 sidebar_label: Accessitemrequester
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessitemrequester', 'Accessitemrequester'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/accessitemrequester
+slug: /tools/sdk/powershell/accessrequestapprovals/models/accessitemrequester
 tags: ['SDK', 'Software Development Kit', 'Accessitemrequester', 'Accessitemrequester']
 ---
 

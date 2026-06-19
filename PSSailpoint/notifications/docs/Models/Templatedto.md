@@ -5,7 +5,7 @@ pagination_label: Templatedto
 sidebar_label: Templatedto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Templatedto', 'Templatedto'] 
-slug: /tools/sdk/powershell/notificationsv1/models/templatedto
+slug: /tools/sdk/powershell/notifications/models/templatedto
 tags: ['SDK', 'Software Development Kit', 'Templatedto', 'Templatedto']
 ---
 

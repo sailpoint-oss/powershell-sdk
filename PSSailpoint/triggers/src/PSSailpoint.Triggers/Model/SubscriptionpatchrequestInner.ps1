@@ -41,7 +41,7 @@ function Initialize-SubscriptionpatchrequestInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => SubscriptionpatchrequestInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => SubscriptionpatchrequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Op) {
@@ -87,7 +87,7 @@ function ConvertFrom-JsonToSubscriptionpatchrequestInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => SubscriptionpatchrequestInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => SubscriptionpatchrequestInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

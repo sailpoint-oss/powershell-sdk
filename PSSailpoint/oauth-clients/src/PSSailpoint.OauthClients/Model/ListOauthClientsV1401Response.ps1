@@ -30,7 +30,7 @@ function Initialize-ListOauthClientsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.OauthClientsV1 => ListOauthClientsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.OauthClients => ListOauthClientsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListOauthClientsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.OauthClientsV1 => ListOauthClientsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.OauthClients => ListOauthClientsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

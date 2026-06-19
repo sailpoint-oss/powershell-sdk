@@ -35,7 +35,7 @@ function Initialize-Savedsearchname {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SavedSearchV1 => Savedsearchname' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SavedSearch => Savedsearchname' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToSavedsearchname {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearchV1 => Savedsearchname' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearch => Savedsearchname' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

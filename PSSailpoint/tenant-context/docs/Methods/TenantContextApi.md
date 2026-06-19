@@ -5,7 +5,7 @@ pagination_label: TenantContext
 sidebar_label: TenantContext
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'TenantContext', 'TenantContext'] 
-slug: /tools/sdk/powershell/tenantcontextv1/methods/tenant-context
+slug: /tools/sdk/powershell/tenantcontext/methods/tenant-context
 tags: ['SDK', 'Software Development Kit', 'TenantContext', 'TenantContext']
 ---
 

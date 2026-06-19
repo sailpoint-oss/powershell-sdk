@@ -35,7 +35,7 @@ function Initialize-Violationcontext {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodViolationsV1 => Violationcontext' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodViolations => Violationcontext' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToViolationcontext {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodViolationsV1 => Violationcontext' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodViolations => Violationcontext' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

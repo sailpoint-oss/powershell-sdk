@@ -5,7 +5,7 @@ pagination_label: Dataaccess
 sidebar_label: Dataaccess
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dataaccess', 'Dataaccess'] 
-slug: /tools/sdk/powershell/certificationsv1/models/dataaccess
+slug: /tools/sdk/powershell/certifications/models/dataaccess
 tags: ['SDK', 'Software Development Kit', 'Dataaccess', 'Dataaccess']
 ---
 

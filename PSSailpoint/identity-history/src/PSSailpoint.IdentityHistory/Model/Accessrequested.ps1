@@ -45,7 +45,7 @@ function Initialize-Accessrequested {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessrequested' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Accessrequested' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AccessRequest) {
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToAccessrequested {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessrequested' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Accessrequested' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

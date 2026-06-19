@@ -5,7 +5,7 @@ pagination_label: MultihostintegrationsAccountCorrelationConfig
 sidebar_label: MultihostintegrationsAccountCorrelationConfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MultihostintegrationsAccountCorrelationConfig', 'MultihostintegrationsAccountCorrelationConfig'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/multihostintegrations-account-correlation-config
+slug: /tools/sdk/powershell/multihostintegration/models/multihostintegrations-account-correlation-config
 tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsAccountCorrelationConfig', 'MultihostintegrationsAccountCorrelationConfig']
 ---
 

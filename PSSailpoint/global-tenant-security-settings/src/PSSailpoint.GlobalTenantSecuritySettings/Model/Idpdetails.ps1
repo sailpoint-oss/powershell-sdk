@@ -96,7 +96,7 @@ function Initialize-Idpdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.GlobalTenantSecuritySettingsV1 => Idpdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.GlobalTenantSecuritySettings => Idpdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$MappingAttribute) {
@@ -149,7 +149,7 @@ function ConvertFrom-JsonToIdpdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.GlobalTenantSecuritySettingsV1 => Idpdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.GlobalTenantSecuritySettings => Idpdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

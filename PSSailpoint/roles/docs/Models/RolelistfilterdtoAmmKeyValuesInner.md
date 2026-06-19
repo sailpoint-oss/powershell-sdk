@@ -5,7 +5,7 @@ pagination_label: RolelistfilterdtoAmmKeyValuesInner
 sidebar_label: RolelistfilterdtoAmmKeyValuesInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RolelistfilterdtoAmmKeyValuesInner', 'RolelistfilterdtoAmmKeyValuesInner'] 
-slug: /tools/sdk/powershell/rolesv1/models/rolelistfilterdto-amm-key-values-inner
+slug: /tools/sdk/powershell/roles/models/rolelistfilterdto-amm-key-values-inner
 tags: ['SDK', 'Software Development Kit', 'RolelistfilterdtoAmmKeyValuesInner', 'RolelistfilterdtoAmmKeyValuesInner']
 ---
 

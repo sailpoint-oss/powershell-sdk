@@ -47,7 +47,7 @@ function Initialize-Exportpayload {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SpConfigV1 => Exportpayload' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SpConfig => Exportpayload' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToExportpayload {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SpConfigV1 => Exportpayload' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SpConfig => Exportpayload' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

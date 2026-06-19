@@ -25,7 +25,7 @@ function Initialize-Mfaconfigtestresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MfaConfigurationV1 => Mfaconfigtestresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MfaConfiguration => Mfaconfigtestresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -60,7 +60,7 @@ function ConvertFrom-JsonToMfaconfigtestresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfigurationV1 => Mfaconfigtestresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfiguration => Mfaconfigtestresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

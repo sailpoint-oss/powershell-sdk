@@ -35,7 +35,7 @@ function Initialize-Authprofilesummary {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AuthProfileV1 => Authprofilesummary' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AuthProfile => Authprofilesummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAuthprofilesummary {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AuthProfileV1 => Authprofilesummary' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AuthProfile => Authprofilesummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

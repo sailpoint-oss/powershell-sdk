@@ -5,7 +5,7 @@ pagination_label: ProvisioningconfigPlanInitializerScript
 sidebar_label: ProvisioningconfigPlanInitializerScript
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ProvisioningconfigPlanInitializerScript', 'ProvisioningconfigPlanInitializerScript'] 
-slug: /tools/sdk/powershell/simintegrationsv1/models/provisioningconfig-plan-initializer-script
+slug: /tools/sdk/powershell/simintegrations/models/provisioningconfig-plan-initializer-script
 tags: ['SDK', 'Software Development Kit', 'ProvisioningconfigPlanInitializerScript', 'ProvisioningconfigPlanInitializerScript']
 ---
 

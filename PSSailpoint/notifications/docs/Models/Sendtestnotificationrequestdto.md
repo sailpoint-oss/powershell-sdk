@@ -5,7 +5,7 @@ pagination_label: Sendtestnotificationrequestdto
 sidebar_label: Sendtestnotificationrequestdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sendtestnotificationrequestdto', 'Sendtestnotificationrequestdto'] 
-slug: /tools/sdk/powershell/notificationsv1/models/sendtestnotificationrequestdto
+slug: /tools/sdk/powershell/notifications/models/sendtestnotificationrequestdto
 tags: ['SDK', 'Software Development Kit', 'Sendtestnotificationrequestdto', 'Sendtestnotificationrequestdto']
 ---
 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Key** | **String** | The template notification key. | [optional] 
 **Medium** |  **Enum** [  "EMAIL",    "SLACK",    "TEAMS" ] | The notification medium. Has to be one of the following enum values. | [optional] 
 **Locale** | **String** | The locale for the message text. | [optional] 
-**Context** | [**SystemCollectionsHashtable**](system-collections-hashtable) | A Json object that denotes the context specific to the template. | [optional] 
+**Context** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | A Json object that denotes the context specific to the template. | [optional] 
 **RecipientEmailList** | **[]String** | A list of override recipient email addresses for the test notification. | [optional] 
 **CarbonCopy** | **[]String** | A list of CC email addresses for the test notification. | [optional] 
 **BlindCarbonCopy** | **[]String** | A list of BCC email addresses for the test notification. | [optional] 

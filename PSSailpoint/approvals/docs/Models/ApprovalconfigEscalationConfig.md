@@ -5,7 +5,7 @@ pagination_label: ApprovalconfigEscalationConfig
 sidebar_label: ApprovalconfigEscalationConfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalconfigEscalationConfig', 'ApprovalconfigEscalationConfig'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalconfig-escalation-config
+slug: /tools/sdk/powershell/approvals/models/approvalconfig-escalation-config
 tags: ['SDK', 'Software Development Kit', 'ApprovalconfigEscalationConfig', 'ApprovalconfigEscalationConfig']
 ---
 

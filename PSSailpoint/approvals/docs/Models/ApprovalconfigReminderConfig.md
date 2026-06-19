@@ -5,7 +5,7 @@ pagination_label: ApprovalconfigReminderConfig
 sidebar_label: ApprovalconfigReminderConfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApprovalconfigReminderConfig', 'ApprovalconfigReminderConfig'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalconfig-reminder-config
+slug: /tools/sdk/powershell/approvals/models/approvalconfig-reminder-config
 tags: ['SDK', 'Software Development Kit', 'ApprovalconfigReminderConfig', 'ApprovalconfigReminderConfig']
 ---
 

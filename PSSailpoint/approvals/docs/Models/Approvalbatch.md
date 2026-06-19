@@ -5,7 +5,7 @@ pagination_label: Approvalbatch
 sidebar_label: Approvalbatch
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalbatch', 'Approvalbatch'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approvalbatch
+slug: /tools/sdk/powershell/approvals/models/approvalbatch
 tags: ['SDK', 'Software Development Kit', 'Approvalbatch', 'Approvalbatch']
 ---
 

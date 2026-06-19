@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/passwordmanagementv1/methods/password-management#create-digit-token-v1
+      label: SDK_tools/sdk/powershell/passwordmanagement/methods/password-management#create-digit-token-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Passworddigittokenreset = @"
@@ -25,7 +25,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/passwordmanagementv1/methods/password-management#get-password-change-status-v1
+      label: SDK_tools/sdk/powershell/passwordmanagement/methods/password-management#get-password-change-status-v1
       source: |
         $Id = "089899f13a8f4da7824996191587bab9" # String | Password change request ID
         
@@ -44,7 +44,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/passwordmanagementv1/methods/password-management#query-password-info-v1
+      label: SDK_tools/sdk/powershell/passwordmanagement/methods/password-management#query-password-info-v1
       source: |
         $Passwordinfoquerydto = @"
         
@@ -66,7 +66,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/passwordmanagementv1/methods/password-management#set-password-v1
+      label: SDK_tools/sdk/powershell/passwordmanagement/methods/password-management#set-password-v1
       source: |
         $Passwordchangerequest = @"
         

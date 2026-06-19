@@ -5,7 +5,7 @@ pagination_label: Dataclassificationsettings
 sidebar_label: Dataclassificationsettings
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dataclassificationsettings', 'Dataclassificationsettings'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/dataclassificationsettings
+slug: /tools/sdk/powershell/dataaccesssecurity/models/dataclassificationsettings
 tags: ['SDK', 'Software Development Kit', 'Dataclassificationsettings', 'Dataclassificationsettings']
 ---
 

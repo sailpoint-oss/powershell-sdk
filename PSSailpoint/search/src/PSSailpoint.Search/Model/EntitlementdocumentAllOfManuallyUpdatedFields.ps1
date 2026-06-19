@@ -35,7 +35,7 @@ function Initialize-EntitlementdocumentAllOfManuallyUpdatedFields {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => EntitlementdocumentAllOfManuallyUpdatedFields' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => EntitlementdocumentAllOfManuallyUpdatedFields' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToEntitlementdocumentAllOfManuallyUpdatedFields {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => EntitlementdocumentAllOfManuallyUpdatedFields' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => EntitlementdocumentAllOfManuallyUpdatedFields' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

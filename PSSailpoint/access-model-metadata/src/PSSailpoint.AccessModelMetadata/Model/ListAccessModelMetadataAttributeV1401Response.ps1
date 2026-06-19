@@ -30,7 +30,7 @@ function Initialize-ListAccessModelMetadataAttributeV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessModelMetadataV1 => ListAccessModelMetadataAttributeV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessModelMetadata => ListAccessModelMetadataAttributeV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListAccessModelMetadataAttributeV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadataV1 => ListAccessModelMetadataAttributeV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadata => ListAccessModelMetadataAttributeV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Accountdeleterequestinput
 sidebar_label: Accountdeleterequestinput
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountdeleterequestinput', 'Accountdeleterequestinput'] 
-slug: /tools/sdk/powershell/accountdeletionrequestsv1/models/accountdeleterequestinput
+slug: /tools/sdk/powershell/accountdeletionrequests/models/accountdeleterequestinput
 tags: ['SDK', 'Software Development Kit', 'Accountdeleterequestinput', 'Accountdeleterequestinput']
 ---
 

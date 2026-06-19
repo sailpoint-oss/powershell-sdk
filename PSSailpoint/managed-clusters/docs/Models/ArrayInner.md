@@ -5,7 +5,7 @@ pagination_label: ArrayInner
 sidebar_label: ArrayInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ArrayInner', 'ArrayInner'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/array-inner
+slug: /tools/sdk/powershell/managedclusters/models/array-inner
 tags: ['SDK', 'Software Development Kit', 'ArrayInner', 'ArrayInner']
 ---
 

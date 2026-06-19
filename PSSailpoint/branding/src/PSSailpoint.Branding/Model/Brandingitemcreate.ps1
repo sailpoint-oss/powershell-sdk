@@ -65,7 +65,7 @@ function Initialize-Brandingitemcreate {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.BrandingV1 => Brandingitemcreate' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Branding => Brandingitemcreate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -112,7 +112,7 @@ function ConvertFrom-JsonToBrandingitemcreate {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.BrandingV1 => Brandingitemcreate' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Branding => Brandingitemcreate' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

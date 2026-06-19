@@ -40,7 +40,7 @@ function Initialize-Reviewreassign {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => Reviewreassign' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => Reviewreassign' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Reassign) {
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToReviewreassign {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => Reviewreassign' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => Reviewreassign' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

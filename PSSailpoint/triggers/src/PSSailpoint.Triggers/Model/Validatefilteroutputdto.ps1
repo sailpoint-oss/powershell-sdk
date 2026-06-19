@@ -40,7 +40,7 @@ function Initialize-Validatefilteroutputdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Validatefilteroutputdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Validatefilteroutputdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToValidatefilteroutputdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Validatefilteroutputdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Validatefilteroutputdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Spdetails
 sidebar_label: Spdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Spdetails', 'Spdetails'] 
-slug: /tools/sdk/powershell/globaltenantsecuritysettingsv1/models/spdetails
+slug: /tools/sdk/powershell/globaltenantsecuritysettings/models/spdetails
 tags: ['SDK', 'Software Development Kit', 'Spdetails', 'Spdetails']
 ---
 

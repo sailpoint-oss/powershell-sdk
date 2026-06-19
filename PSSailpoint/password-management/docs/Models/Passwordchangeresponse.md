@@ -5,7 +5,7 @@ pagination_label: Passwordchangeresponse
 sidebar_label: Passwordchangeresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Passwordchangeresponse', 'Passwordchangeresponse'] 
-slug: /tools/sdk/powershell/passwordmanagementv1/models/passwordchangeresponse
+slug: /tools/sdk/powershell/passwordmanagement/models/passwordchangeresponse
 tags: ['SDK', 'Software Development Kit', 'Passwordchangeresponse', 'Passwordchangeresponse']
 ---
 

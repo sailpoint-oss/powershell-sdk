@@ -5,7 +5,7 @@ pagination_label: CommentdtoAuthor
 sidebar_label: CommentdtoAuthor
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CommentdtoAuthor', 'CommentdtoAuthor'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/commentdto-author
+slug: /tools/sdk/powershell/accessrequests/models/commentdto-author
 tags: ['SDK', 'Software Development Kit', 'CommentdtoAuthor', 'CommentdtoAuthor']
 ---
 

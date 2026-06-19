@@ -35,7 +35,7 @@ function Initialize-ApprovalconfigCronTimezone {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => ApprovalconfigCronTimezone' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => ApprovalconfigCronTimezone' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToApprovalconfigCronTimezone {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => ApprovalconfigCronTimezone' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => ApprovalconfigCronTimezone' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

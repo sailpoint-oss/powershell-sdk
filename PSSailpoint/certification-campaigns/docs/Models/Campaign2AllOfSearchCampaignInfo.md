@@ -5,7 +5,7 @@ pagination_label: Campaign2AllOfSearchCampaignInfo
 sidebar_label: Campaign2AllOfSearchCampaignInfo
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaign2AllOfSearchCampaignInfo', 'Campaign2AllOfSearchCampaignInfo'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/campaign2-all-of-search-campaign-info
+slug: /tools/sdk/powershell/certificationcampaigns/models/campaign2-all-of-search-campaign-info
 tags: ['SDK', 'Software Development Kit', 'Campaign2AllOfSearchCampaignInfo', 'Campaign2AllOfSearchCampaignInfo']
 ---
 

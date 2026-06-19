@@ -5,7 +5,7 @@ pagination_label: Streamconfigresponse
 sidebar_label: Streamconfigresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Streamconfigresponse', 'Streamconfigresponse'] 
-slug: /tools/sdk/powershell/sharedsignalsframeworkssfv1/models/streamconfigresponse
+slug: /tools/sdk/powershell/sharedsignalsframeworkssf/models/streamconfigresponse
 tags: ['SDK', 'Software Development Kit', 'Streamconfigresponse', 'Streamconfigresponse']
 ---
 

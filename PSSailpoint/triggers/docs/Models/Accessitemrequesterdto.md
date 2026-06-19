@@ -5,7 +5,7 @@ pagination_label: Accessitemrequesterdto
 sidebar_label: Accessitemrequesterdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessitemrequesterdto', 'Accessitemrequesterdto'] 
-slug: /tools/sdk/powershell/triggersv1/models/accessitemrequesterdto
+slug: /tools/sdk/powershell/triggers/models/accessitemrequesterdto
 tags: ['SDK', 'Software Development Kit', 'Accessitemrequesterdto', 'Accessitemrequesterdto']
 ---
 

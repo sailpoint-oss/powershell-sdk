@@ -5,7 +5,7 @@ pagination_label: Templatevariablesdto
 sidebar_label: Templatevariablesdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Templatevariablesdto', 'Templatevariablesdto'] 
-slug: /tools/sdk/powershell/notificationsv1/models/templatevariablesdto
+slug: /tools/sdk/powershell/notifications/models/templatevariablesdto
 tags: ['SDK', 'Software Development Kit', 'Templatevariablesdto', 'Templatevariablesdto']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Taskresultresponse
 sidebar_label: Taskresultresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Taskresultresponse', 'Taskresultresponse'] 
-slug: /tools/sdk/powershell/identitiesv1/models/taskresultresponse
+slug: /tools/sdk/powershell/identities/models/taskresultresponse
 tags: ['SDK', 'Software Development Kit', 'Taskresultresponse', 'Taskresultresponse']
 ---
 

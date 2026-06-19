@@ -5,7 +5,7 @@ pagination_label: Objectmappingbulkpatchrequest
 sidebar_label: Objectmappingbulkpatchrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Objectmappingbulkpatchrequest', 'Objectmappingbulkpatchrequest'] 
-slug: /tools/sdk/powershell/configurationhubv1/models/objectmappingbulkpatchrequest
+slug: /tools/sdk/powershell/configurationhub/models/objectmappingbulkpatchrequest
 tags: ['SDK', 'Software Development Kit', 'Objectmappingbulkpatchrequest', 'Objectmappingbulkpatchrequest']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Objectmappingbulkpatchrequest', 'Obje
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Patches** | [**map[string]Jsonpatchoperation[]**](array) | Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping. | [required]
+**Patches** | [**map[string]Jsonpatchoperation[]**](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_arrays?view=powershell-7.4) | Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping. | [required]
 
 ## Examples
 

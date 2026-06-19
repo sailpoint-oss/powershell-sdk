@@ -5,7 +5,7 @@ pagination_label: Commonaccessitemstate
 sidebar_label: Commonaccessitemstate
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Commonaccessitemstate', 'Commonaccessitemstate'] 
-slug: /tools/sdk/powershell/iaicommonaccessv1/models/commonaccessitemstate
+slug: /tools/sdk/powershell/iaicommonaccess/models/commonaccessitemstate
 tags: ['SDK', 'Software Development Kit', 'Commonaccessitemstate', 'Commonaccessitemstate']
 ---
 

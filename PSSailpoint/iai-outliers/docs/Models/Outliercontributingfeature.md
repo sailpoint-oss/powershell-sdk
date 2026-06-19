@@ -5,7 +5,7 @@ pagination_label: Outliercontributingfeature
 sidebar_label: Outliercontributingfeature
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Outliercontributingfeature', 'Outliercontributingfeature'] 
-slug: /tools/sdk/powershell/iaioutliersv1/models/outliercontributingfeature
+slug: /tools/sdk/powershell/iaioutliers/models/outliercontributingfeature
 tags: ['SDK', 'Software Development Kit', 'Outliercontributingfeature', 'Outliercontributingfeature']
 ---
 

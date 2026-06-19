@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#approve-approval-item-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#approve-approval-item-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
         $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
@@ -22,7 +22,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#approve-approval-items-in-bulk-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#approve-approval-items-in-bulk-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
         
@@ -41,7 +41,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#complete-work-item-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#complete-work-item-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
         $Body = "MyBody" # String | Body is the request payload to create form definition request (optional)
@@ -61,7 +61,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#forward-work-item-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#forward-work-item-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
         $Workitemforward = @"
@@ -84,7 +84,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#get-completed-work-items-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#get-completed-work-items-v1
       source: |
         $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -106,7 +106,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#get-count-completed-work-items-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#get-count-completed-work-items-v1
       source: |
         $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
         
@@ -125,7 +125,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#get-count-work-items-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#get-count-work-items-v1
       source: |
         $OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item owner. (optional)
         
@@ -144,7 +144,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#get-work-item-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#get-work-item-v1
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item.
         
@@ -163,7 +163,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#get-work-items-summary-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#get-work-items-summary-v1
       source: |
         $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
         
@@ -182,7 +182,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#list-work-items-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#list-work-items-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -204,7 +204,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#reject-approval-item-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#reject-approval-item-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
         $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
@@ -224,7 +224,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#reject-approval-items-in-bulk-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#reject-approval-items-in-bulk-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
         
@@ -243,7 +243,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/workitemsv1/methods/work-items#submit-account-selection-v1
+      label: SDK_tools/sdk/powershell/workitems/methods/work-items#submit-account-selection-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
         $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Selection Data map, keyed on fieldName

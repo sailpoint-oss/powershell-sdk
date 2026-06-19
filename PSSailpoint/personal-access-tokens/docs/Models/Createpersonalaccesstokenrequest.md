@@ -5,7 +5,7 @@ pagination_label: Createpersonalaccesstokenrequest
 sidebar_label: Createpersonalaccesstokenrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Createpersonalaccesstokenrequest', 'Createpersonalaccesstokenrequest'] 
-slug: /tools/sdk/powershell/personalaccesstokensv1/models/createpersonalaccesstokenrequest
+slug: /tools/sdk/powershell/personalaccesstokens/models/createpersonalaccesstokenrequest
 tags: ['SDK', 'Software Development Kit', 'Createpersonalaccesstokenrequest', 'Createpersonalaccesstokenrequest']
 ---
 

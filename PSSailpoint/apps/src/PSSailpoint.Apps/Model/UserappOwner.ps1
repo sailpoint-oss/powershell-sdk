@@ -45,7 +45,7 @@ function Initialize-UserappOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AppsV1 => UserappOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Apps => UserappOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToUserappOwner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AppsV1 => UserappOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Apps => UserappOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

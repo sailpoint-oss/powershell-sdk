@@ -5,7 +5,7 @@ pagination_label: Workflowexecutionhistory
 sidebar_label: Workflowexecutionhistory
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workflowexecutionhistory', 'Workflowexecutionhistory'] 
-slug: /tools/sdk/powershell/workflowsv1/models/workflowexecutionhistory
+slug: /tools/sdk/powershell/workflows/models/workflowexecutionhistory
 tags: ['SDK', 'Software Development Kit', 'Workflowexecutionhistory', 'Workflowexecutionhistory']
 ---
 
@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'Workflowexecutionhistory', 'Workflowe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Definition** | [**SystemCollectionsHashtable**](system-collections-hashtable) |  | [optional] 
-**History** | [**SystemCollectionsHashtable**](system-collections-hashtable) |  | [optional] 
-**Trigger** | [**SystemCollectionsHashtable**](system-collections-hashtable) |  | [optional] 
+**Definition** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**History** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**Trigger** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
 
 ## Examples
 

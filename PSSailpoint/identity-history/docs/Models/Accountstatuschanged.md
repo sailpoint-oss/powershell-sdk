@@ -5,7 +5,7 @@ pagination_label: Accountstatuschanged
 sidebar_label: Accountstatuschanged
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountstatuschanged', 'Accountstatuschanged'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/accountstatuschanged
+slug: /tools/sdk/powershell/identityhistory/models/accountstatuschanged
 tags: ['SDK', 'Software Development Kit', 'Accountstatuschanged', 'Accountstatuschanged']
 ---
 

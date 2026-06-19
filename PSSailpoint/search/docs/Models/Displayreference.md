@@ -5,7 +5,7 @@ pagination_label: Displayreference
 sidebar_label: Displayreference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Displayreference', 'Displayreference'] 
-slug: /tools/sdk/powershell/searchv1/models/displayreference
+slug: /tools/sdk/powershell/search/models/displayreference
 tags: ['SDK', 'Software Development Kit', 'Displayreference', 'Displayreference']
 ---
 

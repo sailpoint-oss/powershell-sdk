@@ -41,7 +41,7 @@ function Initialize-Entitlementv2Owner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.EntitlementsV1 => Entitlementv2Owner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Entitlements => Entitlementv2Owner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToEntitlementv2Owner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.EntitlementsV1 => Entitlementv2Owner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Entitlements => Entitlementv2Owner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

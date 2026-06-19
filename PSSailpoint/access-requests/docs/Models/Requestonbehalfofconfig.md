@@ -5,7 +5,7 @@ pagination_label: Requestonbehalfofconfig
 sidebar_label: Requestonbehalfofconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Requestonbehalfofconfig', 'Requestonbehalfofconfig'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/requestonbehalfofconfig
+slug: /tools/sdk/powershell/accessrequests/models/requestonbehalfofconfig
 tags: ['SDK', 'Software Development Kit', 'Requestonbehalfofconfig', 'Requestonbehalfofconfig']
 ---
 

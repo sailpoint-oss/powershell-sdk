@@ -1,0 +1,41 @@
+- path: /prompt-insights/v1/metrics
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/promptinsights/methods/prompt-insights#get-prompt-insights-metrics-v1
+      source: |
+        $Interval = "-1h" # String | Relative lookback window for metrics aggregation.
+        
+        # Get prompt insights metrics
+        
+        try {
+            Get-PromptInsightsMetricsV1 -Interval $Interval 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PromptInsightsMetricsV1 -Interval $Interval   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PromptInsightsMetricsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /prompt-insights/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/promptinsights/methods/prompt-insights#list-prompt-insights-v1
+      source: |
+        $Interval = "-1h" # String | Relative lookback window for prompt insights.
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Filters = "policyDecision eq "REDACTED" and severity eq "CRITICAL"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **policyDecision**: *eq*  **category**: *eq*  **severity**: *eq*  **user**: *eq, sw, co*  **agent**: *eq, sw, co*  **reason**: *eq, sw, co*  **rule**: *eq, sw, co*  **policy**: *eq, sw, co* (optional)
+        
+        # List prompt insights
+        
+        try {
+            Get-PromptInsightsV1 -Interval $Interval 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PromptInsightsV1 -Interval $Interval -Limit $Limit -Offset $Offset -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PromptInsightsV1"
+            Write-Host $_.ErrorDetails
+        }

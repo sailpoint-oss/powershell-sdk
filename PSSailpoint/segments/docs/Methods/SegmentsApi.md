@@ -5,7 +5,7 @@ pagination_label: Segments
 sidebar_label: Segments
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Segments', 'Segments'] 
-slug: /tools/sdk/powershell/segmentsv1/methods/segments
+slug: /tools/sdk/powershell/segments/methods/segments
 tags: ['SDK', 'Software Development Kit', 'Segments', 'Segments']
 ---
 
@@ -240,7 +240,7 @@ Use this API to update segment fields by using the [JSON Patch](https://tools.ie
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The segment ID to modify.
- Body  | RequestBody | [**[]SystemCollectionsHashtable**](../models/system-collections-hashtable) | True  | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+ Body  | RequestBody | [**[]SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) | True  | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
 
 ### Return type
 [**Segment**](../models/segment)

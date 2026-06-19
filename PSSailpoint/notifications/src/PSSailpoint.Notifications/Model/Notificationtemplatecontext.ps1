@@ -40,7 +40,7 @@ function Initialize-Notificationtemplatecontext {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => Notificationtemplatecontext' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => Notificationtemplatecontext' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToNotificationtemplatecontext {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => Notificationtemplatecontext' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => Notificationtemplatecontext' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

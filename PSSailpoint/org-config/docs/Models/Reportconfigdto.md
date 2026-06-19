@@ -5,7 +5,7 @@ pagination_label: Reportconfigdto
 sidebar_label: Reportconfigdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reportconfigdto', 'Reportconfigdto'] 
-slug: /tools/sdk/powershell/orgconfigv1/models/reportconfigdto
+slug: /tools/sdk/powershell/orgconfig/models/reportconfigdto
 tags: ['SDK', 'Software Development Kit', 'Reportconfigdto', 'Reportconfigdto']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: DateformatInputFormat
 sidebar_label: DateformatInputFormat
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'DateformatInputFormat', 'DateformatInputFormat'] 
-slug: /tools/sdk/powershell/transformsv1/models/dateformat-input-format
+slug: /tools/sdk/powershell/transforms/models/dateformat-input-format
 tags: ['SDK', 'Software Development Kit', 'DateformatInputFormat', 'DateformatInputFormat']
 ---
 

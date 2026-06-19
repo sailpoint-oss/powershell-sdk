@@ -46,7 +46,7 @@ function Initialize-ModelFilter {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SavedSearchV1 => ModelFilter' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SavedSearch => ModelFilter' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToModelFilter {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearchV1 => ModelFilter' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearch => ModelFilter' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

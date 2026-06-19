@@ -5,7 +5,7 @@ pagination_label: Accessrequested
 sidebar_label: Accessrequested
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessrequested', 'Accessrequested'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/accessrequested
+slug: /tools/sdk/powershell/identityhistory/models/accessrequested
 tags: ['SDK', 'Software Development Kit', 'Accessrequested', 'Accessrequested']
 ---
 

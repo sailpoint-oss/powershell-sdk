@@ -2,7 +2,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iconsv1/methods/icons#delete-icon-v1
+      label: SDK_tools/sdk/powershell/icons/methods/icons#delete-icon-v1
       source: |
         $ObjectType = "application" # String | Object type. Available options ['application']
         $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
@@ -23,7 +23,7 @@
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iconsv1/methods/icons#set-icon-v1
+      label: SDK_tools/sdk/powershell/icons/methods/icons#set-icon-v1
       source: |
         $ObjectType = "application" # String | Object type. Available options ['application']
         $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.

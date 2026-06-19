@@ -5,7 +5,7 @@ pagination_label: Entitlementattributebulkupdatefilterrequest
 sidebar_label: Entitlementattributebulkupdatefilterrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlementattributebulkupdatefilterrequest', 'Entitlementattributebulkupdatefilterrequest'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/entitlementattributebulkupdatefilterrequest
+slug: /tools/sdk/powershell/accessmodelmetadata/models/entitlementattributebulkupdatefilterrequest
 tags: ['SDK', 'Software Development Kit', 'Entitlementattributebulkupdatefilterrequest', 'Entitlementattributebulkupdatefilterrequest']
 ---
 

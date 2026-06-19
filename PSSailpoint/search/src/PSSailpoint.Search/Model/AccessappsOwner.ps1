@@ -46,7 +46,7 @@ function Initialize-AccessappsOwner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => AccessappsOwner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => AccessappsOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToAccessappsOwner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => AccessappsOwner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => AccessappsOwner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

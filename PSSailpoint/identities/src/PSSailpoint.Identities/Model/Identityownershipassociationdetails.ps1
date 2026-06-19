@@ -30,7 +30,7 @@ function Initialize-Identityownershipassociationdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Identityownershipassociationdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Identityownershipassociationdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToIdentityownershipassociationdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Identityownershipassociationdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Identityownershipassociationdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

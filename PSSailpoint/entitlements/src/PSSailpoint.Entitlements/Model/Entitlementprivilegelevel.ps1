@@ -54,7 +54,7 @@ function Initialize-Entitlementprivilegelevel {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.EntitlementsV1 => Entitlementprivilegelevel' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Entitlements => Entitlementprivilegelevel' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -94,7 +94,7 @@ function ConvertFrom-JsonToEntitlementprivilegelevel {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.EntitlementsV1 => Entitlementprivilegelevel' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Entitlements => Entitlementprivilegelevel' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

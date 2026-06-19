@@ -35,7 +35,7 @@ function Initialize-MachineIdentityDtoOwners {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineIdentitiesV1 => MachineIdentityDtoOwners' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineIdentities => MachineIdentityDtoOwners' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$PrimaryIdentity) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToMachineIdentityDtoOwners {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineIdentitiesV1 => MachineIdentityDtoOwners' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineIdentities => MachineIdentityDtoOwners' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Scheduledsearchname
 sidebar_label: Scheduledsearchname
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Scheduledsearchname', 'Scheduledsearchname'] 
-slug: /tools/sdk/powershell/scheduledsearchv1/models/scheduledsearchname
+slug: /tools/sdk/powershell/scheduledsearch/models/scheduledsearchname
 tags: ['SDK', 'Software Development Kit', 'Scheduledsearchname', 'Scheduledsearchname']
 ---
 

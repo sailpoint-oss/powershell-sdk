@@ -5,7 +5,7 @@ pagination_label: Idpdetails
 sidebar_label: Idpdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Idpdetails', 'Idpdetails'] 
-slug: /tools/sdk/powershell/globaltenantsecuritysettingsv1/models/idpdetails
+slug: /tools/sdk/powershell/globaltenantsecuritysettings/models/idpdetails
 tags: ['SDK', 'Software Development Kit', 'Idpdetails', 'Idpdetails']
 ---
 

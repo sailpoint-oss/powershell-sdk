@@ -5,7 +5,7 @@ pagination_label: RoleminingidentitydistributionDistributionInner
 sidebar_label: RoleminingidentitydistributionDistributionInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RoleminingidentitydistributionDistributionInner', 'RoleminingidentitydistributionDistributionInner'] 
-slug: /tools/sdk/powershell/iairoleminingv1/models/roleminingidentitydistribution-distribution-inner
+slug: /tools/sdk/powershell/iairolemining/models/roleminingidentitydistribution-distribution-inner
 tags: ['SDK', 'Software Development Kit', 'RoleminingidentitydistributionDistributionInner', 'RoleminingidentitydistributionDistributionInner']
 ---
 

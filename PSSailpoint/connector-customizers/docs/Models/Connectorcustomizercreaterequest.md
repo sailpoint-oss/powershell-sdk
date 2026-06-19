@@ -5,7 +5,7 @@ pagination_label: Connectorcustomizercreaterequest
 sidebar_label: Connectorcustomizercreaterequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Connectorcustomizercreaterequest', 'Connectorcustomizercreaterequest'] 
-slug: /tools/sdk/powershell/connectorcustomizersv1/models/connectorcustomizercreaterequest
+slug: /tools/sdk/powershell/connectorcustomizers/models/connectorcustomizercreaterequest
 tags: ['SDK', 'Software Development Kit', 'Connectorcustomizercreaterequest', 'Connectorcustomizercreaterequest']
 ---
 

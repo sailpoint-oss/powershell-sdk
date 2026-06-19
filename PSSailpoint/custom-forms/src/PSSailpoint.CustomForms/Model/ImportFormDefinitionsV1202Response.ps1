@@ -45,7 +45,7 @@ function Initialize-ImportFormDefinitionsV1202Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => ImportFormDefinitionsV1202Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => ImportFormDefinitionsV1202Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToImportFormDefinitionsV1202Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => ImportFormDefinitionsV1202Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => ImportFormDefinitionsV1202Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

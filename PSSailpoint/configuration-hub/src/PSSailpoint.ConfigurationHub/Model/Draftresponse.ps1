@@ -109,7 +109,7 @@ function Initialize-Draftresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConfigurationHubV1 => Draftresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConfigurationHub => Draftresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -160,7 +160,7 @@ function ConvertFrom-JsonToDraftresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHubV1 => Draftresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHub => Draftresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

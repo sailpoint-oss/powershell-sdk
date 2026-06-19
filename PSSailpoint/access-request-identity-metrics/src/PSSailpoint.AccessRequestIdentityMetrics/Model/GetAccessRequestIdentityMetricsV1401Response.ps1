@@ -30,7 +30,7 @@ function Initialize-GetAccessRequestIdentityMetricsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestIdentityMetricsV1 => GetAccessRequestIdentityMetricsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequestIdentityMetrics => GetAccessRequestIdentityMetricsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetAccessRequestIdentityMetricsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestIdentityMetricsV1 => GetAccessRequestIdentityMetricsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestIdentityMetrics => GetAccessRequestIdentityMetricsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

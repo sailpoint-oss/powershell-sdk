@@ -5,7 +5,7 @@ pagination_label: DatecompareSecondDate
 sidebar_label: DatecompareSecondDate
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'DatecompareSecondDate', 'DatecompareSecondDate'] 
-slug: /tools/sdk/powershell/sourcesv1/models/datecompare-second-date
+slug: /tools/sdk/powershell/sources/models/datecompare-second-date
 tags: ['SDK', 'Software Development Kit', 'DatecompareSecondDate', 'DatecompareSecondDate']
 ---
 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **AccountFilter** | **String** | This expression queries the database to narrow search results. The value of this configuration is a sailpoint.object.Filter expression and used when searching against the database.  The default filter will always include the source and identity, and any subsequent expressions will be combined in an AND operation to the existing search criteria. Only certain searchable attributes are available:  - `nativeIdentity` - the Account ID  - `displayName` - the Account Name  - `entitlements` - a boolean value to determine if the account has entitlements | [optional] 
 **AccountPropertyFilter** | **String** | This expression is used to search and filter accounts in memory. The value of this configuration is a sailpoint.object.Filter expression and used when searching against the returned resultset.  All account attributes are available for filtering as this operation is performed in memory. | [optional] 
 **RequiresPeriodicRefresh** | **Boolean** | A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process | [optional] [default to $false]
-**VarInput** | [**map[string]AnyType**](any-type) | This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI. | [optional] 
+**VarInput** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI. | [optional] 
 **InputFormat** | [**DateformatInputFormat**](dateformat-input-format) |  | [optional] 
 **OutputFormat** | [**DateformatOutputFormat**](dateformat-output-format) |  | [optional] 
 

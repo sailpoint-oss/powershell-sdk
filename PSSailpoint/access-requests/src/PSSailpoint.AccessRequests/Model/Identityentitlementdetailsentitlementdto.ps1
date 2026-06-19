@@ -80,7 +80,7 @@ function Initialize-Identityentitlementdetailsentitlementdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Identityentitlementdetailsentitlementdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Identityentitlementdetailsentitlementdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -126,7 +126,7 @@ function ConvertFrom-JsonToIdentityentitlementdetailsentitlementdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Identityentitlementdetailsentitlementdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Identityentitlementdetailsentitlementdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

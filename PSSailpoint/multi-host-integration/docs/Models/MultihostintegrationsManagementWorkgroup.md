@@ -5,7 +5,7 @@ pagination_label: MultihostintegrationsManagementWorkgroup
 sidebar_label: MultihostintegrationsManagementWorkgroup
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'MultihostintegrationsManagementWorkgroup', 'MultihostintegrationsManagementWorkgroup'] 
-slug: /tools/sdk/powershell/multihostintegrationv1/models/multihostintegrations-management-workgroup
+slug: /tools/sdk/powershell/multihostintegration/models/multihostintegrations-management-workgroup
 tags: ['SDK', 'Software Development Kit', 'MultihostintegrationsManagementWorkgroup', 'MultihostintegrationsManagementWorkgroup']
 ---
 

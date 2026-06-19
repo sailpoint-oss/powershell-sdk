@@ -45,7 +45,7 @@ function Initialize-Managedclientrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClientsV1 => Managedclientrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClients => Managedclientrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$ClusterId) {
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToManagedclientrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClientsV1 => Managedclientrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClients => Managedclientrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

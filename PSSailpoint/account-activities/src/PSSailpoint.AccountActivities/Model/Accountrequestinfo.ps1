@@ -41,7 +41,7 @@ function Initialize-Accountrequestinfo {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountActivitiesV1 => Accountrequestinfo' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccountActivities => Accountrequestinfo' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToAccountrequestinfo {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountActivitiesV1 => Accountrequestinfo' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccountActivities => Accountrequestinfo' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

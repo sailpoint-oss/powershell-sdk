@@ -30,7 +30,7 @@ function Initialize-PutConnectorCorrelationConfigV1Request {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConnectorsV1 => PutConnectorCorrelationConfigV1Request' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Connectors => PutConnectorCorrelationConfigV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$File) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToPutConnectorCorrelationConfigV1Request {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorsV1 => PutConnectorCorrelationConfigV1Request' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Connectors => PutConnectorCorrelationConfigV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

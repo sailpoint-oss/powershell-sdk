@@ -5,7 +5,7 @@ pagination_label: Attributevaluedto
 sidebar_label: Attributevaluedto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Attributevaluedto', 'Attributevaluedto'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/attributevaluedto
+slug: /tools/sdk/powershell/accessmodelmetadata/models/attributevaluedto
 tags: ['SDK', 'Software Development Kit', 'Attributevaluedto', 'Attributevaluedto']
 ---
 

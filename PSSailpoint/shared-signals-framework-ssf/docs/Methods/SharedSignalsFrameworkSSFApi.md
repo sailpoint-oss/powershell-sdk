@@ -5,7 +5,7 @@ pagination_label: SharedSignalsFrameworkSSF
 sidebar_label: SharedSignalsFrameworkSSF
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SharedSignalsFrameworkSSF', 'SharedSignalsFrameworkSSF'] 
-slug: /tools/sdk/powershell/sharedsignalsframeworkssfv1/methods/shared-signals-framework-ssf
+slug: /tools/sdk/powershell/sharedsignalsframeworkssf/methods/shared-signals-framework-ssf
 tags: ['SDK', 'Software Development Kit', 'SharedSignalsFrameworkSSF', 'SharedSignalsFrameworkSSF']
 ---
 

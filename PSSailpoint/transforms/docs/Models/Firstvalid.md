@@ -5,7 +5,7 @@ pagination_label: Firstvalid
 sidebar_label: Firstvalid
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Firstvalid', 'Firstvalid'] 
-slug: /tools/sdk/powershell/transformsv1/models/firstvalid
+slug: /tools/sdk/powershell/transforms/models/firstvalid
 tags: ['SDK', 'Software Development Kit', 'Firstvalid', 'Firstvalid']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Firstvalid', 'Firstvalid']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Values** | [**[]SystemCollectionsHashtable**](system-collections-hashtable) | An array of attributes to evaluate for existence. | [required]
+**Values** | [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | An array of attributes to evaluate for existence. | [required]
 **IgnoreErrors** | **Boolean** | a true or false value representing to move on to the next option if an error (like an Null Pointer Exception) were to occur. | [optional] [default to $false]
 **RequiresPeriodicRefresh** | **Boolean** | A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process | [optional] [default to $false]
 

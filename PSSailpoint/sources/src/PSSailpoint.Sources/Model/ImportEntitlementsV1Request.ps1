@@ -30,7 +30,7 @@ function Initialize-ImportEntitlementsV1Request {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => ImportEntitlementsV1Request' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => ImportEntitlementsV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToImportEntitlementsV1Request {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => ImportEntitlementsV1Request' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => ImportEntitlementsV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

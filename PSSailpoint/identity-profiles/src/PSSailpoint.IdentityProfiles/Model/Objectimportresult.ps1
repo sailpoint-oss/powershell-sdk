@@ -45,7 +45,7 @@ function Initialize-Objectimportresult {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityProfilesV1 => Objectimportresult' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityProfiles => Objectimportresult' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Infos) {
@@ -100,7 +100,7 @@ function ConvertFrom-JsonToObjectimportresult {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityProfilesV1 => Objectimportresult' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityProfiles => Objectimportresult' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

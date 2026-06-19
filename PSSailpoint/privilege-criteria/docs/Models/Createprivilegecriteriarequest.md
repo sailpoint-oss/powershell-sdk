@@ -5,7 +5,7 @@ pagination_label: Createprivilegecriteriarequest
 sidebar_label: Createprivilegecriteriarequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Createprivilegecriteriarequest', 'Createprivilegecriteriarequest'] 
-slug: /tools/sdk/powershell/privilegecriteriav1/models/createprivilegecriteriarequest
+slug: /tools/sdk/powershell/privilegecriteria/models/createprivilegecriteriarequest
 tags: ['SDK', 'Software Development Kit', 'Createprivilegecriteriarequest', 'Createprivilegecriteriarequest']
 ---
 

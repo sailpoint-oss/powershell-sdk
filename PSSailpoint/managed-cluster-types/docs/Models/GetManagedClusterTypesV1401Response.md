@@ -5,7 +5,7 @@ pagination_label: GetManagedClusterTypesV1401Response
 sidebar_label: GetManagedClusterTypesV1401Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetManagedClusterTypesV1401Response', 'GetManagedClusterTypesV1401Response'] 
-slug: /tools/sdk/powershell/managedclustertypesv1/models/get-managed-cluster-types-v1401-response
+slug: /tools/sdk/powershell/managedclustertypes/models/get-managed-cluster-types-v1401-response
 tags: ['SDK', 'Software Development Kit', 'GetManagedClusterTypesV1401Response', 'GetManagedClusterTypesV1401Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetManagedClusterTypesV1401Response',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**VarError** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

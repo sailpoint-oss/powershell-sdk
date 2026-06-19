@@ -40,7 +40,7 @@ function Initialize-Roletargetdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Roletargetdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Roletargetdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToRoletargetdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Roletargetdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Roletargetdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

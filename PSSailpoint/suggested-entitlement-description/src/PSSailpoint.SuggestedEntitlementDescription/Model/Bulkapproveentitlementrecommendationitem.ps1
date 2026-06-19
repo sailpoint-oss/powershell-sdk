@@ -46,7 +46,7 @@ function Initialize-Bulkapproveentitlementrecommendationitem {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SuggestedEntitlementDescriptionV1 => Bulkapproveentitlementrecommendationitem' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SuggestedEntitlementDescription => Bulkapproveentitlementrecommendationitem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -89,7 +89,7 @@ function ConvertFrom-JsonToBulkapproveentitlementrecommendationitem {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SuggestedEntitlementDescriptionV1 => Bulkapproveentitlementrecommendationitem' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SuggestedEntitlementDescription => Bulkapproveentitlementrecommendationitem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

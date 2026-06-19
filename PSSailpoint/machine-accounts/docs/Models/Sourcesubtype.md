@@ -5,7 +5,7 @@ pagination_label: Sourcesubtype
 sidebar_label: Sourcesubtype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sourcesubtype', 'Sourcesubtype'] 
-slug: /tools/sdk/powershell/machineaccountsv1/models/sourcesubtype
+slug: /tools/sdk/powershell/machineaccounts/models/sourcesubtype
 tags: ['SDK', 'Software Development Kit', 'Sourcesubtype', 'Sourcesubtype']
 ---
 

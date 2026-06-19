@@ -91,7 +91,7 @@ function Initialize-Templatedtodefault {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => Templatedtodefault' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => Templatedtodefault' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -139,7 +139,7 @@ function ConvertFrom-JsonToTemplatedtodefault {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => Templatedtodefault' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => Templatedtodefault' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

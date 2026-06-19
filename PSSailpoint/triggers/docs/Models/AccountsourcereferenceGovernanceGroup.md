@@ -5,7 +5,7 @@ pagination_label: AccountsourcereferenceGovernanceGroup
 sidebar_label: AccountsourcereferenceGovernanceGroup
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountsourcereferenceGovernanceGroup', 'AccountsourcereferenceGovernanceGroup'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountsourcereference-governance-group
+slug: /tools/sdk/powershell/triggers/models/accountsourcereference-governance-group
 tags: ['SDK', 'Software Development Kit', 'AccountsourcereferenceGovernanceGroup', 'AccountsourcereferenceGovernanceGroup']
 ---
 

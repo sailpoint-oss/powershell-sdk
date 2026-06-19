@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountaggregationsv1/methods/account-aggregations#get-account-aggregation-status-v1
+      label: SDK_tools/sdk/powershell/accountaggregations/methods/account-aggregations#get-account-aggregation-status-v1
       source: |
         $Id = "2c91808477a6b0c60177a81146b8110b" # String | The account aggregation id
         

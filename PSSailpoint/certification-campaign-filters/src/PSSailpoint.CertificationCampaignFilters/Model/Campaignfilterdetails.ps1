@@ -61,7 +61,7 @@ function Initialize-Campaignfilterdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignFiltersV1 => Campaignfilterdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaignFilters => Campaignfilterdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -119,7 +119,7 @@ function ConvertFrom-JsonToCampaignfilterdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignFiltersV1 => Campaignfilterdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignFilters => Campaignfilterdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

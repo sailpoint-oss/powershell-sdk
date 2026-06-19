@@ -5,7 +5,7 @@ pagination_label: Activityidentity
 sidebar_label: Activityidentity
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Activityidentity', 'Activityidentity'] 
-slug: /tools/sdk/powershell/searchv1/models/activityidentity
+slug: /tools/sdk/powershell/search/models/activityidentity
 tags: ['SDK', 'Software Development Kit', 'Activityidentity', 'Activityidentity']
 ---
 

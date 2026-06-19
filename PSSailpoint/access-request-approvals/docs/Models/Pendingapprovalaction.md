@@ -5,7 +5,7 @@ pagination_label: Pendingapprovalaction
 sidebar_label: Pendingapprovalaction
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Pendingapprovalaction', 'Pendingapprovalaction'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/pendingapprovalaction
+slug: /tools/sdk/powershell/accessrequestapprovals/models/pendingapprovalaction
 tags: ['SDK', 'Software Development Kit', 'Pendingapprovalaction', 'Pendingapprovalaction']
 ---
 

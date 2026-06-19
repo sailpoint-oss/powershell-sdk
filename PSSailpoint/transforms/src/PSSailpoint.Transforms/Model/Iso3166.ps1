@@ -40,7 +40,7 @@ function Initialize-Iso3166 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Iso3166' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Iso3166' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToIso3166 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Iso3166' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Iso3166' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

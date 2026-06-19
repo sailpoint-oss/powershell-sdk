@@ -40,7 +40,7 @@ function Initialize-Kbaanswerresponseitem {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MfaConfigurationV1 => Kbaanswerresponseitem' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MfaConfiguration => Kbaanswerresponseitem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToKbaanswerresponseitem {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfigurationV1 => Kbaanswerresponseitem' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MfaConfiguration => Kbaanswerresponseitem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

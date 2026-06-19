@@ -5,7 +5,7 @@ pagination_label: Accountattributescreate
 sidebar_label: Accountattributescreate
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountattributescreate', 'Accountattributescreate'] 
-slug: /tools/sdk/powershell/accountsv1/models/accountattributescreate
+slug: /tools/sdk/powershell/accounts/models/accountattributescreate
 tags: ['SDK', 'Software Development Kit', 'Accountattributescreate', 'Accountattributescreate']
 ---
 

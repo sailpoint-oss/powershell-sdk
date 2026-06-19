@@ -45,7 +45,7 @@ function Initialize-Dateformat {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TransformsV1 => Dateformat' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Transforms => Dateformat' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToDateformat {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TransformsV1 => Dateformat' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Transforms => Dateformat' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

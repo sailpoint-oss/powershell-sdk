@@ -5,7 +5,7 @@ pagination_label: VaclusterstatuschangeeventHealthCheckResult
 sidebar_label: VaclusterstatuschangeeventHealthCheckResult
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'VaclusterstatuschangeeventHealthCheckResult', 'VaclusterstatuschangeeventHealthCheckResult'] 
-slug: /tools/sdk/powershell/triggersv1/models/vaclusterstatuschangeevent-health-check-result
+slug: /tools/sdk/powershell/triggers/models/vaclusterstatuschangeevent-health-check-result
 tags: ['SDK', 'Software Development Kit', 'VaclusterstatuschangeeventHealthCheckResult', 'VaclusterstatuschangeeventHealthCheckResult']
 ---
 

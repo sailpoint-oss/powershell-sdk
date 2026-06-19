@@ -40,7 +40,7 @@ function Initialize-Tenantuimetadataitemupdaterequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.UiMetadataV1 => Tenantuimetadataitemupdaterequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.UiMetadata => Tenantuimetadataitemupdaterequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToTenantuimetadataitemupdaterequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.UiMetadataV1 => Tenantuimetadataitemupdaterequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.UiMetadata => Tenantuimetadataitemupdaterequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -35,7 +35,7 @@ function Initialize-Accountdeleteconfigdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Accountdeleteconfigdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Accountdeleteconfigdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAccountdeleteconfigdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Accountdeleteconfigdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Accountdeleteconfigdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

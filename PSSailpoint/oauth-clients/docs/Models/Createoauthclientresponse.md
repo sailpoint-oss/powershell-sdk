@@ -5,7 +5,7 @@ pagination_label: Createoauthclientresponse
 sidebar_label: Createoauthclientresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Createoauthclientresponse', 'Createoauthclientresponse'] 
-slug: /tools/sdk/powershell/oauthclientsv1/models/createoauthclientresponse
+slug: /tools/sdk/powershell/oauthclients/models/createoauthclientresponse
 tags: ['SDK', 'Software Development Kit', 'Createoauthclientresponse', 'Createoauthclientresponse']
 ---
 

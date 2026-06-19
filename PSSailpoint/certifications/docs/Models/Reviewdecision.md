@@ -5,7 +5,7 @@ pagination_label: Reviewdecision
 sidebar_label: Reviewdecision
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reviewdecision', 'Reviewdecision'] 
-slug: /tools/sdk/powershell/certificationsv1/models/reviewdecision
+slug: /tools/sdk/powershell/certifications/models/reviewdecision
 tags: ['SDK', 'Software Development Kit', 'Reviewdecision', 'Reviewdecision']
 ---
 

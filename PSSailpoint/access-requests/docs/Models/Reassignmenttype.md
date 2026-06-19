@@ -5,7 +5,7 @@ pagination_label: Reassignmenttype
 sidebar_label: Reassignmenttype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reassignmenttype', 'Reassignmenttype'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/reassignmenttype
+slug: /tools/sdk/powershell/accessrequests/models/reassignmenttype
 tags: ['SDK', 'Software Development Kit', 'Reassignmenttype', 'Reassignmenttype']
 ---
 

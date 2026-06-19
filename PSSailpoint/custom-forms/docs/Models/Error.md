@@ -5,7 +5,7 @@ pagination_label: ModelError
 sidebar_label: ModelError
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ModelError', 'ModelError'] 
-slug: /tools/sdk/powershell/customformsv1/models/model-error
+slug: /tools/sdk/powershell/customforms/models/model-error
 tags: ['SDK', 'Software Development Kit', 'ModelError', 'ModelError']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Dtotype
 sidebar_label: Dtotype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dtotype', 'Dtotype'] 
-slug: /tools/sdk/powershell/appsv1/models/dtotype
+slug: /tools/sdk/powershell/apps/models/dtotype
 tags: ['SDK', 'Software Development Kit', 'Dtotype', 'Dtotype']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Taskresultsimplified
 sidebar_label: Taskresultsimplified
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Taskresultsimplified', 'Taskresultsimplified'] 
-slug: /tools/sdk/powershell/identityprofilesv1/models/taskresultsimplified
+slug: /tools/sdk/powershell/identityprofiles/models/taskresultsimplified
 tags: ['SDK', 'Software Development Kit', 'Taskresultsimplified', 'Taskresultsimplified']
 ---
 

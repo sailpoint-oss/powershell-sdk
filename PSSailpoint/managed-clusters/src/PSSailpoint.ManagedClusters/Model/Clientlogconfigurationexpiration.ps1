@@ -46,7 +46,7 @@ function Initialize-Clientlogconfigurationexpiration {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClustersV1 => Clientlogconfigurationexpiration' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClusters => Clientlogconfigurationexpiration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$RootLevel) {
@@ -89,7 +89,7 @@ function ConvertFrom-JsonToClientlogconfigurationexpiration {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClustersV1 => Clientlogconfigurationexpiration' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusters => Clientlogconfigurationexpiration' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -35,7 +35,7 @@ function Initialize-Jitactivationextendrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.JitActivationsV1 => Jitactivationextendrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.JitActivations => Jitactivationextendrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$ConnectionId) {
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToJitactivationextendrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.JitActivationsV1 => Jitactivationextendrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.JitActivations => Jitactivationextendrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

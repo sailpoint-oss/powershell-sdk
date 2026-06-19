@@ -41,7 +41,7 @@ function Initialize-Templatebulkdeletedto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => Templatebulkdeletedto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => Templatebulkdeletedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Key) {
@@ -83,7 +83,7 @@ function ConvertFrom-JsonToTemplatebulkdeletedto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => Templatebulkdeletedto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => Templatebulkdeletedto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

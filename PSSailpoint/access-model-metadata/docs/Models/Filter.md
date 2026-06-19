@@ -5,7 +5,7 @@ pagination_label: ModelFilter
 sidebar_label: ModelFilter
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ModelFilter', 'ModelFilter'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/model-filter
+slug: /tools/sdk/powershell/accessmodelmetadata/models/model-filter
 tags: ['SDK', 'Software Development Kit', 'ModelFilter', 'ModelFilter']
 ---
 

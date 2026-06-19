@@ -41,7 +41,7 @@ function Initialize-Accessitemrequesterdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Accessitemrequesterdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Accessitemrequesterdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToAccessitemrequesterdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Accessitemrequesterdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Accessitemrequesterdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

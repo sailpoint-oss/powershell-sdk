@@ -5,7 +5,7 @@ pagination_label: Templatebulkdeletedto
 sidebar_label: Templatebulkdeletedto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Templatebulkdeletedto', 'Templatebulkdeletedto'] 
-slug: /tools/sdk/powershell/notificationsv1/models/templatebulkdeletedto
+slug: /tools/sdk/powershell/notifications/models/templatebulkdeletedto
 tags: ['SDK', 'Software Development Kit', 'Templatebulkdeletedto', 'Templatebulkdeletedto']
 ---
 

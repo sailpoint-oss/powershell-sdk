@@ -5,7 +5,7 @@ pagination_label: SetIconV1Request
 sidebar_label: SetIconV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SetIconV1Request', 'SetIconV1Request'] 
-slug: /tools/sdk/powershell/iconsv1/models/set-icon-v1-request
+slug: /tools/sdk/powershell/icons/models/set-icon-v1-request
 tags: ['SDK', 'Software Development Kit', 'SetIconV1Request', 'SetIconV1Request']
 ---
 

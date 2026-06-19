@@ -5,7 +5,7 @@ pagination_label: Listpredefinedselectoptionsresponse
 sidebar_label: Listpredefinedselectoptionsresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Listpredefinedselectoptionsresponse', 'Listpredefinedselectoptionsresponse'] 
-slug: /tools/sdk/powershell/customformsv1/models/listpredefinedselectoptionsresponse
+slug: /tools/sdk/powershell/customforms/models/listpredefinedselectoptionsresponse
 tags: ['SDK', 'Software Development Kit', 'Listpredefinedselectoptionsresponse', 'Listpredefinedselectoptionsresponse']
 ---
 

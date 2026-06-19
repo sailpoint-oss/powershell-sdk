@@ -5,7 +5,7 @@ pagination_label: Attrsyncsource
 sidebar_label: Attrsyncsource
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Attrsyncsource', 'Attrsyncsource'] 
-slug: /tools/sdk/powershell/sourcesv1/models/attrsyncsource
+slug: /tools/sdk/powershell/sources/models/attrsyncsource
 tags: ['SDK', 'Software Development Kit', 'Attrsyncsource', 'Attrsyncsource']
 ---
 

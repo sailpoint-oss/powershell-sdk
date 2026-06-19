@@ -45,7 +45,7 @@ function Initialize-Emailnotificationoption {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.LifecycleStatesV1 => Emailnotificationoption' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.LifecycleStates => Emailnotificationoption' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToEmailnotificationoption {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.LifecycleStatesV1 => Emailnotificationoption' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.LifecycleStates => Emailnotificationoption' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

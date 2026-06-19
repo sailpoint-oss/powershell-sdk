@@ -5,7 +5,7 @@ pagination_label: Sodviolationcheck
 sidebar_label: Sodviolationcheck
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sodviolationcheck', 'Sodviolationcheck'] 
-slug: /tools/sdk/powershell/sodviolationsv1/models/sodviolationcheck
+slug: /tools/sdk/powershell/sodviolations/models/sodviolationcheck
 tags: ['SDK', 'Software Development Kit', 'Sodviolationcheck', 'Sodviolationcheck']
 ---
 

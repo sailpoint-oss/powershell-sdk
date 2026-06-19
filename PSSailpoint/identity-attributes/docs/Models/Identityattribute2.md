@@ -5,7 +5,7 @@ pagination_label: Identityattribute2
 sidebar_label: Identityattribute2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityattribute2', 'Identityattribute2'] 
-slug: /tools/sdk/powershell/identityattributesv1/models/identityattribute2
+slug: /tools/sdk/powershell/identityattributes/models/identityattribute2
 tags: ['SDK', 'Software Development Kit', 'Identityattribute2', 'Identityattribute2']
 ---
 

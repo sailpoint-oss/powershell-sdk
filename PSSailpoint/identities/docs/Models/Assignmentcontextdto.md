@@ -5,7 +5,7 @@ pagination_label: Assignmentcontextdto
 sidebar_label: Assignmentcontextdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Assignmentcontextdto', 'Assignmentcontextdto'] 
-slug: /tools/sdk/powershell/identitiesv1/models/assignmentcontextdto
+slug: /tools/sdk/powershell/identities/models/assignmentcontextdto
 tags: ['SDK', 'Software Development Kit', 'Assignmentcontextdto', 'Assignmentcontextdto']
 ---
 

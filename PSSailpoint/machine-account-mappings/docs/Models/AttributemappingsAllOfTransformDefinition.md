@@ -5,7 +5,7 @@ pagination_label: AttributemappingsAllOfTransformDefinition
 sidebar_label: AttributemappingsAllOfTransformDefinition
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AttributemappingsAllOfTransformDefinition', 'AttributemappingsAllOfTransformDefinition'] 
-slug: /tools/sdk/powershell/machineaccountmappingsv1/models/attributemappings-all-of-transform-definition
+slug: /tools/sdk/powershell/machineaccountmappings/models/attributemappings-all-of-transform-definition
 tags: ['SDK', 'Software Development Kit', 'AttributemappingsAllOfTransformDefinition', 'AttributemappingsAllOfTransformDefinition']
 ---
 

@@ -85,7 +85,7 @@ function Initialize-Sourceapp {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AppsV1 => Sourceapp' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Apps => Sourceapp' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -132,7 +132,7 @@ function ConvertFrom-JsonToSourceapp {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AppsV1 => Sourceapp' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Apps => Sourceapp' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

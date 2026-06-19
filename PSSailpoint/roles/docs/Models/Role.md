@@ -5,7 +5,7 @@ pagination_label: Role
 sidebar_label: Role
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Role', 'Role'] 
-slug: /tools/sdk/powershell/rolesv1/models/role
+slug: /tools/sdk/powershell/roles/models/role
 tags: ['SDK', 'Software Development Kit', 'Role', 'Role']
 ---
 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **AccessProfiles** | [**[]Accessprofileref**](accessprofileref) |  | [optional] 
 **Entitlements** | [**[]Entitlementref**](entitlementref) |  | [optional] 
 **Membership** | [**Rolemembershipselector**](rolemembershipselector) |  | [optional] 
-**LegacyMembershipInfo** | [**map[string]AnyType**](any-type) | This field is not directly modifiable and is generally expected to be *null*. In very rare instances, some Roles may have been created using membership selection criteria that are no longer fully supported. While these Roles will still work, they should be migrated to STANDARD or IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration. | [optional] 
+**LegacyMembershipInfo** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | This field is not directly modifiable and is generally expected to be *null*. In very rare instances, some Roles may have been created using membership selection criteria that are no longer fully supported. While these Roles will still work, they should be migrated to STANDARD or IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration. | [optional] 
 **Enabled** | **Boolean** | Whether the Role is enabled or not. | [optional] [default to $false]
 **Requestable** | **Boolean** | Whether the Role can be the target of access requests. | [optional] [default to $false]
 **AccessRequestConfig** | [**Requestabilityforrole**](requestabilityforrole) |  | [optional] 
@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **Dimensional** | **Boolean** | Whether the Role is dimensional. | [optional] [default to $false]
 **DimensionRefs** | [**[]Dimensionref**](dimensionref) | List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional. | [optional] 
 **AccessModelMetadata** | [**Attributedtolist**](attributedtolist) |  | [optional] 
+**PrivilegeLevel** | **String** | The privilege level of the role, if applicable. | [optional] 
 
 ## Examples
 
@@ -58,7 +59,8 @@ $Role = Initialize-Role  -Id 2c918086749d78830174a1a40e121518 `
  -Segments ["f7b1b8a3-5fed-4fd4-ad29-82014e137e19","29cb6c06-1da8-43ea-8be4-b3125f248f2a"] `
  -Dimensional null `
  -DimensionRefs null `
- -AccessModelMetadata null
+ -AccessModelMetadata null `
+ -PrivilegeLevel High
 ```
 
 - Convert the resource to JSON

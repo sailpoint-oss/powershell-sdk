@@ -5,7 +5,7 @@ pagination_label: Provisioningcriteriaoperation
 sidebar_label: Provisioningcriteriaoperation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Provisioningcriteriaoperation', 'Provisioningcriteriaoperation'] 
-slug: /tools/sdk/powershell/accessprofilesv1/models/provisioningcriteriaoperation
+slug: /tools/sdk/powershell/accessprofiles/models/provisioningcriteriaoperation
 tags: ['SDK', 'Software Development Kit', 'Provisioningcriteriaoperation', 'Provisioningcriteriaoperation']
 ---
 

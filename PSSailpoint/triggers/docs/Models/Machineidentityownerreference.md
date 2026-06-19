@@ -5,7 +5,7 @@ pagination_label: Machineidentityownerreference
 sidebar_label: Machineidentityownerreference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Machineidentityownerreference', 'Machineidentityownerreference'] 
-slug: /tools/sdk/powershell/triggersv1/models/machineidentityownerreference
+slug: /tools/sdk/powershell/triggers/models/machineidentityownerreference
 tags: ['SDK', 'Software Development Kit', 'Machineidentityownerreference', 'Machineidentityownerreference']
 ---
 

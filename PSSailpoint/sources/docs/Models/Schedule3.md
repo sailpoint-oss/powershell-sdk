@@ -5,7 +5,7 @@ pagination_label: Schedule3
 sidebar_label: Schedule3
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Schedule3', 'Schedule3'] 
-slug: /tools/sdk/powershell/sourcesv1/models/schedule3
+slug: /tools/sdk/powershell/sources/models/schedule3
 tags: ['SDK', 'Software Development Kit', 'Schedule3', 'Schedule3']
 ---
 

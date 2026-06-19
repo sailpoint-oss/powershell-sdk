@@ -30,7 +30,7 @@ function Initialize-Campaigngenerated {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Campaigngenerated' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Campaigngenerated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Campaign) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToCampaigngenerated {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Campaigngenerated' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Campaigngenerated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

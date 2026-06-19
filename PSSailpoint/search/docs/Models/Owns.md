@@ -5,7 +5,7 @@ pagination_label: Owns
 sidebar_label: Owns
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Owns', 'Owns'] 
-slug: /tools/sdk/powershell/searchv1/models/owns
+slug: /tools/sdk/powershell/search/models/owns
 tags: ['SDK', 'Software Development Kit', 'Owns', 'Owns']
 ---
 

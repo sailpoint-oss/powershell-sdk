@@ -5,7 +5,7 @@ pagination_label: Reviewer
 sidebar_label: Reviewer
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reviewer', 'Reviewer'] 
-slug: /tools/sdk/powershell/triggersv1/models/reviewer
+slug: /tools/sdk/powershell/triggers/models/reviewer
 tags: ['SDK', 'Software Development Kit', 'Reviewer', 'Reviewer']
 ---
 

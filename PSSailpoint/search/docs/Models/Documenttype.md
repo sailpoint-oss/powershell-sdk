@@ -5,7 +5,7 @@ pagination_label: Documenttype
 sidebar_label: Documenttype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Documenttype', 'Documenttype'] 
-slug: /tools/sdk/powershell/searchv1/models/documenttype
+slug: /tools/sdk/powershell/search/models/documenttype
 tags: ['SDK', 'Software Development Kit', 'Documenttype', 'Documenttype']
 ---
 

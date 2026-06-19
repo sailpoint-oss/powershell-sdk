@@ -5,7 +5,7 @@ pagination_label: Createstreamdeliveryrequest
 sidebar_label: Createstreamdeliveryrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Createstreamdeliveryrequest', 'Createstreamdeliveryrequest'] 
-slug: /tools/sdk/powershell/sharedsignalsframeworkssfv1/models/createstreamdeliveryrequest
+slug: /tools/sdk/powershell/sharedsignalsframeworkssf/models/createstreamdeliveryrequest
 tags: ['SDK', 'Software Development Kit', 'Createstreamdeliveryrequest', 'Createstreamdeliveryrequest']
 ---
 

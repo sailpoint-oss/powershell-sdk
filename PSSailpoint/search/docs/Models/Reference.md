@@ -5,7 +5,7 @@ pagination_label: Reference
 sidebar_label: Reference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reference', 'Reference'] 
-slug: /tools/sdk/powershell/searchv1/models/reference
+slug: /tools/sdk/powershell/search/models/reference
 tags: ['SDK', 'Software Development Kit', 'Reference', 'Reference']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Validatefilteroutputdto
 sidebar_label: Validatefilteroutputdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Validatefilteroutputdto', 'Validatefilteroutputdto'] 
-slug: /tools/sdk/powershell/triggersv1/models/validatefilteroutputdto
+slug: /tools/sdk/powershell/triggers/models/validatefilteroutputdto
 tags: ['SDK', 'Software Development Kit', 'Validatefilteroutputdto', 'Validatefilteroutputdto']
 ---
 

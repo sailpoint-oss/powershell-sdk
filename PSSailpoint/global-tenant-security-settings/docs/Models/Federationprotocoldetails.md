@@ -5,7 +5,7 @@ pagination_label: Federationprotocoldetails
 sidebar_label: Federationprotocoldetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Federationprotocoldetails', 'Federationprotocoldetails'] 
-slug: /tools/sdk/powershell/globaltenantsecuritysettingsv1/models/federationprotocoldetails
+slug: /tools/sdk/powershell/globaltenantsecuritysettings/models/federationprotocoldetails
 tags: ['SDK', 'Software Development Kit', 'Federationprotocoldetails', 'Federationprotocoldetails']
 ---
 

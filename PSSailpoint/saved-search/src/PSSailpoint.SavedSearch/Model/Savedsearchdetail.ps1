@@ -70,7 +70,7 @@ function Initialize-Savedsearchdetail {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SavedSearchV1 => Savedsearchdetail' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SavedSearch => Savedsearchdetail' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Indices) {
@@ -122,7 +122,7 @@ function ConvertFrom-JsonToSavedsearchdetail {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearchV1 => Savedsearchdetail' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SavedSearch => Savedsearchdetail' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

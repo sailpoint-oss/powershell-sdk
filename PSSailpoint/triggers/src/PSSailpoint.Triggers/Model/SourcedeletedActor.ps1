@@ -41,7 +41,7 @@ function Initialize-SourcedeletedActor {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => SourcedeletedActor' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => SourcedeletedActor' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToSourcedeletedActor {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => SourcedeletedActor' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => SourcedeletedActor' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

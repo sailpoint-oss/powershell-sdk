@@ -5,7 +5,7 @@ pagination_label: Accessrequestphases
 sidebar_label: Accessrequestphases
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessrequestphases', 'Accessrequestphases'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/accessrequestphases
+slug: /tools/sdk/powershell/accessrequests/models/accessrequestphases
 tags: ['SDK', 'Software Development Kit', 'Accessrequestphases', 'Accessrequestphases']
 ---
 

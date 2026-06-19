@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#create-access-model-metadata-for-entitlement-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#create-access-model-metadata-for-entitlement-v1
       source: |
         $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
         $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
@@ -23,7 +23,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#delete-access-model-metadata-from-entitlement-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#delete-access-model-metadata-from-entitlement-v1
       source: |
         $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
         $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
@@ -44,7 +44,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#get-entitlement-request-config-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#get-entitlement-request-config-v1
       source: |
         $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
         
@@ -63,7 +63,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#get-entitlement-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#get-entitlement-v1
       source: |
         $Id = "2c91808874ff91550175097daaec161c" # String | The entitlement ID
         
@@ -82,7 +82,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#import-entitlements-by-source-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#import-entitlements-by-source-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
         $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
@@ -102,7 +102,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#list-entitlement-children-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#list-entitlement-children-v1
       source: |
         $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -127,7 +127,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#list-entitlement-parents-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#list-entitlement-parents-v1
       source: |
         $Id = "2c91808c74ff913f0175097daa9d59cd" # String | Entitlement Id
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -152,7 +152,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#list-entitlements-by-account-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#list-entitlements-by-account-v1
       source: |
         $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID to get entitlements for
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -176,7 +176,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#list-entitlements-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#list-entitlements-v1
       source: |
         $SegmentedForIdentity = "e554098913544630b5985e9042f5e44b" # String | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. (optional)
         $ForSegmentIds = "041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649" # String | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. (optional)
@@ -203,11 +203,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#patch-entitlement-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#patch-entitlement-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the entitlement to patch
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] |  (optional)
         $Jsonpatchoperation = @"[{"op":"add","path":"/segments/-","value":"f7b1b8a3-5fed-4fd4-ad29-82014e137e19"}]"@ 
         
         
@@ -226,7 +224,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#put-entitlement-request-config-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#put-entitlement-request-config-v1
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | Entitlement ID
         $Entitlementrequestconfig = @"
@@ -249,7 +247,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#reset-source-entitlements-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#reset-source-entitlements-v1
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
         
@@ -268,7 +266,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/entitlementsv1/methods/entitlements#update-entitlements-in-bulk-v1
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#update-entitlements-in-bulk-v1
       source: |
         $Entitlementbulkupdaterequest = @"
         

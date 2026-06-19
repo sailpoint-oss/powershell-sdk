@@ -36,7 +36,7 @@ function Initialize-Dimensioncriteriakey {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DimensionsV1 => Dimensioncriteriakey' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Dimensions => Dimensioncriteriakey' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -81,7 +81,7 @@ function ConvertFrom-JsonToDimensioncriteriakey {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DimensionsV1 => Dimensioncriteriakey' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Dimensions => Dimensioncriteriakey' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

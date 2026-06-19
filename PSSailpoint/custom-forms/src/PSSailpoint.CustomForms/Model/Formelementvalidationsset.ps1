@@ -31,7 +31,7 @@ function Initialize-Formelementvalidationsset {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Formelementvalidationsset' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Formelementvalidationsset' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -67,7 +67,7 @@ function ConvertFrom-JsonToFormelementvalidationsset {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Formelementvalidationsset' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Formelementvalidationsset' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

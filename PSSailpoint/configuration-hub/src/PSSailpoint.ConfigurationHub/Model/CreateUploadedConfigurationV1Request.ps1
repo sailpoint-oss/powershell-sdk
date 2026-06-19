@@ -35,7 +35,7 @@ function Initialize-CreateUploadedConfigurationV1Request {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConfigurationHubV1 => CreateUploadedConfigurationV1Request' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConfigurationHub => CreateUploadedConfigurationV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$VarData) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToCreateUploadedConfigurationV1Request {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHubV1 => CreateUploadedConfigurationV1Request' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHub => CreateUploadedConfigurationV1Request' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

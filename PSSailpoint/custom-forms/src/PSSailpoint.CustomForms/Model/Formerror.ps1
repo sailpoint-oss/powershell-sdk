@@ -40,7 +40,7 @@ function Initialize-Formerror {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Formerror' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Formerror' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToFormerror {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Formerror' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Formerror' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: Accessprofileentitlement
 sidebar_label: Accessprofileentitlement
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessprofileentitlement', 'Accessprofileentitlement'] 
-slug: /tools/sdk/powershell/searchv1/models/accessprofileentitlement
+slug: /tools/sdk/powershell/search/models/accessprofileentitlement
 tags: ['SDK', 'Software Development Kit', 'Accessprofileentitlement', 'Accessprofileentitlement']
 ---
 

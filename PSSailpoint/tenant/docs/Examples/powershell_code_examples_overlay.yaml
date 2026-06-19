@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/tenantv1/methods/tenant#get-tenant-v1
+      label: SDK_tools/sdk/powershell/tenant/methods/tenant#get-tenant-v1
       source: |
         
         # Get tenant information.

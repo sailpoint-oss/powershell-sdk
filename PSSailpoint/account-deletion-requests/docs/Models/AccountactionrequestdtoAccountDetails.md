@@ -5,7 +5,7 @@ pagination_label: AccountactionrequestdtoAccountDetails
 sidebar_label: AccountactionrequestdtoAccountDetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccountactionrequestdtoAccountDetails', 'AccountactionrequestdtoAccountDetails'] 
-slug: /tools/sdk/powershell/accountdeletionrequestsv1/models/accountactionrequestdto-account-details
+slug: /tools/sdk/powershell/accountdeletionrequests/models/accountactionrequestdto-account-details
 tags: ['SDK', 'Software Development Kit', 'AccountactionrequestdtoAccountDetails', 'AccountactionrequestdtoAccountDetails']
 ---
 
@@ -29,13 +29,13 @@ Name | Type | Description | Notes
 **SystemAccount** | **Boolean** |  | [optional] 
 **Authoritative** | **Boolean** |  | [optional] 
 **SupportsPasswordChange** | **Boolean** |  | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**](system-collections-hashtable) |  | [optional] 
-**Application** | [**SystemCollectionsHashtable**](system-collections-hashtable) |  | [optional] 
-**Identity** | [**SystemCollectionsHashtable**](system-collections-hashtable) |  | [optional] 
-**Schema** | [**SystemCollectionsHashtable**](system-collections-hashtable) |  | [optional] 
+**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**Application** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**Identity** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**Schema** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
 **PendingAccessRequestIds** | **[]String** |  | [optional] 
 **Features** | **[]String** |  | [optional] 
-**Meta** | [**SystemCollectionsHashtable**](system-collections-hashtable) |  | [optional] 
+**Meta** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
 
 ## Examples
 

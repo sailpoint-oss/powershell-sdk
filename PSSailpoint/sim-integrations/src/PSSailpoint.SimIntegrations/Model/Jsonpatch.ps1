@@ -30,7 +30,7 @@ function Initialize-Jsonpatch {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SimIntegrationsV1 => Jsonpatch' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SimIntegrations => Jsonpatch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToJsonpatch {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SimIntegrationsV1 => Jsonpatch' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SimIntegrations => Jsonpatch' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

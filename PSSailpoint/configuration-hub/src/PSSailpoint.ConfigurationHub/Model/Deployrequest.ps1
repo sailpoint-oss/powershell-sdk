@@ -30,7 +30,7 @@ function Initialize-Deployrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConfigurationHubV1 => Deployrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ConfigurationHub => Deployrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$DraftId) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToDeployrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHubV1 => Deployrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ConfigurationHub => Deployrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

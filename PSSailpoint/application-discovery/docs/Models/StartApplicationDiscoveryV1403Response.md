@@ -5,7 +5,7 @@ pagination_label: StartApplicationDiscoveryV1403Response
 sidebar_label: StartApplicationDiscoveryV1403Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'StartApplicationDiscoveryV1403Response', 'StartApplicationDiscoveryV1403Response'] 
-slug: /tools/sdk/powershell/applicationdiscoveryv1/models/start-application-discovery-v1403-response
+slug: /tools/sdk/powershell/applicationdiscovery/models/start-application-discovery-v1403-response
 tags: ['SDK', 'Software Development Kit', 'StartApplicationDiscoveryV1403Response', 'StartApplicationDiscoveryV1403Response']
 ---
 

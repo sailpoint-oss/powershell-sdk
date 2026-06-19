@@ -46,7 +46,7 @@ function Initialize-Templatevariable {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => Templatevariable' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => Templatevariable' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToTemplatevariable {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => Templatevariable' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => Templatevariable' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

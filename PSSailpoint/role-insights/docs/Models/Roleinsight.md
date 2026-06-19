@@ -5,7 +5,7 @@ pagination_label: Roleinsight
 sidebar_label: Roleinsight
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Roleinsight', 'Roleinsight'] 
-slug: /tools/sdk/powershell/roleinsightsv1/models/roleinsight
+slug: /tools/sdk/powershell/roleinsights/models/roleinsight
 tags: ['SDK', 'Software Development Kit', 'Roleinsight', 'Roleinsight']
 ---
 

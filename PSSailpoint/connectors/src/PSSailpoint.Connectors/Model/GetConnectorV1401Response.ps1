@@ -30,7 +30,7 @@ function Initialize-GetConnectorV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ConnectorsV1 => GetConnectorV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Connectors => GetConnectorV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetConnectorV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ConnectorsV1 => GetConnectorV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Connectors => GetConnectorV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

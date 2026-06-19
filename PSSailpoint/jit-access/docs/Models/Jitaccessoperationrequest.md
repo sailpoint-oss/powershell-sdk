@@ -5,7 +5,7 @@ pagination_label: Jitaccessoperationrequest
 sidebar_label: Jitaccessoperationrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Jitaccessoperationrequest', 'Jitaccessoperationrequest'] 
-slug: /tools/sdk/powershell/jitaccessv1/models/jitaccessoperationrequest
+slug: /tools/sdk/powershell/jitaccess/models/jitaccessoperationrequest
 tags: ['SDK', 'Software Development Kit', 'Jitaccessoperationrequest', 'Jitaccessoperationrequest']
 ---
 

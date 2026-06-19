@@ -5,7 +5,7 @@ pagination_label: PutClientLogConfigurationV1Request
 sidebar_label: PutClientLogConfigurationV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'PutClientLogConfigurationV1Request', 'PutClientLogConfigurationV1Request'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/put-client-log-configuration-v1-request
+slug: /tools/sdk/powershell/managedclusters/models/put-client-log-configuration-v1-request
 tags: ['SDK', 'Software Development Kit', 'PutClientLogConfigurationV1Request', 'PutClientLogConfigurationV1Request']
 ---
 

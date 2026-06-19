@@ -61,7 +61,7 @@ function Initialize-Accessreviewitem {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => Accessreviewitem' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => Accessreviewitem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -103,7 +103,7 @@ function ConvertFrom-JsonToAccessreviewitem {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => Accessreviewitem' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => Accessreviewitem' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

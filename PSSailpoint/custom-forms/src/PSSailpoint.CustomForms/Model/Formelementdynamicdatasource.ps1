@@ -36,7 +36,7 @@ function Initialize-Formelementdynamicdatasource {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Formelementdynamicdatasource' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Formelementdynamicdatasource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -73,7 +73,7 @@ function ConvertFrom-JsonToFormelementdynamicdatasource {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Formelementdynamicdatasource' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Formelementdynamicdatasource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

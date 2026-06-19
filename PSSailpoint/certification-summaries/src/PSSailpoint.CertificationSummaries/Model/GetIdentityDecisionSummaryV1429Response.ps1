@@ -30,7 +30,7 @@ function Initialize-GetIdentityDecisionSummaryV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationSummariesV1 => GetIdentityDecisionSummaryV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationSummaries => GetIdentityDecisionSummaryV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetIdentityDecisionSummaryV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationSummariesV1 => GetIdentityDecisionSummaryV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationSummaries => GetIdentityDecisionSummaryV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

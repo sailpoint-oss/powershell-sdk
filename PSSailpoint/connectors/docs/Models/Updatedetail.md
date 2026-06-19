@@ -5,7 +5,7 @@ pagination_label: Updatedetail
 sidebar_label: Updatedetail
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Updatedetail', 'Updatedetail'] 
-slug: /tools/sdk/powershell/connectorsv1/models/updatedetail
+slug: /tools/sdk/powershell/connectors/models/updatedetail
 tags: ['SDK', 'Software Development Kit', 'Updatedetail', 'Updatedetail']
 ---
 

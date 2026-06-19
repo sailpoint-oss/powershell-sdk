@@ -30,7 +30,7 @@ function Initialize-GetUsagesByAccountIdV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountUsagesV1 => GetUsagesByAccountIdV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccountUsages => GetUsagesByAccountIdV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetUsagesByAccountIdV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountUsagesV1 => GetUsagesByAccountIdV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccountUsages => GetUsagesByAccountIdV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

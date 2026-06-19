@@ -40,7 +40,7 @@ function Initialize-Accountunlockrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountsV1 => Accountunlockrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Accounts => Accountunlockrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToAccountunlockrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountsV1 => Accountunlockrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Accounts => Accountunlockrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

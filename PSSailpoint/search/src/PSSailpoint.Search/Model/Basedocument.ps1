@@ -35,7 +35,7 @@ function Initialize-Basedocument {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Basedocument' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Basedocument' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToBasedocument {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Basedocument' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Basedocument' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

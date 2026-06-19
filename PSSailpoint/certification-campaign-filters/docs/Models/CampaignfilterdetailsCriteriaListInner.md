@@ -5,7 +5,7 @@ pagination_label: CampaignfilterdetailsCriteriaListInner
 sidebar_label: CampaignfilterdetailsCriteriaListInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CampaignfilterdetailsCriteriaListInner', 'CampaignfilterdetailsCriteriaListInner'] 
-slug: /tools/sdk/powershell/certificationcampaignfiltersv1/models/campaignfilterdetails-criteria-list-inner
+slug: /tools/sdk/powershell/certificationcampaignfilters/models/campaignfilterdetails-criteria-list-inner
 tags: ['SDK', 'Software Development Kit', 'CampaignfilterdetailsCriteriaListInner', 'CampaignfilterdetailsCriteriaListInner']
 ---
 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **RecordChildMatches** | **Boolean** | If true, the filter will record child matches for the criteria. | [optional] [default to $false]
 **Id** | **String** | The unique ID of the criteria. | [optional] 
 **SuppressMatchedItems** | **Boolean** | If this value is true, then matched items will not only be excluded from the campaign, they will also not have archived certification items created.  Such items will not appear in the exclusion report.  | [optional] [default to $false]
-**Children** | [**[]SystemCollectionsHashtable**](system-collections-hashtable) | List of child criteria. | [optional] 
+**Children** | [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | List of child criteria. | [optional] 
 
 ## Examples
 

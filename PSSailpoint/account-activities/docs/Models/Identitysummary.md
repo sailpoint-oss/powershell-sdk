@@ -5,7 +5,7 @@ pagination_label: Identitysummary
 sidebar_label: Identitysummary
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitysummary', 'Identitysummary'] 
-slug: /tools/sdk/powershell/accountactivitiesv1/models/identitysummary
+slug: /tools/sdk/powershell/accountactivities/models/identitysummary
 tags: ['SDK', 'Software Development Kit', 'Identitysummary', 'Identitysummary']
 ---
 

@@ -56,7 +56,7 @@ function Initialize-Accessitemassociated {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessitemassociated' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityHistory => Accessitemassociated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AccessItem) {
@@ -101,7 +101,7 @@ function ConvertFrom-JsonToAccessitemassociated {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistoryV1 => Accessitemassociated' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityHistory => Accessitemassociated' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

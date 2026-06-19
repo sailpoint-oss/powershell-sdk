@@ -41,7 +41,7 @@ function Initialize-SourceManagementWorkgroup {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => SourceManagementWorkgroup' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => SourceManagementWorkgroup' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToSourceManagementWorkgroup {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => SourceManagementWorkgroup' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => SourceManagementWorkgroup' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

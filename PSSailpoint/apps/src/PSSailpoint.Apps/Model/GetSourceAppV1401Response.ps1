@@ -30,7 +30,7 @@ function Initialize-GetSourceAppV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AppsV1 => GetSourceAppV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Apps => GetSourceAppV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetSourceAppV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AppsV1 => GetSourceAppV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Apps => GetSourceAppV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

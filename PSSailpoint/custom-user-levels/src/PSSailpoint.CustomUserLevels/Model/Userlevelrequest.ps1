@@ -45,7 +45,7 @@ function Initialize-Userlevelrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Userlevelrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomUserLevels => Userlevelrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -96,7 +96,7 @@ function ConvertFrom-JsonToUserlevelrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Userlevelrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevels => Userlevelrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

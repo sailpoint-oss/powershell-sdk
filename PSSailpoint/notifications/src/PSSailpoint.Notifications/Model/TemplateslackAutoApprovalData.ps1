@@ -50,7 +50,7 @@ function Initialize-TemplateslackAutoApprovalData {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => TemplateslackAutoApprovalData' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => TemplateslackAutoApprovalData' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToTemplateslackAutoApprovalData {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => TemplateslackAutoApprovalData' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => TemplateslackAutoApprovalData' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

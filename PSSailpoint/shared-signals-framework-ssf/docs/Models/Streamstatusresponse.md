@@ -5,7 +5,7 @@ pagination_label: Streamstatusresponse
 sidebar_label: Streamstatusresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Streamstatusresponse', 'Streamstatusresponse'] 
-slug: /tools/sdk/powershell/sharedsignalsframeworkssfv1/models/streamstatusresponse
+slug: /tools/sdk/powershell/sharedsignalsframeworkssf/models/streamstatusresponse
 tags: ['SDK', 'Software Development Kit', 'Streamstatusresponse', 'Streamstatusresponse']
 ---
 

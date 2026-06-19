@@ -5,7 +5,7 @@ pagination_label: DeclassifySource
 sidebar_label: DeclassifySource
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'DeclassifySource', 'DeclassifySource'] 
-slug: /tools/sdk/powershell/declassifysourcev1/methods/declassify-source
+slug: /tools/sdk/powershell/declassifysource/methods/declassify-source
 tags: ['SDK', 'Software Development Kit', 'DeclassifySource', 'DeclassifySource']
 ---
 

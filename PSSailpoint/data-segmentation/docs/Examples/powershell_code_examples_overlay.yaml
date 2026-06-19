@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/datasegmentationv1/methods/data-segmentation#create-data-segment-v1
+      label: SDK_tools/sdk/powershell/datasegmentation/methods/data-segmentation#create-data-segment-v1
       source: |
         $DataSegment = @"
         
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/datasegmentationv1/methods/data-segmentation#delete-data-segment-v1
+      label: SDK_tools/sdk/powershell/datasegmentation/methods/data-segmentation#delete-data-segment-v1
       source: |
         $SegmentId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The segment ID to delete.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -45,7 +45,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/datasegmentationv1/methods/data-segmentation#get-data-segment-identity-membership-v1
+      label: SDK_tools/sdk/powershell/datasegmentation/methods/data-segmentation#get-data-segment-identity-membership-v1
       source: |
         $IdentityId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The identity ID to retrieve the segments they are in.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -65,7 +65,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/datasegmentationv1/methods/data-segmentation#get-data-segment-v1
+      label: SDK_tools/sdk/powershell/datasegmentation/methods/data-segmentation#get-data-segment-v1
       source: |
         $SegmentId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The segment ID to retrieve.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -85,7 +85,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/datasegmentationv1/methods/data-segmentation#get-data-segmentation-enabled-for-user-v1
+      label: SDK_tools/sdk/powershell/datasegmentation/methods/data-segmentation#get-data-segmentation-enabled-for-user-v1
       source: |
         $IdentityId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The identity ID to retrieve if segmentation is enabled for the identity.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -105,7 +105,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/datasegmentationv1/methods/data-segmentation#list-data-segments-v1
+      label: SDK_tools/sdk/powershell/datasegmentation/methods/data-segmentation#list-data-segments-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Enabled = $true # Boolean | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to $true)
@@ -131,7 +131,7 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/datasegmentationv1/methods/data-segmentation#patch-data-segment-v1
+      label: SDK_tools/sdk/powershell/datasegmentation/methods/data-segmentation#patch-data-segment-v1
       source: |
         $SegmentId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The segment ID to modify.
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -155,7 +155,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/datasegmentationv1/methods/data-segmentation#publish-data-segment-v1
+      label: SDK_tools/sdk/powershell/datasegmentation/methods/data-segmentation#publish-data-segment-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $SegmentId = "MySegmentId" # String | The segmentId.

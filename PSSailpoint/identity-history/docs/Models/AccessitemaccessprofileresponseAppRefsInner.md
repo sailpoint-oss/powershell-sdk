@@ -5,7 +5,7 @@ pagination_label: AccessitemaccessprofileresponseAppRefsInner
 sidebar_label: AccessitemaccessprofileresponseAppRefsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessitemaccessprofileresponseAppRefsInner', 'AccessitemaccessprofileresponseAppRefsInner'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/accessitemaccessprofileresponse-app-refs-inner
+slug: /tools/sdk/powershell/identityhistory/models/accessitemaccessprofileresponse-app-refs-inner
 tags: ['SDK', 'Software Development Kit', 'AccessitemaccessprofileresponseAppRefsInner', 'AccessitemaccessprofileresponseAppRefsInner']
 ---
 

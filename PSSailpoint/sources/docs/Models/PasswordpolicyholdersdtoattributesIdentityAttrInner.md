@@ -5,7 +5,7 @@ pagination_label: PasswordpolicyholdersdtoattributesIdentityAttrInner
 sidebar_label: PasswordpolicyholdersdtoattributesIdentityAttrInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'PasswordpolicyholdersdtoattributesIdentityAttrInner', 'PasswordpolicyholdersdtoattributesIdentityAttrInner'] 
-slug: /tools/sdk/powershell/sourcesv1/models/passwordpolicyholdersdtoattributes-identity-attr-inner
+slug: /tools/sdk/powershell/sources/models/passwordpolicyholdersdtoattributes-identity-attr-inner
 tags: ['SDK', 'Software Development Kit', 'PasswordpolicyholdersdtoattributesIdentityAttrInner', 'PasswordpolicyholdersdtoattributesIdentityAttrInner']
 ---
 

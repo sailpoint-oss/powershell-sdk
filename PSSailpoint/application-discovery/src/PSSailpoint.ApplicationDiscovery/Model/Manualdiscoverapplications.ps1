@@ -30,7 +30,7 @@ function Initialize-Manualdiscoverapplications {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Manualdiscoverapplications' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ApplicationDiscovery => Manualdiscoverapplications' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$File) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToManualdiscoverapplications {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => Manualdiscoverapplications' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscovery => Manualdiscoverapplications' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

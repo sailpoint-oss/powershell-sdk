@@ -5,7 +5,7 @@ pagination_label: Accessrequest
 sidebar_label: Accessrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessrequest', 'Accessrequest'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/accessrequest
+slug: /tools/sdk/powershell/accessrequests/models/accessrequest
 tags: ['SDK', 'Software Development Kit', 'Accessrequest', 'Accessrequest']
 ---
 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **RequestType** | [**Accessrequesttype**](accessrequesttype) |  | [optional] 
 **RequestedItems** | [**[]Accessrequestitem**](accessrequestitem) |  | [required]
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities. | [optional] 
-**RequestedForWithRequestedItems** | [**[]Requestedfordtoref**](requestedfordtoref) | Additional submit data structure with requestedFor containing requestedItems allowing distinction for each request item and Identity. * Can only be used when 'requestedFor' and 'requestedItems' are not separately provided * Adds ability to specify which account the user wants the access on, in case they have multiple accounts on a source * Allows the ability to request items with different remove dates * Also allows different combinations of request items and identities in the same request * Only for use in GRANT_ACCESS type requests  | [optional] 
+**RequestedForWithRequestedItems** | [**[]Requestedfordtoref**](requestedfordtoref) | Additional submit data structure with requestedFor containing requestedItems allowing distinction for each request item and Identity. * Can only be used when 'requestedFor' and 'requestedItems' are not separately provided * Adds ability to specify which account the user wants the access on, in case they have multiple accounts on a source * Allows the ability to request items with different start dates * Allows the ability to request items with different remove dates * Also allows different combinations of request items and identities in the same request * Only for use in GRANT_ACCESS type requests  | [optional] 
 
 ## Examples
 

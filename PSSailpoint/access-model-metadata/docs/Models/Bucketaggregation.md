@@ -5,7 +5,7 @@ pagination_label: Bucketaggregation
 sidebar_label: Bucketaggregation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Bucketaggregation', 'Bucketaggregation'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/bucketaggregation
+slug: /tools/sdk/powershell/accessmodelmetadata/models/bucketaggregation
 tags: ['SDK', 'Software Development Kit', 'Bucketaggregation', 'Bucketaggregation']
 ---
 

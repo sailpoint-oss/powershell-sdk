@@ -5,7 +5,7 @@ pagination_label: Errormessagedto
 sidebar_label: Errormessagedto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Errormessagedto', 'Errormessagedto'] 
-slug: /tools/sdk/powershell/apiusagev1/models/errormessagedto
+slug: /tools/sdk/powershell/apiusage/models/errormessagedto
 tags: ['SDK', 'Software Development Kit', 'Errormessagedto', 'Errormessagedto']
 ---
 

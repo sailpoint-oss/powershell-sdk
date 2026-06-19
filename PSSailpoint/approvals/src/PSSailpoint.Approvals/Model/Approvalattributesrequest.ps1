@@ -40,7 +40,7 @@ function Initialize-Approvalattributesrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalattributesrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => Approvalattributesrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToApprovalattributesrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalattributesrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => Approvalattributesrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

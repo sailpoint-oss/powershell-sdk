@@ -5,7 +5,7 @@ pagination_label: Schedule
 sidebar_label: Schedule
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Schedule', 'Schedule'] 
-slug: /tools/sdk/powershell/sodpoliciesv1/models/schedule
+slug: /tools/sdk/powershell/sodpolicies/models/schedule
 tags: ['SDK', 'Software Development Kit', 'Schedule', 'Schedule']
 ---
 

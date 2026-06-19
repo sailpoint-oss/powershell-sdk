@@ -5,7 +5,7 @@ pagination_label: Bulkapproveaccessrequest
 sidebar_label: Bulkapproveaccessrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Bulkapproveaccessrequest', 'Bulkapproveaccessrequest'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/bulkapproveaccessrequest
+slug: /tools/sdk/powershell/accessrequests/models/bulkapproveaccessrequest
 tags: ['SDK', 'Software Development Kit', 'Bulkapproveaccessrequest', 'Bulkapproveaccessrequest']
 ---
 

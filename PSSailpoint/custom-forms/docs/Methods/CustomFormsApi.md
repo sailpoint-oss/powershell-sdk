@@ -5,7 +5,7 @@ pagination_label: CustomForms
 sidebar_label: CustomForms
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CustomForms', 'CustomForms'] 
-slug: /tools/sdk/powershell/customformsv1/methods/custom-forms
+slug: /tools/sdk/powershell/customforms/methods/custom-forms
 tags: ['SDK', 'Software Development Kit', 'CustomForms', 'CustomForms']
 ---
 
@@ -243,7 +243,7 @@ Param Type | Name | Data Type | Required  | Description
 Path   | FormDefinitionID | **String** | True  | Form definition ID
 
 ### Return type
-[**SystemCollectionsHashtable**](../models/system-collections-hashtable)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
 Code | Description  | Data Type
@@ -312,7 +312,7 @@ Code | Description  | Data Type
 ```powershell
 $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
 $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
-$Filters = "name sw "my form"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional)
+$Filters = 'name sw "my form"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified** (optional) (default to "name")
 
 # List form definitions by tenant.
@@ -550,23 +550,12 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Formowner = Initialize-Formowner -Type "IDENTITY" -Id "2c9180867624cbd7017642d8c8c81f67" -Name "Grant Smith"
-$Formusedby = Initialize-Formusedby -Type "WORKFLOW" -Id "61940a92-5484-42bc-bc10-b9982b218cdf" -Name "Access Request Form"
-$Formdefinitioninput = Initialize-Formdefinitioninput -Id "00000000-0000-0000-0000-000000000000" -Type "STRING" -Label "input1" -Description "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic"
 
-$Formelementvalidationsset = Initialize-Formelementvalidationsset -ValidationType "REQUIRED"
-$Formelement = Initialize-Formelement -Id "00000000-0000-0000-0000-000000000000" -ElementType "TEXT" -Config @{ key_example =  } -Key "department" -Validations $Formelementvalidationsset
 
-$Conditionrule = Initialize-Conditionrule -SourceType "INPUT" -Source "department" -Operator "EQ" -ValueType "STRING" -Value "Engineering"
 
-$ConditioneffectConfig = Initialize-ConditioneffectConfig -DefaultValueLabel "Access to Remove" -Element "8110662963316867"
-$Conditioneffect = Initialize-Conditioneffect -EffectType "HIDE" -Config $ConditioneffectConfig
 
-$Formcondition = Initialize-Formcondition -RuleOperator "AND" -Rules $Conditionrule -Effects $Conditioneffect
 
-$Formdefinitionresponse = Initialize-Formdefinitionresponse -Id "00000000-0000-0000-0000-000000000000" -Name "My form" -Description "My form description" -Owner $Formowner -UsedBy $Formusedby -FormInput $Formdefinitioninput -FormElements $Formelement -FormConditions $Formcondition -Created (Get-Date) -Modified (Get-Date)
 
-$ImportFormDefinitionsV1RequestInner = Initialize-ImportFormDefinitionsV1RequestInner -Object $Formdefinitionresponse -Self "MySelf" -Version 0 # ImportFormDefinitionsV1RequestInner[] | Body is the request payload to import form definitions (optional)
  $Body = @"[{"version":1,"self":{"name":"All fields not required","id":"05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa","type":"FORM_DEFINITION"},"object":{"id":"05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa","name":"All fields not required","description":"description","owner":{"type":"IDENTITY","id":"3447d8ec2602455ab6f1e8408a0f0150"},"usedBy":[{"type":"WORKFLOW","id":"5008594c-dacc-4295-8fee-41df60477304"},{"type":"WORKFLOW","id":"97e75a75-c179-4fbc-a2da-b5fa4aaa8743"}],"formInput":[{"type":"STRING","label":"input1","description":"A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic"}],"formElements":[{"id":"3069272797630701","elementType":"SECTION","config":{"label":"First Section","formElements":[{"id":"3069272797630700","elementType":"TEXT","key":"firstName","config":{"label":"First Name"}},{"id":"3498415402897539","elementType":"TEXT","key":"lastName","config":{"label":"Last Name"}}]}}],"formConditions":[{"ruleOperator":"AND","rules":[{"sourceType":"INPUT","source":"Department","operator":"EQ","valueType":"STRING","value":"Sales"}],"effects":[{"effectType":"HIDE","config":{"element":"2614088730489570"}}]}],"created":"2022-10-04T19:27:04.456Z","modified":"2022-11-16T20:45:02.172Z"}}]"@ # ImportFormDefinitionsV1RequestInner[] | Body is the request payload to import form definitions (optional)
  
 
@@ -593,7 +582,7 @@ Parameter `{formDefinitionID}` should match a form definition ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | FormDefinitionID | **String** | True  | Form definition ID
- Body  | Body | [**[]System.Collections.Hashtable**](../models/map) |   (optional) | Body is the request payload to patch a form definition, check: https://jsonpatch.com
+ Body  | Body | [**[]System.Collections.Hashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) |   (optional) | Body is the request payload to patch a form definition, check: https://jsonpatch.com
 
 ### Return type
 [**Formdefinitionresponse**](../models/formdefinitionresponse)
@@ -645,7 +634,7 @@ Only the assigned recipient (`recipients[].id` when `type` is `IDENTITY`) may ca
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | FormInstanceID | **String** | True  | Form instance ID
- Body  | Body | [**[]System.Collections.Hashtable**](../models/map) |   (optional) | Body is the request payload to patch a form instance, check: https://jsonpatch.com
+ Body  | Body | [**[]System.Collections.Hashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0) |   (optional) | Body is the request payload to patch a form instance, check: https://jsonpatch.com
 
 ### Return type
 [**Forminstanceresponse**](../models/forminstanceresponse)
@@ -721,7 +710,7 @@ Code | Description  | Data Type
 ```powershell
 $Offset = 250 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
 $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
-$Filters = "name sw "my form"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional)
+$Filters = 'name sw "my form"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified** (optional) (default to "name")
 
 # Export form definitions by tenant.
@@ -776,7 +765,7 @@ Code | Description  | Data Type
 $FormInstanceID = "00000000-0000-0000-0000-000000000000" # String | Form instance ID
 $FormElementID = "1" # String | Form element ID
 $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
-$Filters = "value eq "ID01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (""ID01"")` (optional)
+$Filters = 'value eq "ID01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (""ID01"')` (optional)
 $Query = "support" # String | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a ""starts with"" filter against  several fields. (optional)
 
 # Retrieves dynamic data by element.
@@ -826,7 +815,7 @@ Code | Description  | Data Type
 ```powershell
 $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
 $Limit = 100 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
-$Filters = "formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional)
+$Filters = 'formDefinitionId eq "351c1daa-56f6-4bbf-b32c-49844c0b716e"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq* (optional)
 
 # List form instances by tenant.
 
@@ -921,7 +910,7 @@ Code | Description  | Data Type
 ```powershell
 $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | Form definition ID
 $Limit = 10 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 10)
-$Filters = "value eq "ID01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (""ID01"")` (optional)
+$Filters = 'value eq "ID01"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (""ID01"')` (optional)
 $Query = "ac" # String | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a ""starts with"" filter against  several fields. (optional)
 $Formelementpreviewrequest = @""@
 

@@ -5,7 +5,7 @@ pagination_label: GetAttestationDocumentV1401Response
 sidebar_label: GetAttestationDocumentV1401Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetAttestationDocumentV1401Response', 'GetAttestationDocumentV1401Response'] 
-slug: /tools/sdk/powershell/parameterstoragev1/models/get-attestation-document-v1401-response
+slug: /tools/sdk/powershell/parameterstorage/models/get-attestation-document-v1401-response
 tags: ['SDK', 'Software Development Kit', 'GetAttestationDocumentV1401Response', 'GetAttestationDocumentV1401Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetAttestationDocumentV1401Response',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**VarError** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

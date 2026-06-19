@@ -41,7 +41,7 @@ function Initialize-ViolationcontextPolicy {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SodViolationsV1 => ViolationcontextPolicy' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SodViolations => ViolationcontextPolicy' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToViolationcontextPolicy {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SodViolationsV1 => ViolationcontextPolicy' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SodViolations => ViolationcontextPolicy' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

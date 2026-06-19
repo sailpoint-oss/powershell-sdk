@@ -42,7 +42,7 @@ function Initialize-Accessconstraint {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Accessconstraint' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CertificationCampaigns => Accessconstraint' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -88,7 +88,7 @@ function ConvertFrom-JsonToAccessconstraint {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaignsV1 => Accessconstraint' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CertificationCampaigns => Accessconstraint' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

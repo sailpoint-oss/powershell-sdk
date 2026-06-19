@@ -132,7 +132,7 @@ function Initialize-Getoauthclientresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.OauthClientsV1 => Getoauthclientresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.OauthClients => Getoauthclientresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -240,7 +240,7 @@ function ConvertFrom-JsonToGetoauthclientresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.OauthClientsV1 => Getoauthclientresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.OauthClients => Getoauthclientresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: SourceManagerCorrelationRule
 sidebar_label: SourceManagerCorrelationRule
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SourceManagerCorrelationRule', 'SourceManagerCorrelationRule'] 
-slug: /tools/sdk/powershell/sourcesv1/models/source-manager-correlation-rule
+slug: /tools/sdk/powershell/sources/models/source-manager-correlation-rule
 tags: ['SDK', 'Software Development Kit', 'SourceManagerCorrelationRule', 'SourceManagerCorrelationRule']
 ---
 

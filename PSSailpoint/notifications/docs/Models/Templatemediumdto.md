@@ -5,7 +5,7 @@ pagination_label: Templatemediumdto
 sidebar_label: Templatemediumdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Templatemediumdto', 'Templatemediumdto'] 
-slug: /tools/sdk/powershell/notificationsv1/models/templatemediumdto
+slug: /tools/sdk/powershell/notifications/models/templatemediumdto
 tags: ['SDK', 'Software Development Kit', 'Templatemediumdto', 'Templatemediumdto']
 ---
 

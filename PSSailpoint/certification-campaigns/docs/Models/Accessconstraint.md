@@ -5,7 +5,7 @@ pagination_label: Accessconstraint
 sidebar_label: Accessconstraint
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessconstraint', 'Accessconstraint'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/accessconstraint
+slug: /tools/sdk/powershell/certificationcampaigns/models/accessconstraint
 tags: ['SDK', 'Software Development Kit', 'Accessconstraint', 'Accessconstraint']
 ---
 

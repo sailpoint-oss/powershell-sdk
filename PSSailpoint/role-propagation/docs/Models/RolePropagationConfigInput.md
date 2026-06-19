@@ -5,7 +5,7 @@ pagination_label: RolePropagationConfigInput
 sidebar_label: RolePropagationConfigInput
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'RolePropagationConfigInput', 'RolePropagationConfigInput'] 
-slug: /tools/sdk/powershell/rolepropagationv1/models/role-propagation-config-input
+slug: /tools/sdk/powershell/rolepropagation/models/role-propagation-config-input
 tags: ['SDK', 'Software Development Kit', 'RolePropagationConfigInput', 'RolePropagationConfigInput']
 ---
 

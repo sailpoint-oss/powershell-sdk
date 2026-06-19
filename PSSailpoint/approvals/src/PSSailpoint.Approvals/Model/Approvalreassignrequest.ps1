@@ -40,7 +40,7 @@ function Initialize-Approvalreassignrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalreassignrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => Approvalreassignrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToApprovalreassignrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => Approvalreassignrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => Approvalreassignrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

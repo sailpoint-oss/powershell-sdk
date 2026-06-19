@@ -5,7 +5,7 @@ pagination_label: Dimensionbulkdeleterequest
 sidebar_label: Dimensionbulkdeleterequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dimensionbulkdeleterequest', 'Dimensionbulkdeleterequest'] 
-slug: /tools/sdk/powershell/dimensionsv1/models/dimensionbulkdeleterequest
+slug: /tools/sdk/powershell/dimensions/models/dimensionbulkdeleterequest
 tags: ['SDK', 'Software Development Kit', 'Dimensionbulkdeleterequest', 'Dimensionbulkdeleterequest']
 ---
 

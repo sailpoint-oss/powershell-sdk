@@ -30,7 +30,7 @@ function Initialize-Processidentitiesrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Processidentitiesrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Processidentitiesrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$IdentityIds -and $IdentityIds.length -gt 250) {
@@ -74,7 +74,7 @@ function ConvertFrom-JsonToProcessidentitiesrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Processidentitiesrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Processidentitiesrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

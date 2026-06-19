@@ -40,7 +40,7 @@ function Initialize-Accountinfodto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Accountinfodto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Accountinfodto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToAccountinfodto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Accountinfodto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Accountinfodto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

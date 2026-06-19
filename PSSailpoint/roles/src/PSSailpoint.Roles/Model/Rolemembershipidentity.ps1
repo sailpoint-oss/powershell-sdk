@@ -46,7 +46,7 @@ function Initialize-Rolemembershipidentity {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => Rolemembershipidentity' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => Rolemembershipidentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToRolemembershipidentity {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => Rolemembershipidentity' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => Rolemembershipidentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

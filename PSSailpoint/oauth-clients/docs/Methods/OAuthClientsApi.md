@@ -5,7 +5,7 @@ pagination_label: OAuthClients
 sidebar_label: OAuthClients
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'OAuthClients', 'OAuthClients'] 
-slug: /tools/sdk/powershell/oauthclientsv1/methods/o-auth-clients
+slug: /tools/sdk/powershell/oauthclients/methods/o-auth-clients
 tags: ['SDK', 'Software Development Kit', 'OAuthClients', 'OAuthClients']
 ---
 
@@ -194,7 +194,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = "lastUsed le 2023-02-05T10:59:27.214Z" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
+$Filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
 
 # List oauth clients
 
@@ -242,8 +242,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
  $Jsonpatchoperation = @"[{"op":"replace","path":"/strongAuthSupported","value":true},{"op":"replace","path":"/businessName","value":"acme-solar"}]"@ # Jsonpatchoperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
  
 

@@ -5,7 +5,7 @@ pagination_label: ReportsDataExtraction
 sidebar_label: ReportsDataExtraction
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ReportsDataExtraction', 'ReportsDataExtraction'] 
-slug: /tools/sdk/powershell/reportsdataextractionv1/methods/reports-data-extraction
+slug: /tools/sdk/powershell/reportsdataextraction/methods/reports-data-extraction
 tags: ['SDK', 'Software Development Kit', 'ReportsDataExtraction', 'ReportsDataExtraction']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Executionstatus
 sidebar_label: Executionstatus
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Executionstatus', 'Executionstatus'] 
-slug: /tools/sdk/powershell/accountactivitiesv1/models/executionstatus
+slug: /tools/sdk/powershell/accountactivities/models/executionstatus
 tags: ['SDK', 'Software Development Kit', 'Executionstatus', 'Executionstatus']
 ---
 

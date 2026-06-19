@@ -5,7 +5,7 @@ pagination_label: Exportpayload
 sidebar_label: Exportpayload
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Exportpayload', 'Exportpayload'] 
-slug: /tools/sdk/powershell/spconfigv1/models/exportpayload
+slug: /tools/sdk/powershell/spconfig/models/exportpayload
 tags: ['SDK', 'Software Development Kit', 'Exportpayload', 'Exportpayload']
 ---
 

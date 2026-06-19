@@ -5,7 +5,7 @@ pagination_label: Bulktaggedobjectresponse
 sidebar_label: Bulktaggedobjectresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Bulktaggedobjectresponse', 'Bulktaggedobjectresponse'] 
-slug: /tools/sdk/powershell/taggedobjectsv1/models/bulktaggedobjectresponse
+slug: /tools/sdk/powershell/taggedobjects/models/bulktaggedobjectresponse
 tags: ['SDK', 'Software Development Kit', 'Bulktaggedobjectresponse', 'Bulktaggedobjectresponse']
 ---
 

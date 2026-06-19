@@ -5,7 +5,7 @@ pagination_label: Criteriatype
 sidebar_label: Criteriatype
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Criteriatype', 'Criteriatype'] 
-slug: /tools/sdk/powershell/certificationcampaignfiltersv1/models/criteriatype
+slug: /tools/sdk/powershell/certificationcampaignfilters/models/criteriatype
 tags: ['SDK', 'Software Development Kit', 'Criteriatype', 'Criteriatype']
 ---
 

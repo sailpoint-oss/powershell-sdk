@@ -5,7 +5,7 @@ pagination_label: Accountv2
 sidebar_label: Accountv2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountv2', 'Accountv2'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountv2
+slug: /tools/sdk/powershell/triggers/models/accountv2
 tags: ['SDK', 'Software Development Kit', 'Accountv2', 'Accountv2']
 ---
 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **Correlated** | **Boolean** | Indicates if the account is correlated to an identity. | [required]
 **IsMachine** | **Boolean** | Indicates if the account is a machine account. | [required]
 **Origin** | **String** | The origin of the account. | [required]
-**Attributes** | [**map[string]AnyType**](any-type) | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
 
 ## Examples
 

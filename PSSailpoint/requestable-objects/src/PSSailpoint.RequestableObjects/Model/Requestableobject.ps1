@@ -76,7 +76,7 @@ function Initialize-Requestableobject {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RequestableObjectsV1 => Requestableobject' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.RequestableObjects => Requestableobject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -121,7 +121,7 @@ function ConvertFrom-JsonToRequestableobject {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RequestableObjectsV1 => Requestableobject' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.RequestableObjects => Requestableobject' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

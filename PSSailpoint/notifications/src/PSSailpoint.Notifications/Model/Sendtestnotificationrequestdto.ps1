@@ -61,7 +61,7 @@ function Initialize-Sendtestnotificationrequestdto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.NotificationsV1 => Sendtestnotificationrequestdto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Notifications => Sendtestnotificationrequestdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -103,7 +103,7 @@ function ConvertFrom-JsonToSendtestnotificationrequestdto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.NotificationsV1 => Sendtestnotificationrequestdto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Notifications => Sendtestnotificationrequestdto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

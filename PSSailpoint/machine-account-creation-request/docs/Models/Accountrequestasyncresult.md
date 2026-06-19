@@ -5,7 +5,7 @@ pagination_label: Accountrequestasyncresult
 sidebar_label: Accountrequestasyncresult
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountrequestasyncresult', 'Accountrequestasyncresult'] 
-slug: /tools/sdk/powershell/machineaccountcreationrequestv1/models/accountrequestasyncresult
+slug: /tools/sdk/powershell/machineaccountcreationrequest/models/accountrequestasyncresult
 tags: ['SDK', 'Software Development Kit', 'Accountrequestasyncresult', 'Accountrequestasyncresult']
 ---
 

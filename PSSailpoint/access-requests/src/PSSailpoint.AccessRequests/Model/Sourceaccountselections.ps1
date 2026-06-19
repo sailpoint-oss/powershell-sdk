@@ -46,7 +46,7 @@ function Initialize-Sourceaccountselections {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessRequestsV1 => Sourceaccountselections' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessRequests => Sourceaccountselections' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToSourceaccountselections {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequestsV1 => Sourceaccountselections' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessRequests => Sourceaccountselections' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

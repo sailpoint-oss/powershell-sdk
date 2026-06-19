@@ -5,7 +5,7 @@ pagination_label: Recommendationrequestdto
 sidebar_label: Recommendationrequestdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Recommendationrequestdto', 'Recommendationrequestdto'] 
-slug: /tools/sdk/powershell/iairecommendationsv1/models/recommendationrequestdto
+slug: /tools/sdk/powershell/iairecommendations/models/recommendationrequestdto
 tags: ['SDK', 'Software Development Kit', 'Recommendationrequestdto', 'Recommendationrequestdto']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: Workflowoauthclient
 sidebar_label: Workflowoauthclient
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workflowoauthclient', 'Workflowoauthclient'] 
-slug: /tools/sdk/powershell/workflowsv1/models/workflowoauthclient
+slug: /tools/sdk/powershell/workflows/models/workflowoauthclient
 tags: ['SDK', 'Software Development Kit', 'Workflowoauthclient', 'Workflowoauthclient']
 ---
 

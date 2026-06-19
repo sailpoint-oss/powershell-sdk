@@ -5,7 +5,7 @@ pagination_label: AttributedefinitionSchema
 sidebar_label: AttributedefinitionSchema
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AttributedefinitionSchema', 'AttributedefinitionSchema'] 
-slug: /tools/sdk/powershell/sourcesv1/models/attributedefinition-schema
+slug: /tools/sdk/powershell/sources/models/attributedefinition-schema
 tags: ['SDK', 'Software Development Kit', 'AttributedefinitionSchema', 'AttributedefinitionSchema']
 ---
 

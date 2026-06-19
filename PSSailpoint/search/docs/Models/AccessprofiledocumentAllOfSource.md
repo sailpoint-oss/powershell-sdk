@@ -5,7 +5,7 @@ pagination_label: AccessprofiledocumentAllOfSource
 sidebar_label: AccessprofiledocumentAllOfSource
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessprofiledocumentAllOfSource', 'AccessprofiledocumentAllOfSource'] 
-slug: /tools/sdk/powershell/searchv1/models/accessprofiledocument-all-of-source
+slug: /tools/sdk/powershell/search/models/accessprofiledocument-all-of-source
 tags: ['SDK', 'Software Development Kit', 'AccessprofiledocumentAllOfSource', 'AccessprofiledocumentAllOfSource']
 ---
 

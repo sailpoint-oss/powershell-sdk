@@ -5,7 +5,7 @@ pagination_label: Identityattributeschanged
 sidebar_label: Identityattributeschanged
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityattributeschanged', 'Identityattributeschanged'] 
-slug: /tools/sdk/powershell/triggersv1/models/identityattributeschanged
+slug: /tools/sdk/powershell/triggers/models/identityattributeschanged
 tags: ['SDK', 'Software Development Kit', 'Identityattributeschanged', 'Identityattributeschanged']
 ---
 

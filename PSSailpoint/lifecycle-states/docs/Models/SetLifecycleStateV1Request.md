@@ -5,7 +5,7 @@ pagination_label: SetLifecycleStateV1Request
 sidebar_label: SetLifecycleStateV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SetLifecycleStateV1Request', 'SetLifecycleStateV1Request'] 
-slug: /tools/sdk/powershell/lifecyclestatesv1/models/set-lifecycle-state-v1-request
+slug: /tools/sdk/powershell/lifecyclestates/models/set-lifecycle-state-v1-request
 tags: ['SDK', 'Software Development Kit', 'SetLifecycleStateV1Request', 'SetLifecycleStateV1Request']
 ---
 

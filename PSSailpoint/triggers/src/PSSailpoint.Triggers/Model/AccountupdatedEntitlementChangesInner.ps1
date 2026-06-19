@@ -40,7 +40,7 @@ function Initialize-AccountupdatedEntitlementChangesInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => AccountupdatedEntitlementChangesInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => AccountupdatedEntitlementChangesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$AttributeName) {
@@ -82,7 +82,7 @@ function ConvertFrom-JsonToAccountupdatedEntitlementChangesInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => AccountupdatedEntitlementChangesInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => AccountupdatedEntitlementChangesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

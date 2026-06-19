@@ -30,7 +30,7 @@ function Initialize-GetManagedClusterTypesV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClusterTypesV1 => GetManagedClusterTypesV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClusterTypes => GetManagedClusterTypesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetManagedClusterTypesV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusterTypesV1 => GetManagedClusterTypesV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusterTypes => GetManagedClusterTypesV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

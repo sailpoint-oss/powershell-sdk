@@ -5,7 +5,7 @@ pagination_label: CreateWorkflowV1Request
 sidebar_label: CreateWorkflowV1Request
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CreateWorkflowV1Request', 'CreateWorkflowV1Request'] 
-slug: /tools/sdk/powershell/workflowsv1/models/create-workflow-v1-request
+slug: /tools/sdk/powershell/workflows/models/create-workflow-v1-request
 tags: ['SDK', 'Software Development Kit', 'CreateWorkflowV1Request', 'CreateWorkflowV1Request']
 ---
 

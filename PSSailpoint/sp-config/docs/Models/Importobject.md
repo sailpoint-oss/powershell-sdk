@@ -5,7 +5,7 @@ pagination_label: Importobject
 sidebar_label: Importobject
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Importobject', 'Importobject'] 
-slug: /tools/sdk/powershell/spconfigv1/models/importobject
+slug: /tools/sdk/powershell/spconfig/models/importobject
 tags: ['SDK', 'Software Development Kit', 'Importobject', 'Importobject']
 ---
 

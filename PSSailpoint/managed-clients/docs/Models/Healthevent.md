@@ -5,7 +5,7 @@ pagination_label: Healthevent
 sidebar_label: Healthevent
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Healthevent', 'Healthevent'] 
-slug: /tools/sdk/powershell/managedclientsv1/models/healthevent
+slug: /tools/sdk/powershell/managedclients/models/healthevent
 tags: ['SDK', 'Software Development Kit', 'Healthevent', 'Healthevent']
 ---
 

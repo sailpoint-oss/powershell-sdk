@@ -5,7 +5,7 @@ pagination_label: Workgroupmemberdeleteitem
 sidebar_label: Workgroupmemberdeleteitem
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workgroupmemberdeleteitem', 'Workgroupmemberdeleteitem'] 
-slug: /tools/sdk/powershell/governancegroupsv1/models/workgroupmemberdeleteitem
+slug: /tools/sdk/powershell/governancegroups/models/workgroupmemberdeleteitem
 tags: ['SDK', 'Software Development Kit', 'Workgroupmemberdeleteitem', 'Workgroupmemberdeleteitem']
 ---
 

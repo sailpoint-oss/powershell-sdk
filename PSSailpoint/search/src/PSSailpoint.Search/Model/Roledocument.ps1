@@ -130,7 +130,7 @@ function Initialize-Roledocument {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Roledocument' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Roledocument' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -194,7 +194,7 @@ function ConvertFrom-JsonToRoledocument {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Roledocument' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Roledocument' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

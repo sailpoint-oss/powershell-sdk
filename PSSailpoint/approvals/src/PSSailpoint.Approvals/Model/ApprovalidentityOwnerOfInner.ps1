@@ -40,7 +40,7 @@ function Initialize-ApprovalidentityOwnerOfInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => ApprovalidentityOwnerOfInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => ApprovalidentityOwnerOfInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToApprovalidentityOwnerOfInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => ApprovalidentityOwnerOfInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => ApprovalidentityOwnerOfInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

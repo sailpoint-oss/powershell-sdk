@@ -5,7 +5,7 @@ pagination_label: LauncherReference
 sidebar_label: LauncherReference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'LauncherReference', 'LauncherReference'] 
-slug: /tools/sdk/powershell/launchersv1/models/launcher-reference
+slug: /tools/sdk/powershell/launchers/models/launcher-reference
 tags: ['SDK', 'Software Development Kit', 'LauncherReference', 'LauncherReference']
 ---
 

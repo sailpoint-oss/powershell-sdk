@@ -45,7 +45,7 @@ function Initialize-Identitysummary {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountActivitiesV1 => Identitysummary' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccountActivities => Identitysummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToIdentitysummary {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountActivitiesV1 => Identitysummary' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccountActivities => Identitysummary' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

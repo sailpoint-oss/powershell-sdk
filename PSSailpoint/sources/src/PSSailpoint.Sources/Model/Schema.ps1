@@ -86,7 +86,7 @@ function Initialize-Schema {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Schema' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Schema' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -133,7 +133,7 @@ function ConvertFrom-JsonToSchema {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Schema' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Schema' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

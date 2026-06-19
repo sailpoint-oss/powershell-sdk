@@ -5,7 +5,7 @@ pagination_label: Identitywithnewaccess
 sidebar_label: Identitywithnewaccess
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identitywithnewaccess', 'Identitywithnewaccess'] 
-slug: /tools/sdk/powershell/sodviolationsv1/models/identitywithnewaccess
+slug: /tools/sdk/powershell/sodviolations/models/identitywithnewaccess
 tags: ['SDK', 'Software Development Kit', 'Identitywithnewaccess', 'Identitywithnewaccess']
 ---
 

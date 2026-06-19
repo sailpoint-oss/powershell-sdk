@@ -5,7 +5,7 @@ pagination_label: Invocation
 sidebar_label: Invocation
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Invocation', 'Invocation'] 
-slug: /tools/sdk/powershell/triggersv1/models/invocation
+slug: /tools/sdk/powershell/triggers/models/invocation
 tags: ['SDK', 'Software Development Kit', 'Invocation', 'Invocation']
 ---
 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Id** | **String** | Invocation ID | [optional] 
 **TriggerId** | **String** | Trigger ID | [optional] 
 **Secret** | **String** | Unique invocation secret. | [optional] 
-**ContentJson** | [**SystemCollectionsHashtable**](system-collections-hashtable) | JSON map of invocation metadata. | [optional] 
+**ContentJson** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | JSON map of invocation metadata. | [optional] 
 
 ## Examples
 

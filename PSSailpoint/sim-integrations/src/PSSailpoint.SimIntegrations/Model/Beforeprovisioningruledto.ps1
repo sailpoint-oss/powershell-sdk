@@ -41,7 +41,7 @@ function Initialize-Beforeprovisioningruledto {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SimIntegrationsV1 => Beforeprovisioningruledto' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.SimIntegrations => Beforeprovisioningruledto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToBeforeprovisioningruledto {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SimIntegrationsV1 => Beforeprovisioningruledto' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.SimIntegrations => Beforeprovisioningruledto' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

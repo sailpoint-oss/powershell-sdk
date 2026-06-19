@@ -46,7 +46,7 @@ function Initialize-Expression {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SegmentsV1 => Expression' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Segments => Expression' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToExpression {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SegmentsV1 => Expression' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Segments => Expression' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

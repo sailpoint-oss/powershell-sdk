@@ -5,7 +5,7 @@ pagination_label: Requestabilityforrole
 sidebar_label: Requestabilityforrole
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Requestabilityforrole', 'Requestabilityforrole'] 
-slug: /tools/sdk/powershell/rolesv1/models/requestabilityforrole
+slug: /tools/sdk/powershell/roles/models/requestabilityforrole
 tags: ['SDK', 'Software Development Kit', 'Requestabilityforrole', 'Requestabilityforrole']
 ---
 
@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **MaxPermittedAccessDuration** | [**Accessduration**](accessduration) |  | [optional] 
 **ApprovalSchemes** | [**[]Approvalschemeforrole**](approvalschemeforrole) | List describing the steps in approving the request | [optional] 
 **DimensionSchema** | [**Dimensionschema**](dimensionschema) |  | [optional] 
+**FormDefinitionId** | **String** | The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process. | [optional] 
 
 ## Examples
 
@@ -34,7 +35,8 @@ $Requestabilityforrole = Initialize-Requestabilityforrole  -CommentsRequired tru
  -RequireEndDate true `
  -MaxPermittedAccessDuration null `
  -ApprovalSchemes null `
- -DimensionSchema null
+ -DimensionSchema null `
+ -FormDefinitionId 78258e80-e9e2-4e1a-a11f-ce0b7c62f25d
 ```
 
 - Convert the resource to JSON

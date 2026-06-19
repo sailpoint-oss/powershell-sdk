@@ -5,7 +5,7 @@ pagination_label: Accessrequestdynamicapprover
 sidebar_label: Accessrequestdynamicapprover
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accessrequestdynamicapprover', 'Accessrequestdynamicapprover'] 
-slug: /tools/sdk/powershell/triggersv1/models/accessrequestdynamicapprover
+slug: /tools/sdk/powershell/triggers/models/accessrequestdynamicapprover
 tags: ['SDK', 'Software Development Kit', 'Accessrequestdynamicapprover', 'Accessrequestdynamicapprover']
 ---
 

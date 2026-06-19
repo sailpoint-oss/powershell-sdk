@@ -30,7 +30,7 @@ function Initialize-Previewdatasourceresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomFormsV1 => Previewdatasourceresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomForms => Previewdatasourceresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToPreviewdatasourceresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomFormsV1 => Previewdatasourceresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomForms => Previewdatasourceresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

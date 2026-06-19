@@ -5,7 +5,7 @@ pagination_label: ListIdentitySnapshotAccessItemsV1200ResponseInner
 sidebar_label: ListIdentitySnapshotAccessItemsV1200ResponseInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ListIdentitySnapshotAccessItemsV1200ResponseInner', 'ListIdentitySnapshotAccessItemsV1200ResponseInner'] 
-slug: /tools/sdk/powershell/identityhistoryv1/models/list-identity-snapshot-access-items-v1200-response-inner
+slug: /tools/sdk/powershell/identityhistory/models/list-identity-snapshot-access-items-v1200-response-inner
 tags: ['SDK', 'Software Development Kit', 'ListIdentitySnapshotAccessItemsV1200ResponseInner', 'ListIdentitySnapshotAccessItemsV1200ResponseInner']
 ---
 

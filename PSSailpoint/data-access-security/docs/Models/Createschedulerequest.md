@@ -5,7 +5,7 @@ pagination_label: Createschedulerequest
 sidebar_label: Createschedulerequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Createschedulerequest', 'Createschedulerequest'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/createschedulerequest
+slug: /tools/sdk/powershell/dataaccesssecurity/models/createschedulerequest
 tags: ['SDK', 'Software Development Kit', 'Createschedulerequest', 'Createschedulerequest']
 ---
 

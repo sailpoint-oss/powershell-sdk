@@ -45,7 +45,7 @@ function Initialize-Auditdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.WorkReassignmentV1 => Auditdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.WorkReassignment => Auditdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToAuditdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.WorkReassignmentV1 => Auditdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.WorkReassignment => Auditdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

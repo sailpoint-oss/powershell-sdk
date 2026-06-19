@@ -5,7 +5,7 @@ pagination_label: Patowner
 sidebar_label: Patowner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Patowner', 'Patowner'] 
-slug: /tools/sdk/powershell/personalaccesstokensv1/models/patowner
+slug: /tools/sdk/powershell/personalaccesstokens/models/patowner
 tags: ['SDK', 'Software Development Kit', 'Patowner', 'Patowner']
 ---
 

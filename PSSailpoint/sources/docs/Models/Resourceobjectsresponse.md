@@ -5,7 +5,7 @@ pagination_label: Resourceobjectsresponse
 sidebar_label: Resourceobjectsresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Resourceobjectsresponse', 'Resourceobjectsresponse'] 
-slug: /tools/sdk/powershell/sourcesv1/models/resourceobjectsresponse
+slug: /tools/sdk/powershell/sources/models/resourceobjectsresponse
 tags: ['SDK', 'Software Development Kit', 'Resourceobjectsresponse', 'Resourceobjectsresponse']
 ---
 

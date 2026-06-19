@@ -50,7 +50,7 @@ function Initialize-Parameterstorageupdateparameter {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ParameterStorageV1 => Parameterstorageupdateparameter' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ParameterStorage => Parameterstorageupdateparameter' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -90,7 +90,7 @@ function ConvertFrom-JsonToParameterstorageupdateparameter {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ParameterStorageV1 => Parameterstorageupdateparameter' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ParameterStorage => Parameterstorageupdateparameter' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

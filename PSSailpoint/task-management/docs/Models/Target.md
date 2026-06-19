@@ -5,7 +5,7 @@ pagination_label: Target
 sidebar_label: Target
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Target', 'Target'] 
-slug: /tools/sdk/powershell/taskmanagementv1/models/target
+slug: /tools/sdk/powershell/taskmanagement/models/target
 tags: ['SDK', 'Software Development Kit', 'Target', 'Target']
 ---
 

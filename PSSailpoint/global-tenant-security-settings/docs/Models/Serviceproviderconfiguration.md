@@ -5,7 +5,7 @@ pagination_label: Serviceproviderconfiguration
 sidebar_label: Serviceproviderconfiguration
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Serviceproviderconfiguration', 'Serviceproviderconfiguration'] 
-slug: /tools/sdk/powershell/globaltenantsecuritysettingsv1/models/serviceproviderconfiguration
+slug: /tools/sdk/powershell/globaltenantsecuritysettings/models/serviceproviderconfiguration
 tags: ['SDK', 'Software Development Kit', 'Serviceproviderconfiguration', 'Serviceproviderconfiguration']
 ---
 

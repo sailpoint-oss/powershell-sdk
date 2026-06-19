@@ -41,7 +41,7 @@ function Initialize-AccountattributeschangedIdentity {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => AccountattributeschangedIdentity' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => AccountattributeschangedIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -91,7 +91,7 @@ function ConvertFrom-JsonToAccountattributeschangedIdentity {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => AccountattributeschangedIdentity' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => AccountattributeschangedIdentity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

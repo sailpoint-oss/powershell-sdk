@@ -5,7 +5,7 @@ pagination_label: GovernanceGroups
 sidebar_label: GovernanceGroups
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GovernanceGroups', 'GovernanceGroups'] 
-slug: /tools/sdk/powershell/governancegroupsv1/methods/governance-groups
+slug: /tools/sdk/powershell/governancegroups/methods/governance-groups
 tags: ['SDK', 'Software Development Kit', 'GovernanceGroups', 'GovernanceGroups']
 ---
 
@@ -114,7 +114,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-$BulkworkgroupmembersrequestInner = Initialize-BulkworkgroupmembersrequestInner -Type "IDENTITY" -Id "2c7180a46faadee4016fb4e018c20642" -Name "Michael Michaels" # BulkworkgroupmembersrequestInner[] | List of identities to be removed from  a Governance Group members list.
  $BulkworkgroupmembersrequestInner = @""@ # BulkworkgroupmembersrequestInner[] | List of identities to be removed from  a Governance Group members list.
  
 
@@ -422,7 +421,7 @@ Code | Description  | Data Type
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = "name sw "Test"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, sw, in*  **memberships.identityId**: *eq, in* (optional)
+$Filters = 'name sw "Test"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, sw, in*  **memberships.identityId**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, description** (optional)
 
 # List governance groups
@@ -473,8 +472,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] |  (optional)
  $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Governance Group new description."}]"@ # Jsonpatchoperation[] |  (optional)
  
 
@@ -527,7 +524,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
-$BulkworkgroupmembersrequestInner = Initialize-BulkworkgroupmembersrequestInner -Type "IDENTITY" -Id "2c7180a46faadee4016fb4e018c20642" -Name "Michael Michaels" # BulkworkgroupmembersrequestInner[] | List of identities to be added to a Governance Group members list.
  $BulkworkgroupmembersrequestInner = @""@ # BulkworkgroupmembersrequestInner[] | List of identities to be added to a Governance Group members list.
  
 

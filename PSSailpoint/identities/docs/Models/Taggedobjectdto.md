@@ -5,7 +5,7 @@ pagination_label: Taggedobjectdto
 sidebar_label: Taggedobjectdto
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Taggedobjectdto', 'Taggedobjectdto'] 
-slug: /tools/sdk/powershell/identitiesv1/models/taggedobjectdto
+slug: /tools/sdk/powershell/identities/models/taggedobjectdto
 tags: ['SDK', 'Software Development Kit', 'Taggedobjectdto', 'Taggedobjectdto']
 ---
 

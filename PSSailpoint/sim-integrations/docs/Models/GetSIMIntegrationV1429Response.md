@@ -5,7 +5,7 @@ pagination_label: GetSIMIntegrationV1429Response
 sidebar_label: GetSIMIntegrationV1429Response
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'GetSIMIntegrationV1429Response', 'GetSIMIntegrationV1429Response'] 
-slug: /tools/sdk/powershell/simintegrationsv1/models/get-sim-integration-v1429-response
+slug: /tools/sdk/powershell/simintegrations/models/get-sim-integration-v1429-response
 tags: ['SDK', 'Software Development Kit', 'GetSIMIntegrationV1429Response', 'GetSIMIntegrationV1429Response']
 ---
 
@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetSIMIntegrationV1429Response', 'Get
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | [**AnyType**](any-type) | A message describing the error | [optional] 
+**Message** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
 
 ## Examples
 

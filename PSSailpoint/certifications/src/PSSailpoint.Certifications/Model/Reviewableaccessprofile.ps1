@@ -75,7 +75,7 @@ function Initialize-Reviewableaccessprofile {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => Reviewableaccessprofile' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => Reviewableaccessprofile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -120,7 +120,7 @@ function ConvertFrom-JsonToReviewableaccessprofile {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => Reviewableaccessprofile' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => Reviewableaccessprofile' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -5,7 +5,7 @@ pagination_label: AccessModelMetadata
 sidebar_label: AccessModelMetadata
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'AccessModelMetadata', 'AccessModelMetadata'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/methods/access-model-metadata
+slug: /tools/sdk/powershell/accessmodelmetadata/methods/access-model-metadata
 tags: ['SDK', 'Software Development Kit', 'AccessModelMetadata', 'AccessModelMetadata']
 ---
 
@@ -264,7 +264,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Filters = "name eq "Privacy"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
+$Filters = 'name eq "Privacy"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
 $Sorters = "name,-key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -367,8 +367,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | JSON Patch array to apply
  $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | JSON Patch array to apply
  
 
@@ -423,8 +421,6 @@ Code | Description  | Data Type
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
 $Value = "public" # String | Technical name of the Attribute value.
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | JSON Patch array to apply
  $Jsonpatchoperation = @""@ # Jsonpatchoperation[] | JSON Patch array to apply
  
 

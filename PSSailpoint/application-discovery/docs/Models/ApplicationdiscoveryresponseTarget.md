@@ -5,7 +5,7 @@ pagination_label: ApplicationdiscoveryresponseTarget
 sidebar_label: ApplicationdiscoveryresponseTarget
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ApplicationdiscoveryresponseTarget', 'ApplicationdiscoveryresponseTarget'] 
-slug: /tools/sdk/powershell/applicationdiscoveryv1/models/applicationdiscoveryresponse-target
+slug: /tools/sdk/powershell/applicationdiscovery/models/applicationdiscoveryresponse-target
 tags: ['SDK', 'Software Development Kit', 'ApplicationdiscoveryresponseTarget', 'ApplicationdiscoveryresponseTarget']
 ---
 

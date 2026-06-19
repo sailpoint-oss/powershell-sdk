@@ -30,7 +30,7 @@ function Initialize-StartApplicationDiscoveryV1403ResponseOneOf {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => StartApplicationDiscoveryV1403ResponseOneOf' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ApplicationDiscovery => StartApplicationDiscoveryV1403ResponseOneOf' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$VarError) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToStartApplicationDiscoveryV1403ResponseOneOf {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscoveryV1 => StartApplicationDiscoveryV1403ResponseOneOf' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ApplicationDiscovery => StartApplicationDiscoveryV1403ResponseOneOf' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

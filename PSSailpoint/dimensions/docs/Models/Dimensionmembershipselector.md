@@ -5,7 +5,7 @@ pagination_label: Dimensionmembershipselector
 sidebar_label: Dimensionmembershipselector
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Dimensionmembershipselector', 'Dimensionmembershipselector'] 
-slug: /tools/sdk/powershell/dimensionsv1/models/dimensionmembershipselector
+slug: /tools/sdk/powershell/dimensions/models/dimensionmembershipselector
 tags: ['SDK', 'Software Development Kit', 'Dimensionmembershipselector', 'Dimensionmembershipselector']
 ---
 

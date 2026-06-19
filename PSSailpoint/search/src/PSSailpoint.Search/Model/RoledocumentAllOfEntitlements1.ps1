@@ -75,7 +75,7 @@ function Initialize-RoledocumentAllOfEntitlements1 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => RoledocumentAllOfEntitlements1' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => RoledocumentAllOfEntitlements1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -120,7 +120,7 @@ function ConvertFrom-JsonToRoledocumentAllOfEntitlements1 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => RoledocumentAllOfEntitlements1' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => RoledocumentAllOfEntitlements1' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

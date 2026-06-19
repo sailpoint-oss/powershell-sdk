@@ -35,7 +35,7 @@ function Initialize-Approvaldescription {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ApprovalsV1 => Approvaldescription' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Approvals => Approvaldescription' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToApprovaldescription {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ApprovalsV1 => Approvaldescription' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Approvals => Approvaldescription' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

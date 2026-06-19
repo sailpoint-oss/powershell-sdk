@@ -5,7 +5,7 @@ pagination_label: OrgConfig
 sidebar_label: OrgConfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'OrgConfig', 'OrgConfig'] 
-slug: /tools/sdk/powershell/orgconfigv1/methods/org-config
+slug: /tools/sdk/powershell/orgconfig/methods/org-config
 tags: ['SDK', 'Software Development Kit', 'OrgConfig', 'OrgConfig']
 ---
 
@@ -152,8 +152,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue # Jsonpatchoperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  $Jsonpatchoperation = @"[{"op":"replace","path":"/timeZone","value":"America/Toronto"}]"@ # Jsonpatchoperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 

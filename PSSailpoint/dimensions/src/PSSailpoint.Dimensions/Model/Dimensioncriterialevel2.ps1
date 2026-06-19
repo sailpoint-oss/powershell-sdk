@@ -46,7 +46,7 @@ function Initialize-Dimensioncriterialevel2 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DimensionsV1 => Dimensioncriterialevel2' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Dimensions => Dimensioncriterialevel2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToDimensioncriterialevel2 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DimensionsV1 => Dimensioncriterialevel2' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Dimensions => Dimensioncriterialevel2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -35,7 +35,7 @@ function Initialize-Reference {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => Reference' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => Reference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToReference {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => Reference' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => Reference' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

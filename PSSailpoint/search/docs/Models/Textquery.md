@@ -5,7 +5,7 @@ pagination_label: Textquery
 sidebar_label: Textquery
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Textquery', 'Textquery'] 
-slug: /tools/sdk/powershell/searchv1/models/textquery
+slug: /tools/sdk/powershell/search/models/textquery
 tags: ['SDK', 'Software Development Kit', 'Textquery', 'Textquery']
 ---
 

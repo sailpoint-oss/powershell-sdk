@@ -47,7 +47,7 @@ function Initialize-Entitlementattributebulkupdatefilterrequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Entitlementattributebulkupdatefilterrequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccessModelMetadata => Entitlementattributebulkupdatefilterrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToEntitlementattributebulkupdatefilterrequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadataV1 => Entitlementattributebulkupdatefilterrequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccessModelMetadata => Entitlementattributebulkupdatefilterrequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

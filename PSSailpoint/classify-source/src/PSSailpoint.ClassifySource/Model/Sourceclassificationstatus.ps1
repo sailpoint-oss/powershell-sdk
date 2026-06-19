@@ -46,7 +46,7 @@ function Initialize-Sourceclassificationstatus {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ClassifySourceV1 => Sourceclassificationstatus' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ClassifySource => Sourceclassificationstatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -85,7 +85,7 @@ function ConvertFrom-JsonToSourceclassificationstatus {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ClassifySourceV1 => Sourceclassificationstatus' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ClassifySource => Sourceclassificationstatus' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -41,7 +41,7 @@ function Initialize-ScheduleDays {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ScheduledSearchV1 => ScheduleDays' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ScheduledSearch => ScheduleDays' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Type) {
@@ -87,7 +87,7 @@ function ConvertFrom-JsonToScheduleDays {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ScheduledSearchV1 => ScheduleDays' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ScheduledSearch => ScheduleDays' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

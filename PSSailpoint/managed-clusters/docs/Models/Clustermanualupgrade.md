@@ -5,7 +5,7 @@ pagination_label: Clustermanualupgrade
 sidebar_label: Clustermanualupgrade
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Clustermanualupgrade', 'Clustermanualupgrade'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/clustermanualupgrade
+slug: /tools/sdk/powershell/managedclusters/models/clustermanualupgrade
 tags: ['SDK', 'Software Development Kit', 'Clustermanualupgrade', 'Clustermanualupgrade']
 ---
 

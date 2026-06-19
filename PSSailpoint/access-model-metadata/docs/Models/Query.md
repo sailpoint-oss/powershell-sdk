@@ -5,7 +5,7 @@ pagination_label: Query
 sidebar_label: Query
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Query', 'Query'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/query
+slug: /tools/sdk/powershell/accessmodelmetadata/models/query
 tags: ['SDK', 'Software Development Kit', 'Query', 'Query']
 ---
 

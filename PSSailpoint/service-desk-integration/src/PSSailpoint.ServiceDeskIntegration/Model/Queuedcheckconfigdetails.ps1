@@ -35,7 +35,7 @@ function Initialize-Queuedcheckconfigdetails {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ServiceDeskIntegrationV1 => Queuedcheckconfigdetails' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ServiceDeskIntegration => Queuedcheckconfigdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$ProvisioningStatusCheckIntervalMinutes) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToQueuedcheckconfigdetails {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ServiceDeskIntegrationV1 => Queuedcheckconfigdetails' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ServiceDeskIntegration => Queuedcheckconfigdetails' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

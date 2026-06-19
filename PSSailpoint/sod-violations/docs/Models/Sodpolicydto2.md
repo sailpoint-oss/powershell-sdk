@@ -5,7 +5,7 @@ pagination_label: Sodpolicydto2
 sidebar_label: Sodpolicydto2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sodpolicydto2', 'Sodpolicydto2'] 
-slug: /tools/sdk/powershell/sodviolationsv1/models/sodpolicydto2
+slug: /tools/sdk/powershell/sodviolations/models/sodpolicydto2
 tags: ['SDK', 'Software Development Kit', 'Sodpolicydto2', 'Sodpolicydto2']
 ---
 

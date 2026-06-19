@@ -35,7 +35,7 @@ function Initialize-IdentityLifecycleState {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => IdentityLifecycleState' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => IdentityLifecycleState' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$StateName) {
@@ -80,7 +80,7 @@ function ConvertFrom-JsonToIdentityLifecycleState {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => IdentityLifecycleState' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => IdentityLifecycleState' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

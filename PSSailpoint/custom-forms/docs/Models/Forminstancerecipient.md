@@ -5,7 +5,7 @@ pagination_label: Forminstancerecipient
 sidebar_label: Forminstancerecipient
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Forminstancerecipient', 'Forminstancerecipient'] 
-slug: /tools/sdk/powershell/customformsv1/models/forminstancerecipient
+slug: /tools/sdk/powershell/customforms/models/forminstancerecipient
 tags: ['SDK', 'Software Development Kit', 'Forminstancerecipient', 'Forminstancerecipient']
 ---
 

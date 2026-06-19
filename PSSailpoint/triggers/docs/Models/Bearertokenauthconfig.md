@@ -5,7 +5,7 @@ pagination_label: Bearertokenauthconfig
 sidebar_label: Bearertokenauthconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Bearertokenauthconfig', 'Bearertokenauthconfig'] 
-slug: /tools/sdk/powershell/triggersv1/models/bearertokenauthconfig
+slug: /tools/sdk/powershell/triggers/models/bearertokenauthconfig
 tags: ['SDK', 'Software Development Kit', 'Bearertokenauthconfig', 'Bearertokenauthconfig']
 ---
 

@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/servicedeskintegrationv1/methods/service-desk-integration#create-service-desk-integration-v1
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#create-service-desk-integration-v1
       source: |
         $Servicedeskintegrationdto = @"
         
@@ -24,7 +24,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/servicedeskintegrationv1/methods/service-desk-integration#delete-service-desk-integration-v1
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#delete-service-desk-integration-v1
       source: |
         $Id = "anId" # String | ID of Service Desk integration to delete
         
@@ -43,7 +43,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/servicedeskintegrationv1/methods/service-desk-integration#get-service-desk-integration-template-v1
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#get-service-desk-integration-template-v1
       source: |
         $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk integration template to get
         
@@ -62,7 +62,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/servicedeskintegrationv1/methods/service-desk-integration#get-service-desk-integration-types-v1
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#get-service-desk-integration-types-v1
       source: |
         
         # List service desk integration types
@@ -80,7 +80,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/servicedeskintegrationv1/methods/service-desk-integration#get-service-desk-integration-v1
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#get-service-desk-integration-v1
       source: |
         $Id = "anId" # String | ID of the Service Desk integration to get
         
@@ -99,7 +99,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/servicedeskintegrationv1/methods/service-desk-integration#get-service-desk-integrations-v1
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#get-service-desk-integrations-v1
       source: |
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -122,7 +122,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/servicedeskintegrationv1/methods/service-desk-integration#get-status-check-details-v1
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#get-status-check-details-v1
       source: |
         
         # Get the time check configuration
@@ -140,11 +140,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/servicedeskintegrationv1/methods/service-desk-integration#patch-service-desk-integration-v1
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#patch-service-desk-integration-v1
       source: |
         $Id = "anId" # String | ID of the Service Desk integration to update
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
         $Jsonpatchoperation = @""@ 
         
         
@@ -164,7 +162,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/servicedeskintegrationv1/methods/service-desk-integration#put-service-desk-integration-v1
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#put-service-desk-integration-v1
       source: |
         $Id = "anId" # String | ID of the Service Desk integration to update
         $Servicedeskintegrationdto = @"
@@ -187,7 +185,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/servicedeskintegrationv1/methods/service-desk-integration#update-status-check-details-v1
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#update-status-check-details-v1
       source: |
         $Queuedcheckconfigdetails = @"
         

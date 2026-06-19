@@ -5,7 +5,7 @@ pagination_label: Autowritesettingresponse
 sidebar_label: Autowritesettingresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Autowritesettingresponse', 'Autowritesettingresponse'] 
-slug: /tools/sdk/powershell/suggestedentitlementdescriptionv1/models/autowritesettingresponse
+slug: /tools/sdk/powershell/suggestedentitlementdescription/models/autowritesettingresponse
 tags: ['SDK', 'Software Development Kit', 'Autowritesettingresponse', 'Autowritesettingresponse']
 ---
 

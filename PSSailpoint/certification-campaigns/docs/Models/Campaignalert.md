@@ -5,7 +5,7 @@ pagination_label: Campaignalert
 sidebar_label: Campaignalert
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Campaignalert', 'Campaignalert'] 
-slug: /tools/sdk/powershell/certificationcampaignsv1/models/campaignalert
+slug: /tools/sdk/powershell/certificationcampaigns/models/campaignalert
 tags: ['SDK', 'Software Development Kit', 'Campaignalert', 'Campaignalert']
 ---
 

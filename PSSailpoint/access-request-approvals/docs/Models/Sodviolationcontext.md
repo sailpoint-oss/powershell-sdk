@@ -5,7 +5,7 @@ pagination_label: Sodviolationcontext
 sidebar_label: Sodviolationcontext
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Sodviolationcontext', 'Sodviolationcontext'] 
-slug: /tools/sdk/powershell/accessrequestapprovalsv1/models/sodviolationcontext
+slug: /tools/sdk/powershell/accessrequestapprovals/models/sodviolationcontext
 tags: ['SDK', 'Software Development Kit', 'Sodviolationcontext', 'Sodviolationcontext']
 ---
 

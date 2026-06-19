@@ -5,7 +5,7 @@ pagination_label: Configtypeenumcamel
 sidebar_label: Configtypeenumcamel
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Configtypeenumcamel', 'Configtypeenumcamel'] 
-slug: /tools/sdk/powershell/workreassignmentv1/models/configtypeenumcamel
+slug: /tools/sdk/powershell/workreassignment/models/configtypeenumcamel
 tags: ['SDK', 'Software Development Kit', 'Configtypeenumcamel', 'Configtypeenumcamel']
 ---
 

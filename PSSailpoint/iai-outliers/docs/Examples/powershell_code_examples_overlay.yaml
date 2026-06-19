@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#export-outliers-zip-v1
+      label: SDK_tools/sdk/powershell/iaioutliers/methods/iai-outliers#export-outliers-zip-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
@@ -22,7 +22,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#get-identity-outlier-snapshots-v1
+      label: SDK_tools/sdk/powershell/iaioutliers/methods/iai-outliers#get-identity-outlier-snapshots-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -46,7 +46,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#get-identity-outliers-v1
+      label: SDK_tools/sdk/powershell/iaioutliers/methods/iai-outliers#get-identity-outliers-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -71,7 +71,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#get-latest-identity-outlier-snapshots-v1
+      label: SDK_tools/sdk/powershell/iaioutliers/methods/iai-outliers#get-latest-identity-outlier-snapshots-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
@@ -91,7 +91,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#get-outlier-contributing-feature-summary-v1
+      label: SDK_tools/sdk/powershell/iaioutliers/methods/iai-outliers#get-outlier-contributing-feature-summary-v1
       source: |
         $OutlierFeatureId = "04654b66-7561-4090-94f9-abee0722a1af" # String | Contributing feature id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -111,7 +111,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#get-peer-group-outliers-contributing-features-v1
+      label: SDK_tools/sdk/powershell/iaioutliers/methods/iai-outliers#get-peer-group-outliers-contributing-features-v1
       source: |
         $OutlierId = "2c918085842e69ae018432d22ccb212f" # String | The outlier id
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
@@ -136,7 +136,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#ignore-identity-outliers-v1
+      label: SDK_tools/sdk/powershell/iaioutliers/methods/iai-outliers#ignore-identity-outliers-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $RequestBody = "MyRequestBody" # String[] | 
@@ -159,7 +159,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#list-outliers-contributing-feature-access-items-v1
+      label: SDK_tools/sdk/powershell/iaioutliers/methods/iai-outliers#list-outliers-contributing-feature-access-items-v1
       source: |
         $OutlierId = "2c918085842e69ae018432d22ccb212f" # String | The outlier id
         $ContributingFeatureName = "radical_entitlement_count" # String | The name of contributing feature
@@ -185,7 +185,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/iaioutliersv1/methods/iai-outliers#un-ignore-identity-outliers-v1
+      label: SDK_tools/sdk/powershell/iaioutliers/methods/iai-outliers#un-ignore-identity-outliers-v1
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $RequestBody = "MyRequestBody" # String[] | 

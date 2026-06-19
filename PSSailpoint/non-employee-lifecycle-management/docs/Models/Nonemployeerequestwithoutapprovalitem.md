@@ -5,7 +5,7 @@ pagination_label: Nonemployeerequestwithoutapprovalitem
 sidebar_label: Nonemployeerequestwithoutapprovalitem
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Nonemployeerequestwithoutapprovalitem', 'Nonemployeerequestwithoutapprovalitem'] 
-slug: /tools/sdk/powershell/nonemployeelifecyclemanagementv1/models/nonemployeerequestwithoutapprovalitem
+slug: /tools/sdk/powershell/nonemployeelifecyclemanagement/models/nonemployeerequestwithoutapprovalitem
 tags: ['SDK', 'Software Development Kit', 'Nonemployeerequestwithoutapprovalitem', 'Nonemployeerequestwithoutapprovalitem']
 ---
 

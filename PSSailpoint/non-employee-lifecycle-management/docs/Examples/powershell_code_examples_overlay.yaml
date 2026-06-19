@@ -2,7 +2,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#approve-non-employee-request-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#approve-non-employee-request-v1
       source: |
         $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
         $Nonemployeeapprovaldecision = @"
@@ -25,7 +25,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#create-non-employee-record-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#create-non-employee-record-v1
       source: |
         $Nonemployeerequestbody = @"
         
@@ -47,7 +47,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#create-non-employee-request-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#create-non-employee-request-v1
       source: |
         $Nonemployeerequestbody = @"
         
@@ -69,7 +69,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#create-non-employee-source-schema-attributes-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#create-non-employee-source-schema-attributes-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
         $Nonemployeeschemaattributebody = @"
@@ -92,7 +92,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#create-non-employee-source-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#create-non-employee-source-v1
       source: |
         $Nonemployeesourcerequestbody = @"
         
@@ -114,7 +114,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#delete-non-employee-record-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#delete-non-employee-record-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID)
         
@@ -133,7 +133,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#delete-non-employee-records-in-bulk-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#delete-non-employee-records-in-bulk-v1
       source: |
         $DeleteNonEmployeeRecordsInBulkV1Request = @"
         
@@ -155,7 +155,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#delete-non-employee-request-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#delete-non-employee-request-v1
       source: |
         $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id in the UUID format
         
@@ -174,7 +174,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#delete-non-employee-schema-attribute-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#delete-non-employee-schema-attribute-v1
       source: |
         $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
@@ -194,7 +194,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#delete-non-employee-source-schema-attributes-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#delete-non-employee-source-schema-attributes-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
         
@@ -213,7 +213,7 @@
   method: DELETE
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#delete-non-employee-source-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#delete-non-employee-source-v1
       source: |
         $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
         
@@ -232,7 +232,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#export-non-employee-records-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#export-non-employee-records-v1
       source: |
         $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
         
@@ -251,7 +251,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#export-non-employee-source-schema-template-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#export-non-employee-source-schema-template-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id (UUID)
         
@@ -270,7 +270,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#get-non-employee-approval-summary-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-approval-summary-v1
       source: |
         $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
         
@@ -289,7 +289,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#get-non-employee-approval-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-approval-v1
       source: |
         $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
         $IncludeDetail = $true # Boolean | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional)
@@ -309,7 +309,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#get-non-employee-bulk-upload-status-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-bulk-upload-status-v1
       source: |
         $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source ID (UUID)
         
@@ -328,7 +328,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#get-non-employee-record-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-record-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID)
         
@@ -347,7 +347,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#get-non-employee-request-summary-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-request-summary-v1
       source: |
         $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
         
@@ -366,7 +366,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#get-non-employee-request-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-request-v1
       source: |
         $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id (UUID)
         
@@ -385,7 +385,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#get-non-employee-schema-attribute-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-schema-attribute-v1
       source: |
         $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
@@ -405,7 +405,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#get-non-employee-source-schema-attributes-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-source-schema-attributes-v1
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
         
@@ -424,7 +424,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#get-non-employee-source-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-source-v1
       source: |
         $SourceId = "2c91808b7c28b350017c2a2ec5790aa1" # String | Source Id
         
@@ -443,7 +443,7 @@
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#import-non-employee-records-in-bulk-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#import-non-employee-records-in-bulk-v1
       source: |
         $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
         $Data =  # System.IO.FileInfo | 
@@ -463,7 +463,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#list-non-employee-approvals-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#list-non-employee-approvals-v1
       source: |
         $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity for whom the request was made. *me* indicates the current user. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -487,7 +487,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#list-non-employee-records-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#list-non-employee-records-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -510,7 +510,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#list-non-employee-requests-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#list-non-employee-requests-v1
       source: |
         $RequestedFor = "e136567de87e4d029e60b3c3c55db56d" # String | The identity for whom the request was made. *me* indicates the current user.
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -534,7 +534,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#list-non-employee-sources-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#list-non-employee-sources-v1
       source: |
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -558,11 +558,9 @@
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#patch-non-employee-record-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#patch-non-employee-record-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID)
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
         $Jsonpatchoperation = @"[{"op":"replace","path":"/endDate","value":"2019-08-23T18:40:35.772Z"}]"@ 
         
         
@@ -582,12 +580,10 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#patch-non-employee-schema-attribute-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#patch-non-employee-schema-attribute-v1
       source: |
         $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
         $Jsonpatchoperation = @"[{"op":"replace","path":"/label","value":{"new attribute label":null}}]"@ 
         
         
@@ -607,11 +603,9 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PATCH
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#patch-non-employee-source-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#patch-non-employee-source-v1
       source: |
         $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
-        $JsonpatchoperationValue = Initialize-JsonpatchoperationValue 
-$Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/description" -Value $JsonpatchoperationValue# Jsonpatchoperation[] | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
         $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":{"new name":null}},{"op":"replace","path":"/approvers","value":["2c91809f703bb37a017040a2fe8748c7","48b1f463c9e8427db5a5071bd81914b8"]}]"@ 
         
         
@@ -631,7 +625,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: POST
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#reject-non-employee-request-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#reject-non-employee-request-v1
       source: |
         $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
         $Nonemployeerejectapprovaldecision = @"
@@ -654,7 +648,7 @@ $Jsonpatchoperation = Initialize-Jsonpatchoperation -Op "add" -Path "/descriptio
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagementv1/methods/non-employee-lifecycle-management#update-non-employee-record-v1
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#update-non-employee-record-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID)
         $Nonemployeerequestbody = @"

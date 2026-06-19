@@ -5,7 +5,7 @@ pagination_label: Workflowexecution
 sidebar_label: Workflowexecution
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workflowexecution', 'Workflowexecution'] 
-slug: /tools/sdk/powershell/workflowsv1/models/workflowexecution
+slug: /tools/sdk/powershell/workflows/models/workflowexecution
 tags: ['SDK', 'Software Development Kit', 'Workflowexecution', 'Workflowexecution']
 ---
 

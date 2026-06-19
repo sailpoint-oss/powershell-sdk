@@ -40,7 +40,7 @@ function Initialize-MachineidentityupdatedUserEntitlementChanges {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => MachineidentityupdatedUserEntitlementChanges' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => MachineidentityupdatedUserEntitlementChanges' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToMachineidentityupdatedUserEntitlementChanges {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => MachineidentityupdatedUserEntitlementChanges' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => MachineidentityupdatedUserEntitlementChanges' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

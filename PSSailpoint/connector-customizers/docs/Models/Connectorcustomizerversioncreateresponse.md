@@ -5,7 +5,7 @@ pagination_label: Connectorcustomizerversioncreateresponse
 sidebar_label: Connectorcustomizerversioncreateresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Connectorcustomizerversioncreateresponse', 'Connectorcustomizerversioncreateresponse'] 
-slug: /tools/sdk/powershell/connectorcustomizersv1/models/connectorcustomizerversioncreateresponse
+slug: /tools/sdk/powershell/connectorcustomizers/models/connectorcustomizerversioncreateresponse
 tags: ['SDK', 'Software Development Kit', 'Connectorcustomizerversioncreateresponse', 'Connectorcustomizerversioncreateresponse']
 ---
 

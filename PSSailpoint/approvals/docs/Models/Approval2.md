@@ -5,7 +5,7 @@ pagination_label: Approval2
 sidebar_label: Approval2
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approval2', 'Approval2'] 
-slug: /tools/sdk/powershell/approvalsv1/models/approval2
+slug: /tools/sdk/powershell/approvals/models/approval2
 tags: ['SDK', 'Software Development Kit', 'Approval2', 'Approval2']
 ---
 
@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 **AdditionalAttributes** | **String** | Json string representing additional attributes known about the object to be approved. | [optional] 
 **ReferenceData** | [**[]Approvalreference**](approvalreference) | Reference data related to the approval | [optional] 
 **ReassignmentHistory** | [**[]Approvalreassignmenthistory**](approvalreassignmenthistory) | History of whom the approval request was assigned to | [optional] 
-**StaticAttributes** | [**map[string]AnyType**](any-type) | Field that can include any static additional info that may be needed by the service that the approval request originated from | [optional] 
+**StaticAttributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Field that can include any static additional info that may be needed by the service that the approval request originated from | [optional] 
 **ModifiedDate** | **System.DateTime** | Date/time that the approval request was last updated | [optional] 
 **RequestedTarget** | [**[]Approvalrequestedtarget**](approvalrequestedtarget) | RequestedTarget used to specify the actual object or target the approval request is for | [optional] 
 

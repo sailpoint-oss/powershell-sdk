@@ -5,7 +5,7 @@ pagination_label: Innerhit
 sidebar_label: Innerhit
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Innerhit', 'Innerhit'] 
-slug: /tools/sdk/powershell/accessmodelmetadatav1/models/innerhit
+slug: /tools/sdk/powershell/accessmodelmetadata/models/innerhit
 tags: ['SDK', 'Software Development Kit', 'Innerhit', 'Innerhit']
 ---
 

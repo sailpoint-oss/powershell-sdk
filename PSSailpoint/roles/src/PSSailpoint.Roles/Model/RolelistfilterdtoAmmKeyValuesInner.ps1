@@ -35,7 +35,7 @@ function Initialize-RolelistfilterdtoAmmKeyValuesInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.RolesV1 => RolelistfilterdtoAmmKeyValuesInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Roles => RolelistfilterdtoAmmKeyValuesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToRolelistfilterdtoAmmKeyValuesInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.RolesV1 => RolelistfilterdtoAmmKeyValuesInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Roles => RolelistfilterdtoAmmKeyValuesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

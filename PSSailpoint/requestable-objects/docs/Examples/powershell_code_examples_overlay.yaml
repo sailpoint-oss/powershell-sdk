@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/requestableobjectsv1/methods/requestable-objects#list-requestable-objects-v1
+      label: SDK_tools/sdk/powershell/requestableobjects/methods/requestable-objects#list-requestable-objects-v1
       source: |
         $IdentityId = "e7eab60924f64aa284175b9fa3309599" # String | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result. (optional)
         $Types = "ACCESS_PROFILE" # String[] | Filters the results to the specified type/types, where each type is one of `ROLE` or `ACCESS_PROFILE`. If absent, all types are returned. SailPoint may add support for additional types in the future without notice. (optional)

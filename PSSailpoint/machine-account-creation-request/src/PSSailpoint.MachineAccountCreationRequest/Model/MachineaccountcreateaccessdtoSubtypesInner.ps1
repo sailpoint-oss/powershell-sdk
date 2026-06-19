@@ -45,7 +45,7 @@ function Initialize-MachineaccountcreateaccessdtoSubtypesInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineAccountCreationRequestV1 => MachineaccountcreateaccessdtoSubtypesInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineAccountCreationRequest => MachineaccountcreateaccessdtoSubtypesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToMachineaccountcreateaccessdtoSubtypesInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountCreationRequestV1 => MachineaccountcreateaccessdtoSubtypesInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineAccountCreationRequest => MachineaccountcreateaccessdtoSubtypesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

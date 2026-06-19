@@ -40,7 +40,7 @@ function Initialize-Completeinvocation {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Completeinvocation' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Completeinvocation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Secret) {
@@ -86,7 +86,7 @@ function ConvertFrom-JsonToCompleteinvocation {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Completeinvocation' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Completeinvocation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -30,7 +30,7 @@ function Initialize-GetAccountDeletionRequestsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AccountDeletionRequestsV1 => GetAccountDeletionRequestsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.AccountDeletionRequests => GetAccountDeletionRequestsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetAccountDeletionRequestsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AccountDeletionRequestsV1 => GetAccountDeletionRequestsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.AccountDeletionRequests => GetAccountDeletionRequestsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

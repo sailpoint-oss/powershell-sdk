@@ -77,7 +77,7 @@ function Initialize-Launcher {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.LaunchersV1 => Launcher' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Launchers => Launcher' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Id) {
@@ -158,7 +158,7 @@ function ConvertFrom-JsonToLauncher {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.LaunchersV1 => Launcher' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Launchers => Launcher' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

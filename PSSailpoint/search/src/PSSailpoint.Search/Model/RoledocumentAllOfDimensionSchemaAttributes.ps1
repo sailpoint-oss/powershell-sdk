@@ -40,7 +40,7 @@ function Initialize-RoledocumentAllOfDimensionSchemaAttributes {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SearchV1 => RoledocumentAllOfDimensionSchemaAttributes' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Search => RoledocumentAllOfDimensionSchemaAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -78,7 +78,7 @@ function ConvertFrom-JsonToRoledocumentAllOfDimensionSchemaAttributes {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SearchV1 => RoledocumentAllOfDimensionSchemaAttributes' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Search => RoledocumentAllOfDimensionSchemaAttributes' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

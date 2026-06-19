@@ -5,7 +5,7 @@ pagination_label: Workflowlibraryaction
 sidebar_label: Workflowlibraryaction
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Workflowlibraryaction', 'Workflowlibraryaction'] 
-slug: /tools/sdk/powershell/workflowsv1/models/workflowlibraryaction
+slug: /tools/sdk/powershell/workflows/models/workflowlibraryaction
 tags: ['SDK', 'Software Development Kit', 'Workflowlibraryaction', 'Workflowlibraryaction']
 ---
 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **VersionNumber** | **Int32** | Version number | [optional] 
 **IsSimulationEnabled** | **Boolean** |  | [optional] 
 **IsDynamicSchema** | **Boolean** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] [default to $false]
-**OutputSchema** | [**SystemCollectionsHashtable**](system-collections-hashtable) | Defines the output schema, if any, that this action produces. | [optional] 
+**OutputSchema** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Defines the output schema, if any, that this action produces. | [optional] 
 
 ## Examples
 

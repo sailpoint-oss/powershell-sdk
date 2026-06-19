@@ -5,7 +5,7 @@ pagination_label: DataSegment
 sidebar_label: DataSegment
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'DataSegment', 'DataSegment'] 
-slug: /tools/sdk/powershell/datasegmentationv1/models/data-segment
+slug: /tools/sdk/powershell/datasegmentation/models/data-segment
 tags: ['SDK', 'Software Development Kit', 'DataSegment', 'DataSegment']
 ---
 

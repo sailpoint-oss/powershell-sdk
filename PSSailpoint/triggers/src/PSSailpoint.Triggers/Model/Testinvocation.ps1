@@ -45,7 +45,7 @@ function Initialize-Testinvocation {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => Testinvocation' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => Testinvocation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$TriggerId) {
@@ -92,7 +92,7 @@ function ConvertFrom-JsonToTestinvocation {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => Testinvocation' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => Testinvocation' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

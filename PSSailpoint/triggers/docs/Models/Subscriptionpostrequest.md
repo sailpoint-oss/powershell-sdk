@@ -5,7 +5,7 @@ pagination_label: Subscriptionpostrequest
 sidebar_label: Subscriptionpostrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Subscriptionpostrequest', 'Subscriptionpostrequest'] 
-slug: /tools/sdk/powershell/triggersv1/models/subscriptionpostrequest
+slug: /tools/sdk/powershell/triggers/models/subscriptionpostrequest
 tags: ['SDK', 'Software Development Kit', 'Subscriptionpostrequest', 'Subscriptionpostrequest']
 ---
 

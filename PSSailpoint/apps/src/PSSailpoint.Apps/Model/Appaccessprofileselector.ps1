@@ -35,7 +35,7 @@ function Initialize-Appaccessprofileselector {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.AppsV1 => Appaccessprofileselector' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Apps => Appaccessprofileselector' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAppaccessprofileselector {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.AppsV1 => Appaccessprofileselector' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Apps => Appaccessprofileselector' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

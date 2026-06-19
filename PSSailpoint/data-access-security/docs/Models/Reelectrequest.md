@@ -5,7 +5,7 @@ pagination_label: Reelectrequest
 sidebar_label: Reelectrequest
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Reelectrequest', 'Reelectrequest'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/reelectrequest
+slug: /tools/sdk/powershell/dataaccesssecurity/models/reelectrequest
 tags: ['SDK', 'Software Development Kit', 'Reelectrequest', 'Reelectrequest']
 ---
 

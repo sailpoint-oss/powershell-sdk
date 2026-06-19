@@ -41,7 +41,7 @@ function Initialize-Custompasswordinstruction {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomPasswordInstructionsV1 => Custompasswordinstruction' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomPasswordInstructions => Custompasswordinstruction' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToCustompasswordinstruction {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomPasswordInstructionsV1 => Custompasswordinstruction' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomPasswordInstructions => Custompasswordinstruction' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

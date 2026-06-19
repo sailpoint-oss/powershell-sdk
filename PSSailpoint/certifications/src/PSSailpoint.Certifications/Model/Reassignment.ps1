@@ -35,7 +35,7 @@ function Initialize-Reassignment {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CertificationsV1 => Reassignment' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Certifications => Reassignment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToReassignment {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CertificationsV1 => Reassignment' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Certifications => Reassignment' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -45,7 +45,7 @@ function Initialize-ClustermanualupgradeJobsInnerManagedProcessConfigurationOtel
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.ManagedClustersV1 => ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.ManagedClusters => ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Version) {
@@ -100,7 +100,7 @@ function ConvertFrom-JsonToClustermanualupgradeJobsInnerManagedProcessConfigurat
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClustersV1 => ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.ManagedClusters => ClustermanualupgradeJobsInnerManagedProcessConfigurationOtelAgent' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

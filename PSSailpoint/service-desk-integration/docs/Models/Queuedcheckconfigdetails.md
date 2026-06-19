@@ -5,7 +5,7 @@ pagination_label: Queuedcheckconfigdetails
 sidebar_label: Queuedcheckconfigdetails
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Queuedcheckconfigdetails', 'Queuedcheckconfigdetails'] 
-slug: /tools/sdk/powershell/servicedeskintegrationv1/models/queuedcheckconfigdetails
+slug: /tools/sdk/powershell/servicedeskintegration/models/queuedcheckconfigdetails
 tags: ['SDK', 'Software Development Kit', 'Queuedcheckconfigdetails', 'Queuedcheckconfigdetails']
 ---
 

@@ -5,7 +5,7 @@ pagination_label: SourceOwner
 sidebar_label: SourceOwner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SourceOwner', 'SourceOwner'] 
-slug: /tools/sdk/powershell/sourcesv1/models/source-owner
+slug: /tools/sdk/powershell/sources/models/source-owner
 tags: ['SDK', 'Software Development Kit', 'SourceOwner', 'SourceOwner']
 ---
 

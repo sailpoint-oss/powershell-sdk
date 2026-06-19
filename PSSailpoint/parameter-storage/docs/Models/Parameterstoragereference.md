@@ -5,7 +5,7 @@ pagination_label: Parameterstoragereference
 sidebar_label: Parameterstoragereference
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Parameterstoragereference', 'Parameterstoragereference'] 
-slug: /tools/sdk/powershell/parameterstoragev1/models/parameterstoragereference
+slug: /tools/sdk/powershell/parameterstorage/models/parameterstoragereference
 tags: ['SDK', 'Software Development Kit', 'Parameterstoragereference', 'Parameterstoragereference']
 ---
 

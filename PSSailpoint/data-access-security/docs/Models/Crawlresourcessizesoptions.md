@@ -5,7 +5,7 @@ pagination_label: Crawlresourcessizesoptions
 sidebar_label: Crawlresourcessizesoptions
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Crawlresourcessizesoptions', 'Crawlresourcessizesoptions'] 
-slug: /tools/sdk/powershell/dataaccesssecurityv1/models/crawlresourcessizesoptions
+slug: /tools/sdk/powershell/dataaccesssecurity/models/crawlresourcessizesoptions
 tags: ['SDK', 'Software Development Kit', 'Crawlresourcessizesoptions', 'Crawlresourcessizesoptions']
 ---
 

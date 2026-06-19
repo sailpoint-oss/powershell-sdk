@@ -30,7 +30,7 @@ function Initialize-Dimensionbulkdeleterequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.DimensionsV1 => Dimensionbulkdeleterequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Dimensions => Dimensionbulkdeleterequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$DimensionIds) {
@@ -70,7 +70,7 @@ function ConvertFrom-JsonToDimensionbulkdeleterequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.DimensionsV1 => Dimensionbulkdeleterequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Dimensions => Dimensionbulkdeleterequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

@@ -35,7 +35,7 @@ function Initialize-Entitlementbulkupdaterequest {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.EntitlementsV1 => Entitlementbulkupdaterequest' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Entitlements => Entitlementbulkupdaterequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$EntitlementIds) {
@@ -84,7 +84,7 @@ function ConvertFrom-JsonToEntitlementbulkupdaterequest {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.EntitlementsV1 => Entitlementbulkupdaterequest' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Entitlements => Entitlementbulkupdaterequest' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

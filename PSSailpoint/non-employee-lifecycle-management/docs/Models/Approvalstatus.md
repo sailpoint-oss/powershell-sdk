@@ -5,7 +5,7 @@ pagination_label: Approvalstatus
 sidebar_label: Approvalstatus
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Approvalstatus', 'Approvalstatus'] 
-slug: /tools/sdk/powershell/nonemployeelifecyclemanagementv1/models/approvalstatus
+slug: /tools/sdk/powershell/nonemployeelifecyclemanagement/models/approvalstatus
 tags: ['SDK', 'Software Development Kit', 'Approvalstatus', 'Approvalstatus']
 ---
 

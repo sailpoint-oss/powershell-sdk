@@ -35,7 +35,7 @@ function Initialize-Source2 {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentityAttributesV1 => Source2' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.IdentityAttributes => Source2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToSource2 {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentityAttributesV1 => Source2' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.IdentityAttributes => Source2' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

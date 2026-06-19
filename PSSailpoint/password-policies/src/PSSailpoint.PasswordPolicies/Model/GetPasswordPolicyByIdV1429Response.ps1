@@ -30,7 +30,7 @@ function Initialize-GetPasswordPolicyByIdV1429Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.PasswordPoliciesV1 => GetPasswordPolicyByIdV1429Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.PasswordPolicies => GetPasswordPolicyByIdV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToGetPasswordPolicyByIdV1429Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.PasswordPoliciesV1 => GetPasswordPolicyByIdV1429Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.PasswordPolicies => GetPasswordPolicyByIdV1429Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

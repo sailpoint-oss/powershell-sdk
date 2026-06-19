@@ -40,7 +40,7 @@ function Initialize-AccountupdatedSingleValueAttributeChangesInner {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TriggersV1 => AccountupdatedSingleValueAttributeChangesInner' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Triggers => AccountupdatedSingleValueAttributeChangesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -82,7 +82,7 @@ function ConvertFrom-JsonToAccountupdatedSingleValueAttributeChangesInner {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TriggersV1 => AccountupdatedSingleValueAttributeChangesInner' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Triggers => AccountupdatedSingleValueAttributeChangesInner' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

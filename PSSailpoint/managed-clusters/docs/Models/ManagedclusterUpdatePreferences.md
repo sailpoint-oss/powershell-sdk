@@ -5,7 +5,7 @@ pagination_label: ManagedclusterUpdatePreferences
 sidebar_label: ManagedclusterUpdatePreferences
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ManagedclusterUpdatePreferences', 'ManagedclusterUpdatePreferences'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/managedcluster-update-preferences
+slug: /tools/sdk/powershell/managedclusters/models/managedcluster-update-preferences
 tags: ['SDK', 'Software Development Kit', 'ManagedclusterUpdatePreferences', 'ManagedclusterUpdatePreferences']
 ---
 

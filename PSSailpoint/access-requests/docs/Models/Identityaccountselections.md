@@ -5,7 +5,7 @@ pagination_label: Identityaccountselections
 sidebar_label: Identityaccountselections
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Identityaccountselections', 'Identityaccountselections'] 
-slug: /tools/sdk/powershell/accessrequestsv1/models/identityaccountselections
+slug: /tools/sdk/powershell/accessrequests/models/identityaccountselections
 tags: ['SDK', 'Software Development Kit', 'Identityaccountselections', 'Identityaccountselections']
 ---
 

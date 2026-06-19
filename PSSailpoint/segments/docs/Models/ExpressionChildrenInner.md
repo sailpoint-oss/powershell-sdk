@@ -5,7 +5,7 @@ pagination_label: ExpressionChildrenInner
 sidebar_label: ExpressionChildrenInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'ExpressionChildrenInner', 'ExpressionChildrenInner'] 
-slug: /tools/sdk/powershell/segmentsv1/models/expression-children-inner
+slug: /tools/sdk/powershell/segments/models/expression-children-inner
 tags: ['SDK', 'Software Development Kit', 'ExpressionChildrenInner', 'ExpressionChildrenInner']
 ---
 

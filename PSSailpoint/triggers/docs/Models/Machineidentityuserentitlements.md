@@ -5,7 +5,7 @@ pagination_label: Machineidentityuserentitlements
 sidebar_label: Machineidentityuserentitlements
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Machineidentityuserentitlements', 'Machineidentityuserentitlements'] 
-slug: /tools/sdk/powershell/triggersv1/models/machineidentityuserentitlements
+slug: /tools/sdk/powershell/triggers/models/machineidentityuserentitlements
 tags: ['SDK', 'Software Development Kit', 'Machineidentityuserentitlements', 'Machineidentityuserentitlements']
 ---
 

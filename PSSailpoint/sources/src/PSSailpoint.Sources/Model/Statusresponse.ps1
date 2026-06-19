@@ -25,7 +25,7 @@ function Initialize-Statusresponse {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.SourcesV1 => Statusresponse' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Sources => Statusresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -60,7 +60,7 @@ function ConvertFrom-JsonToStatusresponse {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.SourcesV1 => Statusresponse' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Sources => Statusresponse' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

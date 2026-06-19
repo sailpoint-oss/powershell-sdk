@@ -30,7 +30,7 @@ function Initialize-ListTaggedObjectsV1401Response {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.TaggedObjectsV1 => ListTaggedObjectsV1401Response' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.TaggedObjects => ListTaggedObjectsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -66,7 +66,7 @@ function ConvertFrom-JsonToListTaggedObjectsV1401Response {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.TaggedObjectsV1 => ListTaggedObjectsV1401Response' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.TaggedObjects => ListTaggedObjectsV1401Response' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

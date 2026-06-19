@@ -5,7 +5,7 @@ pagination_label: Formdefinitionresponse
 sidebar_label: Formdefinitionresponse
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Formdefinitionresponse', 'Formdefinitionresponse'] 
-slug: /tools/sdk/powershell/customformsv1/models/formdefinitionresponse
+slug: /tools/sdk/powershell/customforms/models/formdefinitionresponse
 tags: ['SDK', 'Software Development Kit', 'Formdefinitionresponse', 'Formdefinitionresponse']
 ---
 

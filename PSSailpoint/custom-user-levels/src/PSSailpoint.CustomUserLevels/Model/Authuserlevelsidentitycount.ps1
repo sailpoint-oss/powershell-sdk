@@ -35,7 +35,7 @@ function Initialize-Authuserlevelsidentitycount {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Authuserlevelsidentitycount' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.CustomUserLevels => Authuserlevelsidentitycount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -72,7 +72,7 @@ function ConvertFrom-JsonToAuthuserlevelsidentitycount {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevelsV1 => Authuserlevelsidentitycount' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.CustomUserLevels => Authuserlevelsidentitycount' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

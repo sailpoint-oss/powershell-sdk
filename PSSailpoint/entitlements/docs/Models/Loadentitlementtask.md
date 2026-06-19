@@ -5,7 +5,7 @@ pagination_label: Loadentitlementtask
 sidebar_label: Loadentitlementtask
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Loadentitlementtask', 'Loadentitlementtask'] 
-slug: /tools/sdk/powershell/entitlementsv1/models/loadentitlementtask
+slug: /tools/sdk/powershell/entitlements/models/loadentitlementtask
 tags: ['SDK', 'Software Development Kit', 'Loadentitlementtask', 'Loadentitlementtask']
 ---
 

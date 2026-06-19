@@ -5,7 +5,7 @@ pagination_label: SearchExportReportArguments
 sidebar_label: SearchExportReportArguments
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'SearchExportReportArguments', 'SearchExportReportArguments'] 
-slug: /tools/sdk/powershell/reportsdataextractionv1/models/search-export-report-arguments
+slug: /tools/sdk/powershell/reportsdataextraction/models/search-export-report-arguments
 tags: ['SDK', 'Software Development Kit', 'SearchExportReportArguments', 'SearchExportReportArguments']
 ---
 

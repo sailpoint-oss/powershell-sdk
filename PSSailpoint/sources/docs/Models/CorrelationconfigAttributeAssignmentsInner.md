@@ -5,7 +5,7 @@ pagination_label: CorrelationconfigAttributeAssignmentsInner
 sidebar_label: CorrelationconfigAttributeAssignmentsInner
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'CorrelationconfigAttributeAssignmentsInner', 'CorrelationconfigAttributeAssignmentsInner'] 
-slug: /tools/sdk/powershell/sourcesv1/models/correlationconfig-attribute-assignments-inner
+slug: /tools/sdk/powershell/sources/models/correlationconfig-attribute-assignments-inner
 tags: ['SDK', 'Software Development Kit', 'CorrelationconfigAttributeAssignmentsInner', 'CorrelationconfigAttributeAssignmentsInner']
 ---
 

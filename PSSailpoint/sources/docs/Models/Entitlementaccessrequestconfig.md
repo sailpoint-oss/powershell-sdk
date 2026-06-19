@@ -5,7 +5,7 @@ pagination_label: Entitlementaccessrequestconfig
 sidebar_label: Entitlementaccessrequestconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Entitlementaccessrequestconfig', 'Entitlementaccessrequestconfig'] 
-slug: /tools/sdk/powershell/sourcesv1/models/entitlementaccessrequestconfig
+slug: /tools/sdk/powershell/sources/models/entitlementaccessrequestconfig
 tags: ['SDK', 'Software Development Kit', 'Entitlementaccessrequestconfig', 'Entitlementaccessrequestconfig']
 ---
 

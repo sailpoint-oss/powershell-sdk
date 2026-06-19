@@ -5,7 +5,7 @@ pagination_label: Managedclusterencryptionconfig
 sidebar_label: Managedclusterencryptionconfig
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Managedclusterencryptionconfig', 'Managedclusterencryptionconfig'] 
-slug: /tools/sdk/powershell/managedclustersv1/models/managedclusterencryptionconfig
+slug: /tools/sdk/powershell/managedclusters/models/managedclusterencryptionconfig
 tags: ['SDK', 'Software Development Kit', 'Managedclusterencryptionconfig', 'Managedclusterencryptionconfig']
 ---
 

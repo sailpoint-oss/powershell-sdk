@@ -5,7 +5,7 @@ pagination_label: Accountaggregationcompleted
 sidebar_label: Accountaggregationcompleted
 sidebar_class_name: powershellsdk
 keywords: ['powershell', 'PowerShell', 'sdk', 'Accountaggregationcompleted', 'Accountaggregationcompleted'] 
-slug: /tools/sdk/powershell/triggersv1/models/accountaggregationcompleted
+slug: /tools/sdk/powershell/triggers/models/accountaggregationcompleted
 tags: ['SDK', 'Software Development Kit', 'Accountaggregationcompleted', 'Accountaggregationcompleted']
 ---
 

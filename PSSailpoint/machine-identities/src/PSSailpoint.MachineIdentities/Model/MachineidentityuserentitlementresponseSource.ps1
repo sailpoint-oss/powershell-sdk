@@ -41,7 +41,7 @@ function Initialize-MachineidentityuserentitlementresponseSource {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.MachineIdentitiesV1 => MachineidentityuserentitlementresponseSource' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.MachineIdentities => MachineidentityuserentitlementresponseSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -79,7 +79,7 @@ function ConvertFrom-JsonToMachineidentityuserentitlementresponseSource {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.MachineIdentitiesV1 => MachineidentityuserentitlementresponseSource' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.MachineIdentities => MachineidentityuserentitlementresponseSource' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

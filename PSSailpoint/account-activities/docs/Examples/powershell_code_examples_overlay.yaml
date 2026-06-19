@@ -2,7 +2,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountactivitiesv1/methods/account-activities#get-account-activity-v1
+      label: SDK_tools/sdk/powershell/accountactivities/methods/account-activities#get-account-activity-v1
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account activity id
         
@@ -21,7 +21,7 @@
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/accountactivitiesv1/methods/account-activities#list-account-activities-v1
+      label: SDK_tools/sdk/powershell/accountactivities/methods/account-activities#list-account-activities-v1
       source: |
         $RequestedFor = "2c91808568c529c60168cca6f90c1313" # String | The identity that the activity was requested for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
         $RequestedBy = "2c91808568c529c60168cca6f90c1313" # String | The identity that requested the activity. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)

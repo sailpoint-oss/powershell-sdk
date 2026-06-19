@@ -77,7 +77,7 @@ function Initialize-Identity {
     )
 
     Process {
-        'Creating PSCustomObject: PSSailpoint.IdentitiesV1 => Identity' | Write-Debug
+        'Creating PSCustomObject: PSSailpoint.Identities => Identity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         if (!$Name) {
@@ -126,7 +126,7 @@ function ConvertFrom-JsonToIdentity {
     )
 
     Process {
-        'Converting JSON to PSCustomObject: PSSailpoint.IdentitiesV1 => Identity' | Write-Debug
+        'Converting JSON to PSCustomObject: PSSailpoint.Identities => Identity' | Write-Debug
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json

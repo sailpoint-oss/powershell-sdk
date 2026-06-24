@@ -71,10 +71,12 @@ function Invoke-PaginateSearch {
     Param(
         [Parameter(Mandatory = $false)]
         [ValidateNotNull()]
-        [ValidateScript({ ($_.sort | Measure-Object).Count -eq 1 }, 
+        [ValidateScript({ ($_.sort | Measure-Object).Count -eq 1 },
             ErrorMessage = "Error! The required `Search` parameter must include exactly one sort parameter to paginate properly.")]
         [PSCustomObject]
         $Search,
+        [Parameter(Mandatory = $false)]
+        [string]$Function = "Search-Post",
         [Int32]$Increment = 250,
         [Int32]$Limit = 10000,
         [Switch]$WithHttpInfo
@@ -101,7 +103,7 @@ function Invoke-PaginateSearch {
                 Write-Debug "SearchAfter=$SearchAfter"
             }
             
-            $Result = Search-Post -Limit $Increment -Search $Search -WithHttpInfo
+            $Result = & $Function -Limit $Increment -Search $Search -WithHttpInfo
             
             Write-Debug "Retrieved $(($Result.Response | Measure-Object).Count) Results"
             

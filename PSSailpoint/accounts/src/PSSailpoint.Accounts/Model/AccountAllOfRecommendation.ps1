@@ -27,7 +27,7 @@ function Initialize-AccountAllOfRecommendation {
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("HUMAN", "MACHINE", "AGENT")]
+        [ValidateSet("HUMAN", "MACHINE")]
         [String]
         ${Type},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

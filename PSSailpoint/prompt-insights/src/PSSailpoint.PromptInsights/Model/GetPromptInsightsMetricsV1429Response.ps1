@@ -18,17 +18,10 @@ No description available.
 A message describing the error
 .OUTPUTS
 
-<<<<<<<< HEAD:PSSailpoint/prompt-insights/src/PSSailpoint.PromptInsights/Model/GetPromptInsightsMetricsV1429Response.ps1
 GetPromptInsightsMetricsV1429Response<PSCustomObject>
 #>
 
 function Initialize-GetPromptInsightsMetricsV1429Response {
-========
-ListEntitlementConnections412Response<PSCustomObject>
-#>
-
-function Initialize-V2026ListEntitlementConnections412Response {
->>>>>>>> main:PSSailpoint/triggers/src/PSSailpoint.Triggers/Model/ListEntitlementConnections412Response.ps1
     [CmdletBinding()]
     Param (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
@@ -37,11 +30,7 @@ function Initialize-V2026ListEntitlementConnections412Response {
     )
 
     Process {
-<<<<<<<< HEAD:PSSailpoint/prompt-insights/src/PSSailpoint.PromptInsights/Model/GetPromptInsightsMetricsV1429Response.ps1
         'Creating PSCustomObject: PSSailpoint.PromptInsights => GetPromptInsightsMetricsV1429Response' | Write-Debug
-========
-        'Creating PSCustomObject: PSSailpoint.V2026 => V2026ListEntitlementConnections412Response' | Write-Debug
->>>>>>>> main:PSSailpoint/triggers/src/PSSailpoint.Triggers/Model/ListEntitlementConnections412Response.ps1
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
 
@@ -56,19 +45,11 @@ function Initialize-V2026ListEntitlementConnections412Response {
 <#
 .SYNOPSIS
 
-<<<<<<<< HEAD:PSSailpoint/prompt-insights/src/PSSailpoint.PromptInsights/Model/GetPromptInsightsMetricsV1429Response.ps1
 Convert from JSON to GetPromptInsightsMetricsV1429Response<PSCustomObject>
 
 .DESCRIPTION
 
 Convert from JSON to GetPromptInsightsMetricsV1429Response<PSCustomObject>
-========
-Convert from JSON to ListEntitlementConnections412Response<PSCustomObject>
-
-.DESCRIPTION
-
-Convert from JSON to ListEntitlementConnections412Response<PSCustomObject>
->>>>>>>> main:PSSailpoint/triggers/src/PSSailpoint.Triggers/Model/ListEntitlementConnections412Response.ps1
 
 .PARAMETER Json
 
@@ -76,35 +57,21 @@ Json object
 
 .OUTPUTS
 
-<<<<<<<< HEAD:PSSailpoint/prompt-insights/src/PSSailpoint.PromptInsights/Model/GetPromptInsightsMetricsV1429Response.ps1
 GetPromptInsightsMetricsV1429Response<PSCustomObject>
 #>
 function ConvertFrom-JsonToGetPromptInsightsMetricsV1429Response {
-========
-ListEntitlementConnections412Response<PSCustomObject>
-#>
-function ConvertFrom-V2026JsonToListEntitlementConnections412Response {
->>>>>>>> main:PSSailpoint/triggers/src/PSSailpoint.Triggers/Model/ListEntitlementConnections412Response.ps1
     Param(
         [AllowEmptyString()]
         [string]$Json
     )
 
     Process {
-<<<<<<<< HEAD:PSSailpoint/prompt-insights/src/PSSailpoint.PromptInsights/Model/GetPromptInsightsMetricsV1429Response.ps1
         'Converting JSON to PSCustomObject: PSSailpoint.PromptInsights => GetPromptInsightsMetricsV1429Response' | Write-Debug
-========
-        'Converting JSON to PSCustomObject: PSSailpoint.V2026 => V2026ListEntitlementConnections412Response' | Write-Debug
->>>>>>>> main:PSSailpoint/triggers/src/PSSailpoint.Triggers/Model/ListEntitlementConnections412Response.ps1
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
-<<<<<<<< HEAD:PSSailpoint/prompt-insights/src/PSSailpoint.PromptInsights/Model/GetPromptInsightsMetricsV1429Response.ps1
         # check if Json contains properties not defined in GetPromptInsightsMetricsV1429Response
-========
-        # check if Json contains properties not defined in V2026ListEntitlementConnections412Response
->>>>>>>> main:PSSailpoint/triggers/src/PSSailpoint.Triggers/Model/ListEntitlementConnections412Response.ps1
         $AllProperties = ("message")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {

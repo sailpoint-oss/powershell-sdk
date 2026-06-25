@@ -12,7 +12,7 @@
 RootModule = 'PSSailpoint.NERM.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.7.88'
+ModuleVersion = '1.7.100'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()

@@ -55,6 +55,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DataAccessSecurityApi* | [**Suspend-TaskV1**](docs/DataAccessSecurityApi.md#Suspend-TaskV1) | **POST** /das/v1/tasks/cancel/{id} | Cancel a DAS task.
 *DataAccessSecurityApi* | [**New-ApplicationV1**](docs/DataAccessSecurityApi.md#New-ApplicationV1) | **POST** /das/v1/applications | Create application
+*DataAccessSecurityApi* | [**New-IdentityCollectorV1**](docs/DataAccessSecurityApi.md#New-IdentityCollectorV1) | **POST** /das/identity-collectors/v1 | Create identity collector
 *DataAccessSecurityApi* | [**New-ScheduleV1**](docs/DataAccessSecurityApi.md#New-ScheduleV1) | **POST** /das/v1/tasks/schedules | Create a new schedule.
 *DataAccessSecurityApi* | [**Invoke-DasV1OwnersAssignPost**](docs/DataAccessSecurityApi.md#Invoke-DasV1OwnersAssignPost) | **POST** /das/v1/owners/assign | Assign owner to application resource.
 *DataAccessSecurityApi* | [**Invoke-DasV1OwnersOwnerIdentityIdResourcesGet**](docs/DataAccessSecurityApi.md#Invoke-DasV1OwnersOwnerIdentityIdResourcesGet) | **GET** /das/v1/owners/{ownerIdentityId}/resources | List resources for owner.
@@ -62,6 +63,7 @@ Class | Method | HTTP request | Description
 *DataAccessSecurityApi* | [**Invoke-DasV1OwnersResourcesResourceIdGet**](docs/DataAccessSecurityApi.md#Invoke-DasV1OwnersResourcesResourceIdGet) | **GET** /das/v1/owners/resources/{resourceId} | List owners for resource.
 *DataAccessSecurityApi* | [**Invoke-DasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost**](docs/DataAccessSecurityApi.md#Invoke-DasV1OwnersSourceIdentityIdReassignDestinationIdentityIdPost) | **POST** /das/v1/owners/{sourceIdentityId}/reassign/{destinationIdentityId} | Reassign resource owner.
 *DataAccessSecurityApi* | [**Remove-ApplicationV1**](docs/DataAccessSecurityApi.md#Remove-ApplicationV1) | **DELETE** /das/v1/applications/{id} | Delete an application by identifier.
+*DataAccessSecurityApi* | [**Remove-IdentityCollectorV1**](docs/DataAccessSecurityApi.md#Remove-IdentityCollectorV1) | **DELETE** /das/identity-collectors/v1/{id} | Delete identity collector by identifier
 *DataAccessSecurityApi* | [**Remove-ScheduleV1**](docs/DataAccessSecurityApi.md#Remove-ScheduleV1) | **DELETE** /das/v1/tasks/schedules/{id} | Delete a DAS schedule.
 *DataAccessSecurityApi* | [**Remove-TaskV1**](docs/DataAccessSecurityApi.md#Remove-TaskV1) | **DELETE** /das/v1/tasks/{id} | Delete a DAS task.
 *DataAccessSecurityApi* | [**Get-ApplicationV1**](docs/DataAccessSecurityApi.md#Get-ApplicationV1) | **GET** /das/v1/applications/{id} | Retrieve application details by identifier.
@@ -71,7 +73,9 @@ Class | Method | HTTP request | Description
 *DataAccessSecurityApi* | [**Get-SchedulesV1**](docs/DataAccessSecurityApi.md#Get-SchedulesV1) | **GET** /das/v1/tasks/schedules | List all schedules.
 *DataAccessSecurityApi* | [**Get-TaskV1**](docs/DataAccessSecurityApi.md#Get-TaskV1) | **GET** /das/v1/tasks/{id} | Get a DAS task.
 *DataAccessSecurityApi* | [**Get-TasksV1**](docs/DataAccessSecurityApi.md#Get-TasksV1) | **GET** /das/v1/tasks | Lists all DAS tasks.
+*DataAccessSecurityApi* | [**Get-IdentityCollectorsV1**](docs/DataAccessSecurityApi.md#Get-IdentityCollectorsV1) | **GET** /das/identity-collectors/v1 | List identity collectors
 *DataAccessSecurityApi* | [**Send-ApplicationV1**](docs/DataAccessSecurityApi.md#Send-ApplicationV1) | **PUT** /das/v1/applications/{id} | Update application by identifier.
+*DataAccessSecurityApi* | [**Send-IdentityCollectorV1**](docs/DataAccessSecurityApi.md#Send-IdentityCollectorV1) | **PUT** /das/identity-collectors/v1/{id} | Update identity collector by identifier
 *DataAccessSecurityApi* | [**Send-ScheduleV1**](docs/DataAccessSecurityApi.md#Send-ScheduleV1) | **PUT** /das/v1/tasks/schedules/{id} | Update a schedule.
 *DataAccessSecurityApi* | [**Start-TaskRerunV1**](docs/DataAccessSecurityApi.md#Start-TaskRerunV1) | **POST** /das/v1/tasks/rerun/{id} | Rerun a DAS task.
 
@@ -87,6 +91,8 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.DataAccessSecurity\Model.Basesettings](docs/Basesettings.md)
  - [PSSailpoint.DataAccessSecurity\Model.Businessservicetype](docs/Businessservicetype.md)
  - [PSSailpoint.DataAccessSecurity\Model.Crawlresourcessizesoptions](docs/Crawlresourcessizesoptions.md)
+ - [PSSailpoint.DataAccessSecurity\Model.CreateIdentityCollectorV1200Response](docs/CreateIdentityCollectorV1200Response.md)
+ - [PSSailpoint.DataAccessSecurity\Model.Createidentitycollectorrequest](docs/Createidentitycollectorrequest.md)
  - [PSSailpoint.DataAccessSecurity\Model.Createschedulerequest](docs/Createschedulerequest.md)
  - [PSSailpoint.DataAccessSecurity\Model.Dataclassificationsettings](docs/Dataclassificationsettings.md)
  - [PSSailpoint.DataAccessSecurity\Model.Dataownermodel](docs/Dataownermodel.md)
@@ -94,14 +100,18 @@ Class | Method | HTTP request | Description
  - [PSSailpoint.DataAccessSecurity\Model.Errorresponsedto](docs/Errorresponsedto.md)
  - [PSSailpoint.DataAccessSecurity\Model.GetTasksV1401Response](docs/GetTasksV1401Response.md)
  - [PSSailpoint.DataAccessSecurity\Model.GetTasksV1429Response](docs/GetTasksV1429Response.md)
+ - [PSSailpoint.DataAccessSecurity\Model.Identitycollectorlistitem](docs/Identitycollectorlistitem.md)
  - [PSSailpoint.DataAccessSecurity\Model.Int64stringkeyvaluepair](docs/Int64stringkeyvaluepair.md)
  - [PSSailpoint.DataAccessSecurity\Model.Localeorigin](docs/Localeorigin.md)
  - [PSSailpoint.DataAccessSecurity\Model.Permissioncollectorsettings](docs/Permissioncollectorsettings.md)
+ - [PSSailpoint.DataAccessSecurity\Model.PutIdentityCollectorV1409Response](docs/PutIdentityCollectorV1409Response.md)
+ - [PSSailpoint.DataAccessSecurity\Model.PutIdentityCollectorV1409ResponseMessagesInner](docs/PutIdentityCollectorV1409ResponseMessagesInner.md)
  - [PSSailpoint.DataAccessSecurity\Model.Reelectrequest](docs/Reelectrequest.md)
  - [PSSailpoint.DataAccessSecurity\Model.Resourcemodel](docs/Resourcemodel.md)
  - [PSSailpoint.DataAccessSecurity\Model.Scheduleinfo](docs/Scheduleinfo.md)
  - [PSSailpoint.DataAccessSecurity\Model.Tag](docs/Tag.md)
  - [PSSailpoint.DataAccessSecurity\Model.Taskinfo](docs/Taskinfo.md)
+ - [PSSailpoint.DataAccessSecurity\Model.Updateidentitycollectorrequest](docs/Updateidentitycollectorrequest.md)
  - [PSSailpoint.DataAccessSecurity\Model.Updateschedulerequest](docs/Updateschedulerequest.md)
 
 

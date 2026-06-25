@@ -39,6 +39,28 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ApplicationV1"
             Write-Host $_.ErrorDetails
         }
+- path: /das/identity-collectors/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#create-identity-collector-v1
+      source: |
+        $Createidentitycollectorrequest = @"
+        
+        "@
+        
+        # Create identity collector
+        
+        try {
+            $Result = ConvertFrom-JsonToCreateidentitycollectorrequest -Json $Createidentitycollectorrequest
+            New-IdentityCollectorV1 -Createidentitycollectorrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-IdentityCollectorV1 -Createidentitycollectorrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-IdentityCollectorV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /das/v1/tasks/schedules
   method: POST
   xCodeSample:
@@ -184,6 +206,25 @@
             # Remove-ApplicationV1 -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ApplicationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/identity-collectors/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#delete-identity-collector-v1
+      source: |
+        $Id = 12345 # Int64 | The unique identifier of the identity collector to delete.
+        
+        # Delete identity collector by identifier
+        
+        try {
+            Remove-IdentityCollectorV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-IdentityCollectorV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-IdentityCollectorV1"
             Write-Host $_.ErrorDetails
         }
 - path: /das/v1/tasks/schedules/{id}
@@ -368,6 +409,28 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TasksV1"
             Write-Host $_.ErrorDetails
         }
+- path: /das/identity-collectors/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#list-identity-collectors-v1
+      source: |
+        $Filters = "sourceId eq "2c9180835d2e5168015d32f890ca1581"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  Supported composite operators are *and, or* (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List identity collectors
+        
+        try {
+            Get-IdentityCollectorsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityCollectorsV1 -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityCollectorsV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /das/v1/applications/{id}
   method: PUT
   xCodeSample:
@@ -389,6 +452,29 @@
             # Send-ApplicationV1 -Id $Id -Basecreateapplicationrequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ApplicationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /das/identity-collectors/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/dataaccesssecurity/methods/data-access-security#put-identity-collector-v1
+      source: |
+        $Id = 12345 # Int64 | The unique identifier of the identity collector to update.
+        $Updateidentitycollectorrequest = @"
+        
+        "@
+        
+        # Update identity collector by identifier
+        
+        try {
+            $Result = ConvertFrom-JsonToUpdateidentitycollectorrequest -Json $Updateidentitycollectorrequest
+            Send-IdentityCollectorV1 -Id $Id -Updateidentitycollectorrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-IdentityCollectorV1 -Id $Id -Updateidentitycollectorrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-IdentityCollectorV1"
             Write-Host $_.ErrorDetails
         }
 - path: /das/v1/tasks/schedules/{id}

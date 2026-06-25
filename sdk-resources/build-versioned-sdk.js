@@ -155,8 +155,8 @@ function bundlePartition(partitionName, tempApisDir) {
   fs.mkdirSync(BUNDLED_DIR, { recursive: true });
 
   const result = spawnSync(
-    "redocly",
-    ["bundle", inputSpec, "-o", outputSpec, "--force"],
+    "npx",
+    ["redocly", "bundle", inputSpec, "-o", outputSpec, "--force"],
     { encoding: "utf8" }
   );
 

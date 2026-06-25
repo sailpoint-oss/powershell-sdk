@@ -22,6 +22,14 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
         }
     }
 
+    Context 'New-IdentityCollectorV1' {
+        It 'Test New-IdentityCollectorV1' {
+            #$TestResult = New-IdentityCollectorV1 -Createidentitycollectorrequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-ScheduleV1' {
         It 'Test New-ScheduleV1' {
             #$TestResult = New-ScheduleV1 -Createschedulerequest "TEST_VALUE"
@@ -73,6 +81,14 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
     Context 'Remove-ApplicationV1' {
         It 'Test Remove-ApplicationV1' {
             #$TestResult = Remove-ApplicationV1 -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-IdentityCollectorV1' {
+        It 'Test Remove-IdentityCollectorV1' {
+            #$TestResult = Remove-IdentityCollectorV1 -Id "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -150,9 +166,25 @@ Describe -tag 'PSSailpoint.DataAccessSecurity' -name 'DataAccessSecurityApi' {
         }
     }
 
+    Context 'Get-IdentityCollectorsV1' {
+        It 'Test Get-IdentityCollectorsV1' {
+            #$TestResult = Get-IdentityCollectorsV1 -Filters "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Send-ApplicationV1' {
         It 'Test Send-ApplicationV1' {
             #$TestResult = Send-ApplicationV1 -Id "TEST_VALUE" -Basecreateapplicationrequest "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-IdentityCollectorV1' {
+        It 'Test Send-IdentityCollectorV1' {
+            #$TestResult = Send-IdentityCollectorV1 -Id "TEST_VALUE" -Updateidentitycollectorrequest "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

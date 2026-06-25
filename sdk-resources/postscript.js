@@ -372,10 +372,9 @@ const main = async () => {
 
   // Main processing
   await processDirectory(path.join(process.argv[2], '/docs'));
-  await renameFileToIndices(path.join(process.argv[2], '/docs/Models/Index.md'));
+  await moveFiles(process.argv[2], path.join(process.argv[2], '/docs/Models'), "Index.md");
   await getAllFiles(process.argv[2], myArray);
   await fixFiles(myArray);
-  await moveFiles(process.argv[2], path.join(process.argv[2], '/docs/Models'), "Index.md");
   await mergeCodeExampleFiles(path.join(process.argv[2], 'docs/Examples'));
 };
 

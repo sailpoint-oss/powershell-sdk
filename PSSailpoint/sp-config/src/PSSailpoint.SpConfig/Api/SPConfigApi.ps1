@@ -188,6 +188,9 @@ Spconfigexportresults
 function Get-SpConfigExportV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -257,6 +260,9 @@ Spconfigimportjobstatus
 function Get-SpConfigImportStatusV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -326,6 +332,9 @@ Spconfigimportresults
 function Get-SpConfigImportV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
         [Switch]
         $WithHttpInfo
     )

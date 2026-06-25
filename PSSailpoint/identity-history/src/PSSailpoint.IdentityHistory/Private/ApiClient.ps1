@@ -41,7 +41,7 @@ function Invoke-ApiClient {
     $PSBoundParameters | Out-DebugParameter | Write-Debug
 
     $Configuration = Get-DefaultConfiguration
-    $RequestUri = $Configuration["BaseUrl"] + "v1" + $Uri
+    $RequestUri = $Configuration["BaseUrl"] + $Uri.TrimStart('/')
 
     Write-Debug "Calling Endpoint: $RequestUri"
 

@@ -153,9 +153,13 @@ function removeDuplicateParameters(content) {
   let inParamBlock = false;
   let parenDepth = 0;
 
-  // Collect the line indices of all "${Name}" or "${Name}," lines inside Param()
-  const paramLineIndices = [];
-  const paramNames = [];
+  // Per-block tracking (reset for each Param block so we never treat same-named
+  // params in different functions as duplicates).
+  let blockParamLineIndices = [];
+  let blockParamNames = [];
+
+  // Accumulated lines to remove across all blocks.
+  const globalLinesToRemove = new Set();
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
@@ -163,53 +167,61 @@ function removeDuplicateParameters(content) {
     if (!inParamBlock && /^\s+Param\s*\(/.test(line)) {
       inParamBlock = true;
       parenDepth = (line.match(/\(/g) || []).length - (line.match(/\)/g) || []).length;
+      blockParamLineIndices = [];
+      blockParamNames = [];
       continue;
     }
 
     if (inParamBlock) {
       parenDepth += (line.match(/\(/g) || []).length - (line.match(/\)/g) || []).length;
-      if (parenDepth <= 0) { inParamBlock = false; continue; }
 
-      const nameMatch = line.match(/^\s+\$\{(\w+)\},?\s*$/);
+      if (parenDepth <= 0) {
+        // End of this Param block — process duplicates within this block only.
+        const seen = new Set();
+        const duplicateNameLines = new Set();
+        for (let k = 0; k < blockParamNames.length; k++) {
+          if (seen.has(blockParamNames[k])) {
+            duplicateNameLines.add(blockParamLineIndices[k]);
+          } else {
+            seen.add(blockParamNames[k]);
+          }
+        }
+
+        if (duplicateNameLines.size > 0) {
+          const blockLinesToRemove = new Set(duplicateNameLines);
+          for (const dupIdx of duplicateNameLines) {
+            let j = dupIdx - 1;
+            while (j >= 0) {
+              const prev = lines[j];
+              if (/^\s+\$\{/.test(prev)) break;
+              if (/^\s+\[/.test(prev) || prev.trim() === '') {
+                blockLinesToRemove.add(j);
+                j--;
+              } else {
+                break;
+              }
+            }
+          }
+          for (const idx of blockLinesToRemove) globalLinesToRemove.add(idx);
+        }
+
+        inParamBlock = false;
+        continue;
+      }
+
+      // Match both ${Name} and $Name (with optional default value or comma)
+      const nameMatch = line.match(/^\s+\$\{(\w+)\}[,\s]*$/) ||
+                        line.match(/^\s+\$(\w+)(?:\s*=.*|[,\s]*)$/);
       if (nameMatch) {
-        paramLineIndices.push(i);
-        paramNames.push(nameMatch[1]);
+        blockParamLineIndices.push(i);
+        blockParamNames.push(nameMatch[1]);
       }
     }
   }
 
-  // Identify which line indices are duplicates (keep first, remove rest)
-  const seen = new Set();
-  const duplicateNameLines = new Set();
-  for (let i = 0; i < paramNames.length; i++) {
-    if (seen.has(paramNames[i])) {
-      duplicateNameLines.add(paramLineIndices[i]);
-    } else {
-      seen.add(paramNames[i]);
-    }
-  }
+  if (globalLinesToRemove.size === 0) return null;
 
-  if (duplicateNameLines.size === 0) return null;
-
-  // For each duplicate name line, also collect its preceding attribute/type lines
-  const linesToRemove = new Set(duplicateNameLines);
-  for (const dupIdx of duplicateNameLines) {
-    let j = dupIdx - 1;
-    while (j >= 0) {
-      const prev = lines[j];
-      // Stop when we hit the previous parameter's name line
-      if (/^\s+\$\{/.test(prev)) break;
-      // Remove [Attribute], type annotation, and blank lines belonging to this block
-      if (/^\s+\[/.test(prev) || prev.trim() === '') {
-        linesToRemove.add(j);
-        j--;
-      } else {
-        break;
-      }
-    }
-  }
-
-  const newLines = lines.filter((_, i) => !linesToRemove.has(i));
+  const newLines = lines.filter((_, i) => !globalLinesToRemove.has(i));
   return newLines.join('\n');
 }
 

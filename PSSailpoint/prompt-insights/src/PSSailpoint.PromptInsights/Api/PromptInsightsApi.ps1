@@ -111,6 +111,10 @@ Promptinsight[]
 function Get-PromptInsightsV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("-1h", "-1d", "-7d", "-30d")]
+        [String]
+        ${Interval},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},

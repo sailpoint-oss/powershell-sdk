@@ -176,6 +176,9 @@ Privilegecriteriaconfigdto
 function Update-PrivilegeCriteriaConfigV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${CriteriaConfigId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${RequestBody},

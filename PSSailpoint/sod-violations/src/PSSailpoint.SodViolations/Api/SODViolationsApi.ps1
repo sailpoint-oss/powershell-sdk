@@ -116,6 +116,9 @@ Sodviolationcheck
 function Start-ViolationCheckV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Identitywithnewaccess},
         [Switch]
         $WithHttpInfo
     )

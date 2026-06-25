@@ -124,3 +124,26 @@ Describe 'TaskManagement' {
         $Response.StatusCode | Should -Be 200
     }
 }
+
+Describe 'NERM' {
+    BeforeAll {
+        $Config = Get-DefaultConfiguration
+        if ([string]::IsNullOrEmpty($Config.NermBaseUrl)) {
+            Set-ItResult -Skipped -Because 'NermBaseUrl is not configured'
+        }
+    }
+
+    It 'Returns results for Get-NERMUsers' {
+        $Response = Get-NERMUsers -WithHttpInfo
+
+        $Response.Response | Should -Not -BeNullOrEmpty
+        $Response.StatusCode | Should -Be 200
+    }
+
+    It 'Returns results for Invoke-NERMV2025DelegationsGet' {
+        $Response = Invoke-NERMV2025DelegationsGet -WithHttpInfo
+
+        $Response.Response | Should -Not -BeNullOrEmpty
+        $Response.StatusCode | Should -Be 200
+    }
+}

@@ -100,6 +100,9 @@ Sourceclassificationstatus
 function Get-ClassifyMachineAccountFromSourceStatusV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
         [Switch]
         $WithHttpInfo
     )
@@ -169,6 +172,9 @@ SendClassifyMachineAccountFromSourceV1200Response
 function Send-ClassifyMachineAccountFromSourceV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
         [Switch]
         $WithHttpInfo
     )

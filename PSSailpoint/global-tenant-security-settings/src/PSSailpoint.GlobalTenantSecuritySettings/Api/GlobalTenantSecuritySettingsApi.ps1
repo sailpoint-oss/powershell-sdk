@@ -452,6 +452,9 @@ Networkconfiguration
 function Update-AuthOrgNetworkConfigV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${Jsonpatchoperation},
         [Switch]
         $WithHttpInfo
     )
@@ -537,6 +540,9 @@ Serviceproviderconfiguration
 function Update-AuthOrgServiceProviderConfigV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${Jsonpatchoperation},
         [Switch]
         $WithHttpInfo
     )
@@ -622,6 +628,9 @@ Sessionconfiguration
 function Update-AuthOrgSessionConfigV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${Jsonpatchoperation},
         [Switch]
         $WithHttpInfo
     )

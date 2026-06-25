@@ -188,6 +188,9 @@ Passwordsyncgroup
 function Get-PasswordSyncGroupV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -352,6 +355,12 @@ Passwordsyncgroup
 function Update-PasswordSyncGroupV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Passwordsyncgroup},
         [Switch]
         $WithHttpInfo
     )

@@ -313,6 +313,9 @@ Streamstatusresponse
 function Get-StreamStatusV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${StreamId},
         [Switch]
         $WithHttpInfo
     )
@@ -383,6 +386,9 @@ GetStreamV1200Response
 function Get-StreamV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${StreamId},
         [Switch]
         $WithHttpInfo
     )

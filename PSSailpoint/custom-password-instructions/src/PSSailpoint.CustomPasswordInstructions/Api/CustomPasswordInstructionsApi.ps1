@@ -227,9 +227,16 @@ Custompasswordinstruction
 function Get-CustomPasswordInstructionsV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("change-password:enter-password", "change-password:finish", "flow-selection:select", "forget-username:user-email", "mfa:enter-code", "mfa:enter-kba", "mfa:select", "reset-password:enter-password", "reset-password:enter-username", "reset-password:finish", "unlock-account:enter-username", "unlock-account:finish")]
+        [String]
+        ${PageId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Locale},
         [Switch]
         $WithHttpInfo
     )

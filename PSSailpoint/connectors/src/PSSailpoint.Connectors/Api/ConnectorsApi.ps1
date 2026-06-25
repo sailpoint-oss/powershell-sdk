@@ -192,6 +192,9 @@ String
 function Get-ConnectorCorrelationConfigV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ScriptName},
         [String]
         [ValidateSet("application/xml", "application/json")]
         $ReturnType,
@@ -386,6 +389,9 @@ String
 function Get-ConnectorSourceConfigV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ScriptName},
         [String]
         [ValidateSet("application/xml", "application/json")]
         $ReturnType,
@@ -467,6 +473,9 @@ String
 function Get-ConnectorSourceTemplateV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ScriptName},
         [String]
         [ValidateSet("application/xml", "application/json")]
         $ReturnType,
@@ -551,6 +560,13 @@ String
 function Get-ConnectorTranslationsV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ScriptName},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("de", "no", "fi", "sv", "ru", "pt", "ko", "zh-TW", "en", "it", "fr", "zh-CN", "hu", "es", "cs", "ja", "pl", "da", "nl")]
+        [String]
+        ${Locale},
         [String]
         [ValidateSet("text/plain", "application/json")]
         $ReturnType,
@@ -635,6 +651,13 @@ Connectordetail
 function Get-ConnectorV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ScriptName},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("de", "no", "fi", "sv", "ru", "pt", "ko", "zh-TW", "en", "it", "fr", "zh-CN", "hu", "es", "cs", "ja", "pl", "da", "nl")]
+        [String]
+        ${Locale},
         [Switch]
         $WithHttpInfo
     )
@@ -711,6 +734,9 @@ Updatedetail
 function Send-ConnectorCorrelationConfigV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ScriptName},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.IO.FileInfo]
         ${File},
@@ -794,6 +820,12 @@ Updatedetail
 function Send-ConnectorSourceConfigV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ScriptName},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.IO.FileInfo]
+        ${File},
         [Switch]
         $WithHttpInfo
     )
@@ -874,6 +906,12 @@ Updatedetail
 function Send-ConnectorSourceTemplateV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ScriptName},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.IO.FileInfo]
+        ${File},
         [Switch]
         $WithHttpInfo
     )
@@ -954,6 +992,13 @@ Updatedetail
 function Send-ConnectorTranslationsV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ScriptName},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("de", "no", "fi", "sv", "ru", "pt", "ko", "zh-TW", "en", "it", "fr", "zh-CN", "hu", "es", "cs", "ja", "pl", "da", "nl")]
+        [String]
+        ${Locale},
         [Switch]
         $WithHttpInfo
     )
@@ -1033,6 +1078,9 @@ Connectordetail
 function Update-ConnectorV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${ScriptName},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${Jsonpatchoperation},

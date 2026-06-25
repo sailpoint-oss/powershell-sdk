@@ -371,6 +371,12 @@ Campaignfilterdetails
 function Update-CampaignFilterV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Campaignfilterdetails},
         [Switch]
         $WithHttpInfo
     )

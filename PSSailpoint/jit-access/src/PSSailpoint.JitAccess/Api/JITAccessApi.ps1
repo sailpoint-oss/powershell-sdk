@@ -104,6 +104,10 @@ Jitactivationconfigresponse
 function Update-JitActivationConfigV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("policy")]
+        [String]
+        ${ConfigType},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${Jitaccessoperationrequest},

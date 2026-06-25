@@ -202,6 +202,13 @@ Taggedobject
 function Get-TaggedObjectV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("ACCESS_PROFILE", "APPLICATION", "CAMPAIGN", "ENTITLEMENT", "IDENTITY", "ROLE", "SOD_POLICY", "SOURCE")]
+        [String]
+        ${Type},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
         [Switch]
         $WithHttpInfo
     )
@@ -287,6 +294,10 @@ Taggedobject[]
 function Get-TaggedObjectsByTypeV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("ACCESS_PROFILE", "APPLICATION", "CAMPAIGN", "ENTITLEMENT", "IDENTITY", "ROLE", "SOD_POLICY", "SOURCE")]
+        [String]
+        ${Type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [System.Nullable[Int32]]
         ${Limit},
@@ -393,6 +404,18 @@ Taggedobject[]
 function Get-TaggedObjectsV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Limit},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int32]]
+        ${Offset},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${Count},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
         [Switch]
         $WithHttpInfo
     )
@@ -480,6 +503,13 @@ Taggedobject
 function Send-TaggedObjectV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [ValidateSet("ACCESS_PROFILE", "APPLICATION", "CAMPAIGN", "ENTITLEMENT", "IDENTITY", "ROLE", "SOD_POLICY", "SOURCE")]
+        [String]
+        ${Type},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${Taggedobject},
@@ -576,6 +606,9 @@ None
 function Set-TagToObjectV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Taggedobject},
         [Switch]
         $WithHttpInfo
     )

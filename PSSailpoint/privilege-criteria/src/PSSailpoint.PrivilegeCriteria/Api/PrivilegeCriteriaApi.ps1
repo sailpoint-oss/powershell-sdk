@@ -188,6 +188,9 @@ Privilegecriteriadto
 function Get-PrivilegeCriteriaV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${CriteriaId},
         [Switch]
         $WithHttpInfo
     )
@@ -333,6 +336,9 @@ Privilegecriteriadto
 function Send-CustomPrivilegeCriteriaValueV1 {
     [CmdletBinding()]
     Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${CriteriaId},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject]
         ${Privilegecriteriadto},

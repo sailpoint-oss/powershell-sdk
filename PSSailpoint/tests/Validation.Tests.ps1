@@ -126,7 +126,7 @@ Describe 'TaskManagement' {
 }
 
 Describe 'NERM' {
-    BeforeAll {
+    BeforeEach {
         $Config = Get-DefaultConfiguration
         if ([string]::IsNullOrEmpty($Config.NermBaseUrl)) {
             Set-ItResult -Skipped -Because 'NermBaseUrl is not configured'

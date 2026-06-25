@@ -563,7 +563,7 @@ function Get-ConnectorTranslationsV1 {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ScriptName},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [ValidateSet("de", "no", "fi", "sv", "ru", "pt", "ko", "zh-TW", "en", "it", "fr", "zh-CN", "hu", "es", "cs", "ja", "pl", "da", "nl")]
         [String]
         ${Locale},
@@ -654,7 +654,7 @@ function Get-ConnectorV1 {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ScriptName},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [ValidateSet("de", "no", "fi", "sv", "ru", "pt", "ko", "zh-TW", "en", "it", "fr", "zh-CN", "hu", "es", "cs", "ja", "pl", "da", "nl")]
         [String]
         ${Locale},
@@ -995,7 +995,7 @@ function Send-ConnectorTranslationsV1 {
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${ScriptName},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [ValidateSet("de", "no", "fi", "sv", "ru", "pt", "ko", "zh-TW", "en", "it", "fr", "zh-CN", "hu", "es", "cs", "ja", "pl", "da", "nl")]
         [String]
         ${Locale},

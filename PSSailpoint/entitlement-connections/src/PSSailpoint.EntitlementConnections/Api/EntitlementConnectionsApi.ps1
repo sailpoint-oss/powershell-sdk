@@ -379,18 +379,18 @@ Entitlementconnection
 function Update-EntitlementConnectionByQueryV1 {
     [CmdletBinding()]
     Param (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject[]]
-        ${Jsonpatchoperation},
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${EntitlementId},
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${IdentityId},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${AccountId},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${Jsonpatchoperation},
         [Switch]
         $WithHttpInfo
     )

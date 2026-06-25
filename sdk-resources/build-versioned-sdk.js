@@ -208,6 +208,7 @@ function writePartitionConfig(partitionName) {
     `templateDir: ${TEMPLATE_DIR.replace(/\\/g, "/")}`,
     `packageName: ${packageName}`,
     `packageVersion: ${PACKAGE_VERSION}`,
+    `apiVersion: '${API_VERSION}'`,
     `companyName: SailPoint Technologies`,
     `packageGuid: ${guid}`,
     `commonVerbs: ${COMMON_VERBS}`,

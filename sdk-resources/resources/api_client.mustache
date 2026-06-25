@@ -44,12 +44,7 @@ function Invoke-{{{apiNamePrefix}}}ApiClient {
     {{/apiVersion}}
     {{/nerm}}
     {{^nerm}}
-    {{#apiVersion}}
-    $RequestUri = $Configuration["BaseUrl"] + "{{{apiVersion}}}" + $Uri
-    {{/apiVersion}}
-    {{^apiVersion}}
     $RequestUri = $Configuration["BaseUrl"] + $Uri.TrimStart('/')
-    {{/apiVersion}}
     {{/nerm}}
 
     Write-Debug "Calling Endpoint: $RequestUri"

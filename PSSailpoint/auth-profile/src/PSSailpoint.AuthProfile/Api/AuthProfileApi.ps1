@@ -192,10 +192,10 @@ function Update-ProfileConfigV1 {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        $XSailPointExperimental = "true",
+        ${Id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
-        ${Id},
+        $XSailPointExperimental = "true",
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [PSCustomObject[]]
         ${Jsonpatchoperation},

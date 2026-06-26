@@ -133,16 +133,6 @@ jobs:
           yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2025-nerm-config.yaml
           sed -i "s/const PACKAGE_VERSION = \"[^\"]*\"/const PACKAGE_VERSION = \"$VERSION\"/" sdk-resources/build-versioned-sdk.js
 
-      - name: Update Build.ps1 ModuleVersion
-        shell: bash
-        run: |
-          LATEST="${{ steps.version.outputs.latest }}"
-          NEW="${{ steps.version.outputs.new }}"
-          LATEST_ESCAPED="${LATEST//./\\.}"
-          cd PSSailpoint
-          sed -e "s/ModuleVersion     = '${LATEST_ESCAPED}'/ModuleVersion     = '${NEW}'/g" Build.ps1 > Build.ps1.tmp && mv Build.ps1.tmp Build.ps1
-          sed -e "s/RequiredVersion = '${LATEST_ESCAPED}'/RequiredVersion = '${NEW}'/g" Build.ps1 > Build.ps1.tmp && mv Build.ps1.tmp Build.ps1
-
       - name: Build SDK
         uses: ./.github/actions/build-sdk
 

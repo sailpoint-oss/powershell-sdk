@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.AccessRequestIdentityMetrics - the PowerShell module for Identity Security Cloud API - Access Request Identity Metrics'
 
-    ModuleVersion = '1.0.0'
+    ModuleVersion = '2.0.0'
 
     RootModule = 'PSSailpoint.AccessRequestIdentityMetrics.psm1'
     Guid = '1F5BDB70-76A4-A1B7-00D6-9CE356E92D3F' # Has to be static, otherwise each new build will be considered different module

@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 Build.ps1
 Index.md
 README.md
@@ -34,3 +35,14 @@ src/PSSailpoint.NERMV2025/Private/NERMV2025HttpSignatureAuth.ps1
 src/PSSailpoint.NERMV2025/Private/NERMV2025RSAEncryptionProvider.cs
 src/PSSailpoint.NERMV2025/Private/Out-DebugParameter.ps1
 src/PSSailpoint.NERMV2025/en-US/about_PSSailpoint.NERMV2025.help.txt
+tests/Api/NERMV2025DelegationsApi.Tests.ps1
+tests/Model/DelegateUser.Tests.ps1
+tests/Model/Delegation.Tests.ps1
+tests/Model/Delegation1.Tests.ps1
+tests/Model/Delegation2.Tests.ps1
+tests/Model/DelegationsGet200Response.Tests.ps1
+tests/Model/DelegationsGet500Response.Tests.ps1
+tests/Model/DelegationsPost201Response.Tests.ps1
+tests/Model/DelegationsPost404Response.Tests.ps1
+tests/Model/DelegationsPostRequest.Tests.ps1
+tests/Model/DelegatorUser.Tests.ps1

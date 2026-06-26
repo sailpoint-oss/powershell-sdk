@@ -36,7 +36,7 @@ $Brandingitemcreate = Initialize-Brandingitemcreate  -Name custom-branding-item 
  -NavigationColor 011E69 `
  -EmailFromAddress no-reply@sailpoint.com `
  -LoginInformationalMessage  `
- -FileStandard [B@41aaedaa
+ -FileStandard [B@4443ef6f
 ```
 
 - Convert the resource to JSON

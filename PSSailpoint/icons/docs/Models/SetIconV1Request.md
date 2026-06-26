@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SetIconV1Request = Initialize-SetIconV1Request  -Image [B@17ca8b92
+$SetIconV1Request = Initialize-SetIconV1Request  -Image [B@4b6ac111
 ```
 
 - Convert the resource to JSON

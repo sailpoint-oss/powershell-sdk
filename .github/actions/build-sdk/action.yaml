@@ -68,7 +68,7 @@ runs:
         $DebugPreference = "Continue"
         # Build per-partition modules (dynamically discovered)
         Get-ChildItem -Path './PSSailpoint' -Directory |
-          Where-Object { $_.Name -match '^[a-z].+_v\d{1,2}$' } |
+          Where-Object { $_.Name -notin @('nerm', 'nermV2025') -and (Test-Path (Join-Path $_.FullName 'src')) } |
           ForEach-Object {
             $buildScript = Join-Path $_.FullName 'Build.ps1'
             if (Test-Path $buildScript) { & $buildScript }

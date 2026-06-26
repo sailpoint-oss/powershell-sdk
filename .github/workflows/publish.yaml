@@ -18,6 +18,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Run Build Scripts
+        shell: pwsh
+        run: |
+          $DebugPreference = "Continue"
+          # Build per-partition modules (dynamically discovered)
+          Get-ChildItem -Path './PSSailpoint' -Directory |
+            Where-Object { $_.Name -notin @('nerm', 'nermV2025') -and (Test-Path (Join-Path $_.FullName 'src')) } |
+            ForEach-Object {
+              $buildScript = Join-Path $_.FullName 'Build.ps1'
+              if (Test-Path $buildScript) { & $buildScript }
+            }
+          # Build NERM modules
+          ./PSSailpoint/nerm/Build.ps1
+          ./PSSailpoint/nermV2025/Build.ps1
+          # Build root barrel module manifest
+          ./PSSailpoint/Build.ps1
+
       - name: Publish Module
         shell: pwsh
         run: |

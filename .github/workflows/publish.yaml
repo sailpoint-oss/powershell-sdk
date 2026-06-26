@@ -22,31 +22,25 @@ jobs:
         shell: pwsh
         run: |
           $DebugPreference = "Continue"
-          Publish-Module `
-              -Path './PSSailpoint/v3/src/PSSailpoint.V3' `
-              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
-              -Verbose -Force
-          Publish-Module `
-              -Path './PSSailpoint/beta/src/PSSailpoint.Beta' `
-              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
-              -Verbose -Force
-          Publish-Module `
-              -Path './PSSailpoint/v2024/src/PSSailpoint.V2024' `
-              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
-              -Verbose -Force
-          Publish-Module `
-              -Path './PSSailpoint/v2025/src/PSSailpoint.V2025' `
-              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
-              -Verbose -Force
-          Publish-Module `
-              -Path './PSSailpoint/v2026/src/PSSailpoint.V2026' `
-              -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
-              -Verbose -Force
+
+          # Publish all per-partition modules (dynamically discovered)
+          Get-ChildItem -Path './PSSailpoint' -Directory |
+            Where-Object { $_.Name -notin @('nerm', 'nermV2025') -and (Test-Path (Join-Path $_.FullName 'src')) } |
+            ForEach-Object {
+              $srcDir = Get-ChildItem -Path (Join-Path $_.FullName 'src') -Directory | Select-Object -First 1
+              if ($srcDir) {
+                Publish-Module `
+                  -Path $srcDir.FullName `
+                  -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
+                  -Verbose -Force
+              }
+            }
+
+          # Publish NERM modules
           Publish-Module `
               -Path './PSSailpoint/nerm/src/PSSailpoint.NERM' `
               -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
               -Verbose -Force
-
           Publish-Module `
               -Path './PSSailpoint/nermV2025/src/PSSailpoint.NERMV2025' `
               -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `
@@ -54,14 +48,7 @@ jobs:
 
           Start-Sleep -Seconds 60
 
-          Install-Module -Name 'PSSailpoint.V3' -Force
-          Install-Module -Name 'PSSailpoint.Beta' -Force
-          Install-Module -Name 'PSSailpoint.V2024' -Force
-          Install-Module -Name 'PSSailpoint.V2025' -Force
-          Install-Module -Name 'PSSailpoint.V2026' -Force
-          Install-Module -Name 'PSSailpoint.NERM' -Force
-          Install-Module -Name 'PSSailpoint.NERMV2025' -Force
-
+          # Publish root barrel module
           Publish-Module `
               -Path './PSSailpoint' `
               -NuGetApiKey ${{ secrets.PS_GALLERY_TOKEN }} `

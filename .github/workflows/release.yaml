@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "The version to release (e.g. 1.8.0). Leave empty to auto-increment patch."
+        description: "The version to release (e.g. 2.0.0). Leave empty to auto-increment patch."
         required: false
   schedule:
     - cron: "0 8 * * 1-5"
@@ -129,13 +129,9 @@ jobs:
         shell: bash
         run: |
           VERSION="${{ steps.version.outputs.new }}"
-          yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v3-config.yaml
-          yq -i ".packageVersion = \"$VERSION\"" sdk-resources/beta-config.yaml
-          yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2024-config.yaml
-          yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2025-config.yaml
-          yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2026-config.yaml
           yq -i ".packageVersion = \"$VERSION\"" sdk-resources/nerm-config.yaml
           yq -i ".packageVersion = \"$VERSION\"" sdk-resources/v2025-nerm-config.yaml
+          sed -i "s/const PACKAGE_VERSION = \"[^\"]*\"/const PACKAGE_VERSION = \"$VERSION\"/" sdk-resources/build-versioned-sdk.js
 
       - name: Update Build.ps1 ModuleVersion
         shell: bash

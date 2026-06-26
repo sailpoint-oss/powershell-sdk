@@ -1,0 +1,42 @@
+- path: /ui-metadata/v1/tenant
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uimetadata/methods/ui-metadata#get-tenant-ui-metadata-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get a tenant ui metadata
+        
+        try {
+            Get-TenantUiMetadataV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-TenantUiMetadataV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TenantUiMetadataV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /ui-metadata/v1/tenant
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/uimetadata/methods/ui-metadata#set-tenant-ui-metadata-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Tenantuimetadataitemupdaterequest = @"
+        
+        "@
+        
+        # Update tenant ui metadata
+        
+        try {
+            $Result = ConvertFrom-JsonToTenantuimetadataitemupdaterequest -Json $Tenantuimetadataitemupdaterequest
+            Set-TenantUiMetadataV1 -XSailPointExperimental $XSailPointExperimental -Tenantuimetadataitemupdaterequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-TenantUiMetadataV1 -XSailPointExperimental $XSailPointExperimental -Tenantuimetadataitemupdaterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-TenantUiMetadataV1"
+            Write-Host $_.ErrorDetails
+        }

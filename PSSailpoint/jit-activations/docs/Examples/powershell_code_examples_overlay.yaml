@@ -1,0 +1,66 @@
+- path: /jit-activations/v1/activate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#start-activate-workflow-v1
+      source: |
+        $Jitactivationactivaterequest = @"
+        
+        "@
+        
+        # Start JIT activation workflow
+        
+        try {
+            $Result = ConvertFrom-JsonToJitactivationactivaterequest -Json $Jitactivationactivaterequest
+            Start-ActivateWorkflowV1 -Jitactivationactivaterequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-ActivateWorkflowV1 -Jitactivationactivaterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ActivateWorkflowV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /jit-activations/v1/deactivate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#start-deactivate-workflow-v1
+      source: |
+        $Jitactivationdeactivaterequest = @"
+        
+        "@
+        
+        # Deactivate JIT activation workflow
+        
+        try {
+            $Result = ConvertFrom-JsonToJitactivationdeactivaterequest -Json $Jitactivationdeactivaterequest
+            Start-DeactivateWorkflowV1 -Jitactivationdeactivaterequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-DeactivateWorkflowV1 -Jitactivationdeactivaterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-DeactivateWorkflowV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /jit-activations/v1/extend
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/jitactivations/methods/jit-activations#start-extend-workflow-v1
+      source: |
+        $Jitactivationextendrequest = @"
+        
+        "@
+        
+        # Extend JIT activation workflow
+        
+        try {
+            $Result = ConvertFrom-JsonToJitactivationextendrequest -Json $Jitactivationextendrequest
+            Start-ExtendWorkflowV1 -Jitactivationextendrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-ExtendWorkflowV1 -Jitactivationextendrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ExtendWorkflowV1"
+            Write-Host $_.ErrorDetails
+        }

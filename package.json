@@ -1,0 +1,12 @@
+{
+  "name": "powershell-sdk-builder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build tooling for the SailPoint PowerShell SDK",
+  "scripts": {
+    "build": "node sdk-resources/build-versioned-sdk.js"
+  },
+  "dependencies": {
+    "@redocly/cli": "^2.32.2"
+  }
+}

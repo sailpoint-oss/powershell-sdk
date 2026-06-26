@@ -9,7 +9,7 @@ const getAllFiles = async (dirPath, arrayOfFiles = []) => {
     if (stat.isDirectory()) {
       await getAllFiles(fullPath, arrayOfFiles); // Recurse into directories
     } else {
-      arrayOfFiles.push(path.join(__dirname.replace('sdk-resources', ''), fullPath));
+      arrayOfFiles.push(path.resolve(fullPath));
     }
   }
   return arrayOfFiles;
@@ -136,6 +136,94 @@ const processDirectory = async (srcDir) => {
 };
 
 
+
+/**
+ * Remove duplicate parameter declarations from a PowerShell Param() block.
+ *
+ * Some generated model files declare the same parameter name twice (e.g. ${Type}
+ * appears once for the normal `type` field and again for the `_type` discriminator).
+ * PowerShell throws "Duplicate parameter" at parse time, so we must remove the
+ * second (and any further) declaration of each duplicated name, including its
+ * preceding [Parameter], [ValidateSet], and type annotation lines.
+ *
+ * Returns the fixed string, or null if no duplicates were found.
+ */
+function removeDuplicateParameters(content) {
+  const lines = content.split('\n');
+  let inParamBlock = false;
+  let parenDepth = 0;
+
+  // Per-block tracking (reset for each Param block so we never treat same-named
+  // params in different functions as duplicates).
+  let blockParamLineIndices = [];
+  let blockParamNames = [];
+
+  // Accumulated lines to remove across all blocks.
+  const globalLinesToRemove = new Set();
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    if (!inParamBlock && /^\s+Param\s*\(/.test(line)) {
+      inParamBlock = true;
+      parenDepth = (line.match(/\(/g) || []).length - (line.match(/\)/g) || []).length;
+      blockParamLineIndices = [];
+      blockParamNames = [];
+      continue;
+    }
+
+    if (inParamBlock) {
+      parenDepth += (line.match(/\(/g) || []).length - (line.match(/\)/g) || []).length;
+
+      if (parenDepth <= 0) {
+        // End of this Param block — process duplicates within this block only.
+        const seen = new Set();
+        const duplicateNameLines = new Set();
+        for (let k = 0; k < blockParamNames.length; k++) {
+          if (seen.has(blockParamNames[k])) {
+            duplicateNameLines.add(blockParamLineIndices[k]);
+          } else {
+            seen.add(blockParamNames[k]);
+          }
+        }
+
+        if (duplicateNameLines.size > 0) {
+          const blockLinesToRemove = new Set(duplicateNameLines);
+          for (const dupIdx of duplicateNameLines) {
+            let j = dupIdx - 1;
+            while (j >= 0) {
+              const prev = lines[j];
+              if (/^\s+\$\{/.test(prev)) break;
+              if (/^\s+\[/.test(prev) || prev.trim() === '') {
+                blockLinesToRemove.add(j);
+                j--;
+              } else {
+                break;
+              }
+            }
+          }
+          for (const idx of blockLinesToRemove) globalLinesToRemove.add(idx);
+        }
+
+        inParamBlock = false;
+        continue;
+      }
+
+      // Match both ${Name} and $Name (with optional default value or comma)
+      const nameMatch = line.match(/^\s+\$\{(\w+)\}[,\s]*$/) ||
+                        line.match(/^\s+\$(\w+)(?:\s*=.*|[,\s]*)$/);
+      if (nameMatch) {
+        blockParamLineIndices.push(i);
+        blockParamNames.push(nameMatch[1]);
+      }
+    }
+  }
+
+  if (globalLinesToRemove.size === 0) return null;
+
+  const newLines = lines.filter((_, i) => !globalLinesToRemove.has(i));
+  return newLines.join('\n');
+}
 
 const fixFiles = async function (myArray) {
   for (const file of myArray) {
@@ -266,6 +354,15 @@ const fixFiles = async function (myArray) {
     if (madeChange) {
       await fs.writeFile(absolutePath, rawDataArra.join("\n"));
     }
+
+    // General fix: remove duplicate Param() parameter declarations (any .ps1 file)
+    if (file.endsWith('.ps1')) {
+      const currentContent = madeChange ? rawDataArra.join("\n") : await fs.readFile(absolutePath, 'utf-8');
+      const fixed = removeDuplicateParameters(currentContent);
+      if (fixed !== null) {
+        await fs.writeFile(absolutePath, fixed);
+      }
+    }
   }
 }
 
@@ -275,10 +372,9 @@ const main = async () => {
 
   // Main processing
   await processDirectory(path.join(process.argv[2], '/docs'));
-  await renameFileToIndices(path.join(process.argv[2], '/docs/Models/Index.md'));
+  await moveFiles(process.argv[2], path.join(process.argv[2], '/docs/Models'), "Index.md");
   await getAllFiles(process.argv[2], myArray);
   await fixFiles(myArray);
-  await moveFiles(process.argv[2], path.join(process.argv[2], '/docs/Models'), "Index.md");
   await mergeCodeExampleFiles(path.join(process.argv[2], 'docs/Examples'));
 };
 

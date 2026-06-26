@@ -1,0 +1,128 @@
+- path: /saved-searches/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#create-saved-search-v1
+      source: |
+        $CreateSavedSearchV1Request = @"
+        
+        "@
+        
+        # Create a saved search
+        
+        try {
+            $Result = ConvertFrom-JsonToCreateSavedSearchV1Request -Json $CreateSavedSearchV1Request
+            New-SavedSearchV1 -CreateSavedSearchV1Request $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-SavedSearchV1 -CreateSavedSearchV1Request $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SavedSearchV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /saved-searches/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#delete-saved-search-v1
+      source: |
+        $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+        
+        # Delete document by id
+        
+        try {
+            Remove-SavedSearchV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-SavedSearchV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SavedSearchV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /saved-searches/v1/{id}/execute
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#execute-saved-search-v1
+      source: |
+        $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+        $Searcharguments = @"
+        
+        "@
+        
+        # Execute a saved search by id
+        
+        try {
+            $Result = ConvertFrom-JsonToSearcharguments -Json $Searcharguments
+            Invoke-ExecuteSavedSearchV1 -Id $Id -Searcharguments $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-ExecuteSavedSearchV1 -Id $Id -Searcharguments $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-ExecuteSavedSearchV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /saved-searches/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#get-saved-search-v1
+      source: |
+        $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+        
+        # Return saved search by id
+        
+        try {
+            Get-SavedSearchV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SavedSearchV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SavedSearchV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /saved-searches/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#list-saved-searches-v1
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "owner.id eq "7a724640-0c17-4ce9-a8c3-4a89738459c8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq* (optional)
+        
+        # A list of saved searches
+        
+        try {
+            Get-SavedSearchesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SavedSearchesV1 -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SavedSearchesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /saved-searches/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/savedsearch/methods/saved-search#put-saved-search-v1
+      source: |
+        $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+        $Savedsearch = @"
+        
+        "@
+        
+        # Updates an existing saved search 
+        
+        try {
+            $Result = ConvertFrom-JsonToSavedsearch -Json $Savedsearch
+            Send-SavedSearchV1 -Id $Id -Savedsearch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-SavedSearchV1 -Id $Id -Savedsearch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SavedSearchV1"
+            Write-Host $_.ErrorDetails
+        }

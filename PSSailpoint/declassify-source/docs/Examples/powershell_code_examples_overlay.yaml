@@ -1,0 +1,19 @@
+- path: /sources/v1/{sourceId}/declassify
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/declassifysource/methods/declassify-source#send-declassify-machine-account-from-source-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        
+        # Declassify source's all accounts
+        
+        try {
+            Send-DeclassifyMachineAccountFromSourceV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Send-DeclassifyMachineAccountFromSourceV1 -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-DeclassifyMachineAccountFromSourceV1"
+            Write-Host $_.ErrorDetails
+        }

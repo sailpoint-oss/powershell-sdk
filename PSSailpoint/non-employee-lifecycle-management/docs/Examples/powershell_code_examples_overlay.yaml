@@ -1,0 +1,669 @@
+- path: /non-employee-approvals/v1/{id}/approve
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#approve-non-employee-request-v1
+      source: |
+        $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
+        $Nonemployeeapprovaldecision = @"
+        
+        "@
+        
+        # Approve a non-employee request
+        
+        try {
+            $Result = ConvertFrom-JsonToNonemployeeapprovaldecision -Json $Nonemployeeapprovaldecision
+            Approve-NonEmployeeRequestV1 -Id $Id -Nonemployeeapprovaldecision $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Approve-NonEmployeeRequestV1 -Id $Id -Nonemployeeapprovaldecision $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-NonEmployeeRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#create-non-employee-record-v1
+      source: |
+        $Nonemployeerequestbody = @"
+        
+        "@
+        
+        # Create non-employee record
+        
+        try {
+            $Result = ConvertFrom-JsonToNonemployeerequestbody -Json $Nonemployeerequestbody
+            New-NonEmployeeRecordV1 -Nonemployeerequestbody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-NonEmployeeRecordV1 -Nonemployeerequestbody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NonEmployeeRecordV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-requests/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#create-non-employee-request-v1
+      source: |
+        $Nonemployeerequestbody = @"
+        
+        "@
+        
+        # Create non-employee request
+        
+        try {
+            $Result = ConvertFrom-JsonToNonemployeerequestbody -Json $Nonemployeerequestbody
+            New-NonEmployeeRequestV1 -Nonemployeerequestbody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-NonEmployeeRequestV1 -Nonemployeerequestbody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NonEmployeeRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{sourceId}/schema-attributes
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#create-non-employee-source-schema-attributes-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
+        $Nonemployeeschemaattributebody = @"
+        
+        "@
+        
+        # Create a new schema attribute for non-employee source
+        
+        try {
+            $Result = ConvertFrom-JsonToNonemployeeschemaattributebody -Json $Nonemployeeschemaattributebody
+            New-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId -Nonemployeeschemaattributebody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId -Nonemployeeschemaattributebody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NonEmployeeSourceSchemaAttributesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#create-non-employee-source-v1
+      source: |
+        $Nonemployeesourcerequestbody = @"
+        
+        "@
+        
+        # Create non-employee source
+        
+        try {
+            $Result = ConvertFrom-JsonToNonemployeesourcerequestbody -Json $Nonemployeesourcerequestbody
+            New-NonEmployeeSourceV1 -Nonemployeesourcerequestbody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-NonEmployeeSourceV1 -Nonemployeesourcerequestbody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NonEmployeeSourceV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#delete-non-employee-record-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID)
+        
+        # Delete non-employee record
+        
+        try {
+            Remove-NonEmployeeRecordV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-NonEmployeeRecordV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-NonEmployeeRecordV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records/v1/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#delete-non-employee-records-in-bulk-v1
+      source: |
+        $DeleteNonEmployeeRecordsInBulkV1Request = @"
+        
+        "@
+        
+        # Delete multiple non-employee records
+        
+        try {
+            $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordsInBulkV1Request -Json $DeleteNonEmployeeRecordsInBulkV1Request
+            Remove-NonEmployeeRecordsInBulkV1 -DeleteNonEmployeeRecordsInBulkV1Request $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-NonEmployeeRecordsInBulkV1 -DeleteNonEmployeeRecordsInBulkV1Request $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-NonEmployeeRecordsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-requests/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#delete-non-employee-request-v1
+      source: |
+        $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id in the UUID format
+        
+        # Delete non-employee request
+        
+        try {
+            Remove-NonEmployeeRequestV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-NonEmployeeRequestV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-NonEmployeeRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{sourceId}/schema-attributes/{attributeId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#delete-non-employee-schema-attribute-v1
+      source: |
+        $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
+        
+        # Delete a schema attribute for non-employee source
+        
+        try {
+            Remove-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-NonEmployeeSchemaAttributeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{sourceId}/schema-attributes
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#delete-non-employee-source-schema-attributes-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
+        
+        # Delete all custom schema attributes for non-employee source
+        
+        try {
+            Remove-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-NonEmployeeSourceSchemaAttributesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{sourceId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#delete-non-employee-source-v1
+      source: |
+        $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
+        
+        # Delete non-employee source
+        
+        try {
+            Remove-NonEmployeeSourceV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-NonEmployeeSourceV1 -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-NonEmployeeSourceV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{id}/non-employees/download
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#export-non-employee-records-v1
+      source: |
+        $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
+        
+        # Exports non-employee records to csv
+        
+        try {
+            Export-NonEmployeeRecordsV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Export-NonEmployeeRecordsV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-NonEmployeeRecordsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{id}/schema-attributes-template/download
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#export-non-employee-source-schema-template-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id (UUID)
+        
+        # Exports source schema template
+        
+        try {
+            Export-NonEmployeeSourceSchemaTemplateV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Export-NonEmployeeSourceSchemaTemplateV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-NonEmployeeSourceSchemaTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-approvals/v1/summary/{requested-for}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-approval-summary-v1
+      source: |
+        $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
+        
+        # Get summary of non-employee approval requests
+        
+        try {
+            Get-NonEmployeeApprovalSummaryV1 -RequestedFor $RequestedFor 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeApprovalSummaryV1 -RequestedFor $RequestedFor   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeApprovalSummaryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-approvals/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-approval-v1
+      source: |
+        $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
+        $IncludeDetail = $true # Boolean | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional)
+        
+        # Get a non-employee approval item detail
+        
+        try {
+            Get-NonEmployeeApprovalV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeApprovalV1 -Id $Id -IncludeDetail $IncludeDetail   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeApprovalV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{id}/non-employee-bulk-upload/status
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-bulk-upload-status-v1
+      source: |
+        $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source ID (UUID)
+        
+        # Obtain the status of bulk upload on the source
+        
+        try {
+            Get-NonEmployeeBulkUploadStatusV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeBulkUploadStatusV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeBulkUploadStatusV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-record-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-Employee record id (UUID)
+        
+        # Get a non-employee record
+        
+        try {
+            Get-NonEmployeeRecordV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeRecordV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeRecordV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-requests/v1/summary/{requested-for}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-request-summary-v1
+      source: |
+        $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
+        
+        # Get summary of non-employee requests
+        
+        try {
+            Get-NonEmployeeRequestSummaryV1 -RequestedFor $RequestedFor 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeRequestSummaryV1 -RequestedFor $RequestedFor   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeRequestSummaryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-requests/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-request-v1
+      source: |
+        $Id = "ac110005-7156-1150-8171-5b292e3e0084" # String | Non-Employee request id (UUID)
+        
+        # Get a non-employee request
+        
+        try {
+            Get-NonEmployeeRequestV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeRequestV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{sourceId}/schema-attributes/{attributeId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-schema-attribute-v1
+      source: |
+        $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
+        
+        # Get schema attribute non-employee source
+        
+        try {
+            Get-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeSchemaAttributeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{sourceId}/schema-attributes
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-source-schema-attributes-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
+        
+        # List schema attributes non-employee source
+        
+        try {
+            Get-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeSourceSchemaAttributesV1 -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeSourceSchemaAttributesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{sourceId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#get-non-employee-source-v1
+      source: |
+        $SourceId = "2c91808b7c28b350017c2a2ec5790aa1" # String | Source Id
+        
+        # Get a non-employee source
+        
+        try {
+            Get-NonEmployeeSourceV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeSourceV1 -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeSourceV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{id}/non-employee-bulk-upload
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#import-non-employee-records-in-bulk-v1
+      source: |
+        $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
+        $Data =  # System.IO.FileInfo | 
+        
+        # Imports, or updates, non-employee records
+        
+        try {
+            Import-NonEmployeeRecordsInBulkV1 -Id $Id -Data $Data 
+    
+            # Below is a request that includes all optional parameters
+            # Import-NonEmployeeRecordsInBulkV1 -Id $Id -Data $Data   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-NonEmployeeRecordsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-approvals/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#list-non-employee-approvals-v1
+      source: |
+        $RequestedFor = "2c91808280430dfb0180431a59440460" # String | The identity for whom the request was made. *me* indicates the current user. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "approvalStatus eq "Pending"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **approvalStatus**: *eq* (optional)
+        $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
+        
+        # Get list of non-employee approval requests
+        
+        try {
+            Get-NonEmployeeApprovalsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeApprovalsV1 -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeApprovalsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#list-non-employee-records-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "accountName,sourceId" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified** (optional)
+        $Filters = "sourceId eq "2c91808568c529c60168cca6f90c1313"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional)
+        
+        # List non-employee records
+        
+        try {
+            Get-NonEmployeeRecordsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeRecordsV1 -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeRecordsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-requests/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#list-non-employee-requests-v1
+      source: |
+        $RequestedFor = "e136567de87e4d029e60b3c3c55db56d" # String | The identity for whom the request was made. *me* indicates the current user.
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "created,approvalStatus" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate** (optional)
+        $Filters = "sourceId eq "2c91808568c529c60168cca6f90c1313"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  (optional)
+        
+        # List non-employee requests
+        
+        try {
+            Get-NonEmployeeRequestsV1 -RequestedFor $RequestedFor 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeRequestsV1 -RequestedFor $RequestedFor -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeRequestsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#list-non-employee-sources-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $RequestedFor = "me" # String | Identity the request was made for. Use 'me' to indicate the current user. (optional)
+        $NonEmployeeCount = $true # Boolean | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to $false)
+        $Sorters = "name,created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional)
+        
+        # List non-employee sources
+        
+        try {
+            Get-NonEmployeeSourcesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NonEmployeeSourcesV1 -Limit $Limit -Offset $Offset -Count $Count -RequestedFor $RequestedFor -NonEmployeeCount $NonEmployeeCount -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NonEmployeeSourcesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#patch-non-employee-record-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID)
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/endDate","value":"2019-08-23T18:40:35.772Z"}]"@ 
+        
+        
+        # Patch non-employee record
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-NonEmployeeRecordV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-NonEmployeeRecordV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-NonEmployeeRecordV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{sourceId}/schema-attributes/{attributeId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#patch-non-employee-schema-attribute-v1
+      source: |
+        $AttributeId = "ef38f94347e94562b5bb8424a56397d8" # String | The Schema Attribute Id (UUID)
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | The Source id
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/label","value":{"new attribute label":null}}]"@ 
+        
+        
+        # Patch a schema attribute for non-employee source
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-NonEmployeeSchemaAttributeV1 -AttributeId $AttributeId -SourceId $SourceId -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-NonEmployeeSchemaAttributeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/v1/{sourceId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#patch-non-employee-source-v1
+      source: |
+        $SourceId = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":{"new name":null}},{"op":"replace","path":"/approvers","value":["2c91809f703bb37a017040a2fe8748c7","48b1f463c9e8427db5a5071bd81914b8"]}]"@ 
+        
+        
+        # Patch a non-employee source
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-NonEmployeeSourceV1 -SourceId $SourceId -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-NonEmployeeSourceV1 -SourceId $SourceId -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-NonEmployeeSourceV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-approvals/v1/{id}/reject
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#reject-non-employee-request-v1
+      source: |
+        $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Non-Employee approval item id (UUID)
+        $Nonemployeerejectapprovaldecision = @"
+        
+        "@
+        
+        # Reject a non-employee request
+        
+        try {
+            $Result = ConvertFrom-JsonToNonemployeerejectapprovaldecision -Json $Nonemployeerejectapprovaldecision
+            Deny-NonEmployeeRequestV1 -Id $Id -Nonemployeerejectapprovaldecision $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Deny-NonEmployeeRequestV1 -Id $Id -Nonemployeerejectapprovaldecision $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-NonEmployeeRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-records/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/nonemployeelifecyclemanagement/methods/non-employee-lifecycle-management#update-non-employee-record-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-employee record id (UUID)
+        $Nonemployeerequestbody = @"
+        
+        "@
+        
+        # Update non-employee record
+        
+        try {
+            $Result = ConvertFrom-JsonToNonemployeerequestbody -Json $Nonemployeerequestbody
+            Update-NonEmployeeRecordV1 -Id $Id -Nonemployeerequestbody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-NonEmployeeRecordV1 -Id $Id -Nonemployeerequestbody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-NonEmployeeRecordV1"
+            Write-Host $_.ErrorDetails
+        }

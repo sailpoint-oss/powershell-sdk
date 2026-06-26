@@ -1,0 +1,86 @@
+- path: /generate-password-reset-token/v1/digit
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passwordmanagement/methods/password-management#create-digit-token-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Passworddigittokenreset = @"
+        {"userId":"Abby.Smith","length":8,"durationMinutes":5}
+        "@
+        
+        # Generate a digit token
+        
+        try {
+            $Result = ConvertFrom-JsonToPassworddigittokenreset -Json $Passworddigittokenreset
+            New-DigitTokenV1 -XSailPointExperimental $XSailPointExperimental -Passworddigittokenreset $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-DigitTokenV1 -XSailPointExperimental $XSailPointExperimental -Passworddigittokenreset $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-DigitTokenV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /password-change-status/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passwordmanagement/methods/password-management#get-password-change-status-v1
+      source: |
+        $Id = "089899f13a8f4da7824996191587bab9" # String | Password change request ID
+        
+        # Get password change request status
+        
+        try {
+            Get-PasswordChangeStatusV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PasswordChangeStatusV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PasswordChangeStatusV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /query-password-info/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passwordmanagement/methods/password-management#query-password-info-v1
+      source: |
+        $Passwordinfoquerydto = @"
+        
+        "@
+        
+        # Query password info
+        
+        try {
+            $Result = ConvertFrom-JsonToPasswordinfoquerydto -Json $Passwordinfoquerydto
+            Search-PasswordInfoV1 -Passwordinfoquerydto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Search-PasswordInfoV1 -Passwordinfoquerydto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-PasswordInfoV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /set-password/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passwordmanagement/methods/password-management#set-password-v1
+      source: |
+        $Passwordchangerequest = @"
+        
+        "@
+        
+        # Set identity's password
+        
+        try {
+            $Result = ConvertFrom-JsonToPasswordchangerequest -Json $Passwordchangerequest
+            Set-PasswordV1 -Passwordchangerequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-PasswordV1 -Passwordchangerequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-PasswordV1"
+            Write-Host $_.ErrorDetails
+        }

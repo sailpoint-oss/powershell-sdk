@@ -1,0 +1,332 @@
+- path: /verified-domains/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#create-domain-dkim-v1
+      source: |
+        $Domainaddress = @"
+        
+        "@
+        
+        # Verify domain address via dkim
+        
+        try {
+            $Result = ConvertFrom-JsonToDomainaddress -Json $Domainaddress
+            New-DomainDkimV1 -Domainaddress $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-DomainDkimV1 -Domainaddress $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-DomainDkimV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /notification-templates/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#create-notification-template-v1
+      source: |
+        $Templatedto = @"
+        
+        "@
+        
+        # Create notification template
+        
+        try {
+            $Result = ConvertFrom-JsonToTemplatedto -Json $Templatedto
+            New-NotificationTemplateV1 -Templatedto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-NotificationTemplateV1 -Templatedto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-NotificationTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /verified-from-addresses/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#create-verified-from-address-v1
+      source: |
+        $Emailstatusdto = @"
+        {"email":"sender@example.com"}
+        "@
+        
+        # Create verified from address
+        
+        try {
+            $Result = ConvertFrom-JsonToEmailstatusdto -Json $Emailstatusdto
+            New-VerifiedFromAddressV1 -Emailstatusdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-VerifiedFromAddressV1 -Emailstatusdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-VerifiedFromAddressV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /notification-templates/v1/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#delete-notification-templates-in-bulk-v1
+      source: |
+        $Templatebulkdeletedto = @""@ 
+        
+        
+        # Bulk delete notification templates
+        
+        try {
+            $Result = ConvertFrom-JsonToTemplatebulkdeletedto -Json $Templatebulkdeletedto
+            Remove-NotificationTemplatesInBulkV1 -Templatebulkdeletedto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-NotificationTemplatesInBulkV1 -Templatebulkdeletedto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-NotificationTemplatesInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /verified-from-addresses/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#delete-verified-from-address-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Unique identifier of the verified sender address to delete.
+        
+        # Delete verified from address
+        
+        try {
+            Remove-VerifiedFromAddressV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-VerifiedFromAddressV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-VerifiedFromAddressV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /verified-domains/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-dkim-attributes-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Get dkim attributes
+        
+        try {
+            Get-DkimAttributesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-DkimAttributesV1 -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-DkimAttributesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mail-from-attributes/v1/{identity}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-mail-from-attributes-v1
+      source: |
+        $Identity = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+        
+        # Get mail from attributes
+        
+        try {
+            Get-MailFromAttributesV1 -Identity $Identity 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MailFromAttributesV1 -Identity $Identity   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MailFromAttributesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /notification-preferences/v1/{key}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-notification-preferences-v1
+      source: |
+        $Key = "MyKey" # String | The key.
+        
+        # List notification preferences for tenant.
+        
+        try {
+            Get-NotificationPreferencesV1 -Key $Key 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NotificationPreferencesV1 -Key $Key   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NotificationPreferencesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /notification-templates/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-notification-template-v1
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Notification Template
+        
+        # Get notification template by id
+        
+        try {
+            Get-NotificationTemplateV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NotificationTemplateV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NotificationTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /notification-template-variables/v1/{key}/{medium}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-notification-template-variables-v1
+      source: |
+        $Key = "approval_request_notification" # String | The notification template key. Valid keys (and key/medium pairs) are available from the list notification templates operation. 
+        $Medium = "EMAIL" # String | The notification template medium (e.g. EMAIL, SLACK, TEAMS). Valid key/medium pairs are available from the list notification templates operation. 
+        $Sorters = "-description" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, type, description** (optional)
+        
+        # Get notification template variables
+        
+        try {
+            Get-NotificationTemplateVariablesV1 -Key $Key -Medium $Medium 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NotificationTemplateVariablesV1 -Key $Key -Medium $Medium -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NotificationTemplateVariablesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /notification-template-context/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#get-notifications-template-context-v1
+      source: |
+        
+        # Get notification template context
+        
+        try {
+            Get-NotificationsTemplateContextV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NotificationsTemplateContextV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NotificationsTemplateContextV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /verified-from-addresses/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#list-from-addresses-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "email eq "john.doe@company.com"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, gt, lt* (optional)
+        $Sorters = "email" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
+        
+        # List from addresses
+        
+        try {
+            Get-FromAddressesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-FromAddressesV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-FromAddressesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /notification-template-defaults/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#list-notification-template-defaults-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Filters = "key eq "cloud_manual_work_item_summary"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
+        
+        # List notification template defaults
+        
+        try {
+            Get-NotificationTemplateDefaultsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NotificationTemplateDefaultsV1 -Limit $Limit -Offset $Offset -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NotificationTemplateDefaultsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /notification-templates/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#list-notification-templates-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Filters = "medium eq "EMAIL"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
+        $Sorters = "key, -name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, medium** (optional)
+        
+        # List notification templates
+        
+        try {
+            Get-NotificationTemplatesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-NotificationTemplatesV1 -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-NotificationTemplatesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mail-from-attributes/v1
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#put-mail-from-attributes-v1
+      source: |
+        $Mailfromattributesdto = @"
+        {"identity":"BobSmith@sailpoint.com","mailFromDomain":"example.sailpoint.com"}
+        "@
+        
+        # Change mail from domain
+        
+        try {
+            $Result = ConvertFrom-JsonToMailfromattributesdto -Json $Mailfromattributesdto
+            Send-MailFromAttributesV1 -Mailfromattributesdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-MailFromAttributesV1 -Mailfromattributesdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-MailFromAttributesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /send-test-notification/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/notifications/methods/notifications#send-test-notification-v1
+      source: |
+        $Sendtestnotificationrequestdto = @"
+        {"key":"cloud_manual_work_item_summary","medium":"EMAIL","context":{"numberOfPendingTasks":"4","ownerId":"201327fda1c44704ac01181e963d463c"}}
+        "@
+        
+        # Send test notification
+        
+        try {
+            $Result = ConvertFrom-JsonToSendtestnotificationrequestdto -Json $Sendtestnotificationrequestdto
+            Send-TestNotificationV1 -Sendtestnotificationrequestdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-TestNotificationV1 -Sendtestnotificationrequestdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-TestNotificationV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,267 @@
+- path: /historical-identities/v1/{id}/compare/{access-type}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityhistory/methods/identity-history#compare-identity-snapshots-access-type-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+        $AccessType = "accessProfile" # String | The specific type which needs to be compared
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $AccessAssociated = $false # Boolean | Indicates if added or removed access needs to be returned. true - added, false - removed, null - both added & removed (optional)
+        $Snapshot1 = "2008-03-01T13:00:00Z" # String | The snapshot 1 of identity (optional)
+        $Snapshot2 = "2009-03-01T13:00:00Z" # String | The snapshot 2 of identity (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Gets a list of differences of specific accesstype for the given identity between 2 snapshots
+        
+        try {
+            Compare-IdentitySnapshotsAccessTypeV1 -Id $Id -AccessType $AccessType -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Compare-IdentitySnapshotsAccessTypeV1 -Id $Id -AccessType $AccessType -XSailPointExperimental $XSailPointExperimental -AccessAssociated $AccessAssociated -Snapshot1 $Snapshot1 -Snapshot2 $Snapshot2 -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Compare-IdentitySnapshotsAccessTypeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/v1/{id}/compare
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityhistory/methods/identity-history#compare-identity-snapshots-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Snapshot1 = "2007-03-01T13:00:00Z" # String | The snapshot 1 of identity (optional)
+        $Snapshot2 = "2008-03-01T13:00:00Z" # String | The snapshot 2 of identity (optional)
+        $AccessItemTypes = "MyAccessItemTypes" # String[] | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned  (optional)
+        
+        
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Gets a difference of count for each access item types for the given identity between 2 snapshots
+        
+        try {
+            Compare-IdentitySnapshotsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Compare-IdentitySnapshotsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Snapshot1 $Snapshot1 -Snapshot2 $Snapshot2 -AccessItemTypes $AccessItemTypes -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Compare-IdentitySnapshotsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/v1/{id}/events
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityhistory/methods/identity-history#get-historical-identity-events-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $From = "2024-03-01T13:00:00Z" # String | The optional instant until which access events are returned (optional)
+        $EventTypes = "MyEventTypes" # String[] | An optional list of event types to return.  If null or empty, all events are returned (optional)
+        
+        $EventTypes = @"["AccessAddedEvent","AccessRemovedEvent"]"@
+        $AccessItemTypes = "MyAccessItemTypes" # String[] | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned (optional)
+        
+        $AccessItemTypes = @"["entitlement","account"]"@
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List identity event history
+        
+        try {
+            Get-HistoricalIdentityEventsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-HistoricalIdentityEventsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -From $From -EventTypes $EventTypes -AccessItemTypes $AccessItemTypes -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-HistoricalIdentityEventsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityhistory/methods/identity-history#get-historical-identity-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get latest snapshot of identity
+        
+        try {
+            Get-HistoricalIdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-HistoricalIdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-HistoricalIdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/v1/{id}/snapshot-summary
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityhistory/methods/identity-history#get-identity-snapshot-summary-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Before = "2007-03-01T13:00:00Z" # String | The date before which snapshot summary is required (optional)
+        $Interval = "day" # String | The interval indicating day or month. Defaults to month if not specified (optional)
+        $TimeZone = "UTC" # String | The time zone. Defaults to UTC if not provided (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Gets the summary for the event count for a specific identity
+        
+        try {
+            Get-IdentitySnapshotSummaryV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentitySnapshotSummaryV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Before $Before -Interval $Interval -TimeZone $TimeZone -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentitySnapshotSummaryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/v1/{id}/snapshots/{date}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityhistory/methods/identity-history#get-identity-snapshot-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+        $Date = "2007-03-01T13:00:00Z" # String | The specified date
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Gets an identity snapshot at a given date
+        
+        try {
+            Get-IdentitySnapshotV1 -Id $Id -Date $Date -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentitySnapshotV1 -Id $Id -Date $Date -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentitySnapshotV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/v1/{id}/start-date
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityhistory/methods/identity-history#get-identity-start-date-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Gets the start date of the identity
+        
+        try {
+            Get-IdentityStartDateV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityStartDateV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityStartDateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityhistory/methods/identity-history#list-historical-identities-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $StartsWithQuery = "Ada" # String | This param is used for starts-with search for first, last and display name of the identity (optional)
+        $IsDeleted = $true # Boolean | Indicates if we want to only list down deleted identities or not. (optional)
+        $IsActive = $true # Boolean | Indicates if we want to only list active or inactive identities. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Lists all the identities
+        
+        try {
+            Get-HistoricalIdentitiesV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-HistoricalIdentitiesV1 -XSailPointExperimental $XSailPointExperimental -StartsWithQuery $StartsWithQuery -IsDeleted $IsDeleted -IsActive $IsActive -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-HistoricalIdentitiesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/v1/{id}/access-items
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityhistory/methods/identity-history#list-identity-access-items-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Type = "account" # String | The type of access item for the identity. If not provided, it defaults to account (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List access items by identity
+        
+        try {
+            Get-IdentityAccessItemsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityAccessItemsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Type $Type -Limit $Limit -Count $Count -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityAccessItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/v1/{id}/snapshots/{date}/access-items
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityhistory/methods/identity-history#list-identity-snapshot-access-items-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+        $Date = "2007-03-01T13:00:00Z" # String | The specified date
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Type = "account" # String | The access item type (optional)
+        
+        # Gets the list of identity access items at a given date filterd by item type
+        
+        try {
+            Get-IdentitySnapshotAccessItemsV1 -Id $Id -Date $Date -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentitySnapshotAccessItemsV1 -Id $Id -Date $Date -XSailPointExperimental $XSailPointExperimental -Type $Type   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentitySnapshotAccessItemsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /historical-identities/v1/{id}/snapshots
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityhistory/methods/identity-history#list-identity-snapshots-v1
+      source: |
+        $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The identity id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Start = "2007-03-01T13:00:00Z" # String | The specified start date (optional)
+        $Interval = "day" # String | The interval indicating the range in day or month for the specified interval-name (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Lists all the snapshots for the identity
+        
+        try {
+            Get-IdentitySnapshotsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentitySnapshotsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Start $Start -Interval $Interval -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentitySnapshotsV1"
+            Write-Host $_.ErrorDetails
+        }

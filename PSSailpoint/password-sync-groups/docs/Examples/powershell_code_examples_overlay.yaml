@@ -1,0 +1,104 @@
+- path: /password-sync-groups/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passwordsyncgroups/methods/password-sync-groups#create-password-sync-group-v1
+      source: |
+        $Passwordsyncgroup = @"
+        {"name":"Password Sync Group 2","passwordPolicyId":"2c91808d744ba0ce01746f93b6204501","sourceIds":["2c918084660f45d6016617daa9210584","2c918084660f45d6016617daa9210500"]}
+        "@
+        
+        # Create password sync group
+        
+        try {
+            $Result = ConvertFrom-JsonToPasswordsyncgroup -Json $Passwordsyncgroup
+            New-PasswordSyncGroupV1 -Passwordsyncgroup $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-PasswordSyncGroupV1 -Passwordsyncgroup $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-PasswordSyncGroupV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /password-sync-groups/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passwordsyncgroups/methods/password-sync-groups#delete-password-sync-group-v1
+      source: |
+        $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to delete.
+        
+        # Delete password sync group by id
+        
+        try {
+            Remove-PasswordSyncGroupV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-PasswordSyncGroupV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-PasswordSyncGroupV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /password-sync-groups/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passwordsyncgroups/methods/password-sync-groups#get-password-sync-group-v1
+      source: |
+        $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to retrieve.
+        
+        # Get password sync group by id
+        
+        try {
+            Get-PasswordSyncGroupV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PasswordSyncGroupV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PasswordSyncGroupV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /password-sync-groups/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passwordsyncgroups/methods/password-sync-groups#get-password-sync-groups-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Get password sync group list
+        
+        try {
+            Get-PasswordSyncGroupsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PasswordSyncGroupsV1 -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PasswordSyncGroupsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /password-sync-groups/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/passwordsyncgroups/methods/password-sync-groups#update-password-sync-group-v1
+      source: |
+        $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to update.
+        $Passwordsyncgroup = @"
+        {"id":"6881f631-3bd5-4213-9c75-8e05cc3e35dd","name":"Password Sync Group 2","passwordPolicyId":"2c91808d744ba0ce01746f93b6204501","sourceIds":["2c918084660f45d6016617daa9210584","2c918084660f45d6016617daa9210500"]}
+        "@
+        
+        # Update password sync group by id
+        
+        try {
+            $Result = ConvertFrom-JsonToPasswordsyncgroup -Json $Passwordsyncgroup
+            Update-PasswordSyncGroupV1 -Id $Id -Passwordsyncgroup $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-PasswordSyncGroupV1 -Id $Id -Passwordsyncgroup $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PasswordSyncGroupV1"
+            Write-Host $_.ErrorDetails
+        }

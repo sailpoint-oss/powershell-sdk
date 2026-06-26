@@ -1,0 +1,178 @@
+- path: /auth-org/v1/network-config
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#create-auth-org-network-config-v1
+      source: |
+        $Networkconfiguration = @"
+        
+        "@
+        
+        # Create security network configuration.
+        
+        try {
+            $Result = ConvertFrom-JsonToNetworkconfiguration -Json $Networkconfiguration
+            New-AuthOrgNetworkConfigV1 -Networkconfiguration $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-AuthOrgNetworkConfigV1 -Networkconfiguration $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AuthOrgNetworkConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /auth-org/v1/lockout-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#get-auth-org-lockout-config-v1
+      source: |
+        
+        # Get auth org lockout configuration.
+        
+        try {
+            Get-AuthOrgLockoutConfigV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AuthOrgLockoutConfigV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AuthOrgLockoutConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /auth-org/v1/network-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#get-auth-org-network-config-v1
+      source: |
+        
+        # Get security network configuration.
+        
+        try {
+            Get-AuthOrgNetworkConfigV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AuthOrgNetworkConfigV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AuthOrgNetworkConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /auth-org/v1/service-provider-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#get-auth-org-service-provider-config-v1
+      source: |
+        
+        # Get service provider configuration.
+        
+        try {
+            Get-AuthOrgServiceProviderConfigV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AuthOrgServiceProviderConfigV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AuthOrgServiceProviderConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /auth-org/v1/session-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#get-auth-org-session-config-v1
+      source: |
+        
+        # Get auth org session configuration.
+        
+        try {
+            Get-AuthOrgSessionConfigV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AuthOrgSessionConfigV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AuthOrgSessionConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /auth-org/v1/lockout-config
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#patch-auth-org-lockout-config-v1
+      source: |
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/maximumAttempts","value":"7,"},{"op":"add","path":"/lockoutDuration","value":35}]"@ 
+        
+        
+        # Update auth org lockout configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-AuthOrgLockoutConfigV1 -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AuthOrgLockoutConfigV1 -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthOrgLockoutConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /auth-org/v1/network-config
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#patch-auth-org-network-config-v1
+      source: |
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/whitelisted","value":"false,"},{"op":"add","path":"/geolocation","value":["AF","HN","ES"]}]"@ 
+        
+        
+        # Update security network configuration.
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-AuthOrgNetworkConfigV1 -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AuthOrgNetworkConfigV1 -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthOrgNetworkConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /auth-org/v1/service-provider-config
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#patch-auth-org-service-provider-config-v1
+      source: |
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/enabled","value":"true,"},{"op":"add","path":"/federationProtocolDetails/0/jitConfiguration","value":{"enabled":true,"sourceId":"2c9180857377ed2901739c12a2da5ac8","sourceAttributeMappings":{"firstName":"okta.firstName","lastName":"okta.lastName","email":"okta.email","employeeNumber":"okta.employeeNumber"}}}]"@ 
+        
+        
+        # Update service provider configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-AuthOrgServiceProviderConfigV1 -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AuthOrgServiceProviderConfigV1 -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthOrgServiceProviderConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /auth-org/v1/session-config
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/globaltenantsecuritysettings/methods/global-tenant-security-settings#patch-auth-org-session-config-v1
+      source: |
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/rememberMe","value":"true,"},{"op":"add","path":"/maxSessionTime","value":480}]"@ 
+        
+        
+        # Update auth org session configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-AuthOrgSessionConfigV1 -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AuthOrgSessionConfigV1 -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AuthOrgSessionConfigV1"
+            Write-Host $_.ErrorDetails
+        }

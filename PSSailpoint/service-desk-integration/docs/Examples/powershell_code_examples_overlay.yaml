@@ -1,0 +1,205 @@
+- path: /service-desk-integrations/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#create-service-desk-integration-v1
+      source: |
+        $Servicedeskintegrationdto = @"
+        
+        "@
+        
+        # Create new service desk integration
+        
+        try {
+            $Result = ConvertFrom-JsonToServicedeskintegrationdto -Json $Servicedeskintegrationdto
+            New-ServiceDeskIntegrationV1 -Servicedeskintegrationdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ServiceDeskIntegrationV1 -Servicedeskintegrationdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ServiceDeskIntegrationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#delete-service-desk-integration-v1
+      source: |
+        $Id = "anId" # String | ID of Service Desk integration to delete
+        
+        # Delete a service desk integration
+        
+        try {
+            Remove-ServiceDeskIntegrationV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ServiceDeskIntegrationV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ServiceDeskIntegrationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/v1/templates/{scriptName}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#get-service-desk-integration-template-v1
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk integration template to get
+        
+        # Service desk integration template by scriptname
+        
+        try {
+            Get-ServiceDeskIntegrationTemplateV1 -ScriptName $ScriptName 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ServiceDeskIntegrationTemplateV1 -ScriptName $ScriptName   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ServiceDeskIntegrationTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/v1/types
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#get-service-desk-integration-types-v1
+      source: |
+        
+        # List service desk integration types
+        
+        try {
+            Get-ServiceDeskIntegrationTypesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ServiceDeskIntegrationTypesV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ServiceDeskIntegrationTypesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#get-service-desk-integration-v1
+      source: |
+        $Id = "anId" # String | ID of the Service Desk integration to get
+        
+        # Get a service desk integration
+        
+        try {
+            Get-ServiceDeskIntegrationV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ServiceDeskIntegrationV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ServiceDeskIntegrationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#get-service-desk-integrations-v1
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
+        $Filters = "name eq "John Doe"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in* (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List existing service desk integrations
+        
+        try {
+            Get-ServiceDeskIntegrationsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ServiceDeskIntegrationsV1 -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ServiceDeskIntegrationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/v1/status-check-configuration
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#get-status-check-details-v1
+      source: |
+        
+        # Get the time check configuration
+        
+        try {
+            Get-StatusCheckDetailsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-StatusCheckDetailsV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-StatusCheckDetailsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#patch-service-desk-integration-v1
+      source: |
+        $Id = "anId" # String | ID of the Service Desk integration to update
+        $Jsonpatchoperation = @""@ 
+        
+        
+        # Patch a service desk integration
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-ServiceDeskIntegrationV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-ServiceDeskIntegrationV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ServiceDeskIntegrationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#put-service-desk-integration-v1
+      source: |
+        $Id = "anId" # String | ID of the Service Desk integration to update
+        $Servicedeskintegrationdto = @"
+        
+        "@
+        
+        # Update a service desk integration
+        
+        try {
+            $Result = ConvertFrom-JsonToServicedeskintegrationdto -Json $Servicedeskintegrationdto
+            Send-ServiceDeskIntegrationV1 -Id $Id -Servicedeskintegrationdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ServiceDeskIntegrationV1 -Id $Id -Servicedeskintegrationdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ServiceDeskIntegrationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/v1/status-check-configuration
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/servicedeskintegration/methods/service-desk-integration#update-status-check-details-v1
+      source: |
+        $Queuedcheckconfigdetails = @"
+        
+        "@
+        
+        # Update the time check configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToQueuedcheckconfigdetails -Json $Queuedcheckconfigdetails
+            Update-StatusCheckDetailsV1 -Queuedcheckconfigdetails $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-StatusCheckDetailsV1 -Queuedcheckconfigdetails $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-StatusCheckDetailsV1"
+            Write-Host $_.ErrorDetails
+        }

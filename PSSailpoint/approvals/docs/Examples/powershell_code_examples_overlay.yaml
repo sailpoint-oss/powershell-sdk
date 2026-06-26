@@ -1,0 +1,336 @@
+- path: /generic-approvals/v1/bulk-approve
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#approve-approval-in-bulk-v1
+      source: |
+        $Bulkapproverequestdto = @"
+        
+        "@
+        
+        # Post Bulk Approve Approvals
+        
+        try {
+            $Result = ConvertFrom-JsonToBulkapproverequestdto -Json $Bulkapproverequestdto
+            Approve-ApprovalInBulkV1 -Bulkapproverequestdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Approve-ApprovalInBulkV1 -Bulkapproverequestdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-ApprovalInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/{id}/approve
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#approve-approval-v1
+      source: |
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to approve.
+        $Approvalapproverequest = @"
+        
+        "@
+        
+        # Post Approvals Approve
+        
+        try {
+            Approve-ApprovalV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Approve-ApprovalV1 -Id $Id -Approvalapproverequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-ApprovalV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/{id}/cancel
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#cancel-approval-by-id-v1
+      source: |
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval request to cancel.
+        $Approvalcancelrequest = @"
+        
+        "@
+        
+        # Post Approval Cancel
+        
+        try {
+            Suspend-ApprovalByIdV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Suspend-ApprovalByIdV1 -Id $Id -Approvalcancelrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-ApprovalByIdV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/bulk-cancel
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#cancel-approval-v1
+      source: |
+        $Bulkcancelrequestdto = @"
+        
+        "@
+        
+        # Post Bulk Cancel Approvals
+        
+        try {
+            $Result = ConvertFrom-JsonToBulkcancelrequestdto -Json $Bulkcancelrequestdto
+            Suspend-ApprovalV1 -Bulkcancelrequestdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Suspend-ApprovalV1 -Bulkcancelrequestdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-ApprovalV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/config/{id}/{scope}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#delete-approval-config-request-v1
+      source: |
+        $Id = "ACCESS_REQUEST_APPROVAL" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+        $Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+        
+        # Delete Approval Configuration
+        
+        try {
+            Remove-ApprovalConfigRequestV1 -Id $Id -Scope $Scope 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ApprovalConfigRequestV1 -Id $Id -Scope $Scope   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ApprovalConfigRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#get-approval-v1
+      source: |
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval that is to be returned
+        
+        # Get an approval
+        
+        try {
+            Get-ApprovalV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ApprovalV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ApprovalV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/config/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#get-approvals-config-v1
+      source: |
+        $Id = "1.2345678901234567E+31" # String | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), ""ENTITLEMENT_DESCRIPTIONS"", ""ACCESS_REQUEST_APPROVAL"", ""ACCOUNT_CREATE_APPROVAL_REQUEST"", ""ACCOUNT_DELETE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST"", ""MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST"", (tenantID)]
+        
+        # Get Approval Config
+        
+        try {
+            Get-ApprovalsConfigV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ApprovalsConfigV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ApprovalsConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#get-approvals-v1
+      source: |
+        $Mine = $true # Boolean | Determines whether to return the list of approvals assigned to the current caller or all approvals in the org. Defaults to false if admin, true otherwise (which is the equivalent of 'approverId=[your_identity_id]'). (optional) (default to $false)
+        $RequesterId = "17e633e7d57e481569df76323169deb6a" # String | Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin. (optional)
+        $RequesteeId = "27e6334g757e481569df76323169db9sc" # String | Returns the list of approvals for a given requesteeId ID. Must match the calling user's identity ID unless they are an admin. (optional)
+        $ApproverId = "37e6334g557e481569df7g2d3169db9sb" # String | Returns the list of approvals for a given approverId ID. Must match the calling user's identity ID unless they are an admin. (optional)
+        $Count = $true # Boolean | Adds X-Total-Count to the header to give the amount of total approvals returned from the query. (optional) (default to $false)
+        $CountOnly = $true # Boolean | Adds X-Total-Count to the header to give the amount of total approvals returned from the query. Only returns the count and no approval objects. (optional) (default to $false)
+        $IncludeComments = $true # Boolean | If set to true in the query, the approval requests returned will include comments. (optional) (default to $false)
+        $IncludeApprovers = $true # Boolean | If set to true in the query, the approval requests returned will include approvers. (optional) (default to $false)
+        $IncludeReassignmentHistory = $true # Boolean | If set to true in the query, the approval requests returned will include reassignment history. (optional) (default to $false)
+        $IncludeBatchInfo = $true # Boolean | If set to true in the query, the approval requests returned will include batch information. (optional) (default to $false)
+        $Filters = "filters=status eq "PENDING" and type eq "ACCESS_REQUEST_APPROVAL"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetName**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **approvalId**: *eq, ne, in, co, sw*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw* (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Get approvals
+        
+        try {
+            Get-ApprovalsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ApprovalsV1 -Mine $Mine -RequesterId $RequesterId -RequesteeId $RequesteeId -ApproverId $ApproverId -Count $Count -CountOnly $CountOnly -IncludeComments $IncludeComments -IncludeApprovers $IncludeApprovers -IncludeReassignmentHistory $IncludeReassignmentHistory -IncludeBatchInfo $IncludeBatchInfo -Filters $Filters -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ApprovalsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/bulk-reassign
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#move-approval-v1
+      source: |
+        $Bulkreassignrequestdto = @"
+        
+        "@
+        
+        # Post Bulk Reassign Approvals
+        
+        try {
+            $Result = ConvertFrom-JsonToBulkreassignrequestdto -Json $Bulkreassignrequestdto
+            Move-ApprovalV1 -Bulkreassignrequestdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Move-ApprovalV1 -Bulkreassignrequestdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-ApprovalV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/config/{id}/{scope}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#put-approvals-config-v1
+      source: |
+        $Id = "ACCESS_REQUEST_APPROVAL" # String | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+        $Scope = "DOMAIN_OBJECT" # String | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+        $Approvalconfig = @"
+        
+        "@
+        
+        # Put Approval Config
+        
+        try {
+            $Result = ConvertFrom-JsonToApprovalconfig -Json $Approvalconfig
+            Send-ApprovalsConfigV1 -Id $Id -Scope $Scope -Approvalconfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ApprovalsConfigV1 -Id $Id -Scope $Scope -Approvalconfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ApprovalsConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/bulk-reject
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#reject-approval-in-bulk-v1
+      source: |
+        $Bulkrejectrequestdto = @"
+        
+        "@
+        
+        # Post Bulk Reject Approvals
+        
+        try {
+            $Result = ConvertFrom-JsonToBulkrejectrequestdto -Json $Bulkrejectrequestdto
+            Deny-ApprovalInBulkV1 -Bulkrejectrequestdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Deny-ApprovalInBulkV1 -Bulkrejectrequestdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-ApprovalInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/{id}/reject
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#reject-approval-v1
+      source: |
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to reject.
+        $Approvalrejectrequest = @"
+        
+        "@
+        
+        # Post Approvals Reject
+        
+        try {
+            Deny-ApprovalV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Deny-ApprovalV1 -Id $Id -Approvalrejectrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-ApprovalV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/{id}/attributes
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#update-approvals-attributes-v1
+      source: |
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to change the attributes of.
+        $Approvalattributesrequest = @"
+        
+        "@
+        
+        # Post Approvals Attributes
+        
+        try {
+            $Result = ConvertFrom-JsonToApprovalattributesrequest -Json $Approvalattributesrequest
+            Update-ApprovalsAttributesV1 -Id $Id -Approvalattributesrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-ApprovalsAttributesV1 -Id $Id -Approvalattributesrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ApprovalsAttributesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/{id}/comments
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#update-approvals-comments-v1
+      source: |
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to add a comment to.
+        $Approvalcommentsrequest = @"
+        
+        "@
+        
+        # Post Approvals Comments
+        
+        try {
+            $Result = ConvertFrom-JsonToApprovalcommentsrequest -Json $Approvalcommentsrequest
+            Update-ApprovalsCommentsV1 -Id $Id -Approvalcommentsrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-ApprovalsCommentsV1 -Id $Id -Approvalcommentsrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ApprovalsCommentsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /generic-approvals/v1/{id}/reassign
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/approvals/methods/approvals#update-approvals-reassign-v1
+      source: |
+        $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | Approval ID that correlates to an existing approval request that a user wants to reassign.
+        $Approvalreassignrequest = @"
+        
+        "@
+        
+        # Post Approvals Reassign
+        
+        try {
+            $Result = ConvertFrom-JsonToApprovalreassignrequest -Json $Approvalreassignrequest
+            Update-ApprovalsReassignV1 -Id $Id -Approvalreassignrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-ApprovalsReassignV1 -Id $Id -Approvalreassignrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ApprovalsReassignV1"
+            Write-Host $_.ErrorDetails
+        }

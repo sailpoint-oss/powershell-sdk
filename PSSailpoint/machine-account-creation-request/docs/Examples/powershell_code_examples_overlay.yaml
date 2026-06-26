@@ -1,0 +1,64 @@
+- path: /account-requests/v1/machine-account-create
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountcreationrequest/methods/machine-account-creation-request#create-machine-account-request-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Machineaccountcreaterequestinput = @"
+        
+        "@
+        
+        # Submit Machine Account Creation Request
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineaccountcreaterequestinput -Json $Machineaccountcreaterequestinput
+            New-MachineAccountRequestV1 -XSailPointExperimental $XSailPointExperimental -Machineaccountcreaterequestinput $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-MachineAccountRequestV1 -XSailPointExperimental $XSailPointExperimental -Machineaccountcreaterequestinput $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineAccountRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /account-requests/v1/machine-account-create/{accountRequestId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountcreationrequest/methods/machine-account-creation-request#get-create-machine-account-request-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $AccountRequestId = "gt38f94347e94562b5bb8424a56498d8" # String | Account Request ID
+        
+        # Get Machine Account Creation Request
+        
+        try {
+            Get-CreateMachineAccountRequestV1 -XSailPointExperimental $XSailPointExperimental -AccountRequestId $AccountRequestId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CreateMachineAccountRequestV1 -XSailPointExperimental $XSailPointExperimental -AccountRequestId $AccountRequestId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CreateMachineAccountRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-subtypes/v1/machine-account-create-access
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineaccountcreationrequest/methods/machine-account-creation-request#get-machine-account-create-access-info-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+        $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+        
+        # Machine Account Create Access
+        
+        try {
+            Get-MachineAccountCreateAccessInfoV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineAccountCreateAccessInfoV1 -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineAccountCreateAccessInfoV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,121 @@
+- path: /connector-customizers/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#create-connector-customizer-v1
+      source: |
+        $Connectorcustomizercreaterequest = @"
+        
+        "@
+        
+        # Create connector customizer
+        
+        try {
+            $Result = ConvertFrom-JsonToConnectorcustomizercreaterequest -Json $Connectorcustomizercreaterequest
+            New-ConnectorCustomizerV1 -Connectorcustomizercreaterequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ConnectorCustomizerV1 -Connectorcustomizercreaterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ConnectorCustomizerV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-customizers/v1/{id}/versions
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#create-connector-customizer-version-v1
+      source: |
+        $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | The id of the connector customizer.
+        
+        # Creates a connector customizer version
+        
+        try {
+            New-ConnectorCustomizerVersionV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # New-ConnectorCustomizerVersionV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ConnectorCustomizerVersionV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-customizers/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#delete-connector-customizer-v1
+      source: |
+        $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | ID of the connector customizer to delete.
+        
+        # Delete connector customizer
+        
+        try {
+            Remove-ConnectorCustomizerV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ConnectorCustomizerV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ConnectorCustomizerV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-customizers/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#get-connector-customizer-v1
+      source: |
+        $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | ID of the connector customizer to get.
+        
+        # Get connector customizer
+        
+        try {
+            Get-ConnectorCustomizerV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ConnectorCustomizerV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ConnectorCustomizerV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-customizers/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#list-connector-customizers-v1
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # List all connector customizers
+        
+        try {
+            Get-ConnectorCustomizersV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ConnectorCustomizersV1 -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ConnectorCustomizersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connector-customizers/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectorcustomizers/methods/connector-customizers#put-connector-customizer-v1
+      source: |
+        $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | ID of the connector customizer to update.
+        $Connectorcustomizerupdaterequest = @"
+        
+        "@
+        
+        # Update connector customizer
+        
+        try {
+            Send-ConnectorCustomizerV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ConnectorCustomizerV1 -Id $Id -Connectorcustomizerupdaterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ConnectorCustomizerV1"
+            Write-Host $_.ErrorDetails
+        }

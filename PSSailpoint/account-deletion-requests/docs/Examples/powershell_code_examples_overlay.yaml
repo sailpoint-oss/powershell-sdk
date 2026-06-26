@@ -1,0 +1,44 @@
+- path: /account-requests/v1/account/{accountId}/delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accountdeletionrequests/methods/account-deletion-requests#delete-account-request-v1
+      source: |
+        $AccountId = "ef38f94347e94562b5bb8424a56498d8" # String | Account ID.
+        $Accountdeleterequestinput = @"
+        {"comments":"I requested this account deletion."}
+        "@
+        
+        # Delete account
+        
+        try {
+            Remove-AccountRequestV1 -AccountId $AccountId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-AccountRequestV1 -AccountId $AccountId -Accountdeleterequestinput $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccountRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /account-requests/v1/deletion
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accountdeletionrequests/methods/account-deletion-requests#get-account-deletion-requests-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Mine = $true # Boolean | Determines whether to return only the account deletion requests initiated by the currently authenticated user. If set to true, the response includes only deletion requests created by the logged-in user. If set to false or not provided, the response includes all deletion requests for the tenant, regardless of the initiator. This parameter allows users to view their own requests, while administrators can view all requests within the tenant. (optional) (default to $false)
+        
+        # List of Account Deletion Requests
+        
+        try {
+            Get-AccountDeletionRequestsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccountDeletionRequestsV1 -Limit $Limit -Offset $Offset -Count $Count -Mine $Mine   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccountDeletionRequestsV1"
+            Write-Host $_.ErrorDetails
+        }

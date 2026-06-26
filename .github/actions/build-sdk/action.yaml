@@ -17,7 +17,7 @@ runs:
     - name: Set up Node
       uses: actions/setup-node@v6
       with:
-        node-version: "24"
+        node-version: "20"
 
     - name: Set up Java
       uses: actions/setup-java@v4
@@ -25,69 +25,20 @@ runs:
         distribution: 'temurin'
         java-version: '17'
 
+    - name: Install Node dependencies
+      shell: bash
+      run: npm install
+
     - name: Download OpenAPI Generator
       shell: bash
       run: |
         wget -q https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.12.0/openapi-generator-cli-7.12.0.jar -O openapi-generator-cli.jar
 
-    - name: Run Prescript
-      shell: bash
-      run: node sdk-resources/prescript.js ${{ inputs.api-specs-path }}/idn
-
-    - name: Build V3 SDK
+    - name: Build Versioned SDK (per-partition)
       shell: bash
       run: |
-        rm -rf ./PSSailpoint/v3
-        java -jar openapi-generator-cli.jar generate \
-          -i ${{ inputs.api-specs-path }}/idn/sailpoint-api.v3.yaml \
-          -g powershell -o PSSailpoint/v3 \
-          --global-property skipFormModel=false,apiDocs=true,modelDocs=true \
-          --config sdk-resources/v3-config.yaml
-        node sdk-resources/postscript.js ./PSSailpoint/v3
-
-    - name: Build Beta SDK
-      shell: bash
-      run: |
-        rm -rf ./PSSailpoint/beta
-        java -jar openapi-generator-cli.jar generate \
-          -i ${{ inputs.api-specs-path }}/idn/sailpoint-api.beta.yaml \
-          -g powershell -o PSSailpoint/beta \
-          --global-property skipFormModel=false,apiDocs=true,modelDocs=true \
-          --config sdk-resources/beta-config.yaml
-        node sdk-resources/postscript.js ./PSSailpoint/beta
-
-    - name: Build V2024 SDK
-      shell: bash
-      run: |
-        rm -rf ./PSSailpoint/v2024
-        java -jar openapi-generator-cli.jar generate \
-          -i ${{ inputs.api-specs-path }}/idn/sailpoint-api.v2024.yaml \
-          -g powershell -o PSSailpoint/v2024 \
-          --global-property skipFormModel=false,apiDocs=true,modelDocs=true \
-          --config sdk-resources/v2024-config.yaml
-        node sdk-resources/postscript.js ./PSSailpoint/v2024
-
-    - name: Build V2025 SDK
-      shell: bash
-      run: |
-        rm -rf ./PSSailpoint/v2025
-        java -jar openapi-generator-cli.jar generate \
-          -i ${{ inputs.api-specs-path }}/idn/sailpoint-api.v2025.yaml \
-          -g powershell -o PSSailpoint/v2025 \
-          --global-property skipFormModel=false,apiDocs=true,modelDocs=true \
-          --config sdk-resources/v2025-config.yaml
-        node sdk-resources/postscript.js ./PSSailpoint/v2025
-
-    - name: Build V2026 SDK
-      shell: bash
-      run: |
-        rm -rf ./PSSailpoint/v2026
-        java -jar openapi-generator-cli.jar generate \
-          -i ${{ inputs.api-specs-path }}/idn/sailpoint-api.v2026.yaml \
-          -g powershell -o PSSailpoint/v2026 \
-          --global-property skipFormModel=false,apiDocs=true,modelDocs=true \
-          --config sdk-resources/v2026-config.yaml
-        node sdk-resources/postscript.js ./PSSailpoint/v2026
+        node sdk-resources/build-versioned-sdk.js \
+          ${{ inputs.api-specs-path }}/idn/apis
 
     - name: Build NERM SDK
       shell: bash
@@ -115,28 +66,30 @@ runs:
       shell: pwsh
       run: |
         $DebugPreference = "Continue"
-        ./PSSailpoint/Build.ps1
-        ./PSSailpoint/v3/Build.ps1
-        ./PSSailpoint/beta/Build.ps1
-        ./PSSailpoint/v2024/Build.ps1
-        ./PSSailpoint/v2025/Build.ps1
-        ./PSSailpoint/v2026/Build.ps1
+        # Build per-partition modules (dynamically discovered)
+        Get-ChildItem -Path './PSSailpoint' -Directory |
+          Where-Object { $_.Name -match '^[a-z].+_v\d{1,2}$' } |
+          ForEach-Object {
+            $buildScript = Join-Path $_.FullName 'Build.ps1'
+            if (Test-Path $buildScript) { & $buildScript }
+          }
+        # Build NERM modules
         ./PSSailpoint/nerm/Build.ps1
         ./PSSailpoint/nermV2025/Build.ps1
+        # Build root barrel module manifest
+        ./PSSailpoint/Build.ps1
 
     - name: Import Modules and Run Tests
       shell: pwsh
       run: |
         $DebugPreference = "Continue"
-        Import-Module -Name '.\PSSailpoint\v3\src\PSSailpoint.V3' -Verbose
-        Import-Module -Name '.\PSSailpoint\beta\src\PSSailpoint.Beta' -Verbose
-        Import-Module -Name '.\PSSailpoint\v2024\src\PSSailpoint.V2024' -Verbose
-        Import-Module -Name '.\PSSailpoint\v2025\src\PSSailpoint.V2025' -Verbose
-        Import-Module -Name '.\PSSailpoint\v2026\src\PSSailpoint.V2026' -Verbose
-        Import-Module -Name '.\PSSailpoint\nerm\src\PSSailpoint.NERM' -Verbose
-        Import-Module -Name '.\PSSailpoint\nermV2025\src\PSSailpoint.NERMV2025' -Verbose
-        . .\PSSailpoint\Configuration.ps1
-        . .\PSSailpoint\Pagination.ps1
+        # Import all partition modules via the barrel module
+        Import-Module -Name './PSSailpoint/PSSailpoint' -Verbose
+        # Import NERM modules (not included in the partition barrel)
+        Import-Module -Name './PSSailpoint/nerm/src/PSSailpoint.NERM' -Verbose
+        Import-Module -Name './PSSailpoint/nermV2025/src/PSSailpoint.NERMV2025' -Verbose
+        . ./PSSailpoint/Configuration.ps1
+        . ./PSSailpoint/Pagination.ps1
         if ("${{ inputs.skip-tests }}" -ne "true") {
           Install-Module -Name Pester -Force
           Invoke-Pester -Output Detailed ./PSSailpoint/tests/

@@ -1,0 +1,216 @@
+- path: /workgroups/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#create-workgroup-v1
+      source: |
+        $Workgroupdto = @"
+        
+        "@
+        
+        # Create a new governance group.
+        
+        try {
+            $Result = ConvertFrom-JsonToWorkgroupdto -Json $Workgroupdto
+            New-WorkgroupV1 -Workgroupdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-WorkgroupV1 -Workgroupdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-WorkgroupV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/v1/{workgroupId}/members/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#delete-workgroup-members-v1
+      source: |
+        $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
+        $BulkworkgroupmembersrequestInner = @""@ 
+        
+        
+        # Remove members from governance group
+        
+        try {
+            $Result = ConvertFrom-JsonToBulkworkgroupmembersrequestInner -Json $BulkworkgroupmembersrequestInner
+            Remove-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkworkgroupmembersrequestInner $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkworkgroupmembersrequestInner $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-WorkgroupMembersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#delete-workgroup-v1
+      source: |
+        $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
+        
+        # Delete a governance group
+        
+        try {
+            Remove-WorkgroupV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-WorkgroupV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-WorkgroupV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/v1/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#delete-workgroups-in-bulk-v1
+      source: |
+        $Workgroupbulkdeleterequest = @"
+        {"ids":["567a697e-885b-495a-afc5-d55e1c23a302","c7b0f7b2-1e78-4063-b294-a555333dacd2"]}
+        "@
+        
+        # Delete governance group(s)
+        
+        try {
+            $Result = ConvertFrom-JsonToWorkgroupbulkdeleterequest -Json $Workgroupbulkdeleterequest
+            Remove-WorkgroupsInBulkV1 -Workgroupbulkdeleterequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-WorkgroupsInBulkV1 -Workgroupbulkdeleterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-WorkgroupsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#get-workgroup-v1
+      source: |
+        $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
+        
+        # Get governance group by id
+        
+        try {
+            Get-WorkgroupV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkgroupV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkgroupV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/v1/{workgroupId}/connections
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#list-connections-v1
+      source: |
+        $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+        
+        # List connections for governance group
+        
+        try {
+            Get-ConnectionsV1 -WorkgroupId $WorkgroupId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ConnectionsV1 -WorkgroupId $WorkgroupId -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ConnectionsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/v1/{workgroupId}/members
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#list-workgroup-members-v1
+      source: |
+        $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+        
+        # List governance group members
+        
+        try {
+            Get-WorkgroupMembersV1 -WorkgroupId $WorkgroupId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkgroupMembersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#list-workgroups-v1
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "name sw "Test"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, sw, in*  **memberships.identityId**: *eq, in* (optional)
+        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, description** (optional)
+        
+        # List governance groups
+        
+        try {
+            Get-WorkgroupsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-WorkgroupsV1 -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkgroupsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#patch-workgroup-v1
+      source: |
+        $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Governance Group new description."}]"@ 
+        
+        
+        # Patch a governance group
+        
+        try {
+            Update-WorkgroupV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Update-WorkgroupV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-WorkgroupV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workgroups/v1/{workgroupId}/members/bulk-add
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/governancegroups/methods/governance-groups#update-workgroup-members-v1
+      source: |
+        $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governance Group.
+        $BulkworkgroupmembersrequestInner = @""@ 
+        
+        
+        # Add members to governance group
+        
+        try {
+            $Result = ConvertFrom-JsonToBulkworkgroupmembersrequestInner -Json $BulkworkgroupmembersrequestInner
+            Update-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkworkgroupmembersrequestInner $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-WorkgroupMembersV1 -WorkgroupId $WorkgroupId -BulkworkgroupmembersrequestInner $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-WorkgroupMembersV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,128 @@
+- path: /scheduled-searches/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#create-scheduled-search-v1
+      source: |
+        $CreateScheduledSearchV1Request = @"
+        {"savedSearchId":"9c620e13-cd33-4804-a13d-403bd7bcdbad","schedule":{"type":"DAILY","hours":{"type":"LIST","values":["9"]}},"recipients":[{"type":"IDENTITY","id":"2c9180867624cbd7017642d8c8c81f67"}]}
+        "@
+        
+        # Create a new scheduled search
+        
+        try {
+            $Result = ConvertFrom-JsonToCreateScheduledSearchV1Request -Json $CreateScheduledSearchV1Request
+            New-ScheduledSearchV1 -CreateScheduledSearchV1Request $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ScheduledSearchV1 -CreateScheduledSearchV1Request $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ScheduledSearchV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /scheduled-searches/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#delete-scheduled-search-v1
+      source: |
+        $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+        
+        # Delete a scheduled search
+        
+        try {
+            Remove-ScheduledSearchV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ScheduledSearchV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ScheduledSearchV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /scheduled-searches/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#get-scheduled-search-v1
+      source: |
+        $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+        
+        # Get a scheduled search
+        
+        try {
+            Get-ScheduledSearchV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ScheduledSearchV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ScheduledSearchV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /scheduled-searches/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#list-scheduled-search-v1
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*  **savedSearchId**: *eq* (optional)
+        
+        # List scheduled searches
+        
+        try {
+            Get-ScheduledSearchV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ScheduledSearchV1 -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ScheduledSearchV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /scheduled-searches/v1/{id}/unsubscribe
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#unsubscribe-scheduled-search-v1
+      source: |
+        $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+        $Typedreference = @"
+        
+        "@
+        
+        # Unsubscribe a recipient from scheduled search
+        
+        try {
+            $Result = ConvertFrom-JsonToTypedreference -Json $Typedreference
+            Invoke-UnsubscribeScheduledSearchV1 -Id $Id -Typedreference $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Invoke-UnsubscribeScheduledSearchV1 -Id $Id -Typedreference $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-UnsubscribeScheduledSearchV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /scheduled-searches/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/scheduledsearch/methods/scheduled-search#update-scheduled-search-v1
+      source: |
+        $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
+        $Scheduledsearch = @"
+        
+        "@
+        
+        # Update an existing scheduled search
+        
+        try {
+            $Result = ConvertFrom-JsonToScheduledsearch -Json $Scheduledsearch
+            Update-ScheduledSearchV1 -Id $Id -Scheduledsearch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-ScheduledSearchV1 -Id $Id -Scheduledsearch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ScheduledSearchV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,163 @@
+- path: /parameter-storage/v1/parameters
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/parameterstorage/methods/parameter-storage#create-parameter-v1
+      source: |
+        $Parameterstoragenewparameter = @"
+        
+        "@
+        
+        # Add a new parameter.
+        
+        try {
+            New-ParameterV1 
+    
+            # Below is a request that includes all optional parameters
+            # New-ParameterV1 -Parameterstoragenewparameter $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ParameterV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/v1/parameters/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/parameterstorage/methods/parameter-storage#delete-parameter-v1
+      source: |
+        $Id = "58de858b-83d9-4563-9e15-7393594c684a" # String | The ID of the parameter to be deleted.
+        
+        # Delete a parameter.
+        
+        try {
+            Remove-ParameterV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ParameterV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ParameterV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/v1/attestation
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/parameterstorage/methods/parameter-storage#get-attestation-document-v1
+      source: |
+        $Key = "BLdV-KA7nSRXx2XkksQX7bmOAShARsB3CCVWodKr4dOJj_puru76wy6drBTVlSytW_rDheLwepm9xdrRuqUI7p81wMP576frFBbsjndBKyRm3eouPbDcW8MAz0XRH1BB3w==" # String | Base64Url encoded NIST P-384 public key
+        
+        # Get an attestation document.
+        
+        try {
+            Get-AttestationDocumentV1 -Key $Key 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AttestationDocumentV1 -Key $Key   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AttestationDocumentV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/v1/parameters/{id}/references
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/parameterstorage/methods/parameter-storage#get-parameter-references-v1
+      source: |
+        $Id = "58de858b-83d9-4563-9e15-7393594c684a" # String | The ID of the parameter which you want to fetch the references for.
+        $Sorters = "consumerId,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, consumerId, parameterId, name, usageHint** (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Get parameter references.
+        
+        try {
+            Get-ParameterReferencesV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ParameterReferencesV1 -Id $Id -Sorters $Sorters -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ParameterReferencesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/v1/specification
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/parameterstorage/methods/parameter-storage#get-parameter-storage-specification-v1
+      source: |
+        $AcceptLanguage = "en" # String | The i18n internationalization code for the language that the spec is in. Defaults to english. (optional) (default to "en")
+        
+        # Get specifications for parameter types.
+        
+        try {
+            Get-ParameterStorageSpecificationV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ParameterStorageSpecificationV1 -AcceptLanguage $AcceptLanguage   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ParameterStorageSpecificationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/v1/parameters/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/parameterstorage/methods/parameter-storage#get-parameter-v1
+      source: |
+        $Id = "58de858b-83d9-4563-9e15-7393594c684a" # String | The ID of the parameter to be fetched
+        
+        # Get a specific parameter.
+        
+        try {
+            Get-ParameterV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ParameterV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ParameterV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/v1/parameters
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/parameterstorage/methods/parameter-storage#search-parameters-v1
+      source: |
+        $Filters = "id eq 550e8400-e29b-41d4-a716-446655440000" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, in, co*  **description**: *co*  **ownerId**: *eq*  **type**: *eq, sw* (optional)
+        $Sorters = "type,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, ownerId, type, description, lastModifiedAt, lastModifiedBy, privateFieldsLastModifiedAt, privateFieldsLastModifiedAt** (optional)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # Query stored parameters.
+        
+        try {
+            Search-ParametersV1 
+    
+            # Below is a request that includes all optional parameters
+            # Search-ParametersV1 -Filters $Filters -Sorters $Sorters -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-ParametersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /parameter-storage/v1/parameters/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/parameterstorage/methods/parameter-storage#update-parameter-v1
+      source: |
+        $Id = "58de858b-83d9-4563-9e15-7393594c684a" # String | The ID of the parameter to be updated.
+        $Parameterstorageupdateparameter = @"
+        
+        "@
+        
+        # Update a parameter.
+        
+        try {
+            Update-ParameterV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Update-ParameterV1 -Id $Id -Parameterstorageupdateparameter $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ParameterV1"
+            Write-Host $_.ErrorDetails
+        }

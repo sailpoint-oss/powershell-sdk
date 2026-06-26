@@ -1,0 +1,40 @@
+- path: /tenant-context/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/tenantcontext/methods/tenant-context#get-tenant-context-v1
+      source: |
+        
+        # Retrieve tenant context
+        
+        try {
+            Get-TenantContextV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-TenantContextV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TenantContextV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tenant-context/v1
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/tenantcontext/methods/tenant-context#patch-tenant-context-v1
+      source: |
+        $Jsonpatchoperation = @"
+        [{"op":"add","path":"/Key/IAS","value":"Integrated Automation System"},{"op":"replace","path":"/Key/IAS","value":"International Accounting Standards"},{"op":"remove","path":"/Key/NDR"}]
+        "@
+        
+        # Update tenant context
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-TenantContextV1 -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-TenantContextV1 -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-TenantContextV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,459 @@
+- path: /campaigns/v1/{id}/complete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#complete-campaign-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
+        $Campaigncompleteoptions = @"
+        
+        "@
+        
+        # Complete a campaign
+        
+        try {
+            Complete-CampaignV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Complete-CampaignV1 -Id $Id -Campaigncompleteoptions $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-CampaignV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaign-templates/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#create-campaign-template-v1
+      source: |
+        $Campaigntemplate = @"
+        
+        "@
+        
+        # Create a campaign template
+        
+        try {
+            $Result = ConvertFrom-JsonToCampaigntemplate -Json $Campaigntemplate
+            New-CampaignTemplateV1 -Campaigntemplate $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-CampaignTemplateV1 -Campaigntemplate $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CampaignTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaigns/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#create-campaign-v1
+      source: |
+        $Campaign2 = @"
+        
+        "@
+        
+        # Create a campaign
+        
+        try {
+            $Result = ConvertFrom-JsonToCampaign2 -Json $Campaign2
+            New-CampaignV1 -Campaign2 $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-CampaignV1 -Campaign2 $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CampaignV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaign-templates/v1/{id}/schedule
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#delete-campaign-template-schedule-v1
+      source: |
+        $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being deleted.
+        
+        # Delete campaign template schedule
+        
+        try {
+            Remove-CampaignTemplateScheduleV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-CampaignTemplateScheduleV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-CampaignTemplateScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaign-templates/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#delete-campaign-template-v1
+      source: |
+        $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being deleted.
+        
+        # Delete a campaign template
+        
+        try {
+            Remove-CampaignTemplateV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-CampaignTemplateV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-CampaignTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaigns/v1/delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#delete-campaigns-v1
+      source: |
+        $Campaignsdeleterequest = @"
+        
+        "@
+        
+        # Delete campaigns
+        
+        try {
+            $Result = ConvertFrom-JsonToCampaignsdeleterequest -Json $Campaignsdeleterequest
+            Remove-CampaignsV1 -Campaignsdeleterequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-CampaignsV1 -Campaignsdeleterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-CampaignsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaigns/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-active-campaigns-v1
+      source: |
+        $Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "name eq "Manager Campaign"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **status**: *eq, in* (optional)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created** (optional)
+        
+        # List campaigns
+        
+        try {
+            Get-ActiveCampaignsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ActiveCampaignsV1 -Detail $Detail -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ActiveCampaignsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaigns/v1/reports-configuration
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-reports-config-v1
+      source: |
+        
+        # Get campaign reports configuration
+        
+        try {
+            Get-CampaignReportsConfigV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CampaignReportsConfigV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CampaignReportsConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaigns/v1/{id}/reports
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-reports-v1
+      source: |
+        $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose reports are being fetched.
+        
+        # Get campaign reports
+        
+        try {
+            Get-CampaignReportsV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CampaignReportsV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CampaignReportsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaign-templates/v1/{id}/schedule
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-template-schedule-v1
+      source: |
+        $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being fetched.
+        
+        # Get campaign template schedule
+        
+        try {
+            Get-CampaignTemplateScheduleV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CampaignTemplateScheduleV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CampaignTemplateScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaign-templates/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-template-v1
+      source: |
+        $Id = "2c9180835d191a86015d28455b4a2329" # String | Requested campaign template's ID.
+        
+        # Get a campaign template
+        
+        try {
+            Get-CampaignTemplateV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CampaignTemplateV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CampaignTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaign-templates/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-templates-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+        $Filters = "name eq "manager template"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw* (optional)
+        
+        # List campaign templates
+        
+        try {
+            Get-CampaignTemplatesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CampaignTemplatesV1 -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CampaignTemplatesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaigns/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#get-campaign-v1
+      source: |
+        $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign to be retrieved.
+        $Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
+        
+        # Get campaign
+        
+        try {
+            Get-CampaignV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CampaignV1 -Id $Id -Detail $Detail   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CampaignV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaigns/v1/{id}/reassign
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#move-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification campaign ID
+        $Adminreviewreassign = @"
+        
+        "@
+        
+        # Reassign certifications
+        
+        try {
+            $Result = ConvertFrom-JsonToAdminreviewreassign -Json $Adminreviewreassign
+            Move-V1 -Id $Id -Adminreviewreassign $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Move-V1 -Id $Id -Adminreviewreassign $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-V1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaign-templates/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#patch-campaign-template-v1
+      source: |
+        $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being modified.
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Updated description!"},{"op":"replace","path":"/campaign/filter/id","value":"ff80818155fe8c080155fe8d925b0316"}]"@ 
+        
+        
+        # Update a campaign template
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-CampaignTemplateV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-CampaignTemplateV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CampaignTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaigns/v1/reports-configuration
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#set-campaign-reports-config-v1
+      source: |
+        $Campaignreportsconfig = @"
+        
+        "@
+        
+        # Set campaign reports configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToCampaignreportsconfig -Json $Campaignreportsconfig
+            Set-CampaignReportsConfigV1 -Campaignreportsconfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-CampaignReportsConfigV1 -Campaignreportsconfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-CampaignReportsConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaign-templates/v1/{id}/schedule
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#set-campaign-template-schedule-v1
+      source: |
+        $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template being scheduled.
+        $Schedule2 = @"
+        {"type":"MONTHLY","hours":{"type":"LIST","values":["17"]},"days":{"type":"LIST","values":["15"]}}
+        "@
+        
+        # Set campaign template schedule
+        
+        try {
+            Set-CampaignTemplateScheduleV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Set-CampaignTemplateScheduleV1 -Id $Id -Schedule2 $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-CampaignTemplateScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaigns/v1/{id}/run-remediation-scan
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#start-campaign-remediation-scan-v1
+      source: |
+        $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the remediation scan is being run for.
+        
+        # Run campaign remediation scan
+        
+        try {
+            Start-CampaignRemediationScanV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Start-CampaignRemediationScanV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-CampaignRemediationScanV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaigns/v1/{id}/run-report/{type}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#start-campaign-report-v1
+      source: |
+        $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the report is being run for.
+        $Type = "CAMPAIGN_COMPOSITION_REPORT" # Reporttype | Type of the report to run.
+        
+        # Run campaign report
+        
+        try {
+            Start-CampaignReportV1 -Id $Id -Type $Type 
+    
+            # Below is a request that includes all optional parameters
+            # Start-CampaignReportV1 -Id $Id -Type $Type   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-CampaignReportV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaigns/v1/{id}/activate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#start-campaign-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Campaign ID.
+        $Activatecampaignoptions = @"
+        
+        "@
+        
+        # Activate a campaign
+        
+        try {
+            Start-CampaignV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Start-CampaignV1 -Id $Id -Activatecampaignoptions $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-CampaignV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaign-templates/v1/{id}/generate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#start-generate-campaign-template-v1
+      source: |
+        $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template to use for generation.
+        
+        # Generate a campaign from template
+        
+        try {
+            Start-GenerateCampaignTemplateV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Start-GenerateCampaignTemplateV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-GenerateCampaignTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /campaigns/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/certificationcampaigns/methods/certification-campaigns#update-campaign-v1
+      source: |
+        $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template being modified.
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/name","value":"This field has been updated!"},{"op":"copy","from":"/name","path":"/description"}]"@ 
+        
+        
+        # Update a campaign
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-CampaignV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-CampaignV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CampaignV1"
+            Write-Host $_.ErrorDetails
+        }

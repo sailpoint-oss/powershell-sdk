@@ -1,0 +1,42 @@
+- path: /source-usages/v1/{sourceId}/status
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sourceusages/methods/source-usages#get-status-by-source-id-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
+        
+        # Finds status of source usage
+        
+        try {
+            Get-StatusBySourceIdV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-StatusBySourceIdV1 -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-StatusBySourceIdV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-usages/v1/{sourceId}/summaries
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sourceusages/methods/source-usages#get-usages-by-source-id-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "-date" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional)
+        
+        # Returns source usage insights
+        
+        try {
+            Get-UsagesBySourceIdV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-UsagesBySourceIdV1 -SourceId $SourceId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-UsagesBySourceIdV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,61 @@
+- path: /criteria-config/v1/privilege/{criteriaConfigId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/privilegecriteriaconfiguration/methods/privilege-criteria-configuration#get-privilege-criteria-config-v1
+      source: |
+        $CriteriaConfigId = "6d123044-5834-4e8d-a49f-9c70089b0de1" # String | The Id of the privilege criteria configuration record to retrieve.
+        
+        # Get privilege criteria config
+        
+        try {
+            Get-PrivilegeCriteriaConfigV1 -CriteriaConfigId $CriteriaConfigId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PrivilegeCriteriaConfigV1 -CriteriaConfigId $CriteriaConfigId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PrivilegeCriteriaConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /criteria-config/v1/privilege
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/privilegecriteriaconfiguration/methods/privilege-criteria-configuration#list-privilege-criteria-config-v1
+      source: |
+        $Filters = "sourceId eq "c42c45d8d7c04d2da64d215cd8c32f21"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  All filter values are case-sensitive for this API.  For example, the following is valid: `?filters=sourceId eq ""2c91809175e6c63f0175fb5570220569""`
+        
+        # List privilege criteria config
+        
+        try {
+            Get-PrivilegeCriteriaConfigV1 -Filters $Filters 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PrivilegeCriteriaConfigV1 -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PrivilegeCriteriaConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /criteria-config/v1/privilege/{criteriaConfigId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/privilegecriteriaconfiguration/methods/privilege-criteria-configuration#patch-privilege-criteria-config-v1
+      source: |
+        $CriteriaConfigId = "6d123044-5834-4e8d-a49f-9c70089b0de1" # String | The Id of the privilege criteria configuration to update.
+        $RequestBody =  # SystemCollectionsHashtable[] | A list of criteria configuration operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        $RequestBody = @"[{"op":"replace","path":"/config/privilegeClassificationMode","value":"SINGLE_PRIVILEGE_LEVEL"},{"op":"replace","path":"/config/criteriaPrivilegeLevel/connectorMediumEnabled","value":true}]"@ 
+        
+        
+        # Update privilege criteria configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Update-PrivilegeCriteriaConfigV1 -CriteriaConfigId $CriteriaConfigId -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-PrivilegeCriteriaConfigV1 -CriteriaConfigId $CriteriaConfigId -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-PrivilegeCriteriaConfigV1"
+            Write-Host $_.ErrorDetails
+        }

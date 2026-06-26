@@ -1,0 +1,127 @@
+- path: /identity-attributes/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityattributes/methods/identity-attributes#create-identity-attribute-v1
+      source: |
+        $Identityattribute2 = @"
+        
+        "@
+        
+        # Create identity attribute
+        
+        try {
+            $Result = ConvertFrom-JsonToIdentityattribute2 -Json $Identityattribute2
+            New-IdentityAttributeV1 -Identityattribute2 $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-IdentityAttributeV1 -Identityattribute2 $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-IdentityAttributeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-attributes/v1/{name}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityattributes/methods/identity-attributes#delete-identity-attribute-v1
+      source: |
+        $Name = "displayName" # String | The attribute's technical name.
+        
+        # Delete identity attribute
+        
+        try {
+            Remove-IdentityAttributeV1 -Name $Name 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-IdentityAttributeV1 -Name $Name   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-IdentityAttributeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-attributes/v1/bulk-delete
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityattributes/methods/identity-attributes#delete-identity-attributes-in-bulk-v1
+      source: |
+        $Identityattributenames = @"
+        
+        "@
+        
+        # Bulk delete identity attributes
+        
+        try {
+            $Result = ConvertFrom-JsonToIdentityattributenames -Json $Identityattributenames
+            Remove-IdentityAttributesInBulkV1 -Identityattributenames $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-IdentityAttributesInBulkV1 -Identityattributenames $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-IdentityAttributesInBulkV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-attributes/v1/{name}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityattributes/methods/identity-attributes#get-identity-attribute-v1
+      source: |
+        $Name = "displayName" # String | The attribute's technical name.
+        
+        # Get identity attribute
+        
+        try {
+            Get-IdentityAttributeV1 -Name $Name 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityAttributeV1 -Name $Name   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityAttributeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-attributes/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityattributes/methods/identity-attributes#list-identity-attributes-v1
+      source: |
+        $IncludeSystem = $false # Boolean | Include 'system' attributes in the response. (optional) (default to $false)
+        $IncludeSilent = $false # Boolean | Include 'silent' attributes in the response. (optional) (default to $false)
+        $SearchableOnly = $false # Boolean | Include only 'searchable' attributes in the response. (optional) (default to $false)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List identity attributes
+        
+        try {
+            Get-IdentityAttributesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityAttributesV1 -IncludeSystem $IncludeSystem -IncludeSilent $IncludeSilent -SearchableOnly $SearchableOnly -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityAttributesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-attributes/v1/{name}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityattributes/methods/identity-attributes#put-identity-attribute-v1
+      source: |
+        $Name = "displayName" # String | The attribute's technical name.
+        $Identityattribute2 = @"
+        
+        "@
+        
+        # Update identity attribute
+        
+        try {
+            $Result = ConvertFrom-JsonToIdentityattribute2 -Json $Identityattribute2
+            Send-IdentityAttributeV1 -Name $Name -Identityattribute2 $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-IdentityAttributeV1 -Name $Name -Identityattribute2 $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-IdentityAttributeV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,344 @@
+- path: /sod-policies/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#create-sod-policy-v1
+      source: |
+        $Sodpolicy = @"
+        {"name":"Conflicting-Policy-Name","description":"This policy ensures compliance of xyz","ownerRef":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"Owner Name"},"externalPolicyReference":"XYZ policy","compensatingControls":"Have a manager review the transaction decisions for their \"out of compliance\" employee","correctionAdvice":"Based on the role of the employee, managers should remove access that is not required for their job function.","state":"ENFORCED","tags":["string"],"creatorId":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","modifierId":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","violationOwnerAssignmentConfig":{"assignmentRule":"MANAGER","ownerRef":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"Violation Owner Name"}},"scheduled":true,"type":"CONFLICTING_ACCESS_BASED","conflictingAccessCriteria":{"leftCriteria":{"name":"money-in","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a66"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a67"}]},"rightCriteria":{"name":"money-out","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a68"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a69"}]}}}
+        "@
+        
+        # Create sod policy
+        
+        try {
+            $Result = ConvertFrom-JsonToSodpolicy -Json $Sodpolicy
+            New-SodPolicyV1 -Sodpolicy $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-SodPolicyV1 -Sodpolicy $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SodPolicyV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/v1/{id}/schedule
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#delete-sod-policy-schedule-v1
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy the schedule must be deleted for.
+        
+        # Delete sod policy schedule
+        
+        try {
+            Remove-SodPolicyScheduleV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-SodPolicyScheduleV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SodPolicyScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#delete-sod-policy-v1
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy to delete.
+        $Logical = $true # Boolean | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to $true)
+        
+        # Delete sod policy by id
+        
+        try {
+            Remove-SodPolicyV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-SodPolicyV1 -Id $Id -Logical $Logical   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SodPolicyV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-violation-report/v1/{reportResultId}/download/{fileName}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-custom-violation-report-v1
+      source: |
+        $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
+        $FileName = "custom-name" # String | Custom Name for the  file.
+        
+        # Download custom violation report
+        
+        try {
+            Get-CustomViolationReportV1 -ReportResultId $ReportResultId -FileName $FileName 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CustomViolationReportV1 -ReportResultId $ReportResultId -FileName $FileName   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CustomViolationReportV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-violation-report/v1/{reportResultId}/download
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-default-violation-report-v1
+      source: |
+        $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
+        
+        # Download violation report
+        
+        try {
+            Get-DefaultViolationReportV1 -ReportResultId $ReportResultId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-DefaultViolationReportV1 -ReportResultId $ReportResultId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-DefaultViolationReportV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-violation-report/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-sod-all-report-run-status-v1
+      source: |
+        
+        # Get multi-report run task status
+        
+        try {
+            Get-SodAllReportRunStatusV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SodAllReportRunStatusV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SodAllReportRunStatusV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/v1/{id}/schedule
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-sod-policy-schedule-v1
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy schedule to retrieve.
+        
+        # Get sod policy schedule
+        
+        try {
+            Get-SodPolicyScheduleV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SodPolicyScheduleV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SodPolicyScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-sod-policy-v1
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy to retrieve.
+        
+        # Get sod policy by id
+        
+        try {
+            Get-SodPolicyV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SodPolicyV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SodPolicyV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/v1/sod-violation-report-status/{reportResultId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-sod-violation-report-run-status-v1
+      source: |
+        $ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of the report reference to retrieve.
+        
+        # Get violation report run status
+        
+        try {
+            Get-SodViolationReportRunStatusV1 -ReportResultId $ReportResultId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SodViolationReportRunStatusV1 -ReportResultId $ReportResultId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SodViolationReportRunStatusV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/v1/{id}/violation-report
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#get-sod-violation-report-status-v1
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the violation report to retrieve status for.
+        
+        # Get sod violation report status
+        
+        try {
+            Get-SodViolationReportStatusV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SodViolationReportStatusV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SodViolationReportStatusV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#list-sod-policies-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "id eq "bc693f07e7b645539626c25954c58554"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* (optional)
+        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional)
+        
+        # List sod policies
+        
+        try {
+            Get-SodPoliciesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SodPoliciesV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SodPoliciesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#patch-sod-policy-v1
+      source: |
+        $Id = "2c918083-5d19-1a86-015d-28455b4a2329" # String | The ID of the SOD policy being modified.
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/description","value":"Modified description"},{"op":"replace","path":"/conflictingAccessCriteria/leftCriteria/name","value":"money-in-modified"},{"op":"replace","path":"/conflictingAccessCriteria/rightCriteria","value":{"name":"money-out-modified","criteriaList":[{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c0509c1ab2"}]}}]"@ 
+        
+        
+        # Patch sod policy by id
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-SodPolicyV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-SodPolicyV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SodPolicyV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/v1/{id}/schedule
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#put-policy-schedule-v1
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update its schedule.
+        $Sodpolicyschedule = @"
+        
+        "@
+        
+        # Update sod policy schedule
+        
+        try {
+            $Result = ConvertFrom-JsonToSodpolicyschedule -Json $Sodpolicyschedule
+            Send-PolicyScheduleV1 -Id $Id -Sodpolicyschedule $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-PolicyScheduleV1 -Id $Id -Sodpolicyschedule $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-PolicyScheduleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#put-sod-policy-v1
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update.
+        $Sodpolicy = @"
+        {"name":"Conflicting-Policy-Name","description":"Modified Description","externalPolicyReference":"XYZ policy","compensatingControls":"Have a manager review the transaction decisions for their \"out of compliance\" employee","correctionAdvice":"Based on the role of the employee, managers should remove access that is not required for their job function.","state":"ENFORCED","tags":["string"],"violationOwnerAssignmentConfig":{"assignmentRule":"MANAGER","ownerRef":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"Violation Owner Name"}},"scheduled":true,"type":"CONFLICTING_ACCESS_BASED","conflictingAccessCriteria":{"leftCriteria":{"name":"money-in","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a66"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a67"}]},"rightCriteria":{"name":"money-out","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a68"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a69"}]}}}
+        "@
+        
+        # Update sod policy by id
+        
+        try {
+            $Result = ConvertFrom-JsonToSodpolicy -Json $Sodpolicy
+            Send-SodPolicyV1 -Id $Id -Sodpolicy $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-SodPolicyV1 -Id $Id -Sodpolicy $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-SodPolicyV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/v1/{id}/evaluate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#start-evaluate-sod-policy-v1
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
+        
+        # Evaluate one policy by id
+        
+        try {
+            Start-EvaluateSodPolicyV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Start-EvaluateSodPolicyV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-EvaluateSodPolicyV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-violation-report/v1/run
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#start-sod-all-policies-for-org-v1
+      source: |
+        $Multipolicyrequest = @"
+        {"filteredPolicyList":["b868cd40-ffa4-4337-9c07-1a51846cfa94","63a07a7b-39a4-48aa-956d-50c827deba2a"]}
+        "@
+        
+        # Runs all policies for org
+        
+        try {
+            Start-SodAllPoliciesForOrgV1 
+    
+            # Below is a request that includes all optional parameters
+            # Start-SodAllPoliciesForOrgV1 -Multipolicyrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-SodAllPoliciesForOrgV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/v1/{id}/violation-report/run
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sodpolicies/methods/sod-policies#start-sod-policy-v1
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
+        
+        # Runs sod policy violation report
+        
+        try {
+            Start-SodPolicyV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Start-SodPolicyV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-SodPolicyV1"
+            Write-Host $_.ErrorDetails
+        }

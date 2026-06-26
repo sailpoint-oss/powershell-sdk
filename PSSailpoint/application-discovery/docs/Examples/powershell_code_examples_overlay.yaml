@@ -1,0 +1,84 @@
+- path: /discovered-applications/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/applicationdiscovery/methods/application-discovery#get-discovered-applications-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Detail = "SLIM" # String | Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior. (optional)
+        $Filter = "name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  **discoverySourceName**: *eq, in*  **discoverySourceCategory**: *eq, in*  (optional)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource, discoverySourceName, discoverySourceCategory** (optional)
+        
+        # Get discovered applications for tenant
+        
+        try {
+            Get-DiscoveredApplicationsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-DiscoveredApplicationsV1 -Limit $Limit -Offset $Offset -Detail $Detail -Filter $Filter -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-DiscoveredApplicationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /manual-discover-applications-template/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/applicationdiscovery/methods/application-discovery#get-manual-discover-applications-csv-template-v1
+      source: |
+        
+        # Download csv template for discovery
+        
+        try {
+            Get-ManualDiscoverApplicationsCsvTemplateV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ManualDiscoverApplicationsCsvTemplateV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ManualDiscoverApplicationsCsvTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /manual-discover-applications/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/applicationdiscovery/methods/application-discovery#send-manual-discover-applications-csv-template-v1
+      source: |
+        $File =  # System.IO.FileInfo | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
+        
+        # Upload csv to discover applications
+        
+        try {
+            Send-ManualDiscoverApplicationsCsvTemplateV1 -File $File 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ManualDiscoverApplicationsCsvTemplateV1 -File $File   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ManualDiscoverApplicationsCsvTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/discover-applications
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/applicationdiscovery/methods/application-discovery#start-application-discovery-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SourceId = "MySourceId" # String | The sourceId.
+        $Applicationdiscoveryrequest = @"
+        
+        "@
+        
+        # Start Application Discovery
+        
+        try {
+            $Result = ConvertFrom-JsonToApplicationdiscoveryrequest -Json $Applicationdiscoveryrequest
+            Start-ApplicationDiscoveryV1 -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -Applicationdiscoveryrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-ApplicationDiscoveryV1 -XSailPointExperimental $XSailPointExperimental -SourceId $SourceId -Applicationdiscoveryrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-ApplicationDiscoveryV1"
+            Write-Host $_.ErrorDetails
+        }

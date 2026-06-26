@@ -1,0 +1,236 @@
+- path: /identity-profiles/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#create-identity-profile-v1
+      source: |
+        $Identityprofile = @"
+        
+        "@
+        
+        # Create identity profile
+        
+        try {
+            $Result = ConvertFrom-JsonToIdentityprofile -Json $Identityprofile
+            New-IdentityProfileV1 -Identityprofile $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-IdentityProfileV1 -Identityprofile $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-IdentityProfileV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-profiles/v1/{identity-profile-id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#delete-identity-profile-v1
+      source: |
+        $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
+        
+        # Delete identity profile
+        
+        try {
+            Remove-IdentityProfileV1 -IdentityProfileId $IdentityProfileId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-IdentityProfileV1 -IdentityProfileId $IdentityProfileId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-IdentityProfileV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-profiles/v1/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#delete-identity-profiles-v1
+      source: |
+        $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request body.
+        $RequestBody = @""@ 
+        
+        
+        # Delete identity profiles
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Remove-IdentityProfilesV1 -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-IdentityProfilesV1 -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-IdentityProfilesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-profiles/v1/export
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#export-identity-profiles-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne* (optional)
+        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** (optional)
+        
+        # Export identity profiles
+        
+        try {
+            Export-IdentityProfilesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Export-IdentityProfilesV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-IdentityProfilesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-profiles/v1/identity-preview
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#generate-identity-preview-v1
+      source: |
+        $Identitypreviewrequest = @"
+        
+        "@
+        
+        # Generate identity profile preview
+        
+        try {
+            $Result = ConvertFrom-JsonToIdentitypreviewrequest -Json $Identitypreviewrequest
+            New-IdentityPreviewV1 -Identitypreviewrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-IdentityPreviewV1 -Identitypreviewrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-IdentityPreviewV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-profiles/v1/{identity-profile-id}/default-identity-attribute-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#get-default-identity-attribute-config-v1
+      source: |
+        $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Identity Profile ID.
+        
+        # Get default identity attribute config
+        
+        try {
+            Get-DefaultIdentityAttributeConfigV1 -IdentityProfileId $IdentityProfileId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-DefaultIdentityAttributeConfigV1 -IdentityProfileId $IdentityProfileId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-DefaultIdentityAttributeConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-profiles/v1/{identity-profile-id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#get-identity-profile-v1
+      source: |
+        $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
+        
+        # Get identity profile
+        
+        try {
+            Get-IdentityProfileV1 -IdentityProfileId $IdentityProfileId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityProfileV1 -IdentityProfileId $IdentityProfileId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityProfileV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-profiles/v1/import
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#import-identity-profiles-v1
+      source: |
+
+
+
+
+
+        $Identityprofileexportedobject = @""@ 
+        
+        
+        # Import identity profiles
+        
+        try {
+            $Result = ConvertFrom-JsonToIdentityprofileexportedobject -Json $Identityprofileexportedobject
+            Import-IdentityProfilesV1 -Identityprofileexportedobject $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Import-IdentityProfilesV1 -Identityprofileexportedobject $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-IdentityProfilesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-profiles/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#list-identity-profiles-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
+        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
+        
+        # List identity profiles
+        
+        try {
+            Get-IdentityProfilesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityProfilesV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityProfilesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-profiles/v1/{identity-profile-id}/process-identities
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#sync-identity-profile-v1
+      source: |
+        $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | The Identity Profile ID to be processed
+        
+        # Process identities under profile
+        
+        try {
+            Sync-IdentityProfileV1 -IdentityProfileId $IdentityProfileId 
+    
+            # Below is a request that includes all optional parameters
+            # Sync-IdentityProfileV1 -IdentityProfileId $IdentityProfileId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Sync-IdentityProfileV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identity-profiles/v1/{identity-profile-id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/identityprofiles/methods/identity-profiles#update-identity-profile-v1
+      source: |
+        $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
+        $Jsonpatchoperation = @"[{"op":"add","path":"/identityAttributeConfig/attributeTransforms/0","value":{"identityAttributeName":"location","transformDefinition":{"type":"accountAttribute","attributes":{"sourceName":"Employees","attributeName":"location","sourceId":"2c91808878b7d63b0178c66ffcdc4ce4"}}}}]"@ 
+        
+        
+        # Update identity profile
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-IdentityProfileV1 -IdentityProfileId $IdentityProfileId -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-IdentityProfileV1 -IdentityProfileId $IdentityProfileId -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-IdentityProfileV1"
+            Write-Host $_.ErrorDetails
+        }

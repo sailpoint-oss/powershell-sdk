@@ -1,0 +1,43 @@
+- path: /icons/v1/{objectType}/{objectId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/icons/methods/icons#delete-icon-v1
+      source: |
+        $ObjectType = "application" # String | Object type. Available options ['application']
+        $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete an icon
+        
+        try {
+            Remove-IconV1 -ObjectType $ObjectType -ObjectId $ObjectId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-IconV1 -ObjectType $ObjectType -ObjectId $ObjectId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-IconV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /icons/v1/{objectType}/{objectId}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/icons/methods/icons#set-icon-v1
+      source: |
+        $ObjectType = "application" # String | Object type. Available options ['application']
+        $ObjectId = "a291e870-48c3-4953-b656-fb5ce2a93169" # String | Object id.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Image =  # System.IO.FileInfo | file with icon. Allowed mime-types ['image/png', 'image/jpeg']
+        
+        # Update an icon
+        
+        try {
+            Set-IconV1 -ObjectType $ObjectType -ObjectId $ObjectId -XSailPointExperimental $XSailPointExperimental -Image $Image 
+    
+            # Below is a request that includes all optional parameters
+            # Set-IconV1 -ObjectType $ObjectType -ObjectId $ObjectId -XSailPointExperimental $XSailPointExperimental -Image $Image   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-IconV1"
+            Write-Host $_.ErrorDetails
+        }

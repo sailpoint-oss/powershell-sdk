@@ -1,0 +1,65 @@
+- path: /recommendations/v1/config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iairecommendations/methods/iai-recommendations#get-recommendations-config-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get certification recommendation config values
+        
+        try {
+            Get-RecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-RecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-RecommendationsConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /recommendations/v1/request
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iairecommendations/methods/iai-recommendations#get-recommendations-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Recommendationrequestdto = @"
+        
+        "@
+        
+        # Returns recommendation based on object
+        
+        try {
+            $Result = ConvertFrom-JsonToRecommendationrequestdto -Json $Recommendationrequestdto
+            Get-RecommendationsV1 -XSailPointExperimental $XSailPointExperimental -Recommendationrequestdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Get-RecommendationsV1 -XSailPointExperimental $XSailPointExperimental -Recommendationrequestdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-RecommendationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /recommendations/v1/config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iairecommendations/methods/iai-recommendations#update-recommendations-config-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Recommendationconfigdto = @"
+        
+        "@
+        
+        # Update certification recommendation config values
+        
+        try {
+            $Result = ConvertFrom-JsonToRecommendationconfigdto -Json $Recommendationconfigdto
+            Update-RecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -Recommendationconfigdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-RecommendationsConfigV1 -XSailPointExperimental $XSailPointExperimental -Recommendationconfigdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-RecommendationsConfigV1"
+            Write-Host $_.ErrorDetails
+        }

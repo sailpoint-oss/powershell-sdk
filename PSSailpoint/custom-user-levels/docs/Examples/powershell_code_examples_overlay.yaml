@@ -1,0 +1,201 @@
+- path: /authorization/v1/custom-user-levels
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/customuserlevels/methods/custom-user-levels#create-custom-user-level-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Userlevelrequest = @"
+        {"name":"Identity And Access Management","description":"This is a description of the custom user level.","owner":{"id":"29b9da8273b441239238bc041c386817","name":"John Doe"},"rightSets":["idn:ui-identity-manage-example","idn:ui-identity-manage-child-one-example"]}
+        "@
+        
+        # Create a custom user level
+        
+        try {
+            $Result = ConvertFrom-JsonToUserlevelrequest -Json $Userlevelrequest
+            New-CustomUserLevelV1 -XSailPointExperimental $XSailPointExperimental -Userlevelrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-CustomUserLevelV1 -XSailPointExperimental $XSailPointExperimental -Userlevelrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CustomUserLevelV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /authorization/v1/custom-user-levels/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/customuserlevels/methods/custom-user-levels#delete-user-level-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "6e110911-5984-491b-be74-2707980a46a7" # String | The unique identifier of the user level.
+        
+        # Delete a user level
+        
+        try {
+            Remove-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-UserLevelV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /authorization/v1/custom-user-levels/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/customuserlevels/methods/custom-user-levels#get-user-level-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "6e110911-5984-491b-be74-2707980a46a7" # String | The unique identifier of the user level.
+        
+        # Retrieve a user level
+        
+        try {
+            Get-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-UserLevelV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /authorization/v1/authorization-assignable-right-sets
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/customuserlevels/methods/custom-user-levels#list-all-authorization-right-sets-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "category eq "identity"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **category**: *eq* (optional)
+        $Sorters = "name, -id, -category" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, category** (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List all uiAssignable right sets
+        
+        try {
+            Get-AllAuthorizationRightSetsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AllAuthorizationRightSetsV1 -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AllAuthorizationRightSetsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /authorization/v1/user-levels/{id}/identities
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/customuserlevels/methods/custom-user-levels#list-user-level-identities-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "idn:access-request-administrator" # String | The unique identifier of the user level.
+        $Count = $true # Boolean | If true, X-Total-Count header with the the total number of identities for this user level will be included in the response. (optional) (default to $false)
+        $Sorters = "displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName** (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List user level identities
+        
+        try {
+            Get-UserLevelIdentitiesV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-UserLevelIdentitiesV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Count $Count -Sorters $Sorters -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-UserLevelIdentitiesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /authorization/v1/custom-user-levels
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/customuserlevels/methods/custom-user-levels#list-user-levels-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $DetailLevel = "FULL" # String | Specifies the level of detail for the user levels. (optional) (default to "basic")
+        $Filters = "name co "identity", owner co "john", status eq "active", description co "some description"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *co*    **owner**: *co*    **status**: *eq*  **description**: *co* (optional)
+        $Sorters = "name, -created, description, status, owner" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, description, status, owner** (optional)
+        $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List user levels
+        
+        try {
+            Get-UserLevelsV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-UserLevelsV1 -XSailPointExperimental $XSailPointExperimental -DetailLevel $DetailLevel -Filters $Filters -Sorters $Sorters -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-UserLevelsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /authorization/v1/custom-user-levels/{id}/publish
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/customuserlevels/methods/custom-user-levels#publish-custom-user-level-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "6e110911-5984-491b-be74-2707980a46a7" # String | The unique identifier of the user level to publish.
+        
+        # Publish a custom user level
+        
+        try {
+            Publish-CustomUserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Publish-CustomUserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Publish-CustomUserLevelV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /authorization/v1/user-levels/get-identity-count
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/customuserlevels/methods/custom-user-levels#show-user-level-counts-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $RequestBody = "MyRequestBody" # String[] | List of user level ids. Max 50 identifiers can be passed in a single request.
+        $RequestBody = @""@ 
+        
+        
+        # Count user levels identities
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Show-UserLevelCountsV1 -XSailPointExperimental $XSailPointExperimental -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Show-UserLevelCountsV1 -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Show-UserLevelCountsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /authorization/v1/custom-user-levels/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/customuserlevels/methods/custom-user-levels#update-user-level-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "6e110911-5984-491b-be74-2707980a46a7" # String | The unique identifier of the user level.
+        $Jsonpatch = @"
+        [{"op":"replace","path":"/rightSets","value":["idn:ui-identity-manage-example"]}]
+        "@
+        
+        # Update a user level
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatch -Json $Jsonpatch
+            Update-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Jsonpatch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-UserLevelV1 -XSailPointExperimental $XSailPointExperimental -Id $Id -Jsonpatch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-UserLevelV1"
+            Write-Host $_.ErrorDetails
+        }

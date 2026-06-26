@@ -1,0 +1,65 @@
+- path: /custom-password-instructions/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/custompasswordinstructions/methods/custom-password-instructions#create-custom-password-instructions-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Custompasswordinstruction = @"
+        {"pageId":"reset-password:enter-password","pageContent":"See company password policies for details by clicking <a href=\"url\">here</a>"}
+        "@
+        
+        # Create custom password instructions
+        
+        try {
+            $Result = ConvertFrom-JsonToCustompasswordinstruction -Json $Custompasswordinstruction
+            New-CustomPasswordInstructionsV1 -XSailPointExperimental $XSailPointExperimental -Custompasswordinstruction $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-CustomPasswordInstructionsV1 -XSailPointExperimental $XSailPointExperimental -Custompasswordinstruction $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CustomPasswordInstructionsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /custom-password-instructions/v1/{pageId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/custompasswordinstructions/methods/custom-password-instructions#delete-custom-password-instructions-v1
+      source: |
+        $PageId = "change-password:enter-password" # String | The page ID of custom password instructions to delete.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"". (optional)
+        
+        # Delete custom password instructions by page id
+        
+        try {
+            Remove-CustomPasswordInstructionsV1 -PageId $PageId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-CustomPasswordInstructionsV1 -PageId $PageId -XSailPointExperimental $XSailPointExperimental -Locale $Locale   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-CustomPasswordInstructionsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /custom-password-instructions/v1/{pageId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/custompasswordinstructions/methods/custom-password-instructions#get-custom-password-instructions-v1
+      source: |
+        $PageId = "change-password:enter-password" # String | The page ID of custom password instructions to query.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"". (optional)
+        
+        # Get custom password instructions by page id
+        
+        try {
+            Get-CustomPasswordInstructionsV1 -PageId $PageId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CustomPasswordInstructionsV1 -PageId $PageId -XSailPointExperimental $XSailPointExperimental -Locale $Locale   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CustomPasswordInstructionsV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,57 @@
+- path: /sources/v1/{sourceId}/classify
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/classifysource/methods/classify-source#delete-classify-machine-account-from-source-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        
+        # Cancel classify source's accounts process
+        
+        try {
+            Remove-ClassifyMachineAccountFromSourceV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ClassifyMachineAccountFromSourceV1 -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ClassifyMachineAccountFromSourceV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/classify
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/classifysource/methods/classify-source#get-classify-machine-account-from-source-status-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        
+        # Source accounts classification status
+        
+        try {
+            Get-ClassifyMachineAccountFromSourceStatusV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ClassifyMachineAccountFromSourceStatusV1 -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ClassifyMachineAccountFromSourceStatusV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/classify
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/classifysource/methods/classify-source#send-classify-machine-account-from-source-v1
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        
+        # Classify source's all accounts
+        
+        try {
+            Send-ClassifyMachineAccountFromSourceV1 -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ClassifyMachineAccountFromSourceV1 -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ClassifyMachineAccountFromSourceV1"
+            Write-Host $_.ErrorDetails
+        }

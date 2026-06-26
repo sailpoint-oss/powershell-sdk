@@ -1,0 +1,341 @@
+- path: /accounts/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#create-account-v1
+      source: |
+        $Accountattributescreate = @"
+        
+        "@
+        
+        # Create account
+        
+        try {
+            $Result = ConvertFrom-JsonToAccountattributescreate -Json $Accountattributescreate
+            New-AccountV1 -Accountattributescreate $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-AccountV1 -Accountattributescreate $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v1/{id}/remove
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#delete-account-async-v1
+      source: |
+        $Id = "c350d6aa4f104c61b062cb632421ad10" # String | The account id
+        
+        # Remove account
+        
+        try {
+            Remove-AccountAsyncV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-AccountAsyncV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccountAsyncV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#delete-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
+        
+        # Delete account
+        
+        try {
+            Remove-AccountV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-AccountV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities-accounts/v1/{id}/disable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#disable-account-for-identity-v1
+      source: |
+        $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
+        
+        # Disable idn account for identity
+        
+        try {
+            Disable-AccountForIdentityV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Disable-AccountForIdentityV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-AccountForIdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v1/{id}/disable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#disable-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
+        $Accounttogglerequest = @"
+        
+        "@
+        
+        # Disable account
+        
+        try {
+            $Result = ConvertFrom-JsonToAccounttogglerequest -Json $Accounttogglerequest
+            Disable-AccountV1 -Id $Id -Accounttogglerequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Disable-AccountV1 -Id $Id -Accounttogglerequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-AccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities-accounts/v1/disable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#disable-accounts-for-identities-v1
+      source: |
+        $Identitiesaccountsbulkrequest = @"
+        
+        "@
+        
+        # Disable idn accounts for identities
+        
+        try {
+            $Result = ConvertFrom-JsonToIdentitiesaccountsbulkrequest -Json $Identitiesaccountsbulkrequest
+            Disable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Disable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-AccountsForIdentitiesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities-accounts/v1/{id}/enable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#enable-account-for-identity-v1
+      source: |
+        $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
+        
+        # Enable idn account for identity
+        
+        try {
+            Enable-AccountForIdentityV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Enable-AccountForIdentityV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-AccountForIdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v1/{id}/enable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#enable-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
+        $Accounttogglerequest = @"
+        
+        "@
+        
+        # Enable account
+        
+        try {
+            $Result = ConvertFrom-JsonToAccounttogglerequest -Json $Accounttogglerequest
+            Enable-AccountV1 -Id $Id -Accounttogglerequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Enable-AccountV1 -Id $Id -Accounttogglerequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-AccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /identities-accounts/v1/enable
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#enable-accounts-for-identities-v1
+      source: |
+        $Identitiesaccountsbulkrequest = @"
+        
+        "@
+        
+        # Enable idn accounts for identities
+        
+        try {
+            $Result = ConvertFrom-JsonToIdentitiesaccountsbulkrequest -Json $Identitiesaccountsbulkrequest
+            Enable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Enable-AccountsForIdentitiesV1 -Identitiesaccountsbulkrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-AccountsForIdentitiesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v1/{id}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#get-account-entitlements-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Account entitlements
+        
+        try {
+            Get-AccountEntitlementsV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccountEntitlementsV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccountEntitlementsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#get-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
+        
+        # Account details
+        
+        try {
+            Get-AccountV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccountV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#list-accounts-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $DetailLevel = "SLIM" # String | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional)
+        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional)
+        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
+        
+        # Accounts list
+        
+        try {
+            Get-AccountsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccountsV1 -Limit $Limit -Offset $Offset -Count $Count -DetailLevel $DetailLevel -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccountsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#put-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
+        $Accountattributes = @"
+        
+        "@
+        
+        # Update account
+        
+        try {
+            $Result = ConvertFrom-JsonToAccountattributes -Json $Accountattributes
+            Send-AccountV1 -Id $Id -Accountattributes $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-AccountV1 -Id $Id -Accountattributes $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-AccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v1/{id}/reload
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#submit-reload-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
+        
+        # Reload account
+        
+        try {
+            Submit-ReloadAccountV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-ReloadAccountV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-ReloadAccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v1/{id}/unlock
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#unlock-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID.
+        $Accountunlockrequest = @"
+        
+        "@
+        
+        # Unlock account
+        
+        try {
+            $Result = ConvertFrom-JsonToAccountunlockrequest -Json $Accountunlockrequest
+            Unlock-AccountV1 -Id $Id -Accountunlockrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Unlock-AccountV1 -Id $Id -Accountunlockrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Unlock-AccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accounts/methods/accounts#update-account-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
+        $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        $RequestBody = @"[{"op":"remove","path":"/identityId"}]"@ 
+        
+        
+        # Update account
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Update-AccountV1 -Id $Id -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AccountV1 -Id $Id -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AccountV1"
+            Write-Host $_.ErrorDetails
+        }

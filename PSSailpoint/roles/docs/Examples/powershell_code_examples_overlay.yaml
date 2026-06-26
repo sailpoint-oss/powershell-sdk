@@ -1,0 +1,352 @@
+- path: /roles/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#create-role-v1
+      source: |
+        $Role = @"
+        
+        "@
+        
+        # Create a role
+        
+        try {
+            $Result = ConvertFrom-JsonToRole -Json $Role
+            New-RoleV1 -Role $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-RoleV1 -Role $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-RoleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#delete-bulk-roles-v1
+      source: |
+        $Rolebulkdeleterequest = @"
+        {"roleIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}
+        "@
+        
+        # Delete role(s)
+        
+        try {
+            $Result = ConvertFrom-JsonToRolebulkdeleterequest -Json $Rolebulkdeleterequest
+            Remove-BulkRolesV1 -Rolebulkdeleterequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-BulkRolesV1 -Rolebulkdeleterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BulkRolesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#delete-metadata-from-role-by-key-and-value-v1
+      source: |
+        $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The role's id.
+        $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
+        $AttributeValue = "public" # String | Technical name of the Attribute Value.
+        
+        # Remove a metadata from role.
+        
+        try {
+            Remove-MetadataFromRoleByKeyAndValueV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-MetadataFromRoleByKeyAndValueV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MetadataFromRoleByKeyAndValueV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#delete-role-v1
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
+        
+        # Delete a role
+        
+        try {
+            Remove-RoleV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-RoleV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-RoleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/access-model-metadata/bulk-update/id
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#get-bulk-update-status-by-id-v1
+      source: |
+        $Id = "c24359c389374d0fb8585698a2189e3d" # String | The Id of the bulk update task.
+        
+        # Get bulk-update status by id
+        
+        try {
+            Get-BulkUpdateStatusByIdV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BulkUpdateStatusByIdV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BulkUpdateStatusByIdV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/access-model-metadata/bulk-update
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#get-bulk-update-status-v1
+      source: |
+        
+        # Get bulk-update statuses
+        
+        try {
+            Get-BulkUpdateStatusV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BulkUpdateStatusV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BulkUpdateStatusV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/{id}/assigned-identities
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#get-role-assigned-identities-v1
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role for which the assigned Identities are to be listed
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "name sw Joe" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co* (optional)
+        $Sorters = "aliasName,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email** (optional)
+        
+        # List identities assigned a role
+        
+        try {
+            Get-RoleAssignedIdentitiesV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-RoleAssignedIdentitiesV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-RoleAssignedIdentitiesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/{id}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#get-role-entitlements-v1
+      source: |
+        $Id = "2c91808a7813090a017814121919ecca" # String | Containing role's ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "attribute eq "memberOf"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in* (optional)
+        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
+        
+        # List role's entitlements
+        
+        try {
+            Get-RoleEntitlementsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-RoleEntitlementsV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-RoleEntitlementsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#get-role-v1
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
+        
+        # Get a role
+        
+        try {
+            Get-RoleV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-RoleV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-RoleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#list-roles-v1
+      source: |
+        $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
+        $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "requestable eq false" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq* (optional)
+        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+        $ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
+        $IncludeUnsegmented = $false # Boolean | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to $true)
+        
+        # List roles
+        
+        try {
+            Get-RolesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-RolesV1 -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-RolesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#patch-role-v1
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/requestable","value":true},{"op":"replace","path":"/enabled","value":true}]"@ 
+        
+        
+        # Patch a specified role
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-RoleV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-RoleV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-RoleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/filter
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#search-roles-by-filter-v1
+      source: |
+        $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
+        $Limit = 50 # Int32 | Max number of results to return See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | Boolean indicating whether a total count is returned, factoring in any filter parameters, in the X-Total-Count response header. The value is the total size of the collection that would be returned if limit and offset were ignored.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
+        $ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
+        $IncludeUnsegmented = $false # Boolean | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to $true)
+        $Rolelistfilterdto = @"
+        {"filters":"dimensional eq false","ammKeyValues":[{"attribute":"iscFederalClassifications","values":["secret"]}]}
+        "@
+        
+        # Filter roles by metadata
+        
+        try {
+            Search-RolesByFilterV1 
+    
+            # Below is a request that includes all optional parameters
+            # Search-RolesByFilterV1 -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Rolelistfilterdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-RolesByFilterV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#update-attribute-key-and-value-to-role-v1
+      source: |
+        $Id = "c24359c389374d0fb8585698a2189e3d" # String | The Id of a role
+        $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
+        $AttributeValue = "public" # String | Technical name of the Attribute Value.
+        
+        # Add a metadata to role.
+        
+        try {
+            Update-AttributeKeyAndValueToRoleV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AttributeKeyAndValueToRoleV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AttributeKeyAndValueToRoleV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/access-model-metadata/bulk-update/filter
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#update-roles-metadata-by-filter-v1
+      source: |
+        $Rolemetadatabulkupdatebyfilterrequest = @"
+        {"operation":"ADD","replaceScope":"ALL","filters":"requestable eq false","values":[{"attribute":"iscFederalClassifications","values":["topSecret"]}]}
+        "@
+        
+        # Bulk-update roles' metadata by filters
+        
+        try {
+            $Result = ConvertFrom-JsonToRolemetadatabulkupdatebyfilterrequest -Json $Rolemetadatabulkupdatebyfilterrequest
+            Update-RolesMetadataByFilterV1 -Rolemetadatabulkupdatebyfilterrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-RolesMetadataByFilterV1 -Rolemetadatabulkupdatebyfilterrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-RolesMetadataByFilterV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/access-model-metadata/bulk-update/ids
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#update-roles-metadata-by-ids-v1
+      source: |
+        $Rolemetadatabulkupdatebyidrequest = @"
+        
+        "@
+        
+        # Bulk-update roles' metadata by id
+        
+        try {
+            $Result = ConvertFrom-JsonToRolemetadatabulkupdatebyidrequest -Json $Rolemetadatabulkupdatebyidrequest
+            Update-RolesMetadataByIdsV1 -Rolemetadatabulkupdatebyidrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-RolesMetadataByIdsV1 -Rolemetadatabulkupdatebyidrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-RolesMetadataByIdsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /roles/v1/access-model-metadata/bulk-update/query
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/roles/methods/roles#update-roles-metadata-by-query-v1
+      source: |
+        $Rolemetadatabulkupdatebyqueryrequest = @"
+        {"example of a success update":{"query":{"indices":["roles"],"queryType":"TEXT","textQuery":{"terms":["test123"],"fields":["id"],"matchAny":false,"contains":true},"includeNested":false},"operation":"REPLACE","replaceScope":"ALL","values":[{"attribute":"iscFederalClassifications","values":["secret"]}]}}
+        "@
+        
+        # Bulk-update roles' metadata by query
+        
+        try {
+            $Result = ConvertFrom-JsonToRolemetadatabulkupdatebyqueryrequest -Json $Rolemetadatabulkupdatebyqueryrequest
+            Update-RolesMetadataByQueryV1 -Rolemetadatabulkupdatebyqueryrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-RolesMetadataByQueryV1 -Rolemetadatabulkupdatebyqueryrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-RolesMetadataByQueryV1"
+            Write-Host $_.ErrorDetails
+        }

@@ -1,0 +1,143 @@
+- path: /managed-clients/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#create-managed-client-v1
+      source: |
+        $Managedclientrequest = @"
+        
+        "@
+        
+        # Create managed client
+        
+        try {
+            $Result = ConvertFrom-JsonToManagedclientrequest -Json $Managedclientrequest
+            New-ManagedClientV1 -Managedclientrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ManagedClientV1 -Managedclientrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ManagedClientV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clients/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#delete-managed-client-v1
+      source: |
+        $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
+        
+        # Delete managed client
+        
+        try {
+            Remove-ManagedClientV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ManagedClientV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ManagedClientV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clients/v1/{id}/health-indicators
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#get-managed-client-health-indicators-v1
+      source: |
+        $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID to get health indicators for.
+        
+        # Get managed client health indicators
+        
+        try {
+            Get-ManagedClientHealthIndicatorsV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ManagedClientHealthIndicatorsV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ManagedClientHealthIndicatorsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clients/v1/{id}/status
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#get-managed-client-status-v1
+      source: |
+        $Id = "aClientId" # String | Managed client ID to get status for.
+        $Type = "CCG" # Managedclienttype | Managed client type to get status for.
+        
+        # Get managed client status
+        
+        try {
+            Get-ManagedClientStatusV1 -Id $Id -Type $Type 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ManagedClientStatusV1 -Id $Id -Type $Type   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ManagedClientStatusV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clients/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#get-managed-client-v1
+      source: |
+        $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
+        
+        # Get managed client
+        
+        try {
+            Get-ManagedClientV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ManagedClientV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ManagedClientV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clients/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#get-managed-clients-v1
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "name eq "client name"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq* (optional)
+        
+        # Get managed clients
+        
+        try {
+            Get-ManagedClientsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ManagedClientsV1 -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ManagedClientsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clients/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/managedclients/methods/managed-clients#update-managed-client-v1
+      source: |
+        $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
+        $Jsonpatchoperation = @""@ 
+        
+        
+        # Update managed client
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-ManagedClientV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-ManagedClientV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ManagedClientV1"
+            Write-Host $_.ErrorDetails
+        }

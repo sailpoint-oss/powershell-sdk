@@ -41,30 +41,17 @@ jobs:
 
       - name: Sync files between folders
         run: |
-          # v3
-          rsync -cav --delete powershell-sdk/PSSailpoint/v3/docs/Methods    developer-community/docs/tools/sdk/powershell/Reference/V3
-          rsync -cav --delete powershell-sdk/PSSailpoint/v3/docs/Models     developer-community/docs/tools/sdk/powershell/Reference/V3
-          rsync -av  powershell-sdk/PSSailpoint/v3/docs/Examples/powershell_code_examples_overlay.yaml developer-community/static/code-examples/v3/
-
-          # beta
-          rsync -cav --delete powershell-sdk/PSSailpoint/beta/docs/Methods  developer-community/docs/tools/sdk/powershell/Reference/Beta
-          rsync -cav --delete powershell-sdk/PSSailpoint/beta/docs/Models   developer-community/docs/tools/sdk/powershell/Reference/Beta
-          rsync -av  powershell-sdk/PSSailpoint/beta/docs/Examples/powershell_code_examples_overlay.yaml developer-community/static/code-examples/beta/
-
-          # v2024
-          rsync -cav --delete powershell-sdk/PSSailpoint/v2024/docs/Methods    developer-community/docs/tools/sdk/powershell/Reference/V2024
-          rsync -cav --delete powershell-sdk/PSSailpoint/v2024/docs/Models     developer-community/docs/tools/sdk/powershell/Reference/V2024
-          rsync -av  powershell-sdk/PSSailpoint/v2024/docs/Examples/powershell_code_examples_overlay.yaml developer-community/static/code-examples/v2024/
-
-          # v2025
-          rsync -cav --delete powershell-sdk/PSSailpoint/v2025/docs/Methods    developer-community/docs/tools/sdk/powershell/Reference/V2025
-          rsync -cav --delete powershell-sdk/PSSailpoint/v2025/docs/Models     developer-community/docs/tools/sdk/powershell/Reference/V2025
-          rsync -av  powershell-sdk/PSSailpoint/v2025/docs/Examples/powershell_code_examples_overlay.yaml developer-community/static/code-examples/v2025/
-
-          # v2026
-          rsync -cav --delete powershell-sdk/PSSailpoint/v2026/docs/Methods    developer-community/docs/tools/sdk/powershell/Reference/V2026
-          rsync -cav --delete powershell-sdk/PSSailpoint/v2026/docs/Models     developer-community/docs/tools/sdk/powershell/Reference/V2026
-          rsync -av  powershell-sdk/PSSailpoint/v2026/docs/Examples/powershell_code_examples_overlay.yaml developer-community/static/code-examples/v2026/
+          # Per-partition modules (dynamically discovered — new partitions sync automatically)
+          for partition_dir in powershell-sdk/PSSailpoint/*_v[0-9]*; do
+            [ -d "$partition_dir" ] || continue
+            resource=$(basename "$partition_dir")
+            rsync -cav --delete "$partition_dir/docs/Methods" "developer-community/docs/tools/sdk/powershell/Reference/$resource"
+            rsync -cav --delete "$partition_dir/docs/Models"  "developer-community/docs/tools/sdk/powershell/Reference/$resource"
+            if [ -f "$partition_dir/docs/Examples/powershell_code_examples_overlay.yaml" ]; then
+              rsync -av "$partition_dir/docs/Examples/powershell_code_examples_overlay.yaml" \
+                "developer-community/static/code-examples/$resource/"
+            fi
+          done
 
       - name: Check for changes and commit if any
         working-directory: developer-community

@@ -1,0 +1,321 @@
+- path: /entitlement-recommendations/v1/bulk-approve
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#approve-bulk-entitlement-recommendations-v1
+      source: |
+        $Bulkapproveentitlementrecommendationrequest = @"
+        
+        "@
+        
+        # Bulk approve entitlement recommendations
+        
+        try {
+            $Result = ConvertFrom-JsonToBulkapproveentitlementrecommendationrequest -Json $Bulkapproveentitlementrecommendationrequest
+            Approve-BulkEntitlementRecommendationsV1 -Bulkapproveentitlementrecommendationrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Approve-BulkEntitlementRecommendationsV1 -Bulkapproveentitlementrecommendationrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BulkEntitlementRecommendationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-descriptions/v1/auto-write-settings
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#create-auto-write-settings-v1
+      source: |
+        $Autowritesetting = @"
+        
+        "@
+        
+        # Create auto-write settings for SED
+        
+        try {
+            $Result = ConvertFrom-JsonToAutowritesetting -Json $Autowritesetting
+            New-AutoWriteSettingsV1 -Autowritesetting $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-AutoWriteSettingsV1 -Autowritesetting $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AutoWriteSettingsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-descriptions/v1/auto-write-settings
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#get-auto-write-settings-v1
+      source: |
+        
+        # Get auto-write settings for SED
+        
+        try {
+            Get-AutoWriteSettingsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AutoWriteSettingsV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AutoWriteSettingsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-description-batches/v1/{batchId}/stats
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#get-sed-batch-stats-v1
+      source: |
+        $BatchId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | Batch Id
+        
+        # Submit sed batch stats request
+        
+        try {
+            Get-SedBatchStatsV1 -BatchId $BatchId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SedBatchStatsV1 -BatchId $BatchId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SedBatchStatsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-description-batches/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#get-sed-batches-v1
+      source: |
+        $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+        $Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+        $Count = $true # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used. (optional) (default to $false)
+        $CountOnly = $true # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to $false)
+        $Status = "completed, failed, submitted, materialized, failed" # String | Batch Status (optional)
+        
+        # List Sed Batch Record
+        
+        try {
+            Get-SedBatchesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SedBatchesV1 -Offset $Offset -Limit $Limit -Count $Count -CountOnly $CountOnly -Status $Status   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SedBatchesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlement-recommendations/v1/pending-approvals
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#list-pending-entitlement-recommendation-approvals-v1
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # List pending entitlement recommendation approvals
+        
+        try {
+            Get-PendingEntitlementRecommendationApprovalsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PendingEntitlementRecommendationApprovalsV1 -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PendingEntitlementRecommendationApprovalsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /privileged-recommendations/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#list-privileged-entitlement-recommendations-v1
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # List privileged entitlement recommendations
+        
+        try {
+            Get-PrivilegedEntitlementRecommendationsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-PrivilegedEntitlementRecommendationsV1 -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-PrivilegedEntitlementRecommendationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-descriptions/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#list-seds-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "displayName co "Read and Write"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional)
+        $Sorters = "sorters=displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional)
+        $CountOnly = $false # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to $false)
+        $RequestedByAnyone = $false # Boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to $false)
+        $ShowPendingStatusOnly = $false # Boolean | Will limit records to items that are in ""suggested"" or ""approved"" status (optional) (default to $false)
+        
+        # List suggested entitlement descriptions
+        
+        try {
+            Get-SedsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SedsV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters -CountOnly $CountOnly -RequestedByAnyone $RequestedByAnyone -ShowPendingStatusOnly $ShowPendingStatusOnly   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SedsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlement-recommendations/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#patch-entitlement-recommendation-v1
+      source: |
+        $Id = "79db50d4-723c-4aa0-a824-83c2205d82d1" # String | The unique identifier of the entitlement recommendation to update.
+        $Jsonpatchoperation = @""@ 
+        
+        
+        # Update an entitlement recommendation
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-EntitlementRecommendationV1 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-EntitlementRecommendationV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementRecommendationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-descriptions/v1
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#patch-sed-v1
+      source: |
+        $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
+        $Sedpatch = @""@ 
+        
+        
+        # Patch suggested entitlement description
+        
+        try {
+            $Result = ConvertFrom-JsonToSedpatch -Json $Sedpatch
+            Update-SedV1 -Id $Id -Sedpatch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-SedV1 -Id $Id -Sedpatch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SedV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlement-recommendations/v1/assign
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-entitlement-recommendations-assignment-v1
+      source: |
+        $Entitlementrecommendationassignrequest = @"
+        
+        "@
+        
+        # Assign entitlement recommendations for review
+        
+        try {
+            $Result = ConvertFrom-JsonToEntitlementrecommendationassignrequest -Json $Entitlementrecommendationassignrequest
+            Submit-EntitlementRecommendationsAssignmentV1 -Entitlementrecommendationassignrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-EntitlementRecommendationsAssignmentV1 -Entitlementrecommendationassignrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-EntitlementRecommendationsAssignmentV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-description-approvals/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-sed-approval-v1
+      source: |
+        $Sedapproval = @""@ 
+        
+        
+        # Submit bulk approval request
+        
+        try {
+            $Result = ConvertFrom-JsonToSedapproval -Json $Sedapproval
+            Submit-SedApprovalV1 -Sedapproval $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-SedApprovalV1 -Sedapproval $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-SedApprovalV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-description-assignments/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-sed-assignment-v1
+      source: |
+        $Sedassignment = @"
+        
+        "@
+        
+        # Submit sed assignment request
+        
+        try {
+            $Result = ConvertFrom-JsonToSedassignment -Json $Sedassignment
+            Submit-SedAssignmentV1 -Sedassignment $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-SedAssignmentV1 -Sedassignment $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-SedAssignmentV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-description-batches/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#submit-sed-batch-request-v1
+      source: |
+        $Sedbatchrequest = @"
+        
+        "@
+        
+        # Submit sed batch request
+        
+        try {
+            Submit-SedBatchRequestV1 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-SedBatchRequestV1 -Sedbatchrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-SedBatchRequestV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /suggested-entitlement-descriptions/v1/auto-write-settings
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/suggestedentitlementdescription/methods/suggested-entitlement-description#update-auto-write-settings-v1
+      source: |
+        $Autowritesettingpatch = @""@ 
+        
+        
+        # Update auto-write settings for SED
+        
+        try {
+            $Result = ConvertFrom-JsonToAutowritesettingpatch -Json $Autowritesettingpatch
+            Update-AutoWriteSettingsV1 -Autowritesettingpatch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-AutoWriteSettingsV1 -Autowritesettingpatch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-AutoWriteSettingsV1"
+            Write-Host $_.ErrorDetails
+        }

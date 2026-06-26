@@ -1,0 +1,69 @@
+- path: /common-access/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaicommonaccess/methods/iai-common-access#create-common-access-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Commonaccessitemrequest = @"
+        
+        "@
+        
+        # Create common access items
+        
+        try {
+            $Result = ConvertFrom-JsonToCommonaccessitemrequest -Json $Commonaccessitemrequest
+            New-CommonAccessV1 -XSailPointExperimental $XSailPointExperimental -Commonaccessitemrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-CommonAccessV1 -XSailPointExperimental $XSailPointExperimental -Commonaccessitemrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CommonAccessV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /common-access/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaicommonaccess/methods/iai-common-access#get-common-access-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "access.type eq "ROLE"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, sw*  **reviewedByUser** *eq*  **access.id**: *eq, sw*  **access.type**: *eq*  **access.name**: *sw, eq*  **access.description**: *sw, eq* (optional)
+        $Sorters = "access.name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, status**  By default the common access items are sorted by name, ascending. (optional)
+        
+        # Get a paginated list of common access
+        
+        try {
+            Get-CommonAccessV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-CommonAccessV1 -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-CommonAccessV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /common-access/v1/update-status
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/iaicommonaccess/methods/iai-common-access#update-common-access-status-in-bulk-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Commonaccessidstatus = @""@ 
+        
+        
+        # Bulk update common access status
+        
+        try {
+            $Result = ConvertFrom-JsonToCommonaccessidstatus -Json $Commonaccessidstatus
+            Update-CommonAccessStatusInBulkV1 -XSailPointExperimental $XSailPointExperimental -Commonaccessidstatus $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-CommonAccessStatusInBulkV1 -XSailPointExperimental $XSailPointExperimental -Commonaccessidstatus $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-CommonAccessStatusInBulkV1"
+            Write-Host $_.ErrorDetails
+        }

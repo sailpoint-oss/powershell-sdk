@@ -1,0 +1,106 @@
+- path: /managed-cluster-types/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/managedclustertypes/methods/managed-cluster-types#create-managed-cluster-type-v1
+      source: |
+        $Managedclustertype = @"
+        
+        "@
+        
+        # Create new managed cluster type
+        
+        try {
+            $Result = ConvertFrom-JsonToManagedclustertype -Json $Managedclustertype
+            New-ManagedClusterTypeV1 -Managedclustertype $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ManagedClusterTypeV1 -Managedclustertype $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ManagedClusterTypeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-cluster-types/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/managedclustertypes/methods/managed-cluster-types#delete-managed-cluster-type-v1
+      source: |
+        $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
+        
+        # Delete a managed cluster type
+        
+        try {
+            Remove-ManagedClusterTypeV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ManagedClusterTypeV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ManagedClusterTypeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-cluster-types/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/managedclustertypes/methods/managed-cluster-types#get-managed-cluster-type-v1
+      source: |
+        $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
+        
+        # Get a managed cluster type
+        
+        try {
+            Get-ManagedClusterTypeV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ManagedClusterTypeV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ManagedClusterTypeV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-cluster-types/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/managedclustertypes/methods/managed-cluster-types#get-managed-cluster-types-v1
+      source: |
+        $Type = "IDN" # String | Type descriptor (optional)
+        $Pod = "megapod-useast1" # String | Pinned pod (or default) (optional)
+        $Org = "denali-xyz" # String | Pinned org (or default) (optional)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # List managed cluster types
+        
+        try {
+            Get-ManagedClusterTypesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ManagedClusterTypesV1 -Type $Type -Pod $Pod -Org $Org -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ManagedClusterTypesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-cluster-types/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/managedclustertypes/methods/managed-cluster-types#update-managed-cluster-type-v1
+      source: |
+        $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
+        $Jsonpatch = @"
+        
+        "@
+        
+        # Update a managed cluster type
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatch -Json $Jsonpatch
+            Update-ManagedClusterTypeV1 -Id $Id -Jsonpatch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-ManagedClusterTypeV1 -Id $Id -Jsonpatch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ManagedClusterTypeV1"
+            Write-Host $_.ErrorDetails
+        }

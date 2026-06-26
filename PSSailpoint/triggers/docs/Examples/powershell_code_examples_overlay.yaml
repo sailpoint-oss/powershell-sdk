@@ -1,0 +1,222 @@
+- path: /trigger-invocations/v1/{id}/complete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/triggers/methods/triggers#complete-trigger-invocation-v1
+      source: |
+        $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the invocation to complete.
+        $Completeinvocation = @"
+        {"secret":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","output":{"approved":false}}
+        "@
+        
+        # Complete trigger invocation
+        
+        try {
+            $Result = ConvertFrom-JsonToCompleteinvocation -Json $Completeinvocation
+            Complete-TriggerInvocationV1 -Id $Id -Completeinvocation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Complete-TriggerInvocationV1 -Id $Id -Completeinvocation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-TriggerInvocationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-subscriptions/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/triggers/methods/triggers#create-subscription-v1
+      source: |
+        $Subscriptionpostrequest = @"
+        {"name":"Access request subscription","description":"Access requested to site xyz","triggerId":"idn:access-requested","type":"HTTP","httpConfig":{"url":"https://www.example.com","httpDispatchMode":"SYNC","httpAuthenticationType":"BASIC_AUTH","basicAuthConfig":{"userName":"user@example.com","password":"eRtg4%6yuI!"}},"enabled":true,"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}
+        "@
+        
+        # Create a subscription
+        
+        try {
+            $Result = ConvertFrom-JsonToSubscriptionpostrequest -Json $Subscriptionpostrequest
+            New-SubscriptionV1 -Subscriptionpostrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-SubscriptionV1 -Subscriptionpostrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SubscriptionV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-subscriptions/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/triggers/methods/triggers#delete-subscription-v1
+      source: |
+        $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
+        
+        # Delete a subscription
+        
+        try {
+            Remove-SubscriptionV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-SubscriptionV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SubscriptionV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-subscriptions/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/triggers/methods/triggers#list-subscriptions-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "id eq "12cff757-c0c0-413b-8ad7-2a47956d1e89"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **triggerId**: *eq*  **type**: *eq, le* (optional)
+        $Sorters = "triggerName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, triggerName** (optional)
+        
+        # List subscriptions
+        
+        try {
+            Get-SubscriptionsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SubscriptionsV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SubscriptionsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-invocations/v1/status
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/triggers/methods/triggers#list-trigger-invocation-status-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "triggerId eq "idn:access-request-dynamic-approver"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **triggerId**: *eq*  **subscriptionId**: *eq* (optional)
+        $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, subscriptionName, created, completed** (optional)
+        
+        # List latest invocation statuses
+        
+        try {
+            Get-TriggerInvocationStatusV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-TriggerInvocationStatusV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TriggerInvocationStatusV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /triggers/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/triggers/methods/triggers#list-triggers-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "id eq "idn:access-request-post-approval"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ge, le* (optional)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name** (optional)
+        
+        # List triggers
+        
+        try {
+            Get-TriggersV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-TriggersV1 -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-TriggersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-subscriptions/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/triggers/methods/triggers#patch-subscription-v1
+      source: |
+        $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription to patch
+        $SubscriptionpatchrequestInner = @""@ 
+        
+        
+        # Patch a subscription
+        
+        try {
+            $Result = ConvertFrom-JsonToSubscriptionpatchrequestInner -Json $SubscriptionpatchrequestInner
+            Update-SubscriptionV1 -Id $Id -SubscriptionpatchrequestInner $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-SubscriptionV1 -Id $Id -SubscriptionpatchrequestInner $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SubscriptionV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-invocations/v1/test
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/triggers/methods/triggers#start-test-trigger-invocation-v1
+      source: |
+        $Testinvocation = @"
+        {"triggerId":"idn:access-requested","input":{"identityId":"201327fda1c44704ac01181e963d463c"},"contentJson":{"workflowId":1234}}
+        "@
+        
+        # Start a test invocation
+        
+        try {
+            $Result = ConvertFrom-JsonToTestinvocation -Json $Testinvocation
+            Start-TestTriggerInvocationV1 -Testinvocation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-TestTriggerInvocationV1 -Testinvocation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-TestTriggerInvocationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-subscriptions/v1/validate-filter
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/triggers/methods/triggers#test-subscription-filter-v1
+      source: |
+        $Validatefilterinputdto = @"
+        {"input":{"identityId":"201327fda1c44704ac01181e963d463c"},"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}
+        "@
+        
+        # Validate a subscription filter
+        
+        try {
+            $Result = ConvertFrom-JsonToValidatefilterinputdto -Json $Validatefilterinputdto
+            Test-SubscriptionFilterV1 -Validatefilterinputdto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Test-SubscriptionFilterV1 -Validatefilterinputdto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-SubscriptionFilterV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /trigger-subscriptions/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/triggers/methods/triggers#update-subscription-v1
+      source: |
+        $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
+        $Subscriptionputrequest = @"
+        {"name":"Access request subscription","description":"Access requested to site xyz","type":"HTTP","httpConfig":{"url":"https://www.example.com","httpDispatchMode":"SYNC","httpAuthenticationType":"BASIC_AUTH","basicAuthConfig":{"userName":"user@example.com","password":"eRtg4%6yuI!"}},"enabled":true,"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}
+        "@
+        
+        # Update a subscription
+        
+        try {
+            $Result = ConvertFrom-JsonToSubscriptionputrequest -Json $Subscriptionputrequest
+            Update-SubscriptionV1 -Id $Id -Subscriptionputrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-SubscriptionV1 -Id $Id -Subscriptionputrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SubscriptionV1"
+            Write-Host $_.ErrorDetails
+        }

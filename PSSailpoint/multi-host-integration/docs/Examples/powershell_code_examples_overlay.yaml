@@ -1,0 +1,293 @@
+- path: /multihosts/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#create-multi-host-integration-v1
+      source: |
+        $Multihostintegrationscreate = @"
+        
+        "@
+        
+        # Create multi-host integration
+        
+        try {
+            $Result = ConvertFrom-JsonToMultihostintegrationscreate -Json $Multihostintegrationscreate
+            New-MultiHostIntegrationV1 -Multihostintegrationscreate $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-MultiHostIntegrationV1 -Multihostintegrationscreate $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MultiHostIntegrationV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1/{multihostId}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#create-sources-within-multi-host-v1
+      source: |
+        $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
+        $Multihostintegrationscreatesources = @""@ 
+        
+        
+        # Create sources within multi-host integration
+        
+        try {
+            $Result = ConvertFrom-JsonToMultihostintegrationscreatesources -Json $Multihostintegrationscreatesources
+            New-SourcesWithinMultiHostV1 -MultihostId $MultihostId -Multihostintegrationscreatesources $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-SourcesWithinMultiHostV1 -MultihostId $MultihostId -Multihostintegrationscreatesources $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SourcesWithinMultiHostV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1/{multiHostId}/sources/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#delete-multi-host-sources-v1
+      source: |
+        $MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Host Integration
+        $RequestBody = "MyRequestBody" # String[] | The delete bulk sources within multi-host integration request body
+        $RequestBody = @""@ 
+        
+        
+        # Delete sources within multi-host integration
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Remove-MultiHostSourcesV1 -MultiHostId $MultiHostId -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-MultiHostSourcesV1 -MultiHostId $MultiHostId -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MultiHostSourcesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1/{multihostId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#delete-multi-host-v1
+      source: |
+        $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of Multi-Host Integration to delete.
+        
+        # Delete multi-host integration
+        
+        try {
+            Remove-MultiHostV1 -MultihostId $MultihostId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-MultiHostV1 -MultihostId $MultihostId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MultiHostV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1/{multihostId}/acctAggregationGroups
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-acct-aggregation-groups-v1
+      source: |
+        $MultihostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # List account-aggregation-groups by multi-host id
+        
+        try {
+            Get-AcctAggregationGroupsV1 -MultihostId $MultihostId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AcctAggregationGroupsV1 -MultihostId $MultihostId -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AcctAggregationGroupsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1/{multiHostId}/entitlementAggregationGroups
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-entitlement-aggregation-groups-v1
+      source: |
+        $MultiHostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # List entitlement-aggregation-groups by integration id
+        
+        try {
+            Get-EntitlementAggregationGroupsV1 -MultiHostId $MultiHostId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-EntitlementAggregationGroupsV1 -MultiHostId $MultiHostId -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-EntitlementAggregationGroupsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-multi-host-integrations-list-v1
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
+        $Filters = "id eq 2c91808b6ef1d43e016efba0ce470904" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *in*  **forSubAdminId**: *in* (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity or SOURCE_SUBADMIN identity.  The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
+        
+        # List all existing multi-host integrations
+        
+        try {
+            Get-MultiHostIntegrationsListV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MultiHostIntegrationsListV1 -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count -ForSubadmin $ForSubadmin   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MultiHostIntegrationsListV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1/{multihostId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-multi-host-integrations-v1
+      source: |
+        $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
+        
+        # Get multi-host integration by id
+        
+        try {
+            Get-MultiHostIntegrationsV1 -MultihostId $MultihostId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MultiHostIntegrationsV1 -MultihostId $MultihostId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MultiHostIntegrationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1/{multiHostId}/sources/errors
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-multi-host-source-creation-errors-v1
+      source: |
+        $MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Host Integration
+        
+        # List multi-host source creation errors
+        
+        try {
+            Get-MultiHostSourceCreationErrorsV1 -MultiHostId $MultiHostId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MultiHostSourceCreationErrorsV1 -MultiHostId $MultiHostId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MultiHostSourceCreationErrorsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1/types
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-multihost-integration-types-v1
+      source: |
+        
+        # List multi-host integration types
+        
+        try {
+            Get-MultihostIntegrationTypesV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MultihostIntegrationTypesV1   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MultihostIntegrationTypesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1/{multihostId}/sources
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#get-sources-within-multi-host-v1
+      source: |
+        $MultihostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
+        $Filters = "id eq 2c91808b6ef1d43e016efba0ce470904" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *in* (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List sources within multi-host integration
+        
+        try {
+            Get-SourcesWithinMultiHostV1 -MultihostId $MultihostId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SourcesWithinMultiHostV1 -MultihostId $MultihostId -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SourcesWithinMultiHostV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1/{multihostId}/sources/testConnection
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#test-connection-multi-host-sources-v1
+      source: |
+        $MultihostId = "2c91808568c529c60168cca6f90c1324" # String | ID of the Multi-Host Integration
+        
+        # Test configuration for multi-host integration
+        
+        try {
+            Test-ConnectionMultiHostSourcesV1 -MultihostId $MultihostId 
+    
+            # Below is a request that includes all optional parameters
+            # Test-ConnectionMultiHostSourcesV1 -MultihostId $MultihostId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-ConnectionMultiHostSourcesV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1/{multihostId}/sources/{sourceId}/testConnection
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#test-source-connection-multihost-v1
+      source: |
+        $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration
+        $SourceId = "2c91808568c529f60168cca6f90c1324" # String | ID of the source within the Multi-Host Integration
+        
+        # Test configuration for multi-host integration's single source
+        
+        try {
+            Test-SourceConnectionMultihostV1 -MultihostId $MultihostId -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Test-SourceConnectionMultihostV1 -MultihostId $MultihostId -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-SourceConnectionMultihostV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/v1/{multihostId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/multihostintegration/methods/multi-host-integration#update-multi-host-sources-v1
+      source: |
+        $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
+        $UpdateMultiHostSourcesV1RequestInner = @"[{"op":"add","path":"/description","value":"MDK Multi-Host Integration 222 description"}]"@ 
+        
+        
+        # Update multi-host integration
+        
+        try {
+            $Result = ConvertFrom-JsonToUpdateMultiHostSourcesV1RequestInner -Json $UpdateMultiHostSourcesV1RequestInner
+            Update-MultiHostSourcesV1 -MultihostId $MultihostId -UpdateMultiHostSourcesV1RequestInner $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-MultiHostSourcesV1 -MultihostId $MultihostId -UpdateMultiHostSourcesV1RequestInner $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MultiHostSourcesV1"
+            Write-Host $_.ErrorDetails
+        }

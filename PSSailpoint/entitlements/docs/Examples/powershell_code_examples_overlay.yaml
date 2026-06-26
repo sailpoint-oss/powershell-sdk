@@ -1,0 +1,286 @@
+- path: /entitlements/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#create-access-model-metadata-for-entitlement-v1
+      source: |
+        $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
+        $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
+        $AttributeValue = "public" # String | Technical name of the Attribute Value.
+        
+        # Add metadata to an entitlement.
+        
+        try {
+            New-AccessModelMetadataForEntitlementV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
+    
+            # Below is a request that includes all optional parameters
+            # New-AccessModelMetadataForEntitlementV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-AccessModelMetadataForEntitlementV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#delete-access-model-metadata-from-entitlement-v1
+      source: |
+        $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
+        $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
+        $AttributeValue = "public" # String | Technical name of the Attribute Value.
+        
+        # Remove metadata from an entitlement.
+        
+        try {
+            Remove-AccessModelMetadataFromEntitlementV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-AccessModelMetadataFromEntitlementV1 -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-AccessModelMetadataFromEntitlementV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/{id}/entitlement-request-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#get-entitlement-request-config-v1
+      source: |
+        $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
+        
+        # Get entitlement request config
+        
+        try {
+            Get-EntitlementRequestConfigV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-EntitlementRequestConfigV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-EntitlementRequestConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#get-entitlement-v1
+      source: |
+        $Id = "2c91808874ff91550175097daaec161c" # String | The entitlement ID
+        
+        # Get an entitlement
+        
+        try {
+            Get-EntitlementV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-EntitlementV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-EntitlementV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/aggregate/sources/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#import-entitlements-by-source-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
+        $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
+        
+        # Aggregate entitlements
+        
+        try {
+            Import-EntitlementsBySourceV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Import-EntitlementsBySourceV1 -Id $Id -CsvFile $CsvFile   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-EntitlementsBySourceV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/{id}/children
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#list-entitlement-children-v1
+      source: |
+        $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $SearchAfter = "Account Payable,2c91808375d8e80a0175e1f88a575221" # String | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement. (optional)
+        $Sorters = "name,id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable** (optional)
+        $Filters = "attribute eq "memberOf"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq* (optional)
+        
+        # List of entitlements children
+        
+        try {
+            Get-EntitlementChildrenV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-EntitlementChildrenV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count -SearchAfter $SearchAfter -Sorters $Sorters -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-EntitlementChildrenV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/{id}/parents
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#list-entitlement-parents-v1
+      source: |
+        $Id = "2c91808c74ff913f0175097daa9d59cd" # String | Entitlement Id
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $SearchAfter = "Account Payable,2c91808375d8e80a0175e1f88a575221" # String | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement. (optional)
+        $Sorters = "name,id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable** (optional)
+        $Filters = "attribute eq "memberOf"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq* (optional)
+        
+        # List of entitlements parents
+        
+        try {
+            Get-EntitlementParentsV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-EntitlementParentsV1 -Id $Id -Limit $Limit -Offset $Offset -Count $Count -SearchAfter $SearchAfter -Sorters $Sorters -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-EntitlementParentsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/account/{accountId}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#list-entitlements-by-account-v1
+      source: |
+        $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID to get entitlements for
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $SearchAfter = "Account Payable,2c91808375d8e80a0175e1f88a575221" # String | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement. (optional)
+        $Sorters = "name,id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable** (optional)
+        
+        # Get entitlements for an account
+        
+        try {
+            Get-EntitlementsByAccountV1 -AccountId $AccountId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-EntitlementsByAccountV1 -AccountId $AccountId -Limit $Limit -Offset $Offset -Count $Count -SearchAfter $SearchAfter -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-EntitlementsByAccountV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#list-entitlements-v1
+      source: |
+        $SegmentedForIdentity = "e554098913544630b5985e9042f5e44b" # String | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. (optional)
+        $ForSegmentIds = "041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649" # String | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. (optional)
+        $IncludeUnsegmented = $true # Boolean | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error. (optional) (default to $true)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $SearchAfter = "Account Payable,2c91808375d8e80a0175e1f88a575221" # String | Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value.  It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don't get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter=Account Payable,2c91808375d8e80a0175e1f88a575221&sorters=name,id.  If the last entitlement ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last name is ""Account Payable"", then using that name and ID will start a new search after this entitlement. (optional)
+        $Sorters = "name,id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable** (optional)
+        $Filters = "attribute eq "memberOf"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **tags**: *eq*  **privilegeLevel.direct**: *eq* (optional)
+        
+        # Gets a list of entitlements.
+        
+        try {
+            Get-EntitlementsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-EntitlementsV1 -SegmentedForIdentity $SegmentedForIdentity -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Offset $Offset -Limit $Limit -Count $Count -SearchAfter $SearchAfter -Sorters $Sorters -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-EntitlementsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#patch-entitlement-v1
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | ID of the entitlement to patch
+        $Jsonpatchoperation = @"[{"op":"add","path":"/segments/-","value":"f7b1b8a3-5fed-4fd4-ad29-82014e137e19"}]"@ 
+        
+        
+        # Patch an entitlement
+        
+        try {
+            Update-EntitlementV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Update-EntitlementV1 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/{id}/entitlement-request-config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#put-entitlement-request-config-v1
+      source: |
+        $Id = "2c91808a7813090a017814121e121518" # String | Entitlement ID
+        $Entitlementrequestconfig = @"
+        
+        "@
+        
+        # Replace entitlement request config
+        
+        try {
+            $Result = ConvertFrom-JsonToEntitlementrequestconfig -Json $Entitlementrequestconfig
+            Send-EntitlementRequestConfigV1 -Id $Id -Entitlementrequestconfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-EntitlementRequestConfigV1 -Id $Id -Entitlementrequestconfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-EntitlementRequestConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/reset/sources/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#reset-source-entitlements-v1
+      source: |
+        $Id = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
+        
+        # Reset source entitlements
+        
+        try {
+            Reset-SourceEntitlementsV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Reset-SourceEntitlementsV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-SourceEntitlementsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/v1/bulk-update
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/entitlements/methods/entitlements#update-entitlements-in-bulk-v1
+      source: |
+        $Entitlementbulkupdaterequest = @"
+        
+        "@
+        
+        # Bulk update an entitlement list
+        
+        try {
+            $Result = ConvertFrom-JsonToEntitlementbulkupdaterequest -Json $Entitlementbulkupdaterequest
+            Update-EntitlementsInBulkV1 -Entitlementbulkupdaterequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-EntitlementsInBulkV1 -Entitlementbulkupdaterequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-EntitlementsInBulkV1"
+            Write-Host $_.ErrorDetails
+        }

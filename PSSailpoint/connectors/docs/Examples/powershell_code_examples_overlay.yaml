@@ -1,0 +1,263 @@
+- path: /connectors/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#create-custom-connector-v1
+      source: |
+        $V3createconnectordto = @"
+        
+        "@
+        
+        # Create custom connector
+        
+        try {
+            $Result = ConvertFrom-JsonToV3createconnectordto -Json $V3createconnectordto
+            New-CustomConnectorV1 -V3createconnectordto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-CustomConnectorV1 -V3createconnectordto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-CustomConnectorV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connectors/v1/{scriptName}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#delete-custom-connector-v1
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+        
+        # Delete connector by script name
+        
+        try {
+            Remove-CustomConnectorV1 -ScriptName $ScriptName 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-CustomConnectorV1 -ScriptName $ScriptName   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-CustomConnectorV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connectors/v1/{scriptName}/correlation-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#get-connector-correlation-config-v1
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+        
+        # Get connector correlation configuration
+        
+        try {
+            Get-ConnectorCorrelationConfigV1 -ScriptName $ScriptName 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ConnectorCorrelationConfigV1 -ScriptName $ScriptName   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ConnectorCorrelationConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connectors/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#get-connector-list-v1
+      source: |
+        $Filters = "directConnect eq "true"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca* (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
+        
+        # Get connector list
+        
+        try {
+            Get-ConnectorListV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ConnectorListV1 -Filters $Filters -Limit $Limit -Offset $Offset -Count $Count -Locale $Locale   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ConnectorListV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connectors/v1/{scriptName}/source-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#get-connector-source-config-v1
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+        
+        # Get connector source configuration
+        
+        try {
+            Get-ConnectorSourceConfigV1 -ScriptName $ScriptName 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ConnectorSourceConfigV1 -ScriptName $ScriptName   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ConnectorSourceConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connectors/v1/{scriptName}/source-template
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#get-connector-source-template-v1
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+        
+        # Get connector source template
+        
+        try {
+            Get-ConnectorSourceTemplateV1 -ScriptName $ScriptName 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ConnectorSourceTemplateV1 -ScriptName $ScriptName   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ConnectorSourceTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connectors/v1/{scriptName}/translations/{locale}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#get-connector-translations-v1
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+        $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
+        
+        # Get connector translations
+        
+        try {
+            Get-ConnectorTranslationsV1 -ScriptName $ScriptName -Locale $Locale 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ConnectorTranslationsV1 -ScriptName $ScriptName -Locale $Locale   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ConnectorTranslationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connectors/v1/{scriptName}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#get-connector-v1
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+        $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
+        
+        # Get connector by script name
+        
+        try {
+            Get-ConnectorV1 -ScriptName $ScriptName 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ConnectorV1 -ScriptName $ScriptName -Locale $Locale   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ConnectorV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connectors/v1/{scriptName}/correlation-config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#put-connector-correlation-config-v1
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+        $File =  # System.IO.FileInfo | connector correlation config xml file
+        
+        # Update connector correlation configuration
+        
+        try {
+            Send-ConnectorCorrelationConfigV1 -ScriptName $ScriptName -File $File 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ConnectorCorrelationConfigV1 -ScriptName $ScriptName -File $File   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ConnectorCorrelationConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connectors/v1/{scriptName}/source-config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#put-connector-source-config-v1
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+        $File =  # System.IO.FileInfo | connector source config xml file
+        
+        # Update connector source configuration
+        
+        try {
+            Send-ConnectorSourceConfigV1 -ScriptName $ScriptName -File $File 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ConnectorSourceConfigV1 -ScriptName $ScriptName -File $File   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ConnectorSourceConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connectors/v1/{scriptName}/source-template
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#put-connector-source-template-v1
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+        $File =  # System.IO.FileInfo | connector source template xml file
+        
+        # Update connector source template
+        
+        try {
+            Send-ConnectorSourceTemplateV1 -ScriptName $ScriptName -File $File 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ConnectorSourceTemplateV1 -ScriptName $ScriptName -File $File   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ConnectorSourceTemplateV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connectors/v1/{scriptName}/translations/{locale}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#put-connector-translations-v1
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+        $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
+        
+        # Update connector translations
+        
+        try {
+            Send-ConnectorTranslationsV1 -ScriptName $ScriptName -Locale $Locale 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ConnectorTranslationsV1 -ScriptName $ScriptName -Locale $Locale   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ConnectorTranslationsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /connectors/v1/{scriptName}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/connectors/methods/connectors#update-connector-v1
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+        $Jsonpatchoperation = @""@ 
+        
+        
+        # Update connector by script name
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-ConnectorV1 -ScriptName $ScriptName -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-ConnectorV1 -ScriptName $ScriptName -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ConnectorV1"
+            Write-Host $_.ErrorDetails
+        }

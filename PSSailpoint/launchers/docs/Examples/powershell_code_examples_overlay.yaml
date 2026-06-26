@@ -1,0 +1,123 @@
+- path: /launchers/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/launchers/methods/launchers#create-launcher-v1
+      source: |
+        $Launcherrequest = @"
+        
+        "@
+        
+        # Create launcher
+        
+        try {
+            $Result = ConvertFrom-JsonToLauncherrequest -Json $Launcherrequest
+            New-LauncherV1 -Launcherrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-LauncherV1 -Launcherrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-LauncherV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers/v1/{launcherID}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/launchers/methods/launchers#delete-launcher-v1
+      source: |
+        $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be deleted
+        
+        # Delete launcher
+        
+        try {
+            Remove-LauncherV1 -LauncherID $LauncherID 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-LauncherV1 -LauncherID $LauncherID   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-LauncherV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers/v1/{launcherID}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/launchers/methods/launchers#get-launcher-v1
+      source: |
+        $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be retrieved
+        
+        # Get launcher by id
+        
+        try {
+            Get-LauncherV1 -LauncherID $LauncherID 
+    
+            # Below is a request that includes all optional parameters
+            # Get-LauncherV1 -LauncherID $LauncherID   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-LauncherV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/launchers/methods/launchers#get-launchers-v1
+      source: |
+        $Filters = "disabled eq "true"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional)
+        $Next = "eyJuZXh0IjoxMjN9Cg==" # String | Pagination marker (optional)
+        $Limit = 42 # Int32 | Number of Launchers to return (optional) (default to 10)
+        
+        # List all launchers for tenant
+        
+        try {
+            Get-LaunchersV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-LaunchersV1 -Filters $Filters -Next $Next -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-LaunchersV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers/v1/{launcherID}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/launchers/methods/launchers#put-launcher-v1
+      source: |
+        $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be replaced
+        $Launcherrequest = @"
+        
+        "@
+        
+        # Replace launcher
+        
+        try {
+            $Result = ConvertFrom-JsonToLauncherrequest -Json $Launcherrequest
+            Send-LauncherV1 -LauncherID $LauncherID -Launcherrequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-LauncherV1 -LauncherID $LauncherID -Launcherrequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-LauncherV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers/v1/{launcherID}/launch
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/launchers/methods/launchers#start-launcher-v1
+      source: |
+        $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be launched
+        
+        # Launch a launcher
+        
+        try {
+            Start-LauncherV1 -LauncherID $LauncherID 
+    
+            # Below is a request that includes all optional parameters
+            # Start-LauncherV1 -LauncherID $LauncherID   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-LauncherV1"
+            Write-Host $_.ErrorDetails
+        }

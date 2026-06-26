@@ -1,0 +1,62 @@
+- path: /auth-profiles/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/authprofile/methods/auth-profile#get-profile-config-list-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get list of auth profiles
+        
+        try {
+            Get-ProfileConfigListV1 -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ProfileConfigListV1 -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ProfileConfigListV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /auth-profiles/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/authprofile/methods/auth-profile#get-profile-config-v1
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
+        
+        # Get auth profile
+        
+        try {
+            Get-ProfileConfigV1 -XSailPointExperimental $XSailPointExperimental -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ProfileConfigV1 -XSailPointExperimental $XSailPointExperimental -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ProfileConfigV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /auth-profiles/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/authprofile/methods/auth-profile#patch-profile-config-v1
+      source: |
+        $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Jsonpatchoperation = @""@ 
+        
+        
+        # Patch a specified auth profile
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-ProfileConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-ProfileConfigV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ProfileConfigV1"
+            Write-Host $_.ErrorDetails
+        }

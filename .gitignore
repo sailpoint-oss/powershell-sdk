@@ -5,3 +5,6 @@ config.json
 loadModule.ps1
 build.sh
 openapi-generator-cli.jar
+.sdk-build-tmp/
+build-errors/
+node_modules/

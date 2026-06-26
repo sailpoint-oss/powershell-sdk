@@ -321,7 +321,7 @@ function Get-EnvConfig {
         $Configuration["ClientSecret"] = $ENV:SAIL_CLIENT_SECRET
     }
 
-    if ($null -ne $ENV:SAIL_NERM_BASE_URL) {
+    if (![string]::IsNullOrEmpty($ENV:SAIL_NERM_BASE_URL)) {
         $Configuration["NermBaseUrl"] = $ENV:SAIL_NERM_BASE_URL
     }
 

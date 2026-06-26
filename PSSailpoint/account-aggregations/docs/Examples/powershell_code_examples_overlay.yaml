@@ -1,0 +1,19 @@
+- path: /account-aggregations/v1/{id}/status
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/accountaggregations/methods/account-aggregations#get-account-aggregation-status-v1
+      source: |
+        $Id = "2c91808477a6b0c60177a81146b8110b" # String | The account aggregation id
+        
+        # In-progress account aggregation status
+        
+        try {
+            Get-AccountAggregationStatusV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-AccountAggregationStatusV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-AccountAggregationStatusV1"
+            Write-Host $_.ErrorDetails
+        }

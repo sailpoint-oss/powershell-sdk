@@ -1,0 +1,104 @@
+- path: /segments/v1
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/segments/methods/segments#create-segment-v1
+      source: |
+        $Segment = @"
+        
+        "@
+        
+        # Create segment
+        
+        try {
+            $Result = ConvertFrom-JsonToSegment -Json $Segment
+            New-SegmentV1 -Segment $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-SegmentV1 -Segment $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-SegmentV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /segments/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/segments/methods/segments#delete-segment-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
+        
+        # Delete segment by id
+        
+        try {
+            Remove-SegmentV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-SegmentV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-SegmentV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /segments/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/segments/methods/segments#get-segment-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
+        
+        # Get segment by id
+        
+        try {
+            Get-SegmentV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SegmentV1 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SegmentV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /segments/v1
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/segments/methods/segments#list-segments-v1
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List segments
+        
+        try {
+            Get-SegmentsV1 
+    
+            # Below is a request that includes all optional parameters
+            # Get-SegmentsV1 -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SegmentsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /segments/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/segments/methods/segments#patch-segment-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to modify.
+        $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+        $RequestBody = @"[{"op":"replace","path":"/visibilityCriteria","value":{"expression":{"operator":"AND","children":[{"operator":"EQUALS","attribute":"location","value":{"type":"STRING","value":"Philadelphia"}},{"operator":"EQUALS","attribute":"department","value":{"type":"STRING","value":"HR"}}]}}}]"@ 
+        
+        
+        # Update segment
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Update-SegmentV1 -Id $Id -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-SegmentV1 -Id $Id -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-SegmentV1"
+            Write-Host $_.ErrorDetails
+        }

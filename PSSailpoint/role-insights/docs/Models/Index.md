@@ -1,14 +1,14 @@
 ---
-id: models
+id: roleinsights-models
 title: Models
 pagination_label: Models
 sidebar_label: Models
-sidebar_key: v1-powershell-models
+sidebar_key: roleinsights-powershell-models
 sidebar_position: 3
 sidebar_class_name: models
-keywords: ['powershell', 'PowerShell', 'sdk', 'models'] 
-slug: /tools/sdk/powershell/v1/models
-tags: ['SDK', 'Software Development Kit', 'v1', 'models']
+keywords: ['powershell', 'PowerShell', 'sdk', 'roleinsights', 'models'] 
+slug: /tools/sdk/powershell/roleinsights/models
+tags: ['SDK', 'Software Development Kit', 'roleinsights', 'models']
 ---
 
 The PowerShell SDK uses data models to structure and manage data within the API. These models provide essential details about the data, including their attributes, data types, and how the models relate to each other. Understanding these models is crucial to effectively interact with the API.

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.Notifications - the PowerShell module for Identity Security Cloud API - Notifications'
 
-    ModuleVersion = '2.0.1'
+    ModuleVersion = '2.0.2'
 
     RootModule = 'PSSailpoint.Notifications.psm1'
     Guid = '2FF448F6-DEEF-20A3-BC98-BA4A5A9A74F7' # Has to be static, otherwise each new build will be considered different module

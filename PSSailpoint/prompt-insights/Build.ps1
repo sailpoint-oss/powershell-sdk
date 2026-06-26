@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.PromptInsights - the PowerShell module for Identity Security Cloud API - Prompt Insights'
 
-    ModuleVersion = '2.0.1'
+    ModuleVersion = '2.0.2'
 
     RootModule = 'PSSailpoint.PromptInsights.psm1'
     Guid = 'D2D0A3CA-1985-2E91-75E9-D2867439D9A8' # Has to be static, otherwise each new build will be considered different module

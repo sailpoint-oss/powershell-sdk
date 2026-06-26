@@ -1,14 +1,14 @@
 ---
-id: methods
+id: nermv2025-methods
 title: Methods
 pagination_label: Methods
 sidebar_label: Methods
-sidebar_key: -powershell-methods
+sidebar_key: nermv2025-powershell-methods
 sidebar_position: 3
 sidebar_class_name: methods
-keywords: ['powershell', 'PowerShell', 'sdk', 'methods'] 
-slug: /tools/sdk/powershell//methods
-tags: ['SDK', 'Software Development Kit', '', 'methods']
+keywords: ['powershell', 'PowerShell', 'sdk', 'nermv2025', 'methods'] 
+slug: /tools/sdk/powershell/nermv2025/methods
+tags: ['SDK', 'Software Development Kit', 'nermv2025', 'methods']
 ---
 
 Method documents provide detailed information about each API operation (or method). They describe what the method does and details its input parameters, expected return values, and any considerations to be aware of when using it.

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.IaiOutliers - the PowerShell module for Identity Security Cloud API - IAI Outliers'
 
-    ModuleVersion = '2.0.1'
+    ModuleVersion = '2.0.2'
 
     RootModule = 'PSSailpoint.IaiOutliers.psm1'
     Guid = '0CAB800A-5174-313D-F857-09119122E9D0' # Has to be static, otherwise each new build will be considered different module

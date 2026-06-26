@@ -1,14 +1,14 @@
 ---
-id: models
+id: entitlementconnections-models
 title: Models
 pagination_label: Models
 sidebar_label: Models
-sidebar_key: v1-powershell-models
+sidebar_key: entitlementconnections-powershell-models
 sidebar_position: 3
 sidebar_class_name: models
-keywords: ['powershell', 'PowerShell', 'sdk', 'models'] 
-slug: /tools/sdk/powershell/v1/models
-tags: ['SDK', 'Software Development Kit', 'v1', 'models']
+keywords: ['powershell', 'PowerShell', 'sdk', 'entitlementconnections', 'models'] 
+slug: /tools/sdk/powershell/entitlementconnections/models
+tags: ['SDK', 'Software Development Kit', 'entitlementconnections', 'models']
 ---
 
 The PowerShell SDK uses data models to structure and manage data within the API. These models provide essential details about the data, including their attributes, data types, and how the models relate to each other. Understanding these models is crucial to effectively interact with the API.

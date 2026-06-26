@@ -1,14 +1,14 @@
 ---
-id: models
+id: spconfig-models
 title: Models
 pagination_label: Models
 sidebar_label: Models
-sidebar_key: v1-powershell-models
+sidebar_key: spconfig-powershell-models
 sidebar_position: 3
 sidebar_class_name: models
-keywords: ['powershell', 'PowerShell', 'sdk', 'models'] 
-slug: /tools/sdk/powershell/v1/models
-tags: ['SDK', 'Software Development Kit', 'v1', 'models']
+keywords: ['powershell', 'PowerShell', 'sdk', 'spconfig', 'models'] 
+slug: /tools/sdk/powershell/spconfig/models
+tags: ['SDK', 'Software Development Kit', 'spconfig', 'models']
 ---
 
 The PowerShell SDK uses data models to structure and manage data within the API. These models provide essential details about the data, including their attributes, data types, and how the models relate to each other. Understanding these models is crucial to effectively interact with the API.

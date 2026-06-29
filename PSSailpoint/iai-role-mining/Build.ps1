@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.IaiRoleMining - the PowerShell module for Identity Security Cloud API - IAI Role Mining'
 
-    ModuleVersion = '2.0.2'
+    ModuleVersion = '2.0.3'
 
     RootModule = 'PSSailpoint.IaiRoleMining.psm1'
     Guid = '0D0D49A6-3C45-C74C-9600-91F82B3CAB2A' # Has to be static, otherwise each new build will be considered different module

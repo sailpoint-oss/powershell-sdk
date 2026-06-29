@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.DataAccessSecurity - the PowerShell module for Identity Security Cloud API - Data Access Security'
 
-    ModuleVersion = '2.0.2'
+    ModuleVersion = '2.0.3'
 
     RootModule = 'PSSailpoint.DataAccessSecurity.psm1'
     Guid = 'B55FFC35-472B-9684-845A-BFD2B24B2521' # Has to be static, otherwise each new build will be considered different module

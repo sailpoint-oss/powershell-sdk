@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.Transforms - the PowerShell module for Identity Security Cloud API - Transforms'
 
-    ModuleVersion = '2.0.2'
+    ModuleVersion = '2.0.3'
 
     RootModule = 'PSSailpoint.Transforms.psm1'
     Guid = '80FD2020-8B3F-B502-A70D-85EB7271A99A' # Has to be static, otherwise each new build will be considered different module

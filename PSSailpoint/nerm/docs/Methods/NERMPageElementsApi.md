@@ -30,7 +30,7 @@ Method | HTTP request | Description
 ## create-page-element
 Creates a page element.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-page-element)
+[API Spec](https://developer.sailpoint.com/docs/api/create-page-element)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -73,7 +73,7 @@ try {
 ## delete-page-element-by-id
 Delete page element by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-page-element-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-page-element-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -115,7 +115,7 @@ try {
 ## delete-page-element-by-uid
 Delete page element by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-page-element-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-page-element-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,7 +157,7 @@ try {
 ## get-page-element-by-id
 Info for a specific page element record
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-page-element-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-page-element-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -199,7 +199,7 @@ try {
 ## get-page-element-by-uid
 Info for a specific page element record by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-page-element-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/get-page-element-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -241,7 +241,7 @@ try {
 ## get-page-elements
 Retrieves page elements data.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-page-elements)
+[API Spec](https://developer.sailpoint.com/docs/api/get-page-elements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -281,7 +281,7 @@ try {
 ## update-page-element-by-id
 Update info for a specific page element record by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-page-element-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/update-page-element-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -327,7 +327,7 @@ try {
 ## update-page-element-by-uid
 Update info for a specific page element record by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-page-element-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/update-page-element-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

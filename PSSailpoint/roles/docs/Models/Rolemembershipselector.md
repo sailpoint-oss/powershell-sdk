@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Rolemembershipselector', 'Rolemembers
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**Rolemembershipselectortype**](rolemembershipselectortype) |  | [optional] 
+**Type** | **Rolemembershipselectortype** |  | [optional] 
 **Criteria** | [**Rolecriterialevel1**](rolecriterialevel1) |  | [optional] 
 **Identities** | [**[]Rolemembershipidentity**](rolemembershipidentity) | Defines role membership as being exclusive to the specified Identities, when type is IDENTITY_LIST. | [optional] 
 

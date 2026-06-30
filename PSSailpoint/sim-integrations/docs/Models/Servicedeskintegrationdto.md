@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **Cluster** | **String** | Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility). | [optional] 
 **ManagedSources** | **[]String** | Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility). | [optional] 
 **ProvisioningConfig** | [**Provisioningconfig**](provisioningconfig) |  | [optional] 
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Service Desk integration's attributes. Validation constraints enforced by the implementation. | [required]
+**Attributes** | **map[string]AnyType** | Service Desk integration's attributes. Validation constraints enforced by the implementation. | [required]
 **BeforeProvisioningRule** | [**Beforeprovisioningruledto**](beforeprovisioningruledto) |  | [optional] 
 
 ## Examples

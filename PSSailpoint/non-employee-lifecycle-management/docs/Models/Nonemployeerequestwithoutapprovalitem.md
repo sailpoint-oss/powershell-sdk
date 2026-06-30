@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **Manager** | **String** | The account ID of a valid identity to serve as this non-employee's manager. | [optional] 
 **NonEmployeeSource** | [**Nonemployeesourcelitewithschemaattributes**](nonemployeesourcelitewithschemaattributes) |  | [optional] 
 **VarData** | **map[string]String** | Additional attributes for a non-employee. Up to 10 custom attributes can be added. | [optional] 
-**ApprovalStatus** | [**Approvalstatus**](approvalstatus) |  | [optional] 
+**ApprovalStatus** | **Approvalstatus** |  | [optional] 
 **Comment** | **String** | Comment of requester | [optional] 
 **CompletionDate** | **System.DateTime** | When the request was completely approved. | [optional] 
 **StartDate** | **System.DateTime** | Non-Employee employment start date. | [optional] 

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **AccessProfiles** | [**[]Accessprofileref**](accessprofileref) |  | [optional] 
 **Entitlements** | [**[]Entitlementref**](entitlementref) |  | [optional] 
 **Membership** | [**Rolemembershipselector**](rolemembershipselector) |  | [optional] 
-**LegacyMembershipInfo** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | This field is not directly modifiable and is generally expected to be *null*. In very rare instances, some Roles may have been created using membership selection criteria that are no longer fully supported. While these Roles will still work, they should be migrated to STANDARD or IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration. | [optional] 
+**LegacyMembershipInfo** | **map[string]AnyType** | This field is not directly modifiable and is generally expected to be *null*. In very rare instances, some Roles may have been created using membership selection criteria that are no longer fully supported. While these Roles will still work, they should be migrated to STANDARD or IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration. | [optional] 
 **Enabled** | **Boolean** | Whether the Role is enabled or not. | [optional] [default to $false]
 **Requestable** | **Boolean** | Whether the Role can be the target of access requests. | [optional] [default to $false]
 **AccessRequestConfig** | [**Requestabilityforrole**](requestabilityforrole) |  | [optional] 

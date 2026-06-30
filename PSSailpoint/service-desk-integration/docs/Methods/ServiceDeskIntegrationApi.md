@@ -56,7 +56,7 @@ Method | HTTP request | Description
 ## create-service-desk-integration-v1
 Create a new Service Desk integration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-service-desk-integration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-service-desk-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -103,7 +103,7 @@ try {
 ## delete-service-desk-integration-v1
 Delete an existing Service Desk integration by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-service-desk-integration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-service-desk-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -149,7 +149,7 @@ try {
 ## get-service-desk-integration-template-v1
 This API endpoint returns an existing Service Desk integration template by scriptName.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-service-desk-integration-template-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-service-desk-integration-template-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -195,7 +195,7 @@ try {
 ## get-service-desk-integration-types-v1
 This API endpoint returns the current list of supported Service Desk integration types.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-service-desk-integration-types-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-service-desk-integration-types-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -239,7 +239,7 @@ try {
 ## get-service-desk-integration-v1
 Get an existing Service Desk integration by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-service-desk-integration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-service-desk-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -285,7 +285,7 @@ try {
 ## get-service-desk-integrations-v1
 Get a list of Service Desk integration objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-service-desk-integrations-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-service-desk-integrations-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -339,7 +339,7 @@ try {
 ## get-status-check-details-v1
 Get the time check configuration of queued SDIM tickets.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-status-check-details-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-status-check-details-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -383,7 +383,7 @@ try {
 ## patch-service-desk-integration-v1
 Update an existing Service Desk integration by ID with a PATCH request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-service-desk-integration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-service-desk-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -433,7 +433,7 @@ try {
 ## put-service-desk-integration-v1
 Update an existing Service Desk integration by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-service-desk-integration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-service-desk-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -482,7 +482,7 @@ try {
 ## update-status-check-details-v1
 Update the time check configuration of queued SDIM tickets.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-status-check-details-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-status-check-details-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

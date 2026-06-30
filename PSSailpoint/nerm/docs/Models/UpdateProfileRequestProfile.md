@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'UpdateProfileRequestProfile', 'NERMUp
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | schema-mapped attributes to be updated | [optional] 
+**Attributes** | **map[string]AnyType** | schema-mapped attributes to be updated | [optional] 
 
 ## Examples
 

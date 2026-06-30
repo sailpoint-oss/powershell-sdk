@@ -34,7 +34,7 @@ Method | HTTP request | Description
 ## create-profiles
 Create multiple profiles
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/create-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -77,7 +77,7 @@ try {
 ## delete-profile-by-id
 Delete a single profile
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-profile-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-profile-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -119,7 +119,7 @@ try {
 ## delete-profiles
 Delete multiple profiles
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -162,7 +162,7 @@ try {
 ## get-profile-avatar
 Retrieves the URL of the profile avatar
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-profile-avatar)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-avatar)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -204,7 +204,7 @@ try {
 ## get-profile-by-id
 Find profile by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-profile-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -246,7 +246,7 @@ try {
 ## get-profile-upload
 Retrieves the URL of an attachment attribute value from a profile
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-profile-upload)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-upload)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -290,7 +290,7 @@ try {
 ## get-profiles
 Get profiles
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -350,7 +350,7 @@ try {
 ## patch-profile-by-id
 Update a profile by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-profile-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-profile-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -395,7 +395,7 @@ try {
 ## patch-profiles
 Update multiple profiles
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -438,7 +438,7 @@ try {
 ## submit-profile
 Create a profile
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -481,7 +481,7 @@ try {
 ## submit-profile-avatar
 Uploads a new profile avatar
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-profile-avatar)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-profile-avatar)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -526,7 +526,7 @@ try {
 Uploads a new attachment attribute value to a profile. The upload must be a FORM data type; this is not a JSON API. The upload must include the binary content of the payload under the 'file' named form element. The upload must not attempt to include the file name or its content type as a other form or JSON as parameters. The upload must not attempt to upload the file body as the POST body payload; it has to arrive as a FORM parameter. Do not use a `File/Binary` payload type for the POST operation in your API client.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-profile-upload)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-profile-upload)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

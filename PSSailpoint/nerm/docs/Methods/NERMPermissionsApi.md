@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ## create-permission
 This endpoint can create permissions for Lifecycle, Consolidation, and Collaboration
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-permission)
+[API Spec](https://developer.sailpoint.com/docs/api/create-permission)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

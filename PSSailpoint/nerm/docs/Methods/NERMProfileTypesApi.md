@@ -30,7 +30,7 @@ Method | HTTP request | Description
 ## delete-profile-type-by-id
 Delete a profile type. All profiles of that type must first be destroyed before the profile type can be destroyed.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-profile-type-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-profile-type-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -72,7 +72,7 @@ try {
 ## delete-profile-type-by-uid
 Delete a profile type by UID (user-specified identifier). All profiles of that type must first be destroyed before the profile type can be destroyed.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-profile-type-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-profile-type-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -114,7 +114,7 @@ try {
 ## get-profile-type-by-id
 Find profile type by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-profile-type-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-type-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -156,7 +156,7 @@ try {
 ## get-profile-type-by-uid
 Find profile type by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-profile-type-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-type-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -198,7 +198,7 @@ try {
 ## get-profile-types
 Get option based attribute values
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-profile-types)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-types)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -250,7 +250,7 @@ try {
 ## patch-profile-type-by-id
 Update a profile type by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-profile-type-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-profile-type-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -295,7 +295,7 @@ try {
 ## patch-profile-type-by-uid
 Update a profile type by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-profile-type-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-profile-type-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -340,7 +340,7 @@ try {
 ## submit-profile-type
 Create a profile type
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-profile-type)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-profile-type)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

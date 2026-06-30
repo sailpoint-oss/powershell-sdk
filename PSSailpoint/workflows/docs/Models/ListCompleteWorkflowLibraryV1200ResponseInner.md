@@ -27,8 +27,8 @@ Name | Type | Description | Notes
 **VersionNumber** | **Int32** | Version number | [optional] 
 **IsSimulationEnabled** | **Boolean** |  | [optional] 
 **IsDynamicSchema** | **Boolean** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] 
-**OutputSchema** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Example output schema | [optional] 
-**InputExample** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Example trigger payload if applicable | [optional] 
+**OutputSchema** | **SystemCollectionsHashtable** | Example output schema | [optional] 
+**InputExample** | **SystemCollectionsHashtable** | Example trigger payload if applicable | [optional] 
 
 ## Examples
 

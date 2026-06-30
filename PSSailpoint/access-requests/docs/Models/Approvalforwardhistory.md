@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Comment** | **String** | Comment made while forwarding. | [optional] 
 **Modified** | **System.DateTime** | Time at which approval was forwarded. | [optional] 
 **ForwarderName** | **String** | Display name of forwarder who forwarded the approval. | [optional] 
-**ReassignmentType** | [**Reassignmenttype**](reassignmenttype) |  | [optional] 
+**ReassignmentType** | **Reassignmenttype** |  | [optional] 
 
 ## Examples
 

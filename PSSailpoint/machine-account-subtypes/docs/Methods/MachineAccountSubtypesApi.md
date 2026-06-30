@@ -34,7 +34,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Create a new machine account subtype.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-source-subtype-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-source-subtype-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -87,7 +87,7 @@ Delete a machine account subtype by subtype ID.
 
 Note: If subtype has approval settings or entitlement for machine account creation enablement then it'll be also deleted.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-machine-account-subtype-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-machine-account-subtype-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -137,7 +137,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This endpoint retrieves the approval configuration for machine account creation and deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account creation and deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for creating and deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account creation and deletion.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-machine-account-subtype-approval-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-machine-account-subtype-approval-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -188,7 +188,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Get a machine account subtype by subtype ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-source-subtype-by-id-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-subtype-by-id-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -239,7 +239,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Get all machine account subtypes.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-source-subtypes-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-source-subtypes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -297,7 +297,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This endpoint retrieves the subtypes for given subtypeIds.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/load-bulk-source-subtypes-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/load-bulk-source-subtypes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -352,7 +352,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Update fields of a machine account subtype by subtype ID.
 Patchable fields only include: `displayName`, `description`.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-machine-account-subtype-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-machine-account-subtype-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -407,7 +407,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account creation and deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for creating and deleting machine accounts of a particular subtype.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-machine-account-subtype-approval-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-machine-account-subtype-approval-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

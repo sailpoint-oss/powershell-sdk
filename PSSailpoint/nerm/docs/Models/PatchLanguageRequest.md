@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'PatchLanguageRequest', 'NERMPatchLang
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Language** | [**Language**](language) |  | [optional] 
+**Language** | **Language** |  | [optional] 
 
 ## Examples
 

@@ -28,7 +28,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Retrieves configuration attributes used by certification recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-recommendations-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-recommendations-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -76,7 +76,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-recommendations-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-recommendations-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -127,7 +127,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Updates configuration attributes used by certification recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-recommendations-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-recommendations-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateRestApiActionRequest', 'NERMCre
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowAction** | [**RestApiAction**](rest-api-action) |  | [optional] 
+**WorkflowAction** | **RestApiAction** |  | [optional] 
 
 ## Examples
 

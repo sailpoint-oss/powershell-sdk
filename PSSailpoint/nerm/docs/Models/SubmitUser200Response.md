@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SubmitUser200Response', 'NERMSubmitUs
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**User** | [**User**](user) |  | [optional] 
+**User** | **User** |  | [optional] 
 
 ## Examples
 

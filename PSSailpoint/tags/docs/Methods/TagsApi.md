@@ -28,7 +28,7 @@ This API creates new tag.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-tag-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-tag-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -76,7 +76,7 @@ This API deletes a tag by specified id.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-tag-by-id-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-tag-by-id-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -124,7 +124,7 @@ Returns a tag by its id.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-tag-by-id-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-tag-by-id-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -172,7 +172,7 @@ This API returns a list of tags.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-tags-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-tags-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

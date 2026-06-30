@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IdentityIds** | **[]String** | The list of identities for this role mining session. | [optional] 
 **Criteria** | **String** | The ""search"" criteria that produces the list of identities for this role mining session. | [optional] 
-**AttributeFilterCriteria** | [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The filter criteria for this role mining session. | [optional] 
+**AttributeFilterCriteria** | **[]SystemCollectionsHashtable** | The filter criteria for this role mining session. | [optional] 
 
 ## Examples
 

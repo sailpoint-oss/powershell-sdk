@@ -39,7 +39,7 @@ Method | HTTP request | Description
 Creates a new saved search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-saved-search-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-saved-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -86,7 +86,7 @@ try {
 Deletes the specified saved search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-saved-search-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-saved-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -133,7 +133,7 @@ try {
 Executes the specified saved search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/execute-saved-search-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/execute-saved-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -183,7 +183,7 @@ try {
 Returns the specified saved search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-saved-search-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-saved-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -230,7 +230,7 @@ try {
 Returns a list of saved searches.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-saved-searches-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-saved-searches-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -284,7 +284,7 @@ Updates an existing saved search.
 >**NOTE: You cannot update the `owner` of the saved search.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-saved-search-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-saved-search-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

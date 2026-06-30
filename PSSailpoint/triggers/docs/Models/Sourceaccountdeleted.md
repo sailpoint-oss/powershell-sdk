@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **SourceName** | **String** | The name of the source. | [required]
 **IdentityId** | **String** | The ID of the identity that is correlated with this account. | [required]
 **IdentityName** | **String** | The name of the identity that is correlated with this account. | [required]
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
+**Attributes** | **map[string]AnyType** | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
 
 ## Examples
 

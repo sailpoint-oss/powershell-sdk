@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'Managedclientstatus', 'Managedclients
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Body** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | ManagedClientStatus body information | [required]
-**Status** | [**Managedclientstatuscode**](managedclientstatuscode) |  | [required]
-**Type** | [**Managedclienttype**](managedclienttype) |  | [required]
+**Body** | **SystemCollectionsHashtable** | ManagedClientStatus body information | [required]
+**Status** | **Managedclientstatuscode** |  | [required]
+**Type** | **Managedclienttype** |  | [required]
 **Timestamp** | **System.DateTime** | timestamp on the Client Status update | [required]
 
 ## Examples

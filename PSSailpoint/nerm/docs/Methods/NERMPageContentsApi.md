@@ -30,7 +30,7 @@ Method | HTTP request | Description
 ## create-page-content
 This endpoint can create page content
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-page-content)
+[API Spec](https://developer.sailpoint.com/docs/api/create-page-content)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -73,7 +73,7 @@ try {
 ## delete-page-content-by-id
 Delete page content by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-page-content-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-page-content-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -115,7 +115,7 @@ try {
 ## delete-page-content-by-uid
 Delete page content by by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-page-content-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-page-content-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -158,7 +158,7 @@ try {
 ## get-page-content-by-id
 Info for a specific page content record
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-page-content-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-page-content-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -200,7 +200,7 @@ try {
 ## get-page-content-by-uid
 Info for a specific page content record by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-page-content-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/get-page-content-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -242,7 +242,7 @@ try {
 ## get-page-contents
 This endpoint can retrieve page content data.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-page-contents)
+[API Spec](https://developer.sailpoint.com/docs/api/get-page-contents)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -282,7 +282,7 @@ try {
 ## update-page-content-by-id
 Update info for a specific page content record by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-page-content-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/update-page-content-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -328,7 +328,7 @@ try {
 ## update-page-content-by-uid
 Update info for a specific page content record by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-page-content-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/update-page-content-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

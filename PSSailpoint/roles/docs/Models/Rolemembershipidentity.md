@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Rolemembershipidentity', 'Rolemembers
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**Dtotype**](dtotype) |  | [optional] 
+**Type** | **Dtotype** |  | [optional] 
 **Id** | **String** | Identity id | [optional] 
 **Name** | **String** | Human-readable display name of the Identity. | [optional] 
 **AliasName** | **String** | User name of the Identity | [optional] 

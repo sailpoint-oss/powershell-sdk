@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'Delegation', 'NERMDelegation']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | The id of the delegation | [optional] 
-**DelegatorId** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The id of the delegator user | [optional] 
-**DelegateId** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The id of the delegate user | [optional] 
+**DelegatorId** | **SystemCollectionsHashtable** | The id of the delegator user | [optional] 
+**DelegateId** | **SystemCollectionsHashtable** | The id of the delegate user | [optional] 
 **Expiration** | **System.DateTime** | The expiration date of the delegation | [optional] 
 **Expired** | **Boolean** | Indicates if the delegation is expired | [optional] 
 **CreatedAt** | **System.DateTime** | The date-time the record created. | [optional] [readonly] 

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.Segments - the PowerShell module for Identity Security Cloud API - Segments'
 
-    ModuleVersion = '2.0.3'
+    ModuleVersion = '2.0.4'
 
     RootModule = 'PSSailpoint.Segments.psm1'
     Guid = '5D43FD43-253A-E83D-761E-D9B78E7BB152' # Has to be static, otherwise each new build will be considered different module

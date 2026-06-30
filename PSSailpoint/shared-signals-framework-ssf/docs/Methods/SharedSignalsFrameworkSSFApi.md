@@ -43,7 +43,7 @@ One SSF stream is allowed for each client ID.
 You can create a maximum of 10 SSF stream configurations for one org.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-stream-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-stream-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -93,7 +93,7 @@ query parameter `stream_id`. On success the response has no body (204 No Content
 The associated stream with the client ID (through the request OAuth 2.0 access token) is deleted.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-stream-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-stream-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -139,7 +139,7 @@ try {
 ## get-jwks-data-v1
 Returns the transmitter's JSON Web Key Set (JWKS) for verifying signed delivery requests.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-jwks-data-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-jwks-data-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -182,7 +182,7 @@ try {
 ## get-ssf-configuration-v1
 Returns the SSF transmitter discovery metadata (well-known configuration).
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-ssf-configuration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-ssf-configuration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -225,7 +225,7 @@ try {
 ## get-stream-status-v1
 Returns the status (enabled, paused, disabled) and optional reason for the stream associated with the client ID of the request's OAuth 2.0 access token. The stream_id query parameter is required.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-stream-status-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-stream-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -277,7 +277,7 @@ of the request OAuth 2.0 access token.
 Query parameter `aud` (co filter) can be used to filter by audience.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-stream-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-stream-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -323,7 +323,7 @@ try {
 ## send-stream-verification-v1
 Verifies an SSF stream by publishing a verification event requested by a security events provider.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/send-stream-verification-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/send-stream-verification-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -372,7 +372,7 @@ Replaces a stream's configuration (PUT). stream_id and delivery are required; fu
 The associated stream with the client ID (through the request OAuth 2.0 access token) is replaced.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/set-stream-configuration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/set-stream-configuration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -422,7 +422,7 @@ Partially updates a stream's configuration (PATCH). Only provided fields are upd
 The associated stream with the client ID (through the request OAuth 2.0 access token) is updated.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-stream-configuration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-stream-configuration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -469,7 +469,7 @@ try {
 ## update-stream-status-v1
 Updates the operational status (enabled, paused, disabled) with an optional reason for the stream associated with the client ID of the request's OAuth 2.0 access token.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-stream-status-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-stream-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

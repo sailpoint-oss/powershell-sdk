@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SubmitRoleRequest', 'NERMSubmitRoleRe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Role** | [**Role1**](role1) |  | [optional] 
+**Role** | **Role1** |  | [optional] 
 
 ## Examples
 

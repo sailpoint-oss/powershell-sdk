@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'MachineidentityupdatedOwnerChanges', 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AttributeName** | **String** | Name of the attribute that changed. | [optional] 
-**Added** | [**[]Machineidentityownerreference**](machineidentityownerreference) | Owners that were added. | [optional] 
-**Removed** | [**[]Machineidentityownerreference**](machineidentityownerreference) | Owners that were removed. | [optional] 
+**Added** | **[]Machineidentityownerreference** | Owners that were added. | [optional] 
+**Removed** | **[]Machineidentityownerreference** | Owners that were removed. | [optional] 
 
 ## Examples
 

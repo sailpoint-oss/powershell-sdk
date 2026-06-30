@@ -32,7 +32,7 @@ Method | HTTP request | Description
 Create a new managed client.
 The API returns a result that includes the managed client ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-managed-client-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-managed-client-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -78,7 +78,7 @@ try {
 ## delete-managed-client-v1
 Delete an existing managed client.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-managed-client-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-managed-client-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -123,7 +123,7 @@ try {
 ## get-managed-client-health-indicators-v1
 Get a managed client's health indicators, using its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-managed-client-health-indicators-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-client-health-indicators-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -169,7 +169,7 @@ try {
 ## get-managed-client-status-v1
 Get a managed client's status, using its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-managed-client-status-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-client-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -217,7 +217,7 @@ try {
 ## get-managed-client-v1
 Get managed client by ID. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-managed-client-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-client-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -263,7 +263,7 @@ try {
 ## get-managed-clients-v1
 List managed clients.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-managed-clients-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-clients-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -314,7 +314,7 @@ try {
 ## update-managed-client-v1
 Update an existing managed client.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-managed-client-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-managed-client-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

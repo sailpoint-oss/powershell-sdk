@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ## create-profile-type-role
 This endpoint can create a profile type role. NOTE- The ability to toggle Allow/Block is done through the Profile Type
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-profile-type-role)
+[API Spec](https://developer.sailpoint.com/docs/api/create-profile-type-role)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

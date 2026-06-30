@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'LoaduncorrelatedaccountstaskTaskAttri
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **QpocJobId** | **String** | The id of qpoc job | [optional] 
-**TaskStartDelay** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | the task start delay value | [optional] 
+**TaskStartDelay** | **AnyType** | the task start delay value | [optional] 
 
 ## Examples
 

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'DeleteProfileTypeById200Response', 'N
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Info** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | A message confirming the operation | [optional] 
+**Info** | **SystemCollectionsHashtable** | A message confirming the operation | [optional] 
 
 ## Examples
 

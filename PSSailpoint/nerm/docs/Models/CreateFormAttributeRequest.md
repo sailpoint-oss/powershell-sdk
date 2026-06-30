@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateFormAttributeRequest', 'NERMCre
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FormAttribute** | [**FormAttributes**](form-attributes) |  | [optional] 
+**FormAttribute** | **FormAttributes** |  | [optional] 
 
 ## Examples
 

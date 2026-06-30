@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Accountrequestphase', 'Accountrequest
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** |  **Enum** [  "APPROVAL_PHASE",    "PROVISIONING_PHASE" ] | Enum of account request phase type | [optional] 
-**State** | [**Accountrequestphasestate**](accountrequestphasestate) |  | [optional] 
+**State** | **Accountrequestphasestate** |  | [optional] 
 **Started** | **System.DateTime** | Start date of account request phase. | [optional] [readonly] 
 **Finished** | **System.DateTime** | Finish date of account request phase. | [optional] [readonly] 
 

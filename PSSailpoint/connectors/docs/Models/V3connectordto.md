@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **ClassName** | **String** | The connector class name. | [optional] 
 **Features** | **[]String** | The list of features supported by the connector | [optional] 
 **DirectConnect** | **Boolean** | true if the source is a direct connect source | [optional] [default to $false]
-**ConnectorMetadata** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map containing metadata pertinent to the connector | [optional] 
+**ConnectorMetadata** | **map[string]AnyType** | A map containing metadata pertinent to the connector | [optional] 
 **Status** |  **Enum** [  "DEPRECATED",    "DEVELOPMENT",    "DEMO",    "RELEASED" ] | The connector status | [optional] 
 
 ## Examples

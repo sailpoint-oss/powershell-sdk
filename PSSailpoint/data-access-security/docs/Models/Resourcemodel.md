@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Name** | **String** | The display name or label for the resource. | [optional] 
 **FullPath** | **String** | The full path to the resource within the system or application. | [optional] 
 **ApplicationId** | **Int64** | The unique identifier of the application to which this resource belongs. | [optional] 
-**Type** | [**Businessservicetype**](businessservicetype) |  | [optional] 
+**Type** | **Businessservicetype** |  | [optional] 
 **Owners** | **[]String** | A list of UUIDs representing the owners of the resource. | [optional] 
 
 ## Examples

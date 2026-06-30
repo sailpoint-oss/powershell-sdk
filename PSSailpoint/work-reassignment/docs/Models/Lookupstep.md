@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ReassignedToId** | **String** | The ID of the Identity who work is reassigned to | [optional] 
 **ReassignedFromId** | **String** | The ID of the Identity who work is reassigned from | [optional] 
-**ReassignmentType** | [**Reassignmenttypeenum**](reassignmenttypeenum) |  | [optional] 
+**ReassignmentType** | **Reassignmenttypeenum** |  | [optional] 
 
 ## Examples
 

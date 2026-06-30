@@ -28,7 +28,7 @@ Method | HTTP request | Description
 ## get-user-manager
 Info for a specific user-manager relationship
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-user-manager)
+[API Spec](https://developer.sailpoint.com/docs/api/get-user-manager)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -70,7 +70,7 @@ try {
 ## get-user-managers
 This endpoint can retrieve user-manager relationships from Lifecycle or you can search for user-manager relationships using parameters
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-user-managers)
+[API Spec](https://developer.sailpoint.com/docs/api/get-user-managers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -122,7 +122,7 @@ try {
 ## patch-user-manager
 Update a user-manager relationship by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-user-manager)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-user-manager)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -167,7 +167,7 @@ try {
 ## patch-user-managers
 Update multiple user-manager relationships
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-user-managers)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-user-managers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -210,7 +210,7 @@ try {
 ## submit-user-manager
 Create a new user-manager relationship
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-user-manager)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-user-manager)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -253,7 +253,7 @@ try {
 ## submit-user-managers
 Create multiple new user-manager relationships
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-user-managers)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-user-managers)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

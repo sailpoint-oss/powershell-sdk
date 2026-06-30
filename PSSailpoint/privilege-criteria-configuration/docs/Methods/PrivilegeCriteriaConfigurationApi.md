@@ -52,7 +52,7 @@ Method | HTTP request | Description
 ## get-privilege-criteria-config-v1
 Use this API to get the privilege criteria configuration by Id.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-privilege-criteria-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-privilege-criteria-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -97,7 +97,7 @@ try {
 ## list-privilege-criteria-config-v1
 Use this API to list the privilege criteria configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-privilege-criteria-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-privilege-criteria-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -142,7 +142,7 @@ try {
 ## patch-privilege-criteria-config-v1
 Use this API to update the privilege criteria configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-privilege-criteria-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-privilege-criteria-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

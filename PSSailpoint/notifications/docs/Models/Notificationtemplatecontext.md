@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Notificationtemplatecontext', 'Notifi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A JSON object that stores the context. | [optional] 
+**Attributes** | **map[string]AnyType** | A JSON object that stores the context. | [optional] 
 **Created** | **System.DateTime** | When the global context was created | [optional] 
 **Modified** | **System.DateTime** | When the global context was last modified | [optional] 
 

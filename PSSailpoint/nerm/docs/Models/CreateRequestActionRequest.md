@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateRequestActionRequest', 'NERMCre
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowAction** | [**RequestAction**](request-action) |  | [optional] 
+**WorkflowAction** | **RequestAction** |  | [optional] 
 
 ## Examples
 

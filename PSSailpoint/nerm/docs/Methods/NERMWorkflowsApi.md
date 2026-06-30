@@ -29,7 +29,7 @@ Method | HTTP request | Description
 ## create-automated-workflow
 Create an automated workflow
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-automated-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/create-automated-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -72,7 +72,7 @@ try {
 ## create-batch-workflow
 Create a batch workflow
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-batch-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/create-batch-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -115,7 +115,7 @@ try {
 ## create-create-workflow
 Create a create workflow
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-create-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/create-create-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -158,7 +158,7 @@ try {
 ## create-login-workflow
 Create a login workflow
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-login-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/create-login-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -201,7 +201,7 @@ try {
 ## create-password-update-workflow
 Create a password reset workflow
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-password-update-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/create-password-update-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -244,7 +244,7 @@ try {
 ## create-registration-workflow
 Create a registration workflow
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-registration-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/create-registration-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -287,7 +287,7 @@ try {
 ## create-update-workflow
 Create an update workflow
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-update-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/create-update-workflow)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

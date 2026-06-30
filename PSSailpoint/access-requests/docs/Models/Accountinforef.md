@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Uuid** | **String** | The uuid for the account, available under the 'objectguid' attribute | [optional] 
 **NativeIdentity** | **String** | The 'distinguishedName' attribute for the account | [optional] 
-**Type** | [**Dtotype**](dtotype) |  | [optional] 
+**Type** | **Dtotype** |  | [optional] 
 **Id** | **String** | The account id | [optional] 
 **Name** | **String** | The account display name | [optional] 
 

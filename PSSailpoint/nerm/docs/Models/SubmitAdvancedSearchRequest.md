@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SubmitAdvancedSearchRequest', 'NERMSu
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdvancedSearch** | [**AdvancedSearch1**](advanced-search1) |  | [optional] 
+**AdvancedSearch** | **AdvancedSearch1** |  | [optional] 
 
 ## Examples
 

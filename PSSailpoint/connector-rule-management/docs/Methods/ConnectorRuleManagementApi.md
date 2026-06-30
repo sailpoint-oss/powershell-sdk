@@ -35,7 +35,7 @@ Method | HTTP request | Description
 ## create-connector-rule-v1
 Create a connector rule from the available types.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-connector-rule-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -81,7 +81,7 @@ try {
 ## delete-connector-rule-v1
 Delete the connector rule for the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-connector-rule-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -127,7 +127,7 @@ try {
 ## get-connector-rule-list-v1
 List existing connector rules.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-connector-rule-list-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-rule-list-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -176,7 +176,7 @@ try {
 ## get-connector-rule-v1
 Get a connector rule by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-connector-rule-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -222,7 +222,7 @@ try {
 ## put-connector-rule-v1
 Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-connector-rule-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -270,7 +270,7 @@ try {
 ## test-connector-rule-v1
 Detect issues within the connector rule's code to fix and list them.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/test-connector-rule-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/test-connector-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

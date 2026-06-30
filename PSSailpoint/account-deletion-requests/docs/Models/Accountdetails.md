@@ -29,13 +29,13 @@ Name | Type | Description | Notes
 **SystemAccount** | **Boolean** |  | [optional] 
 **Authoritative** | **Boolean** |  | [optional] 
 **SupportsPasswordChange** | **Boolean** |  | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
-**Application** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
-**Identity** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
-**Schema** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**Attributes** | **SystemCollectionsHashtable** |  | [optional] 
+**Application** | **SystemCollectionsHashtable** |  | [optional] 
+**Identity** | **SystemCollectionsHashtable** |  | [optional] 
+**Schema** | **SystemCollectionsHashtable** |  | [optional] 
 **PendingAccessRequestIds** | **[]String** |  | [optional] 
 **Features** | **[]String** |  | [optional] 
-**Meta** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**Meta** | **SystemCollectionsHashtable** |  | [optional] 
 
 ## Examples
 

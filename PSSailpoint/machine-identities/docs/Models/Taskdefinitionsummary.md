@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Description** | **String** | Description of the TaskDefinition | [required]
 **ParentName** | **String** | Name of the parent of the TaskDefinition | [required]
 **Executor** | **String** | Executor of the TaskDefinition | [required]
-**Arguments** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Formal parameters of the TaskDefinition, without values | [required]
+**Arguments** | **map[string]AnyType** | Formal parameters of the TaskDefinition, without values | [required]
 
 ## Examples
 

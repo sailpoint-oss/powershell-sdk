@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsV1202ResponseErr
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Detail** | [**map[string]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**Detail** | **map[string]SystemCollectionsHashtable** |  | [optional] 
 **Key** | **String** |  | [optional] 
 **Text** | **String** |  | [optional] 
 

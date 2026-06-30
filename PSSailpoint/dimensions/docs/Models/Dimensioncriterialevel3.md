@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Dimensioncriterialevel3', 'Dimensionc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Operation** | [**Dimensioncriteriaoperation**](dimensioncriteriaoperation) |  | [optional] 
+**Operation** | **Dimensioncriteriaoperation** |  | [optional] 
 **Key** | [**Dimensioncriteriakey**](dimensioncriteriakey) |  | [optional] 
 **StringValue** | **String** | String value to test the Identity attribute specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, this field is required. Otherwise, specifying it is an error. | [optional] 
 

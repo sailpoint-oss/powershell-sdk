@@ -67,7 +67,7 @@ A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated wi
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
 >**Note:** To use this endpoint, you need all the listed scopes.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-access-profile-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-access-profile-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -117,7 +117,7 @@ The Access Profile must not be in use, for example, Access Profile can not be de
 
 A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-access-profile-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-access-profile-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -166,7 +166,7 @@ This endpoint can only bulk delete up to a limit of 50 access profiles per reque
 By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted.
 A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they're able to administer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-access-profiles-in-bulk-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-access-profiles-in-bulk-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -215,7 +215,7 @@ Use this API to get a list of an access profile's entitlements.
 A SOURCE_SUBADMIN user must have access to the source associated with the specified access profile.
 >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-access-profile-entitlements-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-profile-entitlements-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -270,7 +270,7 @@ try {
 ## get-access-profile-v1
 This API returns an Access Profile by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-access-profile-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-access-profile-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -316,7 +316,7 @@ try {
 Get a list of access profiles.
 >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-access-profiles-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-access-profiles-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -406,7 +406,7 @@ A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which
 
 > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile's source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-access-profile-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-access-profile-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -464,7 +464,7 @@ This API initiates a bulk update of field requestable for one or more Access Pro
 >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.
  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-access-profiles-in-bulk-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-profiles-in-bulk-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

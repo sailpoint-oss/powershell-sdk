@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'MachineIdentityDtoOwners', 'MachineId
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PrimaryIdentity** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Defines the identity which is selected as the primary owner | [required]
+**PrimaryIdentity** | **SystemCollectionsHashtable** | Defines the identity which is selected as the primary owner | [required]
 **SecondaryIdentities** | [**[]Basereferencedto**](basereferencedto) | Defines the identities which are selected as secondary owners | [required]
 
 ## Examples

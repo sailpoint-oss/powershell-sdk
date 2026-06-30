@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'Configtype', 'Configtype']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Priority** | **Int32** |  | [optional] 
-**InternalName** | [**Configtypeenumcamel**](configtypeenumcamel) |  | [optional] 
-**InternalNameCamel** | [**Configtypeenum**](configtypeenum) |  | [optional] 
+**InternalName** | **Configtypeenumcamel** |  | [optional] 
+**InternalNameCamel** | **Configtypeenum** |  | [optional] 
 **DisplayName** | **String** | Human readable display name of the type to be shown on UI | [optional] 
 **Description** | **String** | Description of the type of work to be reassigned, displayed by the UI. | [optional] 
 

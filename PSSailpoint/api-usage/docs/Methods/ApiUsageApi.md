@@ -29,7 +29,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API gets an aggregated number of all API calls from an org in a specific timespan. Unless specified, the results are aggregated between the first day of the current month and today.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-total-count-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-total-count-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -79,7 +79,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API gets a list of APIs called by the org in a specific timespan, sorted by number of calls. Unless specified,  the results are aggregated between the first day of the current month and today.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-api-summary-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-api-summary-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

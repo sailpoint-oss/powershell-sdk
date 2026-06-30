@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **ProductRight** | **String** | Right needed for the Product | [optional] 
 **ApiUrl** | **String** | API URL of the Product | [optional] 
 **Licenses** | [**[]License**](license) |  | [optional] 
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Additional attributes for a product | [optional] 
+**Attributes** | **map[string]AnyType** | Additional attributes for a product | [optional] 
 **Zone** | **String** | Zone | [optional] 
 **Status** | **String** | Status of the product | [optional] 
 **StatusDateTime** | **System.DateTime** | Status datetime | [optional] 

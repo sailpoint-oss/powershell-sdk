@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **Type** | **String** | Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a delimited file source, you must set the `provisionasCsv` query parameter to `true`.  | [optional] 
 **Connector** | **String** | Connector script name. | [required]
 **ConnectorClass** | **String** | Fully qualified name of the Java class that implements the connector interface. | [optional] 
-**ConnectorAttributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Connector specific configuration. This configuration will differ from type to type. | [optional] 
+**ConnectorAttributes** | **SystemCollectionsHashtable** | Connector specific configuration. This configuration will differ from type to type. | [optional] 
 **DeleteThreshold** | **Int32** | Number from 0 to 100 that specifies when to skip the delete phase. | [optional] 
 **Authoritative** | **Boolean** | When this is true, it indicates that the source is referenced by an identity profile. | [optional] [default to $false]
 **ManagementWorkgroup** | [**SourceManagementWorkgroup**](source-management-workgroup) |  | [optional] 

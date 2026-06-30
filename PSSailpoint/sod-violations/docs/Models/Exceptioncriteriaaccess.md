@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Exceptioncriteriaaccess', 'Exceptionc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**Dtotype**](dtotype) |  | [optional] 
+**Type** | **Dtotype** |  | [optional] 
 **Id** | **String** | ID of the object to which this reference applies | [optional] 
 **Name** | **String** | Human-readable display name of the object to which this reference applies | [optional] 
 **Existing** | **Boolean** | Whether the subject identity already had that access or not | [optional] [default to $false]

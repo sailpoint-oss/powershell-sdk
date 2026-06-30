@@ -42,7 +42,7 @@ Method | HTTP request | Description
 ## start-predict-sod-violations-v1
 This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/start-predict-sod-violations-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/start-predict-sod-violations-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -89,7 +89,7 @@ try {
 ## start-violation-check-v1
 This API initiates a SOD policy verification asynchronously.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/start-violation-check-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/start-violation-check-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

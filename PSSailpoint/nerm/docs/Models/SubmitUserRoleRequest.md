@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SubmitUserRoleRequest', 'NERMSubmitUs
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserRole** | [**UserRole1**](user-role1) |  | [optional] 
+**UserRole** | **UserRole1** |  | [optional] 
 
 ## Examples
 

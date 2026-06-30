@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **Id** | **String** | Session Id for this role mining session | [optional] 
 **CreatedDate** | **System.DateTime** | The date-time when this role mining session was created. | [optional] 
 **ModifiedDate** | **System.DateTime** | The date-time when this role mining session was completed. | [optional] 
-**Type** | [**Roleminingroletype**](roleminingroletype) |  | [optional] 
+**Type** | **Roleminingroletype** |  | [optional] 
 
 ## Examples
 

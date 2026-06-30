@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Bucketaggregation', 'Bucketaggregatio
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | The name of the bucket aggregate to be included in the result. | [required]
-**Type** | [**Buckettype**](buckettype) |  | [optional] 
+**Type** | **Buckettype** |  | [optional] 
 **Field** | **String** | The field to bucket on. Prefix the field name with '@' to reference a nested object. | [required]
 **Size** | **Int32** | Maximum number of buckets to include. | [optional] 
 **MinDocCount** | **Int32** | Minimum number of documents a bucket should have. | [optional] 

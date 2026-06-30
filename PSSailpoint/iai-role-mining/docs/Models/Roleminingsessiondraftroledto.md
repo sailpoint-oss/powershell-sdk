@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **EntitlementIds** | **[]String** | The list of entitlement ids for this role mining session. | [optional] 
 **ExcludedEntitlements** | **[]String** | The list of excluded entitlement ids. | [optional] 
 **Modified** | **System.DateTime** | Last modified date | [optional] 
-**Type** | [**Roleminingroletype**](roleminingroletype) |  | [optional] 
+**Type** | **Roleminingroletype** |  | [optional] 
 **Id** | **String** | Id of the potential draft role | [optional] 
 **CreatedDate** | **System.DateTime** | The date-time when this potential draft role was created. | [optional] 
 **ModifiedDate** | **System.DateTime** | The date-time when this potential draft role was modified. | [optional] 

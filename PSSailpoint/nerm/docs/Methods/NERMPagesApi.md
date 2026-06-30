@@ -24,7 +24,7 @@ Method | HTTP request | Description
 ## create-profile-page
 Create a profile page
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-profile-page)
+[API Spec](https://developer.sailpoint.com/docs/api/create-profile-page)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -67,7 +67,7 @@ try {
 ## create-workflow-page
 Create a workflow page
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-workflow-page)
+[API Spec](https://developer.sailpoint.com/docs/api/create-workflow-page)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

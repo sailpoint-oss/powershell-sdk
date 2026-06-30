@@ -25,7 +25,7 @@ Method | HTTP request | Description
 ## create-synced-attribute
 Create synced attribute
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-synced-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/create-synced-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -68,7 +68,7 @@ try {
 ## delete-synced-attribute
 Delete a synced attribute.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-synced-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-synced-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -112,7 +112,7 @@ try {
 ## get-profile-type-attributes
 Get ne attributes and synced attribute relationship to profile type.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-profile-type-attributes)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-type-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -49,7 +49,7 @@ Method | HTTP request | Description
 ## create-custom-connector-v1
 Create custom connector.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-custom-connector-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-custom-connector-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -96,7 +96,7 @@ try {
 ## delete-custom-connector-v1
 Delete a custom connector that using its script name.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-custom-connector-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-custom-connector-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -142,7 +142,7 @@ try {
 ## get-connector-correlation-config-v1
 Fetches a connector's correlation config using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-connector-correlation-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-correlation-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -188,7 +188,7 @@ try {
 ## get-connector-list-v1
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-connector-list-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-list-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -242,7 +242,7 @@ try {
 ## get-connector-source-config-v1
 Fetches a connector's source config using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-connector-source-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-source-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -288,7 +288,7 @@ try {
 ## get-connector-source-template-v1
 Fetches a connector's source template using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-connector-source-template-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-source-template-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -334,7 +334,7 @@ try {
 ## get-connector-translations-v1
 Fetches a connector's translations using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-connector-translations-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-translations-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -382,7 +382,7 @@ try {
 ## get-connector-v1
 Fetches a connector that using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-connector-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -430,7 +430,7 @@ try {
 ## put-connector-correlation-config-v1
 Update a connector's correlation config using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-connector-correlation-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-correlation-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -478,7 +478,7 @@ try {
 ## put-connector-source-config-v1
 Update a connector's source config using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-connector-source-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-source-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -526,7 +526,7 @@ try {
 ## put-connector-source-template-v1
 Update a connector's source template using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-connector-source-template-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-source-template-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -574,7 +574,7 @@ try {
 ## put-connector-translations-v1
 Update a connector's translations using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-connector-translations-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-translations-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -634,7 +634,7 @@ The following fields are patchable:
 * sourceConfigXml
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-connector-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-connector-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

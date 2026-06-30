@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **String** | Key is the technical key | [optional] 
 **Messages** | [**[]Errormessage**](errormessage) | Messages is a list of web.ErrorMessage items | [optional] 
-**Value** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Value is the value associated with a Key | [optional] 
+**Value** | **AnyType** | Value is the value associated with a Key | [optional] 
 
 ## Examples
 

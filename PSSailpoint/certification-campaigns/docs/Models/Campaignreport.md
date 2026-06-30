@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Id** | **String** | SOD policy violation report result ID. | [optional] 
 **Name** | **String** | Human-readable name of the SOD policy violation report result. | [optional] 
 **Status** |  **Enum** [  "SUCCESS",    "WARNING",    "ERROR",    "TERMINATED",    "TEMP_ERROR",    "PENDING" ] | Status of a SOD policy violation report. | [optional] 
-**ReportType** | [**Reporttype**](reporttype) |  | [required]
+**ReportType** | **Reporttype** |  | [required]
 **LastRunAt** | **System.DateTime** | The most recent date and time this report was run | [optional] [readonly] 
 
 ## Examples

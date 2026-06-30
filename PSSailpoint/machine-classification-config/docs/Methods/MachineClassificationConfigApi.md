@@ -26,7 +26,7 @@ Method | HTTP request | Description
 Use this API to remove Classification Config for a Source. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-machine-classification-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-machine-classification-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -72,7 +72,7 @@ try {
 ## get-machine-classification-config-v1
 This API returns a Machine Classification Config for a Source using Source ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-machine-classification-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-machine-classification-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -118,7 +118,7 @@ try {
 ## set-machine-classification-config-v1
 Use this API to update Classification Config for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/set-machine-classification-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/set-machine-classification-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

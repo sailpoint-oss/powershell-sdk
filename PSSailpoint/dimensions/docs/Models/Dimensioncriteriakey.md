@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Dimensioncriteriakey', 'Dimensioncrit
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**Dimensioncriteriakeytype**](dimensioncriteriakeytype) |  | [required]
+**Type** | **Dimensioncriteriakeytype** |  | [required]
 **Property** | **String** | The name of the identity attribute to which the associated criteria applies. | [required]
 
 ## Examples

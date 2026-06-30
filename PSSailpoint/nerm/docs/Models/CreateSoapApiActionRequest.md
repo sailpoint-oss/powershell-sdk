@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateSoapApiActionRequest', 'NERMCre
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowAction** | [**SoapApiAction**](soap-api-action) |  | [optional] 
+**WorkflowAction** | **SoapApiAction** |  | [optional] 
 
 ## Examples
 

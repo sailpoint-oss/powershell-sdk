@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateProfileCheckActionRequest', 'NE
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowAction** | [**ProfileCheckAction**](profile-check-action) |  | [optional] 
+**WorkflowAction** | **ProfileCheckAction** |  | [optional] 
 
 ## Examples
 

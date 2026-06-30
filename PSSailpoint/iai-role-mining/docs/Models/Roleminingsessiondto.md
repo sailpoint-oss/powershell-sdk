@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **MinNumIdentitiesInPotentialRole** | **Int32** | Minimum number of identities in a potential role | [optional] 
 **PotentialRoleCount** | **Int32** | Number of potential roles | [optional] 
 **PotentialRolesReadyCount** | **Int32** | Number of potential roles ready | [optional] 
-**Type** | [**Roleminingroletype**](roleminingroletype) |  | [optional] 
+**Type** | **Roleminingroletype** |  | [optional] 
 **EmailRecipientId** | **String** | The id of the user who will receive an email about the role mining session | [optional] 
 **IdentityCount** | **Int32** | Number of identities in the population which meet the search criteria or identity list provided | [optional] 
 **Saved** | **Boolean** | The session's saved status | [optional] [default to $false]

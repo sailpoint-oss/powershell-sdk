@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **ManagerRef** | [**IdentityManagerRef**](identity-manager-ref) |  | [optional] 
 **IsManager** | **Boolean** | Whether this identity is a manager of another identity | [optional] [default to $false]
 **LastRefresh** | **System.DateTime** | The last time the identity was refreshed by the system | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | A map with the identity attributes for the identity | [optional] 
+**Attributes** | **SystemCollectionsHashtable** | A map with the identity attributes for the identity | [optional] 
 **LifecycleState** | [**IdentityLifecycleState**](identity-lifecycle-state) |  | [optional] 
 
 ## Examples

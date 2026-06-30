@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **ApproverComments** | **String** | Comments added by approver while rejecting or approving the account deletion request. | [optional] 
 **DecisionDate** | **System.DateTime** | Decision date of approval rejected or approved. | [optional] [readonly] 
 **SerialOrder** | **Int64** | SerialOrder of approval details. | [optional] 
-**Status** | [**Accountrequestphasestate**](accountrequestphasestate) |  | [optional] 
+**Status** | **Accountrequestphasestate** |  | [optional] 
 
 ## Examples
 

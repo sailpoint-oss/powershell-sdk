@@ -41,7 +41,7 @@ This API is used to create Multi-Host Integration. Multi-host Integration holds 
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-multi-host-integration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-multi-host-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -90,7 +90,7 @@ This API is used to create sources within Multi-Host Integration. Multi-Host Int
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-sources-within-multi-host-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-sources-within-multi-host-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -142,7 +142,7 @@ This endpoint performs bulk sources delete within Multi-Host Integration via a l
 
 The following rights are required to access this endpoint: idn:multihosts:delete, idn:sources:delete
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-multi-host-sources-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-multi-host-sources-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -195,7 +195,7 @@ Delete an existing Multi-Host Integration by ID.
 
 A token with Org Admin or Multi Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-multi-host-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-multi-host-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -242,7 +242,7 @@ try {
 This API will return array of account aggregation groups within provided Multi-Host Integration ID.
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-acct-aggregation-groups-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-acct-aggregation-groups-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -294,7 +294,7 @@ This API will return array of aggregation groups within provided Multi-Host Inte
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-entitlement-aggregation-groups-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-entitlement-aggregation-groups-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -346,7 +346,7 @@ Get a list of Multi-Host Integrations.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-multi-host-integrations-list-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-multi-host-integrations-list-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -404,7 +404,7 @@ Get an existing Multi-Host Integration.
 
 A token with Org Admin or Multi-Host Integration Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-multi-host-integrations-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-multi-host-integrations-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -452,7 +452,7 @@ Get a list of sources creation errors within Multi-Host Integration ID.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-multi-host-source-creation-errors-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-multi-host-source-creation-errors-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -500,7 +500,7 @@ This API endpoint returns the current list of supported Multi-Host Integration t
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-multihost-integration-types-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-multihost-integration-types-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -546,7 +546,7 @@ Get a list of sources within Multi-Host Integration ID.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-sources-within-multi-host-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sources-within-multi-host-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -604,7 +604,7 @@ This endpoint performs a more detailed validation of the Multi-Host Integration'
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/test-connection-multi-host-sources-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/test-connection-multi-host-sources-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -652,7 +652,7 @@ This endpoint performs a more detailed validation of the source's configuration.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/test-source-connection-multihost-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/test-source-connection-multihost-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -702,7 +702,7 @@ Update existing sources within Multi-Host Integration.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-multi-host-sources-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-multi-host-sources-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

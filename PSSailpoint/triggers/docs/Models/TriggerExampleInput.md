@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **Identity** | [**IdentitydeletedIdentity**](identitydeleted-identity) |  | [required]
 **Account** | [**Accountv2**](accountv2) |  | [required]
 **Changes** | [**[]IdentityattributeschangedChangesInner**](identityattributeschanged-changes-inner) | A list of one or more identity attributes that changed on the identity. | [required]
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
+**Attributes** | **map[string]AnyType** | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
 **EntitlementCount** | **Int32** | The number of entitlements associated with this account. | [optional] 
 **VarEvent** | [**AccountupdatedEvent**](accountupdated-event) |  | [required]
 **AccountChangeTypes** | **[]String** | The types of changes that occurred to the account. | [required]

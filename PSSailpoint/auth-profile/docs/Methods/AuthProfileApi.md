@@ -34,7 +34,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API returns a list of auth profiles.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-profile-config-list-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-config-list-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -82,7 +82,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API returns auth profile information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-profile-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-profile-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -134,7 +134,7 @@ This API is currently in an experimental state. The API is subject to change bas
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-profile-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-profile-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

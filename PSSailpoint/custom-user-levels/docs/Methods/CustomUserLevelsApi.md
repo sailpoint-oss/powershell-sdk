@@ -40,7 +40,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Creates a new custom user level for the tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-custom-user-level-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-custom-user-level-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -92,7 +92,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Deletes a specific user level by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-user-level-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-user-level-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -143,7 +143,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Fetches the details of a specific user level by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-user-level-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-user-level-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -194,7 +194,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Retrieves a list of authorization assignable right sets for the tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-all-authorization-right-sets-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-all-authorization-right-sets-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -251,7 +251,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 List of identities associated with a user level.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-user-level-identities-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-user-level-identities-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -310,7 +310,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Retrieves a list of user levels for the tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-user-levels-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-user-levels-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -369,7 +369,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Publishes a custom user level for the tenant, making it active and available.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/publish-custom-user-level-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/publish-custom-user-level-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -420,7 +420,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 List of user levels along with the number of identities associated to it.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/show-user-level-counts-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/show-user-level-counts-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -474,7 +474,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Updates the details of a specific user level using JSON Patch.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-user-level-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-user-level-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -83,7 +83,7 @@ Method | HTTP request | Description
 ## delete-tagged-object-v1
 Delete all tags from a tagged object.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-tagged-object-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-tagged-object-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -130,7 +130,7 @@ try {
 ## delete-tags-to-many-object-v1
 This API removes tags from multiple objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-tags-to-many-object-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-tags-to-many-object-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -176,7 +176,7 @@ try {
 ## get-tagged-object-v1
 This gets a tagged object for the specified type.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-tagged-object-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-tagged-object-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -223,7 +223,7 @@ try {
 ## list-tagged-objects-by-type-v1
 This API returns a list of all tagged objects by type.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-tagged-objects-by-type-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-tagged-objects-by-type-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -276,7 +276,7 @@ try {
 ## list-tagged-objects-v1
 This API returns a list of all tagged objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-tagged-objects-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-tagged-objects-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -327,7 +327,7 @@ try {
 ## put-tagged-object-v1
 This updates a tagged object for the specified type.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-tagged-object-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-tagged-object-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -377,7 +377,7 @@ try {
 ## set-tag-to-object-v1
 This adds a tag to an object.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/set-tag-to-object-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/set-tag-to-object-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -423,7 +423,7 @@ try {
 ## set-tags-to-many-objects-v1
 This API adds tags to multiple objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/set-tags-to-many-objects-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/set-tags-to-many-objects-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SavedsearchdetailFilters', 'Savedsear
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**Filtertype**](filtertype) |  | [optional] 
+**Type** | **Filtertype** |  | [optional] 
 **Range** | [**Range**](range) |  | [optional] 
 **Terms** | **[]String** | The terms to be filtered. | [optional] 
 **Exclude** | **Boolean** | Indicates if the filter excludes results. | [optional] [default to $false]

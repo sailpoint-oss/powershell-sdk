@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ApprovalIds** | **[]String** | Array of Approval IDs to be bulk approved | [optional] 
 **Comment** | **String** | Optional comment to include with the bulk approval request | [optional] 
-**AdditionalAttributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Additional attributes to include with the bulk approval request | [optional] 
+**AdditionalAttributes** | **map[string]AnyType** | Additional attributes to include with the bulk approval request | [optional] 
 
 ## Examples
 

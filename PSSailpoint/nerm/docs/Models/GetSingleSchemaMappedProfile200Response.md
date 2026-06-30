@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetSingleSchemaMappedProfile200Respon
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarProfile** | [**ModelProfile**](model-profile) |  | [optional] 
+**VarProfile** | **ModelProfile** |  | [optional] 
 
 ## Examples
 

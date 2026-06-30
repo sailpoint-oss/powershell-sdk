@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'CampaignfilterdetailsCriteriaListInne
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**Criteriatype**](criteriatype) |  | [required]
-**Operation** | [**Operation**](operation) |  | [optional] 
+**Type** | **Criteriatype** |  | [required]
+**Operation** | **Operation** |  | [optional] 
 **Property** | **String** | Specified key from the type of criteria. | [required]
 **Value** | **String** | Value for the specified key from the type of criteria. | [required]
 **NegateResult** | **Boolean** | If true, the filter will negate the result of the criteria. | [optional] [default to $false]
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **RecordChildMatches** | **Boolean** | If true, the filter will record child matches for the criteria. | [optional] [default to $false]
 **Id** | **String** | The unique ID of the criteria. | [optional] 
 **SuppressMatchedItems** | **Boolean** | If this value is true, then matched items will not only be excluded from the campaign, they will also not have archived certification items created.  Such items will not appear in the exclusion report.  | [optional] [default to $false]
-**Children** | [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | List of child criteria. | [optional] 
+**Children** | **[]SystemCollectionsHashtable** | List of child criteria. | [optional] 
 
 ## Examples
 

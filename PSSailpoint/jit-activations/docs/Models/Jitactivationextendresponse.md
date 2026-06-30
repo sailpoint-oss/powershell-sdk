@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **ActivationId** | **String** | Persistent activation record identifier for this JIT activation. | [required]
 **ConnectionId** | **String** | Entitlement connection identifier for the activation. | [required]
 **ActivationPeriodExtensionMins** | **Int32** | Extension applied to the activation period, in minutes. | [required]
-**Status** | [**Activationworkflowstatus**](activationworkflowstatus) |  | [required]
+**Status** | **Activationworkflowstatus** |  | [required]
 **StartTime** | **System.DateTime** | Time associated with this extend request (ISO-8601). | [required]
 
 ## Examples

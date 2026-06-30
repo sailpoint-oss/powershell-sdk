@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Configurationdetailsresponse', 'Confi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConfigType** | [**Configtypeenum**](configtypeenum) |  | [optional] 
+**ConfigType** | **Configtypeenum** |  | [optional] 
 **TargetIdentity** | [**Identity2**](identity2) |  | [optional] 
 **StartDate** | **System.DateTime** | The date from which to start reassigning work items | [optional] 
 **EndDate** | **System.DateTime** | The date from which to stop reassigning work items.  If this is an empty string it indicates a permanent reassignment. | [optional] 

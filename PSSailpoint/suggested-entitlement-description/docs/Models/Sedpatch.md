@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Op** | **String** | desired operation | [optional] 
 **Path** | **String** | field to be patched | [optional] 
-**Value** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | value to replace with | [optional] 
+**Value** | **AnyType** | value to replace with | [optional] 
 
 ## Examples
 

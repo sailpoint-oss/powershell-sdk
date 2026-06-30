@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreatePermissionRequest', 'NERMCreate
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Permission** | [**Permission1**](permission1) |  | [optional] 
+**Permission** | **Permission1** |  | [optional] 
 
 ## Examples
 

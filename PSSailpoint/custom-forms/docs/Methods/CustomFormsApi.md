@@ -48,7 +48,7 @@ Method | HTTP request | Description
 ## create-form-definition-dynamic-schema-v1
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-form-definition-dynamic-schema-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-form-definition-dynamic-schema-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -94,7 +94,7 @@ try {
 ## create-form-definition-file-request-v1
 Parameter `{formDefinitionID}` should match a form definition ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-form-definition-file-request-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-form-definition-file-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -145,7 +145,7 @@ try {
 ## create-form-definition-v1
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-form-definition-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-form-definition-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -190,7 +190,7 @@ try {
 ## create-form-instance-v1
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-form-instance-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-form-instance-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -235,7 +235,7 @@ try {
 ## delete-form-definition-v1
 Parameter `{formDefinitionID}` should match a form definition ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-form-definition-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-form-definition-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -281,7 +281,7 @@ try {
 ## export-form-definitions-by-tenant-v1
 No parameters required.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/export-form-definitions-by-tenant-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/export-form-definitions-by-tenant-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -332,7 +332,7 @@ try {
 ## get-file-from-s3-v1
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-file-from-s3-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-file-from-s3-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -381,7 +381,7 @@ try {
 ## get-form-definition-by-key-v1
 Parameter `{formDefinitionID}` should match a form definition ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-form-definition-by-key-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-form-definition-by-key-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -429,7 +429,7 @@ Parameter `{formInstanceID}` should match a form instance ID.
 
 Only the assigned recipient (`recipients[].id` when `type` is `IDENTITY`) may call this.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-form-instance-by-key-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-form-instance-by-key-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -475,7 +475,7 @@ try {
 ## get-form-instance-file-v1
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-form-instance-file-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-form-instance-file-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -524,7 +524,7 @@ try {
 ## import-form-definitions-v1
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/import-form-definitions-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/import-form-definitions-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -576,7 +576,7 @@ try {
 ## patch-form-definition-v1
 Parameter `{formDefinitionID}` should match a form definition ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-form-definition-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-form-definition-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -628,7 +628,7 @@ Parameter `{formInstanceID}` should match a form instance ID.
 
 Only the assigned recipient (`recipients[].id` when `type` is `IDENTITY`) may call this.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-form-instance-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-form-instance-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -679,7 +679,7 @@ try {
 ## search-form-definitions-by-tenant-v1
 No parameters required.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/search-form-definitions-by-tenant-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/search-form-definitions-by-tenant-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -731,7 +731,7 @@ try {
 Parameter `{formInstanceID}` should match a form instance ID.
 Parameter `{formElementID}` should match a form element ID at the data source configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/search-form-element-data-by-element-idv1)
+[API Spec](https://developer.sailpoint.com/docs/api/search-form-element-data-by-element-idv1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -785,7 +785,7 @@ try {
 ## search-form-instances-by-tenant-v1
 Returns a list of form instances for the tenant. Optionally filter by form definition ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/search-form-instances-by-tenant-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/search-form-instances-by-tenant-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -834,7 +834,7 @@ try {
 ## search-pre-defined-select-options-v1
 No parameters required.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/search-pre-defined-select-options-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/search-pre-defined-select-options-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -877,7 +877,7 @@ try {
 ## show-preview-data-source-v1
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/show-preview-data-source-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/show-preview-data-source-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

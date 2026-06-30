@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Requestedaccountref', 'Requestedaccou
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | Display name of the account for the user | [optional] 
-**Type** | [**Dtotype**](dtotype) |  | [optional] 
+**Type** | **Dtotype** |  | [optional] 
 **AccountUuid** | **String** | The uuid for the account | [optional] 
 **AccountId** | **String** | The native identity for the account | [optional] 
 **SourceName** | **String** | Display name of the source for the account | [optional] 

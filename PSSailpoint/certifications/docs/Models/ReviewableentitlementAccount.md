@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **NativeIdentity** | **String** | The native identity for this account | [optional] 
 **Disabled** | **Boolean** | Indicates whether this account is currently disabled | [optional] [default to $false]
 **Locked** | **Boolean** | Indicates whether this account is currently locked | [optional] [default to $false]
-**Type** | [**Dtotype**](dtotype) |  | [optional] 
+**Type** | **Dtotype** |  | [optional] 
 **Id** | **String** | The id associated with the account | [optional] 
 **Name** | **String** | The account name | [optional] 
 **Created** | **System.DateTime** | When the account was created | [optional] 

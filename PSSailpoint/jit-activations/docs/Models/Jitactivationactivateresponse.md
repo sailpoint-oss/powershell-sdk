@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **ActivationId** | **String** | Persistent activation record identifier for this JIT activation. | [required]
 **ConnectionId** | **String** | Entitlement connection identifier for the activation. | [required]
 **ActivationPeriodMins** | **Int32** | Activation duration in minutes for this workflow. | [required]
-**Status** | [**Activationworkflowstatus**](activationworkflowstatus) |  | [required]
+**Status** | **Activationworkflowstatus** |  | [required]
 **StartTime** | **System.DateTime** | Time when the activation workflow was started (ISO-8601). | [required]
 
 ## Examples

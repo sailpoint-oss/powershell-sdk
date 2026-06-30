@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **Correlated** | **Boolean** | Indicates if the account is correlated to an identity. | [required]
 **IsMachine** | **Boolean** | Indicates if the account is a machine account. | [required]
 **Origin** | **String** | The origin of the account. | [required]
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
+**Attributes** | **map[string]AnyType** | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
 
 ## Examples
 

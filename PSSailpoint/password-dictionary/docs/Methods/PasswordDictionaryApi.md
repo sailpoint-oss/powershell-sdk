@@ -99,7 +99,7 @@ qazxsws
 
 ```
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-password-dictionary-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-password-dictionary-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -171,7 +171,7 @@ qazxsws
 
 ```
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-password-dictionary-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-password-dictionary-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

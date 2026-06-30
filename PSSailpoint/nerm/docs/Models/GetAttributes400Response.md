@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'GetAttributes400Response', 'NERMGetAt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
-**Errors** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**VarError** | **SystemCollectionsHashtable** |  | [optional] 
+**Errors** | **SystemCollectionsHashtable** |  | [optional] 
 
 ## Examples
 

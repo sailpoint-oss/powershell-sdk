@@ -29,8 +29,8 @@ Name | Type | Description | Notes
 **UploadedFiles** | **[]String** | The list of uploaded files supported by the connector. If there was any executable files uploaded to thee connector. Typically this be empty as the executable be uploaded at source creation. | [optional] 
 **FileUpload** | **Boolean** | true if the source is file upload | [optional] [default to $false]
 **DirectConnect** | **Boolean** | true if the source is a direct connect source | [optional] [default to $false]
-**TranslationProperties** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map containing translation attributes by loacale key | [optional] 
-**ConnectorMetadata** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A map containing metadata pertinent to the UI to be used | [optional] 
+**TranslationProperties** | **map[string]AnyType** | A map containing translation attributes by loacale key | [optional] 
+**ConnectorMetadata** | **map[string]AnyType** | A map containing metadata pertinent to the UI to be used | [optional] 
 **Status** |  **Enum** [  "DEPRECATED",    "DEVELOPMENT",    "DEMO",    "RELEASED" ] | The connector status | [optional] 
 
 ## Examples

@@ -30,7 +30,7 @@ Method | HTTP request | Description
 ## create-user-profiles
 Create multiple user-profile contributor relationships
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-user-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/create-user-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -73,7 +73,7 @@ try {
 ## delete-user-profile
 Delete a user profile assignment
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-user-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-user-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -115,7 +115,7 @@ try {
 ## delete-user-profiles
 Delete multiple user-profile contributor relationships
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-user-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-user-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -158,7 +158,7 @@ try {
 ## get-user-profile
 Find user-profile contributor relationship by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-user-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/get-user-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -200,7 +200,7 @@ try {
 ## get-user-profiles
 Get user-profile contributor relationships
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-user-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/get-user-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -256,7 +256,7 @@ try {
 ## patch-user-profile
 Update a user-profile contributor relationship by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-user-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-user-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -301,7 +301,7 @@ try {
 ## patch-user-profiles
 Update multiple user-profile contributor relationships
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-user-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-user-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -344,7 +344,7 @@ try {
 ## submit-user-profile
 Create a user-profile contributor relationship
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-user-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-user-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

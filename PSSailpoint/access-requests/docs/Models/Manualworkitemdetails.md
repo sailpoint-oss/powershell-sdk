@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **OriginalOwner** | [**ManualworkitemdetailsOriginalOwner**](manualworkitemdetails-original-owner) |  | [optional] 
 **CurrentOwner** | [**ManualworkitemdetailsCurrentOwner**](manualworkitemdetails-current-owner) |  | [optional] 
 **Modified** | **System.DateTime** | Time at which item was modified. | [optional] 
-**Status** | [**Manualworkitemstate**](manualworkitemstate) |  | [optional] 
+**Status** | **Manualworkitemstate** |  | [optional] 
 **ForwardHistory** | [**[]Approvalforwardhistory**](approvalforwardhistory) | The history of approval forward action. | [optional] 
 
 ## Examples

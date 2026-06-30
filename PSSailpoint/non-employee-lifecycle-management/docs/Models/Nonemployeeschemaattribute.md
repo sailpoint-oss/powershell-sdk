@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **System** | **Boolean** | True if this schema attribute is mandatory on all non-employees sources. | [optional] [default to $false]
 **Modified** | **System.DateTime** | When the schema attribute was last modified. | [optional] 
 **Created** | **System.DateTime** | When the schema attribute was created. | [optional] 
-**Type** | [**Nonemployeeschemaattributetype**](nonemployeeschemaattributetype) |  | [required]
+**Type** | **Nonemployeeschemaattributetype** |  | [required]
 **Label** | **String** | Label displayed on the UI for this schema attribute. | [required]
 **TechnicalName** | **String** | The technical name of the attribute. Must be unique per source. | [required]
 **HelpText** | **String** | help text displayed by UI. | [optional] 

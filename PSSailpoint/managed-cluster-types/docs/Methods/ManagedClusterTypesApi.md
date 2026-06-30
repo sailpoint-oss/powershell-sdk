@@ -31,7 +31,7 @@ Create a new Managed Cluster Type.
 
 The API returns a result that includes the Managed Cluster Type ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-managed-cluster-type-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-managed-cluster-type-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -78,7 +78,7 @@ try {
 ## delete-managed-cluster-type-v1
 Delete an existing Managed Cluster Type.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-managed-cluster-type-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-managed-cluster-type-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -123,7 +123,7 @@ try {
 ## get-managed-cluster-type-v1
 Get a Managed Cluster Type.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-managed-cluster-type-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-cluster-type-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -169,7 +169,7 @@ try {
 ## get-managed-cluster-types-v1
 Get a list of Managed Cluster Types.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-managed-cluster-types-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-managed-cluster-types-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -223,7 +223,7 @@ try {
 ## update-managed-cluster-type-v1
 Update an existing Managed Cluster Type.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-managed-cluster-type-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-managed-cluster-type-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

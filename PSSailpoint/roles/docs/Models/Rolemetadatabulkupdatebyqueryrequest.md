@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Rolemetadatabulkupdatebyqueryrequest'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Query** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | query the identities to be updated | [required]
+**Query** | **SystemCollectionsHashtable** | query the identities to be updated | [required]
 **Operation** |  **Enum** [  "ADD",    "REMOVE",    "REPLACE" ] | The operation to be performed | [required]
 **ReplaceScope** |  **Enum** [  "ALL",    "ATTRIBUTE" ] | The choice of update scope. | [optional] 
 **Values** | [**[]RolemetadatabulkupdatebyqueryrequestValuesInner**](rolemetadatabulkupdatebyqueryrequest-values-inner) | The metadata to be updated, including attribute key and value. | [required]

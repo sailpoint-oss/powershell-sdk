@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Managedclusterrequest', 'Managedclust
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | ManagedCluster name | [required]
-**Type** | [**Managedclustertypes**](managedclustertypes) |  | [optional] 
+**Type** | **Managedclustertypes** |  | [optional] 
 **Configuration** | **map[string]String** | ManagedProcess configuration map | [optional] 
 **Description** | **String** | ManagedCluster description | [optional] 
 

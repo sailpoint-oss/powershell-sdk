@@ -30,7 +30,7 @@ Method | HTTP request | Description
 ## create-form-attribute
 This endpoint can create a form attribute
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-form-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/create-form-attribute)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -73,7 +73,7 @@ try {
 ## delete-form-attribute-by-id
 Delete form attribute by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-form-attribute-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-form-attribute-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -116,7 +116,7 @@ try {
 ## delete-form-attribute-by-uid
 Delete form attribute by UID
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-form-attribute-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-form-attribute-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -159,7 +159,7 @@ try {
 ## get-form-attribute-by-id
 Gets info for a specific form attribute by ID
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-form-attribute-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-form-attribute-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -202,7 +202,7 @@ try {
 ## get-form-attribute-by-uid
 Get info for a specific form attribute by UID
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-form-attribute-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/get-form-attribute-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -245,7 +245,7 @@ try {
 ## get-form-attributes
 Get defined form attribute in the system
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-form-attributes)
+[API Spec](https://developer.sailpoint.com/docs/api/get-form-attributes)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -286,7 +286,7 @@ try {
 ## update-form-attribute-by-id
 Update info for a specific form attribute by ID
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-form-attribute-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/update-form-attribute-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -332,7 +332,7 @@ try {
 ## update-form-attribute-by-uid
 Update info for a specific form attribute by UID
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-form-attribute-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/update-form-attribute-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

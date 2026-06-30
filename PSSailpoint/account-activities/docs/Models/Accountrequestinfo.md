@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RequestedObjectId** | **String** | Id of requested object | [optional] 
 **RequestedObjectName** | **String** | Human-readable name of requested object | [optional] 
-**RequestedObjectType** | [**Requestableobjecttype**](requestableobjecttype) |  | [optional] 
+**RequestedObjectType** | **Requestableobjecttype** |  | [optional] 
 
 ## Examples
 

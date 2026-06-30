@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IsEnabled** | **Boolean** | Indicates whether the feature or configuration is enabled. | [optional] [default to $false]
 **ClusterId** | **String** | The identifier of the cluster associated with this configuration, if applicable. | [optional] 
-**CalculateResourceSize** | [**Crawlresourcessizesoptions**](crawlresourcessizesoptions) |  | [optional] 
+**CalculateResourceSize** | **Crawlresourcessizesoptions** |  | [optional] 
 **CrawlSnapshotsFolder** | **Boolean** | Indicates whether to crawl the snapshots folder. | [optional] [default to $false]
 **CrawlMailboxes** | **Boolean** | Indicates whether to crawl mailboxes. | [optional] [default to $false]
 **CrawlPublicFolders** | **Boolean** | Indicates whether to crawl public folders. | [optional] [default to $false]

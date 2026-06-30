@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Metricaggregation', 'Metricaggregatio
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | The name of the metric aggregate to be included in the result. If the metric aggregation is omitted, the resulting aggregation will be a count of the documents in the search results. | [required]
-**Type** | [**Metrictype**](metrictype) |  | [optional] 
+**Type** | **Metrictype** |  | [optional] 
 **Field** | **String** | The field the calculation is performed on.  Prefix the field name with '@' to reference a nested object.  | [required]
 
 ## Examples

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OwnerId** | **String** | The UUID of the parameter owner. | [optional] 
 **Name** | **String** | The human-readable name for the parameter. | [optional] 
-**PublicFields** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The public fields that can be stored with this parameter. | [optional] 
+**PublicFields** | **SystemCollectionsHashtable** | The public fields that can be stored with this parameter. | [optional] 
 **PrivateFields** | **String** | The private fields that can be stored with this parameter. | [optional] 
 **Description** | **String** | Describe the parameter | [optional] 
 

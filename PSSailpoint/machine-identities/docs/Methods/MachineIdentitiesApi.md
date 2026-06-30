@@ -33,7 +33,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Use this API to create a machine identity.
 The maximum supported length for the description field is 2000 characters.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-machine-identity-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-machine-identity-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -85,7 +85,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 The API returns successful response if the requested machine identity was deleted.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-machine-identity-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-machine-identity-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -136,7 +136,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API returns a single machine identity using the Machine Identity ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-machine-identity-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-machine-identity-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -187,7 +187,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API returns a list of machine identities.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-machine-identities-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-machine-identities-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -246,7 +246,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API returns a list of user entitlements associated with machine identities.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-machine-identity-user-entitlements-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-machine-identity-user-entitlements-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -305,7 +305,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Starts a machine identity (AI Agents) aggregation on the specified source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/start-machine-identity-aggregation-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/start-machine-identity-aggregation-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -360,7 +360,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Use this API to update machine identity details.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-machine-identity-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-machine-identity-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

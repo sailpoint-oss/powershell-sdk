@@ -51,7 +51,7 @@ Method | HTTP request | Description
 ## create-approval-action
 Create an approval action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - workflow_action_performers, workflow_action_roles, workflow_action_performer_notification_email, workflow_action_approval_email, workflow_action_rejection_email. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-approval-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-approval-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -94,7 +94,7 @@ try {
 ## create-ask-security-question-action
 Create an ask security question action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-ask-security-question-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-ask-security-question-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -137,7 +137,7 @@ try {
 ## create-auto-assign-action
 Create an auto assign action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - workflow_action_roles. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-auto-assign-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-auto-assign-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -180,7 +180,7 @@ try {
 ## create-batch-update-action
 Create a batch update action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-batch-update-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-batch-update-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -223,7 +223,7 @@ try {
 ## create-close-session-action
 Create a close session action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-close-session-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-close-session-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -266,7 +266,7 @@ try {
 ## create-contributors-action
 Create a contributors action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - workflow_action_performers, workflow_action_roles, workflow_action_performer_notification_email. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-contributors-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-contributors-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -309,7 +309,7 @@ try {
 ## create-create-profile-action
 Create a create profile action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-create-profile-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-create-profile-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -352,7 +352,7 @@ try {
 ## create-duplicate-prevention-action
 Create a duplicate prevention action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - duplicatation_prevention_attributes, workflow_action_performers, workflow_action_roles, workflow_action_performer_notification_email. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-duplicate-prevention-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-duplicate-prevention-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -395,7 +395,7 @@ try {
 ## create-email-verification-action
 Create an email verification action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-email-verification-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-email-verification-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -438,7 +438,7 @@ try {
 ## create-fulfillment-action
 Create a fulfillment action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - workflow_action_performers, workflow_action_roles, workflow_action_performer_notification_email. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-fulfillment-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-fulfillment-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -481,7 +481,7 @@ try {
 ## create-identity-proofing-action
 Create an identity proofing action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - identity_proofing_action_configuration, identity_proofing_action_mappings. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-identity-proofing-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-identity-proofing-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -524,7 +524,7 @@ try {
 ## create-invitation-action
 Create an invitation action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - workflow_action_pause_action. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-invitation-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-invitation-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -567,7 +567,7 @@ try {
 ## create-ldap-action
 Create a ldap action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - workflow_action_performers, workflow_action_roles. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-ldap-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-ldap-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -610,7 +610,7 @@ try {
 ## create-notification-action
 Create a notification action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-notification-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-notification-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -653,7 +653,7 @@ try {
 ## create-password-reset-action
 Create a password reset action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-password-reset-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-password-reset-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -696,7 +696,7 @@ try {
 ## create-profile-check-action
 Create a profile check action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-profile-check-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-profile-check-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -739,7 +739,7 @@ try {
 ## create-profile-select-action
 Create a profile select action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-profile-select-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-profile-select-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -782,7 +782,7 @@ try {
 ## create-request-action
 Create a request action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-request-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-request-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -825,7 +825,7 @@ try {
 ## create-rest-api-action
 Create a REST API action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - rest_api_action_configuration, api_configuration_attributes. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-rest-api-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-rest-api-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -868,7 +868,7 @@ try {
 ## create-review-action
 Create a review action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - workflow_action_performer_notification_email. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-review-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-review-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -911,7 +911,7 @@ try {
 ## create-run-workflow-action
 Create a run workflow action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - configuration_profile_attribute. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-run-workflow-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-run-workflow-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -954,7 +954,7 @@ try {
 ## create-set-attributes-action
 Create a set attributes action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - workflow_action_set_attributes. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-set-attributes-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-set-attributes-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -997,7 +997,7 @@ try {
 ## create-set-security-question-action
 Create a set security question action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-set-security-question-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-set-security-question-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1040,7 +1040,7 @@ try {
 ## create-soap-api-action
 Create a SOAP API action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - soap_api_action_configuration, api_configuration_attributes. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-soap-api-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-soap-api-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1083,7 +1083,7 @@ try {
 ## create-status-change-action
 Create a status change action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-status-change-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-status-change-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1126,7 +1126,7 @@ try {
 ## create-unassign-action
 Create an unassign action. The following supporting objects will need to be created after this action is created (which are tied together via workflow_action_id) - workflow_action_roles. These supporting objects must be created for this action to be complete (APIs for these supporting objects not yet implemented, use UI).
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-unassign-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-unassign-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1169,7 +1169,7 @@ try {
 ## create-update-profile-action
 Create an update profile action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-update-profile-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-update-profile-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1212,7 +1212,7 @@ try {
 ## create-username-password-action
 Create a username password action
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-username-password-action)
+[API Spec](https://developer.sailpoint.com/docs/api/create-username-password-action)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1255,7 +1255,7 @@ try {
 ## get-workflow-actions
 This endpoint can retrieve workflow actions
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-workflow-actions)
+[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-actions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

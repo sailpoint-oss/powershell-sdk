@@ -29,7 +29,7 @@ Method | HTTP request | Description
 ## delete-role-profile
 Delete a role profile assignment
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-role-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-role-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -71,7 +71,7 @@ try {
 ## get-role-profile
 Find role-profile contributor relationship by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -113,7 +113,7 @@ try {
 ## get-role-profiles
 Get role-profile contributor relationships
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -165,7 +165,7 @@ try {
 ## patch-role-profile
 Update a role-profile contributor relationship by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-role-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-role-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -210,7 +210,7 @@ try {
 ## patch-role-profiles
 Update multiple role-profile contributor relationships
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-role-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-role-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -253,7 +253,7 @@ try {
 ## submit-role-profile
 Create a role-profile contributor relationship
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-role-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-role-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -295,7 +295,7 @@ try {
 ## submit-role-profiles
 Create multiple role-profile contributor relationships
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-role-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-role-profiles)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

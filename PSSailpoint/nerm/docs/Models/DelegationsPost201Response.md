@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'DelegationsPost201Response', 'NERMDel
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Delegation** | [**Delegation**](delegation) |  | [optional] 
+**Delegation** | **Delegation** |  | [optional] 
 
 ## Examples
 

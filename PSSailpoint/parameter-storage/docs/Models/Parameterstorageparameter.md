@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Type** | **String** | The type of the parameter. This cannot be changed after being set. Please see the types document for more information. | [optional] 
 **Name** | **String** | The human-readable name of the parameter. | [required]
 **PrimaryField** | **String** | The name of the primary field in the public fields. | [optional] 
-**PublicFields** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The public fields stored for this parameter. See the types document for information about what can be stored. | [required]
+**PublicFields** | **SystemCollectionsHashtable** | The public fields stored for this parameter. See the types document for information about what can be stored. | [required]
 **Description** | **String** | Describe the parameter | [optional] 
 **LastModifiedAt** | **String** | ISO8606 format datetime of the last time any field of the parameter was changed. | [optional] 
 **LastModifiedBy** | **String** | The ID of the user who last modified the parameter. Empty when identity is not known. | [optional] 

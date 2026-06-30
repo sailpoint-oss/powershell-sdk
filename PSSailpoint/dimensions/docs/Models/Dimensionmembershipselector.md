@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Dimensionmembershipselector', 'Dimens
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**Dimensionmembershipselectortype**](dimensionmembershipselectortype) |  | [optional] 
+**Type** | **Dimensionmembershipselectortype** |  | [optional] 
 **Criteria** | [**Dimensioncriterialevel1**](dimensioncriterialevel1) |  | [optional] 
 
 ## Examples

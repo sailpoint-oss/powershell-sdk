@@ -26,7 +26,7 @@ Method | HTTP request | Description
 ## get-public-identities-v1
 Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-public-identities-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-public-identities-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Commonaccessitemaccess', 'Commonacces
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Common access ID | [optional] 
-**Type** | [**Commonaccesstype**](commonaccesstype) |  | [optional] 
+**Type** | **Commonaccesstype** |  | [optional] 
 **Name** | **String** | Common access name | [optional] 
 **Description** | **String** | Common access description | [optional] 
 **OwnerName** | **String** | Common access owner name | [optional] 

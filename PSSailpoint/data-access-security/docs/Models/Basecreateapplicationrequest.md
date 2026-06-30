@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Basecreateapplicationrequest', 'Basec
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationType** | [**Applicationtype**](applicationtype) |  | [required]
+**ApplicationType** | **Applicationtype** |  | [required]
 **Name** | **String** | The display name of the application. | [required]
 **Description** | **String** | A brief description of the application and its purpose. | [optional] 
 **Tags** | [**[]Int64stringkeyvaluepair**](int64stringkeyvaluepair) | A list of tags to categorize or identify the application. | [optional] 

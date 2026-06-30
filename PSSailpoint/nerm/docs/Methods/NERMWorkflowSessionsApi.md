@@ -28,7 +28,7 @@ Method | HTTP request | Description
 ## get-workflow-session
 Find workflow session by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-workflow-session)
+[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-session)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -70,7 +70,7 @@ try {
 ## get-workflow-session-upload
 Retrieves the URL of an attachment attribute value from a workflow session
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-workflow-session-upload)
+[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-session-upload)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -114,7 +114,7 @@ try {
 ## get-workflow-sessions
 Get workflow sessions
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-workflow-sessions)
+[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-sessions)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -172,7 +172,7 @@ try {
 ## patch-workflow-session
 Update a workflow session by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-workflow-session)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-workflow-session)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -219,7 +219,7 @@ try {
 ## submit-workflow-session
 Create a workflow session
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-workflow-session)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-workflow-session)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -265,7 +265,7 @@ try {
 Uploads a new attachment attribute value to a workflow session. The upload must be a FORM data type; this is not a JSON API. The upload must include the binary content of the payload under the 'file' named form element. The upload must not attempt to include the file name or its content type as a other form or JSON as parameters. The upload must not attempt to upload the file body as the POST body payload; it has to arrive as a FORM parameter. Do not use a `File/Binary` payload type for the POST operation in your API client.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-workflow-session-upload)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-workflow-session-upload)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

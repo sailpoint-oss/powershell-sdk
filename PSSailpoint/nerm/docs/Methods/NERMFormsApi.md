@@ -30,7 +30,7 @@ Method | HTTP request | Description
 ## create-form
 This endpoint can create a form
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-form)
+[API Spec](https://developer.sailpoint.com/docs/api/create-form)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -73,7 +73,7 @@ try {
 ## delete-form-by-id
 Delete form by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-form-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-form-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -116,7 +116,7 @@ try {
 ## delete-form-by-uid
 Delete form by UID
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-form-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-form-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -159,7 +159,7 @@ try {
 ## get-form-by-id
 Info for a specific form
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-form-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-form-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -202,7 +202,7 @@ try {
 ## get-form-by-uid
 Info for a specific form
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-form-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/get-form-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -245,7 +245,7 @@ try {
 ## get-forms
 Get defined forms in the system
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-forms)
+[API Spec](https://developer.sailpoint.com/docs/api/get-forms)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -286,7 +286,7 @@ try {
 ## update-form-by-id
 Update info for a specific form
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-form-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/update-form-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -332,7 +332,7 @@ try {
 ## update-form-by-uid
 Update info for a specific form
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-form-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/update-form-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

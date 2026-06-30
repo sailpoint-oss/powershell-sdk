@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateSetAttributesActionRequest', 'N
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowAction** | [**SetAttributesAction**](set-attributes-action) |  | [optional] 
+**WorkflowAction** | **SetAttributesAction** |  | [optional] 
 
 ## Examples
 

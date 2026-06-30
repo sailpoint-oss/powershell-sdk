@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateFulfillmentActionRequest', 'NER
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowAction** | [**FulfillmentAction**](fulfillment-action) |  | [optional] 
+**WorkflowAction** | **FulfillmentAction** |  | [optional] 
 
 ## Examples
 

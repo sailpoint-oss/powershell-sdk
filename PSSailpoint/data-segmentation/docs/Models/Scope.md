@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'Scope', 'Scope']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Scope** | [**Scopetype**](scopetype) |  | [optional] 
-**Visibility** | [**Scopevisibilitytype**](scopevisibilitytype) |  | [optional] 
+**Scope** | **Scopetype** |  | [optional] 
+**Visibility** | **Scopevisibilitytype** |  | [optional] 
 **ScopeFilter** | [**Visibilitycriteria**](visibilitycriteria) |  | [optional] 
 **ScopeSelection** | [**[]Ref**](ref) | List of Identities that are assigned to the segment | [optional] 
 

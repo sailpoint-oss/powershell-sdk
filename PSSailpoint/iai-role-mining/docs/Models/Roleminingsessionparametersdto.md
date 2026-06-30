@@ -22,9 +22,9 @@ Name | Type | Description | Notes
 **PruneThreshold** | **Int32** | The prune threshold to be used or null to calculate prescribedPruneThreshold | [optional] 
 **Saved** | **Boolean** | The session's saved status | [optional] [default to $true]
 **Scope** | [**Roleminingsessionscope**](roleminingsessionscope) |  | [optional] 
-**Type** | [**Roleminingroletype**](roleminingroletype) |  | [optional] 
-**State** | [**Roleminingsessionstate**](roleminingsessionstate) |  | [optional] 
-**ScopingMethod** | [**Roleminingsessionscopingmethod**](roleminingsessionscopingmethod) |  | [optional] 
+**Type** | **Roleminingroletype** |  | [optional] 
+**State** | **Roleminingsessionstate** |  | [optional] 
+**ScopingMethod** | **Roleminingsessionscopingmethod** |  | [optional] 
 
 ## Examples
 

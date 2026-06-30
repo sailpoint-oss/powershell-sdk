@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **IsManager** | **Boolean** | Indicates whether the identity is a manager of other identities. | [optional] 
 **IdentityProfile** | [**IdentitydocumentAllOfIdentityProfile**](identitydocument-all-of-identity-profile) |  | [optional] 
 **Source** | [**IdentitydocumentAllOfSource**](identitydocument-all-of-source) |  | [optional] 
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Map or dictionary of key/value pairs. | [optional] 
+**Attributes** | **map[string]AnyType** | Map or dictionary of key/value pairs. | [optional] 
 **Disabled** | **Boolean** | Indicates whether the identity is disabled. | [optional] [default to $false]
 **Locked** | **Boolean** | Indicates whether the identity is locked. | [optional] [default to $false]
 **ProcessingState** | **String** | Identity's processing state. | [optional] 
@@ -56,8 +56,8 @@ Name | Type | Description | Notes
 **VisibleSegmentCount** | **Int32** | Number of segments the identity is in. | [optional] 
 **Pod** | **String** | Name of the pod. | [optional] 
 **Org** | **String** | Name of the tenant. | [optional] 
-**Type** | [**Documenttype**](documenttype) |  | [optional] 
-**Type** | [**Documenttype**](documenttype) |  | [optional] 
+**Type** | **Documenttype** |  | [optional] 
+**Type** | **Documenttype** |  | [optional] 
 **Version** | **String** | Version number. | [optional] 
 
 ## Examples

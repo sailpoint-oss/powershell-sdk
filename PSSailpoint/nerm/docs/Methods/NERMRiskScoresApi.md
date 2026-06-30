@@ -24,7 +24,7 @@ Method | HTTP request | Description
 ## get-risk-score
 Find risk score data by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-risk-score)
+[API Spec](https://developer.sailpoint.com/docs/api/get-risk-score)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -66,7 +66,7 @@ try {
 ## get-risk-scores
 This endpoint can retrieve risk score data in bulk from Lifecycle
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-risk-scores)
+[API Spec](https://developer.sailpoint.com/docs/api/get-risk-scores)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

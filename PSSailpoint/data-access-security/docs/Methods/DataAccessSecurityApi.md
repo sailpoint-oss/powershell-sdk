@@ -49,7 +49,7 @@ Method | HTTP request | Description
 ## cancel-task-v1
 This end-point sends a request to cancel a task in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/cancel-task-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/cancel-task-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -95,7 +95,7 @@ try {
 ## create-application-v1
 This endpoint creates a new application in Data Access Security with the specified configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-application-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-application-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -142,7 +142,7 @@ try {
 ## create-identity-collector-v1
 This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-identity-collector-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-identity-collector-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -189,7 +189,7 @@ try {
 ## create-schedule-v1
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-schedule-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -236,7 +236,7 @@ try {
 ## das-v1-owners-assign-post
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/das-v1-owners-assign-post)
+[API Spec](https://developer.sailpoint.com/docs/api/das-v1-owners-assign-post)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -283,7 +283,7 @@ try {
 ## das-v1-owners-owner-identity-id-resources-get
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/das-v1-owners-owner-identity-id-resources-get)
+[API Spec](https://developer.sailpoint.com/docs/api/das-v1-owners-owner-identity-id-resources-get)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -333,7 +333,7 @@ try {
 ## das-v1-owners-reelect-post
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/das-v1-owners-reelect-post)
+[API Spec](https://developer.sailpoint.com/docs/api/das-v1-owners-reelect-post)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -380,7 +380,7 @@ try {
 ## das-v1-owners-resources-resource-id-get
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/das-v1-owners-resources-resource-id-get)
+[API Spec](https://developer.sailpoint.com/docs/api/das-v1-owners-resources-resource-id-get)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -430,7 +430,7 @@ try {
 ## das-v1-owners-source-identity-id-reassign-destination-identity-id-post
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/das-v1-owners-source-identity-id-reassign-destination-identity-id-post)
+[API Spec](https://developer.sailpoint.com/docs/api/das-v1-owners-source-identity-id-reassign-destination-identity-id-post)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -478,7 +478,7 @@ try {
 ## delete-application-v1
 This endpoint deletes an application from Data Access Security by its unique identifier.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-application-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-application-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -524,7 +524,7 @@ try {
 ## delete-identity-collector-v1
 This endpoint deletes an identity collector from Data Access Security by its unique identifier.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-identity-collector-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-identity-collector-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -570,7 +570,7 @@ try {
 ## delete-schedule-v1
 This end-point sends a request to delete a schedule in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-schedule-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -617,7 +617,7 @@ try {
 This end-point sends a request to delete a task in Data Access Security.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-task-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-task-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -663,7 +663,7 @@ try {
 ## get-application-v1
 This endpoint retrieves the details of a specific application in Data Access Security by its unique identifier.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-application-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-application-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -709,7 +709,7 @@ try {
 ## get-applications-v1
 This endpoint lists all the applications in Data Access Security with optional filtering.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-applications-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-applications-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -761,7 +761,7 @@ try {
 ## get-owners-v1
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-owners-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-owners-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -811,7 +811,7 @@ try {
 ## get-schedule-v1
 This end-point gets a schedule in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-schedule-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -857,7 +857,7 @@ try {
 ## get-schedules-v1
 This end-point lists all the schedules in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-schedules-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-schedules-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -909,7 +909,7 @@ try {
 ## get-task-v1
 This end-point gets a task in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-task-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-task-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -955,7 +955,7 @@ try {
 ## get-tasks-v1
 This end-point lists all the tasks in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-tasks-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-tasks-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1009,7 +1009,7 @@ This endpoint lists the identity collectors in Data Access Security with optiona
 
 Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-identity-collectors-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-identity-collectors-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1061,7 +1061,7 @@ try {
 ## put-application-v1
 This endpoint updates an existing application in Data Access Security with the specified configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-application-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-application-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1110,7 +1110,7 @@ try {
 ## put-identity-collector-v1
 This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-identity-collector-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-identity-collector-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1160,7 +1160,7 @@ try {
 ## put-schedule-v1
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-schedule-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-schedule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1209,7 +1209,7 @@ try {
 ## start-task-rerun-v1
 This end-point sends a request to re-run a task in Data Access Security.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/start-task-rerun-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/start-task-rerun-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

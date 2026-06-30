@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateAttributeRequest', 'NERMCreateA
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NeAttribute** | [**Attribute1**](attribute1) |  | [optional] 
+**NeAttribute** | **Attribute1** |  | [optional] 
 
 ## Examples
 

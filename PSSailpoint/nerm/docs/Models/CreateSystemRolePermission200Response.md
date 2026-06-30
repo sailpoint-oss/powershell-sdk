@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateSystemRolePermission200Response
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SystemRolePermission** | [**SystemRolePermission**](system-role-permission) |  | [optional] 
+**SystemRolePermission** | **SystemRolePermission** |  | [optional] 
 
 ## Examples
 

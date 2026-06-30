@@ -29,7 +29,7 @@ Method | HTTP request | Description
 ## cancel-report-v1
 Cancels a running report.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/cancel-report-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/cancel-report-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -74,7 +74,7 @@ try {
 ## get-report-result-v1
 Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-report-result-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-report-result-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -121,7 +121,7 @@ try {
 ## get-report-v1
 Gets a report in file format.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-report-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-report-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -173,7 +173,7 @@ try {
 ## start-report-v1
 Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/start-report-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/start-report-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **Reassignment** | [**Reassignment**](reassignment) |  | [optional] 
 **HasErrors** | **Boolean** | Identifies if the certification has an error | [optional] 
 **ErrorMessage** | **String** | Description of the certification error | [optional] 
-**Phase** | [**Certificationphase**](certificationphase) |  | [optional] 
+**Phase** | **Certificationphase** |  | [optional] 
 
 ## Examples
 

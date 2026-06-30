@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **RoleId** | **String** | The roleId of a potential role. | [optional] 
 **Saved** | **Boolean** | The potential role's saved status. | [optional] [default to $false]
 **Session** | [**Roleminingsessionparametersdto**](roleminingsessionparametersdto) |  | [optional] 
-**Type** | [**Roleminingroletype**](roleminingroletype) |  | [optional] 
+**Type** | **Roleminingroletype** |  | [optional] 
 **Id** | **String** | Id of the potential role | [optional] 
 **CreatedDate** | **System.DateTime** | The date-time when this potential role was created. | [optional] 
 **ModifiedDate** | **System.DateTime** | The date-time when this potential role was modified. | [optional] 

@@ -62,7 +62,7 @@ Method | HTTP request | Description
 ## complete-trigger-invocation-v1
 Completes an invocation to a REQUEST_RESPONSE type trigger.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/complete-trigger-invocation-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/complete-trigger-invocation-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -112,7 +112,7 @@ This API creates a new subscription to a trigger and defines trigger invocation 
 * HTTP subscriptions require httpConfig
 * EventBridge subscriptions require eventBridgeConfig
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-subscription-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-subscription-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -158,7 +158,7 @@ try {
 ## delete-subscription-v1
 Deletes an existing subscription to a trigger.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-subscription-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-subscription-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -204,7 +204,7 @@ try {
 ## list-subscriptions-v1
 Gets a list of all trigger subscriptions.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-subscriptions-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-subscriptions-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -259,7 +259,7 @@ Gets a list of latest invocation statuses.
 Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours.
 This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-trigger-invocation-status-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-trigger-invocation-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -312,7 +312,7 @@ try {
 ## list-triggers-v1
 Gets a list of triggers that are available in the tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-triggers-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-triggers-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -367,7 +367,7 @@ This API updates a trigger subscription in IdentityNow, using a set of instructi
 
 **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-subscription-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-subscription-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -417,7 +417,7 @@ try {
 ## start-test-trigger-invocation-v1
 Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/start-test-trigger-invocation-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/start-test-trigger-invocation-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -465,7 +465,7 @@ try {
 Validates a JSONPath filter expression against a provided mock input.
 Request requires a security scope of: 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/test-subscription-filter-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/test-subscription-filter-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -520,7 +520,7 @@ This API updates a trigger subscription in IdentityNow, using a full object repr
 
   Attempts to modify these fields result in 400.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-subscription-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-subscription-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

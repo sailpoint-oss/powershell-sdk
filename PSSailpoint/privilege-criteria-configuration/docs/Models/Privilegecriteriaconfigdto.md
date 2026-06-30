@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | The Id of the task which is executing the bulk update. | [optional] 
 **SourceId** | **String** | The Id of the source that the criteria configuration is applied to. | [optional] 
-**Config** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The configuration settings for privilege criteria evaluation.  | [optional] 
+**Config** | **SystemCollectionsHashtable** | The configuration settings for privilege criteria evaluation.  | [optional] 
 **Created** | **String** | The date and time when the privilege criteria configuration was created. | [optional] 
 **Modified** | **String** | The date and time when the privilege criteria configuration was last modified. | [optional] 
 

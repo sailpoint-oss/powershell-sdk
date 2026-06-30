@@ -28,7 +28,7 @@ Method | HTTP request | Description
 ## create-custom-privilege-criteria-v1
 Use this API to create a custom privilege criteria
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-custom-privilege-criteria-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-custom-privilege-criteria-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -74,7 +74,7 @@ try {
 ## delete-custom-privilege-criteria-v1
 Use this API to delete a specific custom privilege criteria.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-custom-privilege-criteria-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-custom-privilege-criteria-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -119,7 +119,7 @@ try {
 ## get-privilege-criteria-v1
 Use this API to get a specific privilege criteria.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-privilege-criteria-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-privilege-criteria-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -164,7 +164,7 @@ try {
 ## list-privilege-criteria-v1
 Use this API to list all privilege criteria matching a filter
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-privilege-criteria-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-privilege-criteria-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -209,7 +209,7 @@ try {
 ## put-custom-privilege-criteria-value-v1
 Use this API to update a specific custom privilege criteria by overwriting the information with new information.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-custom-privilege-criteria-value-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-custom-privilege-criteria-value-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'DelegationsPost404Response', 'NERMV20
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The requested record, either ID or UID, was not found | [optional] 
+**VarError** | **SystemCollectionsHashtable** | The requested record, either ID or UID, was not found | [optional] 
 
 ## Examples
 

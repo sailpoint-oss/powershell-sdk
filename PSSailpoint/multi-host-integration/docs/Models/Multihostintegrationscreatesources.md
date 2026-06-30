@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | Source's human-readable name. | [required]
 **Description** | **String** | Source's human-readable description. | [optional] 
-**ConnectorAttributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Connector specific configuration. This configuration will differ from type to type. | [optional] 
+**ConnectorAttributes** | **map[string]AnyType** | Connector specific configuration. This configuration will differ from type to type. | [optional] 
 
 ## Examples
 

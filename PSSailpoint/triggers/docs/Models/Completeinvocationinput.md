@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Completeinvocationinput', 'Completein
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LocalizedError** | [**Localizedmessage**](localizedmessage) |  | [optional] 
-**Output** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Trigger output that completed the invocation. Its schema is defined in the trigger definition. | [optional] 
+**Output** | **SystemCollectionsHashtable** | Trigger output that completed the invocation. Its schema is defined in the trigger definition. | [optional] 
 
 ## Examples
 

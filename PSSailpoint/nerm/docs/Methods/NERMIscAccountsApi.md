@@ -25,7 +25,7 @@ Method | HTTP request | Description
 ## get-schema-mapped-profiles-collection
 Retrieve schema-mapped profiles collection. It returns a collection of stored profiles, optionally using schema-mapped field names if requested.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-schema-mapped-profiles-collection)
+[API Spec](https://developer.sailpoint.com/docs/api/get-schema-mapped-profiles-collection)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -77,7 +77,7 @@ try {
 ## get-single-schema-mapped-profile
 It returns a single stored profile, optionally with schema-mapped field names.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-single-schema-mapped-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/get-single-schema-mapped-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -119,7 +119,7 @@ try {
 ## update-profile
 Updates a profile only through ISC schema-mapped attributes, performs a reverse mapping to match the NERM attributes to update.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-profile)
+[API Spec](https://developer.sailpoint.com/docs/api/update-profile)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

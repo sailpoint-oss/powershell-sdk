@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SubmitRoleProfile200Response', 'NERMS
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RoleProfile** | [**RoleProfile**](role-profile) |  | [optional] 
+**RoleProfile** | **RoleProfile** |  | [optional] 
 
 ## Examples
 

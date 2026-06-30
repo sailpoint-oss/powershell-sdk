@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateProfileSelectActionRequest', 'N
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowAction** | [**ProfileSelectAction**](profile-select-action) |  | [optional] 
+**WorkflowAction** | **ProfileSelectAction** |  | [optional] 
 
 ## Examples
 

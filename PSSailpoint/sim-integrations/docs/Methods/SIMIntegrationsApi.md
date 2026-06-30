@@ -39,7 +39,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Create a new SIM Integrations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-sim-integration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-sim-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -91,7 +91,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Get the details of a SIM integration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-sim-integration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-sim-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -142,7 +142,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Get the details of a SIM integration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-sim-integration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sim-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -193,7 +193,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 List the existing SIM integrations.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-sim-integrations-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-sim-integrations-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -242,7 +242,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Patch a SIM beforeProvisioningRule attribute given a JsonPatch object.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-before-provisioning-rule-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-before-provisioning-rule-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -296,7 +296,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Patch a SIM attribute given a JsonPatch object.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-sim-attributes-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-sim-attributes-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -350,7 +350,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Update an existing SIM integration.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-sim-integration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-sim-integration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ReassignedFromId** | **String** | The identity id to reassign an item from | [optional] 
 **ReassignedToId** | **String** | The identity id to reassign an item to | [optional] 
-**ConfigType** | [**Configtypeenum**](configtypeenum) |  | [optional] 
+**ConfigType** | **Configtypeenum** |  | [optional] 
 **StartDate** | **System.DateTime** | The date from which to start reassigning work items | [optional] 
 **EndDate** | **System.DateTime** | The date from which to stop reassigning work items.  If this is an null string it indicates a permanent reassignment. | [optional] 
 

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateProfileTypeRoleRequest', 'NERMC
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProfileTypeRole** | [**ProfileTypeRoles1**](profile-type-roles1) |  | [optional] 
+**ProfileTypeRole** | **ProfileTypeRoles1** |  | [optional] 
 
 ## Examples
 

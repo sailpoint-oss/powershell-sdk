@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Source2', 'Source2']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **String** | Attribute mapping type. | [optional] 
-**Properties** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Attribute mapping properties. | [optional] 
+**Properties** | **SystemCollectionsHashtable** | Attribute mapping properties. | [optional] 
 
 ## Examples
 

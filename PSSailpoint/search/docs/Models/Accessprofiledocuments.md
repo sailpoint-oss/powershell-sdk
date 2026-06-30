@@ -35,8 +35,8 @@ Name | Type | Description | Notes
 **Apps** | [**[]Accessapps**](accessapps) | Applications with the access profile | [optional] 
 **Pod** | **String** | Name of the pod. | [optional] 
 **Org** | **String** | Name of the tenant. | [optional] 
-**Type** | [**Documenttype**](documenttype) |  | [optional] 
-**Type** | [**Documenttype**](documenttype) |  | [optional] 
+**Type** | **Documenttype** |  | [optional] 
+**Type** | **Documenttype** |  | [optional] 
 **Version** | **String** | Version number. | [optional] 
 
 ## Examples

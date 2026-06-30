@@ -31,7 +31,7 @@ Method | HTTP request | Description
 ## delete-user
 Delete a user
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-user)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-user)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -73,7 +73,7 @@ try {
 ## get-user
 Info for a specific user
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-user)
+[API Spec](https://developer.sailpoint.com/docs/api/get-user)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -115,7 +115,7 @@ try {
 ## get-user-avatar
 Retrieves the URL of the user avatar
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-user-avatar)
+[API Spec](https://developer.sailpoint.com/docs/api/get-user-avatar)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,7 +157,7 @@ try {
 ## get-users
 This endpoint can retrieve users from Lifecycle or you can search for users using parameters
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-users)
+[API Spec](https://developer.sailpoint.com/docs/api/get-users)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -219,7 +219,7 @@ try {
 ## patch-user
 Update a user by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-user)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-user)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -264,7 +264,7 @@ try {
 ## patch-users
 Update multiple users
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-users)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-users)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -307,7 +307,7 @@ try {
 ## submit-user
 Create a new user
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-user)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-user)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -350,7 +350,7 @@ try {
 ## submit-user-avatar
 Uploads a new user avatar
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-user-avatar)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-user-avatar)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -394,7 +394,7 @@ try {
 ## submit-users
 Create multiple new users
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-users)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-users)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

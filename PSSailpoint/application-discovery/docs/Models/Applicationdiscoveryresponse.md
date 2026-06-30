@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **CompletionStatus** |  **Enum** [  "SUCCESS",    "WARNING",    "ERROR",    "TERMINATED",    "TEMPERROR" ] | Completion status of app discovery task | [optional] 
 **Messages** | [**[]Taskstatusmessage**](taskstatusmessage) | Messages associated with the app discovery task | [optional] 
 **Returns** | [**[]Taskreturndetails**](taskreturndetails) | Return values associated with the app discovery task | [optional] 
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Attributes of the app discovery task | [optional] 
+**Attributes** | **map[string]AnyType** | Attributes of the app discovery task | [optional] 
 **Progress** | **String** | Current progress of aggregation | [optional] 
 **PercentComplete** | **Int32** | Current percentage completion of app discovery task | [optional] 
 

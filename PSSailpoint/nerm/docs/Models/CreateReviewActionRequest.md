@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateReviewActionRequest', 'NERMCrea
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowAction** | [**ReviewAction**](review-action) |  | [optional] 
+**WorkflowAction** | **ReviewAction** |  | [optional] 
 
 ## Examples
 

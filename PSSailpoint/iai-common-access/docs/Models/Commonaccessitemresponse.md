@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Common Access Item ID | [optional] 
 **Access** | [**Commonaccessitemaccess**](commonaccessitemaccess) |  | [optional] 
-**Status** | [**Commonaccessitemstate**](commonaccessitemstate) |  | [optional] 
+**Status** | **Commonaccessitemstate** |  | [optional] 
 **LastUpdated** | **String** |  | [optional] 
 **ReviewedByUser** | **Boolean** |  | [optional] 
 **LastReviewed** | **String** |  | [optional] 

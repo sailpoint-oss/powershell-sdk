@@ -27,7 +27,7 @@ This method validates the input data, processes the deletion request,
 and generates an asynchronous result containing a tracking ID. 
 >**NOTE: You can only delete accounts from sources of the "Connected" type. which supports account deletion**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-account-request-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-account-request-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -75,7 +75,7 @@ try {
 ## get-account-deletion-requests-v1
 Retrieves a paginated list of account deletion requests filtered by the provided query parameters. When the "mine" parameter is set to true, the response includes only those deletion requests that were initiated by the currently authenticated user. If "mine" is false or not specified, the endpoint returns all account deletion requests associated with the current tenant, regardless of the initiator. This allows both users and administrators to view relevant deletion requests based on their access level and intent.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-account-deletion-requests-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-account-deletion-requests-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

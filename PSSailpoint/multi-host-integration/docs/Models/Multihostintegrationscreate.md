@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Owner** | [**MultihostintegrationsOwner**](multihostintegrations-owner) |  | [required]
 **Cluster** | [**MultihostintegrationsCluster**](multihostintegrations-cluster) |  | [optional] 
 **Connector** | **String** | Connector script name. | [required]
-**ConnectorAttributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Multi-Host Integration specific configuration. User can add any number of additional attributes. e.g. maxSourcesPerAggGroup, maxAllowedSources etc. | [optional] 
+**ConnectorAttributes** | **map[string]AnyType** | Multi-Host Integration specific configuration. User can add any number of additional attributes. e.g. maxSourcesPerAggGroup, maxAllowedSources etc. | [optional] 
 **ManagementWorkgroup** | [**MultihostintegrationsManagementWorkgroup**](multihostintegrations-management-workgroup) |  | [optional] 
 **Created** | **System.DateTime** | Date-time when the source was created | [optional] 
 **Modified** | **System.DateTime** | Date-time when the source was last modified. | [optional] 

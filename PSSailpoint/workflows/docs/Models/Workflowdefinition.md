@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Workflowdefinition', 'Workflowdefinit
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Start** | **String** | The name of the starting step. | [optional] 
-**Steps** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | One or more step objects that comprise this workflow.  Please see the Workflow documentation to see the JSON schema for each step type. | [optional] 
+**Steps** | **map[string]AnyType** | One or more step objects that comprise this workflow.  Please see the Workflow documentation to see the JSON schema for each step type. | [optional] 
 
 ## Examples
 

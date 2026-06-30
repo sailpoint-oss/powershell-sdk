@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PolicyId** | **String** | The password policy Id. | [optional] 
 **PolicyName** | **String** | The name of the password policy. | [optional] 
-**Selectors** | [**Passwordpolicyholdersdtoattributes**](passwordpolicyholdersdtoattributes) |  | [optional] 
+**Selectors** | **Passwordpolicyholdersdtoattributes** |  | [optional] 
 
 ## Examples
 

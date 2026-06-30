@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | Name of the new attribute | [optional] 
 **DisplayName** | **String** | The display name of the new attribute | [optional] 
-**ApplicationAttributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Map of application id and their associated attribute. | [optional] 
+**ApplicationAttributes** | **SystemCollectionsHashtable** | Map of application id and their associated attribute. | [optional] 
 
 ## Examples
 

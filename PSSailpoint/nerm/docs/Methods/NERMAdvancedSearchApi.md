@@ -27,7 +27,7 @@ Method | HTTP request | Description
 ## get-advanced-search
 Get saved advanced search queries
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-advanced-search)
+[API Spec](https://developer.sailpoint.com/docs/api/get-advanced-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -65,7 +65,7 @@ try {
 ## patch-advanced-search
 Update a saved advanced search query
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-advanced-search)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-advanced-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -108,7 +108,7 @@ try {
 ## search-advanced-search
 Run an advanced search for profiles, without saving the query
 
-[API Spec](https://developer.sailpoint.com/docs/api//search-advanced-search)
+[API Spec](https://developer.sailpoint.com/docs/api/search-advanced-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -155,7 +155,7 @@ try {
 ## search-advanced-searchby-id
 Run a saved advanced search query
 
-[API Spec](https://developer.sailpoint.com/docs/api//search-advanced-searchby-id)
+[API Spec](https://developer.sailpoint.com/docs/api/search-advanced-searchby-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -201,7 +201,7 @@ try {
 ## submit-advanced-search
 Save an advanced search query for later use
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-advanced-search)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-advanced-search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

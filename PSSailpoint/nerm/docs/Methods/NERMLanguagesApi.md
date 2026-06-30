@@ -23,7 +23,7 @@ Method | HTTP request | Description
 ## patch-language
 Update a language by locale
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-language)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-language)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

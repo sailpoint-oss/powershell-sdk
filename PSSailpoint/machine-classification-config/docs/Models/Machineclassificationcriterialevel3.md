@@ -16,12 +16,12 @@ tags: ['SDK', 'Software Development Kit', 'Machineclassificationcriterialevel3',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Operation** | [**Machineclassificationcriteriaoperation**](machineclassificationcriteriaoperation) |  | [optional] 
+**Operation** | **Machineclassificationcriteriaoperation** |  | [optional] 
 **CaseSensitive** | **Boolean** | Indicates whether or not case matters when evaluating the criteria | [optional] [default to $false]
 **DataType** | **String** | The data type of the attribute being evaluated | [optional] 
 **Attribute** | **String** | The attribute to evaluate in the classification criteria | [optional] 
 **Value** | **String** | The value to compare against the attribute in the classification criteria | [optional] 
-**Children** | [**[]SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | An array of child classification criteria objects | [optional] 
+**Children** | **[]SystemCollectionsHashtable** | An array of child classification criteria objects | [optional] 
 
 ## Examples
 

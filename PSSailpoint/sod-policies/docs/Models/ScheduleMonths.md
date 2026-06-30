@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'ScheduleMonths', 'ScheduleMonths']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**Selectortype**](selectortype) |  | [required]
+**Type** | **Selectortype** |  | [required]
 **Values** | **[]String** | The selected values.  | [required]
 **Interval** | **Int32** | The selected interval for RANGE selectors.  | [optional] 
 

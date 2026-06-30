@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetBrandingListV1401Response', 'GetBr
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | A message describing the error | [optional] 
+**VarError** | **AnyType** | A message describing the error | [optional] 
 
 ## Examples
 

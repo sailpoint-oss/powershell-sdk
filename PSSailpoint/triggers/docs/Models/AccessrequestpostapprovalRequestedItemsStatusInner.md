@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | The type of access item. | [required]
 **Operation** |  **Enum** [  "Add",    "Remove" ] | The action to perform on the access item. | [required]
 **Comment** | **String** | A comment from the identity requesting the access. | [optional] 
-**ClientMetadata** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Additional customer defined metadata about the access item. | [optional] 
+**ClientMetadata** | **map[string]AnyType** | Additional customer defined metadata about the access item. | [optional] 
 **ApprovalInfo** | [**[]AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner**](accessrequestpostapproval-requested-items-status-inner-approval-info-inner) | A list of one or more approvers for the access request. | [required]
 
 ## Examples

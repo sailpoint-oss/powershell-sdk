@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateApprovalAction200Response', 'NE
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowAction** | [**WorkflowAction**](workflow-action) |  | [optional] 
+**WorkflowAction** | **WorkflowAction** |  | [optional] 
 
 ## Examples
 

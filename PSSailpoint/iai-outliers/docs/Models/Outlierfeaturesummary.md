@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **FeatureExplanation** | **String** | Detailed explanation of the feature | [optional] 
 **PeerDisplayName** | **String** | outlier's peer identity display name | [optional] 
 **PeerIdentityId** | **String** | outlier's peer identity id | [optional] 
-**AccessItemReference** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Access Item reference | [optional] 
+**AccessItemReference** | **SystemCollectionsHashtable** | Access Item reference | [optional] 
 
 ## Examples
 

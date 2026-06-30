@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **TrackingNumber** | **String** | ID of the group of events. | [optional] 
 **IpAddress** | **String** | Target system's IP address. | [optional] 
 **Details** | **String** | ID of event's details. | [optional] 
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Attributes involved in the event. | [optional] 
+**Attributes** | **map[string]AnyType** | Attributes involved in the event. | [optional] 
 **Objects** | **[]String** | Objects the event is happening to. | [optional] 
 **Operation** | **String** | Operation, or action, performed during the event. | [optional] 
 **Status** | **String** | Event status. Refer to [Event Statuses](https://documentation.sailpoint.com/saas/help/search/index.html#event-statuses) for a list of event statuses and their meanings. | [optional] 

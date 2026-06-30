@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | The date and time the certification was created. | [required]
 **Modified** | **System.DateTime** | The date and time the certification was last modified. | [optional] 
 **CampaignRef** | [**Campaignreference**](campaignreference) |  | [required]
-**Phase** | [**Certificationphase**](certificationphase) |  | [required]
+**Phase** | **Certificationphase** |  | [required]
 **Due** | **System.DateTime** | The due date of the certification. | [required]
 **Signed** | **System.DateTime** | The date the reviewer signed off on the certification. | [required]
 **Reviewer** | [**Reviewer**](reviewer) |  | [required]

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SubmitUserManagerRequest', 'NERMSubmi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserManager** | [**UserManager1**](user-manager1) |  | [optional] 
+**UserManager** | **UserManager1** |  | [optional] 
 
 ## Examples
 

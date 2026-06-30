@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | The time when the requestable object was created | [optional] 
 **Modified** | **System.DateTime** | The time when the requestable object was last modified | [optional] 
 **Description** | **String** | Description of the requestable object. | [optional] 
-**Type** | [**Requestableobjecttype**](requestableobjecttype) |  | [optional] 
+**Type** | **Requestableobjecttype** |  | [optional] 
 **RequestStatus** | [**Requestableobjectrequeststatus**](requestableobjectrequeststatus) |  | [optional] 
 **IdentityRequestId** | **String** | If *requestStatus* is *PENDING*, indicates the id of the associated account activity. | [optional] 
 **OwnerRef** | [**Identityreferencewithnameandemail**](identityreferencewithnameandemail) |  | [optional] 

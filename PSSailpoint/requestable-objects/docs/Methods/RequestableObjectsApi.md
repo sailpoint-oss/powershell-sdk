@@ -28,7 +28,7 @@ Get a list of acccess items that can be requested through the [Access Request en
 This endpoint only lists roles and access profiles. For gathering requestable entitlements, the [Entitlements List API](https://developer.sailpoint.com/docs/api/v2025/list-entitlements) can be used with the segmented-for-identity parameter.
 Any authenticated token can call this endpoint to see their requestable access items.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-requestable-objects-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-requestable-objects-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

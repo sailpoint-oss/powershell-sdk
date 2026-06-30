@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetPageElements200Response', 'NERMGet
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PageElement** | [**PageElement**](page-element) |  | [optional] 
+**PageElement** | **PageElement** |  | [optional] 
 
 ## Examples
 

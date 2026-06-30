@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **SourceId** | **String** | The source ID of the entitlement | [optional] 
 **EntitlementId** | **String** | The ID of the entitlement | [optional] 
 **DisplayName** | **String** | The display name of the entitlement | [optional] 
-**Source** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The source of the entitlement | [optional] 
+**Source** | **SystemCollectionsHashtable** | The source of the entitlement | [optional] 
 
 ## Examples
 

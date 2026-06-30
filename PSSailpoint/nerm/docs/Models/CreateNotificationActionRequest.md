@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateNotificationActionRequest', 'NE
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowAction** | [**NotificationAction**](notification-action) |  | [optional] 
+**WorkflowAction** | **NotificationAction** |  | [optional] 
 
 ## Examples
 

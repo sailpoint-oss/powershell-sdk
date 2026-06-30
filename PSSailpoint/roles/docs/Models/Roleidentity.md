@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **AliasName** | **String** | The alias / username of the Identity | [optional] 
 **Name** | **String** | The human-readable display name of the Identity | [optional] 
 **Email** | **String** | Email address of the Identity | [optional] 
-**RoleAssignmentSource** | [**Roleassignmentsourcetype**](roleassignmentsourcetype) |  | [optional] 
+**RoleAssignmentSource** | **Roleassignmentsourcetype** |  | [optional] 
 
 ## Examples
 

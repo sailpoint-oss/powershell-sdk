@@ -28,7 +28,7 @@ Method | HTTP request | Description
 ## create-launcher-v1
 Create a Launcher with given information
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-launcher-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-launcher-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -75,7 +75,7 @@ try {
 ## delete-launcher-v1
 Delete the given Launcher ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-launcher-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-launcher-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -121,7 +121,7 @@ try {
 ## get-launcher-v1
 Get details for the given Launcher ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-launcher-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-launcher-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -167,7 +167,7 @@ try {
 ## get-launchers-v1
 Return a list of Launchers for the authenticated tenant
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-launchers-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-launchers-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -217,7 +217,7 @@ try {
 ## put-launcher-v1
 Replace the given Launcher ID with given payload
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-launcher-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-launcher-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -266,7 +266,7 @@ try {
 ## start-launcher-v1
 Launch the given Launcher ID
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/start-launcher-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/start-launcher-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

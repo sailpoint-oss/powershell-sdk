@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateBatchWorkflowRequest', 'NERMCre
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Workflow** | [**BatchWorkflow**](batch-workflow) |  | [optional] 
+**Workflow** | **BatchWorkflow** |  | [optional] 
 
 ## Examples
 

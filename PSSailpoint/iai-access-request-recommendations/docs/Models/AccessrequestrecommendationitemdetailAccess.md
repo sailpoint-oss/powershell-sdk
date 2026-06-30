@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Accessrequestrecommendationitemdetail
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | ID of access item being recommended. | [optional] 
-**Type** | [**Accessrequestrecommendationitemtype**](accessrequestrecommendationitemtype) |  | [optional] 
+**Type** | **Accessrequestrecommendationitemtype** |  | [optional] 
 **Name** | **String** | Name of the access item | [optional] 
 **Description** | **String** | Description of the access item | [optional] 
 

@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'GetPageContentTranslation200Response'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PageContentTranslation** | [**PageContentTranslation**](page-content-translation) |  | [optional] 
+**PageContentTranslation** | **PageContentTranslation** |  | [optional] 
 
 ## Examples
 

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **ConnectionType** | **String** | The connection type of the source this account is from | [optional] 
 **IsMachine** | **Boolean** | Indicates if the account is of machine type | [optional] [default to $false]
 **Recommendation** | [**AccountAllOfRecommendation**](account-all-of-recommendation) |  | [optional] 
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The account attributes that are aggregated | [required]
+**Attributes** | **map[string]AnyType** | The account attributes that are aggregated | [required]
 **Authoritative** | **Boolean** | Indicates if this account is from an authoritative source | [required]
 **Description** | **String** | A description of the account | [optional] 
 **Disabled** | **Boolean** | Indicates if the account is currently disabled | [required]

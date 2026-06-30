@@ -49,7 +49,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create and configure extended search attributes.  This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig.
 >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes' `applicationAttributes`.**
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-search-attribute-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-search-attribute-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -101,7 +101,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Delete an extended attribute configuration by name.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-search-attribute-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-search-attribute-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -151,7 +151,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-search-attribute-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-search-attribute-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -203,7 +203,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 Get an extended attribute configuration by name.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-single-search-attribute-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-single-search-attribute-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -256,7 +256,7 @@ Update an existing search attribute configuration.
 You can patch these fields:
 * name  * displayName * applicationAttributes
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-search-attribute-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-search-attribute-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

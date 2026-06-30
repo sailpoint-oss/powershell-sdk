@@ -30,7 +30,7 @@ This endpoint provides a search engine for Audit Events by optionally combining 
 
 To accommodate these changes, an API contract change was required.  Please read the updated API documentation for the new request syntax.
 
-[API Spec](https://developer.sailpoint.com/docs/api//search)
+[API Spec](https://developer.sailpoint.com/docs/api/search)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

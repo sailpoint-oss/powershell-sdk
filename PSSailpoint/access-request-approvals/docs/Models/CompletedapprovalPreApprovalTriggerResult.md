@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'CompletedapprovalPreApprovalTriggerRe
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Comment** | **String** | The comment from the trigger | [optional] 
-**Decision** | [**Completedapprovalstate**](completedapprovalstate) |  | [optional] 
+**Decision** | **Completedapprovalstate** |  | [optional] 
 **Reviewer** | **String** | The name of the approver | [optional] 
 **Date** | **System.DateTime** | The date and time the trigger decided on the request | [optional] 
 

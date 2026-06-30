@@ -22,11 +22,11 @@ Name | Type | Description | Notes
 **Modified** | **System.DateTime** | Last modification date of the Object | [optional] [readonly] 
 **Description** | **String** | The description of the integration | [optional] 
 **Type** | **String** | The integration type | [optional] 
-**Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The attributes map containing the credentials used to configure the integration. | [optional] 
+**Attributes** | **SystemCollectionsHashtable** | The attributes map containing the credentials used to configure the integration. | [optional] 
 **Sources** | **[]String** | The list of sources (managed resources) | [optional] 
 **Cluster** | **String** | The cluster/proxy | [optional] 
-**StatusMap** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Custom mapping between the integration result and the provisioning result | [optional] 
-**Request** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | Request data to customize desc and body of the created ticket | [optional] 
+**StatusMap** | **SystemCollectionsHashtable** | Custom mapping between the integration result and the provisioning result | [optional] 
+**Request** | **SystemCollectionsHashtable** | Request data to customize desc and body of the created ticket | [optional] 
 **BeforeProvisioningRule** | [**SimintegrationdetailsAllOfBeforeProvisioningRule**](simintegrationdetails-all-of-before-provisioning-rule) |  | [optional] 
 
 ## Examples

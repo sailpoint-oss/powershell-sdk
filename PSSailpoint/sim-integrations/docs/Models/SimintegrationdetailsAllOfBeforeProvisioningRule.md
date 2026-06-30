@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SimintegrationdetailsAllOfBeforeProvi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**Dtotype**](dtotype) |  | [optional] 
+**Type** | **Dtotype** |  | [optional] 
 **Id** | **String** | ID of the rule | [optional] 
 **Name** | **String** | Human-readable display name of the rule | [optional] 
 

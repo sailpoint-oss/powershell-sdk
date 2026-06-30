@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Id** | **String** | Non-Employee approval item id | [optional] 
 **Approver** | [**Nonemployeeidentityreferencewithid**](nonemployeeidentityreferencewithid) |  | [optional] 
 **AccountName** | **String** | Requested identity account name | [optional] 
-**ApprovalStatus** | [**Approvalstatus**](approvalstatus) |  | [optional] 
+**ApprovalStatus** | **Approvalstatus** |  | [optional] 
 **ApprovalOrder** | **Double** | Approval order | [optional] 
 **Comment** | **String** | comment of approver | [optional] 
 **Modified** | **System.DateTime** | When the request was last modified. | [optional] 

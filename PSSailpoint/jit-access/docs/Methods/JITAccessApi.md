@@ -32,7 +32,7 @@ The tenant comes from the authenticated request context (not the URL). Use **con
 **User level:** POLICY_ADMIN (policy administrator).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-jit-activation-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-jit-activation-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -83,7 +83,7 @@ The body must be a non-empty array. Only **replace** is supported; each **path**
 **User level:** POLICY_ADMIN (policy administrator).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/patch-jit-activation-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-jit-activation-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

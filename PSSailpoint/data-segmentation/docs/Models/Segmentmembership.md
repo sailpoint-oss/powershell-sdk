@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Segmentmembership', 'Segmentmembershi
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Segments** | **[]String** | List of segment ids that the identity is associated with. | [optional] 
-**AllAccessScopes** | [**[]Scopetype**](scopetype) | They type of scopes that are assigned to the identity. | [optional] 
+**AllAccessScopes** | **[]Scopetype** | They type of scopes that are assigned to the identity. | [optional] 
 **RefreshBy** | **System.DateTime** | Date time string that lets you know when the membership data is going to be refreshed. | [optional] 
 
 ## Examples

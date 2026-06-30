@@ -30,7 +30,7 @@ Method | HTTP request | Description
 ## create-page-content-translation
 Create a page content translation record.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-page-content-translation)
+[API Spec](https://developer.sailpoint.com/docs/api/create-page-content-translation)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -73,7 +73,7 @@ try {
 ## delete-page-content-translation-by-id
 Delete page content translation by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-page-content-translation-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-page-content-translation-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -115,7 +115,7 @@ try {
 ## delete-page-content-translation-by-uid
 Delete page content translation by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-page-content-translation-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-page-content-translation-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -157,7 +157,7 @@ try {
 ## get-page-content-translation
 This endpoint can retrieve page content translation data.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-page-content-translation)
+[API Spec](https://developer.sailpoint.com/docs/api/get-page-content-translation)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -197,7 +197,7 @@ try {
 ## get-page-content-translation-by-id
 Info for a specific page content translation record by Id
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-page-content-translation-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-page-content-translation-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -239,7 +239,7 @@ try {
 ## get-page-content-translation-by-uid
 Info for a specific page content translation record by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-page-content-translation-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/get-page-content-translation-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -281,7 +281,7 @@ try {
 ## update-page-content-translation-by-id
 Update info for a specific page content translation record by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-page-content-translation-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/update-page-content-translation-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -327,7 +327,7 @@ try {
 ## update-page-content-translation-by-uid
 Update info for a specific page content translation record by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-page-content-translation-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/update-page-content-translation-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

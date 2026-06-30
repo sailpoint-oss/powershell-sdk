@@ -34,7 +34,7 @@ Method | HTTP request | Description
 ## get-public-identity-config-v1
 Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-public-identity-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-public-identity-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -77,7 +77,7 @@ try {
 ## update-public-identity-config-v1
 Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-public-identity-config-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-public-identity-config-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

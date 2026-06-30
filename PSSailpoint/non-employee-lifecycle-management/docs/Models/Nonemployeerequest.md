@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **NonEmployeeSource** | [**Nonemployeesourcelite**](nonemployeesourcelite) |  | [optional] 
 **VarData** | **map[string]String** | Additional attributes for a non-employee. Up to 10 custom attributes can be added. | [optional] 
 **ApprovalItems** | [**[]Nonemployeeapprovalitembase**](nonemployeeapprovalitembase) | List of approval item for the request | [optional] 
-**ApprovalStatus** | [**Approvalstatus**](approvalstatus) |  | [optional] 
+**ApprovalStatus** | **Approvalstatus** |  | [optional] 
 **Comment** | **String** | Comment of requester | [optional] 
 **CompletionDate** | **System.DateTime** | When the request was completely approved. | [optional] 
 **StartDate** | **System.DateTime** | Non-Employee employment start date. | [optional] 

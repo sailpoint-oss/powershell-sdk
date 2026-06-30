@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateUnassignActionRequest', 'NERMCr
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowAction** | [**UnassignAction**](unassign-action) |  | [optional] 
+**WorkflowAction** | **UnassignAction** |  | [optional] 
 
 ## Examples
 

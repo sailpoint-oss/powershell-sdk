@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreatePageContentRequest', 'NERMCreat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PageContent** | [**PageContent1**](page-content1) |  | [optional] 
+**PageContent** | **PageContent1** |  | [optional] 
 
 ## Examples
 

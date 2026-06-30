@@ -26,7 +26,7 @@ Method | HTTP request | Description
 Use this endpoint to get a list of statuses for **all** tasks, including completed, in-progress, terminated, and errored tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks. Data for tasks older than 90 days will not be returned. For a list of **in-progress** tasks, apply the isnull filter to the Completion Status field.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-task-status-list-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-task-status-list-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -80,7 +80,7 @@ try {
 ## get-task-status-v1
 Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-task-status-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-task-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -126,7 +126,7 @@ try {
 ## update-task-status-v1
 Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-task-status-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-task-status-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

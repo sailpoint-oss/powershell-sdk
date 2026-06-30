@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SubmitAdvancedSearch200Response', 'NE
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdvancedSearch** | [**AdvancedSearch**](advanced-search) |  | [optional] 
+**AdvancedSearch** | **AdvancedSearch** |  | [optional] 
 
 ## Examples
 

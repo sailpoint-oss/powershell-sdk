@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Id** | **String** | Invocation ID | [optional] 
 **TriggerId** | **String** | Trigger ID | [optional] 
 **Secret** | **String** | Unique invocation secret. | [optional] 
-**ContentJson** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | JSON map of invocation metadata. | [optional] 
+**ContentJson** | **SystemCollectionsHashtable** | JSON map of invocation metadata. | [optional] 
 
 ## Examples
 

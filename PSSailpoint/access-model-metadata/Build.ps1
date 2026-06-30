@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.AccessModelMetadata - the PowerShell module for Identity Security Cloud API - Access Model Metadata'
 
-    ModuleVersion = '2.0.3'
+    ModuleVersion = '2.0.4'
 
     RootModule = 'PSSailpoint.AccessModelMetadata.psm1'
     Guid = '4A87A3C3-A846-7343-2D28-CB54E54B8573' # Has to be static, otherwise each new build will be considered different module

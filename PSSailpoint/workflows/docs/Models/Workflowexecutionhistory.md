@@ -16,9 +16,9 @@ tags: ['SDK', 'Software Development Kit', 'Workflowexecutionhistory', 'Workflowe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Definition** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
-**History** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
-**Trigger** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**Definition** | **SystemCollectionsHashtable** |  | [optional] 
+**History** | **SystemCollectionsHashtable** |  | [optional] 
+**Trigger** | **SystemCollectionsHashtable** |  | [optional] 
 
 ## Examples
 

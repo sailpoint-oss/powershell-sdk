@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateBatchUpdateActionRequest', 'NER
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkflowAction** | [**BatchUpdateAction**](batch-update-action) |  | [optional] 
+**WorkflowAction** | **BatchUpdateAction** |  | [optional] 
 
 ## Examples
 

@@ -32,7 +32,7 @@ Method | HTTP request | Description
 ## delete-attribute-option-by-id
 Delete a option based attribute value by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-attribute-option-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-attribute-option-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -74,7 +74,7 @@ try {
 ## delete-attribute-option-by-uid
 Delete a option based attribute value by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-attribute-option-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-attribute-option-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -116,7 +116,7 @@ try {
 ## get-attribute-option-by-id
 Info for a specific option based attribute value by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-attribute-option-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/get-attribute-option-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -158,7 +158,7 @@ try {
 ## get-attribute-option-by-uid
 Get a specific option based attribute value by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-attribute-option-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/get-attribute-option-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -200,7 +200,7 @@ try {
 ## get-attribute-options
 Get option based attribute values
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-attribute-options)
+[API Spec](https://developer.sailpoint.com/docs/api/get-attribute-options)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -250,7 +250,7 @@ try {
 ## patch-attribute-option-by-id
 Update a option based attribute value by id
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-attribute-option-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-attribute-option-by-id)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -295,7 +295,7 @@ try {
 ## patch-attribute-option-by-uid
 Update a option based attribute value by UID (user-specified identifier)
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-attribute-option-by-uid)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-attribute-option-by-uid)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -340,7 +340,7 @@ try {
 ## patch-attribute-options
 Update multiple option based attribute values
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-attribute-options)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-attribute-options)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -383,7 +383,7 @@ try {
 ## submit-attribute-option
 Adds a value to an option based attribute
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-attribute-option)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-attribute-option)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -425,7 +425,7 @@ try {
 ## submit-attribute-options
 Create multiple new option based attribute values
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-attribute-options)
+[API Spec](https://developer.sailpoint.com/docs/api/submit-attribute-options)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

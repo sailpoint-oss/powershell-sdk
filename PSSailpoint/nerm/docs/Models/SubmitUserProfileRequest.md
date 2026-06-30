@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SubmitUserProfileRequest', 'NERMSubmi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserProfile** | [**UserProfile1**](user-profile1) |  | [optional] 
+**UserProfile** | **UserProfile1** |  | [optional] 
 
 ## Examples
 

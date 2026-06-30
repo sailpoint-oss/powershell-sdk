@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Formdefinitiondynamicschemaresponse',
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OutputSchema** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | OutputSchema holds a JSON schema generated dynamically | [optional] 
+**OutputSchema** | **map[string]AnyType** | OutputSchema holds a JSON schema generated dynamically | [optional] 
 
 ## Examples
 

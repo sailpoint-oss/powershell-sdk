@@ -17,13 +17,13 @@ tags: ['SDK', 'Software Development Kit', 'Entitlementconnectionsearchhit', 'Ent
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Connection ID as represented in search results. | [optional] 
-**Identity** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Identity summary object from search index. | [optional] 
-**MachineIdentity** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Machine identity summary object when available. | [optional] 
-**Account** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Account summary object. | [optional] 
+**Identity** | **map[string]AnyType** | Identity summary object from search index. | [optional] 
+**MachineIdentity** | **map[string]AnyType** | Machine identity summary object when available. | [optional] 
+**Account** | **map[string]AnyType** | Account summary object. | [optional] 
 **Entitlement** | [**Entitlementconnectionsearchhitentitlement**](entitlementconnectionsearchhitentitlement) |  | [optional] 
-**Source** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Source summary object. | [optional] 
-**State** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Connection state object. | [optional] 
-**Jit** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | JIT timestamps for lifecycle events. | [optional] 
+**Source** | **map[string]AnyType** | Source summary object. | [optional] 
+**State** | **map[string]AnyType** | Connection state object. | [optional] 
+**Jit** | **map[string]AnyType** | JIT timestamps for lifecycle events. | [optional] 
 **Standalone** | **Boolean** | Indicates whether the connection is marked as standalone. | [optional] [default to $false]
 **Type** |  **Enum** [  "JIT",    "STANDING",    "NA" ] | Connection type classification. | [optional] 
 

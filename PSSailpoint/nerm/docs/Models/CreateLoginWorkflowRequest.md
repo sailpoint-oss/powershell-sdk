@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CreateLoginWorkflowRequest', 'NERMCre
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Workflow** | [**LoginWorkflow**](login-workflow) |  | [optional] 
+**Workflow** | **LoginWorkflow** |  | [optional] 
 
 ## Examples
 

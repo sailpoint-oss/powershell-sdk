@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'InvalidJson', 'NERMInvalidJson']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarError** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 |  | [optional] 
+**VarError** | **SystemCollectionsHashtable** |  | [optional] 
 
 ## Examples
 

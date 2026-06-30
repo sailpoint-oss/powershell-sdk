@@ -24,7 +24,7 @@ Method | HTTP request | Description
 ## delete-master-record
 Consolidation is a deprecated feature, this endpoint provides a mechanism to delete a master record to assist customers.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-master-record)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-master-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -66,7 +66,7 @@ try {
 ## patch-data-record
 Consolidation is a deprecated feature, this endpoint provides a mechanism to reassign a data record to a new master record to assist customers.
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-data-record)
+[API Spec](https://developer.sailpoint.com/docs/api/patch-data-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

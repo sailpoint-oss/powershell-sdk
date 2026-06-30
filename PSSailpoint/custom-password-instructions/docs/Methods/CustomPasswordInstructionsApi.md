@@ -39,7 +39,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API creates the custom password instructions for the specified page ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-custom-password-instructions-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-custom-password-instructions-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -88,7 +88,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API delete the custom password instructions for the specified page ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-custom-password-instructions-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-custom-password-instructions-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -139,7 +139,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::
 This API returns the custom password instructions for the specified page ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-custom-password-instructions-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-custom-password-instructions-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

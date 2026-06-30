@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Op** |  **Enum** [  "add",    "remove",    "replace",    "move",    "copy",    "test" ] | The operation to perform (add, remove, replace, move, copy, test) | [required]
 **Path** | **String** | A JSON-Pointer describing the target location | [required]
-**Value** | [**AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The value to be used within the operations. Required for add/replace/test. | [optional] 
+**Value** | **AnyType** | The value to be used within the operations. Required for add/replace/test. | [optional] 
 **VarFrom** | **String** | A JSON-Pointer describing the source location for move/copy. | [optional] 
 
 ## Examples

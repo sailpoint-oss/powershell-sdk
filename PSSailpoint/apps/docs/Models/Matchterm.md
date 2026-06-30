@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Op** | **String** | The operator between name and value | [optional] 
 **Container** | **Boolean** | If it is a container or a real match term | [optional] [default to $false]
 **And** | **Boolean** | If it is AND logical operator for the children match terms | [optional] [default to $false]
-**Children** | [**[]System.Collections.Hashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The children under this match term | [optional] 
+**Children** | **[]System.Collections.Hashtable** | The children under this match term | [optional] 
 
 ## Examples
 

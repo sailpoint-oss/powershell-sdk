@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Version** | **Int32** | Current version of configuration object. | [optional] 
 **Self** | [**Selfimportexportdto**](selfimportexportdto) |  | [optional] 
-**Object** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Object details. Format dependant on the object type. | [optional] 
+**Object** | **map[string]AnyType** | Object details. Format dependant on the object type. | [optional] 
 
 ## Examples
 

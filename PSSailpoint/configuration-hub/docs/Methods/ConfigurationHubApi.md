@@ -53,7 +53,7 @@ Method | HTTP request | Description
 ## create-deploy-v1
 This API performs a deploy based on an existing daft.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-deploy-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-deploy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -102,7 +102,7 @@ Source org should be "default" when creating an object mapping that is not to be
 The request will need the following security scope:
 - sp:config-object-mapping:manage
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-object-mapping-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-object-mapping-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -154,7 +154,7 @@ Source org should be "default" when creating object mappings that are not to be 
 The request will need the following security scope:
 - sp:config-object-mapping:manage
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-object-mappings-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-object-mappings-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -203,7 +203,7 @@ try {
 ## create-scheduled-action-v1
 This API creates a new scheduled action for the current tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-scheduled-action-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-scheduled-action-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -253,7 +253,7 @@ Configuration files can be managed and deployed via Configuration Hub by uploadi
 
 Refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects) for more information about supported objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-uploaded-configuration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-uploaded-configuration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -304,7 +304,7 @@ On success, this endpoint will return an empty response.
 
 The backup id can be obtained from the response after a backup was successfully created, or from the list backups endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-backup-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-backup-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -354,7 +354,7 @@ On success, this endpoint will return an empty response.
 
 The draft id can be obtained from the response after a draft was successfully created, or from the list drafts endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-draft-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-draft-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -403,7 +403,7 @@ Source org should be "default" when deleting an object mapping that is not assoc
 The request will need the following security scope:
 - sp:config-object-mapping:manage
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-object-mapping-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-object-mapping-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -451,7 +451,7 @@ try {
 ## delete-scheduled-action-v1
 This API deletes an existing scheduled action.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-scheduled-action-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-scheduled-action-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -501,7 +501,7 @@ On success, this endpoint will return an empty response.
 
 The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-uploaded-configuration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-uploaded-configuration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -547,7 +547,7 @@ try {
 ## get-deploy-v1
 This API gets an existing deploy for the current tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-deploy-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-deploy-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -596,7 +596,7 @@ Source org should be "default" when getting object mappings that are not associa
 The request will need the following security scope:
 - sp:config-object-mapping:read
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-object-mappings-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-object-mappings-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -642,7 +642,7 @@ try {
 ## get-uploaded-configuration-v1
 This API gets an existing uploaded configuration for the current tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-uploaded-configuration-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-uploaded-configuration-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -688,7 +688,7 @@ try {
 ## list-backups-v1
 This API gets a list of existing backups for the current tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-backups-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-backups-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -733,7 +733,7 @@ try {
 ## list-deploys-v1
 This API gets a list of deploys for the current tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-deploys-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-deploys-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -776,7 +776,7 @@ try {
 ## list-drafts-v1
 This API gets a list of existing drafts for the current tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-drafts-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-drafts-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -821,7 +821,7 @@ try {
 ## list-scheduled-actions-v1
 This API gets a list of existing scheduled actions for the current tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-scheduled-actions-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-scheduled-actions-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -864,7 +864,7 @@ try {
 ## list-uploaded-configurations-v1
 This API gets a list of existing uploaded configurations for the current tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-uploaded-configurations-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-uploaded-configurations-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -913,7 +913,7 @@ Source org should be "default" when updating object mappings that are not associ
 The request will need the following security scope:
 - sp:config-object-mapping:manage
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-object-mappings-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-object-mappings-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -962,7 +962,7 @@ try {
 ## update-scheduled-action-v1
 This API updates an existing scheduled action using JSON Patch format.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/update-scheduled-action-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/update-scheduled-action-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

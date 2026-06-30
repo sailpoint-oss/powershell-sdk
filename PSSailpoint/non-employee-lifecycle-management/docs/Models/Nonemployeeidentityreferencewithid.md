@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'Nonemployeeidentityreferencewithid', 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | [**Nonemployeeidentitydtotype**](nonemployeeidentitydtotype) |  | [optional] 
+**Type** | **Nonemployeeidentitydtotype** |  | [optional] 
 **Id** | **String** | Identity id | [optional] 
 
 ## Examples

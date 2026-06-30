@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'Filteraggregation', 'Filteraggregatio
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **String** | The name of the filter aggregate to be included in the result. | [required]
-**Type** | [**Searchfiltertype**](searchfiltertype) |  | [optional] 
+**Type** | **Searchfiltertype** |  | [optional] 
 **Field** | **String** | The search field to apply the filter to.  Prefix the field name with '@' to reference a nested object.  | [required]
 **Value** | **String** | The value to filter on. | [required]
 

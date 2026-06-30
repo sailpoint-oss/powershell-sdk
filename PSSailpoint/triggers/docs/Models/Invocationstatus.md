@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **TriggerId** | **String** | Trigger ID | [required]
 **SubscriptionName** | **String** | Subscription name | [required]
 **SubscriptionId** | **String** | Subscription ID | [required]
-**Type** | [**Invocationstatustype**](invocationstatustype) |  | [required]
+**Type** | **Invocationstatustype** |  | [required]
 **Created** | **System.DateTime** | Invocation created timestamp. ISO-8601 in UTC. | [required]
 **Completed** | **System.DateTime** | Invocation completed timestamp; empty fields imply invocation is in-flight or not completed. ISO-8601 in UTC. | [optional] 
 **StartInvocationInput** | [**Startinvocationinput**](startinvocationinput) |  | [required]

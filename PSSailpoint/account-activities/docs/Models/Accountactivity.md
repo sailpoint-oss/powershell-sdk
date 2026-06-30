@@ -21,14 +21,14 @@ Name | Type | Description | Notes
 **Created** | **System.DateTime** | When the activity was first created | [optional] 
 **Modified** | **System.DateTime** | When the activity was last modified | [optional] 
 **Completed** | **System.DateTime** | When the activity was completed | [optional] 
-**CompletionStatus** | [**Completionstatus**](completionstatus) |  | [optional] 
+**CompletionStatus** | **Completionstatus** |  | [optional] 
 **Type** | **String** | The type of action the activity performed.  Please see the following list of types.  This list may grow over time.  - CloudAutomated - IdentityAttributeUpdate - appRequest - LifecycleStateChange - AccountStateUpdate - AccountAttributeUpdate - CloudPasswordRequest - Attribute Synchronization Refresh - Certification - Identity Refresh - Lifecycle Change Refresh   [Learn more here](https://documentation.sailpoint.com/saas/help/search/searchable-fields.html#searching-account-activity-data).  | [optional] 
 **RequesterIdentitySummary** | [**Identitysummary**](identitysummary) |  | [optional] 
 **TargetIdentitySummary** | [**Identitysummary**](identitysummary) |  | [optional] 
 **Errors** | **[]String** | A list of error messages, if any, that were encountered. | [optional] 
 **Warnings** | **[]String** | A list of warning messages, if any, that were encountered. | [optional] 
 **Items** | [**[]Accountactivityitem**](accountactivityitem) | Individual actions performed as part of this account activity | [optional] 
-**ExecutionStatus** | [**Executionstatus**](executionstatus) |  | [optional] 
+**ExecutionStatus** | **Executionstatus** |  | [optional] 
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request | [optional] 
 
 ## Examples

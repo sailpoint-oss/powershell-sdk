@@ -31,7 +31,7 @@ Method | HTTP request | Description
 ## create-connector-customizer-v1
 Create a connector customizer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-connector-customizer-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-connector-customizer-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -77,7 +77,7 @@ try {
 ## create-connector-customizer-version-v1
 Creates a new version for the customizer.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/create-connector-customizer-version-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/create-connector-customizer-version-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -123,7 +123,7 @@ try {
 ## delete-connector-customizer-v1
 Delete the connector customizer for the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/delete-connector-customizer-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/delete-connector-customizer-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -169,7 +169,7 @@ try {
 ## get-connector-customizer-v1
 Gets connector customizer by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/get-connector-customizer-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/get-connector-customizer-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -215,7 +215,7 @@ try {
 ## list-connector-customizers-v1
 List all connector customizers.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/list-connector-customizers-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/list-connector-customizers-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -262,7 +262,7 @@ try {
 ## put-connector-customizer-v1
 Update an existing connector customizer with the one provided in the request body. These fields are immutable: `id`, `name`, `type`.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v1/put-connector-customizer-v1)
+[API Spec](https://developer.sailpoint.com/docs/api/put-connector-customizer-v-1)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

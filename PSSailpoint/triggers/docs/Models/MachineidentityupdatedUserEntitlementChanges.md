@@ -17,8 +17,8 @@ tags: ['SDK', 'Software Development Kit', 'MachineidentityupdatedUserEntitlement
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AttributeName** | **String** | Name of the attribute that changed. | [optional] 
-**Added** | [**[]Machineidentityuserentitlements**](machineidentityuserentitlements) | User entitlements that were added. | [optional] 
-**Removed** | [**[]Machineidentityuserentitlements**](machineidentityuserentitlements) | User entitlements that were removed. | [optional] 
+**Added** | **[]Machineidentityuserentitlements** | User entitlements that were added. | [optional] 
+**Removed** | **[]Machineidentityuserentitlements** | User entitlements that were removed. | [optional] 
 
 ## Examples
 

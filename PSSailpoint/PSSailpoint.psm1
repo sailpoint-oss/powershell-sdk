@@ -85,6 +85,7 @@ Import-Module -Name (Join-Path $PSScriptRoot 'identities' 'src' 'PSSailpoint.Ide
 Import-Module -Name (Join-Path $PSScriptRoot 'identity-attributes' 'src' 'PSSailpoint.IdentityAttributes') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'identity-history' 'src' 'PSSailpoint.IdentityHistory') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'identity-profiles' 'src' 'PSSailpoint.IdentityProfiles') -Force -Global
+Import-Module -Name (Join-Path $PSScriptRoot 'intelligence' 'src' 'PSSailpoint.Intelligence') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'jit-access' 'src' 'PSSailpoint.JitAccess') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'jit-activations' 'src' 'PSSailpoint.JitActivations') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'launchers' 'src' 'PSSailpoint.Launchers') -Force -Global

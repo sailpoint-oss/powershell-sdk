@@ -75,12 +75,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-ProvisioningPolicyV1**](#create-provisioning-policy-v1) | **POST** `/sources/v1/{sourceId}/provisioning-policies` | Create provisioning policy
+[**New-ProvisioningPolicyV2**](#create-provisioning-policy-v2) | **POST** `/sources/v2/{sourceId}/provisioning-policies` | Create provisioning policy
 [**New-SourceScheduleV1**](#create-source-schedule-v1) | **POST** `/sources/v1/{sourceId}/schedules` | Create schedule on source
 [**New-SourceSchemaV1**](#create-source-schema-v1) | **POST** `/sources/v1/{sourceId}/schemas` | Create schema on source
 [**New-SourceV1**](#create-source-v1) | **POST** `/sources/v1` | Creates a source in identitynow.
 [**Remove-AccountsAsyncV1**](#delete-accounts-async-v1) | **POST** `/sources/v1/{id}/remove-accounts` | Remove all accounts in source
 [**Remove-NativeChangeDetectionConfigV1**](#delete-native-change-detection-config-v1) | **DELETE** `/sources/v1/{sourceId}/native-change-detection-config` | Delete native change detection configuration
 [**Remove-ProvisioningPolicyV1**](#delete-provisioning-policy-v1) | **DELETE** `/sources/v1/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
+[**Remove-ProvisioningPolicyV2**](#delete-provisioning-policy-v2) | **DELETE** `/sources/v2/{sourceId}/provisioning-policies/{id}` | Delete provisioning policy by ID
 [**Remove-SourceScheduleV1**](#delete-source-schedule-v1) | **DELETE** `/sources/v1/{sourceId}/schedules/{scheduleType}` | Delete source schedule by type.
 [**Remove-SourceSchemaV1**](#delete-source-schema-v1) | **DELETE** `/sources/v1/{sourceId}/schemas/{schemaId}` | Delete source schema by id
 [**Remove-SourceV1**](#delete-source-v1) | **DELETE** `/sources/v1/{id}` | Delete source by id
@@ -91,6 +93,7 @@ Method | HTTP request | Description
 [**Get-MachineAccountDeletionApprovalConfigBySourceV1**](#get-machine-account-deletion-approval-config-by-source-v1) | **GET** `/sources/v1/{sourceId}/approval-config/machine-account-delete` | Machine Account Deletion Approval Config
 [**Get-NativeChangeDetectionConfigV1**](#get-native-change-detection-config-v1) | **GET** `/sources/v1/{sourceId}/native-change-detection-config` | Native change detection configuration
 [**Get-ProvisioningPolicyV1**](#get-provisioning-policy-v1) | **GET** `/sources/v1/{sourceId}/provisioning-policies/{usageType}` | Get provisioning policy by usagetype
+[**Get-ProvisioningPolicyV2**](#get-provisioning-policy-v2) | **GET** `/sources/v2/{sourceId}/provisioning-policies/{id}` | Get provisioning policy by ID
 [**Get-SourceAttrSyncConfigV1**](#get-source-attr-sync-config-v1) | **GET** `/sources/v1/{id}/attribute-sync-config` | Attribute sync config
 [**Get-SourceConfigV1**](#get-source-config-v1) | **GET** `/sources/v1/{id}/connectors/source-config` | Gets source config with language-translations
 [**Get-SourceConnectionsV1**](#get-source-connections-v1) | **GET** `/sources/v1/{sourceId}/connections` | Get source connections by id
@@ -109,11 +112,13 @@ Method | HTTP request | Description
 [**Import-UncorrelatedAccountsV1**](#import-uncorrelated-accounts-v1) | **POST** `/sources/v1/{id}/load-uncorrelated-accounts` | Process uncorrelated accounts
 [**Get-PasswordPolicyHoldersOnSourceV1**](#list-password-policy-holders-on-source-v1) | **GET** `/sources/v1/{sourceId}/password-policies` | Get Password Policy for source
 [**Get-ProvisioningPoliciesV1**](#list-provisioning-policies-v1) | **GET** `/sources/v1/{sourceId}/provisioning-policies` | Lists provisioningpolicies
+[**Get-ProvisioningPoliciesV2**](#list-provisioning-policies-v2) | **GET** `/sources/v2/{sourceId}/provisioning-policies` | Lists Provisioning Policies
 [**Get-SourcesV1**](#list-sources-v1) | **GET** `/sources/v1` | Lists all sources in identitynow.
 [**Ping-ClusterV1**](#ping-cluster-v1) | **POST** `/sources/v1/{sourceId}/connector/ping-cluster` | Ping cluster for source connector
 [**Send-CorrelationConfigV1**](#put-correlation-config-v1) | **PUT** `/sources/v1/{id}/correlation-config` | Update source correlation configuration
 [**Send-NativeChangeDetectionConfigV1**](#put-native-change-detection-config-v1) | **PUT** `/sources/v1/{sourceId}/native-change-detection-config` | Update native change detection configuration
 [**Send-ProvisioningPolicyV1**](#put-provisioning-policy-v1) | **PUT** `/sources/v1/{sourceId}/provisioning-policies/{usageType}` | Update provisioning policy by usagetype
+[**Send-ProvisioningPolicyV2**](#put-provisioning-policy-v2) | **PUT** `/sources/v2/{sourceId}/provisioning-policies/{id}` | Update provisioning policy by ID
 [**Send-SourceAttrSyncConfigV1**](#put-source-attr-sync-config-v1) | **PUT** `/sources/v1/{id}/attribute-sync-config` | Update attribute sync config
 [**Send-SourceSchemaV1**](#put-source-schema-v1) | **PUT** `/sources/v1/{sourceId}/schemas/{schemaId}` | Update source schema (full)
 [**Send-SourceV1**](#put-source-v1) | **PUT** `/sources/v1/{id}` | Update source (full)
@@ -126,6 +131,7 @@ Method | HTTP request | Description
 [**Update-PasswordPolicyHoldersV1**](#update-password-policy-holders-v1) | **PATCH** `/sources/v1/{sourceId}/password-policies` | Update password policy
 [**Update-ProvisioningPoliciesInBulkV1**](#update-provisioning-policies-in-bulk-v1) | **POST** `/sources/v1/{sourceId}/provisioning-policies/bulk-update` | Bulk update provisioning policies
 [**Update-ProvisioningPolicyV1**](#update-provisioning-policy-v1) | **PATCH** `/sources/v1/{sourceId}/provisioning-policies/{usageType}` | Partial update of provisioning policy
+[**Update-ProvisioningPolicyV2**](#update-provisioning-policy-v2) | **PATCH** `/sources/v2/{sourceId}/provisioning-policies/{id}` | Partial update of provisioning policy
 [**Update-SourceEntitlementRequestConfigV1**](#update-source-entitlement-request-config-v1) | **PUT** `/sources/v1/{id}/entitlement-request-config` | Update source entitlement request configuration
 [**Update-SourceScheduleV1**](#update-source-schedule-v1) | **PATCH** `/sources/v1/{sourceId}/schedules/{scheduleType}` | Update source schedule (partial)
 [**Update-SourceSchemaV1**](#update-source-schema-v1) | **PATCH** `/sources/v1/{sourceId}/schemas/{schemaId}` | Update source schema (partial)
@@ -178,6 +184,66 @@ try {
     # New-ProvisioningPolicyV1 -SourceId $SourceId -Provisioningpolicydto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ProvisioningPolicyV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## create-provisioning-policy-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types.
+Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+The V2 API allows you to use a unique identifier (id) for each provisioning policy instead of usageType. This enables read, update, and delete operations on policies using their id.
+Note: The subtypeId field is required if usageType is CREATE_MACHINE_ACCOUNT.
+Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/create-provisioning-policy-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | The Source id
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | Provisioningpolicydtov2 | [**Provisioningpolicydtov2**](../models/provisioningpolicydtov2) | True  | 
+  Query | UseDefaultFields | **Boolean** |   (optional) (default to $false) | If passed as true, then it uses default fields from the connector template.
+
+### Return type
+[**Provisioningpolicydtov2**](../models/provisioningpolicydtov2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+201 | Created ProvisioningPolicyDtoV2 object | Provisioningpolicydtov2
+400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Provisioningpolicydtov2 = @"{"name":"Account","description":"Account Provisioning Policy","usageType":"CREATE","fields":[{"name":"displayName","transform":{"type":"identityAttribute","attributes":{"name":"displayName"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false},{"name":"distinguishedName","transform":{"type":"usernameGenerator","attributes":{"sourceCheck":true,"patterns":["CN=$fi $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fti $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fn $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fn$ln<uniqueCounter>,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"],"fn":{"type":"identityAttribute","attributes":{"name":"firstname"}},"ln":{"type":"identityAttribute","attributes":{"name":"lastname"}},"fi":{"type":"substring","attributes":{"input":{"type":"identityAttribute","attributes":{"name":"firstname"}},"begin":0,"end":1}},"fti":{"type":"substring","attributes":{"input":{"type":"identityAttribute","attributes":{"name":"firstname"}},"begin":0,"end":2}}}},"attributes":{"cloudMaxUniqueChecks":"5","cloudMaxSize":"100","cloudRequired":"true"},"isRequired":false,"type":"","isMultiValued":false},{"name":"description","transform":{"type":"static","attributes":{"value":""}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}]}"@
+$UseDefaultFields = $false # Boolean | If passed as true, then it uses default fields from the connector template. (optional) (default to $false)
+
+# Create provisioning policy
+
+try {
+    $Result = ConvertFrom-JsonToProvisioningpolicydtov2 -Json $Provisioningpolicydtov2
+    New-ProvisioningPolicyV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Provisioningpolicydtov2 $Result 
+    
+    # Below is a request that includes all optional parameters
+    # New-ProvisioningPolicyV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Provisioningpolicydtov2 $Result -UseDefaultFields $UseDefaultFields  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ProvisioningPolicyV2"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -469,6 +535,59 @@ try {
     # Remove-ProvisioningPolicyV1 -SourceId $SourceId -UsageType $UsageType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ProvisioningPolicyV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## delete-provisioning-policy-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Deletes the provisioning policy with the specified ID on an application.
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-provisioning-policy-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | The Source ID.
+Path   | Id | **String** | True  | The provisioning policy ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
+400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+$Id = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The provisioning policy ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Delete provisioning policy by ID
+
+try {
+    Remove-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ProvisioningPolicyV2"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -942,6 +1061,59 @@ try {
     # Get-ProvisioningPolicyV1 -SourceId $SourceId -UsageType $UsageType  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ProvisioningPolicyV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-provisioning-policy-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-provisioning-policy-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | The Source ID.
+Path   | Id | **String** | True  | The provisioning policy ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+
+### Return type
+[**Provisioningpolicydtov2**](../models/provisioningpolicydtov2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The requested ProvisioningPolicyDtoV2 was successfully retrieved. | Provisioningpolicydtov2
+400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+$Id = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The provisioning policy ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+
+# Get provisioning policy by ID
+
+try {
+    Get-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ProvisioningPolicyV2"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -1847,6 +2019,63 @@ try {
 ```
 [[Back to top]](#) 
 
+## list-provisioning-policies-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This end-point lists all the ProvisioningPolicies in IdentityNow.
+
+[API Spec](https://developer.sailpoint.com/docs/api/list-provisioning-policies-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | The Source id
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
+  Query | Offset | **Int64** |   (optional) (default to 0) | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+  Query | Limit | **Int64** |   (optional) (default to 250) | Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+
+### Return type
+[**Provisioningpolicydtov2[]**](../models/provisioningpolicydtov2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of ProvisioningPolicyDto objects | Provisioningpolicydtov2[]
+400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Filters = 'subtypeId eq "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq* (optional)
+$Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+$Limit = 250 # Int64 | Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+
+# Lists Provisioning Policies
+
+try {
+    Get-ProvisioningPoliciesV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Get-ProvisioningPoliciesV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Offset $Offset -Limit $Limit  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ProvisioningPoliciesV2"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## list-sources-v1
 This end-point lists all the sources in IdentityNow.
 
@@ -2097,6 +2326,64 @@ try {
     # Send-ProvisioningPolicyV1 -SourceId $SourceId -UsageType $UsageType -Provisioningpolicydto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ProvisioningPolicyV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## put-provisioning-policy-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud.
+Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/put-provisioning-policy-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | The Source ID.
+Path   | Id | **String** | True  | The provisioning policy ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | Provisioningpolicydtov2 | [**Provisioningpolicydtov2**](../models/provisioningpolicydtov2) | True  | 
+
+### Return type
+[**Provisioningpolicydtov2**](../models/provisioningpolicydtov2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The ProvisioningPolicyDto was successfully replaced. | Provisioningpolicydtov2
+400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+$Id = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The provisioning policy ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Provisioningpolicydtov2 = @""@
+
+# Update provisioning policy by ID
+
+try {
+    $Result = ConvertFrom-JsonToProvisioningpolicydtov2 -Json $Provisioningpolicydtov2
+    Send-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental -Provisioningpolicydtov2 $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Send-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental -Provisioningpolicydtov2 $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ProvisioningPolicyV2"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -2727,6 +3014,65 @@ try {
     # Update-ProvisioningPolicyV1 -SourceId $SourceId -UsageType $UsageType -Jsonpatchoperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ProvisioningPolicyV1"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-provisioning-policy-v2
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
+Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
+Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-provisioning-policy-v-2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | The Source id.
+Path   | Id | **String** | True  | The provisioning policy ID.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+ Body  | Jsonpatchoperation | [**[]Jsonpatchoperation**](../models/jsonpatchoperation) | True  | The JSONPatch payload used to update the schema.
+
+### Return type
+[**Provisioningpolicydtov2**](../models/provisioningpolicydtov2)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The ProvisioningPolicyDtoV2 was successfully updated. | Provisioningpolicydtov2
+400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListSourcesV1401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListSourcesV1429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
+
+### HTTP request headers
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+$Id = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The provisioning policy ID.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+ $Jsonpatchoperation = @"[{"op":"add","path":"/fields/0","value":{"name":"email","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}}]"@ # Jsonpatchoperation[] | The JSONPatch payload used to update the schema.
+ 
+
+# Partial update of provisioning policy
+
+try {
+    $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+    Update-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ProvisioningPolicyV2"
     Write-Host $_.ErrorDetails
 }
 ```

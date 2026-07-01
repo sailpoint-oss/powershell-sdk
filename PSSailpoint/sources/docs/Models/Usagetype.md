@@ -47,6 +47,8 @@ tags: ['SDK', 'Software Development Kit', 'Usagetype', 'Usagetype']
 
 * `CHANGE_PASSWORD` (value: `"CHANGE_PASSWORD"`)
 
+* `CREATE_MACHINE_ACCOUNT` (value: `"CREATE_MACHINE_ACCOUNT"`)
+
 
 [[Back to top]](#) 
 

@@ -14,6 +14,14 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
         }
     }
 
+    Context 'New-ProvisioningPolicyV2' {
+        It 'Test New-ProvisioningPolicyV2' {
+            #$TestResult = New-ProvisioningPolicyV2 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Provisioningpolicydtov2 "TEST_VALUE" -UseDefaultFields "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'New-SourceScheduleV1' {
         It 'Test New-SourceScheduleV1' {
             #$TestResult = New-SourceScheduleV1 -SourceId "TEST_VALUE" -Schedule3 "TEST_VALUE"
@@ -57,6 +65,14 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
     Context 'Remove-ProvisioningPolicyV1' {
         It 'Test Remove-ProvisioningPolicyV1' {
             #$TestResult = Remove-ProvisioningPolicyV1 -SourceId "TEST_VALUE" -UsageType "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-ProvisioningPolicyV2' {
+        It 'Test Remove-ProvisioningPolicyV2' {
+            #$TestResult = Remove-ProvisioningPolicyV2 -SourceId "TEST_VALUE" -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -137,6 +153,14 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
     Context 'Get-ProvisioningPolicyV1' {
         It 'Test Get-ProvisioningPolicyV1' {
             #$TestResult = Get-ProvisioningPolicyV1 -SourceId "TEST_VALUE" -UsageType "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-ProvisioningPolicyV2' {
+        It 'Test Get-ProvisioningPolicyV2' {
+            #$TestResult = Get-ProvisioningPolicyV2 -SourceId "TEST_VALUE" -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -286,6 +310,14 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
         }
     }
 
+    Context 'Get-ProvisioningPoliciesV2' {
+        It 'Test Get-ProvisioningPoliciesV2' {
+            #$TestResult = Get-ProvisioningPoliciesV2 -SourceId "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Offset "TEST_VALUE" -Limit "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-SourcesV1' {
         It 'Test Get-SourcesV1' {
             #$TestResult = Get-SourcesV1 -Limit "TEST_VALUE" -Offset "TEST_VALUE" -Count "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -ForSubadmin "TEST_VALUE" -IncludeIDNSource "TEST_VALUE"
@@ -321,6 +353,14 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
     Context 'Send-ProvisioningPolicyV1' {
         It 'Test Send-ProvisioningPolicyV1' {
             #$TestResult = Send-ProvisioningPolicyV1 -SourceId "TEST_VALUE" -UsageType "TEST_VALUE" -Provisioningpolicydto "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Send-ProvisioningPolicyV2' {
+        It 'Test Send-ProvisioningPolicyV2' {
+            #$TestResult = Send-ProvisioningPolicyV2 -SourceId "TEST_VALUE" -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Provisioningpolicydtov2 "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -417,6 +457,14 @@ Describe -tag 'PSSailpoint.Sources' -name 'SourcesApi' {
     Context 'Update-ProvisioningPolicyV1' {
         It 'Test Update-ProvisioningPolicyV1' {
             #$TestResult = Update-ProvisioningPolicyV1 -SourceId "TEST_VALUE" -UsageType "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-ProvisioningPolicyV2' {
+        It 'Test Update-ProvisioningPolicyV2' {
+            #$TestResult = Update-ProvisioningPolicyV2 -SourceId "TEST_VALUE" -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

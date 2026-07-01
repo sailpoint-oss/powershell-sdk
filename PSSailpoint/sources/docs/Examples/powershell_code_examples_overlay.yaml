@@ -21,6 +21,31 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ProvisioningPolicyV1"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/v2/{sourceId}/provisioning-policies
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#create-provisioning-policy-v2
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Provisioningpolicydtov2 = @"
+        {"name":"Account","description":"Account Provisioning Policy","usageType":"CREATE","fields":[{"name":"displayName","transform":{"type":"identityAttribute","attributes":{"name":"displayName"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false},{"name":"distinguishedName","transform":{"type":"usernameGenerator","attributes":{"sourceCheck":true,"patterns":["CN=$fi $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fti $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fn $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fn$ln<uniqueCounter>,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"],"fn":{"type":"identityAttribute","attributes":{"name":"firstname"}},"ln":{"type":"identityAttribute","attributes":{"name":"lastname"}},"fi":{"type":"substring","attributes":{"input":{"type":"identityAttribute","attributes":{"name":"firstname"}},"begin":0,"end":1}},"fti":{"type":"substring","attributes":{"input":{"type":"identityAttribute","attributes":{"name":"firstname"}},"begin":0,"end":2}}}},"attributes":{"cloudMaxUniqueChecks":"5","cloudMaxSize":"100","cloudRequired":"true"},"isRequired":false,"type":"","isMultiValued":false},{"name":"description","transform":{"type":"static","attributes":{"value":""}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}]}
+        "@
+        $UseDefaultFields = $false # Boolean | If passed as true, then it uses default fields from the connector template. (optional) (default to $false)
+        
+        # Create provisioning policy
+        
+        try {
+            $Result = ConvertFrom-JsonToProvisioningpolicydtov2 -Json $Provisioningpolicydtov2
+            New-ProvisioningPolicyV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Provisioningpolicydtov2 $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-ProvisioningPolicyV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Provisioningpolicydtov2 $Result -UseDefaultFields $UseDefaultFields   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-ProvisioningPolicyV2"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/v1/{sourceId}/schedules
   method: POST
   xCodeSample:
@@ -146,6 +171,27 @@
             # Remove-ProvisioningPolicyV1 -SourceId $SourceId -UsageType $UsageType   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ProvisioningPolicyV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v2/{sourceId}/provisioning-policies/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#delete-provisioning-policy-v2
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+        $Id = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The provisioning policy ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete provisioning policy by ID
+        
+        try {
+            Remove-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-ProvisioningPolicyV2"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/{sourceId}/schedules/{scheduleType}
@@ -340,6 +386,27 @@
             # Get-ProvisioningPolicyV1 -SourceId $SourceId -UsageType $UsageType   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ProvisioningPolicyV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v2/{sourceId}/provisioning-policies/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#get-provisioning-policy-v2
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+        $Id = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The provisioning policy ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get provisioning policy by ID
+        
+        try {
+            Get-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ProvisioningPolicyV2"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/{id}/attribute-sync-config
@@ -704,6 +771,29 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ProvisioningPoliciesV1"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/v2/{sourceId}/provisioning-policies
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#list-provisioning-policies-v2
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "subtypeId eq "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq* (optional)
+        $Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+        $Limit = 250 # Int64 | Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+        
+        # Lists Provisioning Policies
+        
+        try {
+            Get-ProvisioningPoliciesV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-ProvisioningPoliciesV2 -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-ProvisioningPoliciesV2"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/v1
   method: GET
   xCodeSample:
@@ -816,6 +906,31 @@
             # Send-ProvisioningPolicyV1 -SourceId $SourceId -UsageType $UsageType -Provisioningpolicydto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ProvisioningPolicyV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v2/{sourceId}/provisioning-policies/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#put-provisioning-policy-v2
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+        $Id = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The provisioning policy ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Provisioningpolicydtov2 = @"
+        
+        "@
+        
+        # Update provisioning policy by ID
+        
+        try {
+            $Result = ConvertFrom-JsonToProvisioningpolicydtov2 -Json $Provisioningpolicydtov2
+            Send-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental -Provisioningpolicydtov2 $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental -Provisioningpolicydtov2 $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-ProvisioningPolicyV2"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/{id}/attribute-sync-config
@@ -1079,6 +1194,30 @@
             # Update-ProvisioningPolicyV1 -SourceId $SourceId -UsageType $UsageType -Jsonpatchoperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ProvisioningPolicyV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v2/{sourceId}/provisioning-policies/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/sources/methods/sources#update-provisioning-policy-v2
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
+        $Id = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The provisioning policy ID.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Jsonpatchoperation = @"[{"op":"add","path":"/fields/0","value":{"name":"email","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}}]"@ 
+        
+        
+        # Partial update of provisioning policy
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-ProvisioningPolicyV2 -SourceId $SourceId -Id $Id -XSailPointExperimental $XSailPointExperimental -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-ProvisioningPolicyV2"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/{id}/entitlement-request-config

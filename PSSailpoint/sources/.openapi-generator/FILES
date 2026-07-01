@@ -50,6 +50,7 @@ docs/Entitlementrevocationrequestconfig.md
 docs/Errormessagedto.md
 docs/Errorresponsedto.md
 docs/Fielddetailsdto.md
+docs/Fielddetailsdtov2.md
 docs/Firstvalid.md
 docs/Generaterandomstring.md
 docs/Getreferenceidentityattribute.md
@@ -88,6 +89,7 @@ docs/PasswordpolicyholdersdtoInner.md
 docs/Passwordpolicyholdersdtoattributes.md
 docs/PasswordpolicyholdersdtoattributesIdentityAttrInner.md
 docs/Provisioningpolicydto.md
+docs/Provisioningpolicydtov2.md
 docs/Randomalphanumeric.md
 docs/Randomnumeric.md
 docs/Reference2.md
@@ -180,6 +182,7 @@ src/PSSailpoint.Sources/Model/Entitlementrevocationrequestconfig.ps1
 src/PSSailpoint.Sources/Model/Errormessagedto.ps1
 src/PSSailpoint.Sources/Model/Errorresponsedto.ps1
 src/PSSailpoint.Sources/Model/Fielddetailsdto.ps1
+src/PSSailpoint.Sources/Model/Fielddetailsdtov2.ps1
 src/PSSailpoint.Sources/Model/Firstvalid.ps1
 src/PSSailpoint.Sources/Model/Generaterandomstring.ps1
 src/PSSailpoint.Sources/Model/Getreferenceidentityattribute.ps1
@@ -217,6 +220,7 @@ src/PSSailpoint.Sources/Model/PasswordpolicyholdersdtoInner.ps1
 src/PSSailpoint.Sources/Model/Passwordpolicyholdersdtoattributes.ps1
 src/PSSailpoint.Sources/Model/PasswordpolicyholdersdtoattributesIdentityAttrInner.ps1
 src/PSSailpoint.Sources/Model/Provisioningpolicydto.ps1
+src/PSSailpoint.Sources/Model/Provisioningpolicydtov2.ps1
 src/PSSailpoint.Sources/Model/Randomalphanumeric.ps1
 src/PSSailpoint.Sources/Model/Randomnumeric.ps1
 src/PSSailpoint.Sources/Model/Reference2.ps1
@@ -313,6 +317,7 @@ tests/Model/Entitlementrevocationrequestconfig.Tests.ps1
 tests/Model/Errormessagedto.Tests.ps1
 tests/Model/Errorresponsedto.Tests.ps1
 tests/Model/Fielddetailsdto.Tests.ps1
+tests/Model/Fielddetailsdtov2.Tests.ps1
 tests/Model/Firstvalid.Tests.ps1
 tests/Model/Generaterandomstring.Tests.ps1
 tests/Model/Getreferenceidentityattribute.Tests.ps1
@@ -350,6 +355,7 @@ tests/Model/PasswordpolicyholdersdtoInner.Tests.ps1
 tests/Model/Passwordpolicyholdersdtoattributes.Tests.ps1
 tests/Model/PasswordpolicyholdersdtoattributesIdentityAttrInner.Tests.ps1
 tests/Model/Provisioningpolicydto.Tests.ps1
+tests/Model/Provisioningpolicydtov2.Tests.ps1
 tests/Model/Randomalphanumeric.Tests.ps1
 tests/Model/Randomnumeric.Tests.ps1
 tests/Model/Reference2.Tests.ps1

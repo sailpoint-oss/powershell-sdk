@@ -1,0 +1,103 @@
+- path: /intelligence/v1/identities
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligence/methods/intelligence#get-identity-intelligence-v1
+      source: |
+        $Filters = "id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
+        
+        # Get identity by filter
+        
+        try {
+            Get-IdentityIntelligenceV1 -Filters $Filters 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IdentityIntelligenceV1 -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IdentityIntelligenceV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /intelligence/v1/identities/{id}/access-history/access-items
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligence/methods/intelligence#get-intel-identity-access-item-history-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence sub-resources.
+        $Limit = 250 # Int32 | Page size. Defaults to 250; values above 250 are rejected with 400. (optional) (default to 250)
+        $Offset = 0 # Int32 | Zero-based page offset. Defaults to 0. (optional) (default to 0)
+        
+        # List identity access item history
+        
+        try {
+            Get-IntelIdentityAccessItemHistoryV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IntelIdentityAccessItemHistoryV1 -Id $Id -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityAccessItemHistoryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /intelligence/v1/identities/{id}/accounts
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligence/methods/intelligence#get-intel-identity-accounts-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence sub-resources.
+        $Limit = 250 # Int32 | Page size. Defaults to 250; values above 250 are rejected with 400. (optional) (default to 250)
+        $Offset = 0 # Int32 | Zero-based page offset. Defaults to 0. (optional) (default to 0)
+        
+        # List identity accounts
+        
+        try {
+            Get-IntelIdentityAccountsV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IntelIdentityAccountsV1 -Id $Id -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityAccountsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /intelligence/v1/identities/{id}/access-history/certifications
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligence/methods/intelligence#get-intel-identity-certification-history-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence sub-resources.
+        $Limit = 250 # Int32 | Page size. Defaults to 250; values above 250 are rejected with 400. (optional) (default to 250)
+        $Offset = 0 # Int32 | Zero-based page offset. Defaults to 0. (optional) (default to 0)
+        
+        # List identity certification history
+        
+        try {
+            Get-IntelIdentityCertificationHistoryV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IntelIdentityCertificationHistoryV1 -Id $Id -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityCertificationHistoryV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /intelligence/v1/identities/{id}/outliers/rare-access
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/intelligence/methods/intelligence#get-intel-identity-rare-access-v1
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Non-empty identity id path segment for Intelligence sub-resources.
+        $Limit = 250 # Int32 | Page size. Defaults to 250; values above 250 are rejected with 400. (optional) (default to 250)
+        $Offset = 0 # Int32 | Zero-based page offset. Defaults to 0. (optional) (default to 0)
+        
+        # List identity rare access
+        
+        try {
+            Get-IntelIdentityRareAccessV1 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-IntelIdentityRareAccessV1 -Id $Id -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-IntelIdentityRareAccessV1"
+            Write-Host $_.ErrorDetails
+        }

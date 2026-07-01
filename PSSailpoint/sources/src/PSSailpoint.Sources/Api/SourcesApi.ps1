@@ -106,6 +106,125 @@ function New-ProvisioningPolicyV1 {
 <#
 .SYNOPSIS
 
+Create provisioning policy
+
+.DESCRIPTION
+
+This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. The V2 API allows you to use a unique identifier (id) for each provisioning policy instead of usageType. This enables read, update, and delete operations on policies using their id. Note: The subtypeId field is required if usageType is CREATE_MACHINE_ACCOUNT. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+.PARAMETER SourceId
+The Source id
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER Provisioningpolicydtov2
+No description available.
+
+.PARAMETER UseDefaultFields
+If passed as true, then it uses default fields from the connector template.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Provisioningpolicydtov2
+#>
+function New-ProvisioningPolicyV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Provisioningpolicydtov2},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Boolean]]
+        ${UseDefaultFields},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: New-ProvisioningPolicyV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/sources/v2/{sourceId}/provisioning-policies'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling createProvisioningPolicyV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling createProvisioningPolicyV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if ($UseDefaultFields) {
+            $LocalVarQueryParameters['useDefaultFields'] = $UseDefaultFields
+        }
+
+        if (!$Provisioningpolicydtov2) {
+            throw "Error! The required parameter `Provisioningpolicydtov2` missing when calling createProvisioningPolicyV2."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Provisioningpolicydtov2 -is [array])) {
+            $LocalVarBodyParameter = $Provisioningpolicydtov2 | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Provisioningpolicydtov2 | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'POST' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Provisioningpolicydtov2" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Create schedule on source
 
 .DESCRIPTION
@@ -602,6 +721,99 @@ function Remove-ProvisioningPolicyV1 {
             throw "Error! The required parameter `UsageType` missing when calling deleteProvisioningPolicyV1."
         }
         $LocalVarUri = $LocalVarUri.replace('{usageType}', [System.Web.HTTPUtility]::UrlEncode($UsageType))
+
+        $LocalVarResult = Invoke-ApiClient -Method 'DELETE' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Delete provisioning policy by ID
+
+.DESCRIPTION
+
+Deletes the provisioning policy with the specified ID on an application.
+
+.PARAMETER SourceId
+The Source ID.
+
+.PARAMETER Id
+The provisioning policy ID.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+None
+#>
+function Remove-ProvisioningPolicyV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Remove-ProvisioningPolicyV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/sources/v2/{sourceId}/provisioning-policies/{id}'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling deleteProvisioningPolicyV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling deleteProvisioningPolicyV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling deleteProvisioningPolicyV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
 
         $LocalVarResult = Invoke-ApiClient -Method 'DELETE' `
                                 -Uri $LocalVarUri `
@@ -1398,6 +1610,99 @@ function Get-ProvisioningPolicyV1 {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "Provisioningpolicydto" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Get provisioning policy by ID
+
+.DESCRIPTION
+
+This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+
+.PARAMETER SourceId
+The Source ID.
+
+.PARAMETER Id
+The provisioning policy ID.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Provisioningpolicydtov2
+#>
+function Get-ProvisioningPolicyV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-ProvisioningPolicyV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/sources/v2/{sourceId}/provisioning-policies/{id}'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling getProvisioningPolicyV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling getProvisioningPolicyV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling getProvisioningPolicyV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Provisioningpolicydtov2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -2930,6 +3235,119 @@ function Get-ProvisioningPoliciesV1 {
 <#
 .SYNOPSIS
 
+Lists Provisioning Policies
+
+.DESCRIPTION
+
+This end-point lists all the ProvisioningPolicies in IdentityNow.
+
+.PARAMETER SourceId
+The Source id
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER Filters
+Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
+
+.PARAMETER Offset
+Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+
+.PARAMETER Limit
+Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Provisioningpolicydtov2[]
+#>
+function Get-ProvisioningPoliciesV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Filters},
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int64]]
+        ${Offset},
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [System.Nullable[Int64]]
+        ${Limit},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Get-ProvisioningPoliciesV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        $LocalVarUri = '/sources/v2/{sourceId}/provisioning-policies'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling listProvisioningPoliciesV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling listProvisioningPoliciesV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if ($Filters) {
+            $LocalVarQueryParameters['filters'] = $Filters
+        }
+
+        if ($Offset) {
+            $LocalVarQueryParameters['offset'] = $Offset
+        }
+
+        if ($Limit) {
+            $LocalVarQueryParameters['limit'] = $Limit
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'GET' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Provisioningpolicydtov2[]" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
 Lists all sources in identitynow.
 
 .DESCRIPTION
@@ -3425,6 +3843,125 @@ function Send-ProvisioningPolicyV1 {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "Provisioningpolicydto" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Update provisioning policy by ID
+
+.DESCRIPTION
+
+This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+.PARAMETER SourceId
+The Source ID.
+
+.PARAMETER Id
+The provisioning policy ID.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER Provisioningpolicydtov2
+No description available.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Provisioningpolicydtov2
+#>
+function Send-ProvisioningPolicyV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject]
+        ${Provisioningpolicydtov2},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Send-ProvisioningPolicyV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json')
+
+        $LocalVarUri = '/sources/v2/{sourceId}/provisioning-policies/{id}'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling putProvisioningPolicyV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling putProvisioningPolicyV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling putProvisioningPolicyV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if (!$Provisioningpolicydtov2) {
+            throw "Error! The required parameter `Provisioningpolicydtov2` missing when calling putProvisioningPolicyV2."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Provisioningpolicydtov2 -is [array])) {
+            $LocalVarBodyParameter = $Provisioningpolicydtov2 | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Provisioningpolicydtov2 | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'PUT' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Provisioningpolicydtov2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -4565,6 +5102,125 @@ function Update-ProvisioningPolicyV1 {
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
                                 -ReturnType "Provisioningpolicydto" `
+                                -IsBodyNullable $false
+
+        if ($WithHttpInfo.IsPresent) {
+            return $LocalVarResult
+        } else {
+            return $LocalVarResult["Response"]
+        }
+    }
+}
+
+<#
+.SYNOPSIS
+
+Partial update of provisioning policy
+
+.DESCRIPTION
+
+This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+
+.PARAMETER SourceId
+The Source id.
+
+.PARAMETER Id
+The provisioning policy ID.
+
+.PARAMETER XSailPointExperimental
+Use this header to enable this experimental API.
+
+.PARAMETER Jsonpatchoperation
+The JSONPatch payload used to update the schema.
+
+.PARAMETER WithHttpInfo
+
+A switch when turned on will return a hash table of Response, StatusCode and Headers instead of just the Response
+
+.OUTPUTS
+
+Provisioningpolicydtov2
+#>
+function Update-ProvisioningPolicyV2 {
+    [CmdletBinding()]
+    Param (
+        [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${SourceId},
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${Id},
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        $XSailPointExperimental = "true",
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [PSCustomObject[]]
+        ${Jsonpatchoperation},
+        [Switch]
+        $WithHttpInfo
+    )
+
+    Process {
+        'Calling method: Update-ProvisioningPolicyV2' | Write-Debug
+        $PSBoundParameters | Out-DebugParameter | Write-Debug
+
+        $LocalVarAccepts = @()
+        $LocalVarContentTypes = @()
+        $LocalVarQueryParameters = @{}
+        $LocalVarHeaderParameters = @{}
+        $LocalVarFormParameters = @{}
+        $LocalVarPathParameters = @{}
+        $LocalVarCookieParameters = @{}
+        $LocalVarBodyParameter = $null
+
+        # HTTP header 'Accept' (if needed)
+        $LocalVarAccepts = @('application/json')
+
+        # HTTP header 'Content-Type'
+        $LocalVarContentTypes = @('application/json-patch+json')
+
+        $LocalVarUri = '/sources/v2/{sourceId}/provisioning-policies/{id}'
+        if (!$SourceId) {
+            throw "Error! The required parameter `SourceId` missing when calling updateProvisioningPolicyV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{sourceId}', [System.Web.HTTPUtility]::UrlEncode($SourceId))
+        if (!$Id) {
+            throw "Error! The required parameter `Id` missing when calling updateProvisioningPolicyV2."
+        }
+        $LocalVarUri = $LocalVarUri.replace('{id}', [System.Web.HTTPUtility]::UrlEncode($Id))
+
+        if (!$XSailPointExperimental) {
+            throw "Error! The required parameter `XSailPointExperimental` missing when calling updateProvisioningPolicyV2."
+        }
+        $LocalVarHeaderParameters['X-SailPoint-Experimental'] = $XSailPointExperimental
+
+        if (!$Jsonpatchoperation) {
+            throw "Error! The required parameter `Jsonpatchoperation` missing when calling updateProvisioningPolicyV2."
+        }
+
+        if ($LocalVarContentTypes.Contains('application/json-patch+json') -or ($Jsonpatchoperation -is [array])) {
+            $LocalVarBodyParameter = $Jsonpatchoperation | ConvertTo-Json -AsArray -Depth 100
+        } else {
+            $LocalVarBodyParameter = $Jsonpatchoperation | ForEach-Object {
+            # Get array of names of object properties that can be cast to boolean TRUE
+            # PSObject.Properties - https://msdn.microsoft.com/en-us/library/system.management.automation.psobject.properties.aspx
+            $NonEmptyProperties = $_.psobject.Properties | Where-Object {$null -ne $_.Value} | Select-Object -ExpandProperty Name
+        
+            # Convert object to JSON with only non-empty properties
+            $_ | Select-Object -Property $NonEmptyProperties | ConvertTo-Json -Depth 100
+            }
+        }
+
+        $LocalVarResult = Invoke-ApiClient -Method 'PATCH' `
+                                -Uri $LocalVarUri `
+                                -Accepts $LocalVarAccepts `
+                                -ContentTypes $LocalVarContentTypes `
+                                -Body $LocalVarBodyParameter `
+                                -HeaderParameters $LocalVarHeaderParameters `
+                                -QueryParameters $LocalVarQueryParameters `
+                                -FormParameters $LocalVarFormParameters `
+                                -CookieParameters $LocalVarCookieParameters `
+                                -ReturnType "Provisioningpolicydtov2" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

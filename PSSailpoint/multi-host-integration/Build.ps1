@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.MultiHostIntegration - the PowerShell module for Identity Security Cloud API - Multi-Host Integration'
 
-    ModuleVersion = '2.0.4'
+    ModuleVersion = '2.0.5'
 
     RootModule = 'PSSailpoint.MultiHostIntegration.psm1'
     Guid = '26A74F6B-E5E1-1CBC-43D8-1F5C86FC6351' # Has to be static, otherwise each new build will be considered different module

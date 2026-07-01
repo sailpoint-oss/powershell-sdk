@@ -37,7 +37,7 @@ function Initialize-Provisioningpolicydto {
         [String]
         ${Description},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet("CREATE", "UPDATE", "ENABLE", "DISABLE", "DELETE", "ASSIGN", "UNASSIGN", "CREATE_GROUP", "UPDATE_GROUP", "DELETE_GROUP", "REGISTER", "CREATE_IDENTITY", "UPDATE_IDENTITY", "EDIT_GROUP", "UNLOCK", "CHANGE_PASSWORD")]
+        [ValidateSet("CREATE", "UPDATE", "ENABLE", "DISABLE", "DELETE", "ASSIGN", "UNASSIGN", "CREATE_GROUP", "UPDATE_GROUP", "DELETE_GROUP", "REGISTER", "CREATE_IDENTITY", "UPDATE_IDENTITY", "EDIT_GROUP", "UNLOCK", "CHANGE_PASSWORD", "CREATE_MACHINE_ACCOUNT")]
         [PSCustomObject]
         ${UsageType},
         [Parameter(ValueFromPipelineByPropertyName = $true)]

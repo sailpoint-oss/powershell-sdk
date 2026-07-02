@@ -95,8 +95,8 @@ function Initialize-Intelidentityaggregate {
         [String]
         ${IdentityStatus},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Boolean]
-        ${IsManager},
+        [System.Nullable[Boolean]]
+        ${IsManager} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Accounts},
@@ -121,10 +121,6 @@ function Initialize-Intelidentityaggregate {
 
         if (!$Type) {
             throw "invalid value for 'Type', 'Type' cannot be null."
-        }
-
-        if (!$IsManager) {
-            throw "invalid value for 'IsManager', 'IsManager' cannot be null."
         }
 
         if (!$Accounts) {
@@ -217,12 +213,6 @@ function ConvertFrom-JsonToIntelidentityaggregate {
             $Type = $JsonParameters.PSobject.Properties["type"].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isManager"))) {
-            throw "Error! JSON cannot be serialized due to the required property 'isManager' missing."
-        } else {
-            $IsManager = $JsonParameters.PSobject.Properties["isManager"].value
-        }
-
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "accounts"))) {
             throw "Error! JSON cannot be serialized due to the required property 'accounts' missing."
         } else {
@@ -299,6 +289,12 @@ function ConvertFrom-JsonToIntelidentityaggregate {
             $IdentityStatus = $null
         } else {
             $IdentityStatus = $JsonParameters.PSobject.Properties["identityStatus"].value
+        }
+
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "isManager"))) { #optional property not found
+            $IsManager = $null
+        } else {
+            $IsManager = $JsonParameters.PSobject.Properties["isManager"].value
         }
 
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "outliers"))) { #optional property not found

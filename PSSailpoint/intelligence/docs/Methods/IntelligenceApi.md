@@ -38,12 +38,6 @@ access-history certifications. Paged slices include a next link only when more r
 The privilegedAccess slice contains the full result and is not paged.
 The outliers slice is omitted when the tenant lacks the IDA-outliers license.
 
-A single match returns HTTP 200 with IntelIdentityAggregate.
-
-Zero matches returns HTTP 404 with detailCode IDC_IDENTITY_NOT_FOUND.
-
-Multiple matches returns HTTP 409 with detailCode IDC_IDENTITY_AMBIGUOUS and candidates listing each match.
-
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-identity-intelligence-v-1)
 
@@ -59,13 +53,13 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | Exactly one identity matched. | Intelidentityaggregate
-400 | Missing or invalid filters. | Errorbody
+400 | Client Error - Returned if the request body is invalid. | Errorresponsedto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
-404 | No identity matched the filter. | Intelidentitynotfoundbody
-409 | Multiple identities matched the filter. | Intelidentityambiguousbody
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | Errorresponsedto
+409 | Multiple identities matched the filter. | Errorresponsedto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
-500 | Upstream or internal failure. | Errorbody
+500 | Internal Server Error - Returned if there is an unexpected error. | Errorresponsedto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -112,11 +106,11 @@ Path   | Id | **String** | True  | Non-empty identity id path segment for Intell
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | One page of access-item history events. | Intelaccessitemhistoryevent[]
-400 | Invalid path or query parameters. | Errorbody
+400 | Invalid path or query parameters. | Errorresponsedto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
-500 | Internal or upstream server failure. | Errorbody
+500 | Internal or upstream server failure. | Errorresponsedto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -164,11 +158,11 @@ Path   | Id | **String** | True  | Non-empty identity id path segment for Intell
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | One page of accounts. | Intelaccessaccountwire[]
-400 | Invalid path or query parameters. | Errorbody
+400 | Invalid path or query parameters. | Errorresponsedto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
-500 | Internal or upstream server failure. | Errorbody
+500 | Internal or upstream server failure. | Errorresponsedto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -217,11 +211,11 @@ Path   | Id | **String** | True  | Non-empty identity id path segment for Intell
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | One page of certification history events. | Intelcertificationhistoryevent[]
-400 | Invalid path or query parameters. | Errorbody
+400 | Invalid path or query parameters. | Errorresponsedto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
-500 | Internal or upstream server failure. | Errorbody
+500 | Internal or upstream server failure. | Errorresponsedto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -271,11 +265,11 @@ Path   | Id | **String** | True  | Non-empty identity id path segment for Intell
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | One page of rare access items. | Inteloutlieraccessitem[]
-400 | Invalid path or query parameters. | Errorbody
+400 | Invalid path or query parameters. | Errorresponsedto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | GetIdentityIntelligenceV1401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | Errorresponsedto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | GetIdentityIntelligenceV1429Response
-500 | Internal or upstream server failure. | Errorbody
+500 | Internal or upstream server failure. | Errorresponsedto
 
 ### HTTP request headers
 - **Content-Type**: Not defined

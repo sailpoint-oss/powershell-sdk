@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.CustomUserLevels - the PowerShell module for Identity Security Cloud API - Custom User Levels'
 
-    ModuleVersion = '2.0.5'
+    ModuleVersion = '2.0.6'
 
     RootModule = 'PSSailpoint.CustomUserLevels.psm1'
     Guid = '1A544D1A-8A00-0E77-186B-FCE62A2342AC' # Has to be static, otherwise each new build will be considered different module

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **Alias** | **String** | Primary login or account alias for the identity. | [optional] 
 **Email** | **String** | Primary business email address for the identity. | [optional] 
 **IdentityStatus** | **String** | Current identity lifecycle status label from Identity Security Cloud. | [optional] 
-**IsManager** | **Boolean** | True when the identity is flagged as a people manager in the organization. | [required]
+**IsManager** | **Boolean** | True when the identity is flagged as a people manager in the organization. | [optional] [default to $false]
 **Accounts** | [**Intelaccountsslice**](intelaccountsslice) | First page of accounts for the identity. | [required]
 **PrivilegedAccess** | [**Intelprivilegedaccessslice**](intelprivilegedaccessslice) | Full privileged access result for the identity. | [required]
 **Outliers** | [**Inteloutliersslice**](inteloutliersslice) | Rare access slice; omitted when the tenant lacks the IDA-outliers license. | [optional] 

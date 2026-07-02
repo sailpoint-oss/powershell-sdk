@@ -3,7 +3,6 @@ Build.ps1
 Index.md
 README.md
 appveyor.yml
-docs/Errorbody.md
 docs/Errormessagedto.md
 docs/Errorresponsedto.md
 docs/GetIdentityIntelligenceV1401Response.md
@@ -17,9 +16,6 @@ docs/Intelaccesssourcewire.md
 docs/Intelaccountsslice.md
 docs/Intelcertificationhistoryevent.md
 docs/Intelidentityaggregate.md
-docs/Intelidentityambiguousbody.md
-docs/Intelidentityambiguouscandidate.md
-docs/Intelidentitynotfoundbody.md
 docs/IntelligenceApi.md
 docs/IntelligenceApideveloperSite_code_examples.yaml
 docs/Inteloutlieraccessitem.md
@@ -32,7 +28,6 @@ docs/Localeorigin.md
 docs/Methods/Index.md
 src/PSSailpoint.Intelligence/Api/IntelligenceApi.ps1
 src/PSSailpoint.Intelligence/Client/Configuration.ps1
-src/PSSailpoint.Intelligence/Model/Errorbody.ps1
 src/PSSailpoint.Intelligence/Model/Errormessagedto.ps1
 src/PSSailpoint.Intelligence/Model/Errorresponsedto.ps1
 src/PSSailpoint.Intelligence/Model/GetIdentityIntelligenceV1401Response.ps1
@@ -46,9 +41,6 @@ src/PSSailpoint.Intelligence/Model/Intelaccesssourcewire.ps1
 src/PSSailpoint.Intelligence/Model/Intelaccountsslice.ps1
 src/PSSailpoint.Intelligence/Model/Intelcertificationhistoryevent.ps1
 src/PSSailpoint.Intelligence/Model/Intelidentityaggregate.ps1
-src/PSSailpoint.Intelligence/Model/Intelidentityambiguousbody.ps1
-src/PSSailpoint.Intelligence/Model/Intelidentityambiguouscandidate.ps1
-src/PSSailpoint.Intelligence/Model/Intelidentitynotfoundbody.ps1
 src/PSSailpoint.Intelligence/Model/Inteloutlieraccessitem.ps1
 src/PSSailpoint.Intelligence/Model/Inteloutliersslice.ps1
 src/PSSailpoint.Intelligence/Model/Intelprivilegedaccessitemwire.ps1
@@ -64,7 +56,6 @@ src/PSSailpoint.Intelligence/Private/Out-DebugParameter.ps1
 src/PSSailpoint.Intelligence/Private/RSAEncryptionProvider.cs
 src/PSSailpoint.Intelligence/en-US/about_PSSailpoint.Intelligence.help.txt
 tests/Api/IntelligenceApi.Tests.ps1
-tests/Model/Errorbody.Tests.ps1
 tests/Model/Errormessagedto.Tests.ps1
 tests/Model/Errorresponsedto.Tests.ps1
 tests/Model/GetIdentityIntelligenceV1401Response.Tests.ps1
@@ -78,9 +69,6 @@ tests/Model/Intelaccesssourcewire.Tests.ps1
 tests/Model/Intelaccountsslice.Tests.ps1
 tests/Model/Intelcertificationhistoryevent.Tests.ps1
 tests/Model/Intelidentityaggregate.Tests.ps1
-tests/Model/Intelidentityambiguousbody.Tests.ps1
-tests/Model/Intelidentityambiguouscandidate.Tests.ps1
-tests/Model/Intelidentitynotfoundbody.Tests.ps1
 tests/Model/Inteloutlieraccessitem.Tests.ps1
 tests/Model/Inteloutliersslice.Tests.ps1
 tests/Model/Intelprivilegedaccessitemwire.Tests.ps1

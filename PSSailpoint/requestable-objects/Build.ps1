@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.RequestableObjects - the PowerShell module for Identity Security Cloud API - Requestable Objects'
 
-    ModuleVersion = '2.0.5'
+    ModuleVersion = '2.0.6'
 
     RootModule = 'PSSailpoint.RequestableObjects.psm1'
     Guid = '35E1BA04-6CC6-AE7E-1E64-65934CC601BF' # Has to be static, otherwise each new build will be considered different module

@@ -12,7 +12,7 @@ Get identity by filter
 
 .DESCRIPTION
 
-Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license.  A single match returns HTTP 200 with IntelIdentityAggregate.  Zero matches returns HTTP 404 with detailCode IDC_IDENTITY_NOT_FOUND.  Multiple matches returns HTTP 409 with detailCode IDC_IDENTITY_AMBIGUOUS and candidates listing each match. 
+Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
 
 .PARAMETER Filters
 Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.IdentityHistory - the PowerShell module for Identity Security Cloud API - Identity History'
 
-    ModuleVersion = '2.0.6'
+    ModuleVersion = '2.0.7'
 
     RootModule = 'PSSailpoint.IdentityHistory.psm1'
     Guid = 'CD5D810A-51BC-EF8D-92F1-C9B055D99286' # Has to be static, otherwise each new build will be considered different module

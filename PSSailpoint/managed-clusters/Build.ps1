@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.ManagedClusters - the PowerShell module for Identity Security Cloud API - Managed Clusters'
 
-    ModuleVersion = '2.0.6'
+    ModuleVersion = '2.0.7'
 
     RootModule = 'PSSailpoint.ManagedClusters.psm1'
     Guid = '12F0C1B5-68C2-FB26-4C96-479910C6FBE4' # Has to be static, otherwise each new build will be considered different module

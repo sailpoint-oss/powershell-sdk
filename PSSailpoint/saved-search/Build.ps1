@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.SavedSearch - the PowerShell module for Identity Security Cloud API - Saved Search'
 
-    ModuleVersion = '2.0.6'
+    ModuleVersion = '2.0.7'
 
     RootModule = 'PSSailpoint.SavedSearch.psm1'
     Guid = '7F528E42-999F-0F92-2E82-2BF85B0AA266' # Has to be static, otherwise each new build will be considered different module

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.Triggers - the PowerShell module for Identity Security Cloud API - Triggers'
 
-    ModuleVersion = '2.0.6'
+    ModuleVersion = '2.0.7'
 
     RootModule = 'PSSailpoint.Triggers.psm1'
     Guid = 'B849C941-0EDA-D39E-7177-D4B26F4C9A8D' # Has to be static, otherwise each new build will be considered different module

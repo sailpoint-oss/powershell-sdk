@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.Tags - the PowerShell module for Identity Security Cloud API - Tags'
 
-    ModuleVersion = '2.0.8'
+    ModuleVersion = '2.0.9'
 
     RootModule = 'PSSailpoint.Tags.psm1'
     Guid = 'A67E0175-157C-08AE-C0E3-AEA01577EA9B' # Has to be static, otherwise each new build will be considered different module

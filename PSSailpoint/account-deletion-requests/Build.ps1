@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.AccountDeletionRequests - the PowerShell module for Identity Security Cloud API - Account Deletion Requests'
 
-    ModuleVersion = '2.0.8'
+    ModuleVersion = '2.0.9'
 
     RootModule = 'PSSailpoint.AccountDeletionRequests.psm1'
     Guid = 'B63BD3EE-54FE-7EB2-6336-B4B6770AD999' # Has to be static, otherwise each new build will be considered different module

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.Roles - the PowerShell module for Identity Security Cloud API - Roles'
 
-    ModuleVersion = '2.0.8'
+    ModuleVersion = '2.0.9'
 
     RootModule = 'PSSailpoint.Roles.psm1'
     Guid = '18B431DC-A3A8-E431-8965-14B830299B25' # Has to be static, otherwise each new build will be considered different module

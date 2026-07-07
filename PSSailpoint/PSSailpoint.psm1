@@ -117,7 +117,6 @@ Import-Module -Name (Join-Path $PSScriptRoot 'password-sync-groups' 'src' 'PSSai
 Import-Module -Name (Join-Path $PSScriptRoot 'personal-access-tokens' 'src' 'PSSailpoint.PersonalAccessTokens') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'privilege-criteria' 'src' 'PSSailpoint.PrivilegeCriteria') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'privilege-criteria-configuration' 'src' 'PSSailpoint.PrivilegeCriteriaConfiguration') -Force -Global
-Import-Module -Name (Join-Path $PSScriptRoot 'prompt-insights' 'src' 'PSSailpoint.PromptInsights') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'public-identities' 'src' 'PSSailpoint.PublicIdentities') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'public-identities-config' 'src' 'PSSailpoint.PublicIdentitiesConfig') -Force -Global
 Import-Module -Name (Join-Path $PSScriptRoot 'reports-data-extraction' 'src' 'PSSailpoint.ReportsDataExtraction') -Force -Global

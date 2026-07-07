@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.OauthClients - the PowerShell module for Identity Security Cloud API - OAuth Clients'
 
-    ModuleVersion = '2.0.8'
+    ModuleVersion = '2.0.9'
 
     RootModule = 'PSSailpoint.OauthClients.psm1'
     Guid = 'B715C468-6E68-E355-7F13-12250174F62E' # Has to be static, otherwise each new build will be considered different module

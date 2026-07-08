@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.PasswordPolicies - the PowerShell module for Identity Security Cloud API - Password Policies'
 
-    ModuleVersion = '2.0.9'
+    ModuleVersion = '2.0.10'
 
     RootModule = 'PSSailpoint.PasswordPolicies.psm1'
     Guid = 'AF9AACB3-A795-DB8F-791A-ED51A7E16AB3' # Has to be static, otherwise each new build will be considered different module

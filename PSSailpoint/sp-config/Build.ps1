@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.SpConfig - the PowerShell module for Identity Security Cloud API - SP-Config'
 
-    ModuleVersion = '2.0.9'
+    ModuleVersion = '2.0.10'
 
     RootModule = 'PSSailpoint.SpConfig.psm1'
     Guid = '7B358CBF-13B4-8AEC-2CA5-844329B32C50' # Has to be static, otherwise each new build will be considered different module

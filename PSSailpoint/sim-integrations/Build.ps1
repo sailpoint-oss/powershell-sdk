@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.SimIntegrations - the PowerShell module for Identity Security Cloud API - SIM Integrations'
 
-    ModuleVersion = '2.0.10'
+    ModuleVersion = '2.0.11'
 
     RootModule = 'PSSailpoint.SimIntegrations.psm1'
     Guid = '7D8AC8B7-26D6-9B89-AEE0-9675AD1A0E0C' # Has to be static, otherwise each new build will be considered different module

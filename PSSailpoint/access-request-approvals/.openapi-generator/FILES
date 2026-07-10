@@ -21,6 +21,7 @@ docs/CompletedapprovalRequesterComment.md
 docs/CompletedapprovalReviewerComment.md
 docs/Completedapprovalstate.md
 docs/Dtotype.md
+docs/Entitlementstatesnapshotjitdetail.md
 docs/Errormessagedto.md
 docs/Errorresponsedto.md
 docs/Forwardapprovaldto.md
@@ -61,6 +62,7 @@ src/PSSailpoint.AccessRequestApprovals/Model/CompletedapprovalRequesterComment.p
 src/PSSailpoint.AccessRequestApprovals/Model/CompletedapprovalReviewerComment.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/Completedapprovalstate.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/Dtotype.ps1
+src/PSSailpoint.AccessRequestApprovals/Model/Entitlementstatesnapshotjitdetail.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/Errormessagedto.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/Errorresponsedto.ps1
 src/PSSailpoint.AccessRequestApprovals/Model/Forwardapprovaldto.ps1
@@ -106,6 +108,7 @@ tests/Model/CompletedapprovalRequesterComment.Tests.ps1
 tests/Model/CompletedapprovalReviewerComment.Tests.ps1
 tests/Model/Completedapprovalstate.Tests.ps1
 tests/Model/Dtotype.Tests.ps1
+tests/Model/Entitlementstatesnapshotjitdetail.Tests.ps1
 tests/Model/Errormessagedto.Tests.ps1
 tests/Model/Errorresponsedto.Tests.ps1
 tests/Model/Forwardapprovaldto.Tests.ps1

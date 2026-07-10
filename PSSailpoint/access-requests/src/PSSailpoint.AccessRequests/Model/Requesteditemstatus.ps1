@@ -70,6 +70,8 @@ Arbitrary key-value pairs, if any were included in the corresponding access requ
 The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
 .PARAMETER PrivilegeLevel
 The privilege level of the requested access item, if applicable.
+.PARAMETER JitDetails
+JIT (Just-In-Time) details for the requested access item, if applicable.
 .OUTPUTS
 
 Requesteditemstatus<PSCustomObject>
@@ -164,7 +166,10 @@ function Initialize-Requesteditemstatus {
         ${RequestedAccounts},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${PrivilegeLevel}
+        ${PrivilegeLevel},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${JitDetails}
     )
 
     Process {
@@ -201,6 +206,7 @@ function Initialize-Requesteditemstatus {
             "clientMetadata" = ${ClientMetadata}
             "requestedAccounts" = ${RequestedAccounts}
             "privilegeLevel" = ${PrivilegeLevel}
+            "jitDetails" = ${JitDetails}
         }
 
         return $PSO
@@ -237,7 +243,7 @@ function ConvertFrom-JsonToRequesteditemstatus {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Requesteditemstatus
-        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "approvalIds", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "accessRequestId", "clientMetadata", "requestedAccounts", "privilegeLevel")
+        $AllProperties = ("id", "name", "type", "cancelledRequestDetails", "errorMessages", "state", "approvalDetails", "approvalIds", "manualWorkItemDetails", "accountActivityItemId", "requestType", "modified", "created", "requester", "requestedFor", "requesterComment", "sodViolationContext", "provisioningDetails", "preApprovalTriggerDetails", "accessRequestPhases", "description", "startDate", "removeDate", "cancelable", "accessRequestId", "clientMetadata", "requestedAccounts", "privilegeLevel", "jitDetails")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -412,6 +418,12 @@ function ConvertFrom-JsonToRequesteditemstatus {
             $PrivilegeLevel = $JsonParameters.PSobject.Properties["privilegeLevel"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "jitDetails"))) { #optional property not found
+            $JitDetails = $null
+        } else {
+            $JitDetails = $JsonParameters.PSobject.Properties["jitDetails"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -441,6 +453,7 @@ function ConvertFrom-JsonToRequesteditemstatus {
             "clientMetadata" = ${ClientMetadata}
             "requestedAccounts" = ${RequestedAccounts}
             "privilegeLevel" = ${PrivilegeLevel}
+            "jitDetails" = ${JitDetails}
         }
 
         return $PSO

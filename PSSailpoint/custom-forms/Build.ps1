@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.CustomForms - the PowerShell module for Identity Security Cloud API - Custom Forms'
 
-    ModuleVersion = '2.0.11'
+    ModuleVersion = '2.0.12'
 
     RootModule = 'PSSailpoint.CustomForms.psm1'
     Guid = '9CD189E0-922E-63A3-70EA-6E1665396A37' # Has to be static, otherwise each new build will be considered different module

@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **RequestedAccounts** | [**[]Requestedaccountref**](requestedaccountref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 **PrivilegeLevel** | **String** | The privilege level of the requested access item, if applicable. | [optional] 
 **MaxPermittedAccessDuration** | [**PendingapprovalMaxPermittedAccessDuration**](pendingapproval-max-permitted-access-duration) |  | [optional] 
+**JitDetails** | **[]Entitlementstatesnapshotjitdetail** | JIT (Just-In-Time) details for the requested access item, if applicable. | [optional] 
 
 ## Examples
 
@@ -74,7 +75,8 @@ $Pendingapproval = Initialize-Pendingapproval  -Id id12345 `
  -ClientMetadata {"customKey1":"custom value 1","customKey2":"custom value 2"} `
  -RequestedAccounts null `
  -PrivilegeLevel High `
- -MaxPermittedAccessDuration null
+ -MaxPermittedAccessDuration null `
+ -JitDetails null
 ```
 
 - Convert the resource to JSON

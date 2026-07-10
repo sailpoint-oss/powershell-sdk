@@ -40,6 +40,7 @@ docs/Entitlementapprovalscheme.md
 docs/Entitlementrequestconfig.md
 docs/Entitlementrequestconfigv2.md
 docs/Entitlementrevocationrequestconfig.md
+docs/Entitlementstatesnapshotjitdetail.md
 docs/Errormessagedto.md
 docs/Errorresponsedto.md
 docs/GetAccessRequestConfigV1401Response.md
@@ -120,6 +121,7 @@ src/PSSailpoint.AccessRequests/Model/Entitlementapprovalscheme.ps1
 src/PSSailpoint.AccessRequests/Model/Entitlementrequestconfig.ps1
 src/PSSailpoint.AccessRequests/Model/Entitlementrequestconfigv2.ps1
 src/PSSailpoint.AccessRequests/Model/Entitlementrevocationrequestconfig.ps1
+src/PSSailpoint.AccessRequests/Model/Entitlementstatesnapshotjitdetail.ps1
 src/PSSailpoint.AccessRequests/Model/Errormessagedto.ps1
 src/PSSailpoint.AccessRequests/Model/Errorresponsedto.ps1
 src/PSSailpoint.AccessRequests/Model/GetAccessRequestConfigV1401Response.ps1
@@ -205,6 +207,7 @@ tests/Model/Entitlementapprovalscheme.Tests.ps1
 tests/Model/Entitlementrequestconfig.Tests.ps1
 tests/Model/Entitlementrequestconfigv2.Tests.ps1
 tests/Model/Entitlementrevocationrequestconfig.Tests.ps1
+tests/Model/Entitlementstatesnapshotjitdetail.Tests.ps1
 tests/Model/Errormessagedto.Tests.ps1
 tests/Model/Errorresponsedto.Tests.ps1
 tests/Model/GetAccessRequestConfigV1401Response.Tests.ps1

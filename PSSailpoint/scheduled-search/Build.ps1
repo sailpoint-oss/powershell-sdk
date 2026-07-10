@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.ScheduledSearch - the PowerShell module for Identity Security Cloud API - Scheduled Search'
 
-    ModuleVersion = '2.0.11'
+    ModuleVersion = '2.0.12'
 
     RootModule = 'PSSailpoint.ScheduledSearch.psm1'
     Guid = '1E04A384-6B88-0871-BEB9-2C6EBC2A6302' # Has to be static, otherwise each new build will be considered different module

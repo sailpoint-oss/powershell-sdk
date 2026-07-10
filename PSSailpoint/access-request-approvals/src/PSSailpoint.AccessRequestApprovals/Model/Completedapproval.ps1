@@ -72,6 +72,8 @@ The accounts selected by the user for the access to be provisioned on, in case t
 The privilege level of the requested access item, if applicable.
 .PARAMETER MaxPermittedAccessDuration
 No description available.
+.PARAMETER JitDetails
+JIT (Just-In-Time) details for the requested access item, if applicable.
 .OUTPUTS
 
 Completedapproval<PSCustomObject>
@@ -168,7 +170,10 @@ function Initialize-Completedapproval {
         ${PrivilegeLevel},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
-        ${MaxPermittedAccessDuration}
+        ${MaxPermittedAccessDuration},
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [PSCustomObject[]]
+        ${JitDetails}
     )
 
     Process {
@@ -206,6 +211,7 @@ function Initialize-Completedapproval {
             "requestedAccounts" = ${RequestedAccounts}
             "privilegeLevel" = ${PrivilegeLevel}
             "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
+            "jitDetails" = ${JitDetails}
         }
 
         return $PSO
@@ -242,7 +248,7 @@ function ConvertFrom-JsonToCompletedapproval {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Completedapproval
-        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "startDate", "startUpdateRequested", "currentStartDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata", "requestedAccounts", "privilegeLevel", "maxPermittedAccessDuration")
+        $AllProperties = ("id", "name", "created", "modified", "requestCreated", "requestType", "requester", "requestedFor", "reviewedBy", "owner", "requestedObject", "requesterComment", "reviewerComment", "previousReviewersComments", "forwardHistory", "commentRequiredWhenRejected", "state", "removeDate", "removeDateUpdateRequested", "currentRemoveDate", "startDate", "startUpdateRequested", "currentStartDate", "sodViolationContext", "preApprovalTriggerResult", "clientMetadata", "requestedAccounts", "privilegeLevel", "maxPermittedAccessDuration", "jitDetails")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -423,6 +429,12 @@ function ConvertFrom-JsonToCompletedapproval {
             $MaxPermittedAccessDuration = $JsonParameters.PSobject.Properties["maxPermittedAccessDuration"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "jitDetails"))) { #optional property not found
+            $JitDetails = $null
+        } else {
+            $JitDetails = $JsonParameters.PSobject.Properties["jitDetails"].value
+        }
+
         $PSO = [PSCustomObject]@{
             "id" = ${Id}
             "name" = ${Name}
@@ -453,6 +465,7 @@ function ConvertFrom-JsonToCompletedapproval {
             "requestedAccounts" = ${RequestedAccounts}
             "privilegeLevel" = ${PrivilegeLevel}
             "maxPermittedAccessDuration" = ${MaxPermittedAccessDuration}
+            "jitDetails" = ${JitDetails}
         }
 
         return $PSO

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.PasswordSyncGroups - the PowerShell module for Identity Security Cloud API - Password Sync Groups'
 
-    ModuleVersion = '2.0.11'
+    ModuleVersion = '2.0.12'
 
     RootModule = 'PSSailpoint.PasswordSyncGroups.psm1'
     Guid = '3F37DD40-7FBF-370C-10B7-BD3D9AADB041' # Has to be static, otherwise each new build will be considered different module

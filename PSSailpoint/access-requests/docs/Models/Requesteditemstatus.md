@@ -44,6 +44,7 @@ Name | Type | Description | Notes
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request | [optional] 
 **RequestedAccounts** | [**[]Requestedaccountref**](requestedaccountref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 **PrivilegeLevel** | **String** | The privilege level of the requested access item, if applicable. | [optional] 
+**JitDetails** | **[]Entitlementstatesnapshotjitdetail** | JIT (Just-In-Time) details for the requested access item, if applicable. | [optional] 
 
 ## Examples
 
@@ -76,7 +77,8 @@ $Requesteditemstatus = Initialize-Requesteditemstatus  -Id 2c9180926cbfbddd016cb
  -AccessRequestId 2b838de9-db9b-abcf-e646-d4f274ad4238 `
  -ClientMetadata {"key1":"value1","key2":"value2"} `
  -RequestedAccounts null `
- -PrivilegeLevel High
+ -PrivilegeLevel High `
+ -JitDetails null
 ```
 
 - Convert the resource to JSON

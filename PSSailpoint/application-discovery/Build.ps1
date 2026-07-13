@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.ApplicationDiscovery - the PowerShell module for Identity Security Cloud API - Application Discovery'
 
-    ModuleVersion = '2.0.12'
+    ModuleVersion = '2.0.13'
 
     RootModule = 'PSSailpoint.ApplicationDiscovery.psm1'
     Guid = '8B5CFAF2-FE5A-3611-A2A4-55DF4090822E' # Has to be static, otherwise each new build will be considered different module

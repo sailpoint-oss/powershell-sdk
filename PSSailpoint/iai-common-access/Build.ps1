@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.IaiCommonAccess - the PowerShell module for Identity Security Cloud API - IAI Common Access'
 
-    ModuleVersion = '2.0.12'
+    ModuleVersion = '2.0.13'
 
     RootModule = 'PSSailpoint.IaiCommonAccess.psm1'
     Guid = 'BA3FB5BA-587D-152B-42F9-25BFBDAFC982' # Has to be static, otherwise each new build will be considered different module

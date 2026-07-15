@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.DeclassifySource - the PowerShell module for Identity Security Cloud API - Declassify Source'
 
-    ModuleVersion = '2.0.14'
+    ModuleVersion = '2.0.15'
 
     RootModule = 'PSSailpoint.DeclassifySource.psm1'
     Guid = 'C200F894-36D7-BB68-B33A-06EEE9AFDD14' # Has to be static, otherwise each new build will be considered different module

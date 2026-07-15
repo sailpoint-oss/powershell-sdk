@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.EntitlementConnections - the PowerShell module for Identity Security Cloud API - Entitlement Connections'
 
-    ModuleVersion = '2.0.14'
+    ModuleVersion = '2.0.15'
 
     RootModule = 'PSSailpoint.EntitlementConnections.psm1'
     Guid = 'D9B8EE4C-FA73-7677-3EF4-237274FE94D6' # Has to be static, otherwise each new build will be considered different module

@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.ParameterStorage - the PowerShell module for Identity Security Cloud API - Parameter Storage'
 
-    ModuleVersion = '2.0.14'
+    ModuleVersion = '2.0.15'
 
     RootModule = 'PSSailpoint.ParameterStorage.psm1'
     Guid = '13445686-D138-6E48-FBC7-5A150F111180' # Has to be static, otherwise each new build will be considered different module

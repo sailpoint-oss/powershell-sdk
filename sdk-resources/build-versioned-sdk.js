@@ -50,7 +50,7 @@ const POSTSCRIPT   = path.join(__dirname, "postscript.js");
 const TEMPLATE_DIR = path.join(__dirname, "resources");
 
 const API_VERSION     = "v1";
-const PACKAGE_VERSION = "2.0.14";
+const PACKAGE_VERSION = "2.0.15";
 const COMMON_VERBS    = "Delete=Remove:Cancel=Suspend:Patch=Update:List=Get:Query=Search:Run=Start:Validate=Confirm:Make=Select";
 
 // ---------------------------------------------------------------------------

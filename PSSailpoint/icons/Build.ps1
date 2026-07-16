@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.Icons - the PowerShell module for Identity Security Cloud API - Icons'
 
-    ModuleVersion = '2.0.15'
+    ModuleVersion = '2.0.16'
 
     RootModule = 'PSSailpoint.Icons.psm1'
     Guid = '66BBE8F8-CFF9-6552-56B1-BEF70CEC5CDB' # Has to be static, otherwise each new build will be considered different module

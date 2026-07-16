@@ -21,6 +21,28 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineIdentityV1"
             Write-Host $_.ErrorDetails
         }
+- path: /machine-identities/v2
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#create-machine-identity-v2
+      source: |
+        $Machineidentityv2 = @"
+        
+        "@
+        
+        # Create machine identity
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineidentityv2 -Json $Machineidentityv2
+            New-MachineIdentityV2 -Machineidentityv2 $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-MachineIdentityV2 -Machineidentityv2 $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-MachineIdentityV2"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-identities/v1/{id}
   method: DELETE
   xCodeSample:
@@ -41,6 +63,46 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineIdentityV1"
             Write-Host $_.ErrorDetails
         }
+- path: /machine-identities/v2/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#delete-machine-identity-v2
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
+        
+        # Delete machine identity
+        
+        try {
+            Remove-MachineIdentityV2 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-MachineIdentityV2 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-MachineIdentityV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#delete-ownership-correlation-config-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+        $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
+        $ConfigId = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The correlation config ID.
+        
+        # Delete ownership correlation config
+        
+        try {
+            Remove-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-OwnershipCorrelationConfigV1"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-identities/v1/{id}
   method: GET
   xCodeSample:
@@ -59,6 +121,46 @@
             # Get-MachineIdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-identities/v2/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#get-machine-identity-v2
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
+        
+        # Get machine identity details
+        
+        try {
+            Get-MachineIdentityV2 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineIdentityV2 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentityV2"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#get-ownership-correlation-config-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+        $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
+        $ConfigId = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The correlation config ID.
+        
+        # Get ownership correlation config
+        
+        try {
+            Get-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OwnershipCorrelationConfigV1"
             Write-Host $_.ErrorDetails
         }
 - path: /machine-identities/v1
@@ -85,6 +187,29 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentitiesV1"
             Write-Host $_.ErrorDetails
         }
+- path: /machine-identities/v2
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#list-machine-identities-v2
+      source: |
+        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryGovernanceGroup.id**: *eq, in*  **owners.secondaryGovernanceGroup.name**: *eq, in, isnull, pr*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*  **risk.severity**: *eq, in* (optional)
+        $Sorters = "nativeIdentity" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **nativeIdentity, name, owners.primaryIdentity.name, source.name, created, modified** (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List machine identities
+        
+        try {
+            Get-MachineIdentitiesV2 
+    
+            # Below is a request that includes all optional parameters
+            # Get-MachineIdentitiesV2 -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentitiesV2"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-identity-user-entitlements/v1
   method: GET
   xCodeSample:
@@ -107,6 +232,54 @@
             # Get-MachineIdentityUserEntitlementsV1 -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-MachineIdentityUserEntitlementsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/resources/{resourceId}/correlation-configs
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#list-ownership-correlation-configs-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+        $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
+        $Type = "OWNER_PRIMARY" # String | When set, filters to the given config type. (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List ownership correlation configs
+        
+        try {
+            Get-OwnershipCorrelationConfigsV1 -SourceId $SourceId -ResourceId $ResourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-OwnershipCorrelationConfigsV1 -SourceId $SourceId -ResourceId $ResourceId -Type $Type -Count $Count -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-OwnershipCorrelationConfigsV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#patch-ownership-correlation-config-v1
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
+        $ResourceId = "aws:iam-role" # String | The source resource ID (for example, account or aws:iam-role).
+        $ConfigId = "f5dd23fe-3414-42b7-bb1c-869400ad7a10" # String | The correlation config ID.
+        $Jsonpatchoperation = @"[{"op":"replace","path":"/attributes","value":{"syncPrimaryToMachineAccounts":true}}]"@ 
+        
+        
+        # Patch ownership correlation config
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-OwnershipCorrelationConfigV1 -SourceId $SourceId -ResourceId $ResourceId -ConfigId $ConfigId -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-OwnershipCorrelationConfigV1"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/v1/{sourceId}/aggregate-agents
@@ -155,5 +328,27 @@
             # Update-MachineIdentityV1 -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineIdentityV1"
+            Write-Host $_.ErrorDetails
+        }
+- path: /machine-identities/v2/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/machineidentities/methods/machine-identities#update-machine-identity-v2
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
+        $Jsonpatchoperation = @"[{"op":"add","path":"/attributes/securityRisk","value":"medium"}]"@ 
+        
+        
+        # Partial update of machine identity
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonpatchoperation -Json $Jsonpatchoperation
+            Update-MachineIdentityV2 -Id $Id -Jsonpatchoperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-MachineIdentityV2 -Id $Id -Jsonpatchoperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-MachineIdentityV2"
             Write-Host $_.ErrorDetails
         }

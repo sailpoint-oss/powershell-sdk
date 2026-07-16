@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.JitAccess - the PowerShell module for Identity Security Cloud API - JIT Access'
 
-    ModuleVersion = '2.0.15'
+    ModuleVersion = '2.0.16'
 
     RootModule = 'PSSailpoint.JitAccess.psm1'
     Guid = '4506D340-AE7D-3705-5C10-A3617F126F31' # Has to be static, otherwise each new build will be considered different module

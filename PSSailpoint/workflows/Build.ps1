@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.Workflows - the PowerShell module for Identity Security Cloud API - Workflows'
 
-    ModuleVersion = '2.0.15'
+    ModuleVersion = '2.0.16'
 
     RootModule = 'PSSailpoint.Workflows.psm1'
     Guid = 'F5864104-9CB6-CD83-9500-777208143094' # Has to be static, otherwise each new build will be considered different module

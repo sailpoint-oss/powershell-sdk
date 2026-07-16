@@ -14,9 +14,33 @@ Describe -tag 'PSSailpoint.MachineIdentities' -name 'MachineIdentitiesApi' {
         }
     }
 
+    Context 'New-MachineIdentityV2' {
+        It 'Test New-MachineIdentityV2' {
+            #$TestResult = New-MachineIdentityV2 -Machineidentityv2 "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Remove-MachineIdentityV1' {
         It 'Test Remove-MachineIdentityV1' {
             #$TestResult = Remove-MachineIdentityV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-MachineIdentityV2' {
+        It 'Test Remove-MachineIdentityV2' {
+            #$TestResult = Remove-MachineIdentityV2 -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Remove-OwnershipCorrelationConfigV1' {
+        It 'Test Remove-OwnershipCorrelationConfigV1' {
+            #$TestResult = Remove-OwnershipCorrelationConfigV1 -SourceId "TEST_VALUE" -ResourceId "TEST_VALUE" -ConfigId "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -30,6 +54,22 @@ Describe -tag 'PSSailpoint.MachineIdentities' -name 'MachineIdentitiesApi' {
         }
     }
 
+    Context 'Get-MachineIdentityV2' {
+        It 'Test Get-MachineIdentityV2' {
+            #$TestResult = Get-MachineIdentityV2 -Id "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-OwnershipCorrelationConfigV1' {
+        It 'Test Get-OwnershipCorrelationConfigV1' {
+            #$TestResult = Get-OwnershipCorrelationConfigV1 -SourceId "TEST_VALUE" -ResourceId "TEST_VALUE" -ConfigId "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-MachineIdentitiesV1' {
         It 'Test Get-MachineIdentitiesV1' {
             #$TestResult = Get-MachineIdentitiesV1 -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
@@ -38,9 +78,33 @@ Describe -tag 'PSSailpoint.MachineIdentities' -name 'MachineIdentitiesApi' {
         }
     }
 
+    Context 'Get-MachineIdentitiesV2' {
+        It 'Test Get-MachineIdentitiesV2' {
+            #$TestResult = Get-MachineIdentitiesV2 -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
     Context 'Get-MachineIdentityUserEntitlementsV1' {
         It 'Test Get-MachineIdentityUserEntitlementsV1' {
             #$TestResult = Get-MachineIdentityUserEntitlementsV1 -XSailPointExperimental "TEST_VALUE" -Filters "TEST_VALUE" -Sorters "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Get-OwnershipCorrelationConfigsV1' {
+        It 'Test Get-OwnershipCorrelationConfigsV1' {
+            #$TestResult = Get-OwnershipCorrelationConfigsV1 -SourceId "TEST_VALUE" -ResourceId "TEST_VALUE" -Type "TEST_VALUE" -Count "TEST_VALUE" -Limit "TEST_VALUE" -Offset "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-OwnershipCorrelationConfigV1' {
+        It 'Test Update-OwnershipCorrelationConfigV1' {
+            #$TestResult = Update-OwnershipCorrelationConfigV1 -SourceId "TEST_VALUE" -ResourceId "TEST_VALUE" -ConfigId "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }
@@ -57,6 +121,14 @@ Describe -tag 'PSSailpoint.MachineIdentities' -name 'MachineIdentitiesApi' {
     Context 'Update-MachineIdentityV1' {
         It 'Test Update-MachineIdentityV1' {
             #$TestResult = Update-MachineIdentityV1 -Id "TEST_VALUE" -XSailPointExperimental "TEST_VALUE" -RequestBody "TEST_VALUE"
+            #$TestResult | Should -BeOfType TODO
+            #$TestResult.property | Should -Be 0
+        }
+    }
+
+    Context 'Update-MachineIdentityV2' {
+        It 'Test Update-MachineIdentityV2' {
+            #$TestResult = Update-MachineIdentityV2 -Id "TEST_VALUE" -Jsonpatchoperation "TEST_VALUE"
             #$TestResult | Should -BeOfType TODO
             #$TestResult.property | Should -Be 0
         }

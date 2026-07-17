@@ -9,7 +9,7 @@ Describe -tag 'PSSailpoint.OrgConfig' -name 'Orgconfig' {
     Context 'Orgconfig' {
         It 'Initialize-Orgconfig' {
             # a simple test to create an object
-            #$NewObject = Initialize-Orgconfig -OrgName "TEST_VALUE" -TimeZone "TEST_VALUE" -LcsChangeHonorsSourceEnableFeature "TEST_VALUE" -ArmCustomerId "TEST_VALUE" -ArmSapSystemIdMappings "TEST_VALUE" -ArmAuth "TEST_VALUE" -ArmDb "TEST_VALUE" -ArmSsoUrl "TEST_VALUE" -IaiEnableCertificationRecommendations "TEST_VALUE" -SodReportConfigs "TEST_VALUE"
+            #$NewObject = Initialize-Orgconfig -OrgName "TEST_VALUE" -TimeZone "TEST_VALUE" -LcsChangeHonorsSourceEnableFeature "TEST_VALUE" -ArmCustomerId "TEST_VALUE" -ArmSapSystemIdMappings "TEST_VALUE" -ArmAuth "TEST_VALUE" -ArmDb "TEST_VALUE" -ArmSsoUrl "TEST_VALUE" -IaiEnableCertificationRecommendations "TEST_VALUE" -AiAgentDeleteRequestEnabled "TEST_VALUE" -SodReportConfigs "TEST_VALUE"
             #$NewObject | Should -BeOfType Orgconfig
             #$NewObject.property | Should -Be 0
         }

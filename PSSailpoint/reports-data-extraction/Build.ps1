@@ -55,7 +55,7 @@ $Manifest = @{
     CompanyName = 'SailPoint Technologies'
     Description = 'PSSailpoint.ReportsDataExtraction - the PowerShell module for Identity Security Cloud API - Reports Data Extraction'
 
-    ModuleVersion = '2.0.16'
+    ModuleVersion = '2.0.17'
 
     RootModule = 'PSSailpoint.ReportsDataExtraction.psm1'
     Guid = 'CC405754-CDB5-F010-73C5-884152BD17C9' # Has to be static, otherwise each new build will be considered different module

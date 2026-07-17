@@ -32,6 +32,8 @@ ARM database name
 ARM SSO URL
 .PARAMETER IaiEnableCertificationRecommendations
 Flag to determine whether IAI Certification Recommendations are enabled for the current org
+.PARAMETER AiAgentDeleteRequestEnabled
+Org opt-in flag that enables AI Agent delete-at-source lifecycle requests for the current org.
 .PARAMETER SodReportConfigs
 No description available.
 .OUTPUTS
@@ -50,7 +52,7 @@ function Initialize-Orgconfig {
         ${TimeZone},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${LcsChangeHonorsSourceEnableFeature},
+        ${LcsChangeHonorsSourceEnableFeature} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [String]
         ${ArmCustomerId},
@@ -68,7 +70,10 @@ function Initialize-Orgconfig {
         ${ArmSsoUrl},
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Boolean]]
-        ${IaiEnableCertificationRecommendations},
+        ${IaiEnableCertificationRecommendations} = $true,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Boolean]]
+        ${AiAgentDeleteRequestEnabled} = $false,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject[]]
         ${SodReportConfigs}
@@ -89,6 +94,7 @@ function Initialize-Orgconfig {
             "armDb" = ${ArmDb}
             "armSsoUrl" = ${ArmSsoUrl}
             "iaiEnableCertificationRecommendations" = ${IaiEnableCertificationRecommendations}
+            "aiAgentDeleteRequestEnabled" = ${AiAgentDeleteRequestEnabled}
             "sodReportConfigs" = ${SodReportConfigs}
         }
 
@@ -126,7 +132,7 @@ function ConvertFrom-JsonToOrgconfig {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Orgconfig
-        $AllProperties = ("orgName", "timeZone", "lcsChangeHonorsSourceEnableFeature", "armCustomerId", "armSapSystemIdMappings", "armAuth", "armDb", "armSsoUrl", "iaiEnableCertificationRecommendations", "sodReportConfigs")
+        $AllProperties = ("orgName", "timeZone", "lcsChangeHonorsSourceEnableFeature", "armCustomerId", "armSapSystemIdMappings", "armAuth", "armDb", "armSsoUrl", "iaiEnableCertificationRecommendations", "aiAgentDeleteRequestEnabled", "sodReportConfigs")
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
@@ -187,6 +193,12 @@ function ConvertFrom-JsonToOrgconfig {
             $IaiEnableCertificationRecommendations = $JsonParameters.PSobject.Properties["iaiEnableCertificationRecommendations"].value
         }
 
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match "aiAgentDeleteRequestEnabled"))) { #optional property not found
+            $AiAgentDeleteRequestEnabled = $null
+        } else {
+            $AiAgentDeleteRequestEnabled = $JsonParameters.PSobject.Properties["aiAgentDeleteRequestEnabled"].value
+        }
+
         if (!([bool]($JsonParameters.PSobject.Properties.name -match "sodReportConfigs"))) { #optional property not found
             $SodReportConfigs = $null
         } else {
@@ -203,6 +215,7 @@ function ConvertFrom-JsonToOrgconfig {
             "armDb" = ${ArmDb}
             "armSsoUrl" = ${ArmSsoUrl}
             "iaiEnableCertificationRecommendations" = ${IaiEnableCertificationRecommendations}
+            "aiAgentDeleteRequestEnabled" = ${AiAgentDeleteRequestEnabled}
             "sodReportConfigs" = ${SodReportConfigs}
         }
 
